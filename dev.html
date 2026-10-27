@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b1418">
+<title>TEST · Dev tools · LOREBOUND</title>
+<!-- Test site only. publish-test.yml copies this page onto https://lorebound-dev.github.io/; it never goes in pocket-fortune/dist. -->
+<style>
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;min-height:100vh;background:#0b1418;color:#efe3c2;font:16px/1.5 Georgia,serif}
+main{max-width:420px;margin:0 auto;padding:max(24px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom))}
+h1{margin:0 0 12px;font-size:22px;color:#f5dc96}
+h2{margin:0 0 8px;font-size:17px;font-weight:normal;color:#f5dc96}
+a{color:#f5dc96}
+p{margin:0 0 12px}
+button{font:inherit;min-height:44px;padding:10px 14px;border:1px solid #a38c59;border-radius:2px;background:#1c2a2f;color:#f5dc96;cursor:pointer;touch-action:manipulation}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible{outline:2px solid #f5dc96;outline-offset:2px}
+.note{padding:10px 12px;border:1px solid #a38c59;background:#10202a}
+.notice{margin:0 0 16px;padding:10px 12px;border:1px solid #c98b6b;background:#22171a}
+.notice button{margin:4px 8px 0 0}
+.stats{margin:0 0 20px;border-top:1px solid #a38c5966}
+.stats div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:6px 0;border-bottom:1px solid #a38c5966}
+.stats dt{color:#cdbf9b}
+.stats dd{margin:0;min-width:0;text-align:right;font-size:18px;color:#f5dc96;overflow-wrap:anywhere}
+.stats small{display:block;font-size:12px;color:#cdbf9b}
+.group{margin:0 0 20px}
+.hint{margin:-2px 0 8px;font-size:14px;color:#cdbf9b}
+.buttons{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
+.buttons button{padding:8px 4px}
+.buttons.wide{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.buttons.wide button:last-child:nth-child(odd){grid-column:1/-1}
+.result{margin:8px 0 0;font-size:14px}
+.result:empty{display:none}
+.savebar{position:sticky;bottom:0;display:flex;align-items:center;gap:12px;margin:0 -16px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid #a38c59;background:#0b1418f2}
+.savebar p{flex:1;margin:0;font-size:14px}
+.savebar.changed p{color:#f5dc96}
+.primary{white-space:nowrap;border-color:#f5dc96;background:#f5dc96;color:#0b1418}
+.leave{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+</style>
+</head>
+<body>
+<main>
+<h1>Dev tools for the test site</h1>
+<p class="note">This changes only the save on the test site. Your real game at <a href="https://lorebound-game.github.io/">lorebound-game.github.io</a> isn’t touched. Close any other tabs with the test game first. Changes wait here until you tap <b>Save and play</b>.</p>
+<p id="loading">Loading your test save…</p>
+<div id="notice" class="notice" role="alert" hidden><p id="noticeText"></p><button id="retry" type="button" hidden>Try again</button><button id="backups" type="button" hidden>Open Save backups</button></div>
+<div id="tools" hidden>
+<dl class="stats">
+<div><dt>Floor</dt><dd><span id="floor"></span><small id="floorWas"></small></dd></div>
+<div><dt>Gold</dt><dd><span id="gold"></span><small id="goldWas"></small></dd></div>
+<div><dt>Lore Shards</dt><dd><span id="shards"></span><small id="shardsWas"></small></dd></div>
+<div><dt>Essence</dt><dd><span id="essence"></span><small id="essenceWas"></small></dd></div>
+<div><dt>Tome</dt><dd><span id="tome"></span><small id="tomeWas"></small></dd></div>
+</dl>
+<section class="group" aria-labelledby="goldTitle"><h2 id="goldTitle">Gold</h2>
+<div class="buttons"><button type="button" data-do="gold" data-n="1000" aria-label="Add 1,000 Gold">+1,000</button><button type="button" data-do="gold" data-n="100000" aria-label="Add 100,000 Gold">+100,000</button><button type="button" data-do="gold" data-n="10000000" aria-label="Add 10,000,000 Gold">+10,000,000</button></div>
+<p class="result" role="status"></p></section>
+<section class="group" aria-labelledby="shardsTitle"><h2 id="shardsTitle">Lore Shards</h2>
+<div class="buttons"><button type="button" data-do="shards" data-n="10" aria-label="Add 10 Lore Shards">+10</button><button type="button" data-do="shards" data-n="100" aria-label="Add 100 Lore Shards">+100</button><button type="button" data-do="shards" data-n="1000" aria-label="Add 1,000 Lore Shards">+1,000</button></div>
+<p class="result" role="status"></p></section>
+<section class="group" aria-labelledby="essenceTitle"><h2 id="essenceTitle">Essence</h2>
+<div class="buttons"><button type="button" data-do="essence" data-n="100" aria-label="Add 100 Essence">+100</button><button type="button" data-do="essence" data-n="10000" aria-label="Add 10,000 Essence">+10,000</button></div>
+<p class="result" role="status"></p></section>
+<section class="group" aria-labelledby="floorsTitle"><h2 id="floorsTitle">Floors</h2>
+<p class="hint">The game wins each fight by its own rules, so you get each floor’s usual Gold, Lore Shards and XP.</p>
+<div class="buttons wide"><button type="button" data-do="floors" data-n="1">Clear 1 floor</button><button type="button" data-do="floors" data-n="10">Clear 10 floors</button><button type="button" data-do="through" data-n="30">Clear through Floor 30</button><button type="button" data-do="through" data-n="60">Clear through Floor 60</button><button type="button" data-do="all">Clear all 100 floors</button></div>
+<p class="result" role="status"></p></section>
+<section class="group" aria-labelledby="tomesTitle"><h2 id="tomesTitle">Tomes</h2>
+<p class="hint">Free. The game still asks for enough species discovered before each Tome.</p>
+<div class="buttons wide"><button type="button" data-do="tomes">Unlock every Tome</button></div>
+<p class="result" role="status"></p></section>
+</div>
+<div id="savebar" class="savebar" hidden><p id="pending" role="status">No changes yet.</p><button id="save" class="primary" type="button">Save and play</button></div>
+<div class="leave"><button id="back" type="button">Back to the game</button><button id="startOver" type="button">Start over</button></div>
+</main>
+<script src="dev.js?v=devtools1"></script>
+</body>
+</html>
