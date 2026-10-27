@@ -36,7 +36,7 @@ function spawn(s,rng){const t=record(s);if(t.status==='complete'){t.enemyFloor=n
 function completion(){return {title:'realm1-conqueror',trophy:'realm1-conquered',rewardReceipt:100};}
 function convert(input,sourceHash='0'.repeat(64)){
  demand(root.LoreOwnership.validate(input),'Invalid ownership save; reconciliation required');
- if(active(input)){demand([SCHEMA,'lorebound-ownership-6','lorebound-ownership-7','lorebound-ownership-8','lorebound-ownership-9'].includes(input.schema)&&valid(input.progress),'Invalid story ledger');return root.LoreOwnership.hydrate(JSON.parse(JSON.stringify(input)));}
+ if(active(input)){demand([SCHEMA,'lorebound-ownership-6','lorebound-ownership-7','lorebound-ownership-8','lorebound-ownership-9','lorebound-ownership-10'].includes(input.schema)&&valid(input.progress),'Invalid story ledger');return root.LoreOwnership.hydrate(JSON.parse(JSON.stringify(input)));}
  const s=root.LoreOwnership.hydrate(JSON.parse(JSON.stringify(input))),p=s.progress;
  demand(/^[a-f0-9]{64}$/.test(sourceHash),'Verified source fingerprint required');
  const n=p.realmComplete?100:p.floor-1,expected=Array.from({length:n},(_,i)=>i+1);
