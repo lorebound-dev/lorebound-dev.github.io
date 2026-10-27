@@ -40,5 +40,5 @@
  .adventure-refined #game .summon-book,.adventure-refined #game.dock-is-collapsed .summon-book{width:66px;height:66px;left:calc(50% - 53px);top:-4px}
 }
 
-.adventure-refined #game .individual-hit{top:calc(100% - clamp(100px,15dvh,140px) - 75px)!important;font-size:14px}
-@media(max-height:700px){.adventure-refined #game .individual-hit{top:calc(100% - 171px)!important;font-size:13px}}
+.adventure-refined #game .individual-hit{font-size:14px}
+@media(max-height:700px){.adventure-refined #game .individual-hit{font-size:13px}}

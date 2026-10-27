@@ -24,7 +24,6 @@
 .adventure-refined #game.boss-room #timer.urgent{color:#ffac94;border-color:#e78364}
 .adventure-refined #game.boss-room #partyStage{top:calc(var(--boss-court) + 35px);height:80px;margin:0 8px;left:0;right:0}
 .adventure-refined #game.boss-room #boundSprite,.adventure-refined #game.boss-room .battle-follower{width:clamp(58px,18vw,78px);height:clamp(58px,18vw,78px)}
-.adventure-refined #game.boss-room .individual-hit{top:calc(100% - 270px)!important}
 #bossRoomNote{position:absolute;bottom:calc(var(--adventure-safe-bottom,0px) + 24px);left:24px;right:24px;text-align:center;color:#e0d1ae;font:12px/1.6 Georgia,serif;text-shadow:0 2px 4px #000;pointer-events:none}
 #modal.boss-outcome{border-color:#b59a63;background:linear-gradient(#081a24ec,#06141bf5),url('assets/battle-ruins-v3.png') center/cover;text-align:center}
 #modal.boss-outcome #modalTitle{color:#ead3a3}
@@ -53,10 +52,7 @@
 .adventure-refined #game.boss-room .enemy-info .health{border:1px solid #dab77a;box-shadow:0 0 0 2px #04121a,0 3px 9px #0008;background:#21131b}
 .adventure-refined #game.boss-room #healthFill{background:linear-gradient(#d67856,#9d342a 48%,#6b2427);box-shadow:inset 0 1px #f4b97788}
 .adventure-refined #game.boss-room #timer{z-index:8;border:1px solid #a48a58;border-radius:3px;background:linear-gradient(#122a32ef,#07161ff5);box-shadow:0 3px 10px #0008;font-variant-numeric:tabular-nums}
-.adventure-refined #game.boss-room .individual-hit{top:calc(100% - 105px)!important;z-index:4}
+.adventure-refined #game.boss-room .individual-hit{z-index:4}
 .adventure-refined #game.boss-room #tapDamagePop,.adventure-refined #game.boss-room #tapRing{z-index:4}
 /* The boss size must not inherit the ordinary collapsed-dock enemy rule. */
-/* Guardians are drawn 40% larger (was clamp(180px,29dvh,272px)). A taller courtyard and a fit limit keep the art below the name, health bar and timer. */
-.adventure-refined #game.boss-room{--boss-court:clamp(340px,72dvh,640px)}
-@media(max-height:700px){.adventure-refined #game.boss-room{--boss-court:68dvh}}
-.adventure-refined #game.boss-room #enemySprite{--enemy-size:min(clamp(252px,40.6dvh,381px),94vw,calc(var(--boss-court) - 216px - var(--adventure-safe-top,0px)))}
+.adventure-refined #game.boss-room #enemySprite{--enemy-size:clamp(180px,29dvh,272px)}
