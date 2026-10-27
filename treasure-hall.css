@@ -31,7 +31,7 @@
 #treasureHall .treasure-room-display p{background:#071722d9;text-align:center;font-size:12px!important;padding:6px!important;border-block:1px solid #c4a96566;position:relative;z-index:2}
 .treasure-room-effect,.treasure-room-flame,.treasure-earned-burst{position:absolute;pointer-events:none;aspect-ratio:1;background-repeat:no-repeat}
 .treasure-room-effect{height:148px;top:0;left:calc(50% - 74px);opacity:.24;z-index:1}.treasure-room-flame{height:64px;top:70px;left:calc(50% - 32px);opacity:.5}
-.treasure-earned-burst{width:min(340px,90vw);left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;filter:drop-shadow(0 0 8px #2b99b0)}
+#treasureHall>.treasure-earned-burst{position:absolute;width:min(340px,90vw);left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;filter:drop-shadow(0 0 8px #2b99b0)}
 #treasureHall .treasure-intro,#treasureHall .treasure-stats,#treasureHall .treasure-note,.treasure-category-banner,.treasure-filter,.treasure-destination,.treasure-category,#treasureHall details,.treasure-recent,.treasure-count{background:#081b28e3;border-radius:5px;padding:10px!important;box-sizing:border-box}
 #treasureHall .treasure-intro{margin-bottom:10px}#treasureHall .treasure-stats{margin-bottom:14px}
 #treasureHall .treasure-award{background:#0a2030ed}#treasureHall .treasure-entry{background:linear-gradient(#0b2432eb,#081823f2);border-color:#9e864977}
