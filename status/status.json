@@ -1,10 +1,10 @@
 {
- "generatedAt": "2026-10-27T23:00:13.959Z",
+ "generatedAt": "2026-10-27T23:00:38.206Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
-  "updatedAt": "2026-10-27T18:55:29Z",
+  "updatedAt": "2026-10-27T22:59:59Z",
   "latest": [
-   "Small fixes: art flash, plurals, second tab, Town, small text"
+   "Show damage numbers over the enemy"
   ]
  },
  "test": {
@@ -20,16 +20,16 @@
    "by": "Noah",
    "title": "Show damage numbers over the enemy",
    "quote": "",
-   "stage": "going-live",
+   "stage": "live",
    "questions": false,
    "openedAt": "2026-10-27T21:14:02Z",
    "mergedAt": "2026-10-27T22:59:57Z",
    "closedAt": "2026-10-27T22:59:57Z",
-   "liveAt": null,
+   "liveAt": "2026-10-27T22:59:59Z",
    "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
-   "updatedAt": "2026-10-27T22:59:57Z",
+   "updatedAt": "2026-10-27T22:59:59Z",
    "headSha": "cf5bae107b1f36dc6a45389f77c2f86a5c6386c2",
    "touchesGame": true,
    "requestStatus": "",
@@ -347,6 +347,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-27T22:59:59Z",
+   "kind": "live",
+   "text": "“Show damage numbers over the enemy” is live in the game"
+  },
+  {
    "at": "2026-10-27T22:59:57Z",
    "kind": "approved",
    "text": "Noah approved “Show damage numbers over the enemy”"
@@ -540,11 +545,6 @@
    "at": "2026-10-27T13:54:32Z",
    "kind": "live",
    "text": "“Polish the profile, Journal, Omnidex and party tray” is live in the game"
-  },
-  {
-   "at": "2026-10-27T13:54:29Z",
-   "kind": "approved",
-   "text": "Noah approved “Polish the profile, Journal, Omnidex and party tray”"
   }
  ],
  "otherPulls": [
