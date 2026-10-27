@@ -1,0 +1,5 @@
+/* No transforms or continuous animation: deterministic, low-memory static fallback. */
+.sprite-stage{position:relative;display:block;min-width:0;isolation:isolate;overflow:hidden}
+.sprite-stage .sprite-pixels{position:absolute;display:block;max-width:none;image-rendering:pixelated;pointer-events:none}
+.sprite-stage image{image-rendering:pixelated}
+.sprite-stage[data-asset-state="missing"]{font:12px/1.4 system-ui;color:#f3dca7;background:#17222b;padding:8px}

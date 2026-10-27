@@ -1,0 +1,132 @@
+/* Rich layered art rebuild; the original dock sheet supplies interaction geometry.
+   Only adventure-art-review.html loads this override. */
+.art-rebuild-preview #game {--dock-panel-height:clamp(122px,40vw,172px);--dock-rail-height:88px;position:relative;background:#06151b;isolation:isolate}
+.art-rebuild-preview #game:before {background:linear-gradient(#03111c52,transparent 19%,transparent 65%,#03121b30),url('assets/battle-ruins-v3.png') center top/cover;filter:none;opacity:1}
+.art-rebuild-preview #game:after {content:'';position:absolute;inset:0;z-index:20;pointer-events:none;border:1px solid #b7965355;box-shadow:inset 0 0 14px #010c13aa;background:linear-gradient(90deg,#a8843c99,transparent 3px,transparent calc(100% - 3px),#a8843c99)}
+.art-rebuild-preview #game .hud {margin:0 6px;padding:1px 6px 4px;grid-template-columns:53px repeat(3,minmax(0,1fr));border:0;border-bottom:1px solid #bd9b57;background:#03131aeb url('assets/adventure-rebuild/dock-material.webp') center 25%/100% auto;box-shadow:0 2px 6px #020a14aa;position:relative;z-index:3}
+.art-rebuild-preview #game .hud:after {content:'';position:absolute;inset:auto 0 -4px;height:6px;background:linear-gradient(90deg,transparent,#d6af63aa,transparent);pointer-events:none;opacity:.4}
+.art-rebuild-preview #game .hud .ui-stat {border:0;border-right:1px solid #c6ac6944;padding-inline:5px;background:none;border-image:none;box-shadow:none}
+.art-rebuild-preview #game .hud .ui-stat:before,.art-rebuild-preview #game .hud .ui-stat:after {display:none}
+.art-rebuild-preview #game .hud .ui-stat b {font-size:16px!important;color:#f6e2b4}
+.art-rebuild-preview #game .hud .ui-stat small {font-size:var(--ui-label)!important;letter-spacing:.15px;color:#e2d8b7;text-shadow:0 1px 2px #000}
+.art-rebuild-preview #game .hud #profileButton {border:2px solid #c6a063;box-shadow:0 0 0 1px #06121b,inset 0 0 0 1px #f3cf8555;background:radial-gradient(#1c4141,#051c24)}
+.art-rebuild-preview #game .location {margin-inline:13px}
+.art-rebuild-preview #game .location .kicker {font-weight:bold!important;text-shadow:0 2px 3px #000}
+.art-rebuild-preview #game .location h1 {font-weight:bold!important}
+.art-rebuild-preview #game .enemy-info {width:calc(100% - 102px)}
+.art-rebuild-preview #game .enemy-info .health {border-color:#bfa471;box-shadow:0 0 0 1px #071321,0 0 0 2px #b3905044;border-radius:2px;overflow:hidden}
+.art-rebuild-preview #game .enemy-info .health:after {content:'';position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 2px 2px #ffcc8a44,inset 0 -2px 2px #08030966}
+.art-rebuild-preview #game #combatLayout {--actor-rise:0px;grid-template-rows:39px 44px minmax(0,1fr) 62px 53px;padding-bottom:9px}
+.art-rebuild-preview #game .enemy-sprite {bottom:var(--actor-rise);--enemy-size:min(clamp(100px,16dvh,150px),100cqh)}
+.art-rebuild-preview #game #partyStage {transform:translateY(calc(0px - var(--actor-rise)));margin-inline:4px}
+.art-rebuild-preview #game #boundSprite {width:76px;height:76px}
+.art-rebuild-preview #game .battle-follower {width:67px;height:67px}
+.art-rebuild-preview #game .battle-panel {margin-inline:12px;grid-template-columns:minmax(0,1fr) 140px}
+.art-rebuild-preview #game #bossButton {border:1px solid #b09555;border-radius:2px;background:#071922e8 url('assets/adventure-rebuild/dock-material.webp') center/cover;box-shadow:inset 0 0 0 2px #0c1d22,0 2px 4px #0007;color:#e9cf8b}
+.art-rebuild-preview #game #bossButton.ready {background:linear-gradient(#7d6028dd,#352d1ded),url('assets/adventure-rebuild/dock-material.webp') center/cover;border-color:#ecd493;color:#fff0c5;box-shadow:inset 0 0 0 2px #3b3018,0 0 12px #d4af543d}
+.art-rebuild-preview #game .dock-scene-shortcuts {inset:40px 8px auto}
+.art-rebuild-preview #game .dock-scene-shortcuts .ui-shortcut {border-color:#b39a61;background:#04121ad9;box-shadow:inset 0 0 0 2px #182a2e,0 2px 4px #0007}
+/* This single painted foundation stretches through every lower layer and the home inset. */
+.art-rebuild-preview #artFoundation {grid-column:1;grid-row:3/6;align-self:stretch;position:relative;z-index:4;pointer-events:none;background:#07141e url('assets/adventure-rebuild/dock-material.webp') center/100% 100%;margin:0;border-radius:16px 16px 0 0;box-shadow:0 -5px 12px #04101955}
+.art-rebuild-preview #game .adventure-deck {margin:0 4px;isolation:isolate;overflow:hidden;background:none;border:0;border-top:1px solid #c2a265;border-radius:15px 15px 0 0;box-shadow:inset 0 1px #f6dc8b22;height:calc(45px + var(--dock-panel-height))}
+.art-rebuild-preview #game .adventure-deck[data-panel=upgrades] {--dock-panel-height:156px}
+.art-rebuild-preview #game .adventure-deck[data-panel=tomes] {--dock-panel-height:min(224px,25dvh)}
+.art-rebuild-preview .art-corners {position:absolute;inset:0;pointer-events:none;z-index:8}
+.art-rebuild-preview .art-corners:before,.art-rebuild-preview .art-corners:after {content:'';position:absolute;top:0;width:34px;height:28px;background:url('assets/adventure-rebuild/shell-corner.svg') left top/100% 100% no-repeat;pointer-events:none;opacity:.8}
+.art-rebuild-preview .art-corners:before {left:0}
+.art-rebuild-preview .art-corners:after {right:0;transform:scaleX(-1)}
+.art-rebuild-preview #game .art-crest {position:absolute;z-index:9;pointer-events:none;top:-7px;left:calc(50% - 43px);width:86px;height:21px;background:url('assets/adventure-rebuild/shell-crest.svg') center/contain no-repeat}
+.art-rebuild-preview #game .dock-heading {padding:0 5px 0 10px;background:linear-gradient(#03121c88,#07172233);border-bottom:1px solid #be9d5855}
+.art-rebuild-preview #game .dock-tabs button {font-size:14px!important;position:relative}
+.art-rebuild-preview #game .dock-tabs button+button:before {content:'';position:absolute;left:-2px;top:17px;height:11px;width:1px;background:#b99a5140}
+.art-rebuild-preview #game .dock-tabs button[aria-selected=true] {color:#ffe5a8;text-shadow:0 0 10px #e2b45a77;font-weight:bold!important;background:radial-gradient(ellipse at 50% 105%,#ac833524,transparent 70%)}
+.art-rebuild-preview #game .dock-tabs button[aria-selected=true]:after {left:10%;right:10%;height:2px;box-shadow:0 -2px 7px #cba75244}
+.art-rebuild-preview #game .dock-page {padding:9px 8px 12px}
+.art-rebuild-preview #game .dock-companions {gap:6px}
+.art-rebuild-preview #game .is-empty {border:1px solid #817346;color:#b7a675;background:#091923;box-shadow:inset 0 0 12px #0006}
+.art-rebuild-preview #game .dock-upgrade-rows {padding:0 3px}
+.art-rebuild-preview #game .dock-upgrade {border-bottom:1px solid #a7864a50;grid-template-columns:36px minmax(0,1fr) 94px;gap:8px;padding:5px 0;background:linear-gradient(100deg,#1a2c2b33,transparent)}
+.art-rebuild-preview #game .dock-upgrade>svg {width:34px;height:40px;filter:drop-shadow(0 2px 2px #000)}
+.art-rebuild-preview #game .dock-upgrade h3 {font-weight:bold!important;color:#f2dcaa;font-size:15px!important}
+.art-rebuild-preview #game .dock-upgrade h3 small {font-weight:normal!important}
+.art-rebuild-preview #game .dock-upgrade button {background:linear-gradient(#18382f,#091e22);border-color:#bf9d60;box-shadow:inset 0 0 0 2px #07151e,0 2px 3px #0007}
+.art-rebuild-preview #game #dockPanel-tomes {padding:0 10px}
+.art-rebuild-preview #game .dock-tome-choices button {min-height:59px;grid-template-columns:49px minmax(0,1fr) 22px;padding:3px 5px;border-bottom-color:#b49c5440}
+.art-rebuild-preview #game .dock-tier-art {width:46px;height:48px;filter:drop-shadow(0 0 4px #ba70ff22)}
+.art-rebuild-preview #game .dock-tier-copy {gap:3px}
+.art-rebuild-preview #game .dock-tier-copy b {font-weight:bold!important}
+.art-rebuild-preview #game .dock-tome-choices button[aria-pressed=true] {background:linear-gradient(90deg,#733fa22e,#20112f22);box-shadow:inset 0 0 0 1px #bb83da66;border-radius:3px}
+.art-rebuild-preview #game .dock-tome-links {background:#06131b88;border-color:#bda05c55}
+/* Central Tome, textured ritual rail, real costs and stateful original controls. */
+.art-rebuild-preview #game #summonDock {margin:0 4px;padding:5px 6px 2px;grid-template-columns:66px minmax(0,1fr) 64px;gap:3px;border:0;border-top:1px solid #c2a06b;border-radius:14px 14px 0 0;background:radial-gradient(ellipse at 44% 48%,#a94aea80,#47286570 48%,#071522ed 84%);box-shadow:inset 0 1px #efd6a544,inset 0 0 22px #7944ad22}
+.art-rebuild-preview #game #summonPortal {height:80px;padding-left:calc(50% + 25px);overflow:visible;z-index:3}
+.art-rebuild-preview #game #summonPortal:before {inset:-7px auto auto calc(50% - 73px);width:104px;height:98px;background:radial-gradient(ellipse,#cf8aff88,transparent 69%);border-radius:0;transform:none;opacity:.9}
+.art-rebuild-preview #game .summon-book {left:calc(50% - 66px);top:-4px;width:86px;height:86px;filter:brightness(1.12) saturate(1.18) drop-shadow(0 0 8px #bb53f5d0) drop-shadow(0 3px 2px #000);z-index:1}
+.art-rebuild-preview #game #summonDock .art-corners:before,.art-rebuild-preview #game #summonDock .art-corners:after {width:25px;height:20px;opacity:.65}
+.art-rebuild-preview #game .dock-summon-copy {gap:7px;z-index:2}
+.art-rebuild-preview #game .tome-action-label {font-size:17px!important;letter-spacing:.4px;text-shadow:0 2px 3px #12071c}
+.art-rebuild-preview #game .portal-caption b,.art-rebuild-preview #game .portal-caption small {font-size:13px!important}
+.art-rebuild-preview #game #tomeQuickAccess,.art-rebuild-preview #game #autoSummon.dock-auto-button {height:80px;gap:5px;z-index:4}
+.art-rebuild-preview #game .dock-options-icon {height:26px}
+.art-rebuild-preview #game .dock-options-icon svg {width:26px;height:26px;filter:drop-shadow(0 1px 2px #000)}
+.art-rebuild-preview #game #autoSummon.dock-auto-button {gap:11px}
+.art-rebuild-preview #game #autoSummon.dock-auto-button:after {border-color:#b78edd;background:radial-gradient(circle at 10px 10px,#d9dce8 0 7px,transparent 8px),#13202b;box-shadow:0 0 5px #9452c53b,inset 0 1px 3px #0008}
+.art-rebuild-preview #game #autoSummon.dock-auto-button[aria-checked=true]:after {background:radial-gradient(circle at 26px 10px,#fff1ff 0 7px,transparent 8px),#6336b5;border-color:#d2a2ff;box-shadow:0 0 8px #b570f77a}
+/* Compact roster is itself the expansion control. Its selected-panel label is retained. */
+.art-rebuild-preview #game.dock-is-collapsed {--dock-rail-height:82px}
+.art-rebuild-preview #game.dock-is-collapsed #combatLayout {--actor-rise:clamp(24px,5dvh,47px)}
+.art-rebuild-preview #game.dock-is-collapsed .adventure-deck {height:44px;overflow:visible;margin-inline:5px;border-radius:12px 12px 0 0;background:linear-gradient(#071824a8,#07121a22)}
+.art-rebuild-preview #game.dock-is-collapsed #dockHandle {inset:0;width:100%;max-width:none;height:44px;min-height:44px;transform:none;border:0;border-radius:0;background:none;gap:12px;padding:0 22px;justify-content:center;align-items:center}
+.art-rebuild-preview #game.dock-is-collapsed #dockHandle .handle-notch {top:-14px;left:calc(50% - 22px);width:44px;height:20px;background:radial-gradient(ellipse at 50% 100%,#0e2632 55%,transparent 58%)}
+.art-rebuild-preview #game.dock-is-collapsed #dockHandle .handle-notch svg {width:20px;height:10px;margin-top:6px}
+.art-rebuild-preview #game #dockHandleLabel {font:12px/1.2 Georgia,serif!important;color:#e6cc8e;min-width:45px}
+.art-rebuild-preview #game #dockHandleRoster {gap:9px}
+.art-rebuild-preview #game .handle-sprite,.art-rebuild-preview #game .handle-sprite>.starter-sheet,.art-rebuild-preview #game .handle-sprite>.companion-art {width:31px;height:31px}
+.art-rebuild-preview #game .handle-sprite {filter:drop-shadow(0 2px 2px #000)}
+.art-rebuild-preview #game.dock-is-collapsed .art-crest {display:none}
+.art-rebuild-preview #game.dock-is-collapsed #summonDock {padding-top:5px;padding-bottom:2px}
+.art-rebuild-preview #game.dock-is-collapsed #summonPortal,.art-rebuild-preview #game.dock-is-collapsed #tomeQuickAccess,.art-rebuild-preview #game.dock-is-collapsed #autoSummon.dock-auto-button {height:74px}
+.art-rebuild-preview #game.dock-is-collapsed .summon-book {width:82px;height:82px;left:calc(50% - 64px);top:-6px}
+.art-rebuild-preview #game.dock-is-collapsed .tome-action-label {font-size:16px!important}
+.art-rebuild-preview #game.dock-is-collapsed .enemy-sprite {--enemy-size:min(clamp(115px,17dvh,159px),100cqh)}
+.art-rebuild-preview #game>.realm-navigation {margin:0 4px;padding-inline:2px;border:0;border-top:1px solid #a98d5055;border-radius:0;background:linear-gradient(#081d2aeb 0%,#061723f5 64%,#081923b0 100%);box-shadow:none;overflow:visible}
+.art-rebuild-preview #game>.realm-navigation:after {content:'';position:absolute;bottom:4px;left:22%;right:22%;height:11px;background:url('assets/adventure-rebuild/shell-crest.svg') center/70px 17px no-repeat;pointer-events:none;opacity:.35}
+.art-rebuild-preview #game>.realm-navigation button {position:relative;gap:2px}
+.art-rebuild-preview #game>.realm-navigation button svg {width:29px;height:29px;filter:drop-shadow(0 2px 2px #000)}
+.art-rebuild-preview #game>.realm-navigation button.active {background:radial-gradient(ellipse at 50% 45%,#c88c343d,transparent 68%);color:#ffe6a5}
+.art-rebuild-preview #game>.realm-navigation button.active svg {filter:drop-shadow(0 0 4px #dfae4299) brightness(1.2)}
+.art-rebuild-preview #game>.realm-navigation button.active:after {width:30px;height:2px;bottom:0;background:linear-gradient(90deg,transparent,#e8c979 18%,#e8c979 82%,transparent)}
+.art-rebuild-preview #game.area-open #artFoundation {grid-row:5/6}
+.art-rebuild-preview #game.summon-active #artFoundation {visibility:hidden}
+@media(max-height:700px){
+  .art-rebuild-preview #game {--dock-panel-height:122px;--dock-rail-height:80px}
+  .art-rebuild-preview #game #combatLayout {grid-template-rows:32px 36px minmax(0,1fr) 46px 52px;padding-bottom:9px}
+  .art-rebuild-preview #game .hud {padding-inline:0;margin-inline:4px;grid-template-columns:48px repeat(3,minmax(0,1fr))}
+  .art-rebuild-preview #game .hud .ui-stat b {font-size:14px!important}
+  .art-rebuild-preview #game .hud .ui-stat small {font-size:var(--ui-label)!important;letter-spacing:0}
+  .art-rebuild-preview #game #boundSprite {width:55px;height:55px}
+  .art-rebuild-preview #game .battle-follower {width:48px;height:48px}
+  .art-rebuild-preview #game .dock-scene-shortcuts {top:34px}
+  .art-rebuild-preview #game .battle-panel {grid-template-columns:minmax(0,1fr) 130px;margin-inline:9px}
+  .art-rebuild-preview #game .adventure-deck[data-panel=upgrades] {--dock-panel-height:118px}
+  .art-rebuild-preview #game .adventure-deck[data-panel=tomes] {--dock-panel-height:132px}
+  .art-rebuild-preview #game .dock-upgrade {grid-template-columns:24px minmax(0,1fr) 82px;gap:5px}
+  .art-rebuild-preview #game .dock-upgrade>svg {width:24px;height:30px}
+  .art-rebuild-preview #game .dock-upgrade h3 {font-size:13px!important}
+  .art-rebuild-preview #game .dock-page {padding:7px 6px 10px}
+  .art-rebuild-preview #game .dock-companions {gap:4px}
+  .art-rebuild-preview #game #summonDock {grid-template-columns:54px minmax(0,1fr) 52px;padding-inline:4px;gap:2px}
+  .art-rebuild-preview #game #summonPortal,.art-rebuild-preview #game #tomeQuickAccess,.art-rebuild-preview #game #autoSummon.dock-auto-button {height:72px}
+  .art-rebuild-preview #game #summonPortal {padding-left:calc(50% + 20px)}
+  .art-rebuild-preview #game .summon-book {left:calc(50% - 53px);top:0;width:68px;height:72px}
+  .art-rebuild-preview #game #summonPortal:before {left:calc(50% - 65px);top:-6px;width:92px;height:86px}
+  .art-rebuild-preview #game .tome-action-label {font-size:14px!important}
+  .art-rebuild-preview #game .portal-caption b,.art-rebuild-preview #game .portal-caption small {font-size:12px!important}
+  .art-rebuild-preview #game.dock-is-collapsed {--dock-rail-height:76px}
+  .art-rebuild-preview #game.dock-is-collapsed #summonPortal,.art-rebuild-preview #game.dock-is-collapsed #tomeQuickAccess,.art-rebuild-preview #game.dock-is-collapsed #autoSummon.dock-auto-button {height:68px}
+  .art-rebuild-preview #game.dock-is-collapsed .summon-book {width:68px;height:72px;left:calc(50% - 53px);top:-2px}
+  .art-rebuild-preview #game.dock-is-collapsed .tome-action-label {font-size:14px!important}
+  .art-rebuild-preview #game #dockHandleRoster {gap:6px}
+  .art-rebuild-preview #game .handle-sprite,.art-rebuild-preview #game .handle-sprite>.starter-sheet,.art-rebuild-preview #game .handle-sprite>.companion-art {width:28px;height:28px}
+}
+@media(prefers-reduced-motion:reduce){.art-rebuild-preview #game .summon-book{animation:none}}

@@ -1,0 +1,19 @@
+/* Approved Realm 1 Shard economy. Legacy receipts and reward-claim IDs are never replayed. */
+(function(root){'use strict';const R=root.LoreRealm||(typeof require==='function'?require('./realm1.js'):null),C=R.C;
+const totals=[[10000,0,0],[9200,800,0],[8300,1700,0],[7650,2300,50],[7000,2830,170]],unlockGold=[0,1000,4000,12000,30000],discoveries=[0,6,11,16,21],capacities=[1,3,5,10,15,20,25],capacityPrices=[500,1500,4000,9000,18000,36000];
+const questShards={'first-bond':2,'first-ten':1,'first-summon':1,'team-three':1,'first-boss':1,'floor-ten':1},achievementShards={conquest10:4,discovery10:2,conquest100:15,mastery6:6,tome5:12,discovery30:6};
+// Largest-remainder normalization preserves existing eligible species and relative weights.
+const weights=C.companions.map(()=>Array(5).fill(0));
+for(let t=0;t<5;t++)for(let rank=0;rank<3;rank++){let budget=totals[t][rank];const all=C.companions.filter(h=>h.rank===rank&&h.weights[t]>0),fixed=t===4&&rank===2?all.find(h=>h.id==='forgotten-watcher'):null;if(fixed){weights[fixed.index][t]=10;budget-=10;}const group=all.filter(h=>h!==fixed),sum=group.reduce((n,h)=>n+h.weights[t],0);if(!sum)continue;const rows=group.map(h=>({h,n:Math.floor(h.weights[t]*budget/sum),rem:h.weights[t]*budget%sum}));let left=budget-rows.reduce((n,r)=>n+r.n,0);rows.sort((a,b)=>b.rem-a.rem||a.h.index-b.h.index);for(const row of rows){weights[row.h.index][t]=row.n+(left-->0?1:0);}}
+function active(s){return s?.version===5&&s.progress.economyVersion===2;}
+function enable(s){if(s.version!==5)throw Error('Ownership version 5 required');if(s.progress.economyVersion!==undefined&&s.progress.economyVersion!==2)throw Error('Unsupported economy version');if(!['lorebound-ownership-3','lorebound-ownership-4','lorebound-ownership-5','lorebound-ownership-6','lorebound-ownership-7','lorebound-ownership-8','lorebound-ownership-9','lorebound-ownership-10'].includes(s.schema))s.schema='lorebound-ownership-2';s.progress.economyVersion=2;if(s.summoning.autoCapacity===undefined)s.summoning.autoCapacity=1;return s;}
+function weight(s,h,level){return active(s)?weights[h.index][level-1]:h.weights[level-1];}
+function requirement(s,level=s.summoning.unlocked+1){if(level>5)return null;return {level,gold:unlockGold[level-1],discoveries:discoveries[level-1],found:R.discoveredIds(s).length};}
+function unlock(s,expected=s.summoning.unlocked+1){const q=requirement(s);if(!q||q.level!==expected)return {ok:false,reason:'Tome offer changed'};if(s.pending)return {ok:false,reason:'Resolve the companion first'};if(s.gold<q.gold||q.found<q.discoveries)return {ok:false,reason:'Gold or historical discoveries required'};s.gold-=q.gold;s.summoning.unlocked=q.level;s.summoning.selected=q.level;R.syncProgress(s);return {ok:true};}
+function floorShards(floor){return floor<10?1:floor===10?3:2+(floor%10===0?5:0)+(floor===100?20:0);}
+function capacityOffer(s){const at=capacities.indexOf(s.summoning.autoCapacity||1);return at<6?{from:capacities[at],to:capacities[at+1],gold:capacityPrices[at]}:null;}
+function buyCapacity(s,expected){const q=capacityOffer(s);if(!q||q.from!==expected||s.pending||s.gold<q.gold)return {ok:false,reason:'Capacity offer unavailable'};s.gold-=q.gold;s.summoning.autoCapacity=q.to;return {ok:true};}
+// stopRank 10 is "Don't stop for rarity": Auto then runs until capacity, Lore Shards, a discovery or a decision stops it.
+function thresholdValid(s){const rank=s.summoning.settings.stopRank;return rank===10||Number.isInteger(rank)&&rank>=0&&rank<3&&C.companions.some(h=>h.rank>=rank&&weight(s,h,s.summoning.selected)>0);}
+const api={active,enable,weight,weights,totals,unlockGold,discoveries,requirement,unlock,floorShards,questShards,achievementShards,capacities,capacityPrices,capacityOffer,buyCapacity,thresholdValid};root.LoreEconomy=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);

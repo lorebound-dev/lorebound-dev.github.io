@@ -1,0 +1,70 @@
+/* LOREBOUND UI foundation. Opt-in components; existing menus are not reskinned. */
+:root {
+  --ui-ink: #07131f;
+  --ui-surface: #0c1d2b;
+  --ui-raised: #152b39;
+  --ui-metal: #8b7856;
+  --ui-edge: #c0a16a;
+  --ui-line: #35424b;
+  --ui-text: #f1e4c4;
+  --ui-muted: #bec8cb;
+  --ui-gold: #e9c57b;
+  --ui-violet: #c498ea;
+  --ui-success: #b4e2cd;
+  --ui-space-1: 4px;
+  --ui-space-2: 8px;
+  --ui-space-3: 12px;
+  --ui-space-4: 16px;
+  --ui-label: 12px;
+  --ui-note: 13px;
+  --ui-body: 14px;
+  --ui-heading: 22px;
+  --ui-hit: 44px;
+  --ui-fast: 120ms;
+  --ui-frame-shadow: inset 0 0 0 1px #07131f, inset 0 0 0 2px #c0a16a22, 0 2px 3px #02080e66;
+}
+.ui-frame, .ui-button, .ui-icon-button, .ui-stat, .ui-selector, .ui-card {
+  border: 1px solid var(--ui-metal);
+  border-image: none;
+  border-radius: 0;
+  background: var(--ui-surface);
+  box-shadow: var(--ui-frame-shadow);
+  color: var(--ui-text);
+}
+.ui-button, .ui-icon-button, .ui-selector {
+  min-height: var(--ui-hit);
+  padding: 8px 12px;
+  font: var(--ui-body)/1.25 Georgia, serif;
+  transition: transform var(--ui-fast), filter var(--ui-fast), border-color var(--ui-fast);
+  touch-action: manipulation;
+}
+.ui-button--primary { background: #29483f; border-color: var(--ui-edge); }
+.ui-button--secondary { background: var(--ui-raised); }
+.ui-icon-button { width: var(--ui-hit); padding: 6px; }
+.ui-button:not(:disabled):active, .ui-icon-button:not(:disabled):active,
+.ui-selector:not(:disabled):active { transform: translateY(1px); filter: brightness(1.12); }
+.ui-button:disabled, .ui-selector:disabled { color: #a6afb6; border-color: #53616c; background: #101f2c; cursor: default; }
+.ui-button:focus-visible, .ui-icon-button:focus-visible, .ui-selector:focus-visible,
+.ui-shortcut:focus-visible, .ui-navigation button:focus-visible, .ui-summon button:focus-visible,
+.ui-stat:focus-visible { outline: 2px solid var(--ui-gold); outline-offset: 2px; }
+.ui-stat { min-width: 0; min-height: var(--ui-hit); font-variant-numeric: tabular-nums; }
+.ui-stat__copy { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.ui-stat__copy b { max-width: 100%; white-space: nowrap; }
+.ui-stat__copy small { color: var(--ui-muted); font-size: 9px; line-height: 1; letter-spacing: .5px; }
+.ui-meter { position: relative; overflow: hidden; border: 1px solid var(--ui-metal); background: #061019; }
+.ui-meter > i { display: block; height: 100%; background: #70aa8e; }
+.ui-card { min-width: 0; padding: var(--ui-space-3); }
+.ui-card[aria-selected=true], .ui-selector[aria-pressed=true] { border-color: var(--ui-gold); background: #25312d; }
+.ui-indicator { color: var(--ui-gold); font: var(--ui-label)/1.2 Georgia, serif; }
+/* Reserved for Stage C: fixed header and actions, one scroll owner, no overlapping footer. */
+.ui-dialog { max-width: 530px; max-height: calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); padding: 0; overflow: hidden; grid-template-rows: auto minmax(0,1fr) auto; }
+.ui-dialog[open] { display: grid; }
+.ui-dialog__header, .ui-dialog__actions { padding: var(--ui-space-3); }
+.ui-dialog__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--ui-line); }
+.ui-dialog__body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding: var(--ui-space-3); }
+.ui-dialog__actions { border-top: 1px solid var(--ui-line); padding-bottom: max(12px,env(safe-area-inset-bottom)); }
+.ui-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: var(--ui-hit); }
+.ui-toggle input { width: 22px; height: 22px; accent-color: #b69758; }
+@media(prefers-reduced-motion:reduce) {
+  .ui-button, .ui-icon-button, .ui-selector, .ui-shortcut, .ui-navigation button, .ui-summon button { transition: none; }
+}

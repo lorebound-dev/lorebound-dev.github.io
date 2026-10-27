@@ -1,0 +1,29 @@
+/* Adapted from the supplied v3.1 demo, with approved live-text fitting refinements. */
+.collection-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;align-items:start}
+/* Together with journal margin/border, this is exactly 12px from viewport to grid. */
+.gallery-scroll{padding-inline:4px}
+.collection-card{min-width:0;margin:0}
+.card-button{display:block;width:100%;min-width:0;min-height:44px;padding:0;margin:0;border:0;background:none;color:inherit;font:inherit;border-radius:0;box-shadow:none;transition:transform .12s}
+.card-button:not(:disabled):active{transform:translateY(1px)}
+.card-art{position:relative;aspect-ratio:2/3;min-width:0;isolation:isolate;overflow:visible}.card-art img{display:block}.card-backdrop,.card-frame{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.card-backdrop{z-index:0}.card-frame{z-index:2}.creature{position:absolute;z-index:1;left:10.5%;top:14%;width:79%;height:54%;object-fit:contain;image-rendering:pixelated}.card-title{position:absolute;z-index:3;left:13.3%;width:73.4%;top:auto;bottom:18.15%;height:12.5%;min-height:2em;color:#49331e;font-size:clamp(9px,2.8vw,12px);line-height:1;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;white-space:normal;overflow-wrap:normal}.card-title.dark{color:#d5c39c}.card-rarity{position:absolute;z-index:3;top:82.15%;left:31%;width:38%;height:4.05%;font-size:clamp(6px,1.75vw,8px);line-height:1;text-align:center;display:grid;place-items:center;color:#f7ebca;text-transform:uppercase;font-weight:700;white-space:nowrap}.live-pips{position:absolute;z-index:4;top:89%;left:14.4%;width:71.3%;height:6.6%;display:flex;justify-content:space-between;align-items:center}.live-pips img{width:15%;aspect-ratio:1/1;object-fit:contain}.mastery-complete-ornament{position:absolute;z-index:5;left:0%;top:0%;width:100%;height:100%;object-fit:contain;pointer-events:none}.mastery-complete-seal{position:absolute;z-index:6;left:70%;top:10.8%;width:23.8%;height:auto}
+.card-backdrop,.card-frame{object-fit:contain;user-select:none}
+.creature{display:flex;align-items:center;justify-content:center;pointer-events:none}
+.creature>.approved-sprite{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+.starter-window{position:relative;display:block;width:100%;aspect-ratio:1;overflow:hidden;flex:none}
+.starter-window>.approved-sprite{position:absolute;top:0;width:300%;max-width:none;height:100%;object-fit:contain;image-rendering:pixelated}
+.card-title,.card-rarity,.live-pips,.mastery-complete-ornament,.mastery-complete-seal{pointer-events:none}
+.detail-art .creature{inset:0;width:100%;height:100%;z-index:auto}
+@media(max-width:350px){.gallery-scroll{padding-inline:5px}}
+@media(prefers-reduced-motion:reduce){.card-button{transition:none}}
+/* Match the specimen's div card and unconstrained square marker images. */
+.card-art{display:block}
+.live-pips img{height:auto}
+.gallery-scroll{scrollbar-width:none}
+.gallery-scroll::-webkit-scrollbar{display:none}
+
+.card-name-text{display:block;max-width:100%;text-wrap:balance}
+
+/* Internal card-only contain stage. The contracted outer .creature slot never moves. */
+.card-art .card-portrait-fit{position:absolute;display:flex;align-items:flex-end;justify-content:center;transform-origin:50% 100%;overflow:visible;pointer-events:none}
+.card-portrait-fit>.approved-sprite{display:block;width:100%;height:100%;object-fit:contain;object-position:50% 100%;image-rendering:pixelated}
+.card-portrait-fit>.starter-window{align-self:flex-end}

@@ -1,0 +1,9 @@
+(function(root){'use strict';const R=root.LoreRealm||(typeof require==='function'?require('./realm1.js'):null),C=R.C,COLORS=['#b5bec7','#83c99a','#76b9f4','#b795ef','#f2c76f','#f17f8f','#72d7cc','#e6d6a0','#abdaf6','#d3b2f4'];
+function item(id){const h=R.species(id);return h?{...h,id,species:h.index,type:h.category,color:COLORS[h.rank]}:null;}
+function ensure(s){const a=s.summoning;if(s.version!==5)a.owned=Object.fromEntries(s.copies.map(c=>[c.id,1]));return a;}
+function owned(s){return s.copies.map(c=>item(c.id)).sort((a,b)=>R.combat(s,b.id).expectedDps-R.combat(s,a.id).expectedDps||a.id.localeCompare(b.id));}
+function grouped(s){return owned(s).map(h=>({...h,copies:1,equipped:s.party.slots.includes(h.id)?1:0}));}
+function odds(s){const level=s.summoning.selected;return C.rarities.map((_,rank)=>C.companions.filter(h=>h.rank===rank).reduce((n,h)=>n+(root.LoreEconomy?.weight(s,h,level)??h.weights[level-1]),0)/100);}
+function shouldStop(s,result,count){if(root.LoreEconomy?.active(s)){if(s.pending)return 'Companion decision required';if(result.isNew)return 'New discovery';if(result.rank>=s.summoning.settings.stopRank)return 'Rarity threshold reached';if(count>=s.summoning.autoCapacity)return 'Capacity reached';return s.shards<1?'Not enough Lore Shards':'';}const p=ensure(s).settings;if(p.stopNew&&result.isNew)return 'New discovery';if(p.stopRank<10&&result.rank>=p.stopRank)return C.rarities[p.stopRank]+' or higher';if(count>=p.limit)return 'Pull limit reached';const price=C.tomes[s.summoning.selected-1].price;if(s.gold-price<p.reserve)return s.gold<price?'Not enough Gold':'Gold reserve reached';return '';}
+const api={COST:100,RARITIES:C.rarities,BASE:[100,0,0,0,0,0,0,0,0,0],COLORS,catalogue:C.companions.map(h=>item(h.id)),item,ensure,owned,grouped,odds,pull:R.summon,shouldStop};root.LoreSummonModel=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);

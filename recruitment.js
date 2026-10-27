@@ -1,0 +1,37 @@
+/* Permanent account-wide Town roster. Placeholder catalogue, provisional numerical tuning.
+   One atomic snapshot contains contract debit, discovery, duplicate mastery and receipt. */
+(function(root){'use strict';
+const SCHEMA='lorebound-ownership-9',O=()=>root.LoreOwnership;
+const config=Object.freeze({version:1,provisional:true,unlockBoss:20,restoreGold:500,activeAssignments:2,futureAssignmentLimit:3,futureSlotGold:null,masteryDuplicates:Object.freeze([1,3,6,10,15,21]),masteryStepBp:25,resourceCapBp:1000});
+const recruits=Object.freeze([
+ Object.freeze({id:'placeholder-r1-recruit-a',realm:1,name:'Recruit A · Placeholder',rarity:'Common',effect:'farmingGold',baseBp:200}),
+ Object.freeze({id:'placeholder-r1-recruit-b',realm:1,name:'Recruit B · Placeholder',rarity:'Uncommon',effect:'expeditionGold',baseBp:300}),
+ Object.freeze({id:'placeholder-r1-recruit-c',realm:1,name:'Recruit C · Placeholder',rarity:'Rare',effect:'farmingGold',baseBp:400})
+]);
+const contracts=Object.freeze({1:Object.freeze({realm:1,name:'Realm 1 contract · Placeholder',gold:100,pool:Object.freeze([Object.freeze({id:recruits[0].id,weight:70}),Object.freeze({id:recruits[1].id,weight:25}),Object.freeze({id:recruits[2].id,weight:5})])})});
+const effectNames=Object.freeze({farmingGold:'Checkpoint farming Gold',expeditionGold:'New expedition Gold returns'});
+const ledger=s=>(s.progress||s).recruitment,enabled=s=>ledger(s)?.version===1,known=id=>recruits.find(r=>r.id===id),integer=n=>Number.isSafeInteger(n)&&n>=0;
+const demand=(x,m)=>{if(!x)throw Error(m);},clone=s=>O().hydrate(JSON.parse(JSON.stringify(s))),eligible=s=>root.LoreStory.record(s)?.bosses.includes(config.unlockBoss)===true;
+function valid(p){try{const r=p.recruitment;if(!r||r.version!==1||r.configVersion!==1||!/^[a-f0-9]{64}$/.test(r.sourceHash)||typeof r.restored!=='boolean'||r.capacity!==2||!Array.isArray(r.assignments)||r.assignments.length!==2)return false;
+ if(!['contracts','spent','lastAt'].every(k=>integer(r[k]))||!r.roster||Array.isArray(r.roster)||!r.byRealm||Array.isArray(r.byRealm)||Object.keys(r.byRealm).some(k=>!Object.hasOwn(contracts,k)))return false;
+ let total=0;for(const [id,x] of Object.entries(r.roster)){const spec=known(id);if(!spec||!x||x.realm!==spec.realm||!integer(x.count)||x.count<1||!integer(x.firstReceipt)||x.firstReceipt<1||x.firstReceipt>r.contracts)return false;total+=x.count;}
+ const active=r.assignments.filter(x=>x!==null);if(active.some(id=>typeof id!=='string'||!r.roster[id])||new Set(active).size!==active.length||!integer(total)||total!==r.contracts)return false;
+ let count=0,spent=r.restored?config.restoreGold:0;for(const [realm,n] of Object.entries(r.byRealm)){if(!integer(n)||n<1)return false;count+=n;spent+=n*contracts[realm].gold;if(recruits.filter(x=>x.realm===Number(realm)).reduce((a,x)=>a+(r.roster[x.id]?.count||0),0)!==n)return false;}
+ if(count!==r.contracts||spent!==r.spent||!integer(spent)||(!r.restored&&(r.contracts||active.length||r.spent))||(r.restored&&!p.story.realms['1'].bosses.includes(20)))return false;
+ if(r.contracts===0)return r.lastReceipt===null;
+ const x=r.lastReceipt;return !!x&&x.id===r.contracts&&Object.hasOwn(contracts,x.realm)&&x.gold===contracts[x.realm].gold&&known(x.recruitId)?.realm===x.realm&&!!r.roster[x.recruitId]&&typeof x.first==='boolean'&&x.first===(r.roster[x.recruitId].firstReceipt===x.id);
+ }catch{return false;}}
+function convert(input,hash='0'.repeat(64)){demand(O().validate(input),'Invalid save; reconciliation required');if([SCHEMA,'lorebound-ownership-10'].includes(input.schema))return clone(input);demand(input.schema==='lorebound-ownership-8'&&input.progress.recruitment===undefined&&/^[a-f0-9]{64}$/.test(hash),'Conflicting Recruitment data; reconciliation required');const s=clone(input);s.schema=SCHEMA;s.progress.recruitment={version:1,configVersion:1,sourceHash:hash,restored:false,capacity:2,assignments:[null,null],roster:{},contracts:0,byRealm:{},spent:0,lastAt:0,lastReceipt:null};s.revision++;demand(O().validate(s),'Invalid Recruitment initialization');return s;}
+const timeReady=(s,now)=>integer(now)&&now>=Math.max(ledger(s).lastAt,Math.floor(s.clock.highWater));
+function begin(input,now,revision){demand(O().validate(input)&&enabled(input),'Invalid Recruitment save');demand(input.revision===revision,'Offer changed. Review the current Hall.');demand(timeReady(input,now),'Verified time has not caught up; progress is preserved');demand(input.mode!=='boss','Finish the boss encounter first');return clone(input);}
+function finish(s,now){ledger(s).lastAt=now;s.revision++;demand(O().validate(s),'Transaction exceeds supported save limits');return s;}
+function restore(input,now,revision){const s=begin(input,now,revision),r=ledger(s);demand(eligible(s)&&!r.restored,'Defeat Boss 20 or Hall already restored');demand(s.gold>=config.restoreGold,'Not enough Gold');s.gold-=config.restoreGold;r.restored=true;r.spent+=config.restoreGold;return finish(s,now);}
+function offer(s,realm=1){const c=contracts[realm];return c&&enabled(s)?{realm:c.realm,gold:c.gold,id:ledger(s).contracts+1,revision:s.revision}:null;}
+function contract(input,q,now,rng){demand(q&&q.id===ledger(input)?.contracts+1,'Contract already settled or offer changed');const s=begin(input,now,q.revision),r=ledger(s),c=contracts[q.realm];demand(r.restored&&eligible(s)&&c&&q.gold===c.gold&&s.gold>=c.gold,'Contract unavailable or insufficient Gold');demand(typeof rng==='function','Secure recruitment randomness unavailable');const roll=rng();demand(Number.isFinite(roll)&&roll>=0&&roll<1,'Invalid contract roll');let pick=roll*c.pool.reduce((n,x)=>n+x.weight,0),entry=c.pool[c.pool.length-1];for(const item of c.pool){pick-=item.weight;if(pick<0){entry=item;break;}}
+ const first=!r.roster[entry.id];s.gold-=c.gold;r.spent+=c.gold;r.contracts++;r.byRealm[c.realm]=(r.byRealm[c.realm]||0)+1;if(first)r.roster[entry.id]={realm:c.realm,count:0,firstReceipt:r.contracts};r.roster[entry.id].count++;r.lastReceipt={id:r.contracts,realm:c.realm,gold:c.gold,recruitId:entry.id,first};return finish(s,now);}
+function assign(input,index,id,now,revision){const s=begin(input,now,revision),r=ledger(s);demand(r.restored&&Number.isInteger(index)&&index>=0&&index<r.capacity,'Assignment unavailable; third slot requires a future realm');demand(id===null||Object.hasOwn(r.roster,id),'Recruit is not owned');demand(id===null||!r.assignments.some((x,i)=>i!==index&&x===id),'Recruit already assigned');demand(r.assignments[index]!==id,'Assignment unchanged');r.assignments[index]=id;return finish(s,now);}
+const rank=(s,id)=>enabled(s)?config.masteryDuplicates.filter(n=>(ledger(s).roster[id]?.count||0)-1>=n).length:0;
+function bonus(s,effect){if(!enabled(s)||!ledger(s).restored||!Object.hasOwn(effectNames,effect))return 0;let bp=0;for(const id of ledger(s).assignments){const r=known(id);if(r?.effect===effect)bp+=r.baseBp+rank(s,id)*config.masteryStepBp;}return Math.min(config.resourceCapBp,bp);}
+function applyGold(s,base,effect){demand(integer(base),'Invalid Gold basis');const result=Number(BigInt(base)*BigInt(10000+bonus(s,effect))/10000n);demand(integer(result),'Gold exceeds supported arithmetic');return result;}
+root.LoreRecruitment={SCHEMA,config,recruits,contracts,effectNames,ledger,enabled,known,eligible,valid,convert,timeReady,restore,offer,contract,assign,rank,bonus,applyGold};if(typeof module!=='undefined')module.exports=root.LoreRecruitment;
+})(globalThis);

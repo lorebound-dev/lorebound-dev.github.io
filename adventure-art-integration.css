@@ -1,0 +1,37 @@
+/* Owner-approved Ward Tablet. Presentation only. */
+.adventure-dock-preview.art-rebuild-preview #game #bossButton.ready{
+ width:180px;min-height:44px;height:44px;padding:0 24px;
+ background:linear-gradient(180deg,#17323d,#081822 60%,#102831);
+ border:1px solid #b59a62;border-radius:10px 2px 10px 2px;
+ box-shadow:inset 0 0 0 3px #08141b,inset 0 0 0 4px #786446,0 3px 6px #0008;
+ color:#f4e3b5;font:600 13px/1.2 Georgia,serif!important;letter-spacing:.3px;
+}
+.adventure-dock-preview.art-rebuild-preview #game #bossButton.ready:before,
+.adventure-dock-preview.art-rebuild-preview #game #bossButton.ready:after{
+ display:block;content:'◆';position:absolute;top:50%;transform:translateY(-50%);font:8px Georgia!important;color:#b79b64;pointer-events:none;
+}
+.adventure-dock-preview.art-rebuild-preview #game #bossButton.ready:before{left:11px}
+.adventure-dock-preview.art-rebuild-preview #game #bossButton.ready:after{right:11px}
+.adventure-dock-preview.art-rebuild-preview #game #bossButton:focus-visible{outline:2px solid #fff0b8;outline-offset:3px}
+.adventure-dock-preview.art-rebuild-preview #game #bossButton.ready:active:not(:disabled){filter:brightness(1.2)}
+
+/* Remove the visible title without removing the named panel or its controls. */
+.adventure-dock-preview.art-rebuild-preview #game:not(.dock-is-collapsed) .adventure-deck{height:calc(22px + var(--dock-panel-height));overflow:visible}
+.adventure-dock-preview.art-rebuild-preview #game .dock-heading{height:22px;padding:0;border:0;background:none;position:relative}
+/* A centred chevron inside the tray's top strip, clear of the corner ornaments and the Challenge Boss button */
+.adventure-dock-preview.art-rebuild-preview #game #dockToggle{position:absolute;left:calc(50% - 30px);right:auto;top:0;width:60px;height:22px;min-height:22px;border:0;border-radius:0;background:none;z-index:9}
+.adventure-dock-preview.art-rebuild-preview #game #dockToggle span{display:none}
+.adventure-dock-preview.art-rebuild-preview #game #dockToggle:before{content:'';width:20px;height:10px;background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 12%27%3E%3Cpath d=%27M5 3l7 6 7-6%27 fill=%27none%27 stroke=%27%23f1d89e%27 stroke-width=%272.4%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E") center/20px 10px no-repeat}
+.adventure-dock-preview.art-rebuild-preview #game #dockToggle:after{content:'';position:absolute;inset:0 -6px -8px}
+.adventure-dock-preview.art-rebuild-preview #game .art-crest{display:none}
+.adventure-refined #game:not(.boss-room) .battle-panel{top:auto;bottom:6px;height:44px}
+.adventure-refined #game:not(.boss-room){--court-y:var(--art-court-y,clamp(110px,calc(100dvh - 448px),600px))}
+/* Approved environment and full-alpha encounter art; existing motion layers remain. */
+.adventure-dock-preview.art-rebuild-preview #game:before{background-image:linear-gradient(#03111c52,transparent 19%,transparent 65%,#03121b30),var(--realm-background,url('assets/battle-ruins-v3.png'))}
+.adventure-dock-preview.art-rebuild-preview #game.boss-room:before{background-image:linear-gradient(#020b14ad,transparent 26%,transparent 70%,#020b14bf),var(--realm-background,url('assets/battle-ruins-v3.png'))}
+#enemySprite.realm-illustrated,#enemyGhost.realm-illustrated{background-image:none!important;overflow:visible}
+#enemySprite.realm-illustrated>img,#enemyGhost.realm-illustrated>img{width:100%;height:100%;object-fit:contain;image-rendering:auto;pointer-events:none;display:block}
+#bossRoomHeader>div{min-width:0}#bossRoomTitle{font-size:clamp(17px,4.6vw,22px)!important;line-height:1.15!important;overflow-wrap:break-word}
+/* Short screens retain the five approved companion sizes; only the enemy fits its smaller stage. */
+.adventure-refined #game.art-short-court:not(.boss-room) .enemy-sprite{--enemy-size:70px;bottom:4px}
+.adventure-refined #game.art-short-court:not(.boss-room) .enemy-info{bottom:76px}

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#081622">
+  <title>TEST · LOREBOUND · Adventure visual rebuild</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#030b12;color:#eddfbf;font:14px/1.5 Georgia,serif}
+    body{display:grid;place-items:center}#dockReviewFrame{width:min(100%,550px);height:100dvh;border:0;display:block;background:#07131d}
+    #reviewTools{display:none}body[data-review=true]{display:block;padding:16px}body[data-review=true] #reviewTools{display:flex;flex-wrap:wrap;align-items:center;gap:12px;max-width:900px;margin:0 auto 20px}
+    body[data-review=true] #dockReviewFrame{margin:auto;outline:1px solid #8e7953}h1{font-size:20px;margin:0}p{margin:0}button,select{min-height:44px;padding:8px;background:#112631;border:1px solid #927a4a;color:inherit;font:inherit}#reviewStatus{flex-basis:100%;color:#b6d4c4}
+  </style>
+<meta name="robots" content="noindex"></head>
+<body>
+  <header id="reviewTools"><h1>Adventure · Visual rebuild</h1><p>Isolated memory-only game</p><label>Viewport <select id="reviewSize"><option>390,844</option><option>430,932</option><option>320,610</option><option>375,610</option></select></label><button id="reloadReview" type="button">Reset demo</button><p id="reviewStatus" role="status">Loading isolated Adventure…</p></header>
+  <iframe id="dockReviewFrame" title="LOREBOUND Adventure dock prototype — isolated demo" sandbox="allow-scripts allow-same-origin"></iframe>
+  <script src="data/realm1-config.js"></script>
+  <script src="realm1.js"></script>
+  <script src="adventure-art-review.js"></script>
+<div id="test-build-tag" aria-hidden="true" style="position:fixed;z-index:2147483647;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);pointer-events:none;padding:1px 8px;border:1px solid #a38c59;border-top:0;background:#0b1418e6;color:#f5dc96;font:12px/1.4 Georgia,serif!important;letter-spacing:0;text-transform:none;white-space:nowrap">TEST · #36 · b9debee</div><script>setTimeout(function(){var t=document.getElementById('test-build-tag');if(t)t.remove()},6000)</script></body>
+</html>

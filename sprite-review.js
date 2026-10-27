@@ -1,0 +1,15 @@
+(function(){'use strict';const $=id=>document.getElementById(id),M=LoreSpriteManifest.species;let mounted=[];
+ for(const h of M){const o=document.createElement('option');o.value=h.id;o.textContent=h.name+' · '+h.rarity;$('species').append(o);}
+ const measured={"320": {"battlefield": [58, 58], "party": [52.796875, 64], "collapsed": [28, 28], "discovery": [240, 240], "omnidex": [64, 64]}, "390": {"battlefield": [70.1875, 70.1875], "party": [62.390625, 92], "collapsed": [31, 31], "discovery": [300, 300], "omnidex": [64, 64]}, "430": {"battlefield": [77.390625, 77.390625], "party": [70.390625, 108], "collapsed": [31, 31], "discovery": [300, 300], "omnidex": [64, 64]}};
+ function dimensions(context){const nearest=Object.keys(measured).reduce((a,b)=>Math.abs(+b-innerWidth)<Math.abs(+a-innerWidth)?b:a);const pair=measured[nearest][context].slice();if(context==='party')pair[0]=Math.min(pair[0],(innerWidth-36)/5);return pair;}
+
+ function add(host,id,context,w,h,missing=false){const stage=document.createElement('span');stage.style.width=w+'px';stage.style.height=h+'px';host.append(stage);mounted.push(LoreSprites.mount(stage,id,context,{testMissingSource:missing}));return stage;}
+ function render(missing=false){mounted.forEach(x=>x.destroy());mounted=[];const h=LoreSprites.entry($('species').value),context=$('context').value,[w,ht]=dimensions(context);$('sample').replaceChildren();$('gallery').replaceChildren();$('sample').dataset.context=context;for(const e of document.querySelectorAll('.surface'))e.className=e.id==='gallery'?'gallery surface '+$('backdrop').value:'surface '+$('backdrop').value;
+ const team=['battlefield','party','collapsed'].includes(context)?Array.from({length:5},(_,i)=>M[(M.indexOf(h)+i)%M.length]):[h];team.forEach((r,i)=>add($('sample'),r.id,context,w,ht,missing&&i===0));
+ $('measure').textContent=`${innerWidth} × ${innerHeight} viewport · ${context} frame ${w.toFixed(1)} × ${ht.toFixed(1)} CSS px · explicit ${h.anchorKind} pivot`;
+ $('findings').textContent=(missing?'Missing candidate test: fallback status is recorded on the sprite. ':'')+(h.quality.findings.join(' ')||'No alpha-edge finding. Full-body source completeness still requires artist review.');$('metadata').textContent=JSON.stringify(h,null,2);
+ for(const r of $('lowMemory').checked?[h]:M){const cell=document.createElement('article');cell.className='specimen';cell.dataset.warning=r.quality.findings.length>0;const stage=document.createElement('span');cell.append(stage);mounted.push(LoreSprites.mount(stage,r.id,context));const name=document.createElement('b');name.textContent=r.name;const info=document.createElement('small');info.textContent=r.family+' · '+r.rarity;cell.append(name,info);$('gallery').append(cell);}
+  mounted.forEach(renderer=>renderer.resize());
+ }
+ for(const id of ['species','context','backdrop','lowMemory'])$(id).addEventListener('change',()=>render());$('fallback').onclick=()=>render(true);window.addEventListener('resize',()=>render());render();globalThis.SpriteReview={render,dimensions};
+})();

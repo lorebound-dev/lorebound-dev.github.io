@@ -1,0 +1,14 @@
+/* Normalized derivatives retain the entire alpha frame; no CSS cropping or stretch. */
+.phase1-art{display:block;position:relative;width:100%;height:100%;background:none!important;overflow:visible}
+.phase1-art>img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important;object-position:var(--art-anchor-x,50%) var(--art-anchor-y,95%)!important;transform:translate(var(--art-offset-x,0%),var(--art-offset-y,0%)) scale(var(--art-scale,1))!important;transform-origin:var(--art-anchor-x,50%) var(--art-anchor-y,95%);image-rendering:auto!important}
+.phase1-host>.phase1-art{position:absolute;inset:0;width:100%;height:100%}
+.dock-art-stage .phase1-art{width:100%!important;height:100%!important;transform:none!important;inset:0!important}
+.handle-sprite>.phase1-art{width:100%;height:100%}
+.card-portrait-fit>.phase1-art,.detail-art .creature>.phase1-art{position:absolute;inset:0}
+/* Failed replacement downloads keep the original sprite fitted to the same host. */
+.phase1-art>.starter-sheet,.phase1-art>.companion-art{display:block;width:100%;height:100%}
+.phase1-art.reveal-unit{width:135px;height:155px;margin:20px auto}
+/* The legacy square portrait grid must not expand beyond a narrow Party frame. */
+.art-rebuild-preview #game .lore-card .dock-art-stage>.phase1-art{position:absolute;inset:0;aspect-ratio:auto;min-width:0;min-height:0;width:100%!important;height:100%!important}
+/* Companion art stays hidden until its picture is set, so its name (the alt text) never flashes in its place */
+img[data-phase1]:not([data-loaded]){visibility:hidden}

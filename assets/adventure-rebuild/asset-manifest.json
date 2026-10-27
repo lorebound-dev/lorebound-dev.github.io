@@ -1,0 +1,153 @@
+[
+  {
+    "file": "common-ambient.svg",
+    "bytes": 549,
+    "sha256": "4ff4da22af77537f8ec2aa57fc36425dba7a1a61f68f00d0805223d0304181f7"
+  },
+  {
+    "file": "common-backplate.webp",
+    "bytes": 68794,
+    "sha256": "766143c7e26269ddbbb477f494447058aec15431703614fe85f899efd40c6e32",
+    "dimensions": [
+      256,
+      512
+    ]
+  },
+  {
+    "file": "common-beasts.webp",
+    "bytes": 28194,
+    "sha256": "62cae095d33cbdc607e46a7cbea1621cc58da55ba31bc32b0be2ca3b2c7b6262",
+    "dimensions": [
+      192,
+      384
+    ]
+  },
+  {
+    "file": "common-constructs.webp",
+    "bytes": 34782,
+    "sha256": "04e19039afec372b97150a9db3fcafb5bda0832762e32f1957b171827f52d14d",
+    "dimensions": [
+      192,
+      384
+    ]
+  },
+  {
+    "file": "common-emblem.svg",
+    "bytes": 576,
+    "sha256": "65ae54ca899360fa7ba98e76302a261305bd1117f28f28a1d28a91563eadec0e"
+  },
+  {
+    "file": "common-frame.svg",
+    "bytes": 1483,
+    "sha256": "c46ed4cce2f41f94def994fa221dac2b7f753347c2cc20860885d79e9de7cb78"
+  },
+  {
+    "file": "common-mortals.webp",
+    "bytes": 35838,
+    "sha256": "0e80ea29464c9f6a85812bc893cced7fb9c6d099e5659090b8f2c08dcb3db796",
+    "dimensions": [
+      192,
+      384
+    ]
+  },
+  {
+    "file": "common-spirits.webp",
+    "bytes": 37514,
+    "sha256": "8c2aa433ef8d9b99a092b78e12058b8f33fff31bd97af108e435c20e698e5152",
+    "dimensions": [
+      192,
+      384
+    ]
+  },
+  {
+    "file": "common-wildgrowth.webp",
+    "bytes": 42380,
+    "sha256": "ba46fd635691a0685fa5fd00c19c29ab96656249755f8ecfbc9fa8f0ff7a1ca1",
+    "dimensions": [
+      192,
+      384
+    ]
+  },
+  {
+    "file": "dock-material.webp",
+    "bytes": 91172,
+    "sha256": "6a06250b06e2b65b5ce88ef545093ce6bf0dfd7b3be463b52dcb64fa24aafa1a",
+    "dimensions": [
+      768,
+      512
+    ]
+  },
+  {
+    "file": "habitat-motifs.svg",
+    "bytes": 1095,
+    "sha256": "b003a664e1413528dd14e8d7b974d5642e947c43f6facc4fa3c019376a0d08a7"
+  },
+  {
+    "file": "nav-active.svg",
+    "bytes": 508,
+    "sha256": "ca8475612b0976db899f4b273fd2e01e44c3cdcdb8f9956991a58e79945a5f96"
+  },
+  {
+    "file": "rare-ambient.svg",
+    "bytes": 851,
+    "sha256": "671fcb5b5f25d2ec872d23f37a12fed3f1646a790fc5bddca7281f1c76f8fbf3"
+  },
+  {
+    "file": "rare-backplate.webp",
+    "bytes": 73122,
+    "sha256": "3a782f80e4870ada855087171f1710a09d1f07e979bd0047d2d8d6e47fc90037",
+    "dimensions": [
+      256,
+      512
+    ]
+  },
+  {
+    "file": "rare-emblem.svg",
+    "bytes": 582,
+    "sha256": "f079e8378b10c4f0e39a23117c5c37976d7a914594b91c888099dd0bd8ed579a"
+  },
+  {
+    "file": "rare-frame.svg",
+    "bytes": 2003,
+    "sha256": "ce2d625c7a4b1f361c66a3f4c1add00c0747f5e28ea03d33707539273a94ba4a"
+  },
+  {
+    "file": "shell-corner.svg",
+    "bytes": 584,
+    "sha256": "107a145565031b73c98b7e9b6bdf3089f18b22c7de6f259a55689b34485c050a"
+  },
+  {
+    "file": "shell-crest.svg",
+    "bytes": 602,
+    "sha256": "b29088c440744f0be99fe8c373d922f7fa75bb859f2a9c7f813ba234056b05bc"
+  },
+  {
+    "file": "summon-sigil.svg",
+    "bytes": 392,
+    "sha256": "4c708f051b9023ba38ad5fa8ff24c1b289cd7daf74051dd48457363c9e24e79f"
+  },
+  {
+    "file": "uncommon-ambient.svg",
+    "bytes": 647,
+    "sha256": "5da0aabec4f2cde88617185330fb65b9d0ecf92cb2491dbc4de352e0c191af85"
+  },
+  {
+    "file": "uncommon-backplate.webp",
+    "bytes": 65382,
+    "sha256": "2bd14822021e37db0b6cff4996980bd40ec5e0db87c332bbbd3bba0ac21dfbae",
+    "dimensions": [
+      256,
+      512
+    ]
+  },
+  {
+    "file": "uncommon-emblem.svg",
+    "bytes": 567,
+    "sha256": "6ed656e7d7eee8230495f090ec69e86b9d7d66a56be0c2eeea523bb23545f642"
+  },
+  {
+    "file": "uncommon-frame.svg",
+    "bytes": 1831,
+    "sha256": "ce60359d15c09da818b3c8bc2ab139273c3db699755b2de1b6419ed20e552681"
+  }
+]

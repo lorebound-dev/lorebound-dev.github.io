@@ -1,0 +1,81 @@
+/* Party stays on its approved anchor; services reuse the existing menus and transactions. */
+.party-services #game .party-heading{font:bold 16px Georgia,serif!important;color:#f4dfb0;margin:0 auto 0 12px}
+.party-services #game #partyTraining{min-height:44px;padding:0 12px;color:#e7c98c;font:14px Georgia,serif!important;background:transparent;border:0;border-left:1px solid #b5965140}
+.party-services #game #dockPages{overflow:hidden;touch-action:pan-y}
+.party-services #game #dockPanel-party{width:100%;flex:0 0 100%}
+.party-services #game #autoAccess{grid-column:3;align-self:stretch;min-height:44px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;background:transparent;color:#efdcb7;font:15px Georgia,serif!important;padding:0 4px}
+.party-services #autoAccess small{font:var(--ui-label) Georgia,serif!important;color:#c5bbd8;white-space:nowrap;text-shadow:0 1px 2px #000}
+.party-services #game #autoAccess:focus-visible{outline:2px solid #f3d38c;outline-offset:-3px}
+.party-services .training-intro{padding:8px 0 12px;border-bottom:1px solid #a88c514d}
+.party-services .training-intro small{font:10px Georgia,serif!important;letter-spacing:1px;color:#c2aa7b}
+.party-services .training-intro h2{font:26px Georgia,serif!important;margin:7px 0;color:#f2ddb1}
+.party-services .training-intro p{font:14px/1.5 Georgia,serif!important;margin:0;color:#c1ccc9}
+.party-services #trainingSheet .permanent-upgrade{background:linear-gradient(125deg,#132b32d9,#071820e8);border:1px solid #af91524d;border-radius:4px;padding:14px 12px;gap:10px}
+.party-services #trainingSheet .permanent-upgrade h3{font:bold 17px/1.4 Georgia,serif!important;color:#f1d59b}
+.party-services #trainingSheet .permanent-upgrade p{font:13px/1.5 Georgia,serif!important;color:#bdcac7}
+.party-services #trainingSheet .upgrade-benefits{font:13px/1.5 Georgia,serif!important}
+.party-services #trainingSheet button[data-permanent-upgrade]{min-height:46px;font:15px Georgia,serif!important}
+.party-services #summonSettings,.party-services #autoSettingsSheet{background:linear-gradient(#0b202bed,#05131bf5),url('assets/battle-ruins-v3.png') center/cover;border:1px solid #b79a62;border-radius:8px;color:#e4dcc5;padding:16px;overflow:auto;overscroll-behavior:contain}
+.party-services #summonSettings{width:calc(100% - 20px);max-width:460px;height:min(760px,calc(100dvh - var(--adventure-safe-top) - var(--adventure-safe-bottom) - 16px))}
+.party-services #summonSettings header,.party-services #autoSettingsSheet header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.party-services #summonSettings h2,.party-services #autoSettingsSheet h2{font:22px Georgia,serif!important;color:#efdcab}
+.party-services #summonSettings header button,.party-services #autoSettingsSheet header button{min-height:44px;min-width:44px}
+.party-services #summonSettings button,.party-services #summonSettings select,.party-services #autoSettingsSheet button,.party-services #autoSettingsSheet select{min-height:44px}
+.party-services #libraryProgression{border-top:1px solid #a88c5155;margin-top:12px;padding-top:8px}
+.party-services #libraryRequirements{font:13px/1.6 Georgia,serif!important;color:#cbb7e3}
+.party-services #libraryProgressionOpen{width:100%;font:14px Georgia,serif!important;background:linear-gradient(#213d49,#102732);border:1px solid #9f8858;color:#f2dfb5;border-radius:3px}
+.party-services #autoSettingsSheet{width:calc(100% - 24px);max-width:420px;height:fit-content}
+.party-services #autoSettingsSheet .summon-check{min-height:44px;display:flex;align-items:center;gap:10px;font:14px/1.4 Georgia,serif!important}
+.party-services #autoSettingsSheet label,.party-services #autoSettingsSheet p{font:14px/1.5 Georgia,serif!important}
+.party-services #autoSettingsSheet .auto-entry-note{color:#c6b5dd;font-size:12px!important}
+.party-services #autoSettingsSheet .summon-save{font:15px Georgia,serif!important}
+.party-services #game #autoAccess span{font:15px Georgia,serif!important}
+.party-services #trainingSheet .armory-summary{display:none}
+.party-services #trainingSheet .permanent-upgrade{display:grid;grid-template-columns:30px minmax(0,1fr);align-items:start;padding:12px 10px}
+.party-services #trainingSheet .permanent-upgrade>svg{width:30px;height:34px;margin:0}
+.party-services #trainingSheet .permanent-upgrade>div{min-width:0}
+.party-services #trainingSheet .permanent-upgrade h3{margin:0 0 5px;font-size:16px!important}
+.party-services #trainingSheet .permanent-upgrade p{margin:0 0 8px;font-size:12px!important}
+.party-services #trainingSheet .upgrade-benefits{margin:0 0 8px}
+.party-services #trainingSheet .upgrade-benefits>div:nth-child(n+3){display:none}
+.party-services #trainingSheet .upgrade-benefits dd{font:12px/1.5 Georgia,serif!important}
+.party-services #summonSettings,.party-services #autoSettingsSheet{position:fixed;left:50%;right:auto;top:calc(var(--adventure-safe-top) + 8px);bottom:auto;transform:translateX(-50%);translate:none;margin:0;max-height:calc(100dvh - var(--adventure-safe-top) - var(--adventure-safe-bottom) - 16px)!important;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.party-services #summonSettings:not([open]),.party-services #autoSettingsSheet:not([open]){display:none}
+.party-services #summonSettings header,.party-services #autoSettingsSheet header{flex:none;margin:0;padding:0}
+.party-services #summonSettings header h2,.party-services #autoSettingsSheet header h2{margin:0}
+.party-services #libraryBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding-right:3px}
+.party-services #libraryProgression{flex:none;margin:0;padding:4px 0 0}
+.party-services #libraryRequirements{margin:4px 0 8px;font-size:12px!important;line-height:1.4!important}
+.party-services #summonSettings .tome-tier-cards button{padding:5px 2px;min-width:0}
+.party-services #summonSettings .tome-tier-cards b{font:14px Georgia,serif!important}
+.party-services #summonSettings .tome-overview-art{padding:8px 0}
+.party-services #summonSettings .tome-overview-art img{width:64px;height:64px}
+.party-services #summonSettings .tome-overview-art h3{font:18px Georgia,serif!important}
+.party-services #tomeOverview>p{font:12px/1.5 Georgia,serif!important;margin:7px 0}
+.party-services #autoSettingsSheet{height:min(660px,calc(100dvh - var(--adventure-safe-top) - var(--adventure-safe-bottom) - 16px))}
+.party-services #summonAutoPane{min-height:0;flex:1;overflow:auto;overscroll-behavior:contain}
+.party-services #autoSettingsSheet>.summon-save{flex:none;width:100%;margin:0;min-height:44px}
+.party-services #autoSettingsSheet .summon-check{padding:6px 0;margin:0}
+.party-services #game .party-heading{align-self:center}
+.party-services #trainingSheet{position:fixed;left:50%;top:calc(var(--adventure-safe-top) + 8px);right:auto;bottom:auto;transform:translateX(-50%);margin:0;width:calc(100% - 24px);max-width:440px;height:fit-content;max-height:calc(100dvh - var(--adventure-safe-top) - var(--adventure-safe-bottom) - 16px)!important;background:linear-gradient(#102731f5,#06161cf7);border:1px solid #b89b62;border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.party-services #trainingSheet:not([open]){display:none}
+#trainingSheet>header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none}
+#trainingSheet header small{font:10px/1.5 Georgia,serif!important;letter-spacing:1px;color:#c6af7e}
+#trainingTitle{font:24px Georgia,serif!important;color:#f2ddb1;margin:5px 0 0}
+#closeTraining{min-width:44px;min-height:44px;color:#e5c990;background:transparent;border:0;font-size:24px!important}
+#trainingContent{min-height:0;overflow:auto;overscroll-behavior:contain}
+.party-services #game #navArmory{opacity:.7;cursor:not-allowed}
+.nav-lock-label{display:block;font:9px/10px Georgia,serif!important;color:#c4aa7c;letter-spacing:.4px}
+.party-services #game #navArmory svg{height:24px}
+.party-services #game .town-services{padding:12px 4px}
+.town-services>p{font:16px/1.6 Georgia,serif!important;color:#d1d7c8}
+.town-services>button{position:relative;display:flex;flex-direction:column;gap:7px;width:100%;min-height:90px;text-align:left;margin:12px 0;padding:18px 32px 18px 16px;background:linear-gradient(120deg,#18343d,#081c27);border:1px solid #ad91585e;border-radius:4px;color:#efd6a3}
+.town-services b{font:20px Georgia,serif!important}.town-services span{font:13px/1.5 Georgia,serif!important;color:#b9c8c7}.town-services i{position:absolute;right:14px;top:32px;font:22px Georgia,serif!important}
+.party-services #destinationPage[data-area=town]>header{background:linear-gradient(#06182270,#061822c9),url('assets/battle-ruins-v3.png') center 20%/cover}
+.tome-level-label{font:13px Georgia,serif!important;color:#d7c29a;margin:14px 0 8px}
+.party-services #tomeTierCards [data-previewed=true]{border-color:#e6c889;box-shadow:inset 0 0 10px #d8b15b22}
+.party-services #tomeTierCards [aria-pressed=true] small{color:#ffe8b4}
+.party-services #game #navArmory{gap:0;padding-bottom:0}
+.party-services #game #navArmory svg{height:22px;flex-shrink:0}
+.party-services #game #navArmory>span{line-height:11px!important}
+#trainingSheet::backdrop{background:#020b17a8;backdrop-filter:blur(3px)}

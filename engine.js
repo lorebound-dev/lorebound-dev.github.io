@@ -1,0 +1,10 @@
+/* UI facade. All economy/combat rules live in realm1.js and data/realm1-config.js. */
+(function(root){'use strict';const R=root.LoreRealm||(typeof require==='function'?require('./realm1.js'):null),C=R.C;
+const STARTERS=C.companions.slice(0,3).map(h=>({name:h.name,type:h.category,sprite:h.sprite,hint:['Thorn guardian','Furnace beetle','Living lantern'][h.index],flavor:['A stubborn little seed with a very big future.','Small shell. Warm heart. Terrible table manners.','An old lantern with a spark of its own.'][h.index]}));
+const ENEMIES=['Root Crawler','Moss Ooze','Briar Beetle','Lantern Wraith','Mawcap Wanderer','Crawling Visage','Briar Troll','Hollow Warden','Overgrown Colossus'];
+function ensureProgress(s){s.masteries={summoning:s.summoning?.pulls+1||1};s.profile??={cover:0,portrait:s.starter};if(s.profile.cover!==0)s.profile.cover=0;if(s.profile.portrait!=='sigil'&&s.profile.portrait!==s.starter)s.profile.portrait=s.starter;return R.syncProgress(s);}
+function playerProgress(s){const n=Math.floor((Math.sqrt(9+.4*s.playerXp)-3)/2),base=10*n*(n+3);return {level:n+1,xp:s.playerXp-base,needed:40+20*n,total:s.playerXp};}
+function masteryProgress(s){const count=s.summoning.pulls+1,n=Math.floor((Math.sqrt(1+1.6*count)-1)/2),base=2.5*n*(n+1);return {level:n+1,count,progress:count-base,needed:5*(n+1)};}
+function step(s,seconds,rng=Math.random,onCombat=()=>{}){const r=R.advance(s,seconds,rng,onCombat);return r.events.find(e=>e.kind!=='kill')||r.events.at(-1)||null;}
+const api={...R,STARTERS,TYPES:C.categories,ENEMIES,BIOMES:['Mossbound Ruins'],ATTACK_INTERVAL:1,ATTACK_IMPACT:0,coverUnlocked:(s,i)=>i===0,ensureProgress,playerProgress,masteryProgress,worldFloor:s=>s.floor,dps:R.total,tapPower:s=>R.E.tapDamage*(root.LoreArmory?.effects(s).tap||1),step,weaponCost:()=>Infinity,weaponUp:()=>false,levelCost:()=>Infinity,levelUp:()=>false,resetAttack:s=>R.timers(s,true),reward:s=>({gold:R.goldReward(s),shards:0})};root.Lore=api;if(typeof module!=='undefined')module.exports=api;
+})(globalThis);

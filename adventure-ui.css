@@ -1,0 +1,126 @@
+/* Stage B adapters. All state and values still come from existing game handlers. */
+/* HUD: same row and four controls; thin, matching aged-metal frames. */
+.game .hud .ui-stat, .game .hud .ui-icon-button {
+  border: 1px solid var(--ui-metal); border-image: none; border-radius: 0;
+  background: var(--ui-surface) url('assets/pixel-surface.svg');
+  box-shadow: var(--ui-frame-shadow);
+}
+.game .hud { grid-template-columns: 44px minmax(0,1fr) minmax(0,1.05fr) minmax(0,1.15fr); }
+.game .hud .ui-stat { height: 44px; min-height: 44px; display: grid; grid-template-columns: 17px minmax(0,1fr); grid-template-rows: 18px 12px; align-content: center; align-items: center; gap: 2px 4px; padding: 4px; }
+.game .hud .ui-stat .ui-stat__copy { display: contents; }
+.game .hud .ui-stat .resource-emblem { grid-column: 1; grid-row: 1; width: 17px; height: 18px; margin: 0; }
+.game .hud .ui-stat b { font: bold 14px/1.1 Georgia,serif!important; letter-spacing: 0; color: var(--ui-text); overflow: visible; grid-column: 2; grid-row: 1; text-align: center; }
+.game .hud .ui-stat small { display: block; grid-column: 1 / -1; grid-row: 2; justify-self: center; margin: 0; font: 10px/12px Georgia,serif!important; letter-spacing: 0; color: #d2d9d7; white-space: nowrap; }
+.game .hud .ui-icon-button { padding: 1px; height: 44px; min-height: 44px; }
+.game .hud #playerLevel { border: 1px solid var(--ui-metal); background: var(--ui-ink); color: var(--ui-text); }
+/* Scene typography retains its established positions and space. */
+.game .location { text-shadow: 0 2px 2px #020910, 0 0 8px #020910; }
+.game .location .kicker { color: #efdcad; letter-spacing: .6px; }
+.game .location .kicker:before, .game .location .kicker:after { color: #c4a870; opacity: .8; }
+.game .location h1 { color: #fff0cd; }
+.game .enemy-info { text-shadow: 0 1px 2px #000,0 0 6px #020a15; }
+.game #enemyName { color: #f5e9cc; line-height: 1.25; }
+.game .enemy-info .ui-meter { border: 1px solid #bb9b63; border-image: none; height: 22px; background: #341619; box-shadow: inset 0 0 0 1px #07131f,0 1px 3px #020910; }
+.game .enemy-info .ui-meter > i { background: linear-gradient(#d85c34,#a22f21); border-top: 1px solid #f0ad6d66; }
+.game .enemy-info .ui-meter b { font: bold 12px/20px Georgia,serif!important; color: #fff0d1; }
+/* Cohesive compact journal shortcuts, no detached notification rectangle. */
+.game .ui-shortcut {
+  width: 58px; min-width: 44px; padding: 4px 2px; border: 1px solid #8b785677; border-image: none;
+  background: #081725e6; box-shadow: inset 0 0 0 1px #d6bb7c16,0 2px 3px #02091066;
+  color: var(--ui-text); border-radius: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 3px; text-shadow: 0 1px #000;
+}
+.game .ui-shortcut > img { width: 33px; height: 35px; object-fit: contain; image-rendering: pixelated; margin: 0; }
+.game .ui-shortcut > span:not(.ui-shortcut__badge) { font: 10px/1.1 Georgia,serif!important; letter-spacing: .2px; }
+.game .ui-shortcut #dexCompactCount { font: 11px/1.1 Georgia,serif!important; background: none; padding: 0; margin: 0; min-width: 0; }
+.game .ui-shortcut .dex-compact-track { width: 34px; height: 3px; margin: 0; background: #020b13; box-shadow: none; }
+.game .ui-shortcut .dex-compact-track > i { background: #9dbbb1; }
+.game .omnidex-button.ui-shortcut { min-height: 77px; }
+.game .journal-button.ui-shortcut { min-height: 67px; }
+.game .ui-shortcut.is-open { border-color: #d3b77d; background: #193340; box-shadow: inset 0 0 0 1px #d3b77d33; }
+.game .ui-shortcut.has-unseen { border-color: #b49ac3; }
+.game .ui-shortcut.has-rewards { border-color: #bb9959; }
+.game .ui-shortcut.has-unseen:after, .game .ui-shortcut.has-rewards:after, .game .ui-shortcut.has-progress:after { right: 3px; top: 3px; box-shadow: none; }
+.game .ui-shortcut__badge { display: none; }
+.game .has-rewards .ui-shortcut__badge {
+  display: block; width: calc(100% + 4px); margin: 0 0 -4px; padding: 3px 0;
+  border-top: 1px solid #b39758; background: #624c28; color: #fff0c3;
+  font: 10px/1.1 Georgia,serif!important; letter-spacing: .4px;
+}
+.game .ui-shortcut .quest-completion-notice {
+  position: absolute; width: 1px; height: 1px; min-width: 0; max-width: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+/* Boss readiness remains driven by actual kills, not the strength estimate. */
+.game .battle-panel .progress-row { color: #ecdfc0; text-shadow: 0 1px 2px #000,0 0 6px #020910; }
+.game .battle-panel .progress-row b { font-size: 12px!important; }
+.game #bossAvailability { color: #f0cf86; }
+.game #bossReadiness { display: none!important; }
+.game #bossButton.ui-button {
+  border: 2px solid #576674; border-image: none; border-radius: 0; height: 44px; min-height: 44px;
+  padding: 0 24px; background: #102231 url('assets/pixel-surface.svg'); color: #b6c0c5;
+  font: 14px/1.15 Georgia,serif!important; letter-spacing: .2px;
+  box-shadow: inset 0 0 0 1px #06121d,inset 0 0 0 2px #71808b33,0 2px 3px #02091099;
+  opacity: 1; animation: none;
+}
+.game #bossButton.ui-button.ready {
+  border-color: #e0b86b; color: #fff0c6; font-weight: bold!important;
+  background: linear-gradient(100deg,transparent 30%,#fff1bc66 50%,transparent 70%) 150% 0/250% 100% no-repeat,linear-gradient(#a57429,#704718);
+  box-shadow: inset 0 0 0 1px #4d3014,inset 0 0 0 2px #edce8b44,0 2px 4px #02091099;
+  text-shadow: 0 1px 2px #291a07; animation: none;
+}
+.game #bossButton.ui-button.ready:before,.game #bossButton.ui-button.ready:after { animation: none; filter: none; }
+.game #bossButton.ui-button.ready.boss-unlocked { animation: uiBossAwaken .8s ease-out; }
+@keyframes uiBossAwaken { 0% { filter: brightness(1.45); background-position:150% 0,0 0; } 100% { filter: none; background-position:-70% 0,0 0; } }
+/* Selected Tome and Auto share one contextual control. The approved book stays in place. */
+.game .ui-summon #tomeQuickAccess {
+  width: 100%; right: 0; border: 1px solid #9d80af; background: #101a2aef;
+  box-shadow: inset 0 0 0 1px #c498ea19; border-radius: 0; gap: 3px;
+}
+.game .ui-summon #tomeQuickAccess:after {
+  content: ''; position: absolute; left: calc(50% - 2px); bottom: -3px; width: 4px; height: 4px;
+  background: #b297c1; transform: rotate(45deg); pointer-events: none;
+}
+.game .ui-summon #quickTomeLabel { color: #f3e3ca; }
+.game .ui-summon #quickAutoState { color: #d0d2db; }
+.game .ui-summon .summon-portal { isolation: isolate; }
+.game .ui-summon .summon-portal:before {
+  content: ''; position: absolute; inset: auto 0 -2px; height: 36px; z-index: -1;
+  border: 1px solid #9d80af; background: #101a2aef; box-shadow: inset 0 0 0 1px #c498ea19;
+}
+.game .ui-summon .tome-action-label { color: #f3e3ca; font: bold 12px/1 Georgia,serif!important; letter-spacing: .6px; text-shadow: 0 1px #000; }
+.game .ui-summon .portal-caption { gap: 3px; color: #e4d1a6; font: 11px/1 Georgia,serif!important; }
+.game .ui-summon .portal-caption b, .game .ui-summon .portal-caption small { font: 11px/1 Georgia,serif!important; }
+.game .ui-summon .summon-portal[data-funded=false]:before { border-color: #69566b; }
+/* One navigation rail: thin perimeter, quiet dividers, one selected marker. */
+.game .ui-navigation {
+  box-sizing: border-box; height: calc(54px + env(safe-area-inset-bottom)); min-height: 54px;
+  border: 1px solid var(--ui-metal); border-image: none; border-radius: 0;
+  padding: 2px 2px max(3px,env(safe-area-inset-bottom)); margin: 0;
+  background: #081622 url('assets/pixel-surface.svg'); box-shadow: 0 -2px 8px #02091077,inset 0 1px #d1b87e22;
+}
+.game .ui-navigation button {
+  min-width: 0; min-height: 44px; padding: 1px 0 5px; gap: 2px; border: 0; border-right: 1px solid #b8a27522;
+  background: none; box-shadow: none; color: #c2c8c7; transition: transform 120ms,color 120ms,background-color 120ms;
+}
+.game .ui-navigation button:last-child { border-right: 0; }
+/* Override the legacy 65% parent opacity, rather than compensating with a glow. */
+.game .ui-navigation button:not(.active) { opacity: 1; color: #dedfce; }
+.game .ui-navigation button svg { width: 26px; height: 26px; filter: none; }
+.game .ui-navigation button span { color: inherit; font: 11px/1.1 Georgia,serif!important; letter-spacing: 0; }
+.game .ui-navigation button.active { background: #bda05813; color: #f1d99f; box-shadow: none; }
+.game .ui-navigation button.active svg { filter: none; }
+.game .ui-navigation button.active:after { height: 2px; width: 24px; bottom: 0; background: #d9b66b; box-shadow: none; }
+.game .ui-navigation button:active { transform: translateY(2px); }
+@media(max-width:350px) {
+  .game .hud { gap: 4px; grid-template-columns: 42px minmax(0,1fr) minmax(0,1.05fr) minmax(0,1.15fr); }
+  .game .hud .ui-stat { padding: 3px; grid-template-columns: 14px minmax(0,1fr); gap: 2px 3px; }
+  .game .hud .ui-stat b { font-size: 13px!important; }
+  .game .hud .ui-stat .resource-emblem { width: 14px; }
+  .game .ui-navigation button span { font-size: 10px!important; }
+  .game #bossButton.ui-button { font-size: 13px!important; padding-inline: 22px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .game #bossButton.ui-button,.game #bossButton.ui-button.ready.boss-unlocked { animation: none; transition: none; }
+  .game .ui-shortcut,.game .ui-summon .summon-book,.game .ui-navigation button { transition: none; }
+}

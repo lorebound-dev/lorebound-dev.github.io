@@ -1,0 +1,235 @@
+/* Phase 1.1: isolated presentation only. The imported game never loads this sheet. */
+.adventure-dock-preview {
+  --dock-ink:#071722; --dock-gold:#c4a66a; --dock-muted:#b8c4c4;
+  --adventure-safe-top:max(4px,var(--preview-safe-top,env(safe-area-inset-top,0px)));
+  --adventure-safe-bottom:var(--preview-safe-bottom,env(safe-area-inset-bottom,0px));
+}
+.adventure-dock-preview body {overflow:hidden;background:#020b12}
+.adventure-dock-preview #app {max-width:550px;height:100dvh}
+.adventure-dock-preview #game {
+  --dock-panel-height:clamp(112px,34vw,148px); --dock-rail-height:102px;
+  height:100dvh;min-height:0;padding:var(--adventure-safe-top) 0 0;overflow:hidden;
+  display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:56px minmax(0,1fr) auto var(--dock-rail-height) calc(58px + var(--adventure-safe-bottom));
+}
+.adventure-dock-preview #game:before {background:linear-gradient(#03101ad9,transparent 21%,#06131b00 52%,#06131b75 82%),url('assets/battle-ruins-v3.png') center top/auto 100%;filter:none}
+.adventure-dock-preview #game button {touch-action:manipulation}
+.adventure-dock-preview #game button:focus-visible {outline:2px solid #f1d695;outline-offset:-3px}
+/* One restrained HUD rail. Profile and level stay inside their touch target. */
+.adventure-dock-preview #game .hud {grid-row:1;grid-column:1;grid-template-columns:54px repeat(3,minmax(0,1fr));align-items:center;gap:0;margin:0 10px;padding:1px 0 5px;background:linear-gradient(#06141aeb,#071620d6);border-bottom:1px solid #ae955666}
+.adventure-dock-preview #game .hud .ui-stat {height:48px;min-height:44px;grid-template-columns:17px minmax(0,1fr);grid-template-rows:24px 14px;padding:4px 6px;border:0;border-right:1px solid #b99c5e33;background:none;box-shadow:none;gap:0 3px}
+.adventure-dock-preview #game .hud .ui-stat:last-child {border-right:0}
+.adventure-dock-preview #game .hud .ui-stat b {font:bold 17px/1.2 Georgia,serif!important;color:#f7e6bc}
+.adventure-dock-preview #game .hud .ui-stat small {font:11px/14px Georgia,serif!important;color:#c4c7b7}
+.adventure-dock-preview #game .hud .resource-emblem {width:17px;height:18px}
+.adventure-dock-preview #game .hud #profileButton {position:relative;width:48px;height:48px;min-width:44px;min-height:44px;padding:3px;border:1px solid #c5a364;border-image:none;border-radius:50%;background:radial-gradient(#17373e,#06131c);box-shadow:inset 0 0 0 2px #0b2029;overflow:visible}
+.adventure-dock-preview #game .hud #hudPortrait {position:relative;width:38px;height:38px;margin:0 auto;border-radius:50%;overflow:hidden}
+.adventure-dock-preview #game .hud #playerLevel {position:absolute;top:auto;bottom:-8px;left:50%;right:auto;translate:none;transform:translateX(-50%);width:max-content;height:17px;min-height:17px;max-height:17px;min-width:30px;padding:0 6px;border:1px solid #c6a063;border-radius:2px;white-space:nowrap;background:#07131b;font:var(--ui-label)/15px Georgia,serif!important;color:#ead7a7}
+.adventure-dock-preview #game .hud #playerLevel:before {content:'Lv. ';color:#bca675}
+/* The existing scene nodes and animation classes remain intact. */
+.adventure-dock-preview #game #combatLayout {grid-row:2;grid-column:1;position:relative;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:40px 44px minmax(0,1fr) 60px 56px;min-height:0;padding:0 0 10px}
+.adventure-dock-preview #game .location {grid-row:1;grid-column:1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 14px;padding:0;min-width:0;align-self:stretch}
+.adventure-dock-preview #game .location:before {inset:0 -14px;background:linear-gradient(#06131b80,#06131b18)}
+.adventure-dock-preview #game .location .kicker {font:14px/1.2 Georgia,serif!important;letter-spacing:0;color:#eee0bb;white-space:nowrap}
+.adventure-dock-preview #game .location .kicker:before,.adventure-dock-preview #game .location .kicker:after {content:none}
+.adventure-dock-preview #game .location h1 {font:18px/1.15 Georgia,serif!important;letter-spacing:.5px;margin:0;color:#ffedc4;white-space:nowrap}
+.adventure-dock-preview #game #floorMarkers,.adventure-dock-preview #game #powerGuide {display:none}
+.adventure-dock-preview #game .enemy-info {grid-row:2;grid-column:1;align-self:start;position:relative;inset:auto;transform:none;width:calc(100% - 108px);max-width:370px;margin:0 auto;padding:0;text-align:center;font:14px/18px Georgia,serif!important}
+.adventure-dock-preview #game #enemyName {font:14px/18px Georgia,serif!important;letter-spacing:.6px}
+.adventure-dock-preview #game .enemy-info:before {display:none}
+.adventure-dock-preview #game .enemy-info .health {height:19px;margin-top:4px;border:1px solid #d4b376;border-radius:2px;box-shadow:0 0 0 2px #06111d80}
+.adventure-dock-preview #game .enemy-info .health b {font:12px/17px Georgia,serif!important}
+.adventure-dock-preview #game #battlefield {grid-row:3;grid-column:1;position:relative;inset:auto;min-height:0;width:100%;height:100%;margin:0;padding:0;container-type:size}
+.adventure-dock-preview #game .enemy-sprite {--enemy-size:min(clamp(92px,15dvh,142px),100cqh);top:auto;bottom:0}
+.adventure-dock-preview #game .enemy-sprite.boss {--enemy-size:min(clamp(102px,17dvh,160px),100cqh)}
+.adventure-dock-preview #game #partyStage {grid-row:4;grid-column:1;position:relative;inset:auto;height:100%;min-height:0;margin:0 12px;pointer-events:none}
+.adventure-dock-preview #game #boundSprite {width:72px;height:72px;bottom:1px}
+.adventure-dock-preview #game .battle-follower {width:62px;height:62px;bottom:0}
+.adventure-dock-preview #game .battle-panel {grid-row:5;grid-column:1;align-self:end;position:relative;inset:auto;margin:0 14px;height:48px;padding:0;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 146px;align-items:center;gap:8px}
+.adventure-dock-preview #game .progress-row {display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;margin:0;padding:0}
+.adventure-dock-preview #game .progress-row #kills {font:12px/1.25 Georgia,serif!important;white-space:nowrap}
+.adventure-dock-preview #game #bossAvailability {font:12px/1.2 Georgia,serif!important;color:#d8c68e}
+.adventure-dock-preview #game #bossAvailability:before {content:none}
+.adventure-dock-preview #game #timer {position:static;inset:auto;width:auto;margin:0;padding:0;font:12px/1.2 Georgia,serif!important;color:#ffcf8b}
+.adventure-dock-preview #game #timer.urgent {color:#ffad9d}
+.adventure-dock-preview #game .progress-row:has(#timer:not([hidden])) #bossAvailability {display:none}
+.adventure-dock-preview #game #farmingState,.adventure-dock-preview #game #killLabel,.adventure-dock-preview #game #bossReadiness,.adventure-dock-preview #game #statusLine,.adventure-dock-preview #game .game-footer {display:none!important}
+.adventure-dock-preview #game #bossButton {height:44px;min-height:44px;min-width:0;padding:0 7px;border:1px solid #8a7a52;background:#091b24c9;color:#e2d7b8;box-shadow:inset 0 0 0 2px #071621;font:13px/1.25 Georgia,serif!important}
+.adventure-dock-preview #game #bossButton:before,.adventure-dock-preview #game #bossButton:after {display:none}
+.adventure-dock-preview #game #bossButton.ready {border-color:#e0bd76;background:linear-gradient(#87682e,#4e391d);color:#fff1c7}
+.adventure-dock-preview #game .dock-scene-shortcuts {position:absolute;inset:42px 9px auto;display:flex;justify-content:space-between;pointer-events:none}
+.adventure-dock-preview #game .dock-scene-shortcuts .ui-shortcut {position:relative!important;inset:auto!important;width:44px;min-width:44px;height:44px;min-height:44px!important;gap:0;padding:4px;border:1px solid #b69b6188;border-radius:3px;background:#091d29b9;box-shadow:inset 0 0 0 2px #07131e;pointer-events:auto}
+.adventure-dock-preview #game .dock-scene-shortcuts .ui-shortcut img {width:29px;height:32px}
+.adventure-dock-preview #game .dock-scene-shortcuts .ui-shortcut>span,.adventure-dock-preview #game .dock-scene-shortcuts .ui-shortcut>b,.adventure-dock-preview #game .dock-scene-shortcuts .ui-shortcut>i {display:none}
+.adventure-dock-preview #game #toast {position:absolute;inset:auto;top:calc(var(--adventure-safe-top) + 148px);left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 96px);margin:0;padding:6px 9px;border:1px solid #b9a16b88;border-radius:2px;background:#081a28e8;color:#e9dabb;box-shadow:0 3px 8px #0005;font:12px/1.3 Georgia,serif!important;text-align:center;pointer-events:none;z-index:60}
+.adventure-dock-preview #game .lower-deck {display:none}
+/* One continuous lower foundation, with a thin worn-gold seam rather than stacked boxes. */
+.adventure-dock-preview #game .adventure-deck {grid-row:3;grid-column:1;z-index:6;position:relative;min-width:0;height:calc(45px + var(--dock-panel-height));overflow:hidden;margin:0 6px;border:1px solid #ae925c;border-bottom:0;border-radius:18px 18px 0 0;background:radial-gradient(ellipse at 45% 0,#253b4366,transparent 70%),linear-gradient(#0d202ce8,#061621fa);box-shadow:0 -5px 18px #030d1750,inset 0 1px #e4ca8922;transition:height .28s cubic-bezier(.2,.7,.2,1)}
+.adventure-dock-preview #game .adventure-deck[data-panel=upgrades] {--dock-panel-height:144px}
+.adventure-dock-preview #game .adventure-deck[data-panel=tomes] {--dock-panel-height:min(224px,23dvh)}
+.adventure-dock-preview #game .dock-heading {height:44px;display:flex;align-items:stretch;padding:0 5px 0 8px;border-bottom:1px solid #ab955d44}
+.adventure-dock-preview #game .dock-tabs {display:flex;flex:1;min-width:0;gap:4px}
+.adventure-dock-preview #game .dock-tabs button {flex:1;min-width:0;min-height:44px;position:relative;padding:0 4px;border:0;background:none;box-shadow:none;color:#bbc7c6;font:14px/1.2 Georgia,serif!important}
+.adventure-dock-preview #game .dock-tabs button[aria-selected=true] {color:#ffe5aa;text-shadow:0 0 8px #e1b76b22}
+.adventure-dock-preview #game .dock-tabs button[aria-selected=true]:after {content:'';position:absolute;bottom:-1px;left:17%;right:17%;height:2px;background:linear-gradient(90deg,transparent,#e0bd76 20%,#e0bd76 80%,transparent)}
+.adventure-dock-preview #game #dockToggle {flex:0 0 44px;width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;gap:4px;padding:0;border:0;background:none;color:#ddc58e}
+.adventure-dock-preview #game #dockToggle span {font:22px/1 Georgia,serif!important}
+.adventure-dock-preview #game #dockToggle i {display:none}
+.adventure-dock-preview #game .dock-body {height:var(--dock-panel-height);overflow:hidden;opacity:1;transition:height .28s cubic-bezier(.2,.7,.2,1),opacity .18s}
+.adventure-dock-preview #game .dock-pages {width:100%;height:100%;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;touch-action:pan-x pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
+.adventure-dock-preview #game .dock-pages::-webkit-scrollbar {display:none}
+.adventure-dock-preview #game .dock-page {flex:0 0 100%;width:100%;min-width:0;height:100%;padding:8px 8px 10px;overflow-y:auto;scroll-snap-align:start;scroll-snap-stop:always;overscroll-behavior-y:contain}
+.adventure-dock-preview #game .dock-page img {pointer-events:none}
+/* Full names live in the original detail view; the portrait and honest DPS own each slot. */
+.adventure-dock-preview #game .dock-companions {height:100%;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.adventure-dock-preview #game .dock-companion {height:100%;min-width:0;min-height:80px;display:grid;grid-template-rows:minmax(0,1fr) 23px;gap:0;padding:2px 1px 0;border:3px solid transparent;border-image:url('assets/realm-frame.svg') 18 / 3px stretch;background:radial-gradient(ellipse at 50% 36%,#526c5633,transparent 75%),linear-gradient(#0f2a36,#081923);box-shadow:inset 0 0 0 1px #06121b;color:#f2e2bd;position:relative}
+.adventure-dock-preview #game .dock-art-stage {display:grid;place-items:center;min-width:0;min-height:0;padding:1px;overflow:hidden}
+.adventure-dock-preview #game .dock-portrait {position:relative;inset:auto;display:block;width:100%;height:100%;margin:0;image-rendering:pixelated}
+.adventure-dock-preview #game .dock-portrait.starter-sheet {height:auto;aspect-ratio:1;max-height:100%;background-repeat:no-repeat}
+.adventure-dock-preview #game .dock-portrait.companion-art img {display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 2px 1px #000)}
+.adventure-dock-preview #game .dock-dps {min-width:0;display:flex;align-items:center;justify-content:center;gap:3px;border-top:1px solid #a78b503f;background:linear-gradient(#07172088,#07121ad9);font:13px/1.2 Georgia,serif!important;color:#eae3c9;white-space:nowrap}
+.adventure-dock-preview #game .dock-dps b {font:bold 14px/1 Georgia,serif!important}
+.adventure-dock-preview #game .dock-dps small {font:var(--ui-label)/1 Georgia,serif!important;color:#b7c3bb}
+.adventure-dock-preview #game .dock-empty {display:grid;place-items:center;font:30px Georgia,serif!important;color:#a7956b}
+/* A 28px visual handle has a full 44px touch target, clear of both neighboring action rows. */
+.adventure-dock-preview #game #dockHandle {display:none}
+.adventure-dock-preview #game.dock-is-collapsed {--dock-rail-height:80px}
+.adventure-dock-preview #game.dock-is-collapsed .adventure-deck {height:28px;overflow:visible;margin-inline:6px;border:0;border-radius:0;background:linear-gradient(transparent,#071722d9);box-shadow:none}
+.adventure-dock-preview #game.dock-is-collapsed .dock-heading {display:none}
+.adventure-dock-preview #game.dock-is-collapsed .dock-body {height:0;opacity:0;pointer-events:none}
+.adventure-dock-preview #game.dock-is-collapsed #dockHandle {position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:calc(100% - 20px);max-width:348px;height:44px;min-height:44px;display:flex;align-items:center;justify-content:center;gap:13px;padding:8px 12px 2px;border:1px solid #ac925b;border-bottom:0;border-radius:15px 15px 0 0;background:linear-gradient(#102531f5,#071722);box-shadow:inset 0 1px #e0c78625;color:#f1d89e;overflow:visible}
+.adventure-dock-preview #game #dockHandleLabel {font:14px/1 Georgia,serif!important;min-width:48px}
+.adventure-dock-preview #game .handle-notch {position:absolute;top:-1px;left:calc(50% - 18px);width:36px;height:16px;display:grid;place-items:center;padding:0;border-top:1px solid #ac925b;border-radius:16px 16px 0 0;background:#10232f;color:#f1d89e;pointer-events:none;z-index:2}
+.adventure-dock-preview #game .handle-notch svg {display:block;width:22px;height:12px}
+.adventure-dock-preview #game #dockHandleRoster {display:flex;align-items:center;justify-content:center;gap:7px}
+.adventure-dock-preview #game .handle-sprite {display:grid;place-items:center;width:25px;height:25px}
+.adventure-dock-preview #game .handle-sprite>.starter-sheet {display:block;width:25px;height:25px;background-repeat:no-repeat}
+.adventure-dock-preview #game .handle-sprite>.companion-art {display:block;width:25px;height:25px}
+.adventure-dock-preview #game .handle-sprite img {width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+.adventure-dock-preview #game .handle-empty {color:#8b886e}
+/* Two real permanent upgrades, no illustrative third mechanic. */
+.adventure-dock-preview #game .dock-upgrade-rows {height:100%;display:grid;grid-template-rows:1fr 1fr}
+.adventure-dock-preview #game .dock-upgrade {display:grid;grid-template-columns:32px minmax(0,1fr) 92px;align-items:center;gap:8px;border-bottom:1px solid #a8915333;padding:4px 1px}
+.adventure-dock-preview #game .dock-upgrade:last-child {border:0}
+.adventure-dock-preview #game .dock-upgrade>svg {width:30px;height:34px}
+.adventure-dock-preview #game .dock-upgrade h3 {font:15px/1.3 Georgia,serif!important;margin:0 0 4px;color:#f0dfb7}
+.adventure-dock-preview #game .dock-upgrade h3 small {font:11px/1.2 Georgia,serif!important;color:#bba573;white-space:nowrap}
+.adventure-dock-preview #game .dock-upgrade p {font:12px/1.3 Georgia,serif!important;margin:0;color:#bbc8c5}
+.adventure-dock-preview #game .dock-upgrade button {min-width:0;min-height:44px;display:flex;align-items:center;justify-content:center;gap:4px;padding:4px;border:1px solid #a78e54;border-radius:3px;background:linear-gradient(#29413f,#112a2a);box-shadow:inset 0 0 0 2px #071923;color:#f1dfae;font:12px/1.3 Georgia,serif!important}
+.adventure-dock-preview #game .dock-upgrade button img {width:16px;height:16px}
+.adventure-dock-preview #game .dock-upgrade button span {font:13px/1.25 Georgia,serif!important}
+/* Existing tiers as readable rows; vertical scrolling belongs only to the list. */
+.adventure-dock-preview #game #dockPanel-tomes {display:flex;flex-direction:column;padding:0 8px}
+.adventure-dock-preview #game .dock-tome-scroll {flex:1;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;scrollbar-color:#8f7b51 transparent;touch-action:pan-x pan-y pinch-zoom}
+.adventure-dock-preview #game .dock-tome-choices {display:flex;flex-direction:column}
+.adventure-dock-preview #game .dock-tome-choices button {flex:none;min-width:0;min-height:56px;display:grid;grid-template-columns:45px minmax(0,1fr) 24px;align-items:center;gap:7px;padding:4px 6px;border:0;border-bottom:1px solid #ab955f30;background:none;box-shadow:none;text-align:left;color:#e5d7b5}
+.adventure-dock-preview #game .dock-tome-choices button[aria-pressed=true] {background:linear-gradient(90deg,#75509520,transparent);box-shadow:inset 2px 0 #b28ac5}
+.adventure-dock-preview #game .dock-tier-art {width:43px;height:43px;object-fit:contain;image-rendering:pixelated}
+.adventure-dock-preview #game .dock-tier-copy {display:flex;flex-direction:column;gap:4px}
+.adventure-dock-preview #game .dock-tier-copy b {font:15px/1.15 Georgia,serif!important;color:#f1dfb7}
+.adventure-dock-preview #game .dock-tier-copy small {font:12px/1.2 Georgia,serif!important;color:#bdc8ca}
+.adventure-dock-preview #game .dock-tier-state {font:21px/1 Georgia,serif!important;color:#cfb67b;text-align:center}
+.adventure-dock-preview #game .dock-lock {width:12px;height:15px}
+.adventure-dock-preview #game .dock-tome-choices button:disabled {opacity:.52;filter:saturate(.45)}
+.adventure-dock-preview #game .dock-tome-links {flex:0 0 44px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #b79b6544}
+.adventure-dock-preview #game .dock-tome-links button {min-height:44px;min-width:0;padding:0 5px;border:0;background:none;color:#d9c38e;font:13px/1.2 Georgia,serif!important}
+.adventure-dock-preview #game .dock-tome-links button:first-child {border-right:1px solid #a28c5030}
+.adventure-dock-preview #game .dock-tome-links button span {font:18px Georgia,serif!important;margin-left:4px}
+/* The approved Tome is the action, not a picture placed inside a rectangular web button. */
+.adventure-dock-preview #game #summonDock {grid-row:4;grid-column:1;position:relative;inset:auto;width:auto;height:var(--dock-rail-height);min-height:0;margin:0 6px;padding:7px 8px 4px;display:grid;grid-template-columns:70px minmax(0,1fr) 66px;gap:4px;border:1px solid #ae925c;border-top:1px solid #9b804a88;border-bottom:0;background:radial-gradient(ellipse at 50% 55%,#612f7850,transparent 60%),linear-gradient(90deg,#071722,#101a2a,#071722);z-index:6}
+.adventure-dock-preview #game #summonPortal {grid-column:2;grid-row:1;position:relative;inset:auto;width:100%;height:90px;min-height:44px;margin:0;padding:0 0 0 calc(50% + 28px);display:flex;align-items:center;justify-content:flex-start;border:0;border-image:none;border-radius:0;background:none;box-shadow:none;isolation:isolate;text-align:left}
+.adventure-dock-preview #game #summonPortal:before {content:'';position:absolute;inset:4px auto 5px calc(50% - 64px);width:88px;height:80px;border:0;border-radius:50%;background:radial-gradient(ellipse,#ad5bef3d,transparent 68%);box-shadow:none;z-index:-1}
+.adventure-dock-preview #game .summon-book {position:absolute;inset:2px auto auto calc(50% - 63px);width:84px;height:84px;background-position:center;background-size:contain;filter:drop-shadow(0 0 8px #aa5feb95);animation:bookIdle 4s ease-in-out infinite;pointer-events:none}
+.adventure-dock-preview #game .dock-summon-copy {position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+.adventure-dock-preview #game .tome-action-label {position:static;font:bold 16px/1.1 Georgia,serif!important;letter-spacing:.5px;color:#fff1dd;text-shadow:0 1px 3px #030914}
+.adventure-dock-preview #game .portal-caption {position:static;inset:auto;width:auto;height:auto;display:flex;align-items:center;justify-content:flex-start;gap:4px;white-space:nowrap}
+.adventure-dock-preview #game .portal-caption img {display:block;width:15px;height:15px}
+.adventure-dock-preview #game .portal-caption b,.adventure-dock-preview #game .portal-caption small {font:13px/1.2 Georgia,serif!important;color:#e6cf98}
+.adventure-dock-preview #game #tomeQuickAccess {grid-column:1;grid-row:1;position:relative;inset:auto;width:100%;height:90px;min-height:44px;padding:3px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;border-radius:0;background:none;box-shadow:none;color:#e4cd9a}
+.adventure-dock-preview #game #tomeQuickAccess:after {display:none}
+.adventure-dock-preview #game .dock-options-icon {order:0;display:block;height:25px}
+.adventure-dock-preview #game .dock-options-icon svg {width:25px;height:25px}
+.adventure-dock-preview #game .dock-tome-options {order:1;font:13px/1.2 Georgia,serif!important;color:#e0c795}
+.adventure-dock-preview #game .dock-tome-options span {display:none}
+.adventure-dock-preview #game #quickTomeLabel {order:2;font:var(--ui-label)/1.2 Georgia,serif!important;color:#aebcbf}
+.adventure-dock-preview #game #quickAutoState {display:none}
+.adventure-dock-preview #game #autoSummon.dock-auto-button {grid-column:3;grid-row:1;position:relative;inset:auto;width:100%;height:90px;min-height:44px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:11px;padding:0;border:0;border-radius:0;background:none;box-shadow:none;font:0/0 Georgia,serif!important;color:#e1d1ad}
+.adventure-dock-preview #game #autoSummon.dock-auto-button:before {content:'Auto';font:14px/1.2 Georgia,serif!important;color:#e3d4b6}
+.adventure-dock-preview #game #autoSummon.dock-auto-button:after {content:'';display:block;width:38px;height:22px;border:1px solid #77688c;border-radius:12px;background:radial-gradient(circle at 10px 10px,#d9dce8 0 7px,transparent 8px),#17222f;box-shadow:inset 0 1px 3px #0008}
+.adventure-dock-preview #game #autoSummon.dock-auto-button[aria-checked=true]:after {border-color:#c7a1f4;background:radial-gradient(circle at 26px 10px,#f0e6ff 0 7px,transparent 8px),#7049b0;box-shadow:0 0 6px #aa77e950,inset 0 1px 3px #0005}
+/* Original global navigation, visually joined to the rail and padded above the home indicator. */
+.adventure-dock-preview #game>.realm-navigation {grid-row:5;grid-column:1;position:relative;inset:auto;height:calc(58px + var(--adventure-safe-bottom));min-height:58px;margin:0 6px;padding:3px 3px calc(3px + var(--adventure-safe-bottom));border:1px solid #ae925c;border-top:1px solid #a88c5144;border-radius:0 0 14px 14px;background:linear-gradient(#081a25,#04111b);z-index:7}
+.adventure-dock-preview #game>.realm-navigation button {min-height:50px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;margin:0;padding:0 0 3px;border:0;background:none}
+.adventure-dock-preview #game>.realm-navigation button svg {width:28px;height:28px}
+.adventure-dock-preview #game>.realm-navigation button span {font:var(--ui-label)/14px Georgia,serif!important}
+.adventure-dock-preview #game>.realm-navigation button.active {background:radial-gradient(ellipse at 50% 95%,#bfa05a1a,transparent 70%);color:#f2d99e}
+.adventure-dock-preview #game>.realm-navigation button.active:after {bottom:0;width:28px;height:2px}
+.adventure-dock-preview #game.dock-is-collapsed .enemy-sprite {--enemy-size:min(clamp(115px,18dvh,168px),100cqh)}
+.adventure-dock-preview #game.dock-is-collapsed .enemy-sprite.boss {--enemy-size:min(clamp(125px,20dvh,185px),100cqh)}
+.adventure-dock-preview #game.dock-is-collapsed #summonDock {padding-top:9px;padding-bottom:5px}
+.adventure-dock-preview #game.dock-is-collapsed #summonPortal,.adventure-dock-preview #game.dock-is-collapsed #tomeQuickAccess,.adventure-dock-preview #game.dock-is-collapsed #autoSummon.dock-auto-button {height:64px}
+.adventure-dock-preview #game.dock-is-collapsed .summon-book {top:-6px;left:calc(50% - 57px);width:76px;height:76px}
+.adventure-dock-preview #game.dock-is-collapsed #summonPortal:before {top:-4px;left:calc(50% - 58px);width:78px;height:74px}
+.adventure-dock-preview #game.dock-is-collapsed .tome-action-label {font-size:15px!important}
+.adventure-dock-preview #game.dock-is-collapsed .portal-caption b,.adventure-dock-preview #game.dock-is-collapsed .portal-caption small {font-size:12px!important}
+.adventure-dock-preview #game.area-open {grid-template-rows:56px minmax(0,1fr) 0 0 calc(58px + var(--adventure-safe-bottom))}
+.adventure-dock-preview #game.area-open #combatLayout {visibility:hidden}
+.adventure-dock-preview #game.area-open #destinationPage {grid-row:2;min-height:0;margin:4px 10px 8px}
+.adventure-dock-preview #game.summon-active>.realm-navigation,.adventure-dock-preview #game.summon-active #adventureDeck,.adventure-dock-preview #game.summon-active #summonDock {visibility:hidden}
+.adventure-dock-preview #game #summonSheet {padding-top:max(18px,var(--adventure-safe-top));padding-bottom:max(20px,var(--adventure-safe-bottom))}
+.adventure-dock-preview dialog {max-height:calc(100dvh - var(--adventure-safe-top) - var(--adventure-safe-bottom) - 12px)!important}
+.adventure-dock-preview #tomeQuickSheet {height:min(710px,calc(100dvh - var(--adventure-safe-top) - var(--adventure-safe-bottom) - 12px));top:calc(var(--adventure-safe-top) + 6px);bottom:calc(var(--adventure-safe-bottom) + 6px)}
+@media(max-height:700px){
+  .adventure-dock-preview #game {--dock-panel-height:112px;--dock-rail-height:88px;grid-template-rows:48px minmax(0,1fr) auto var(--dock-rail-height) calc(58px + var(--adventure-safe-bottom))}
+  .adventure-dock-preview #game.dock-is-collapsed {--dock-rail-height:76px}
+  .adventure-dock-preview #game .hud {margin-inline:6px;padding-bottom:3px}
+  .adventure-dock-preview #game .hud .ui-stat {height:44px;grid-template-rows:21px 13px;padding:3px 4px}
+  .adventure-dock-preview #game .hud .ui-stat b {font-size:15px!important}
+  .adventure-dock-preview #game .hud .ui-stat small {font-size:10px!important}
+  .adventure-dock-preview #game .hud #profileButton {width:44px;height:44px}
+  .adventure-dock-preview #game #combatLayout {grid-template-rows:32px 36px minmax(0,1fr) 46px 52px;padding-bottom:9px}
+  .adventure-dock-preview #game .location .kicker {font-size:12px!important}
+  .adventure-dock-preview #game .location h1 {font-size:16px!important}
+  .adventure-dock-preview #game #enemyName {font-size:12px!important;line-height:15px!important}
+  .adventure-dock-preview #game .enemy-info .health {height:17px;margin-top:3px}
+  .adventure-dock-preview #game .enemy-info .health b {font-size:11px!important;line-height:15px!important}
+  .adventure-dock-preview #game .dock-scene-shortcuts {top:34px}
+  .adventure-dock-preview #game #boundSprite {width:54px;height:54px}
+  .adventure-dock-preview #game .battle-follower {width:47px;height:47px}
+  .adventure-dock-preview #game .battle-panel {margin-inline:10px;grid-template-columns:minmax(0,1fr) 130px;gap:4px}
+  .adventure-dock-preview #game .adventure-deck[data-panel=upgrades] {--dock-panel-height:116px}
+  .adventure-dock-preview #game .adventure-deck[data-panel=tomes] {--dock-panel-height:128px}
+  .adventure-dock-preview #game .dock-upgrade {grid-template-columns:24px minmax(0,1fr) 82px;gap:5px}
+  .adventure-dock-preview #game .dock-upgrade>svg {width:23px}
+  .adventure-dock-preview #game .dock-upgrade h3 {font-size:13px!important;margin-bottom:3px}
+  .adventure-dock-preview #game .dock-upgrade h3 small {font-size:10px!important}
+  .adventure-dock-preview #game .dock-upgrade p {font-size:11.5px!important}
+  .adventure-dock-preview #game #summonDock {height:var(--dock-rail-height);grid-template-columns:56px minmax(0,1fr) 54px;padding:5px 4px 2px;gap:2px}
+  .adventure-dock-preview #game #summonPortal {height:78px;padding-left:calc(50% + 20px)}
+  .adventure-dock-preview #game .summon-book {width:68px;height:74px;left:calc(50% - 54px);top:1px}
+  .adventure-dock-preview #game #summonPortal:before {width:72px;height:72px;left:calc(50% - 54px)}
+  .adventure-dock-preview #game .tome-action-label {font-size:14px!important;letter-spacing:.3px}
+  .adventure-dock-preview #game .portal-caption b,.adventure-dock-preview #game .portal-caption small {font-size:12px!important}
+  .adventure-dock-preview #game #tomeQuickAccess,.adventure-dock-preview #game #autoSummon.dock-auto-button {height:78px}
+  .adventure-dock-preview #game.dock-is-collapsed #summonPortal,.adventure-dock-preview #game.dock-is-collapsed #tomeQuickAccess,.adventure-dock-preview #game.dock-is-collapsed #autoSummon.dock-auto-button {height:60px}
+  .adventure-dock-preview #game.dock-is-collapsed .summon-book {top:-4px;left:calc(50% - 52px);width:68px;height:68px}
+  .adventure-dock-preview #game>.realm-navigation {height:calc(58px + var(--adventure-safe-bottom));min-height:58px;padding-top:2px;padding-bottom:calc(3px + var(--adventure-safe-bottom))}
+  .adventure-dock-preview #game>.realm-navigation button {min-height:48px}
+  .adventure-dock-preview #game>.realm-navigation button svg {width:26px;height:26px}
+  .adventure-dock-preview #game>.realm-navigation button span {font-size:var(--ui-label)!important}
+  .adventure-dock-preview #game.area-open {grid-template-rows:48px minmax(0,1fr) 0 0 calc(58px + var(--adventure-safe-bottom))}
+}
+@media(max-width:350px){
+  .adventure-dock-preview #game .hud {grid-template-columns:48px repeat(3,minmax(0,1fr))}
+  .adventure-dock-preview #game .hud .ui-stat {grid-template-columns:12px minmax(0,1fr);gap:0 1px;padding-inline:3px}
+  .adventure-dock-preview #game .hud .resource-emblem {width:13px;height:15px}
+  .adventure-dock-preview #game .hud .ui-stat b {font-size:14px!important}
+  .adventure-dock-preview #game .dock-page {padding-inline:5px}
+  .adventure-dock-preview #game .dock-companions {gap:3px}
+  .adventure-dock-preview #game .dock-dps {gap:2px}
+  .adventure-dock-preview #game .dock-dps b {font-size:13px!important}
+  .adventure-dock-preview #game .dock-dps small {font-size:var(--ui-label)!important}
+  .adventure-dock-preview #game .location {margin-inline:10px}
+  .adventure-dock-preview #game #dockHandleRoster {gap:3px}
+  .adventure-dock-preview #game #dockHandle {gap:7px}
+}
+@media(prefers-reduced-motion:reduce){.adventure-dock-preview #game .adventure-deck,.adventure-dock-preview #game .dock-body {transition:none}.adventure-dock-preview #game .summon-book {animation:none}}

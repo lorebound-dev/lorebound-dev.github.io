@@ -1,0 +1,24 @@
+/* Display-only finishing pass. Never edits approved PNG/WebP source pixels or geometry. */
+/* Grade the scenery layer alone: preserve warm highlights, reduce the washed-out midtones. */
+.adventure-dock-preview.art-rebuild-preview #game:before{
+ filter:brightness(.91) saturate(.92) contrast(1.06);
+ background-image:linear-gradient(#03111c45,transparent 21%,#06131b12 60%,#03121b40),var(--realm-background,url('assets/battle-ruins-v3.png'));
+}
+.adventure-dock-preview.art-rebuild-preview #game.boss-room:before{
+ filter:brightness(.93) saturate(.94) contrast(1.05);
+ background-image:linear-gradient(#020b1499,transparent 28%,#02101a12 66%,#020b14b0),var(--realm-background,url('assets/battle-ruins-v3.png'));
+}
+/* A small neutral lift belongs to battlefield portraits only, not Party or Discovery. */
+.adventure-refined #game #partyStage .phase1-art>img{filter:brightness(1.07) contrast(1.04)}
+.adventure-refined #game #enemySprite.realm-illustrated>img{filter:brightness(1.04) contrast(1.04)}
+/* Contact shadows use the derivative's 95% foot anchor; hovering species get a softer oval. */
+.adventure-refined #game #partyStage .phase1-host{isolation:isolate;filter:drop-shadow(0 0 1px #000d) drop-shadow(0 0 1px #000d) drop-shadow(0 5px 4px #000b)}
+.adventure-refined #game #partyStage .phase1-host:before{content:'';position:absolute;left:18%;right:18%;bottom:1%;height:10%;border-radius:50%;background:radial-gradient(ellipse,#020d15b8,transparent 72%);z-index:-1;pointer-events:none;filter:blur(1px)}
+.adventure-refined #game #partyStage .phase1-host[data-motion=hover]:before{left:24%;right:24%;height:8%;opacity:.65;filter:blur(2px)}
+.adventure-refined #game #enemySprite.realm-illustrated:before{content:'';position:absolute;left:19%;right:19%;bottom:1%;height:9%;border-radius:50%;background:radial-gradient(ellipse,#020d15c4,transparent 72%);pointer-events:none;filter:blur(2px);z-index:-1}
+.adventure-refined #game #enemySprite.realm-illustrated{isolation:isolate}
+/* Fighters stand out from the busy painted backgrounds: a thin dark outline and a grounded shadow. The hit flash keeps the outline. */
+.adventure-refined #game:not(.boss-room) .enemy-sprite{filter:drop-shadow(0 0 1px #000d) drop-shadow(0 0 1px #000d) drop-shadow(0 6px 5px #000b)}
+.adventure-refined #game:not(.boss-room) .enemy-sprite.struck{filter:brightness(1.18) drop-shadow(0 0 1px #000d) drop-shadow(0 0 1px #000d) drop-shadow(0 0 3px #d7c89b)}
+/* A soft dark pool behind the fight, so the fighters don't stand on the brightest part of the painting */
+.adventure-refined #game:not(.boss-room) #combatLayout:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 72% 26% at 50% calc(var(--court-y) - 34px),#020b12a6,#020b1259 45%,transparent 72%)}

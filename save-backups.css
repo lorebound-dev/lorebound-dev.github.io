@@ -1,0 +1,25 @@
+/* Isolated save/recovery controls. No battlefield or other menu restyling. */
+#openSaveBackups{display:block;width:calc(100% - 44px);min-height:44px;margin:24px 22px 28px;padding:10px 16px;border:1px solid #9d875d;background:#0c202b;color:#efdba8;font:inherit;cursor:pointer}
+#saveBackupsSheet{box-sizing:border-box;inset:0;margin:auto;width:min(94vw,480px);max-width:480px;height:auto;max-height:calc(100dvh - max(24px,env(safe-area-inset-top)) - max(24px,env(safe-area-inset-bottom)));padding:0;border:2px solid #ad9567;background:#0a1a27;color:#f1e2bd;overflow:hidden;font:16px/1.45 Georgia,serif}
+#saveBackupsSheet[open]{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start}
+#saveBackupsSheet::backdrop{background:#020912bd}
+#saveBackupsSheet .backup-heading{display:flex;flex-shrink:0;align-items:center;justify-content:space-between;gap:8px;padding:10px 14px;border-bottom:1px solid #786747;background:#0e2330}
+#saveBackupsSheet h2{margin:0;font-size:21px}#saveBackupsSheet h3{font-size:17px;margin:12px 0 8px}
+#saveBackupsSheet .backup-content{box-sizing:border-box;min-height:0;flex:1;max-height:calc(100dvh - 130px - env(safe-area-inset-top) - env(safe-area-inset-bottom));padding:12px 14px 20px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#saveBackupsSheet button{min-height:44px;padding:8px 12px;border:1px solid #a58d60;background:#12323b;color:#f5e4b8;font:inherit;cursor:pointer}
+#saveBackupsSheet button:disabled{opacity:.45;cursor:default}#saveBackupsSheet button:active{transform:translateY(1px)}
+#saveBackupsSheet .backup-heading button{min-width:44px;font-size:25px;padding:3px 8px}
+#saveBackupsSheet p{max-width:none;color:inherit;margin:8px 0;font-size:14px;line-height:1.5}
+#saveBackupsSheet label{display:block;font-size:14px;margin:8px 0}
+#saveBackupsSheet select,#saveBackupsSheet input{box-sizing:border-box;width:100%;max-width:100%;min-height:44px;margin-top:5px;padding:8px;border:1px solid #7d714f;background:#0b202b;color:#f2e2bf;font:14px Georgia,serif}
+#saveBackupsSheet select{overflow:hidden;text-overflow:ellipsis}#saveBackupsSheet option{color:#f2e2bf;background:#0b202b}
+#saveBackupsSheet .backup-actions{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+#saveBackupsSheet #backupPreview{border-top:1px solid #786747;border-bottom:1px solid #786747;padding:8px 0;margin:12px 0}
+#saveBackupsSheet #backupStatus{padding:10px;background:#102b36;overflow-wrap:anywhere;min-height:44px}
+#saveBackupsSheet #backupRecovery,#saveBackupsSheet #backupReplaceWarning{color:#f0c987}
+#saveBackupsSheet [hidden]{display:none!important}
+.backup-entry-link{position:fixed;left:16px;bottom:max(22px,env(safe-area-inset-bottom));z-index:6;padding:10px 12px;min-height:44px;box-sizing:border-box;color:#ead6a4;background:#081722d9;border:1px solid #88754f;font:14px Georgia,serif;text-decoration:none}
+/* Another tab already has the game open: show only the plain message and Reload game */
+#saveBackupsSheet.other-tab .backup-content>:not(#backupRecovery):not(:last-child),#saveBackupsSheet.other-tab #keepCurrentSave{display:none}
+#saveBackupsSheet.other-tab #backupRecovery{font:15px/1.5 Georgia,serif!important;text-transform:none;letter-spacing:normal}
+#saveBackupsSheet.other-tab{bottom:auto;top:max(24px,20dvh)}

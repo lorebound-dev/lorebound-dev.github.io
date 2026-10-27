@@ -1,0 +1,20 @@
+/* Provisional Realm 1 equipment. Pure transactions; persistence belongs to the shared writer. */
+(function(root){'use strict';
+const R=root.LoreRealm||(typeof require==='function'?require('./realm1.js'):null),SCHEMA='lorebound-ownership-6';
+const items=Object.freeze({weapon:{name:'Weapon',baseCost:40,step:.20,kind:'tap'},helmet:{name:'Helmet',baseCost:80,step:.005,kind:'critical chance'},chest:{name:'Chest armor',baseCost:80,step:.03,kind:'companion damage'},gloves:{name:'Gloves',baseCost:80,step:.02,kind:'attack rate'},boots:{name:'Boots',baseCost:60,step:.05,kind:'checkpoint farming Gold'}});
+const config=Object.freeze({version:1,provisional:true,costGrowth:1.55,tiers:{1:{name:'Realm 1 equipment',maxLevel:10}},criticalCap:R.E.critCap});
+const ledger=s=>(s.progress||s).armory,active=s=>ledger(s)?.version===1;
+const limit=config.tiers[1].maxLevel;
+const cost=(id,level)=>Object.hasOwn(items,id)&&Number.isInteger(level)&&level>=0&&level<limit?Math.ceil(items[id].baseCost*config.costGrowth**level):null;
+function valid(a){try{if(!a||a.version!==1||a.tier!==1||!/^[a-f0-9]{64}$/.test(a.sourceHash)||Object.keys(a.levels).sort().join()!==Object.keys(items).sort().join()||!Array.isArray(a.receipts)||a.receipts.length>50)return false;
+ const expected=[];let spent=0;for(const id of Object.keys(items)){const n=a.levels[id];if(!Number.isInteger(n)||n<0||n>limit)return false;for(let l=0;l<n;l++){expected.push(id+':'+(l+1));spent+=cost(id,l);}}
+ return a.spent===spent&&a.receipts.length===expected.length&&new Set(a.receipts.map(r=>r.id)).size===expected.length&&a.receipts.every(r=>expected.includes(r.id)&&r.gold===cost(r.id.split(':')[0],Number(r.id.split(':')[1])-1));}catch{return false;}}
+function effects(s){const l=active(s)?ledger(s).levels:{};return {tap:1+(l.weapon||0)*items.weapon.step,crit:(l.helmet||0)*items.helmet.step,damage:1+(l.chest||0)*items.chest.step,speed:1+(l.gloves||0)*items.gloves.step,gold:1+(l.boots||0)*items.boots.step};}
+function convert(input,sourceHash='0'.repeat(64)){const O=root.LoreOwnership;if(!O.validate(input)||!root.LoreStory.active(input))throw Error('A valid corrected-story save is required');const s=O.hydrate(JSON.parse(JSON.stringify(input)));if(active(s))return s;if(s.schema!=='lorebound-ownership-5'||s.progress.armory!==undefined||!/^[a-f0-9]{64}$/.test(sourceHash))throw Error('Conflicting equipment data; reconciliation required');s.progress.armory={version:1,tier:1,levels:Object.fromEntries(Object.keys(items).map(k=>[k,0])),receipts:[],spent:0,sourceHash};s.schema=SCHEMA;s.revision++;if(!O.validate(s))throw Error('Invalid Armory conversion');return s;}
+function offer(s,id){if(!active(s)||!Object.hasOwn(items,id))return null;const level=ledger(s).levels[id];return {id,level,next:level<limit?level+1:null,cost:cost(id,level),revision:s.revision};}
+function purchase(s,id,expected){const O=root.LoreOwnership;if(!O.validate(s))throw Error('Invalid save');const q=offer(s,id);if(!q||q.level!==expected?.level||q.revision!==expected?.revision||q.cost===null||s.gold<q.cost||s.mode==='boss')throw Error('Upgrade unavailable or offer changed');const out=O.hydrate(JSON.parse(JSON.stringify(s))),oldSpeed=effects(out).speed,a=ledger(out);out.gold-=q.cost;a.levels[id]++;a.receipts.push({id:id+':'+(q.level+1),gold:q.cost});a.spent+=q.cost;out.revision++;
+ if(id==='gloves'){const ratio=oldSpeed/effects(out).speed;for(const key of Object.keys(out.cooldowns))out.cooldowns[key]*=ratio;}R.timers(out);if(!O.validate(out))throw Error('Invalid equipment purchase');return out;}
+function farmingGold(s,base){const basisPoints=10000+Math.round(items.boots.step*10000)*(active(s)?ledger(s).levels.boots:0);return Math.floor(base*basisPoints/10000);}
+function benefit(id,level){if(id==='helmet')return '+'+(level*items.helmet.step*100).toFixed(1)+' percentage points crit';return '+'+Math.round(items[id].step*level*100)+'% '+items[id].kind;}
+root.LoreArmory={SCHEMA,config,items,ledger,active,cost,valid,effects,convert,offer,purchase,farmingGold,benefit};if(typeof module!=='undefined')module.exports=root.LoreArmory;
+})(globalThis);

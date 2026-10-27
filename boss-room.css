@@ -1,0 +1,59 @@
+/* Reuse the live battlefield and all approved sprite layers; no duplicate combat scene. */
+.adventure-refined #game.boss-room{display:block;--boss-court:clamp(320px,63dvh,610px)}
+.adventure-refined #game.boss-room>.hud,
+.adventure-refined #game.boss-room>#adventureDeck,
+.adventure-refined #game.boss-room>#summonDock,
+.adventure-refined #game.boss-room>.realm-navigation,
+.adventure-refined #game.boss-room .dock-scene-shortcuts,
+.adventure-refined #game.boss-room .location,
+.adventure-refined #game.boss-room .battle-panel{display:none!important}
+.adventure-refined #game.boss-room:before{background-image:linear-gradient(#020b14ad,transparent 26%,transparent 70%,#020b14bf),url('assets/battle-ruins-v3.png')}
+.adventure-refined #game.boss-room #combatLayout{position:absolute;inset:0;height:100%;padding:0;overflow:hidden}
+#bossRoomHeader{position:absolute;z-index:8;left:18px;right:18px;top:calc(var(--adventure-safe-top,0px) + 12px);display:flex;align-items:center;justify-content:space-between;gap:12px;color:#f7dfac}
+#bossRoomHeader[hidden],#bossRoomNote[hidden]{display:none}
+#bossRoomHeader small{font:10px/1.8 Georgia,serif;letter-spacing:2px;color:#cab58c}
+#bossRoomHeader h2{font:18px/1.3 Georgia,serif;margin:0}
+#bossFlee{min-width:64px;min-height:44px;border:1px solid #b89b60;border-radius:3px;background:#071923d9;color:#ead6ae;font:15px Georgia,serif}
+.adventure-refined #game.boss-room #battlefield{top:0;height:var(--boss-court);width:100%;overflow:visible}
+.adventure-refined #game.boss-room .enemy-sprite{--enemy-size:clamp(170px,28dvh,260px);bottom:8px;filter:drop-shadow(0 14px 9px #020e13a0)}
+.adventure-refined #game.boss-room .enemy-info{top:calc(var(--adventure-safe-top,0px) + 92px);bottom:auto;width:calc(100% - 48px)}
+.adventure-refined #game.boss-room #enemyName{font-size:20px!important;line-height:26px!important;letter-spacing:1px}
+.adventure-refined #game.boss-room .enemy-info .health{height:22px;margin-top:9px}
+.adventure-refined #game.boss-room .enemy-info .health b{font-size:12px!important;line-height:20px!important}
+.adventure-refined #game.boss-room #timer{position:absolute;top:calc(var(--adventure-safe-top,0px) + 158px);left:50%;translate:-50% 0;white-space:nowrap;font:18px Georgia,serif!important;color:#f7dfa6;background:#06151abf;padding:8px 15px;border-bottom:1px solid #b39458}
+.adventure-refined #game.boss-room #timer.urgent{color:#ffac94;border-color:#e78364}
+.adventure-refined #game.boss-room #partyStage{top:calc(var(--boss-court) + 35px);height:80px;margin:0 8px;left:0;right:0}
+.adventure-refined #game.boss-room #boundSprite,.adventure-refined #game.boss-room .battle-follower{width:clamp(58px,18vw,78px);height:clamp(58px,18vw,78px)}
+.adventure-refined #game.boss-room .individual-hit{top:calc(100% - 270px)!important}
+#bossRoomNote{position:absolute;bottom:calc(var(--adventure-safe-bottom,0px) + 24px);left:24px;right:24px;text-align:center;color:#e0d1ae;font:12px/1.6 Georgia,serif;text-shadow:0 2px 4px #000;pointer-events:none}
+#modal.boss-outcome{border-color:#b59a63;background:linear-gradient(#081a24ec,#06141bf5),url('assets/battle-ruins-v3.png') center/cover;text-align:center}
+#modal.boss-outcome #modalTitle{color:#ead3a3}
+@media(prefers-reduced-motion:no-preference){.boss-room #bossRoomHeader{animation:boss-room-arrival .45s ease-out}@keyframes boss-room-arrival{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}}
+@media(max-height:700px){.adventure-refined #game.boss-room{--boss-court:60dvh}.adventure-refined #game.boss-room .enemy-info{top:86px}.adventure-refined #game.boss-room #timer{top:152px}.adventure-refined #game.boss-room #enemyName{font-size:18px!important}}
+.adventure-refined #game.boss-room>:not(#combatLayout):not(#bossRoomHeader):not(#bossRoomNote){display:none!important}
+#bossRoomHeader h2,#bossRoomHeader small,#bossFlee,#bossRoomNote{font-family:Georgia,serif!important}
+/* Compact the existing first-clear summary without changing its reward transaction. */
+#modal.floor-victory{padding-top:68px;gap:5px}
+#modal.floor-victory .victory-crest{height:54px}
+#modal.floor-victory .victory-crest svg{width:52px;height:52px}
+#modal.floor-victory .victory-place{margin:4px 0 8px}
+#modal.boss-outcome{position:fixed;inset:0;width:calc(100% - 32px);max-width:390px;height:fit-content;min-height:0;margin:auto;padding:30px 22px;display:flex;flex-direction:column;gap:18px;border:1px solid #b59a63;border-radius:5px;box-shadow:0 14px 60px #000a}
+#modal.boss-outcome:not([open]){display:none}
+#modal.boss-outcome #modalKicker{font:11px/1.5 Georgia,serif!important;letter-spacing:2px;margin:0;color:#bda67b}
+#modal.boss-outcome #modalTitle{font:24px/1.3 Georgia,serif!important;margin:0}
+#modal.boss-outcome #modalText{font:15px/1.7 Georgia,serif!important;margin:0;color:#d3d7ce}
+#modal.boss-outcome #modalArt{display:none}
+#modal.boss-outcome #modalClose{position:static;transform:none;min-height:48px;width:100%;font:16px Georgia,serif!important;margin:4px 0 0}
+#modal.floor-victory{height:fit-content}
+/* Approved scene, focused polish: same anchor and aspect ratio. */
+.adventure-refined #game.boss-room .enemy-sprite{--enemy-size:clamp(180px,29dvh,272px);filter:drop-shadow(0 14px 8px #010c14cf) drop-shadow(0 0 15px #b49a5433)}
+#bossRoomHeader small{font-size:12px;letter-spacing:1.3px;color:#e4d1a4;text-shadow:0 2px 4px #00101a}
+#bossRoomNote{font-size:14px;line-height:1.6;color:#f0e2c5;background:radial-gradient(ellipse,#03121bc9,transparent 75%);padding:7px 0}
+.adventure-refined #game.boss-room .enemy-info{z-index:7;pointer-events:none}
+.adventure-refined #game.boss-room .enemy-info .health{border:1px solid #dab77a;box-shadow:0 0 0 2px #04121a,0 3px 9px #0008;background:#21131b}
+.adventure-refined #game.boss-room #healthFill{background:linear-gradient(#d67856,#9d342a 48%,#6b2427);box-shadow:inset 0 1px #f4b97788}
+.adventure-refined #game.boss-room #timer{z-index:8;border:1px solid #a48a58;border-radius:3px;background:linear-gradient(#122a32ef,#07161ff5);box-shadow:0 3px 10px #0008;font-variant-numeric:tabular-nums}
+.adventure-refined #game.boss-room .individual-hit{top:calc(100% - 105px)!important;z-index:4}
+.adventure-refined #game.boss-room #tapDamagePop,.adventure-refined #game.boss-room #tapRing{z-index:4}
+/* The boss size must not inherit the ordinary collapsed-dock enemy rule. */
+.adventure-refined #game.boss-room #enemySprite{--enemy-size:clamp(180px,29dvh,272px)}
