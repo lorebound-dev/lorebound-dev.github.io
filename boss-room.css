@@ -56,4 +56,7 @@
 .adventure-refined #game.boss-room .individual-hit{top:calc(100% - 105px)!important;z-index:4}
 .adventure-refined #game.boss-room #tapDamagePop,.adventure-refined #game.boss-room #tapRing{z-index:4}
 /* The boss size must not inherit the ordinary collapsed-dock enemy rule. */
-.adventure-refined #game.boss-room #enemySprite{--enemy-size:clamp(180px,29dvh,272px)}
+/* Guardians are drawn 40% larger (was clamp(180px,29dvh,272px)). A taller courtyard and a fit limit keep the art below the name, health bar and timer. */
+.adventure-refined #game.boss-room{--boss-court:clamp(340px,72dvh,640px)}
+@media(max-height:700px){.adventure-refined #game.boss-room{--boss-court:68dvh}}
+.adventure-refined #game.boss-room #enemySprite{--enemy-size:min(clamp(252px,40.6dvh,381px),94vw,calc(var(--boss-court) - 216px - var(--adventure-safe-top,0px)))}
