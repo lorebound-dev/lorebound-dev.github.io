@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-27T23:42:09.446Z",
+ "generatedAt": "2026-10-27T23:49:01.825Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-27T22:59:59Z",
@@ -347,6 +347,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-27T23:48:45Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Add Dev tools to the test site”"
+  },
+  {
    "at": "2026-10-27T23:41:27Z",
    "kind": "test",
    "text": "“Integrate completed Treasure Hall artwork for testing” went on the test site"
@@ -540,11 +545,6 @@
    "at": "2026-10-27T17:01:42Z",
    "kind": "asked",
    "text": "Noah started “Give the battle more room, and bring back Joshua's diamond pips”"
-  },
-  {
-   "at": "2026-10-27T16:52:17Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Agent docs for the GitHub setup, with Codex planning and Claude building”"
   }
  ],
  "otherPulls": [
