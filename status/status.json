@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-27T23:20:47.745Z",
+ "generatedAt": "2026-10-27T23:21:11.063Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-27T22:59:59Z",
@@ -15,13 +15,35 @@
  },
  "items": [
   {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "building",
+   "questions": false,
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "updatedAt": "2026-10-27T23:21:11Z",
+   "headSha": "33da31ef20d6fd48ddb6705c408becc8a24f0448",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "working",
+   "botAt": "2026-10-27T23:21:11Z"
+  },
+  {
    "number": 40,
    "kind": "request",
    "by": "Joshua",
    "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
    "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
    "stage": "building",
-   "questions": false,
+   "questions": true,
    "openedAt": "2026-10-27T21:56:04Z",
    "mergedAt": null,
    "closedAt": null,
@@ -29,12 +51,34 @@
    "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
-   "updatedAt": "2026-10-27T23:20:35Z",
+   "updatedAt": "2026-10-27T23:21:09Z",
    "headSha": "8fa5a60e8011cd4824bc02f544c8cbfb77d4ed48",
    "touchesGame": false,
    "requestStatus": "Waiting to be built",
+   "botState": "questions",
+   "botAt": "2026-10-27T23:21:09Z"
+  },
+  {
+   "number": 36,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate completed Treasure Hall artwork for testing",
+   "quote": "Ok can you push anything new using that setup? I want the treasure updates and assets to flow there for testing.",
+   "stage": "building",
+   "questions": false,
+   "openedAt": "2026-10-27T21:08:14Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-27T22:10:46Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "updatedAt": "2026-10-27T23:21:06Z",
+   "headSha": "82b9abcd515ecbd20adaa36bf4398f2881b163a0",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
    "botState": "working",
-   "botAt": "2026-10-27T23:20:35Z"
+   "botAt": "2026-10-27T23:21:06Z"
   },
   {
    "number": 37,
@@ -79,50 +123,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-27T22:41:35Z"
-  },
-  {
-   "number": 36,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate completed Treasure Hall artwork for testing",
-   "quote": "Ok can you push anything new using that setup? I want the treasure updates and assets to flow there for testing.",
-   "stage": "building",
-   "questions": false,
-   "openedAt": "2026-10-27T21:08:14Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-27T22:10:46Z",
-   "onTest": true,
-   "testIsCurrent": false,
-   "updatedAt": "2026-10-27T22:10:46Z",
-   "headSha": "82b9abcd515ecbd20adaa36bf4398f2881b163a0",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-27T21:40:59Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "building",
-   "questions": false,
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "updatedAt": "2026-10-27T21:41:34Z",
-   "headSha": "33da31ef20d6fd48ddb6705c408becc8a24f0448",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-27T21:41:34Z"
   },
   {
    "number": 33,
@@ -347,6 +347,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-27T23:21:09Z",
+   "kind": "question",
+   "text": "Claude has questions about “Party reordering, continuous Auto Summon and in-dock companion decisions”"
+  },
+  {
    "at": "2026-10-27T22:59:59Z",
    "kind": "live",
    "text": "“Show damage numbers over the enemy” is live in the game"
@@ -405,16 +410,6 @@
    "at": "2026-10-27T21:56:04Z",
    "kind": "asked",
    "text": "You asked for “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-27T21:41:34Z",
-   "kind": "built",
-   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
-  },
-  {
-   "at": "2026-10-27T21:40:59Z",
-   "kind": "built",
-   "text": "Claude finished building “Integrate completed Treasure Hall artwork for testing”"
   },
   {
    "at": "2026-10-27T21:22:11Z",
@@ -545,6 +540,11 @@
    "at": "2026-10-27T13:54:29Z",
    "kind": "approved",
    "text": "Noah approved “Polish the profile, Journal, Omnidex and party tray”"
+  },
+  {
+   "at": "2026-10-27T13:46:42Z",
+   "kind": "asked",
+   "text": "Noah started “Polish the profile, Journal, Omnidex and party tray”"
   }
  ],
  "otherPulls": [
