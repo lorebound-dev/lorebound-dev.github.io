@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-27T22:54:14.358Z",
+ "generatedAt": "2026-10-27T23:00:13.959Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-27T18:55:29Z",
@@ -14,6 +14,28 @@
   "title": "Integrate completed Treasure Hall artwork for testing"
  },
  "items": [
+  {
+   "number": 37,
+   "kind": "fix",
+   "by": "Noah",
+   "title": "Show damage numbers over the enemy",
+   "quote": "",
+   "stage": "going-live",
+   "questions": false,
+   "openedAt": "2026-10-27T21:14:02Z",
+   "mergedAt": "2026-10-27T22:59:57Z",
+   "closedAt": "2026-10-27T22:59:57Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "updatedAt": "2026-10-27T22:59:57Z",
+   "headSha": "cf5bae107b1f36dc6a45389f77c2f86a5c6386c2",
+   "touchesGame": true,
+   "requestStatus": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 44,
    "kind": "request",
@@ -101,28 +123,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-27T21:41:34Z"
-  },
-  {
-   "number": 37,
-   "kind": "fix",
-   "by": "Noah",
-   "title": "Show damage numbers over the enemy",
-   "quote": "",
-   "stage": "built",
-   "questions": false,
-   "openedAt": "2026-10-27T21:14:02Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "updatedAt": "2026-10-27T21:14:02Z",
-   "headSha": "cf5bae107b1f36dc6a45389f77c2f86a5c6386c2",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
   },
   {
    "number": 33,
@@ -347,6 +347,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-27T22:59:57Z",
+   "kind": "approved",
+   "text": "Noah approved “Show damage numbers over the enemy”"
+  },
+  {
    "at": "2026-10-27T22:53:57Z",
    "kind": "behind",
    "text": "Behind the scenes: “Add a status page for Joshua”"
@@ -540,11 +545,6 @@
    "at": "2026-10-27T13:54:29Z",
    "kind": "approved",
    "text": "Noah approved “Polish the profile, Journal, Omnidex and party tray”"
-  },
-  {
-   "at": "2026-10-27T13:46:42Z",
-   "kind": "asked",
-   "text": "Noah started “Polish the profile, Journal, Omnidex and party tray”"
   }
  ],
  "otherPulls": [
