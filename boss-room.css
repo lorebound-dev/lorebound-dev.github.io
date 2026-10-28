@@ -28,7 +28,7 @@
 #modal.boss-outcome{border-color:#b59a63;background:linear-gradient(#081a24ec,#06141bf5),url('assets/battle-ruins-v3.png') center/cover;text-align:center}
 #modal.boss-outcome #modalTitle{color:#ead3a3}
 @media(prefers-reduced-motion:no-preference){.boss-room #bossRoomHeader{animation:boss-room-arrival .45s ease-out}@keyframes boss-room-arrival{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}}
-@media(max-height:700px){.adventure-refined #game.boss-room{--boss-court:60dvh}.adventure-refined #game.boss-room .enemy-info{top:86px}.adventure-refined #game.boss-room #timer{top:174px}.adventure-refined #game.boss-room #enemyName{font-size:18px!important}}
+@media(max-height:700px){.adventure-refined #game.boss-room{--boss-court:60dvh}.adventure-refined #game.boss-room .enemy-info{top:86px}.adventure-refined #game.boss-room #timer{top:152px}.adventure-refined #game.boss-room #enemyName{font-size:18px!important}}
 .adventure-refined #game.boss-room>:not(#combatLayout):not(#bossRoomHeader):not(#bossRoomNote){display:none!important}
 #bossRoomHeader h2,#bossRoomHeader small,#bossFlee,#bossRoomNote{font-family:Georgia,serif!important}
 /* Compact the existing first-clear summary without changing its reward transaction. */
@@ -55,10 +55,4 @@
 .adventure-refined #game.boss-room .individual-hit{z-index:4}
 .adventure-refined #game.boss-room #tapDamagePop,.adventure-refined #game.boss-room #tapRing{z-index:4}
 /* The boss size must not inherit the ordinary collapsed-dock enemy rule. */
-/* Guardians aim for 1.96x their original clamp(180px,29dvh,272px). The art box hangs from just under the timer, so the guardian stands further back,
-   and is capped by the screen width and by the space down to 16px above the companions' row; it is never stretched or cropped. */
-.adventure-refined #game.boss-room{--boss-court:clamp(340px,72dvh,640px);--boss-top:calc(var(--adventure-safe-top,0px) + 203px)}
-/* Short screens: the guardian hangs just below the timer, which sits 22px lower than before so a boss name on two lines clears it,
-   and the companions' row stays clear of the note at the bottom. */
-@media(max-height:700px){.adventure-refined #game.boss-room{--boss-court:64dvh;--boss-top:219px}}
-.adventure-refined #game.boss-room :is(#enemySprite,#enemyGhost){--enemy-size:min(clamp(353px,56.8dvh,533px),calc(100vw - 16px),calc(var(--boss-court) + 19px - var(--boss-top)));top:var(--boss-top);bottom:auto;translate:-50% 0}
+.adventure-refined #game.boss-room #enemySprite{--enemy-size:clamp(180px,29dvh,272px)}

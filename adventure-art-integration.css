@@ -33,5 +33,5 @@
 #enemySprite.realm-illustrated>img,#enemyGhost.realm-illustrated>img{width:100%;height:100%;object-fit:contain;image-rendering:auto;pointer-events:none;display:block}
 #bossRoomHeader>div{min-width:0}#bossRoomTitle{font-size:clamp(17px,4.6vw,22px)!important;line-height:1.15!important;overflow-wrap:break-word}
 /* Short screens retain the five approved companion sizes; only the enemy fits its smaller stage. */
-.adventure-refined #game.art-short-court:not(.boss-room){--foe-base:4px}
-.adventure-refined #game.art-short-court:not(.boss-room):not(.endless-active){--foe-want:98px}
+.adventure-refined #game.art-short-court:not(.boss-room) .enemy-sprite{--enemy-size:70px;bottom:4px}
+.adventure-refined #game.art-short-court:not(.boss-room) .enemy-info{bottom:76px}
