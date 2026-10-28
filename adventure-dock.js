@@ -36,7 +36,7 @@
   }
   function refresh() {
     if (!mounted || !state) return;
-    const s = state, R = root.LoreRealm, key = JSON.stringify([s.party.slots, s.masteryCopies, s.progress?.armory, s.upgrades, s.owned, s.gold, s.shards, s.summoning.selected, s.summoning.unlocked]);
+    const s = state, R = root.LoreRealm, key = JSON.stringify([s.party.slots, s.masteryCopies, s.progress?.armory, s.upgrades, s.owned, s.gold, s.shards, s.summoning.selected, s.summoning.unlocked, s.essence, !!s.pending]);
     if (key === last || drag) return; last = key;
     const nextPartyKey = JSON.stringify([s.party.slots, s.masteryCopies, s.progress?.armory, s.upgrades, s.owned]);
     if (nextPartyKey !== partyKey) { partyKey = nextPartyKey; $('dockCompanions').innerHTML = s.party.slots.map((id, i) => {
@@ -45,6 +45,12 @@
     }).join('');
     for (const card of $('dockCompanions').querySelectorAll('.dock-companion:not(.is-empty)')) card.setAttribute('aria-describedby', 'dockReorderHint');
     $('dockHandleRoster').innerHTML = s.party.slots.map(id => {const h = id && R.species(id); return h ? '<span class="handle-sprite">' + root.LoreArt.portrait(h) + '</span>' : '<span class="handle-sprite handle-empty">·</span>';}).join(''); }
+    // A level badge glows green with an up arrow only while its next level can actually be bought.
+    if (s.version === 5) for (const card of $('dockCompanions').querySelectorAll('.dock-companion:not(.is-empty)')) {
+      const id = s.party.slots[Number(card.dataset.dockSlot)], ready = !!id && root.LoreOwnership.canLevel(s, id), label = card.dataset.label ??= card.getAttribute('aria-label');
+      card.querySelector('.dock-level')?.classList.toggle('can-level', ready);
+      card.setAttribute('aria-label', ready ? label + ' Level upgrade available.' : label);
+    }
     root.LoreOwnershipAdventure?.markDock?.();
   }
 
