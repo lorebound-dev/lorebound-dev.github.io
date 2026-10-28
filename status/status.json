@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T16:59:25.705Z",
+ "generatedAt": "2026-10-28T17:00:19.960Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T16:20:14Z",
+  "updatedAt": "2026-10-28T16:59:54Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -34,11 +34,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T16:20:15Z",
+   "testAt": "2026-10-28T16:59:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T16:20:15Z",
+   "updatedAt": "2026-10-28T16:59:54Z",
    "headSha": "5715ec90a156ce1080d85ad9293881e0e15608e8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -63,11 +63,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T16:20:15Z",
+   "testAt": "2026-10-28T16:59:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T16:20:15Z",
+   "updatedAt": "2026-10-28T16:59:54Z",
    "headSha": "9f229ee5ea5c5f06b757faff8bfcd1508094b2a6",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -100,11 +100,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T16:20:15Z",
+   "testAt": "2026-10-28T16:59:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T16:20:15Z",
+   "updatedAt": "2026-10-28T16:59:54Z",
    "headSha": "1fd5bc7afb5f58aa08e58e4611d1808f29543b81",
    "touchesGame": true,
    "requestStatus": "Waiting for answers",
@@ -129,11 +129,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T16:20:15Z",
+   "testAt": "2026-10-28T16:59:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T16:20:15Z",
+   "updatedAt": "2026-10-28T16:59:54Z",
    "headSha": "bc2e6088e6155e00f47d8a4c8f20142f79770126",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -153,11 +153,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T16:20:15Z",
+   "testAt": "2026-10-28T16:59:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T16:20:15Z",
+   "updatedAt": "2026-10-28T16:59:54Z",
    "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -182,11 +182,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T16:20:15Z",
+   "testAt": "2026-10-28T16:59:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T16:20:15Z",
+   "updatedAt": "2026-10-28T16:59:54Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -508,6 +508,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T16:59:54Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
    "at": "2026-10-28T16:59:04Z",
    "kind": "behind",
    "text": "Behind the scenes: “Fetch art: add a download mode for review art, mockups and handoffs”"
@@ -701,11 +706,6 @@
    "at": "2026-10-28T02:14:12Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
-  },
-  {
-   "at": "2026-10-28T02:13:44Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Only update requests that actually clash with main”"
   }
  ],
  "otherPulls": [
