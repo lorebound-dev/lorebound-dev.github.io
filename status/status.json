@@ -1,10 +1,10 @@
 {
- "generatedAt": "2026-10-28T18:04:00.350Z",
+ "generatedAt": "2026-10-28T18:04:28.037Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
-  "updatedAt": "2026-10-28T17:25:15Z",
+  "updatedAt": "2026-10-28T18:02:46Z",
   "latest": [
-   "Party reordering, continuous Auto Summon and in-dock companion decisions"
+   "Keep automatic combat running behind menus and other tabs"
   ]
  },
  "test": {
@@ -25,18 +25,18 @@
    "by": "Joshua",
    "title": "Keep automatic combat running behind menus and other tabs",
    "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
-   "stage": "going-live",
+   "stage": "live",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-10-28T00:41:06Z",
    "mergedAt": "2026-10-28T18:02:43Z",
    "closedAt": "2026-10-28T18:02:43Z",
-   "liveAt": null,
+   "liveAt": "2026-10-28T18:02:46Z",
    "testAt": "2026-10-28T18:01:27Z",
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T18:02:43Z",
+   "updatedAt": "2026-10-28T18:02:46Z",
    "headSha": "b60a97c3362658326cecbd3ac17c1f411b2fe219",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -472,6 +472,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T18:02:46Z",
+   "kind": "live",
+   "text": "“Keep automatic combat running behind menus and other tabs” is live in the game"
+  },
+  {
    "at": "2026-10-28T18:02:43Z",
    "kind": "approved",
    "text": "Noah approved “Keep automatic combat running behind menus and other tabs”"
@@ -665,11 +670,6 @@
    "at": "2026-10-28T03:21:40Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:21:02Z",
-   "kind": "built",
-   "text": "Claude finished building “Intro-style companion pages with shared type habitats and size/weight”"
   }
  ],
  "otherPulls": [
