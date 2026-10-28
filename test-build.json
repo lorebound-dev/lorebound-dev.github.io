@@ -9,7 +9,7 @@
     {
       "number": 40,
       "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-      "head": "9f229ee5ea5c5f06b757faff8bfcd1508094b2a6"
+      "head": "64ec39b5ba29775280582e90e5af941c3ecab811"
     },
     {
       "number": 44,
@@ -24,10 +24,10 @@
     {
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-      "head": "b445f4d02edbb43bc27fc70fc5d4c313ff10557e"
+      "head": "e74f80c7d1d03662e6ce18362eca6517d40818a0"
     }
   ],
   "skipped": [],
-  "commit": "f30843543d56357ce1a5305acf191143bb6826b6",
-  "at": "2026-10-28T17:17:38Z"
+  "commit": "3214299fe1d8a09bc1c08aa4c11d0d40e599f83c",
+  "at": "2026-10-28T17:25:35Z"
 }
