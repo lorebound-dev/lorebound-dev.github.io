@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T03:45:38.264Z",
+ "generatedAt": "2026-10-28T04:19:00.626Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -19,6 +19,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 60,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T04:18:38Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T04:18:38Z",
+   "headSha": "4fa72bd80adc829cb6a16e43542e941f8cece866",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 40,
    "kind": "request",
@@ -531,6 +555,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T04:18:38Z",
+   "kind": "asked",
+   "text": "You asked for “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
    "at": "2026-10-28T03:45:25Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
@@ -724,11 +753,6 @@
    "at": "2026-10-28T00:53:31Z",
    "kind": "asked",
    "text": "You asked for “Connect approved Drive artwork library and verify private developer staging”"
-  },
-  {
-   "at": "2026-10-28T00:52:07Z",
-   "kind": "test",
-   "text": "The test site was updated with “Keep automatic combat running behind menus and other tabs”"
   }
  ],
  "otherPulls": [
