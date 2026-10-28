@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T16:10:16.655Z",
+ "generatedAt": "2026-10-28T16:10:58.366Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -38,12 +38,12 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T16:03:58Z",
+   "updatedAt": "2026-10-28T16:10:33Z",
    "headSha": "c7372cb72112d0bd11fe1216736e6ffb2b175de9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T16:02:48Z"
+   "botState": "working",
+   "botAt": "2026-10-28T16:10:33Z"
   },
   {
    "number": 58,
@@ -508,11 +508,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   },
   {
-   "at": "2026-10-28T16:02:48Z",
-   "kind": "built",
-   "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
    "at": "2026-10-28T16:01:01Z",
    "kind": "built",
    "text": "Claude finished building “Build approved premium Treasure Hall after verified artwork retrieval”"
@@ -701,6 +696,11 @@
    "at": "2026-10-28T02:02:28Z",
    "kind": "behind",
    "text": "Behind the scenes: “Keep open requests up to date with main automatically”"
+  },
+  {
+   "at": "2026-10-28T01:59:31Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
   }
  ],
  "otherPulls": [
