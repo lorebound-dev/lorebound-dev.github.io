@@ -1,10 +1,10 @@
 {
- "generatedAt": "2026-10-28T18:28:26.843Z",
+ "generatedAt": "2026-10-28T18:29:38.482Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
-  "updatedAt": "2026-10-28T18:02:46Z",
+  "updatedAt": "2026-10-28T18:27:23Z",
   "latest": [
-   "Keep automatic combat running behind menus and other tabs"
+   "Intro-style companion pages with shared type habitats and size/weight"
   ]
  },
  "test": {
@@ -24,18 +24,18 @@
    "by": "Joshua",
    "title": "Intro-style companion pages with shared type habitats and size/weight",
    "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
-   "stage": "going-live",
+   "stage": "live",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-10-27T22:33:56Z",
    "mergedAt": "2026-10-28T18:27:19Z",
    "closedAt": "2026-10-28T18:27:19Z",
-   "liveAt": null,
+   "liveAt": "2026-10-28T18:27:23Z",
    "testAt": "2026-10-28T18:05:09Z",
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T18:27:19Z",
+   "updatedAt": "2026-10-28T18:27:23Z",
    "headSha": "7db1293e1df40983c10ee7d274d57466ad185b50",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -466,6 +466,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T18:27:23Z",
+   "kind": "live",
+   "text": "“Intro-style companion pages with shared type habitats and size/weight” is live in the game"
+  },
+  {
    "at": "2026-10-28T18:27:19Z",
    "kind": "approved",
    "text": "Noah approved “Intro-style companion pages with shared type habitats and size/weight”"
@@ -657,11 +662,6 @@
   },
   {
    "at": "2026-10-28T03:43:06Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:39:08Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
   }
