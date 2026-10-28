@@ -46,10 +46,7 @@ function validate(s){try{
  if(!records.length||!R.validate({...p,copies:records,party:{slots:[records[0].id,null,null,null,null]},masteryCopies:s.history,serial:Math.max(s.serial,records.length),essence:0,essenceSpent:0}))return false;
  for(const [id,r] of Object.entries(s.receipts))if(!/^[a-zA-Z0-9_-]{1,100}$/.test(id)||!known(r.speciesId)||!Number.isSafeInteger(r.cost)||r.cost<0||!['Gold','Lore Shards'].includes(r.currency)||(r.currency==='Lore Shards'&&r.cost!==1)||typeof r.settled!=='boolean'||(r.settled&&(!['recruit','replace','release'].includes(r.action)||!Number.isSafeInteger(r.credit)||r.credit<0)))return false;
  const unresolved=Object.entries(s.receipts).filter(([,r])=>!r.settled);if(unresolved.length!==(s.pending?1:0))return false;
- if(s.pending){const x=s.pending,r=s.receipts[x.drawId];if(!known(x.speciesId)||!s.history[x.speciesId]||!r||r.settled)return false;
-  // A companion swapped out of the party waits as the same draw's decision: its own record, never also active.
-  if(x.displaced===true){const n=Number(x.id.split('~')[1]);if(!x.id.startsWith(x.speciesId+'~')||!Number.isSafeInteger(n)||n<1||n>s.serial||s.owned.some(c=>c.id===x.id||c.speciesId===x.speciesId)||!Number.isSafeInteger(r.swaps)||r.swaps<1)return false;}
-  else if(x.displaced!==undefined||r.speciesId!==x.speciesId||x.id!==x.speciesId+'~'+s.serial)return false;}
+ if(s.pending){const x=s.pending;if(!known(x.speciesId)||!s.history[x.speciesId]||!s.receipts[x.drawId]||s.receipts[x.drawId].settled||s.receipts[x.drawId].speciesId!==x.speciesId||x.id!==x.speciesId+'~'+s.serial)return false;}
  return true;
  }catch{return false;}}
 function mastery(s,id){demand(known(id),'Unknown species');return R.mastery({masteryCopies:s.history},id);}
@@ -65,13 +62,9 @@ function draw(s,drawId,rng=Math.random,now=Date.now()){
 }
 function decide(s,drawId,action,replaceId){
  demand(validate(s),'Invalid ownership save');if(Number(drawId)<=s.receiptFloor||s.receipts[drawId]?.settled)return clone(s);
- demand(s.pending?.drawId===drawId,'No matching pending result');demand(['recruit','replace','swap','release'].includes(action),'Invalid companion decision');
+ demand(s.pending?.drawId===drawId,'No matching pending result');demand(['recruit','replace','release'].includes(action),'Invalid companion decision');
  const out=clone(s),incoming={id:s.pending.id,speciesId:s.pending.speciesId,createdAt:s.pending.createdAt,invested:rational(0)};let credit=0;
  if(action!=='release')demand(!out.owned.some(c=>c.speciesId===incoming.speciesId),'This species is already active; release the duplicate');
- // Swap: the incoming companion takes the slot with the approved investment transfer, and the companion it replaces
- // becomes this draw's next decision instead of being released. Its invested Essence has moved, so it waits with
- // none, and no release Essence is paid until it is actually released. The draw stays unsettled until then.
- if(action==='swap'){const i=out.owned.findIndex(c=>c.id===replaceId);demand(i>=0,'Choose an active companion');const old=out.owned[i];incoming.invested=transfer(old.invested,known(old.speciesId).rarity===known(incoming.speciesId).rarity);out.owned[i]=incoming;out.pending={drawId,id:old.id,speciesId:old.speciesId,createdAt:old.createdAt??old.at??0,displaced:true};out.receipts[drawId]={...out.receipts[drawId],swaps:(out.receipts[drawId].swaps||0)+1};out.revision++;R.syncProgress(hydrate(out));demand(validate(out),'Invalid swap result');return out;}
  if(action==='recruit'){demand(out.owned.length<5,'Party is full');out.owned.push(incoming);}
  if(action==='replace'){const i=out.owned.findIndex(c=>c.id===replaceId);demand(i>=0,'Choose an active companion');const old=out.owned[i];incoming.invested=transfer(old.invested,known(old.speciesId).rarity===known(incoming.speciesId).rarity);credit=salvage(old.speciesId);out.owned[i]=incoming;}
  if(action==='release')credit=salvage(incoming.speciesId);
@@ -91,7 +84,7 @@ function hydrate(s){if(s?.version!==5)return s;
  return s;
 }
 function replaceState(s,next){for(const k of Object.keys(s))delete s[k];Object.assign(s,next);return hydrate(s);}
-function result(s){if(!s.pending)return null;const p=s.pending,h=known(p.speciesId),r=s.receipts[p.drawId];return {ok:true,id:Number(p.drawId),drawId:p.drawId,itemId:p.id,species:h.index,rank:h.rank,rarity:h.rarity,name:h.name,type:h.category,isNew:!p.displaced&&(r.isNew??false),masteryUp:!p.displaced&&(r.masteryUp??false),displaced:!!p.displaced,copies:s.history[h.id],autoEquipped:false,cost:r.cost};}
+function result(s){if(!s.pending)return null;const p=s.pending,h=known(p.speciesId),r=s.receipts[p.drawId];return {ok:true,id:Number(p.drawId),drawId:p.drawId,itemId:p.id,species:h.index,rank:h.rank,rarity:h.rarity,name:h.name,type:h.category,isNew:r.isNew??false,masteryUp:r.masteryUp??false,copies:s.history[h.id],autoEquipped:false,cost:r.cost};}
 function pull(s,rng,now){try{const id=String(s.drawSequence+1),before={...s.history},next=draw(s,id,rng,now),h=known(next.pending.speciesId);next.receipts[id].isNew=!before[h.id];next.receipts[id].masteryUp=R.mastery({masteryCopies:next.history},h.id)>R.mastery({masteryCopies:before},h.id);replaceState(s,next);R.syncProgress(s);return result(s);}catch(e){return {ok:false,reason:e.message};}}
 const api={levelCost,leveling,buyLevel,hydrate,replaceState,result,pull,audit,preview,migrate,validate,rational,transfer,mastery,combat,draw,decide,salvage};root.LoreOwnership=api;if(typeof module!=='undefined')module.exports=api;
 })(globalThis);
