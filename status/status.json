@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T01:59:15.839Z",
+ "generatedAt": "2026-10-28T01:59:40.440Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T00:46:00Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T01:55:24Z",
+  "updatedAt": "2026-10-28T01:59:31Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -20,6 +20,35 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 50,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep automatic combat running behind menus and other tabs",
+   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
+    }
+   ],
+   "openedAt": "2026-10-28T00:41:06Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T01:59:31Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T01:59:31Z",
+   "headSha": "2eb9261350391530ef4e37d322043c81a56945ea",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T00:51:39Z"
+  },
   {
    "number": 40,
    "kind": "request",
@@ -33,11 +62,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:55:24Z",
+   "testAt": "2026-10-28T01:59:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:57:37Z",
+   "updatedAt": "2026-10-28T01:59:31Z",
    "headSha": "2b85ddc83c0bc46c43be95755c7bdc05cc3c601e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -57,45 +86,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:55:24Z",
+   "testAt": "2026-10-28T01:59:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:56:23Z",
+   "updatedAt": "2026-10-28T01:59:31Z",
    "headSha": "1b3f8c30a32440b037d9cddc1786730e91f7964f",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-28T01:56:23Z"
-  },
-  {
-   "number": 50,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Keep automatic combat running behind menus and other tabs",
-   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
-    }
-   ],
-   "openedAt": "2026-10-28T00:41:06Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T01:55:24Z",
-   "onTest": true,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T01:55:24Z",
-   "headSha": "2eb9261350391530ef4e37d322043c81a56945ea",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T00:51:39Z"
   },
   {
    "number": 44,
@@ -119,11 +119,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:55:24Z",
+   "testAt": "2026-10-28T01:59:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:55:24Z",
+   "updatedAt": "2026-10-28T01:59:31Z",
    "headSha": "e2c0dd2059e5a489a31446c182d05e3a45986aef",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -143,11 +143,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:55:24Z",
+   "testAt": "2026-10-28T01:59:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:55:24Z",
+   "updatedAt": "2026-10-28T01:59:31Z",
    "headSha": "cf0115fe9caaa4729ad865f0b3be85179de11f03",
    "touchesGame": true,
    "requestStatus": "",
@@ -502,6 +502,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T01:59:31Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
+  },
+  {
    "at": "2026-10-28T01:57:37Z",
    "kind": "built",
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
@@ -695,11 +700,6 @@
    "at": "2026-10-27T21:56:04Z",
    "kind": "asked",
    "text": "You asked for “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-27T21:22:11Z",
-   "kind": "asked",
-   "text": "You asked for “Lower battlefield characters and enlarge bosses by 40%”"
   }
  ],
  "otherPulls": [
