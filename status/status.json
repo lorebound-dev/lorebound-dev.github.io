@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T17:53:34.270Z",
+ "generatedAt": "2026-10-28T17:59:37.303Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T17:25:15Z",
@@ -119,18 +119,18 @@
    "by": "Joshua",
    "title": "Lower battlefield characters and enlarge bosses by 40%",
    "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "closed",
+   "stage": "built",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-10-27T21:22:11Z",
    "mergedAt": null,
-   "closedAt": "2026-10-28T17:51:57Z",
+   "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-28T17:44:36Z",
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:51:57Z",
+   "updatedAt": "2026-10-28T17:44:36Z",
    "headSha": "042824ee1023e749412855545f3a4a5413c6f1d9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -481,11 +481,6 @@
    "text": "The test site was updated with “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   },
   {
-   "at": "2026-10-28T17:51:57Z",
-   "kind": "closed",
-   "text": "“Lower battlefield characters and enlarge bosses by 40%” was closed"
-  },
-  {
    "at": "2026-10-28T17:51:55Z",
    "kind": "behind",
    "text": "Behind the scenes: “Let the request updater push workflow changes with its own key”"
@@ -674,6 +669,11 @@
    "at": "2026-10-28T03:21:02Z",
    "kind": "question",
    "text": "Part of “Intro-style companion pages with shared type habitats and size/weight” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-10-28T03:17:34Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
   }
  ],
  "otherPulls": [
