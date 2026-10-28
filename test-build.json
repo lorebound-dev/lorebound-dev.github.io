@@ -4,7 +4,7 @@
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "33da31ef20d6fd48ddb6705c408becc8a24f0448"
+      "head": "45d7729c839b41933740639e1c3b3d1d4980360b"
     },
     {
       "number": 40,
@@ -15,20 +15,24 @@
       "number": 50,
       "title": "Keep automatic combat running behind menus and other tabs",
       "head": "91608190807806a4878cbda9213dabbec7fd3b97"
+    },
+    {
+      "number": 54,
+      "title": "Replace nine companion sprites with Joshua's approved art",
+      "head": "cf0115fe9caaa4729ad865f0b3be85179de11f03"
     }
   ],
   "skipped": [
     {
       "number": 44,
       "title": "Intro-style companion pages with shared type habitats and size/weight",
-      "head": "61da39398232b810bde0da50219c142dfca26ec3",
+      "head": "e2c0dd2059e5a489a31446c182d05e3a45986aef",
       "files": [
-        "pocket-fortune/dist/home.html",
         "pocket-fortune/dist/summoning.js"
       ],
-      "with": "main"
+      "with": "others"
     }
   ],
-  "commit": "d55f35a13542a8fe115965d86dd82634cbae7b95",
-  "at": "2026-10-28T01:22:10Z"
+  "commit": "bcba5df7a32c365b2025b63a71874dfef6d07955",
+  "at": "2026-10-28T01:36:16Z"
 }

@@ -543,19 +543,19 @@
       "name": "Rustblade",
       "family": "Mortals",
       "rarity": "Uncommon",
-      "source": "art-production/realm-01-mossbound-ruins/species/rustblade/source_art_1254.png",
-      "sourceSha256": "89e7d434bb1fbe96a9007a5fa0f1dc1dffab85e88f53979a9797eef8a2f56aae",
-      "master": "art-production/realm-01-mossbound-ruins/species/rustblade/portrait_master_1024.png",
-      "masterSha256": "2f48ab8ee60f51e1853c10252d95cf01bfd30a021df66e3ebfb976b924e1bd8c",
+      "source": "sprites/R1-CMP-007_Rustblade_APPROVED.png",
+      "sourceSha256": "732ddcd1064a80a44c43475e27093d71ac5fdad391f152e8308fed065846ded5",
+      "master": "sprites/R1-CMP-007_Rustblade_APPROVED.png",
+      "masterSha256": "732ddcd1064a80a44c43475e27093d71ac5fdad391f152e8308fed065846ded5",
       "masterSize": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "visibleBounds": [
-        102,
-        116,
-        901,
-        922
+        44,
+        159,
+        1201,
+        1149
       ],
       "motion": "ground",
       "pivot": [
@@ -614,53 +614,54 @@
       },
       "variants": {
         "256": {
-          "src": "assets/realm1-approved/rustblade-256.webp",
-          "bytes": 64826,
-          "sha256": "9983b4fe811ae66d8d7c8055af36656adbdabd0eb149940aafc27a56d959695c",
+          "src": "assets/companions-v03/rustblade-256.webp",
+          "bytes": 61404,
+          "sha256": "f5fb5f5021f55c849effa2dcbcd34e2cb0d7c667751a5544ffd8cab84e8a06e7",
           "visibleBounds": [
-            102,
-            116,
-            901,
-            922
+            44,
+            159,
+            1201,
+            1149
           ],
           "width": 256,
           "height": 256,
-          "masterSha256": "2f48ab8ee60f51e1853c10252d95cf01bfd30a021df66e3ebfb976b924e1bd8c"
+          "masterSha256": "732ddcd1064a80a44c43475e27093d71ac5fdad391f152e8308fed065846ded5"
         },
         "768": {
-          "src": "assets/realm1-approved/rustblade-768.webp",
-          "bytes": 490100,
-          "sha256": "6dcdb852a7638f7806ba4011cb07220c6902b4587696f2dc640e084064b649d3",
+          "src": "assets/companions-v03/rustblade-768.webp",
+          "bytes": 418278,
+          "sha256": "40d005d8fdcec3c203f8f441e641fbe69d8428c9c93b9257a9c341febb6b335b",
           "visibleBounds": [
-            102,
-            116,
-            901,
-            922
+            44,
+            159,
+            1201,
+            1149
           ],
           "width": 768,
           "height": 768,
-          "masterSha256": "2f48ab8ee60f51e1853c10252d95cf01bfd30a021df66e3ebfb976b924e1bd8c"
+          "masterSha256": "732ddcd1064a80a44c43475e27093d71ac5fdad391f152e8308fed065846ded5"
         }
-      }
+      },
+      "artVersion": "v03"
     },
     "hollow-knight": {
       "id": "hollow-knight",
       "name": "Hollow Knight",
       "family": "Mortals",
       "rarity": "Rare",
-      "source": "art-production/realm-01-mossbound-ruins/species/hollow-knight/source_art_1254.png",
-      "sourceSha256": "4c2f1ef261e5d1eb42816833d4aaa1ab63804386d04a16ac9f055c8ef13030dd",
-      "master": "art-production/realm-01-mossbound-ruins/species/hollow-knight/portrait_master_1024.png",
-      "masterSha256": "5dd807d028f231c49570e1cb8162c3da589a2b676b789f54809c8f135fb14347",
+      "source": "sprites/R1-CMP-008_Hollow_Knight_APPROVED.png",
+      "sourceSha256": "7b1e4da8588a5d028a23d604db8729613ae459be7b706e94c70bbddb7dfed9bd",
+      "master": "sprites/R1-CMP-008_Hollow_Knight_APPROVED.png",
+      "masterSha256": "7b1e4da8588a5d028a23d604db8729613ae459be7b706e94c70bbddb7dfed9bd",
       "masterSize": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "visibleBounds": [
-        102,
-        108,
-        922,
-        922
+        41,
+        138,
+        1218,
+        1177
       ],
       "motion": "ground",
       "pivot": [
@@ -719,53 +720,54 @@
       },
       "variants": {
         "256": {
-          "src": "assets/realm1-approved/hollow-knight-256.webp",
-          "bytes": 90658,
-          "sha256": "785291fb96c95a565cb8fa1987c67c4d114b8cb3109878a4c436e1678258c422",
+          "src": "assets/companions-v03/hollow-knight-256.webp",
+          "bytes": 78076,
+          "sha256": "47fa16275f0989058ff817ca970bc90b4cd6c5077c4b2564bec05b0838883bf2",
           "visibleBounds": [
-            102,
-            108,
-            922,
-            922
+            41,
+            138,
+            1218,
+            1177
           ],
           "width": 256,
           "height": 256,
-          "masterSha256": "5dd807d028f231c49570e1cb8162c3da589a2b676b789f54809c8f135fb14347"
+          "masterSha256": "7b1e4da8588a5d028a23d604db8729613ae459be7b706e94c70bbddb7dfed9bd"
         },
         "768": {
-          "src": "assets/realm1-approved/hollow-knight-768.webp",
-          "bytes": 669978,
-          "sha256": "fac51d21926ea73ad2ab191767ed26dc1ffc83544a9e1cdd0c59ada4c2736d4d",
+          "src": "assets/companions-v03/hollow-knight-768.webp",
+          "bytes": 530164,
+          "sha256": "96988979c986e033dfa5a859481d7ff8a00692bab710885c424a4cd4dc02d88c",
           "visibleBounds": [
-            102,
-            108,
-            922,
-            922
+            41,
+            138,
+            1218,
+            1177
           ],
           "width": 768,
           "height": 768,
-          "masterSha256": "5dd807d028f231c49570e1cb8162c3da589a2b676b789f54809c8f135fb14347"
+          "masterSha256": "7b1e4da8588a5d028a23d604db8729613ae459be7b706e94c70bbddb7dfed9bd"
         }
-      }
+      },
+      "artVersion": "v03"
     },
     "gloom-bat": {
       "id": "gloom-bat",
       "name": "Gloom Bat",
       "family": "Beasts",
       "rarity": "Common",
-      "source": "art-production/realm-01-mossbound-ruins/species/gloom-bat/source_art_1402x1122.png",
-      "sourceSha256": "a778e5cf489dc0455b4a142a2deff8fcd0383723340de3a4be8042bab54dc685",
-      "master": "art-production/realm-01-mossbound-ruins/species/gloom-bat/portrait_master_1024.png",
-      "masterSha256": "00c0deac8e04345c302cdc3ad46c3acff795d4e6a681cc0c9865f4e50f75fe3e",
+      "source": "sprites/R1-CMP-009_Gloom_Bat_APPROVED.png",
+      "sourceSha256": "7d3d4a9fda93a8af404663311400a904a2599a7c974f19cf304ab26c42447262",
+      "master": "sprites/R1-CMP-009_Gloom_Bat_APPROVED.png",
+      "masterSha256": "7d3d4a9fda93a8af404663311400a904a2599a7c974f19cf304ab26c42447262",
       "masterSize": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "visibleBounds": [
-        120,
-        201,
-        904,
-        822
+        13,
+        163,
+        1254,
+        1022
       ],
       "motion": "hover",
       "pivot": [
@@ -824,53 +826,54 @@
       },
       "variants": {
         "256": {
-          "src": "assets/realm1-approved/gloom-bat-256.webp",
-          "bytes": 55834,
-          "sha256": "ae15d9c8426a10fa9ba5c1c448b1084327674ed260a6d199f17c032fdbeaef81",
+          "src": "assets/companions-v03/gloom-bat-256.webp",
+          "bytes": 47416,
+          "sha256": "5613b02951f6cf76b26a3f83b3eee45310c510ed67d14a30d0652ad47bca915b",
           "visibleBounds": [
-            120,
-            201,
-            904,
-            822
+            13,
+            163,
+            1254,
+            1022
           ],
           "width": 256,
           "height": 256,
-          "masterSha256": "00c0deac8e04345c302cdc3ad46c3acff795d4e6a681cc0c9865f4e50f75fe3e"
+          "masterSha256": "7d3d4a9fda93a8af404663311400a904a2599a7c974f19cf304ab26c42447262"
         },
         "768": {
-          "src": "assets/realm1-approved/gloom-bat-768.webp",
-          "bytes": 401608,
-          "sha256": "7f30f251c8120664c638b077b160b6aadeea16ac43b573be3b4fcfeb8e596199",
+          "src": "assets/companions-v03/gloom-bat-768.webp",
+          "bytes": 306968,
+          "sha256": "8b1adfb718d3896d8527cb95a4c6f17683b4d9b52dbfc2736423d44115b4ea8b",
           "visibleBounds": [
-            120,
-            201,
-            904,
-            822
+            13,
+            163,
+            1254,
+            1022
           ],
           "width": 768,
           "height": 768,
-          "masterSha256": "00c0deac8e04345c302cdc3ad46c3acff795d4e6a681cc0c9865f4e50f75fe3e"
+          "masterSha256": "7d3d4a9fda93a8af404663311400a904a2599a7c974f19cf304ab26c42447262"
         }
-      }
+      },
+      "artVersion": "v03"
     },
     "stoneback-toad": {
       "id": "stoneback-toad",
       "name": "Stoneback Toad",
       "family": "Beasts",
       "rarity": "Common",
-      "source": "art-production/realm-01-mossbound-ruins/species/stoneback-toad/source_art_1402x1122.png",
-      "sourceSha256": "bef1565071d37240092133c26c851ffe8abfe99c8c5e4a473c6309edd3cb1ae7",
-      "master": "art-production/realm-01-mossbound-ruins/species/stoneback-toad/portrait_master_1024.png",
-      "masterSha256": "b938bedfcd0b3c5696f160a264699d9627692f302e6cb3473974db9d351bf0d4",
+      "source": "sprites/R1-CMP-010_Stoneback_Toad_APPROVED.png",
+      "sourceSha256": "1594d321305a4a2333c835244702f353a29c35bd981d0ee0533df0e5b0ed7979",
+      "master": "sprites/R1-CMP-010_Stoneback_Toad_APPROVED.png",
+      "masterSha256": "1594d321305a4a2333c835244702f353a29c35bd981d0ee0533df0e5b0ed7979",
       "masterSize": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "visibleBounds": [
-        112,
-        192,
-        911,
-        831
+        19,
+        181,
+        1236,
+        1128
       ],
       "motion": "ground",
       "pivot": [
@@ -929,53 +932,54 @@
       },
       "variants": {
         "256": {
-          "src": "assets/realm1-approved/stoneback-toad-256.webp",
-          "bytes": 77578,
-          "sha256": "ce79bf65daf74a448698867cae4124688c3ed0d94b36987ad7c694777bc8ce9c",
+          "src": "assets/companions-v03/stoneback-toad-256.webp",
+          "bytes": 67308,
+          "sha256": "cd582bca176ff601bd71f8693e7ec48ad0fb8b9a3873a0dd8796007942f5abf8",
           "visibleBounds": [
-            112,
-            192,
-            911,
-            831
+            19,
+            181,
+            1236,
+            1128
           ],
           "width": 256,
           "height": 256,
-          "masterSha256": "b938bedfcd0b3c5696f160a264699d9627692f302e6cb3473974db9d351bf0d4"
+          "masterSha256": "1594d321305a4a2333c835244702f353a29c35bd981d0ee0533df0e5b0ed7979"
         },
         "768": {
-          "src": "assets/realm1-approved/stoneback-toad-768.webp",
-          "bytes": 545728,
-          "sha256": "5b085232ad8422efed466e68d845472f392afc9b4bc368c37fff4f318039cdd1",
+          "src": "assets/companions-v03/stoneback-toad-768.webp",
+          "bytes": 493390,
+          "sha256": "ac412d9cd76899cda71b8ee4edfa3062f928405fbfc2bbc909c856f9e9c185bd",
           "visibleBounds": [
-            112,
-            192,
-            911,
-            831
+            19,
+            181,
+            1236,
+            1128
           ],
           "width": 768,
           "height": 768,
-          "masterSha256": "b938bedfcd0b3c5696f160a264699d9627692f302e6cb3473974db9d351bf0d4"
+          "masterSha256": "1594d321305a4a2333c835244702f353a29c35bd981d0ee0533df0e5b0ed7979"
         }
-      }
+      },
+      "artVersion": "v03"
     },
     "cave-moth": {
       "id": "cave-moth",
       "name": "Cave Moth",
       "family": "Beasts",
       "rarity": "Uncommon",
-      "source": "art-production/realm-01-mossbound-ruins/species/cave-moth/source_art_1402x1122.png",
-      "sourceSha256": "7c8d96006a398193256f989f03e47f04953100fb1e2fa8aeccc115f712b7baf7",
-      "master": "art-production/realm-01-mossbound-ruins/species/cave-moth/portrait_master_1024.png",
-      "masterSha256": "51b395d3d5805962a04a419c22c756a3764a10af681f1b9b8d0beb798e53fb08",
+      "source": "sprites/R1-CMP-011_Cave_Moth_APPROVED.png",
+      "sourceSha256": "ec3f3c46bc67342737bb3014f50220e93f4792cc0b080129c123c8594a8a7693",
+      "master": "sprites/R1-CMP-011_Cave_Moth_APPROVED.png",
+      "masterSha256": "ec3f3c46bc67342737bb3014f50220e93f4792cc0b080129c123c8594a8a7693",
       "masterSize": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "visibleBounds": [
-        120,
-        200,
-        904,
-        824
+        117,
+        298,
+        1121,
+        1003
       ],
       "motion": "hover",
       "pivot": [
@@ -1034,53 +1038,54 @@
       },
       "variants": {
         "256": {
-          "src": "assets/realm1-approved/cave-moth-256.webp",
-          "bytes": 70796,
-          "sha256": "2ac8f2d6364ce666add0dfbe0ae4a75df6c408429275f402d740d105b79d7a19",
+          "src": "assets/companions-v03/cave-moth-256.webp",
+          "bytes": 56296,
+          "sha256": "4d6bfb5effcf18c0806e56c0d474d2acf4b27dd5a74d4f6bbfb72f73399fcf95",
           "visibleBounds": [
-            120,
-            200,
-            904,
-            824
+            117,
+            298,
+            1121,
+            1003
           ],
           "width": 256,
           "height": 256,
-          "masterSha256": "51b395d3d5805962a04a419c22c756a3764a10af681f1b9b8d0beb798e53fb08"
+          "masterSha256": "ec3f3c46bc67342737bb3014f50220e93f4792cc0b080129c123c8594a8a7693"
         },
         "768": {
-          "src": "assets/realm1-approved/cave-moth-768.webp",
-          "bytes": 504120,
-          "sha256": "f99230731d842765a27ecd934484aa75a1ed0eb3a049a8da7c53afa1dc654f9f",
+          "src": "assets/companions-v03/cave-moth-768.webp",
+          "bytes": 378302,
+          "sha256": "ebacdf5ddf3b0350f89cc90449e10583194922d36b2f7c197a432b5241bb7410",
           "visibleBounds": [
-            120,
-            200,
-            904,
-            824
+            117,
+            298,
+            1121,
+            1003
           ],
           "width": 768,
           "height": 768,
-          "masterSha256": "51b395d3d5805962a04a419c22c756a3764a10af681f1b9b8d0beb798e53fb08"
+          "masterSha256": "ec3f3c46bc67342737bb3014f50220e93f4792cc0b080129c123c8594a8a7693"
         }
-      }
+      },
+      "artVersion": "v03"
     },
     "moonveil-stag": {
       "id": "moonveil-stag",
       "name": "Moonveil Stag",
       "family": "Beasts",
       "rarity": "Rare",
-      "source": "art-production/realm-01-mossbound-ruins/species/moonveil-stag/source_art_1402x1122.png",
-      "sourceSha256": "fd1c459a2d1ab75fad77adbf34c7ec82d24e4009ad11846a8326d437291d3aaa",
-      "master": "art-production/realm-01-mossbound-ruins/species/moonveil-stag/portrait_master_1024.png",
-      "masterSha256": "043a7d0c50ae762c00327ac30e8f0a57f50d68fb28443d537e65fbc0aa92a339",
+      "source": "sprites/R1-CMP-012_Moonveil_Stag_APPROVED.png",
+      "sourceSha256": "5fce911e4186a80b03e8de29c365d7f30f9c0639482253452af089aa2a98e4d1",
+      "master": "sprites/R1-CMP-012_Moonveil_Stag_APPROVED.png",
+      "masterSha256": "5fce911e4186a80b03e8de29c365d7f30f9c0639482253452af089aa2a98e4d1",
       "masterSize": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "visibleBounds": [
-        112,
-        143,
-        911,
-        881
+        187,
+        219,
+        1078,
+        972
       ],
       "motion": "ground",
       "pivot": [
@@ -1139,53 +1144,54 @@
       },
       "variants": {
         "256": {
-          "src": "assets/realm1-approved/moonveil-stag-256.webp",
-          "bytes": 55616,
-          "sha256": "2de338ebfc24f42e708a7bf016cfb19008bf11fa6b9446b32cc99d0c62d54fab",
+          "src": "assets/companions-v03/moonveil-stag-256.webp",
+          "bytes": 73454,
+          "sha256": "d1a0a99cbe3f1f6d73c1c60d71a7d694becc937e3d4d6aebec33c81fbb4b9021",
           "visibleBounds": [
-            112,
-            143,
-            911,
-            881
+            187,
+            219,
+            1078,
+            972
           ],
           "width": 256,
           "height": 256,
-          "masterSha256": "043a7d0c50ae762c00327ac30e8f0a57f50d68fb28443d537e65fbc0aa92a339"
+          "masterSha256": "5fce911e4186a80b03e8de29c365d7f30f9c0639482253452af089aa2a98e4d1"
         },
         "768": {
-          "src": "assets/realm1-approved/moonveil-stag-768.webp",
-          "bytes": 385954,
-          "sha256": "a554ade3d8d31570ca5be71a9c06614435c36ef4d01bb33f448ebd5771c592f6",
+          "src": "assets/companions-v03/moonveil-stag-768.webp",
+          "bytes": 498212,
+          "sha256": "65232fb5c0f73679ea3b22731c89830c22b893bb7bf4d70e2dc4cad422a5435a",
           "visibleBounds": [
-            112,
-            143,
-            911,
-            881
+            187,
+            219,
+            1078,
+            972
           ],
           "width": 768,
           "height": 768,
-          "masterSha256": "043a7d0c50ae762c00327ac30e8f0a57f50d68fb28443d537e65fbc0aa92a339"
+          "masterSha256": "5fce911e4186a80b03e8de29c365d7f30f9c0639482253452af089aa2a98e4d1"
         }
-      }
+      },
+      "artVersion": "v03"
     },
     "soot-sprite": {
       "id": "soot-sprite",
       "name": "Soot Sprite",
       "family": "Spirits",
       "rarity": "Common",
-      "source": "art-production/realm-01-mossbound-ruins/species/soot-sprite/source_art_1402x1122.png",
-      "sourceSha256": "08e594833c4be3ba0df6b93699d470698b29dbd4d682a8dee94dc239eceac8f7",
-      "master": "art-production/realm-01-mossbound-ruins/species/soot-sprite/portrait_master_1024.png",
-      "masterSha256": "9c410843e116e7aa15620e459c7dc2bab3b9cc68769833ed59a90e6b853023ac",
+      "source": "Last_Three_Combined_Approved_Source.png",
+      "sourceSha256": "88282bfe4652a17b3377a56e3ec24bf2287ce2c5bcc01f996494d512d63feed2",
+      "master": "sprites/R1-CMP-013_Soot_Sprite_APPROVED.png",
+      "masterSha256": "f5b39c4604026932f7650ed015ce2818a65ecc1cc8d0f30b4232d8f26ae454ea",
       "masterSize": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "visibleBounds": [
-        114,
-        177,
-        911,
-        847
+        291,
+        306,
+        957,
+        921
       ],
       "motion": "hover",
       "pivot": [
@@ -1244,53 +1250,54 @@
       },
       "variants": {
         "256": {
-          "src": "assets/realm1-approved/soot-sprite-256.webp",
-          "bytes": 50790,
-          "sha256": "84b2bf1229be84b3b16c8bac98704827fd29d19f7504d92e33d3acffb6c0fddf",
+          "src": "assets/companions-v03/soot-sprite-256.webp",
+          "bytes": 74536,
+          "sha256": "0594aadc1d0d44b8b2c9cee8c11d368904d7446cd9f00116cd97ae1aa580ae3e",
           "visibleBounds": [
-            114,
-            177,
-            911,
-            847
+            291,
+            306,
+            957,
+            921
           ],
           "width": 256,
           "height": 256,
-          "masterSha256": "9c410843e116e7aa15620e459c7dc2bab3b9cc68769833ed59a90e6b853023ac"
+          "masterSha256": "f5b39c4604026932f7650ed015ce2818a65ecc1cc8d0f30b4232d8f26ae454ea"
         },
         "768": {
-          "src": "assets/realm1-approved/soot-sprite-768.webp",
-          "bytes": 335174,
-          "sha256": "689bebb1d3c0b826fd7ace140db1eec98ad04743d197351fa0fa747ad33e5eff",
+          "src": "assets/companions-v03/soot-sprite-768.webp",
+          "bytes": 474010,
+          "sha256": "011c5125168d791931b7a686081addd689d895f9cf5ab9ef647c239a722743e1",
           "visibleBounds": [
-            114,
-            177,
-            911,
-            847
+            291,
+            306,
+            957,
+            921
           ],
           "width": 768,
           "height": 768,
-          "masterSha256": "9c410843e116e7aa15620e459c7dc2bab3b9cc68769833ed59a90e6b853023ac"
+          "masterSha256": "f5b39c4604026932f7650ed015ce2818a65ecc1cc8d0f30b4232d8f26ae454ea"
         }
-      }
+      },
+      "artVersion": "v03"
     },
     "wick-wisp": {
       "id": "wick-wisp",
       "name": "Wick Wisp",
       "family": "Spirits",
       "rarity": "Common",
-      "source": "art-production/realm-01-mossbound-ruins/species/wick-wisp/source_art_1402x1122.png",
-      "sourceSha256": "743e427de333a5bff2deee2b998ee22cbc21be2b69b4e3c2c74785ce78a0445e",
-      "master": "art-production/realm-01-mossbound-ruins/species/wick-wisp/portrait_master_1024.png",
-      "masterSha256": "531f12bbd5a263b2ca240e3ccdcdd21ef78bf93f8ea4dcb9b941c56d56caa075",
+      "source": "Last_Three_Combined_Approved_Source.png",
+      "sourceSha256": "88282bfe4652a17b3377a56e3ec24bf2287ce2c5bcc01f996494d512d63feed2",
+      "master": "sprites/R1-CMP-014_Wick_Wisp_APPROVED.png",
+      "masterSha256": "cdbe22fa4442104018cddf62d14f10db00c2a2ffc5dc67920e8f980b1ec72f98",
       "masterSize": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "visibleBounds": [
-        112,
-        187,
-        903,
-        839
+        268,
+        336,
+        1013,
+        943
       ],
       "motion": "hover",
       "pivot": [
@@ -1349,53 +1356,54 @@
       },
       "variants": {
         "256": {
-          "src": "assets/realm1-approved/wick-wisp-256.webp",
-          "bytes": 56918,
-          "sha256": "23929fd7dde419f6116437e23dfe59a867adb78a0760318c9a18245b056da89a",
+          "src": "assets/companions-v03/wick-wisp-256.webp",
+          "bytes": 72612,
+          "sha256": "f01bfa9cf0c39cf7312000c035cce9643e7640708d56d08fbe07e43b2a14552f",
           "visibleBounds": [
-            112,
-            187,
-            903,
-            839
+            268,
+            336,
+            1013,
+            943
           ],
           "width": 256,
           "height": 256,
-          "masterSha256": "531f12bbd5a263b2ca240e3ccdcdd21ef78bf93f8ea4dcb9b941c56d56caa075"
+          "masterSha256": "cdbe22fa4442104018cddf62d14f10db00c2a2ffc5dc67920e8f980b1ec72f98"
         },
         "768": {
-          "src": "assets/realm1-approved/wick-wisp-768.webp",
-          "bytes": 367414,
-          "sha256": "d8e9301730f6ffea34dc667110ca28c8d90d6db55dc769256a9c8fc8d9676f28",
+          "src": "assets/companions-v03/wick-wisp-768.webp",
+          "bytes": 505510,
+          "sha256": "92ec84fb5d8b52d91b22f52024c852651de32691b6d1a412fc9148881a09e308",
           "visibleBounds": [
-            112,
-            187,
-            903,
-            839
+            268,
+            336,
+            1013,
+            943
           ],
           "width": 768,
           "height": 768,
-          "masterSha256": "531f12bbd5a263b2ca240e3ccdcdd21ef78bf93f8ea4dcb9b941c56d56caa075"
+          "masterSha256": "cdbe22fa4442104018cddf62d14f10db00c2a2ffc5dc67920e8f980b1ec72f98"
         }
-      }
+      },
+      "artVersion": "v03"
     },
     "lantern-wisp": {
       "id": "lantern-wisp",
       "name": "Lantern Wisp",
       "family": "Spirits",
       "rarity": "Common",
-      "source": "art-production/realm-01-mossbound-ruins/species/lantern-wisp/source_art_1254x1254.png",
-      "sourceSha256": "c04b6a13e297ed1ec036ba077030b506de95e0a5c2a15ff75cc3481cd6ab7a02",
-      "master": "art-production/realm-01-mossbound-ruins/species/lantern-wisp/portrait_master_1024.png",
-      "masterSha256": "9c7c78787cccf4964297f84f374497cedf7ac8225025f57f644d318a81e9c118",
+      "source": "Last_Three_Combined_Approved_Source.png",
+      "sourceSha256": "88282bfe4652a17b3377a56e3ec24bf2287ce2c5bcc01f996494d512d63feed2",
+      "master": "sprites/R1-CMP-015_Lantern_Wisp_APPROVED.png",
+      "masterSha256": "ba2ca025062aef14b3e2ca962c206633b98ea07bd1888bf1bb7d7d5585f2259b",
       "masterSize": [
-        1024,
-        1024
+        1254,
+        1254
       ],
       "visibleBounds": [
-        117,
-        114,
-        906,
-        907
+        282,
+        308,
+        988,
+        932
       ],
       "motion": "hover",
       "pivot": [
@@ -1454,34 +1462,35 @@
       },
       "variants": {
         "256": {
-          "src": "assets/realm1-approved/lantern-wisp-256.webp",
-          "bytes": 55608,
-          "sha256": "f6d1a06a08d08751416e2cf03246c7f7427e3855ddaecadd085e05ce13bf6748",
+          "src": "assets/companions-v03/lantern-wisp-256.webp",
+          "bytes": 79508,
+          "sha256": "6273ac06f6fa636ccec70a2bdb20cd069cf2eab90771bcca65b15b08996e2996",
           "visibleBounds": [
-            117,
-            114,
-            906,
-            907
+            282,
+            308,
+            988,
+            932
           ],
           "width": 256,
           "height": 256,
-          "masterSha256": "9c7c78787cccf4964297f84f374497cedf7ac8225025f57f644d318a81e9c118"
+          "masterSha256": "ba2ca025062aef14b3e2ca962c206633b98ea07bd1888bf1bb7d7d5585f2259b"
         },
         "768": {
-          "src": "assets/realm1-approved/lantern-wisp-768.webp",
-          "bytes": 364990,
-          "sha256": "a80fee01da7ae5d9220cd29f662579e54dcd4c88ed7a40eac1efc0b0372a9d83",
+          "src": "assets/companions-v03/lantern-wisp-768.webp",
+          "bytes": 560986,
+          "sha256": "5f6b704f676aefda48ca290cbb021b78220e855f9e5d3b55d74afb75fd9a9d54",
           "visibleBounds": [
-            117,
-            114,
-            906,
-            907
+            282,
+            308,
+            988,
+            932
           ],
           "width": 768,
           "height": 768,
-          "masterSha256": "9c7c78787cccf4964297f84f374497cedf7ac8225025f57f644d318a81e9c118"
+          "masterSha256": "ba2ca025062aef14b3e2ca962c206633b98ea07bd1888bf1bb7d7d5585f2259b"
         }
-      }
+      },
+      "artVersion": "v03"
     },
     "rune-wisp": {
       "id": "rune-wisp",
