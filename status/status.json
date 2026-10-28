@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T03:12:21.386Z",
+ "generatedAt": "2026-10-28T03:12:57.527Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T02:22:42Z",
+  "updatedAt": "2026-10-28T03:12:32Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -36,12 +36,60 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:11:22Z",
-   "headSha": "85877b0b8b616a469b2d1ca6ce231242c2f6fd69",
+   "updatedAt": "2026-10-28T03:12:57Z",
+   "headSha": "b5090bbed1bf331b08cc781582fcfb3b6c1d9690",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-28T03:11:22Z"
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-28T03:12:57Z"
+  },
+  {
+   "number": 44,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Intro-style companion pages with shared type habitats and size/weight",
+   "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T22:33:56Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T03:12:32Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:12:57Z",
+   "headSha": "b1128db6d30640061860357a6a1adca81b302b06",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "working",
+   "botAt": "2026-10-28T03:12:57Z"
+  },
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T03:12:32Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:12:53Z",
+   "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "working",
+   "botAt": "2026-10-28T03:12:53Z"
   },
   {
    "number": 50,
@@ -61,11 +109,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T02:22:43Z",
+   "testAt": "2026-10-28T03:12:32Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T02:22:43Z",
+   "updatedAt": "2026-10-28T03:12:32Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -73,115 +121,28 @@
    "botAt": "2026-10-28T00:51:39Z"
   },
   {
-   "number": 44,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Intro-style companion pages with shared type habitats and size/weight",
-   "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The game needs three new tall backgrounds, for Mortals, Spirits and Aberrations, plus a broader Beasts one if you want to replace the volcano. Until then, those pages use the plain dark panel."
-    }
-   ],
-   "openedAt": "2026-10-27T22:33:56Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T02:22:43Z",
-   "onTest": true,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T02:22:43Z",
-   "headSha": "b1128db6d30640061860357a6a1adca81b302b06",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T02:11:37Z"
-  },
-  {
    "number": 40,
    "kind": "request",
    "by": "Joshua",
    "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
    "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The ticked rarities are saved as a new setting in the save. Old saves need no update, and older copies of the game ignore it and use the lowest ticked rarity instead. I built it because Joshua's tick boxes can't be stored any other way. Please say if that's OK."
-    },
-    {
-     "who": "noah",
-     "text": "Still open from before: players who bought the Auto capacity upgrade with Gold paid for a limit that no longer exists. I gave nothing back. I can refund that Gold if you want, but that changes the economy."
-    },
-    {
-     "who": "joshua",
-     "text": "The Auto page has one short line: \"Unticked rarities are released for Essence.\" My suggestion: keep it, so nobody loses a companion by surprise."
-    },
-    {
-     "who": "joshua",
-     "text": "Sound, haptics and reveal speed are in a closed \"More settings\" under the Auto page's Start button, because they have no other place yet. My suggestion: move them to the profile settings later."
-    },
-    {
-     "who": "joshua",
-     "text": "Only three habitat backgrounds exist: woodland for Wildgrowth, volcanic for Beasts and moonlit for Constructs, the same as the tutorial egg screen. Mortals, Spirits and Aberrations use the egg screen's plain starry background. My suggestion: keep that until there's art for…"
-    },
-    {
-     "who": "joshua",
-     "text": "A waiting companion always shows \"Lv. 1\", because its invested Essence moves to the companion that joins. My suggestion: keep it, because it's the true level."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-27T21:56:04Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T02:22:43Z",
+   "testAt": "2026-10-28T03:12:32Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T02:22:43Z",
+   "updatedAt": "2026-10-28T03:12:32Z",
    "headSha": "4d0c2c32a7228289608aebbc22aa22d13f92189c",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T02:13:33Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Story bosses are now about 1.5× their original size on most phones, which is as big as fits between the timer and the companions. Going bigger would mean making the boss name, health bar and timer smaller, or letting the boss's top edge go behind them. My suggestion: keep it…"
-    },
-    {
-     "who": "joshua",
-     "text": "On the smallest phones, Endless guardians are only a little bigger than before, because the name and health bar need room above them. Should they get more room by moving the name and health bar to the side of the guardian on small phones? My suggestion: keep it as it is now,…"
-    }
-   ],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T02:22:43Z",
-   "onTest": true,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T02:22:43Z",
-   "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T02:21:48Z"
   },
   {
    "number": 54,
@@ -543,6 +504,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T03:12:32Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
    "at": "2026-10-28T03:10:24Z",
    "kind": "asked",
    "text": "You asked for “Build approved premium Treasure Hall after verified artwork retrieval”"
@@ -551,16 +517,6 @@
    "at": "2026-10-28T02:22:43Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T02:21:48Z",
-   "kind": "built",
-   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
-  },
-  {
-   "at": "2026-10-28T02:21:48Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Lower battlefield characters and enlarge bosses by 40%”"
   },
   {
    "at": "2026-10-28T02:19:13Z",
@@ -598,29 +554,9 @@
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
   },
   {
-   "at": "2026-10-28T02:13:33Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-28T02:13:33Z",
-   "kind": "question",
-   "text": "Part of “Party reordering, continuous Auto Summon and in-dock companion decisions” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-10-28T02:12:38Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
-  },
-  {
-   "at": "2026-10-28T02:11:37Z",
-   "kind": "built",
-   "text": "Claude finished building “Intro-style companion pages with shared type habitats and size/weight”"
-  },
-  {
-   "at": "2026-10-28T02:11:37Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Intro-style companion pages with shared type habitats and size/weight”"
   },
   {
    "at": "2026-10-28T02:08:10Z",
@@ -741,6 +677,31 @@
    "at": "2026-10-27T23:41:27Z",
    "kind": "test",
    "text": "The test site was updated with “Integrate completed Treasure Hall artwork for testing”"
+  },
+  {
+   "at": "2026-10-27T23:37:22Z",
+   "kind": "test",
+   "text": "The test site was updated with “Party reordering, continuous Auto Summon and in-dock companion decisions”"
+  },
+  {
+   "at": "2026-10-27T23:36:35Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
+   "at": "2026-10-27T23:24:32Z",
+   "kind": "test",
+   "text": "The test site was updated with “Integrate completed Treasure Hall artwork for testing”"
+  },
+  {
+   "at": "2026-10-27T23:23:57Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate completed Treasure Hall artwork for testing”"
+  },
+  {
+   "at": "2026-10-27T22:59:59Z",
+   "kind": "live",
+   "text": "“Show damage numbers over the enemy” is live in the game"
   }
  ],
  "otherPulls": [
