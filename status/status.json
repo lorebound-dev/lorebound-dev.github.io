@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T03:33:32.848Z",
+ "generatedAt": "2026-10-28T03:38:40.652Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T03:21:40Z",
+  "updatedAt": "2026-10-28T03:35:39Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -41,11 +41,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:21:40Z",
+   "testAt": "2026-10-28T03:35:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:21:40Z",
+   "updatedAt": "2026-10-28T03:35:39Z",
    "headSha": "4f4453fb7470639cd0739290cbd0760949f54709",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -70,11 +70,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:21:40Z",
+   "testAt": "2026-10-28T03:35:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:21:40Z",
+   "updatedAt": "2026-10-28T03:35:39Z",
    "headSha": "bc2e6088e6155e00f47d8a4c8f20142f79770126",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -94,11 +94,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:21:40Z",
+   "testAt": "2026-10-28T03:35:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:21:40Z",
+   "updatedAt": "2026-10-28T03:35:39Z",
    "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -123,11 +123,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:21:40Z",
+   "testAt": "2026-10-28T03:35:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:21:40Z",
+   "updatedAt": "2026-10-28T03:35:39Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -140,22 +140,9 @@
    "by": "Joshua",
    "title": "Build approved premium Treasure Hall after verified artwork retrieval",
    "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
-   "stage": "questions",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Get the ten approved Treasure Hall pictures and the approved v03 mockup to the builder in a private place it can read. The easiest way: download them from the Drive folder \"LOREBOUND Artwork Inbox → Approved → Treasure-Hall-Revamp-v1\" without changing them. Then push them…"
-    },
-    {
-     "who": "noah",
-     "text": "The Sixfold Covenant trophy is a new goal the game doesn't track yet. My suggestion: work it out each time the Hall opens from what's already saved, and save nothing new. The layout spec says you must look at this before it's built. Is that OK?"
-    },
-    {
-     "who": "noah",
-     "text": "A trophy earned for the first time should glow once and then never replay. The game already remembers this for the Chronicle, Guardian Memorial and Last Vigil trophies. For the Crown and the Sixfold Covenant it would have to remember two new things, and that changes what a…"
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-28T03:10:24Z",
    "mergedAt": null,
    "closedAt": null,
@@ -165,7 +152,7 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-10-28T03:13:07Z",
-   "headSha": "b5090bbed1bf331b08cc781582fcfb3b6c1d9690",
+   "headSha": "8c1725309f1d6dd256d4036e0eeea8dc37d10d42",
    "touchesGame": false,
    "requestStatus": "Waiting for answers",
    "botState": "questions",
@@ -531,6 +518,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T03:35:39Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
    "at": "2026-10-28T03:21:40Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
@@ -579,11 +571,6 @@
    "at": "2026-10-28T03:13:31Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:13:07Z",
-   "kind": "question",
-   "text": "Part of “Build approved premium Treasure Hall after verified artwork retrieval” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-28T03:12:32Z",
