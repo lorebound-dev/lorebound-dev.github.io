@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T07:28:50.867Z",
+ "generatedAt": "2026-10-28T07:31:56.357Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -20,6 +20,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 40,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
+   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [],
+   "openedAt": "2026-10-27T21:56:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T05:19:57Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T07:31:26Z",
+   "headSha": "b85c22b7d65bea7b1e9782fac93438630d944c62",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T07:31:26Z"
+  },
   {
    "number": 58,
    "kind": "request",
@@ -43,30 +67,6 @@
    "requestStatus": "Waiting for answers",
    "botState": "finished",
    "botAt": "2026-10-28T07:28:51Z"
-  },
-  {
-   "number": 40,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:56:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T05:19:57Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T07:28:10Z",
-   "headSha": "4f4453fb7470639cd0739290cbd0760949f54709",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T07:28:10Z"
   },
   {
    "number": 60,
@@ -522,9 +522,14 @@
  ],
  "activity": [
   {
-   "at": "2026-10-28T07:28:10Z",
+   "at": "2026-10-28T07:31:26Z",
    "kind": "built",
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
+  },
+  {
+   "at": "2026-10-28T07:31:26Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Party reordering, continuous Auto Summon and in-dock companion decisions”"
   },
   {
    "at": "2026-10-28T05:19:57Z",
@@ -715,11 +720,6 @@
    "at": "2026-10-28T01:21:32Z",
    "kind": "behind",
    "text": "Behind the scenes: “Show everything in progress on the test site, combined”"
-  },
-  {
-   "at": "2026-10-28T01:21:29Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Raise the bot's turn limit from 80 to 150”"
   }
  ],
  "otherPulls": [
