@@ -28,7 +28,7 @@ h3{margin:0;font-weight:normal}
 .tile-test h3 .gem{color:var(--test)}
 .big{margin:8px 0 2px;font-size:18px}
 .small{margin:0;font-size:14px;color:var(--muted)}
-.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-top:12px;padding:8px 16px;border:1px solid var(--gold);border-radius:2px;background:#2a2412;color:var(--gold);font-size:15px;text-decoration:none}
+.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-top:12px;padding:8px 16px;border:1px solid var(--gold);border-radius:2px;background:#2a2412;color:var(--gold);font-family:inherit;font-size:15px;text-decoration:none;cursor:pointer}
 ul,ol{margin:0;padding:0;list-style:none}
 .card{margin-bottom:12px}
 .card.attention{border-color:var(--ask)}
@@ -59,6 +59,11 @@ ul,ol{margin:0;padding:0;list-style:none}
 .timeline .k-behind .gem,.timeline .k-closed .gem{color:var(--faint)}
 .timeline small{display:block;font-size:12px;color:var(--faint)}
 .empty{color:var(--faint);font-style:italic}
+.asks{margin:10px 0 0;padding-left:22px;list-style:decimal}
+.asks li{margin:6px 0}
+.hint{margin:10px 0 0;font-size:13px;color:var(--faint)}
+.card.noah{border-color:var(--bronze)}
+.copybox{width:100%;min-height:120px;margin-top:10px;padding:8px;border:1px solid var(--edge);background:var(--bg);color:var(--ink);font:14px/1.4 Georgia,serif}
 footer{margin-top:40px;font-size:14px;color:var(--faint)}
 @media (prefers-reduced-motion:no-preference){.step.now .mark{animation:glow 2.4s ease-in-out infinite}@keyframes glow{50%{box-shadow:0 0 0 7px #f5dc9611}}}
 </style>
@@ -86,9 +91,14 @@ footer{margin-top:40px;font-size:14px;color:var(--faint)}
   </article>
 </section>
 
-<section id="attentionBox" hidden>
+<section id="forYouBox" hidden>
   <h2>Waiting on you</h2>
-  <ul id="attention"></ul>
+  <ul id="forYou"></ul>
+</section>
+
+<section id="forNoahBox" hidden>
+  <h2>Waiting on Noah</h2>
+  <ul id="forNoah"></ul>
 </section>
 
 <section>
@@ -119,7 +129,7 @@ const STAGES = {
   queued: {done: 1, text: 'Waiting for Claude to start.'},
   started: {done: 1, now: 1, text: 'Noah is working on it.'},
   building: {done: 1, now: 1, text: 'Claude is building this right now.'},
-  questions: {done: 1, blocked: 1, text: 'Claude has questions before it can build this. Noah will pass them on.'},
+  questions: {done: 1, blocked: 1, text: 'Claude needs an answer before it can build this. The question is at the top of this page.'},
   built: {done: 2, text: 'Built. Another change is on the test site right now. Ask Noah to put this one up.'},
   testing: {done: 2, now: 2, text: 'On the test site now. Try it, then tell Noah if it’s ready to go live.'},
   'going-live': {done: 3, now: 3, text: 'Noah approved it. It goes live in a few minutes.'},
@@ -166,7 +176,9 @@ function tracker(item) {
 
 function card(item) {
   const stage = STAGES[item.stage];
-  const node = el('li', 'card' + (item.questions ? ' attention' : ''));
+  const forYou = item.waitingOn === 'joshua' || item.waitingOn === 'both';
+  const forNoah = item.waitingOn === 'noah' || item.waitingOn === 'both';
+  const node = el('li', 'card' + (forYou ? ' attention' : ''));
   const who = item.kind === 'request' ? 'Your request' : (item.by || 'Noah') + '’s change';
   node.append(el('p', 'meta', who + ' · ' + (item.kind === 'request' ? 'asked ' : 'started ') + ago(item.openedAt)));
   node.append(el('h3', '', item.title));
@@ -174,13 +186,56 @@ function card(item) {
   if (stage.done != null || stage.now != null || stage.blocked != null) node.append(tracker(item));
   let text = stage.text;
   if (item.stage === 'testing' && !item.testIsCurrent) text += ' A newer version is on its way to the test site.';
-  if (item.questions && item.stage !== 'questions') text += ' Claude also has a question about part of it.';
+  if (item.stage !== 'questions') {
+    if (forYou) text += ' Claude also has a question for you about part of it, at the top of this page.';
+    if (forNoah) text += ' Part of it is waiting for Noah’s OK.';
+  }
   node.append(el('p', 'status', text));
   if (item.stage === 'testing') {
     const link = el('a', 'button', 'Try it on the test site');
     link.href = 'https://lorebound-dev.github.io/';
     node.append(link);
   }
+  return node;
+}
+
+function askList(item, who) {
+  const list = el('ol', 'asks');
+  for (const ask of (item.asks || []).filter(a => a.who === who)) list.append(el('li', '', ask.text));
+  return list;
+}
+
+// Joshua answers in Codex, so the button copies the questions with a note telling Codex what to do with the answers.
+function codexText(item) {
+  const asks = (item.asks || []).filter(a => a.who === 'joshua');
+  const lines = asks.length ? asks.map((a, i) => `${i + 1}. ${a.text}`) : ['Claude left a question on this request.'];
+  return `Claude asked about my request “${item.title}”:\n${lines.join('\n')}\n\n` +
+    'Explain these to me in plain words and help me answer. Then add my answers to that request’s Changes so Claude rebuilds it.';
+}
+
+function askCard(item) {
+  const node = el('li', 'card attention');
+  node.append(el('h3', '', item.title));
+  if ((item.asks || []).some(a => a.who === 'joshua')) node.append(askList(item, 'joshua'));
+  else node.append(el('p', 'status', 'Claude left a question about this request.'));
+  const button = el('button', 'button', 'Copy for Codex');
+  button.type = 'button';
+  button.onclick = async () => {
+    const text = codexText(item);
+    try {
+      await navigator.clipboard.writeText(text);
+      button.textContent = 'Copied. Paste it in Codex';
+    } catch {
+      // Without clipboard access, show the text so it can be copied by hand.
+      const box = el('textarea', 'copybox');
+      box.value = text;
+      box.readOnly = true;
+      button.replaceWith(box);
+      box.focus();
+      box.select();
+    }
+  };
+  node.append(button, el('p', 'hint', 'Paste it in the Codex task where you asked for this. Codex helps you answer, and Claude rebuilds it.'));
   return node;
 }
 
@@ -193,11 +248,15 @@ function render(data) {
   $('testWhen').textContent = data.test ? 'Up since ' + ago(data.test.updatedAt) : '';
 
   const items = data.items || [];
-  const waiting = items.filter(i => i.questions && ACTIVE.includes(i.stage));
-  $('attentionBox').hidden = !waiting.length;
-  $('attention').replaceChildren(...waiting.map(i => {
-    const node = el('li', 'card attention');
-    node.append(el('h3', '', i.title), el('p', 'status', 'Claude has questions about this. Noah will pass them on. Answer them in the same Codex task.'));
+  const open = items.filter(i => ACTIVE.includes(i.stage));
+  const forYou = open.filter(i => i.waitingOn === 'joshua' || i.waitingOn === 'both');
+  $('forYouBox').hidden = !forYou.length;
+  $('forYou').replaceChildren(...forYou.map(askCard));
+  const forNoah = open.filter(i => i.waitingOn === 'noah' || i.waitingOn === 'both');
+  $('forNoahBox').hidden = !forNoah.length;
+  $('forNoah').replaceChildren(...forNoah.map(i => {
+    const node = el('li', 'card noah');
+    node.append(el('h3', '', i.title), askList(i, 'noah'), el('p', 'hint', 'Noah decides these. There’s nothing for you to do here.'));
     return node;
   }));
 
