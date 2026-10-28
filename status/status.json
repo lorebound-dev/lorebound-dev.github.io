@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T17:25:11.795Z",
+ "generatedAt": "2026-10-28T17:25:53.231Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T17:16:59Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T17:17:38Z",
+  "updatedAt": "2026-10-28T17:25:35Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -33,11 +33,11 @@
    "mergedAt": "2026-10-28T17:25:11Z",
    "closedAt": "2026-10-28T17:25:11Z",
    "liveAt": null,
-   "testAt": "2026-10-28T17:17:40Z",
+   "testAt": "2026-10-28T17:25:37Z",
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:25:11Z",
+   "updatedAt": "2026-10-28T17:25:37Z",
    "headSha": "64ec39b5ba29775280582e90e5af941c3ecab811",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -51,7 +51,7 @@
    "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
    "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
    "stage": "testing",
-   "waitingOn": "joshua",
+   "waitingOn": "both",
    "asks": [
     {
      "who": "joshua",
@@ -64,17 +64,21 @@
     {
      "who": "joshua",
      "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
    "openedAt": "2026-10-28T04:18:38Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T17:17:40Z",
+   "testAt": "2026-10-28T17:25:37Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:24:37Z",
+   "updatedAt": "2026-10-28T17:25:37Z",
    "headSha": "e74f80c7d1d03662e6ce18362eca6517d40818a0",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -93,17 +97,21 @@
     {
      "who": "noah",
      "text": "Your Google Drive art (the new Treasure Hall set, plus pictures held for a check) can't reach the game until the artwork delivery steps in #52 are approved. These are a Drive sign-in for the build and a decision on where about 300 MB of art is stored."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
    "openedAt": "2026-10-27T22:33:56Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T17:17:40Z",
+   "testAt": "2026-10-28T17:25:37Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:17:40Z",
+   "updatedAt": "2026-10-28T17:25:37Z",
    "headSha": "bc2e6088e6155e00f47d8a4c8f20142f79770126",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -123,11 +131,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T17:17:40Z",
+   "testAt": "2026-10-28T17:25:37Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:17:40Z",
+   "updatedAt": "2026-10-28T17:25:37Z",
    "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -152,11 +160,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T17:17:40Z",
+   "testAt": "2026-10-28T17:25:37Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:17:40Z",
+   "updatedAt": "2026-10-28T17:25:37Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -248,7 +256,7 @@
    "mergedAt": "2026-10-28T00:45:57Z",
    "closedAt": "2026-10-28T00:45:57Z",
    "liveAt": "2026-10-28T00:46:00Z",
-   "testAt": "2026-10-27T23:41:27Z",
+   "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
@@ -502,6 +510,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T17:25:37Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
    "at": "2026-10-28T17:25:11Z",
    "kind": "approved",
    "text": "Noah approved “Party reordering, continuous Auto Summon and in-dock companion decisions”"
@@ -515,6 +528,11 @@
    "at": "2026-10-28T17:24:37Z",
    "kind": "question",
    "text": "Claude has a question for you about “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-10-28T17:24:37Z",
+   "kind": "question",
+   "text": "Part of “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-28T17:17:40Z",
@@ -690,16 +708,6 @@
    "at": "2026-10-28T03:10:24Z",
    "kind": "asked",
    "text": "You asked for “Build approved premium Treasure Hall after verified artwork retrieval”"
-  },
-  {
-   "at": "2026-10-28T02:22:43Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T02:19:13Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
   }
  ],
  "otherPulls": [
