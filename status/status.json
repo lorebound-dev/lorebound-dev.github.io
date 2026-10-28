@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T22:18:06.552Z",
+ "generatedAt": "2026-10-28T22:20:02.939Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -23,9 +23,22 @@
    "by": "Joshua",
    "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
    "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Please get the two frame pictures: make sure the folder with combat-nameplate-9slice-128.png and party-dock-frame-9slice-128.png is inside the LOREBOUND Artwork Inbox, run Fetch art in download mode with only set to 9slice-128, and attach both PNGs plus MANIFEST.json to this…"
+    },
+    {
+     "who": "noah",
+     "text": "Should I build this when you or a local session can run a browser? The request asks for real screenshots at 390×844 with the party open and closed. I can build it here, but here it can only be checked on the test site."
+    },
+    {
+     "who": "joshua",
+     "text": "Should I fix the Challenge Boss button now, without the new frames? My suggestion: yes, as its own small fix. It would sit just above the party tray, right-aligned, so it never covers the enemy. The frames would come later, once the pictures arrive."
+    }
+   ],
    "openedAt": "2026-10-28T22:17:13Z",
    "mergedAt": null,
    "closedAt": null,
@@ -34,12 +47,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T22:17:45Z",
-   "headSha": "f201f1b711d4cc7738d858cb527ab20eb974e5a1",
+   "updatedAt": "2026-10-28T22:19:39Z",
+   "headSha": "11d5ea97e7fb0abb1ea7290b2e5b0398975a9883",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "working",
-   "botAt": "2026-10-28T22:17:45Z"
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-28T22:19:39Z"
   },
   {
    "number": 38,
@@ -479,6 +492,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T22:19:39Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Improve Adventure battlefield layout with shared nameplate and party frame”"
+  },
+  {
+   "at": "2026-10-28T22:19:39Z",
+   "kind": "question",
+   "text": "Part of “Improve Adventure battlefield layout with shared nameplate and party frame” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-28T22:17:13Z",
    "kind": "asked",
    "text": "You asked for “Improve Adventure battlefield layout with shared nameplate and party frame”"
@@ -665,16 +688,6 @@
   },
   {
    "at": "2026-10-28T15:58:33Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T15:50:47Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T11:50:41Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
