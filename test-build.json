@@ -4,25 +4,25 @@
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "b335881c44743806d41379b83faa1ce622e6cc7f"
+      "head": "9736318c6378ffd9c43d8296f1e0584316b1b3d8"
     },
     {
       "number": 40,
       "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-      "head": "3b727d12ab7ff572cc6fffcddcd1cbe6ae9b6c40"
+      "head": "4d0c2c32a7228289608aebbc22aa22d13f92189c"
     },
     {
       "number": 44,
       "title": "Intro-style companion pages with shared type habitats and size/weight",
-      "head": "725e2077c7b28f4279c86c0d4f520a71db17d474"
+      "head": "b1128db6d30640061860357a6a1adca81b302b06"
     },
     {
       "number": 50,
       "title": "Keep automatic combat running behind menus and other tabs",
-      "head": "2eb9261350391530ef4e37d322043c81a56945ea"
+      "head": "849a6a762b8d212781465042a4b3dd552e1c407a"
     }
   ],
   "skipped": [],
-  "commit": "cc4a6bce196caf6fd46fcc92f53bc461bb9e0683",
-  "at": "2026-10-28T02:22:42Z"
+  "commit": "1f50554703e8de4d5f11a7956e5fdd0b207cdc7e",
+  "at": "2026-10-28T03:12:32Z"
 }
