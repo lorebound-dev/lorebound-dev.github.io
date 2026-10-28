@@ -1,7 +1,8 @@
 /* Cosmetic companion lore: one habitat per category and fixed display measurements. No combat, odds or save data. */
 (function(root){'use strict';
-// Only three full-screen habitats exist. Mortals, Spirits and Aberrations keep each screen's current background until Joshua supplies art.
-const habitats=Object.freeze({Wildgrowth:'woodland',Beasts:'volcanic',Constructs:'moonlit',Mortals:null,Spirits:null,Aberrations:null});
+// Only three full-screen habitats exist. Mortals, Spirits and Aberrations use the tutorial egg screen's starry void until Joshua supplies art (see pocket-fortune/docs/ARTWORK-NEEDS.md).
+const habitats=Object.freeze({Wildgrowth:'habitat-woodland',Beasts:'habitat-volcanic',Constructs:'habitat-moonlit',Mortals:null,Spirits:null,Aberrations:null});
+const fallback='void';
 // Species id (owned copy ids like 'bramblebud~3' resolve too): [size label, metres, weight in kg or a word for bodiless species]
 const measures=Object.freeze({
  bramblebud:['Height',.3,1.4],cinderclack:['Size',.4,6.5],glimwick:['Height',.4,2.8],
@@ -11,8 +12,8 @@ const measures=Object.freeze({
  pebblekin:['Height',.3,12],rustmite:['Size',.3,4.5],dripstone:['Height',.6,35],'stone-sentinel':['Height',2.6,1250],
  rootling:['Height',.4,3.2],shroomlet:['Height',.3,.9],twigling:['Height',.6,2.1],briarling:['Height',.8,9.5],gravecap:['Height',.7,6],
  'crooked-eye':['Size',.5,3.4],'hollow-maw':['Size',4.2,260],'forgotten-watcher':['Height',2.3,'Unknown']});
-function habitat(category){const name=habitats[category];return name?`url('assets/habitat-${name}.png')`:'';}
+function habitat(category){if(!(category in habitats))return '';return `url('assets/${habitats[category]||fallback}.png')`;}
 function measure(id){const m=measures[String(id).split('~')[0]];if(!m)return null;return {sizeLabel:m[0],size:m[1].toFixed(1)+' m',weight:typeof m[2]==='number'?m[2].toLocaleString('en-US',{maximumFractionDigits:1})+' kg':m[2]};}
 function text(id){const m=measure(id);return m?`${m.sizeLabel} ${m.size} · Weight ${m.weight}`:'';}
-root.LoreCompanionProfile=Object.freeze({habitats,measures,habitat,measure,text});
+root.LoreCompanionProfile=Object.freeze({habitats,fallback,measures,habitat,measure,text});
 })(globalThis);

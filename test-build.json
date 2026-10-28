@@ -14,7 +14,7 @@
     {
       "number": 44,
       "title": "Intro-style companion pages with shared type habitats and size/weight",
-      "head": "b1128db6d30640061860357a6a1adca81b302b06"
+      "head": "bc2e6088e6155e00f47d8a4c8f20142f79770126"
     },
     {
       "number": 50,
@@ -23,6 +23,6 @@
     }
   ],
   "skipped": [],
-  "commit": "3c43083f2abaede8b42bc9520aac902a975f9f88",
-  "at": "2026-10-28T03:17:34Z"
+  "commit": "c197e113143155b7774ac4365fe92a99c5bb3a69",
+  "at": "2026-10-28T03:21:40Z"
 }

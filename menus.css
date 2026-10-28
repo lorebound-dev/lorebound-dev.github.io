@@ -52,7 +52,7 @@
 #destinationPage .companion-art{width:76px;height:76px}.summon-collection article{border-bottom-color:#bba46c38}.summon-collection article>.starter-sheet{background-color:#101e2b;border:5px solid transparent;border-image:url('assets/bond-frame.svg') 16 / 5px stretch}.collection-heading{color:#d8c694!important;letter-spacing:.5px}
 @media(max-height:680px){#destinationPage>header{min-height:57px;padding-top:10px;padding-bottom:10px}#destinationPage h2{font-size:22px!important}#destinationPage .destination-card{padding:10px 0}#destinationPage .equipment-slot{min-height:69px}}
 #boundSheet #boundFlavor{display:block;margin:10px 20px 17px;max-width:none;font:13px/1.5 Georgia,serif!important;letter-spacing:normal;color:#c3cccf;text-align:left}#boundSheet #boundFlavor[hidden]{display:none}
-/* The companion's category habitat behind its sheet; categories without one keep the plain sheet. */
+/* The companion's category habitat behind its sheet; categories without their own habitat yet use the starry void. */
 #boundSheet.bound-habitat{background:linear-gradient(#061420d9,#06142080 35%,#061420c4 60%,#061420f2 85%),var(--companion-habitat) center/cover no-repeat,#081722}
 #boundSheet.bound-habitat :is(h2,dt,dd,small,#boundFlavor){text-shadow:0 2px 3px #051323}
 #boundSheet .empty-bound{padding:25px 20px;text-align:center}#boundSheet .empty-bond-seal{display:grid;place-items:center;width:78px;height:78px;margin:0 auto 15px;border:6px solid transparent;border-image:url('assets/bond-frame.svg') 16 / 6px stretch;background:radial-gradient(#2c2943,#101e2a);font:48px Georgia,serif;color:#b7a7d1}
