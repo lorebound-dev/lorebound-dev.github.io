@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T01:43:27.933Z",
+ "generatedAt": "2026-10-28T01:44:20.507Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T00:46:00Z",
@@ -9,18 +9,41 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T01:36:16Z",
+  "updatedAt": "2026-10-28T01:44:01Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
+   "Intro-style companion pages with shared type habitats and size/weight",
    "Keep automatic combat running behind menus and other tabs",
    "Replace nine companion sprites with Joshua's approved art"
   ],
-  "skipped": [
-   "Intro-style companion pages with shared type habitats and size/weight"
-  ]
+  "skipped": []
  },
  "items": [
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T01:44:02Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T01:44:02Z",
+   "headSha": "661b23c3099f87f18109d5597a5a65ffbefd1e42",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-27T23:36:03Z"
+  },
   {
    "number": 40,
    "kind": "request",
@@ -47,11 +70,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:36:16Z",
+   "testAt": "2026-10-28T01:44:02Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:36:16Z",
+   "updatedAt": "2026-10-28T01:44:02Z",
    "headSha": "5e64cf87a59245d3038bdb121574fcf5ac47b6de",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -59,28 +82,37 @@
    "botAt": "2026-10-28T00:42:57Z"
   },
   {
-   "number": 38,
+   "number": 44,
    "kind": "request",
    "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "title": "Intro-style companion pages with shared type habitats and size/weight",
+   "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
    "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Make the Omnidex companion page fill the whole screen, like the first reveal. Right now it's still a pop-up box with the habitat behind it, which is safer at small phone sizes."
+    },
+    {
+     "who": "joshua",
+     "text": "Put the habitat behind the team companion sheet too. I left that sheet's look alone because it's where you level up and swap companions."
+    }
+   ],
+   "openedAt": "2026-10-27T22:33:56Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:36:16Z",
+   "testAt": "2026-10-28T01:44:02Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:36:16Z",
-   "headSha": "45d7729c839b41933740639e1c3b3d1d4980360b",
+   "updatedAt": "2026-10-28T01:44:02Z",
+   "headSha": "e2c0dd2059e5a489a31446c182d05e3a45986aef",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-27T23:36:03Z"
+   "botState": "questions",
+   "botAt": "2026-10-27T22:41:35Z"
   },
   {
    "number": 54,
@@ -95,11 +127,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:36:16Z",
+   "testAt": "2026-10-28T01:44:02Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:36:16Z",
+   "updatedAt": "2026-10-28T01:44:02Z",
    "headSha": "cf0115fe9caaa4729ad865f0b3be85179de11f03",
    "touchesGame": true,
    "requestStatus": "",
@@ -124,11 +156,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:36:16Z",
+   "testAt": "2026-10-28T01:44:02Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:36:16Z",
+   "updatedAt": "2026-10-28T01:44:02Z",
    "headSha": "91608190807806a4878cbda9213dabbec7fd3b97",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -239,43 +271,6 @@
    "requestStatus": "",
    "botState": "",
    "botAt": null
-  },
-  {
-   "number": 44,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Intro-style companion pages with shared type habitats and size/weight",
-   "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
-   "stage": "built",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Make the Omnidex companion page fill the whole screen, like the first reveal. Right now it's still a pop-up box with the habitat behind it, which is safer at small phone sizes."
-    },
-    {
-     "who": "joshua",
-     "text": "Put the habitat behind the team companion sheet too. I left that sheet's look alone because it's where you level up and swap companions."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with another change in progress, in summoning.js, so it isn't on the test site yet."
-    }
-   ],
-   "openedAt": "2026-10-27T22:33:56Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-10-27T22:41:35Z",
-   "headSha": "e2c0dd2059e5a489a31446c182d05e3a45986aef",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-27T22:41:35Z"
   },
   {
    "number": 33,
@@ -520,6 +515,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T01:44:02Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
+  },
+  {
    "at": "2026-10-28T01:43:09Z",
    "kind": "behind",
    "text": "Behind the scenes: “Combine scripts and stylesheets statement by statement on the test site”"
@@ -678,11 +678,6 @@
    "at": "2026-10-27T22:41:35Z",
    "kind": "question",
    "text": "Claude has a question for you about “Intro-style companion pages with shared type habitats and size/weight”"
-  },
-  {
-   "at": "2026-10-27T22:41:35Z",
-   "kind": "question",
-   "text": "Part of “Intro-style companion pages with shared type habitats and size/weight” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-27T22:33:56Z",
