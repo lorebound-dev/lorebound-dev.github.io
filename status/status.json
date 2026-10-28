@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T01:35:50.601Z",
+ "generatedAt": "2026-10-28T01:36:22.627Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T00:46:00Z",
@@ -9,41 +9,18 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T01:22:10Z",
+  "updatedAt": "2026-10-28T01:36:16Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
-   "Keep automatic combat running behind menus and other tabs"
+   "Keep automatic combat running behind menus and other tabs",
+   "Replace nine companion sprites with Joshua's approved art"
   ],
   "skipped": [
    "Intro-style companion pages with shared type habitats and size/weight"
   ]
  },
  "items": [
-  {
-   "number": 54,
-   "kind": "fix",
-   "by": "Noah",
-   "title": "Replace nine companion sprites with Joshua's approved art",
-   "quote": "",
-   "stage": "built",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T01:32:32Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T01:32:32Z",
-   "headSha": "cf0115fe9caaa4729ad865f0b3be85179de11f03",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
-  },
   {
    "number": 38,
    "kind": "request",
@@ -57,16 +34,40 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:22:10Z",
+   "testAt": "2026-10-28T01:36:16Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:22:10Z",
+   "updatedAt": "2026-10-28T01:36:16Z",
    "headSha": "45d7729c839b41933740639e1c3b3d1d4980360b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-27T23:36:03Z"
+  },
+  {
+   "number": 54,
+   "kind": "fix",
+   "by": "Noah",
+   "title": "Replace nine companion sprites with Joshua's approved art",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T01:32:32Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T01:36:16Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T01:36:16Z",
+   "headSha": "cf0115fe9caaa4729ad865f0b3be85179de11f03",
+   "touchesGame": true,
+   "requestStatus": "",
+   "botState": "",
+   "botAt": null
   },
   {
    "number": 40,
@@ -94,11 +95,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:22:10Z",
+   "testAt": "2026-10-28T01:36:16Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:22:10Z",
+   "updatedAt": "2026-10-28T01:36:16Z",
    "headSha": "6dd81336a690148d25a5951a19830e48bad788a0",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -123,11 +124,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T01:22:10Z",
+   "testAt": "2026-10-28T01:36:16Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:22:10Z",
+   "updatedAt": "2026-10-28T01:36:16Z",
    "headSha": "91608190807806a4878cbda9213dabbec7fd3b97",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -258,7 +259,7 @@
     },
     {
      "who": "noah",
-     "text": "It needs updating to the newest game before it can go on the test site. It clashes in home.html and summoning.js."
+     "text": "It clashes with another change in progress, in summoning.js, so it isn't on the test site yet."
     }
    ],
    "openedAt": "2026-10-27T22:33:56Z",
@@ -519,6 +520,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T01:36:16Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
+  },
+  {
    "at": "2026-10-28T01:32:32Z",
    "kind": "asked",
    "text": "Noah started “Replace nine companion sprites with Joshua's approved art”"
@@ -712,11 +718,6 @@
    "at": "2026-10-27T21:22:11Z",
    "kind": "asked",
    "text": "You asked for “Lower battlefield characters and enlarge bosses by 40%”"
-  },
-  {
-   "at": "2026-10-27T21:14:02Z",
-   "kind": "asked",
-   "text": "Noah started “Show damage numbers over the enemy”"
   }
  ],
  "otherPulls": [
