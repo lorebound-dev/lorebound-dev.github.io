@@ -1,15 +1,10 @@
 {
-  "base": "fa28955705b39f5b0d772f271329d62bf3a2ebb9",
+  "base": "c698609139b3542d57ac240b898af8e88b25fcc9",
   "included": [
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
       "head": "9736318c6378ffd9c43d8296f1e0584316b1b3d8"
-    },
-    {
-      "number": 40,
-      "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-      "head": "64ec39b5ba29775280582e90e5af941c3ecab811"
     },
     {
       "number": 44,
@@ -28,6 +23,6 @@
     }
   ],
   "skipped": [],
-  "commit": "3214299fe1d8a09bc1c08aa4c11d0d40e599f83c",
-  "at": "2026-10-28T17:25:35Z"
+  "commit": "da19ed6928520d8b1435d84410710086e447ee9c",
+  "at": "2026-10-28T17:26:47Z"
 }
