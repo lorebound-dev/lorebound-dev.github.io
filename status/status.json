@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T03:39:21.273Z",
+ "generatedAt": "2026-10-28T03:42:54.390Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -19,6 +19,43 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 58,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build approved premium Treasure Hall after verified artwork retrieval",
+   "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Get the ten approved Treasure Hall pictures and the approved v03 mockup to the builder in a private place it can read. The easiest way: download them unchanged from the Drive folder \"LOREBOUND Artwork Inbox → Approved → Treasure-Hall-Revamp-v1\". Then push them to a private…"
+    },
+    {
+     "who": "noah",
+     "text": "The Sixfold Covenant trophy is a new goal the game doesn't track yet. My suggestion: work it out from what's already saved each time the Hall opens, and save nothing new. The layout spec says Noah must look at this before it's built. Is that OK?"
+    },
+    {
+     "who": "noah",
+     "text": "A trophy earned for the first time should glow once and then never again. The game already remembers this for the Chronicle, Guardian Memorial and Last Vigil trophies. For the Crown and the Sixfold Covenant, it would need two new \"seen\" notes in each save, and that changes…"
+    }
+   ],
+   "openedAt": "2026-10-28T03:10:24Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:42:27Z",
+   "headSha": "a58cb567982a871a374c4351ad4d9b38fd0d4f5a",
+   "touchesGame": false,
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-28T03:42:27Z"
+  },
   {
    "number": 40,
    "kind": "request",
@@ -133,30 +170,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T00:51:39Z"
-  },
-  {
-   "number": 58,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build approved premium Treasure Hall after verified artwork retrieval",
-   "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T03:10:24Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T03:38:54Z",
-   "headSha": "8c1725309f1d6dd256d4036e0eeea8dc37d10d42",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "working",
-   "botAt": "2026-10-28T03:38:54Z"
   },
   {
    "number": 54,
@@ -518,6 +531,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T03:42:27Z",
+   "kind": "question",
+   "text": "Part of “Build approved premium Treasure Hall after verified artwork retrieval” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-28T03:39:08Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
@@ -711,11 +729,6 @@
    "at": "2026-10-28T00:51:39Z",
    "kind": "question",
    "text": "Part of “Keep automatic combat running behind menus and other tabs” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-28T00:46:00Z",
-   "kind": "live",
-   "text": "“Integrate completed Treasure Hall artwork for testing” is live in the game"
   }
  ],
  "otherPulls": [
