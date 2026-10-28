@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T03:11:14.708Z",
+ "generatedAt": "2026-10-28T03:12:21.386Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -36,12 +36,41 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:10:53Z",
+   "updatedAt": "2026-10-28T03:11:22Z",
    "headSha": "85877b0b8b616a469b2d1ca6ce231242c2f6fd69",
    "touchesGame": false,
    "requestStatus": "Waiting to be built",
-   "botState": "working",
-   "botAt": "2026-10-28T03:10:53Z"
+   "botState": "finished",
+   "botAt": "2026-10-28T03:11:22Z"
+  },
+  {
+   "number": 50,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep automatic combat running behind menus and other tabs",
+   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
+    }
+   ],
+   "openedAt": "2026-10-28T00:41:06Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T02:22:43Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T02:22:43Z",
+   "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T00:51:39Z"
   },
   {
    "number": 44,
@@ -50,15 +79,11 @@
    "title": "Intro-style companion pages with shared type habitats and size/weight",
    "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
    "stage": "testing",
-   "waitingOn": "both",
+   "waitingOn": "joshua",
    "asks": [
     {
      "who": "joshua",
      "text": "The game needs three new tall backgrounds, for Mortals, Spirits and Aberrations, plus a broader Beasts one if you want to replace the volcano. Until then, those pages use the plain dark panel."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
    "openedAt": "2026-10-27T22:33:56Z",
@@ -70,7 +95,7 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-10-28T02:22:43Z",
-   "headSha": "1931c881c3c6ecf657fc1c0943b00061cc2e02e9",
+   "headSha": "b1128db6d30640061860357a6a1adca81b302b06",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
@@ -108,10 +133,6 @@
     {
      "who": "joshua",
      "text": "A waiting companion always shows \"Lv. 1\", because its invested Essence moves to the companion that joins. My suggestion: keep it, because it's the true level."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
    "openedAt": "2026-10-27T21:56:04Z",
@@ -123,7 +144,7 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-10-28T02:22:43Z",
-   "headSha": "d372dbca20ddb19f8aeffc9d3e9fc7985a086bc7",
+   "headSha": "4d0c2c32a7228289608aebbc22aa22d13f92189c",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
@@ -136,7 +157,7 @@
    "title": "Lower battlefield characters and enlarge bosses by 40%",
    "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
    "stage": "testing",
-   "waitingOn": "both",
+   "waitingOn": "joshua",
    "asks": [
     {
      "who": "joshua",
@@ -145,10 +166,6 @@
     {
      "who": "joshua",
      "text": "On the smallest phones, Endless guardians are only a little bigger than before, because the name and health bar need room above them. Should they get more room by moving the name and health bar to the side of the guardian on small phones? My suggestion: keep it as it is now,…"
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
    "openedAt": "2026-10-27T21:22:11Z",
@@ -160,44 +177,11 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-10-28T02:22:43Z",
-   "headSha": "6ebbf886242c461e64d5b7d9190ff3a0440ff821",
+   "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T02:21:48Z"
-  },
-  {
-   "number": 50,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Keep automatic combat running behind menus and other tabs",
-   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
-    }
-   ],
-   "openedAt": "2026-10-28T00:41:06Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T02:22:43Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T02:22:43Z",
-   "headSha": "2eb9261350391530ef4e37d322043c81a56945ea",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T00:51:39Z"
   },
   {
    "number": 54,
@@ -579,11 +563,6 @@
    "text": "Claude has a question for you about “Lower battlefield characters and enlarge bosses by 40%”"
   },
   {
-   "at": "2026-10-28T02:21:48Z",
-   "kind": "question",
-   "text": "Part of “Lower battlefield characters and enlarge bosses by 40%” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-10-28T02:19:13Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
@@ -642,11 +621,6 @@
    "at": "2026-10-28T02:11:37Z",
    "kind": "question",
    "text": "Claude has a question for you about “Intro-style companion pages with shared type habitats and size/weight”"
-  },
-  {
-   "at": "2026-10-28T02:11:37Z",
-   "kind": "question",
-   "text": "Part of “Intro-style companion pages with shared type habitats and size/weight” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-28T02:08:10Z",
@@ -757,6 +731,16 @@
    "at": "2026-10-28T00:35:04Z",
    "kind": "behind",
    "text": "Behind the scenes: “Show Claude's questions on the status page, and whom they're for”"
+  },
+  {
+   "at": "2026-10-27T23:48:45Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Add Dev tools to the test site”"
+  },
+  {
+   "at": "2026-10-27T23:41:27Z",
+   "kind": "test",
+   "text": "The test site was updated with “Integrate completed Treasure Hall artwork for testing”"
   }
  ],
  "otherPulls": [
