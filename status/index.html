@@ -130,8 +130,8 @@ const STAGES = {
   started: {done: 1, now: 1, text: 'Noah is working on it.'},
   building: {done: 1, now: 1, text: 'Claude is building this right now.'},
   questions: {done: 1, blocked: 1, text: 'Claude needs an answer before it can build this. The question is at the top of this page.'},
-  built: {done: 2, text: 'Built. Another change is on the test site right now. Ask Noah to put this one up.'},
-  testing: {done: 2, now: 2, text: 'On the test site now. Try it, then tell Noah if it’s ready to go live.'},
+  built: {done: 2, text: 'Built. It goes on the test site in a few minutes.'},
+  testing: {done: 2, now: 2, text: 'On the test site now, with everything else in progress. Try it, then tell Noah if it’s ready to go live.'},
   'going-live': {done: 3, now: 3, text: 'Noah approved it. It goes live in a few minutes.'},
   live: {done: 4, text: 'Live in the game.'},
   done: {done: 4, text: 'Finished. Nothing in the game itself changed.'},
@@ -186,6 +186,7 @@ function card(item) {
   if (stage.done != null || stage.now != null || stage.blocked != null) node.append(tracker(item));
   let text = stage.text;
   if (item.stage === 'testing' && !item.testIsCurrent) text += ' A newer version is on its way to the test site.';
+  if (item.stage === 'built' && item.clashes) text = 'Built, but it clashes with other changes, so it isn’t on the test site yet. Noah will sort it out.';
   if (item.stage !== 'questions') {
     if (forYou) text += ' Claude also has a question for you about part of it, at the top of this page.';
     if (forNoah) text += ' Part of it is waiting for Noah’s OK.';
@@ -244,8 +245,11 @@ function render(data) {
 
   $('liveWhen').textContent = data.live?.updatedAt ? 'Updated ' + ago(data.live.updatedAt) : 'No updates yet';
   $('liveLatest').textContent = data.live?.latest?.length ? 'Latest: ' + data.live.latest.join(', ') : '';
-  $('testTitle').textContent = data.test ? data.test.title : 'Nothing on it yet';
-  $('testWhen').textContent = data.test ? 'Up since ' + ago(data.test.updatedAt) : '';
+  const testCount = data.test?.included?.length || 0;
+  const testLeftOut = data.test?.skipped?.length || 0;
+  $('testTitle').textContent = !data.test ? 'Nothing on it yet'
+    : testCount ? `The real game plus ${testCount} change${testCount === 1 ? '' : 's'} in progress` : 'The real game, with nothing else in progress';
+  $('testWhen').textContent = data.test ? 'Updated ' + ago(data.test.updatedAt) + (testLeftOut ? ` · ${testLeftOut} not on it yet` : '') : '';
 
   const items = data.items || [];
   const open = items.filter(i => ACTIVE.includes(i.stage));
