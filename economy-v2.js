@@ -13,7 +13,10 @@ function unlock(s,expected=s.summoning.unlocked+1){const q=requirement(s);if(!q|
 function floorShards(floor){return floor<10?1:floor===10?3:2+(floor%10===0?5:0)+(floor===100?20:0);}
 function capacityOffer(s){const at=capacities.indexOf(s.summoning.autoCapacity||1);return at<6?{from:capacities[at],to:capacities[at+1],gold:capacityPrices[at]}:null;}
 function buyCapacity(s,expected){const q=capacityOffer(s);if(!q||q.from!==expected||s.pending||s.gold<q.gold)return {ok:false,reason:'Capacity offer unavailable'};s.gold-=q.gold;s.summoning.autoCapacity=q.to;return {ok:true};}
+// Auto no longer has a session limit, so Gold spent on capacity is refunded once by a save update. Resetting autoCapacity to 1 is what makes it pay out only once.
+function capacityGold(s){const p=s?.progress||s,at=capacities.indexOf(p?.summoning?.autoCapacity||1);return at>0?capacityPrices.slice(0,at).reduce((n,g)=>n+g,0):0;}
+const capacityRefund={amount:capacityGold,refunded:s=>capacityGold(s)===0,convert(input){if(input?.version!==5||!input.progress?.summoning)throw Error('Ownership version 5 required');const gold=capacityGold(input);if(!gold)return input;const p=input.progress;if(!Number.isSafeInteger(p.gold+gold))throw Error('Gold refund would overflow');p.gold+=gold;p.summoning.autoCapacity=1;return input;}};
 // stopRank 10 is "Don't stop for rarity": Auto then runs until capacity, Lore Shards, a discovery or a decision stops it.
 function thresholdValid(s){const rank=s.summoning.settings.stopRank;return rank===10||Number.isInteger(rank)&&rank>=0&&rank<3&&C.companions.some(h=>h.rank>=rank&&weight(s,h,s.summoning.selected)>0);}
-const api={active,enable,weight,weights,totals,unlockGold,discoveries,requirement,unlock,floorShards,questShards,achievementShards,capacities,capacityPrices,capacityOffer,buyCapacity,thresholdValid};root.LoreEconomy=api;if(typeof module!=='undefined')module.exports=api;
+const api={active,enable,weight,weights,totals,unlockGold,discoveries,requirement,unlock,floorShards,questShards,achievementShards,capacities,capacityPrices,capacityOffer,buyCapacity,capacityRefund,thresholdValid};root.LoreEconomy=api;if(typeof module!=='undefined')module.exports=api;
 })(globalThis);
