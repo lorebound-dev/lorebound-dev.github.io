@@ -1,5 +1,5 @@
 {
-  "base": "fd2d7eeecfc4e749d8e575425374fa2d592f3465",
+  "base": "fa28955705b39f5b0d772f271329d62bf3a2ebb9",
   "included": [
     {
       "number": 38,
@@ -22,17 +22,12 @@
       "head": "849a6a762b8d212781465042a4b3dd552e1c407a"
     },
     {
-      "number": 58,
-      "title": "Build approved premium Treasure Hall after verified artwork retrieval",
-      "head": "2ba6719e46e5378561a6ef75976c53beb6a21cde"
-    },
-    {
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
       "head": "b445f4d02edbb43bc27fc70fc5d4c313ff10557e"
     }
   ],
   "skipped": [],
-  "commit": "66a16a33b8f544d01e1833325324e3d47f4819b0",
-  "at": "2026-10-28T17:15:29Z"
+  "commit": "f30843543d56357ce1a5305acf191143bb6826b6",
+  "at": "2026-10-28T17:17:38Z"
 }
