@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T15:49:46.144Z",
+ "generatedAt": "2026-10-28T15:56:08.666Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T11:50:40Z",
+  "updatedAt": "2026-10-28T15:50:47Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -21,6 +21,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 58,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build approved premium Treasure Hall after verified artwork retrieval",
+   "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T03:10:24Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T15:50:47Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T15:50:47Z",
+   "headSha": "ddf065b6b0f88ae9394a1616665e6781626a5c8e",
+   "touchesGame": true,
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-28T07:33:23Z"
+  },
   {
    "number": 40,
    "kind": "request",
@@ -39,11 +63,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T11:50:41Z",
+   "testAt": "2026-10-28T15:50:47Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T15:49:12Z",
+   "updatedAt": "2026-10-28T15:50:47Z",
    "headSha": "aa9247bd24de08ef86734449e992d199edca8e9e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -76,49 +100,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T11:50:41Z",
+   "testAt": "2026-10-28T15:50:47Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T11:50:41Z",
+   "updatedAt": "2026-10-28T15:50:47Z",
    "headSha": "1fd5bc7afb5f58aa08e58e4611d1808f29543b81",
    "touchesGame": true,
    "requestStatus": "Waiting for answers",
    "botState": "questions",
    "botAt": "2026-10-28T11:49:56Z"
-  },
-  {
-   "number": 58,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build approved premium Treasure Hall after verified artwork retrieval",
-   "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The ten Treasure Hall pictures and the v03 mockup still need to go onto the private branch review/treasure-hall-premium-masters, in handoff/treasure-hall-premium-revamp/masters/, unchanged. Once Joshua has shared the Drive folder with the fetch from #52, push them there as…"
-    },
-    {
-     "who": "joshua",
-     "text": "I wrote the one-line plaque hints myself, because the design doesn't give exact words. For example, \"Raise one companion from each family to Mastery VI.\" My suggestion: keep them. They're easy to change later if you'd like different words."
-    }
-   ],
-   "openedAt": "2026-10-28T03:10:24Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T11:50:41Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T11:50:41Z",
-   "headSha": "ddf065b6b0f88ae9394a1616665e6781626a5c8e",
-   "touchesGame": true,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-10-28T07:33:23Z"
   },
   {
    "number": 44,
@@ -138,11 +129,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T11:50:41Z",
+   "testAt": "2026-10-28T15:50:47Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T11:50:41Z",
+   "updatedAt": "2026-10-28T15:50:47Z",
    "headSha": "bc2e6088e6155e00f47d8a4c8f20142f79770126",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -162,11 +153,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T11:50:41Z",
+   "testAt": "2026-10-28T15:50:47Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T11:50:41Z",
+   "updatedAt": "2026-10-28T15:50:47Z",
    "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -191,11 +182,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T11:50:41Z",
+   "testAt": "2026-10-28T15:50:47Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T11:50:41Z",
+   "updatedAt": "2026-10-28T15:50:47Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -517,6 +508,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T15:50:47Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
    "at": "2026-10-28T15:49:12Z",
    "kind": "built",
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
@@ -560,16 +556,6 @@
    "at": "2026-10-28T07:33:23Z",
    "kind": "built",
    "text": "Claude finished building “Build approved premium Treasure Hall after verified artwork retrieval”"
-  },
-  {
-   "at": "2026-10-28T07:33:23Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Build approved premium Treasure Hall after verified artwork retrieval”"
-  },
-  {
-   "at": "2026-10-28T07:33:23Z",
-   "kind": "question",
-   "text": "Part of “Build approved premium Treasure Hall after verified artwork retrieval” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-28T07:32:08Z",
@@ -715,6 +701,11 @@
    "at": "2026-10-28T02:02:28Z",
    "kind": "behind",
    "text": "Behind the scenes: “Keep open requests up to date with main automatically”"
+  },
+  {
+   "at": "2026-10-28T01:59:31Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
   }
  ],
  "otherPulls": [
