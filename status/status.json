@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T00:45:32.277Z",
+ "generatedAt": "2026-10-28T00:46:16.419Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-27T22:59:59Z",
@@ -14,6 +14,29 @@
   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions"
  },
  "items": [
+  {
+   "number": 36,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate completed Treasure Hall artwork for testing",
+   "quote": "Ok can you push anything new using that setup? I want the treasure updates and assets to flow there for testing.",
+   "stage": "going-live",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:08:14Z",
+   "mergedAt": "2026-10-28T00:45:57Z",
+   "closedAt": "2026-10-28T00:45:57Z",
+   "liveAt": null,
+   "testAt": "2026-10-27T23:41:27Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "updatedAt": "2026-10-28T00:45:57Z",
+   "headSha": "f23db86c16993b874412b51697f229f2e0810a42",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-27T23:23:57Z"
+  },
   {
    "number": 40,
    "kind": "request",
@@ -72,29 +95,6 @@
    "requestStatus": "Waiting to be built",
    "botState": "finished",
    "botAt": "2026-10-28T00:42:09Z"
-  },
-  {
-   "number": 36,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate completed Treasure Hall artwork for testing",
-   "quote": "Ok can you push anything new using that setup? I want the treasure updates and assets to flow there for testing.",
-   "stage": "built",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:08:14Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-27T23:41:27Z",
-   "onTest": false,
-   "testIsCurrent": false,
-   "updatedAt": "2026-10-27T23:41:27Z",
-   "headSha": "f23db86c16993b874412b51697f229f2e0810a42",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-27T23:23:57Z"
   },
   {
    "number": 38,
@@ -407,6 +407,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T00:45:57Z",
+   "kind": "approved",
+   "text": "Noah approved “Integrate completed Treasure Hall artwork for testing”"
+  },
+  {
    "at": "2026-10-28T00:43:25Z",
    "kind": "test",
    "text": "“Party reordering, continuous Auto Summon and in-dock companion decisions” went on the test site"
@@ -600,11 +605,6 @@
    "at": "2026-10-27T17:40:07Z",
    "kind": "asked",
    "text": "Noah started “Show one update popup for every pending save update”"
-  },
-  {
-   "at": "2026-10-27T17:31:31Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Add a suggestions folder for ideas Joshua decides on”"
   }
  ],
  "otherPulls": [
