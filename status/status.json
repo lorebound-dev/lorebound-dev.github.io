@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T11:49:10.018Z",
+ "generatedAt": "2026-10-28T11:50:24.716Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -27,23 +27,36 @@
    "by": "Joshua",
    "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
    "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "I can't open Joshua's Journal mockup from GitHub, because my build job gets no Google key. The easiest fix: download the picture (JOURNAL_MOCKUP_VISUAL_ONLY_NO_GAME_DATA_v01.png) and add it to this pull request as reviews/journal-ledger/mockup.png. Then comment \"@claude…"
+    },
+    {
+     "who": "noah",
+     "text": "I can't take in-game screenshots here, because there's no browser in this job. Running \"compare the Journal with the mockup\" from a local Claude Code session would let me add screenshots at 320×610, 375×667 and 390×844."
+    },
+    {
+     "who": "joshua",
+     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
+    }
+   ],
    "openedAt": "2026-10-28T04:18:38Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-28T11:48:46Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T11:49:13Z",
-   "headSha": "898e45ec964ba58f748fa39b8fc8c385fc420152",
+   "updatedAt": "2026-10-28T11:49:56Z",
+   "headSha": "1fd5bc7afb5f58aa08e58e4611d1808f29543b81",
    "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-28T11:49:13Z"
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-28T11:49:56Z"
   },
   {
    "number": 58,
@@ -523,9 +536,19 @@
  ],
  "activity": [
   {
-   "at": "2026-10-28T11:49:13Z",
+   "at": "2026-10-28T11:49:56Z",
    "kind": "built",
    "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-10-28T11:49:56Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-10-28T11:49:56Z",
+   "kind": "question",
+   "text": "Part of “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-28T11:48:46Z",
@@ -709,16 +732,6 @@
   },
   {
    "at": "2026-10-28T01:59:31Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
-  },
-  {
-   "at": "2026-10-28T01:55:24Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
-  },
-  {
-   "at": "2026-10-28T01:44:02Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
   }
