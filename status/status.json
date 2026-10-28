@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T01:57:23.262Z",
+ "generatedAt": "2026-10-28T01:59:15.839Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T00:46:00Z",
@@ -37,12 +37,12 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:57:00Z",
+   "updatedAt": "2026-10-28T01:57:37Z",
    "headSha": "2b85ddc83c0bc46c43be95755c7bdc05cc3c601e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-10-28T01:57:00Z"
+   "botState": "finished",
+   "botAt": "2026-10-28T01:57:37Z"
   },
   {
    "number": 38,
@@ -67,6 +67,35 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-28T01:56:23Z"
+  },
+  {
+   "number": 50,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep automatic combat running behind menus and other tabs",
+   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
+    }
+   ],
+   "openedAt": "2026-10-28T00:41:06Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T01:55:24Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T01:55:24Z",
+   "headSha": "2eb9261350391530ef4e37d322043c81a56945ea",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T00:51:39Z"
   },
   {
    "number": 44,
@@ -124,35 +153,6 @@
    "requestStatus": "",
    "botState": "",
    "botAt": null
-  },
-  {
-   "number": 50,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Keep automatic combat running behind menus and other tabs",
-   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
-    }
-   ],
-   "openedAt": "2026-10-28T00:41:06Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T01:55:24Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T01:55:24Z",
-   "headSha": "91608190807806a4878cbda9213dabbec7fd3b97",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T00:51:39Z"
   },
   {
    "number": 52,
@@ -502,6 +502,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T01:57:37Z",
+   "kind": "built",
+   "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
+  },
+  {
    "at": "2026-10-28T01:56:23Z",
    "kind": "built",
    "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
@@ -695,11 +700,6 @@
    "at": "2026-10-27T21:22:11Z",
    "kind": "asked",
    "text": "You asked for “Lower battlefield characters and enlarge bosses by 40%”"
-  },
-  {
-   "at": "2026-10-27T21:14:02Z",
-   "kind": "asked",
-   "text": "Noah started “Show damage numbers over the enemy”"
   }
  ],
  "otherPulls": [
