@@ -1,23 +1,18 @@
 {
-  "base": "d0b73e26794b3670cd9dec707dad1cbc7f1a429f",
+  "base": "8c7ebe000201dc7c4d4a0498cf5b0e9f10737e38",
   "included": [
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "484f917c70308d83e33d30f0dc80d0c8b7cd0610"
-    },
-    {
-      "number": 44,
-      "title": "Intro-style companion pages with shared type habitats and size/weight",
-      "head": "7db1293e1df40983c10ee7d274d57466ad185b50"
+      "head": "c42a0d960f0d02f7647e71bc8c03f20d6473c56b"
     },
     {
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-      "head": "9bf4c90b5e6dc48770cbb2884a04cbce19125d32"
+      "head": "79b8116cda5b12357bb154f2c7ce01edaa1fb6e9"
     }
   ],
   "skipped": [],
-  "commit": "de197444debb3efb2695ec563dde530d426cdc91",
-  "at": "2026-10-28T18:05:08Z"
+  "commit": "11e0df8500a8cfbe271df6c4282438ada03ea05c",
+  "at": "2026-10-28T18:32:19Z"
 }
