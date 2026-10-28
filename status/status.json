@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T02:19:34.655Z",
+ "generatedAt": "2026-10-28T02:22:14.225Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -19,6 +19,43 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Story bosses are now about 1.5× their original size on most phones, which is as big as fits between the timer and the companions. Going bigger would mean making the boss name, health bar and timer smaller, or letting the boss's top edge go behind them. My suggestion: keep it…"
+    },
+    {
+     "who": "joshua",
+     "text": "On the smallest phones, Endless guardians are only a little bigger than before, because the name and health bar need room above them. Should they get more room by moving the name and health bar to the side of the guardian on small phones? My suggestion: keep it as it is now,…"
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
+    }
+   ],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T02:19:13Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T02:21:48Z",
+   "headSha": "b335881c44743806d41379b83faa1ce622e6cc7f",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T02:21:48Z"
+  },
   {
    "number": 40,
    "kind": "request",
@@ -104,30 +141,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T02:11:37Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T02:19:13Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T02:19:13Z",
-   "headSha": "1b3f8c30a32440b037d9cddc1786730e91f7964f",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-28T02:07:26Z"
   },
   {
    "number": 50,
@@ -518,6 +531,21 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T02:21:48Z",
+   "kind": "built",
+   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
+   "at": "2026-10-28T02:21:48Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
+   "at": "2026-10-28T02:21:48Z",
+   "kind": "question",
+   "text": "Part of “Lower battlefield characters and enlarge bosses by 40%” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-28T02:19:13Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
@@ -586,11 +614,6 @@
    "at": "2026-10-28T02:08:10Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
-  },
-  {
-   "at": "2026-10-28T02:07:26Z",
-   "kind": "built",
-   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
   },
   {
    "at": "2026-10-28T02:03:29Z",
@@ -706,16 +729,6 @@
    "at": "2026-10-27T23:41:27Z",
    "kind": "test",
    "text": "The test site was updated with “Integrate completed Treasure Hall artwork for testing”"
-  },
-  {
-   "at": "2026-10-27T23:37:22Z",
-   "kind": "test",
-   "text": "The test site was updated with “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-27T23:36:35Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”"
   }
  ],
  "otherPulls": [
