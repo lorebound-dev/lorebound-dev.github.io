@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T00:36:16.018Z",
+ "generatedAt": "2026-10-28T00:41:27.845Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-27T22:59:59Z",
@@ -14,6 +14,29 @@
   "title": "Integrate completed Treasure Hall artwork for testing"
  },
  "items": [
+  {
+   "number": 50,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep automatic combat running behind menus and other tabs",
+   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T00:41:06Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "updatedAt": "2026-10-28T00:41:06Z",
+   "headSha": "eca834964acdc4c753781d6b7ad0af84fc0f4617",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 40,
    "kind": "request",
@@ -30,12 +53,12 @@
    "testAt": "2026-10-27T23:37:22Z",
    "onTest": false,
    "testIsCurrent": false,
-   "updatedAt": "2026-10-28T00:35:59Z",
+   "updatedAt": "2026-10-28T00:36:22Z",
    "headSha": "f41742bd2b2c521eae89581e2852a1239851fad3",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-10-28T00:35:59Z"
+   "botState": "finished",
+   "botAt": "2026-10-28T00:36:22Z"
   },
   {
    "number": 36,
@@ -371,6 +394,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T00:41:06Z",
+   "kind": "asked",
+   "text": "You asked for “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
+   "at": "2026-10-28T00:36:22Z",
+   "kind": "built",
+   "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
+  },
+  {
    "at": "2026-10-28T00:35:04Z",
    "kind": "behind",
    "text": "Behind the scenes: “Show Claude's questions on the status page, and whom they're for”"
@@ -559,16 +592,6 @@
    "at": "2026-10-27T17:16:15Z",
    "kind": "asked",
    "text": "Noah started “Fill in the bottom nav icons on iPhones”"
-  },
-  {
-   "at": "2026-10-27T17:04:26Z",
-   "kind": "live",
-   "text": "“Give the battle more room, and bring back Joshua's diamond pips” is live in the game"
-  },
-  {
-   "at": "2026-10-27T17:04:23Z",
-   "kind": "approved",
-   "text": "Noah approved “Give the battle more room, and bring back Joshua's diamond pips”"
   }
  ],
  "otherPulls": [
