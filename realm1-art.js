@@ -29,10 +29,13 @@
  API.name=s=>forState(s)?.name;API.stats=stats;Object.defineProperty(API,'cacheSize',{get:()=>spriteCache.size+backdropCache.size});
  // Reserve a full button row below all five actors and give the fight the rest of the height (it used to stop
  // 535px above the bottom of the screen, which squeezed it upward); collapsing does not move them.
+ let foldedDeck=44;
  function layout(){const game=document.getElementById('game'),combat=document.getElementById('combatLayout'),deck=document.getElementById('adventureDeck');if(!game||!combat||!deck||game.classList.contains('boss-room')||game.classList.contains('area-open'))return;
-  let probe=document.getElementById('artPanelMeasure');if(!probe){probe=document.createElement('span');probe.id='artPanelMeasure';probe.setAttribute('aria-hidden','true');probe.style.cssText='position:absolute;visibility:hidden;pointer-events:none;width:0;height:var(--dock-panel-height)';game.append(probe);}const panel=probe.getBoundingClientRect().height,collapsed=game.classList.contains('dock-is-collapsed');
-  const expandedHeight=combat.clientHeight-(collapsed?panel+22-deck.clientHeight:0);
-  const court=Math.max(90,expandedHeight-76);game.style.setProperty('--art-court-y',court+'px');game.classList.toggle('art-short-court',court<160);
+  const collapsed=game.classList.contains('dock-is-collapsed');
+  // The fight and the dock share one column, so the fight's folded height is its height now plus whatever the dock is taller than when folded.
+  // The fighters keep the same low spot just above the Challenge Boss row whether the dock is folded, opening or open. Open cards may cover them.
+  if(collapsed)foldedDeck=deck.offsetHeight;const foldedHeight=combat.clientHeight+deck.offsetHeight-foldedDeck;
+  const court=Math.max(90,foldedHeight-84);game.style.setProperty('--art-court-y',court+'px');game.classList.toggle('art-short-court',court<160);
  }
  const resize=new ResizeObserver(layout);const game=document.getElementById('game');if(game)resize.observe(game);const mount=new MutationObserver(()=>{const deck=document.getElementById('adventureDeck');if(deck){resize.observe(deck);resize.observe(document.getElementById('combatLayout'));mount.disconnect();layout();}});mount.observe(document.body,{childList:true,subtree:true});
 })(globalThis);

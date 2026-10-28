@@ -1,5 +1,21 @@
 (function(root){'use strict';
 const $=id=>document.getElementById(id),covers=['Astral violet','Tideglass','Ember veil','Mosslight'];let getState,persist,format,statFormat,lastLevel=null,lastSignature='';
+// A quiet cue for a real level gain: gold ring, one faint outline pulse and a short note. One award that crosses several levels plays it once.
+let noteTimer=0;
+function celebrate(level){
+ const button=$('profileButton');if(!button)return;
+ const reduced=root.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+ let note=button.querySelector('.level-up-note');
+ if(!note){note=document.createElement('span');note.className='level-up-note';note.setAttribute('aria-hidden','true');note.textContent='Leveled Up';button.append(note);}
+ let status=$('levelUpStatus');
+ if(!status){status=document.createElement('span');status.id='levelUpStatus';status.className='level-up-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');button.parentNode.append(status);}
+ status.textContent='Leveled up. Level '+level+'.';
+ button.querySelector('.level-pulse')?.remove();
+ const ring=button.querySelector('.profile-xp-ring');
+ if(ring&&!reduced){const pulse=ring.cloneNode(true);pulse.classList.add('level-pulse');pulse.querySelector('.xp-progress')?.remove();pulse.setAttribute('aria-hidden','true');button.append(pulse);pulse.addEventListener('animationend',()=>pulse.remove());}
+ button.classList.remove('level-glow');void button.offsetWidth;button.classList.add('level-glow');
+ clearTimeout(noteTimer);noteTimer=setTimeout(()=>{button.classList.remove('level-glow');status.textContent='';},2600);
+}
 function selectedCompanion(s){const id=s.profile.companionPortrait;return id&&root.LoreRealm.discoveredIds(s).includes(id)?root.LoreRealm.species(id):null;}
 // With no companion picked, show the starter's current art (as the chooser does), not the old starter sheet.
 function starterCompanion(s){const c=root.LoreConfig?.companions?.[s.starter];return c&&root.LoreArt?root.LoreRealm.species(c.id):null;}
@@ -7,7 +23,7 @@ function setPortrait(el,s){const picked=selectedCompanion(s),sigil=!picked&&s.pr
 
 function refresh(s){if(!s)return;Lore.ensureProgress(s);const p=Lore.playerProgress(s),m=Lore.masteryProgress(s),sig=[s.playerXp,s.profile.cover,s.profile.portrait,s.profile.companionPortrait,JSON.stringify(s.copies),s.floor,s.biome,s.level,s.weaponLevel,JSON.stringify(s.party),s.regularKills,s.bossClears,m.count,s.player?.name,root.LoreEndless?.record(s)?.titleSelected,root.LoreEndless?.record(s)?.victories].join(':');if(sig===lastSignature)return;lastSignature=sig;
  $('profileButton').className='profile-button ui-icon-button cover-'+s.profile.cover;$('profileButton').style.setProperty('--xp-progress',String(Math.min(100,p.xp/p.needed*100)));$('profileButton').style.setProperty('--xp-turn',Math.min(100,p.xp/p.needed*100)+'%');$('profileButton').setAttribute('aria-label',`Your profile, level ${p.level}, ${p.xp} of ${p.needed} XP`);$('playerLevel').textContent=p.level;setPortrait($('hudPortrait'),s);
- if(lastLevel!==null&&p.level>lastLevel){$('playerLevel').classList.remove('level-gain');void $('playerLevel').offsetWidth;$('playerLevel').classList.add('level-gain');}lastLevel=p.level;
+ if(lastLevel!==null&&p.level>lastLevel){$('playerLevel').classList.remove('level-gain');void $('playerLevel').offsetWidth;$('playerLevel').classList.add('level-gain');celebrate(p.level);}lastLevel=p.level;
  $('profileBanner').className='profile-banner cover-'+s.profile.cover;setPortrait($('profilePortrait'),s);$('profileName').textContent=s.player?.name||'Adventurer';$('profileLevel').textContent=p.level;$('profileXp').textContent=format(p.xp)+' / '+format(p.needed)+' XP';$('profileXpFill').style.width=Math.min(100,p.xp/p.needed*100)+'%';
  const rows=[['Current floor',Lore.worldFloor(s),'Across the realms'],['Enemies defeated',(s.regularKills||0)+(root.LoreStory?.lifetimeBosses(s)??s.bossClears??0),'Including bosses'],['Story bosses defeated',s.bossClears||0,'Story checkpoints'],['Party DPS',statFormat(Lore.dps(s)),'Automatic damage'],['Tap power',statFormat(Lore.tapPower(s)),'Your contribution'],['Total experience',s.playerXp,'Your journey'],['Bound in party',root.LoreParty?.ensure(s).slots.filter(Boolean).length||1,'A growing bond'],['Summons completed',m.count,'Calls answered']];if(root.LoreStory?.record(s)?.completion)rows.push(['Title',root.LoreEndless?.record(s)?.titleSelected?'Guardian Memorial':'Realm 1 Conqueror','Cosmetic'],['Trophy','Realm Conquered','Cosmetic']);$('profileStats').innerHTML=rows.map(([label,value,detail])=>`<article><span>${label}</span><strong>${typeof value==='number'?format(value):value}</strong></article>`).join('');
  $('summoningRank').textContent='LEVEL '+m.level;$('summoningCount').textContent=m.progress+' / '+m.needed+' summons';$('summoningTotal').textContent=m.count+' total';$('summoningFill').style.width=Math.min(100,m.progress/m.needed*100)+'%';}

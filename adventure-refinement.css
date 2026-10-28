@@ -3,14 +3,23 @@
 .adventure-refined #game #combatLayout{display:block;padding:0;overflow:hidden}
 .adventure-refined #game .location{height:36px}
 .adventure-refined #game #battlefield{position:absolute;top:36px;left:0;height:calc(var(--court-y) - 36px);width:100%;container-type:normal}
-.adventure-refined #game .enemy-sprite,.adventure-refined #game.dock-is-collapsed .enemy-sprite{--enemy-size:clamp(100px,15dvh,140px);bottom:78px}
+/* One enemy size and ground line in both dock states. Ordinary enemies are 1.4x their former clamp(100px,15dvh,140px); Endless guardians are 1.96x their former
+   folded-dock size and stand a little further back. Each is capped so its name and health bar fit above the art, below the location row. */
+.adventure-refined #game:not(.boss-room){--foe-want:clamp(140px,21dvh,196px);--foe-base:78px;--foe-lift:0px;--foe-field:36px;--foe-room:46px;--foe-info:40px;--foe-size:min(var(--foe-want),94vw,calc((var(--court-y) - var(--foe-room) - var(--foe-info) - var(--foe-base) - var(--foe-lift)) / .92))}
+.adventure-refined #game.endless-active:not(.boss-room){--foe-want:clamp(245px,39.2dvh,363px);--foe-lift:22px;--foe-info:74px}
+.adventure-refined #game:not(.boss-room) :is(#enemySprite,#enemyGhost){--enemy-size:var(--foe-size);bottom:calc(var(--foe-base) + var(--foe-lift))}
 .adventure-refined #game #partyStage{position:absolute;top:calc(var(--court-y) - 48px);height:64px;left:0;right:0;margin:0;transform:none}
 .adventure-refined #game #boundSprite,.adventure-refined #game .battle-follower{width:clamp(58px,18vw,78px);height:clamp(58px,18vw,78px);bottom:var(--court-depth,0px);filter:drop-shadow(0 6px 3px #001014b0)}
 .adventure-refined #game .enemy-info{position:absolute;top:auto;bottom:calc(20px + clamp(100px,15dvh,140px));left:50%;translate:-50% 0;width:160px;margin:0;pointer-events:none}
 .adventure-refined #game #enemyName{font-size:12px!important;line-height:16px!important;letter-spacing:.2px;text-shadow:0 2px 3px #000}
 .adventure-refined #game .enemy-info .health{height:14px;margin-top:3px}
 .adventure-refined #game .enemy-info .health b{font-size:12px!important;line-height:12px!important}
-.adventure-refined #game .battle-panel{position:absolute;top:min(calc(var(--court-y) + 5px),calc(100% - 46px));bottom:auto;left:0;right:0;display:flex;justify-content:center;height:44px;margin:0 12px;background:none;border:0;box-shadow:none}
+/* The name and health bar sit 6px above the top of the enemy's art box (it is drawn 8-16% low, so this allows for the least), the name on its own line. */
+.adventure-refined #game:not(.boss-room) .enemy-info{top:calc(var(--court-y) - var(--foe-field) - var(--foe-base) - var(--foe-lift) - var(--foe-size) * .92 - 6px);bottom:auto;translate:-50% -100%}
+.adventure-refined #game:not(.boss-room) #enemyName{display:block;margin-bottom:5px}
+.adventure-refined #game:not(.boss-room) .enemy-info .health{margin-top:0}
+/* Narrow enough to stay between the Omnidex button and the Endless relics button. */
+.adventure-refined #game.endless-active:not(.boss-room) .enemy-info{width:min(176px,100vw - 212px)}.adventure-refined #game .battle-panel{position:absolute;top:min(calc(var(--court-y) + 5px),calc(100% - 46px));bottom:auto;left:0;right:0;display:flex;justify-content:center;height:44px;margin:0 12px;background:none;border:0;box-shadow:none}
 .adventure-refined #game .progress-row,.adventure-refined #game #killDots,.adventure-refined #game #bossButton{display:none}
 .adventure-refined #game.floor-ready:not(.encounter-boss) #bossButton{display:block;width:180px}
 .adventure-refined #floorTimeline{display:flex;gap:3px;align-items:center;justify-content:center;padding:8px 12px;background:radial-gradient(ellipse,#061923d9,transparent 74%);max-width:100%}
@@ -34,8 +43,8 @@
  .adventure-refined #game .location{height:30px}
  .adventure-refined #game #battlefield{top:30px;height:calc(var(--court-y) - 30px)}
  .adventure-refined #game #boundSprite,.adventure-refined #game .battle-follower{width:58px;height:58px}
- .adventure-refined #game .enemy-sprite,.adventure-refined #game.dock-is-collapsed .enemy-sprite{--enemy-size:96px}
- .adventure-refined #game .enemy-info{bottom:116px}
+ .adventure-refined #game:not(.boss-room){--foe-want:134px;--foe-field:30px;--foe-room:40px}
+ .adventure-refined #game.endless-active:not(.boss-room){--foe-want:245px;--foe-lift:0px}
  .adventure-refined #game .adventure-deck:is([data-panel=tomes],[data-panel=upgrades]){--dock-panel-height:122px}
  .adventure-refined #game .summon-book,.adventure-refined #game.dock-is-collapsed .summon-book{width:66px;height:66px;left:calc(50% - 53px);top:-4px}
 }
