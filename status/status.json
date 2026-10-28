@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T18:32:42.558Z",
+ "generatedAt": "2026-10-28T18:47:16.950Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -17,6 +17,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 63,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves all three Journal choices from #60",
+   "quote": "send it. and yes make sure everything is updated",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T18:46:53Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T18:46:53Z",
+   "headSha": "905af69127be7c6e5711902aeb0273f2e52dcb07",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 38,
    "kind": "request",
@@ -437,33 +461,14 @@
    "requestStatus": "",
    "botState": "",
    "botAt": null
-  },
-  {
-   "number": 22,
-   "kind": "fix",
-   "by": "Noah",
-   "title": "Make small text readable on phones",
-   "quote": "",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T03:51:39Z",
-   "mergedAt": "2026-10-27T04:32:55Z",
-   "closedAt": "2026-10-27T04:32:55Z",
-   "liveAt": "2026-10-27T04:32:57Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-27T04:32:57Z",
-   "headSha": "9821f86c747b466a36ee9f7db4c25475e6dd2dde",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
   }
  ],
  "activity": [
+  {
+   "at": "2026-10-28T18:46:53Z",
+   "kind": "asked",
+   "text": "You asked for “Owner approves all three Journal choices from #60”"
+  },
   {
    "at": "2026-10-28T18:32:19Z",
    "kind": "test",
@@ -658,11 +663,6 @@
    "at": "2026-10-28T04:18:38Z",
    "kind": "asked",
    "text": "You asked for “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T03:45:25Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
   }
  ],
  "otherPulls": [
