@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T01:55:28.577Z",
+ "generatedAt": "2026-10-28T01:57:23.262Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T00:46:00Z",
@@ -21,30 +21,6 @@
  },
  "items": [
   {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T01:55:24Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T01:55:31Z",
-   "headSha": "1b3f8c30a32440b037d9cddc1786730e91f7964f",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-10-28T01:55:31Z"
-  },
-  {
    "number": 40,
    "kind": "request",
    "by": "Joshua",
@@ -61,12 +37,36 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T01:55:24Z",
+   "updatedAt": "2026-10-28T01:57:00Z",
    "headSha": "2b85ddc83c0bc46c43be95755c7bdc05cc3c601e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T00:42:57Z"
+   "botState": "working",
+   "botAt": "2026-10-28T01:57:00Z"
+  },
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T01:55:24Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T01:56:23Z",
+   "headSha": "1b3f8c30a32440b037d9cddc1786730e91f7964f",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-28T01:56:23Z"
   },
   {
    "number": 44,
@@ -502,6 +502,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T01:56:23Z",
+   "kind": "built",
+   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
    "at": "2026-10-28T01:55:24Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
@@ -580,11 +585,6 @@
    "at": "2026-10-28T00:43:25Z",
    "kind": "test",
    "text": "The test site was updated with “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-28T00:42:57Z",
-   "kind": "built",
-   "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
   },
   {
    "at": "2026-10-28T00:41:06Z",
