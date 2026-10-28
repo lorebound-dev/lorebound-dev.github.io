@@ -9,7 +9,7 @@
     {
       "number": 40,
       "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-      "head": "b85c22b7d65bea7b1e9782fac93438630d944c62"
+      "head": "aa9247bd24de08ef86734449e992d199edca8e9e"
     },
     {
       "number": 44,
@@ -33,6 +33,6 @@
     }
   ],
   "skipped": [],
-  "commit": "d2ac5e12bc005e801a0dbe2331e53fe2cf63539c",
-  "at": "2026-10-28T11:50:40Z"
+  "commit": "3d4b63f87046e4113cf7ed2bf761ed1bdba8ee16",
+  "at": "2026-10-28T15:50:47Z"
 }

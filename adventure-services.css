@@ -84,25 +84,35 @@
 .party-services #game #autoAccess.is-running span{color:#f6d68f}
 .party-services #game #autoAccess.is-running{box-shadow:inset 0 0 0 1px #b18b4799;border-radius:4px}
 .dock-sr-only{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
-/* Auto setup: every rarity with a stop checkbox and the selected Tome's chance, how many Tomes open at a time, Start.
-   Only the table scrolls on short screens, so the quantity and Start stay in reach. */
+/* Auto setup (Joshua's approved design): a matte dark navy panel with thin bronze trim, a small violet Tome emblem,
+   ten 44px rarity rows, "Open per cycle" and one large violet Start. Only the rarity list scrolls on short screens, so
+   the quantity and Start always stay on screen. */
+.party-services #autoSettingsSheet.economy-auto{height:auto;padding:14px 14px 16px;gap:10px;background:#0a1824;border:1px solid #a8854f;border-radius:6px;box-shadow:inset 0 0 0 3px #0a1824,inset 0 0 0 4px #a8854f55,0 12px 34px #000a}
+#autoSettingsSheet.economy-auto header h2{flex:1;font-size:20px!important}
+#autoSettingsSheet.economy-auto #autoTomeEmblem{flex:none;width:32px;height:32px;object-fit:contain;filter:drop-shadow(0 0 5px #9a6fe08c)}
+#autoSettingsSheet.economy-auto #summonAutoPane{flex:0 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+#autoSettingsSheet.economy-auto #summonAutoPane>:not(#economyAuto),#autoSettingsSheet.economy-auto #saveSummonSettings{display:none!important}
+#economyAuto{flex:0 1 auto;min-height:0;display:flex;flex-direction:column}
 #economyAuto *{font-family:Georgia,serif!important;letter-spacing:normal!important}
-#economyAuto .auto-odds-wrap{max-height:max(176px,calc(100dvh - 290px));overflow-y:auto;margin:0 0 10px;border:1px solid #b18b4766;background:#06141dcc}
+#economyAuto .auto-odds-wrap{flex:0 1 auto;min-height:118px;overflow-y:auto;overscroll-behavior:contain;margin:0 0 10px;border:1px solid #a8854f66;background:#07131d}
 #economyAuto .auto-odds{width:100%;border-collapse:collapse}
-#economyAuto .auto-odds th,#economyAuto .auto-odds td{height:36px;padding:0 8px;border-bottom:1px solid #b18b4733;text-align:left;font-size:14px;font-weight:normal;color:#f1dca3}
-#economyAuto .auto-odds thead th{position:sticky;top:0;z-index:1;height:30px;background:#0c2129;font-size:13px;color:#c9b88f;border-bottom-color:#b18b4799}
+#economyAuto .auto-odds th,#economyAuto .auto-odds td{height:44px;padding:0 8px;border-bottom:1px solid #a8854f2e;text-align:left;font-size:14px;font-weight:normal;color:#f1dca3}
+#economyAuto .auto-odds thead th{position:sticky;top:0;z-index:1;height:30px;background:#0d1f2c;font-size:13px;color:#c9b88f;border-bottom-color:#a8854f99}
 #economyAuto .auto-odds td:first-child,#economyAuto .auto-odds thead th:first-child{width:44px;padding:0;text-align:center}
 #economyAuto .auto-odds td:last-child,#economyAuto .auto-odds thead th:last-child{text-align:right;white-space:nowrap}
 #economyAuto .auto-odds input{width:22px;height:22px;margin:0;accent-color:#c9a65a;vertical-align:middle}
-#economyAuto .auto-odds label{display:flex;align-items:center;gap:8px;min-height:36px;cursor:pointer}
-#economyAuto .auto-odds label i{flex:0 0 auto;width:7px;height:7px;rotate:45deg;background:var(--rarity-color)}
+#economyAuto .auto-odds label{display:flex;align-items:center;gap:8px;min-height:44px;cursor:pointer}
+#economyAuto .auto-gem{flex:none;width:24px;height:24px;display:grid;place-items:center}
+#economyAuto .auto-gem i{width:8px;height:8px;rotate:45deg;background:var(--rarity-color)}
+#economyAuto .auto-gem img{width:24px;height:24px;object-fit:contain}
 #economyAuto .auto-odds tr.is-zero td:last-child,#economyAuto .auto-odds tr.is-zero label{color:#9d9481}
-#economyAuto .auto-quantity{display:flex;align-items:center;gap:10px;margin:0 0 8px;font-size:15px;color:#f1d899}
-#economyAuto .auto-quantity select{flex:1}
-#economyAuto .auto-release-note{margin:0 0 8px;font-size:13px;color:#c9b88f}
-#autoMoreSettings{margin-top:10px;font:14px Georgia,serif;color:#e9ddbe}
-#autoMoreSettings summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font:14px Georgia,serif!important;letter-spacing:normal!important;color:#c9b88f}
-#autoMoreSettings label{display:block;margin:0 0 8px}
+#economyAuto .auto-quantity{flex:none;display:flex;align-items:center;gap:10px;margin:0 0 8px;font-size:15px;color:#f1d899}
+#economyAuto .auto-quantity span{white-space:nowrap}
+#economyAuto .auto-quantity select{flex:1;min-width:0;background:#0d1f2c;border-color:#a8854f}
+#economyAuto .auto-release-note{flex:none;margin:0;font-size:13px;line-height:1.4;color:#c9b88f}
+#economyAuto #economyAutoReason{flex:none;margin:6px 0 0}
+.party-services #autoSettingsSheet.economy-auto>#settingsStartAuto{flex:none;min-height:52px;background:linear-gradient(#6a4a9c,#48306f);color:#f6ecd6;font:17px Georgia,serif!important;letter-spacing:normal!important}
+.party-services #autoSettingsSheet.economy-auto>#settingsStartAuto:disabled{opacity:.55}
 /* During Auto, each released result pops as a small sprite over the Tome (about half its size), then fades. */
 .auto-stream{position:absolute;left:calc(50% - 42px);top:4px;width:36px;height:36px;pointer-events:none;z-index:3}
 .auto-stream-sprite{position:absolute;inset:0;display:block;filter:drop-shadow(0 0 5px color-mix(in srgb,var(--stream-color,#e0c183) 55%,transparent));animation:auto-stream-pop var(--stream-ms,750ms) ease-out both}
