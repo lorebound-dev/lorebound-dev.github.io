@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T07:27:31.634Z",
+ "generatedAt": "2026-10-28T07:28:12.782Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -21,6 +21,30 @@
  },
  "items": [
   {
+   "number": 58,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build approved premium Treasure Hall after verified artwork retrieval",
+   "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T03:10:24Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T07:28:19Z",
+   "headSha": "a58cb567982a871a374c4351ad4d9b38fd0d4f5a",
+   "touchesGame": false,
+   "requestStatus": "Waiting for answers",
+   "botState": "working",
+   "botAt": "2026-10-28T07:28:19Z"
+  },
+  {
    "number": 40,
    "kind": "request",
    "by": "Joshua",
@@ -37,12 +61,12 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T05:19:57Z",
+   "updatedAt": "2026-10-28T07:28:10Z",
    "headSha": "4f4453fb7470639cd0739290cbd0760949f54709",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-10-28T03:16:38Z"
+   "botAt": "2026-10-28T07:28:10Z"
   },
   {
    "number": 60,
@@ -182,30 +206,6 @@
    "requestStatus": "Partly built, waiting for answers (transfer not verified)",
    "botState": "questions",
    "botAt": "2026-10-28T00:58:42Z"
-  },
-  {
-   "number": 58,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build approved premium Treasure Hall after verified artwork retrieval",
-   "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T03:10:24Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T03:42:27Z",
-   "headSha": "a58cb567982a871a374c4351ad4d9b38fd0d4f5a",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-10-28T03:42:27Z"
   },
   {
    "number": 54,
@@ -522,6 +522,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T07:28:10Z",
+   "kind": "built",
+   "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
+  },
+  {
    "at": "2026-10-28T05:19:57Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -585,11 +590,6 @@
    "at": "2026-10-28T03:17:34Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:16:38Z",
-   "kind": "built",
-   "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
   },
   {
    "at": "2026-10-28T03:16:20Z",
