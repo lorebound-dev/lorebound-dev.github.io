@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T15:41:30.582Z",
+ "generatedAt": "2026-10-28T15:49:46.144Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -27,23 +27,28 @@
    "by": "Joshua",
    "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
    "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Sound, haptics and reveal speed are no longer on the Auto page, and they have no other place in the game yet. They still work with your saved choices, but you can't change them right now. My suggestion: yes, move them into Profile settings now."
+    }
+   ],
    "openedAt": "2026-10-27T21:56:04Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-28T11:50:41Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T15:41:08Z",
-   "headSha": "b85c22b7d65bea7b1e9782fac93438630d944c62",
+   "updatedAt": "2026-10-28T15:49:12Z",
+   "headSha": "aa9247bd24de08ef86734449e992d199edca8e9e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-10-28T15:41:08Z"
+   "botState": "questions",
+   "botAt": "2026-10-28T15:49:12Z"
   },
   {
    "number": 60,
@@ -508,33 +513,19 @@
    "requestStatus": "",
    "botState": "",
    "botAt": null
-  },
-  {
-   "number": 1,
-   "kind": "fix",
-   "by": "Joshua",
-   "title": "Import complete LOREBOUND project from ChatGPT Work",
-   "quote": "",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-16T15:39:41Z",
-   "mergedAt": "2026-10-27T02:39:54Z",
-   "closedAt": "2026-10-27T02:39:54Z",
-   "liveAt": "2026-10-27T02:50:51Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-27T02:50:51Z",
-   "headSha": "cd662ffa6a5f68ba27d06aea6744cd7ad6da4a06",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
   }
  ],
  "activity": [
+  {
+   "at": "2026-10-28T15:49:12Z",
+   "kind": "built",
+   "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
+  },
+  {
+   "at": "2026-10-28T15:49:12Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Party reordering, continuous Auto Summon and in-dock companion decisions”"
+  },
   {
    "at": "2026-10-28T11:50:41Z",
    "kind": "test",
@@ -724,19 +715,18 @@
    "at": "2026-10-28T02:02:28Z",
    "kind": "behind",
    "text": "Behind the scenes: “Keep open requests up to date with main automatically”"
-  },
-  {
-   "at": "2026-10-28T01:59:31Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
-  },
-  {
-   "at": "2026-10-28T01:55:24Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
   }
  ],
  "otherPulls": [
+  {
+   "number": 61,
+   "headSha": "4dc33aabba6661e032177f5a62e93a14b7dbbd8b",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 59,
    "headSha": "51df3669ef65583c170ad5b81b63a19ea7914d36",
