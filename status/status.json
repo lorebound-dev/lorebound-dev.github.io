@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T11:48:32.467Z",
+ "generatedAt": "2026-10-28T11:49:10.018Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T07:34:08Z",
+  "updatedAt": "2026-10-28T11:48:46Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -34,16 +34,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:34:09Z",
+   "testAt": "2026-10-28T11:48:46Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:34:09Z",
+   "updatedAt": "2026-10-28T11:49:13Z",
    "headSha": "898e45ec964ba58f748fa39b8fc8c385fc420152",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T04:30:57Z"
+   "botState": "finished",
+   "botAt": "2026-10-28T11:49:13Z"
   },
   {
    "number": 58,
@@ -67,11 +67,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:34:09Z",
+   "testAt": "2026-10-28T11:48:46Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:34:09Z",
+   "updatedAt": "2026-10-28T11:48:46Z",
    "headSha": "ddf065b6b0f88ae9394a1616665e6781626a5c8e",
    "touchesGame": true,
    "requestStatus": "Waiting for answers",
@@ -91,11 +91,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:34:09Z",
+   "testAt": "2026-10-28T11:48:46Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:34:09Z",
+   "updatedAt": "2026-10-28T11:48:46Z",
    "headSha": "b85c22b7d65bea7b1e9782fac93438630d944c62",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -120,11 +120,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:34:09Z",
+   "testAt": "2026-10-28T11:48:46Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:34:09Z",
+   "updatedAt": "2026-10-28T11:48:46Z",
    "headSha": "bc2e6088e6155e00f47d8a4c8f20142f79770126",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -144,11 +144,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:34:09Z",
+   "testAt": "2026-10-28T11:48:46Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:34:09Z",
+   "updatedAt": "2026-10-28T11:48:46Z",
    "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -173,11 +173,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:34:09Z",
+   "testAt": "2026-10-28T11:48:46Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:34:09Z",
+   "updatedAt": "2026-10-28T11:48:46Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -523,6 +523,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T11:49:13Z",
+   "kind": "built",
+   "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-10-28T11:48:46Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
    "at": "2026-10-28T07:34:09Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -566,11 +576,6 @@
    "at": "2026-10-28T04:31:49Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T04:30:57Z",
-   "kind": "built",
-   "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   },
   {
    "at": "2026-10-28T04:18:38Z",
@@ -716,11 +721,6 @@
    "at": "2026-10-28T01:44:02Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
-  },
-  {
-   "at": "2026-10-28T01:43:09Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Combine scripts and stylesheets statement by statement on the test site”"
   }
  ],
  "otherPulls": [
