@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T17:00:59.771Z",
+ "generatedAt": "2026-10-28T17:01:40.466Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -27,22 +27,9 @@
    "by": "Joshua",
    "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
    "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "I can't open Joshua's Journal mockup from GitHub, because my build job gets no Google key. The easiest fix: download the picture (JOURNAL_MOCKUP_VISUAL_ONLY_NO_GAME_DATA_v01.png) and add it to this pull request as reviews/journal-ledger/mockup.png. Then comment \"@claude…"
-    },
-    {
-     "who": "noah",
-     "text": "I can't take in-game screenshots here, because there's no browser in this job. Running \"compare the Journal with the mockup\" from a local Claude Code session would let me add screenshots at 320×610, 375×667 and 390×844."
-    },
-    {
-     "who": "joshua",
-     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-28T04:18:38Z",
    "mergedAt": null,
    "closedAt": null,
@@ -568,16 +555,6 @@
    "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   },
   {
-   "at": "2026-10-28T11:49:56Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T11:49:56Z",
-   "kind": "question",
-   "text": "Part of “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-10-28T11:48:46Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -704,6 +681,16 @@
   },
   {
    "at": "2026-10-28T02:14:12Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
+  },
+  {
+   "at": "2026-10-28T02:13:44Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Only update requests that actually clash with main”"
+  },
+  {
+   "at": "2026-10-28T02:12:38Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
   }
