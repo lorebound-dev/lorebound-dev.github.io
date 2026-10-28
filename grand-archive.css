@@ -11,7 +11,9 @@
 #omnidexSheet .archive-family.has-unseen:after{content:'';position:absolute;top:8px;right:8px;width:8px;height:8px;rotate:45deg;border:1px solid #f5dc96;background:#ef5b41}
 #omnidexSheet .dex-new-count{display:flex;align-items:center;gap:8px;margin-top:4px;font:bold var(--ui-label)/1.3 Georgia,serif!important;font-style:normal;color:#eddbaf}
 #omnidexSheet .dex-new-count:before{content:'';width:8px;height:8px;margin-left:2px;rotate:45deg;border:1px solid #f5dc96;background:#ef5b41}
-/* Companion page: the category's habitat behind the entry, like the first companion reveal. Categories without a habitat keep the plain panel. */
+/* Companion page: full screen with the category's habitat behind it, like the first companion reveal. Long entries scroll. Categories without a habitat keep the plain panel. */
+#historicalCompanion.archive-dialog[open]{inset:0;width:100%;max-width:none;height:100vh;height:100dvh;max-height:none;border:0;border-radius:0;box-shadow:none;padding:max(22px,env(safe-area-inset-top)) max(16px,calc((100% - 450px)/2)) max(22px,env(safe-area-inset-bottom))}
+#historicalCompanion.archive-dialog .detail-art{height:clamp(150px,30dvh,280px);width:min(100%,280px)}
 #historicalCompanion.archive-dialog.archive-habitat{background:linear-gradient(#07131bd0,#0715254d 30%,#0a1729a6 55%,#091426f0 80%),var(--companion-habitat) center/cover no-repeat,#0a1c27}
 #historicalCompanion.archive-habitat :is(h2,h3,p){text-shadow:0 2px 3px #051323}
 #historicalCompanion .archive-measures{margin:4px 0 10px;font:14px/1.5 Georgia,serif!important;letter-spacing:normal;color:#e6dcc0}
