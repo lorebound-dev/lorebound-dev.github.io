@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T02:22:14.225Z",
+ "generatedAt": "2026-10-28T03:10:42.606Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T02:19:12Z",
+  "updatedAt": "2026-10-28T02:22:42Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -20,41 +20,61 @@
  },
  "items": [
   {
-   "number": 38,
+   "number": 58,
    "kind": "request",
    "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "title": "Build approved premium Treasure Hall after verified artwork retrieval",
+   "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T03:10:24Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:10:24Z",
+   "headSha": "85877b0b8b616a469b2d1ca6ce231242c2f6fd69",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 44,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Intro-style companion pages with shared type habitats and size/weight",
+   "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
    "stage": "testing",
    "waitingOn": "both",
    "asks": [
     {
      "who": "joshua",
-     "text": "Story bosses are now about 1.5× their original size on most phones, which is as big as fits between the timer and the companions. Going bigger would mean making the boss name, health bar and timer smaller, or letting the boss's top edge go behind them. My suggestion: keep it…"
-    },
-    {
-     "who": "joshua",
-     "text": "On the smallest phones, Endless guardians are only a little bigger than before, because the name and health bar need room above them. Should they get more room by moving the name and health bar to the side of the guardian on small phones? My suggestion: keep it as it is now,…"
+     "text": "The game needs three new tall backgrounds, for Mortals, Spirits and Aberrations, plus a broader Beasts one if you want to replace the volcano. Until then, those pages use the plain dark panel."
     },
     {
      "who": "noah",
      "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
-   "openedAt": "2026-10-27T21:22:11Z",
+   "openedAt": "2026-10-27T22:33:56Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T02:19:13Z",
+   "testAt": "2026-10-28T02:22:43Z",
    "onTest": true,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T02:21:48Z",
-   "headSha": "b335881c44743806d41379b83faa1ce622e6cc7f",
+   "updatedAt": "2026-10-28T02:22:43Z",
+   "headSha": "1931c881c3c6ecf657fc1c0943b00061cc2e02e9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-10-28T02:21:48Z"
+   "botAt": "2026-10-28T02:11:37Z"
   },
   {
    "number": 40,
@@ -98,49 +118,53 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T02:19:13Z",
+   "testAt": "2026-10-28T02:22:43Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T02:19:13Z",
-   "headSha": "3b727d12ab7ff572cc6fffcddcd1cbe6ae9b6c40",
+   "updatedAt": "2026-10-28T02:22:43Z",
+   "headSha": "d372dbca20ddb19f8aeffc9d3e9fc7985a086bc7",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T02:13:33Z"
   },
   {
-   "number": 44,
+   "number": 38,
    "kind": "request",
    "by": "Joshua",
-   "title": "Intro-style companion pages with shared type habitats and size/weight",
-   "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
    "stage": "testing",
    "waitingOn": "both",
    "asks": [
     {
      "who": "joshua",
-     "text": "The game needs three new tall backgrounds, for Mortals, Spirits and Aberrations, plus a broader Beasts one if you want to replace the volcano. Until then, those pages use the plain dark panel."
+     "text": "Story bosses are now about 1.5× their original size on most phones, which is as big as fits between the timer and the companions. Going bigger would mean making the boss name, health bar and timer smaller, or letting the boss's top edge go behind them. My suggestion: keep it…"
+    },
+    {
+     "who": "joshua",
+     "text": "On the smallest phones, Endless guardians are only a little bigger than before, because the name and health bar need room above them. Should they get more room by moving the name and health bar to the side of the guardian on small phones? My suggestion: keep it as it is now,…"
     },
     {
      "who": "noah",
      "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
-   "openedAt": "2026-10-27T22:33:56Z",
+   "openedAt": "2026-10-27T21:22:11Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T02:19:13Z",
+   "testAt": "2026-10-28T02:22:43Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T02:19:13Z",
-   "headSha": "725e2077c7b28f4279c86c0d4f520a71db17d474",
+   "updatedAt": "2026-10-28T02:22:43Z",
+   "headSha": "6ebbf886242c461e64d5b7d9190ff3a0440ff821",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-10-28T02:11:37Z"
+   "botAt": "2026-10-28T02:21:48Z"
   },
   {
    "number": 50,
@@ -154,17 +178,21 @@
     {
      "who": "noah",
      "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
    "openedAt": "2026-10-28T00:41:06Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T02:19:13Z",
+   "testAt": "2026-10-28T02:22:43Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T02:19:13Z",
+   "updatedAt": "2026-10-28T02:22:43Z",
    "headSha": "2eb9261350391530ef4e37d322043c81a56945ea",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -531,6 +559,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T03:10:24Z",
+   "kind": "asked",
+   "text": "You asked for “Build approved premium Treasure Hall after verified artwork retrieval”"
+  },
+  {
+   "at": "2026-10-28T02:22:43Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
    "at": "2026-10-28T02:21:48Z",
    "kind": "built",
    "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
@@ -719,16 +757,6 @@
    "at": "2026-10-28T00:35:04Z",
    "kind": "behind",
    "text": "Behind the scenes: “Show Claude's questions on the status page, and whom they're for”"
-  },
-  {
-   "at": "2026-10-27T23:48:45Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Add Dev tools to the test site”"
-  },
-  {
-   "at": "2026-10-27T23:41:27Z",
-   "kind": "test",
-   "text": "The test site was updated with “Integrate completed Treasure Hall artwork for testing”"
   }
  ],
  "otherPulls": [
