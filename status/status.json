@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T01:22:37.914Z",
+ "generatedAt": "2026-10-28T01:32:50.233Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T00:46:00Z",
@@ -20,6 +20,30 @@
   ]
  },
  "items": [
+  {
+   "number": 54,
+   "kind": "fix",
+   "by": "Noah",
+   "title": "Replace nine companion sprites with Joshua's approved art",
+   "quote": "",
+   "stage": "built",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T01:32:32Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T01:32:32Z",
+   "headSha": "cf0115fe9caaa4729ad865f0b3be85179de11f03",
+   "touchesGame": true,
+   "requestStatus": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 40,
    "kind": "request",
@@ -495,6 +519,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T01:32:32Z",
+   "kind": "asked",
+   "text": "Noah started “Replace nine companion sprites with Joshua's approved art”"
+  },
+  {
    "at": "2026-10-28T01:22:10Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Keep automatic combat running behind menus and other tabs”"
@@ -688,11 +717,6 @@
    "at": "2026-10-27T21:14:02Z",
    "kind": "asked",
    "text": "Noah started “Show damage numbers over the enemy”"
-  },
-  {
-   "at": "2026-10-27T21:08:14Z",
-   "kind": "asked",
-   "text": "You asked for “Integrate completed Treasure Hall artwork for testing”"
   }
  ],
  "otherPulls": [
