@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T20:59:13.636Z",
+ "generatedAt": "2026-10-28T22:17:30.680Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -17,6 +17,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 65,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
+   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T22:17:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T22:17:13Z",
+   "headSha": "f201f1b711d4cc7738d858cb527ab20eb974e5a1",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 38,
    "kind": "request",
@@ -451,33 +475,14 @@
    "requestStatus": "",
    "botState": "",
    "botAt": null
-  },
-  {
-   "number": 24,
-   "kind": "fix",
-   "by": "Noah",
-   "title": "Polish the profile, Journal, Omnidex and party tray",
-   "quote": "",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T13:46:42Z",
-   "mergedAt": "2026-10-27T13:54:29Z",
-   "closedAt": "2026-10-27T13:54:29Z",
-   "liveAt": "2026-10-27T13:54:32Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-27T13:54:32Z",
-   "headSha": "88871b5ffda0acf4c4a24ecd4aa2db9a421e12aa",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
   }
  ],
  "activity": [
+  {
+   "at": "2026-10-28T22:17:13Z",
+   "kind": "asked",
+   "text": "You asked for “Improve Adventure battlefield layout with shared nameplate and party frame”"
+  },
   {
    "at": "2026-10-28T19:03:47Z",
    "kind": "test",
@@ -670,11 +675,6 @@
   },
   {
    "at": "2026-10-28T11:50:41Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T11:48:46Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
