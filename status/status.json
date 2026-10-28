@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T02:00:11.636Z",
+ "generatedAt": "2026-10-28T02:02:45.388Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T00:46:00Z",
@@ -20,6 +20,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T01:59:31Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T02:00:25Z",
+   "headSha": "1b3f8c30a32440b037d9cddc1786730e91f7964f",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-28T02:00:25Z"
+  },
   {
    "number": 50,
    "kind": "request",
@@ -72,30 +96,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-28T01:57:37Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T01:59:31Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T01:59:31Z",
-   "headSha": "1b3f8c30a32440b037d9cddc1786730e91f7964f",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-28T01:56:23Z"
   },
   {
    "number": 44,
@@ -177,23 +177,11 @@
     },
     {
      "who": "noah",
-     "text": "Log in with read-only Drive access (drive.readonly);"
-    },
-    {
-     "who": "noah",
-     "text": "Download the mapping and the approved files by Drive file ID;"
-    },
-    {
-     "who": "noah",
-     "text": "Run node tools/artwork-intake/stage.cjs;"
-    },
-    {
-     "who": "noah",
-     "text": "Save .art-cache/ as a private Actions artifact, kept 7 to 30 days."
-    },
-    {
-     "who": "noah",
      "text": "Where the original pictures live. I suggest keeping them in Drive and fetching them when needed, because putting about 300 MB into Git history is costly. The other choices are Git LFS on a private branch, or committing the PNGs."
+    },
+    {
+     "who": "noah",
+     "text": "Whether to merge this checker now, before the Drive access exists. It changes no game files and publishes nothing."
     }
    ],
    "openedAt": "2026-10-28T00:53:31Z",
@@ -502,6 +490,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T02:02:28Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Keep open requests up to date with main automatically”"
+  },
+  {
+   "at": "2026-10-28T02:00:25Z",
+   "kind": "built",
+   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
    "at": "2026-10-28T01:59:31Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
@@ -510,11 +508,6 @@
    "at": "2026-10-28T01:57:37Z",
    "kind": "built",
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-28T01:56:23Z",
-   "kind": "built",
-   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
   },
   {
    "at": "2026-10-28T01:55:24Z",
@@ -695,11 +688,6 @@
    "at": "2026-10-27T22:09:58Z",
    "kind": "behind",
    "text": "Behind the scenes: “Add a test site for build requests”"
-  },
-  {
-   "at": "2026-10-27T21:56:04Z",
-   "kind": "asked",
-   "text": "You asked for “Party reordering, continuous Auto Summon and in-dock companion decisions”"
   }
  ],
  "otherPulls": [
