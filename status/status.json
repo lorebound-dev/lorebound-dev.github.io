@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T05:20:20.256Z",
+ "generatedAt": "2026-10-28T07:27:31.634Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -20,6 +20,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 40,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
+   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:56:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T05:19:57Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T05:19:57Z",
+   "headSha": "4f4453fb7470639cd0739290cbd0760949f54709",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T03:16:38Z"
+  },
   {
    "number": 60,
    "kind": "request",
@@ -52,39 +76,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T04:30:57Z"
-  },
-  {
-   "number": 40,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The ticked Auto rarities are saved as a new setting in the save. Old saves need no update. Older copies of the game ignore the setting and stop at the lowest ticked rarity instead. Please say if that's OK."
-    },
-    {
-     "who": "noah",
-     "text": "Players who bought the Auto capacity upgrade with Gold paid for a limit that no longer exists. I gave nothing back. I can refund that Gold if you want, but that changes the economy."
-    }
-   ],
-   "openedAt": "2026-10-27T21:56:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T05:19:57Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T05:19:57Z",
-   "headSha": "4f4453fb7470639cd0739290cbd0760949f54709",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T03:16:38Z"
   },
   {
    "number": 44,
@@ -198,22 +189,9 @@
    "by": "Joshua",
    "title": "Build approved premium Treasure Hall after verified artwork retrieval",
    "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
-   "stage": "questions",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Get the ten approved Treasure Hall pictures and the approved v03 mockup to the builder in a private place it can read. The easiest way: download them unchanged from the Drive folder \"LOREBOUND Artwork Inbox → Approved → Treasure-Hall-Revamp-v1\". Then push them to a private…"
-    },
-    {
-     "who": "noah",
-     "text": "The Sixfold Covenant trophy is a new goal the game doesn't track yet. My suggestion: work it out from what's already saved each time the Hall opens, and save nothing new. The layout spec says Noah must look at this before it's built. Is that OK?"
-    },
-    {
-     "who": "noah",
-     "text": "A trophy earned for the first time should glow once and then never again. The game already remembers this for the Chronicle, Guardian Memorial and Last Vigil trophies. For the Crown and the Sixfold Covenant, it would need two new \"seen\" notes in each save, and that changes…"
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-28T03:10:24Z",
    "mergedAt": null,
    "closedAt": null,
@@ -579,11 +557,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
   },
   {
-   "at": "2026-10-28T03:42:27Z",
-   "kind": "question",
-   "text": "Part of “Build approved premium Treasure Hall after verified artwork retrieval” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-10-28T03:39:08Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
@@ -617,11 +590,6 @@
    "at": "2026-10-28T03:16:38Z",
    "kind": "built",
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-28T03:16:38Z",
-   "kind": "question",
-   "text": "Part of “Party reordering, continuous Auto Summon and in-dock companion decisions” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-28T03:16:20Z",
@@ -742,6 +710,16 @@
    "at": "2026-10-28T01:22:10Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
+   "at": "2026-10-28T01:21:32Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Show everything in progress on the test site, combined”"
+  },
+  {
+   "at": "2026-10-28T01:21:29Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Raise the bot's turn limit from 80 to 150”"
   }
  ],
  "otherPulls": [
