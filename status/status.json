@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T23:35:39.523Z",
+ "generatedAt": "2026-10-28T23:36:37.475Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T23:33:23Z",
+  "updatedAt": "2026-10-28T23:36:10Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -18,6 +18,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 67,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build explorable vertical Town from approved Mossbound Ruins terrain",
+   "quote": "\"I think we need to render a new draggable background so it looks legit. Also I want to suggest orienting the area to be more vertical as well as more space between them so it feels like a real town. Maybe have different decor and stuff to make it feel real.\"  Joshua confirmed that the Town should be a living village gradually restored over time, and **approved the final terrain-only vertical illustration** on October 28, 2026.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T23:29:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T23:36:38Z",
+   "headSha": "85e4ab443913a787a51821f63a3947ce03b5c1ab",
+   "touchesGame": false,
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-28T23:36:38Z"
+  },
   {
    "number": 66,
    "kind": "request",
@@ -36,11 +60,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T23:33:23Z",
+   "testAt": "2026-10-28T23:36:11Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T23:33:23Z",
+   "updatedAt": "2026-10-28T23:36:11Z",
    "headSha": "9459e99c80ddec2c13a3fcf5c2b9e7a1e9d87122",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -60,11 +84,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T23:33:23Z",
+   "testAt": "2026-10-28T23:36:11Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T23:33:23Z",
+   "updatedAt": "2026-10-28T23:36:11Z",
    "headSha": "c42a0d960f0d02f7647e71bc8c03f20d6473c56b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -97,40 +121,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T23:33:23Z",
+   "testAt": "2026-10-28T23:36:11Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T23:33:23Z",
+   "updatedAt": "2026-10-28T23:36:11Z",
    "headSha": "79b8116cda5b12357bb154f2c7ce01edaa1fb6e9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T17:24:37Z"
-  },
-  {
-   "number": 67,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build explorable vertical Town from approved Mossbound Ruins terrain",
-   "quote": "\"I think we need to render a new draggable background so it looks legit. Also I want to suggest orienting the area to be more vertical as well as more space between them so it feels like a real town. Maybe have different decor and stuff to make it feel real.\"  Joshua confirmed that the Town should be a living village gradually restored over time, and **approved the final terrain-only vertical illustration** on October 28, 2026.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T23:29:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T23:32:26Z",
-   "headSha": "85e4ab443913a787a51821f63a3947ce03b5c1ab",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "finished",
-   "botAt": "2026-10-28T23:32:26Z"
   },
   {
    "number": 65,
@@ -522,6 +522,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T23:36:11Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
+  },
+  {
    "at": "2026-10-28T23:33:23Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
@@ -715,11 +720,6 @@
    "at": "2026-10-28T17:16:56Z",
    "kind": "approved",
    "text": "Noah approved “Build approved premium Treasure Hall after verified artwork retrieval”"
-  },
-  {
-   "at": "2026-10-28T17:15:29Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
  ],
  "otherPulls": [
