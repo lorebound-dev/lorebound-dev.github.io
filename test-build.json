@@ -1,5 +1,5 @@
 {
-  "base": "536ea293959c7f7013dc635a225973262ece567c",
+  "base": "7ad94f9ed5fb7e1120780df86e48497429c2d5e3",
   "included": [
     {
       "number": 38,
@@ -20,14 +20,9 @@
       "number": 50,
       "title": "Keep automatic combat running behind menus and other tabs",
       "head": "2eb9261350391530ef4e37d322043c81a56945ea"
-    },
-    {
-      "number": 54,
-      "title": "Replace nine companion sprites with Joshua's approved art",
-      "head": "cf0115fe9caaa4729ad865f0b3be85179de11f03"
     }
   ],
   "skipped": [],
-  "commit": "68c91f2adfeaa8a32640d39f8c0ed63dab011c61",
-  "at": "2026-10-28T02:14:57Z"
+  "commit": "47374e5364c2a26ffeba56a933bcd73771cdcdc1",
+  "at": "2026-10-28T02:19:12Z"
 }
