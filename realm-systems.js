@@ -41,7 +41,7 @@ function enable(s){if(s.version!==5)throw Error('Ownership version 5 required');
  p.completedQuests??=[];p.achievements??=[];
  for(const [id,key,n] of [['team-power','teamPower',1],['precision','precision',1],['chapter-power15','teamPower',15]])if(p.upgrades[key]>=n&&!p.completedQuests.includes(id))p.completedQuests.push(id);
  for(const [id,n] of [['power5',5],['power15',15],['power30',30]])if(p.upgrades.teamPower>=n&&!p.achievements.includes(id))p.achievements.push(id);
- }s.progress.realmBalanceVersion=1;if(!['lorebound-ownership-5','lorebound-ownership-6','lorebound-ownership-7','lorebound-ownership-8','lorebound-ownership-9'].includes(s.schema))s.schema='lorebound-ownership-4';return s;}
+ }s.progress.realmBalanceVersion=1;if(!['lorebound-ownership-5','lorebound-ownership-6','lorebound-ownership-7','lorebound-ownership-8','lorebound-ownership-9','lorebound-ownership-10'].includes(s.schema))s.schema='lorebound-ownership-4';return s;}
 function metric(s,k){if(!active(s))return 0;switch(k){case 'activeKills':return s.progress.realmSystems.activeKills;case 'companionLevel':return Math.max(1,...s.owned.map(c=>root.LoreOwnership.leveling(s,c.id).level));case 'uncommonHistory':return Object.keys(s.history).filter(id=>R.species(id).rank===1).length;default:return 0;}}
 
 // Candidate curve selected for this review; each elapsed interval uses the old levels.

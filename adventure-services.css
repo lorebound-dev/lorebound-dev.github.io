@@ -79,3 +79,29 @@
 .party-services #game #navArmory svg{height:22px;flex-shrink:0}
 .party-services #game #navArmory>span{line-height:11px!important}
 #trainingSheet::backdrop{background:#020b17a8;backdrop-filter:blur(3px)}
+
+/* One Auto button: "Auto · Set up" when off, "Stop · N opened" while running. */
+.party-services #game #autoAccess.is-running span{color:#f6d68f}
+.party-services #game #autoAccess.is-running{box-shadow:inset 0 0 0 1px #b18b4799;border-radius:4px}
+.dock-sr-only{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
+/* Auto setup sheet: selected Tome, its current odds, the stop question and the rules. */
+#economyAuto .auto-setup-tome{margin:0 0 8px;font:16px Georgia,serif!important;color:#f1d899;letter-spacing:normal!important}
+#economyAuto .auto-odds{width:100%;margin:0 0 12px;border-collapse:collapse}
+#economyAuto .auto-odds caption{text-align:left;margin-bottom:4px;font:13px Georgia,serif!important;color:#c9b88f}
+#economyAuto .auto-odds th,#economyAuto .auto-odds td{padding:6px 8px;border-bottom:1px solid #b18b4740;text-align:left;font:14px Georgia,serif!important;letter-spacing:normal!important}
+#economyAuto .auto-odds thead th{font:13px Georgia,serif!important;color:#c9b88f;border-bottom-color:#b18b4799}
+#economyAuto .auto-odds td{text-align:right;color:#f1dca3}
+#economyAuto .auto-stop-choice{display:block;margin:0 0 10px;font:14px Georgia,serif!important;color:#f1d899}
+#economyAuto .auto-stop-choice select{margin-top:6px}
+#economyAuto .auto-rules{margin:0 0 10px;padding:0;list-style:none}
+#economyAuto .auto-rules li{position:relative;margin:0 0 6px;padding-left:14px;font:13px/1.45 Georgia,serif!important;color:#e9ddbe}
+#economyAuto .auto-rules li::before{content:'';position:absolute;left:1px;top:.55em;width:5px;height:5px;rotate:45deg;background:#b19558}
+/* During Auto, each released result pops as a small sprite over the Tome (about half its size), then fades. */
+.auto-stream{position:absolute;left:calc(50% - 42px);top:4px;width:36px;height:36px;pointer-events:none;z-index:3}
+.auto-stream-sprite{position:absolute;inset:0;display:block;filter:drop-shadow(0 0 5px color-mix(in srgb,var(--stream-color,#e0c183) 55%,transparent));animation:auto-stream-pop var(--stream-ms,750ms) ease-out both}
+.auto-stream-sprite .companion-art,.auto-stream-sprite .starter-sheet,.auto-stream-sprite img{display:block;width:100%!important;height:100%!important;object-fit:contain}
+@keyframes auto-stream-pop{0%{opacity:0;transform:translateY(6px) scale(.6)}25%{opacity:1;transform:translateY(-14px) scale(1)}70%{opacity:1;transform:translateY(-20px) scale(1)}100%{opacity:0;transform:translateY(-26px) scale(.9)}}
+.summon-portal.auto-opening .summon-book{animation:auto-tome-shake .32s ease-in-out}
+@keyframes auto-tome-shake{0%,100%{rotate:0deg}25%{rotate:-3deg}75%{rotate:3deg}}
+@media (prefers-reduced-motion:reduce){.auto-stream-sprite{animation:auto-stream-still var(--stream-ms,750ms) step-end both}.summon-portal.auto-opening .summon-book{animation:none}}
+@keyframes auto-stream-still{0%{opacity:1}100%{opacity:0}}

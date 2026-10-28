@@ -32,3 +32,39 @@
 #ownershipMigration.save-updates .save-update-list li{position:relative;margin:0 0 10px;padding-left:16px;font-size:14px;line-height:1.45}
 #ownershipMigration.save-updates .save-update-list li:before{content:'';position:absolute;left:1px;top:.55em;width:6px;height:6px;rotate:45deg;background:#b19558}
 #ownershipMigration.save-updates .save-update-list b{display:block;color:#f1d899;font-size:15px}
+
+/* Hold-and-drag reordering on the Party dock. The held card lifts; the slot under the finger is outlined. */
+.adventure-dock-preview #game .dock-companion:not(.is-empty){touch-action:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.adventure-dock-preview #game .dock-companion.is-lifted{position:relative;z-index:5;transition:none!important;filter:drop-shadow(0 6px 10px #000a)}
+.adventure-dock-preview #game .dock-companion.is-drop-target{outline:2px solid #e0c183;outline-offset:-2px}
+/* Choosing a slot for a new companion: the reveal steps aside and the real Party dock takes the choice. */
+.adventure-dock-preview #game.dock-choosing .adventure-deck{overflow:visible}
+#dockChoice{position:absolute;left:0;right:0;bottom:calc(100% + 6px);z-index:8;padding:10px 12px;background:linear-gradient(#0d2430f2,#071722f7);border:1px solid #ae925c;border-radius:6px;box-shadow:0 -6px 18px #020b14aa;color:#eadbb8;text-align:left}
+#dockChoice[hidden]{display:none}
+#dockChoice *{font-family:Georgia,serif!important;letter-spacing:normal!important}
+#dockChoice .choice-candidate{display:flex;align-items:center;gap:10px;margin:0 0 6px}
+#dockChoice .choice-art{flex:0 0 52px;width:52px;height:52px;display:block;border-radius:6px;box-shadow:0 0 0 1px var(--choice-color),0 0 12px color-mix(in srgb,var(--choice-color) 45%,transparent);background:#061520;animation:dock-choice-wiggle 1.4s ease-in-out infinite}
+#dockChoice .choice-art .companion-art,#dockChoice .choice-art .starter-sheet,#dockChoice .choice-art img{display:block;width:100%!important;height:100%!important;object-fit:contain}
+#dockChoice .choice-candidate b{display:block;font-size:16px;color:#f1d899}
+#dockChoice .choice-candidate small{display:block;font-size:13px;color:var(--choice-color)}
+#dockChoice p{margin:4px 0;font-size:13px;line-height:1.4}
+#dockChoice .choice-total b{color:#f1dca3}
+#dockChoice .choice-prompt{font-size:15px;color:#f1d899}
+#dockChoice .choice-delta{font-size:14px}
+#dockChoice .choice-delta b{margin-left:4px}
+#dockChoice .choice-delta.is-up b{color:#8fd19e}
+#dockChoice .choice-delta.is-down b{color:#f29090}
+#dockChoice .choice-delta.is-same b{color:#d8ccb0}
+#dockChoice .choice-note{color:#cfc2a3}
+#dockChoice .choice-actions{display:flex;gap:8px;margin-top:6px}
+#dockChoice .choice-actions button{flex:1;min-height:44px;padding:8px;color:#f0d59a;background:linear-gradient(#21414b,#091c26);border:1px solid #ac9159;border-radius:4px;font-size:14px}
+#dockChoice #choiceConfirm{background:linear-gradient(#5a4520,#2a1f0d);border-color:#e0c183;color:#ffe8b4}
+#dockChoice #choiceError{color:#ffd38b}
+#dockChoice #choiceError:empty{display:none}
+.adventure-dock-preview #game.dock-choosing .dock-companion:not(.is-empty){animation:dock-choice-wiggle 1.1s ease-in-out infinite}
+.adventure-dock-preview #game.dock-choosing .dock-companion:nth-child(2n){animation-delay:-.4s}
+.adventure-dock-preview #game.dock-choosing .dock-companion.is-empty{outline:1px dashed #e0c18399;outline-offset:-3px}
+.adventure-dock-preview #game.dock-choosing .dock-companion.is-choice-up{box-shadow:inset 0 0 0 2px #8fd19e99}
+.adventure-dock-preview #game.dock-choosing .dock-companion.is-choice-pick{outline:2px solid #e0c183;outline-offset:-2px;animation:none}
+@keyframes dock-choice-wiggle{0%,100%{rotate:0deg}25%{rotate:-1.2deg}75%{rotate:1.2deg}}
+@media (prefers-reduced-motion:reduce){#dockChoice .choice-art,.adventure-dock-preview #game.dock-choosing .dock-companion:not(.is-empty){animation:none}.adventure-dock-preview #game.dock-choosing .dock-companion:not(.is-empty){outline:1px solid #e0c18366;outline-offset:-3px}}
