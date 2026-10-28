@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T03:45:02.517Z",
+ "generatedAt": "2026-10-28T03:45:38.264Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T03:43:06Z",
+  "updatedAt": "2026-10-28T03:45:23Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -41,11 +41,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:43:06Z",
+   "testAt": "2026-10-28T03:45:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:43:06Z",
+   "updatedAt": "2026-10-28T03:45:25Z",
    "headSha": "4f4453fb7470639cd0739290cbd0760949f54709",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -70,11 +70,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:43:06Z",
+   "testAt": "2026-10-28T03:45:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:43:06Z",
+   "updatedAt": "2026-10-28T03:45:25Z",
    "headSha": "bc2e6088e6155e00f47d8a4c8f20142f79770126",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -94,11 +94,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:43:06Z",
+   "testAt": "2026-10-28T03:45:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:43:06Z",
+   "updatedAt": "2026-10-28T03:45:25Z",
    "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -123,11 +123,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:43:06Z",
+   "testAt": "2026-10-28T03:45:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:43:06Z",
+   "updatedAt": "2026-10-28T03:45:25Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -531,6 +531,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T03:45:25Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
    "at": "2026-10-28T03:43:06Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
@@ -724,11 +729,6 @@
    "at": "2026-10-28T00:52:07Z",
    "kind": "test",
    "text": "The test site was updated with “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T00:51:39Z",
-   "kind": "built",
-   "text": "Claude finished building “Keep automatic combat running behind menus and other tabs”"
   }
  ],
  "otherPulls": [
