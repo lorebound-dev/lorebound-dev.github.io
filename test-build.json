@@ -20,9 +20,14 @@
       "number": 50,
       "title": "Keep automatic combat running behind menus and other tabs",
       "head": "849a6a762b8d212781465042a4b3dd552e1c407a"
+    },
+    {
+      "number": 60,
+      "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+      "head": "b16058e0f6a93579ada6e31ed4b23966d9fe1f28"
     }
   ],
   "skipped": [],
-  "commit": "f10d2957487a3390fabf65ac6eb001af14f76c25",
-  "at": "2026-10-28T03:45:23Z"
+  "commit": "ac23d58c06ea79df3403157ffeeecb750846b3d5",
+  "at": "2026-10-28T04:31:49Z"
 }
