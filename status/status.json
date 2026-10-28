@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T03:12:57.527Z",
+ "generatedAt": "2026-10-28T03:13:29.195Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T03:12:32Z",
+  "updatedAt": "2026-10-28T03:13:30Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -20,28 +20,28 @@
  },
  "items": [
   {
-   "number": 58,
+   "number": 38,
    "kind": "request",
    "by": "Joshua",
-   "title": "Build approved premium Treasure Hall after verified artwork retrieval",
-   "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
    "stage": "building",
    "waitingOn": null,
    "asks": [],
-   "openedAt": "2026-10-28T03:10:24Z",
+   "openedAt": "2026-10-27T21:22:11Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
+   "testAt": "2026-10-28T03:13:31Z",
+   "onTest": true,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:12:57Z",
-   "headSha": "b5090bbed1bf331b08cc781582fcfb3b6c1d9690",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-10-28T03:12:57Z"
+   "updatedAt": "2026-10-28T03:13:31Z",
+   "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-28T03:13:20Z"
   },
   {
    "number": 44,
@@ -56,40 +56,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:12:32Z",
+   "testAt": "2026-10-28T03:13:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:12:57Z",
+   "updatedAt": "2026-10-28T03:13:31Z",
    "headSha": "b1128db6d30640061860357a6a1adca81b302b06",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-10-28T03:12:57Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T03:12:32Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T03:12:53Z",
-   "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-10-28T03:12:53Z"
+   "botState": "finished",
+   "botAt": "2026-10-28T03:13:30Z"
   },
   {
    "number": 50,
@@ -109,11 +85,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:12:32Z",
+   "testAt": "2026-10-28T03:13:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:12:32Z",
+   "updatedAt": "2026-10-28T03:13:31Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -133,16 +109,53 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:12:32Z",
+   "testAt": "2026-10-28T03:13:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:12:32Z",
+   "updatedAt": "2026-10-28T03:13:31Z",
    "headSha": "4d0c2c32a7228289608aebbc22aa22d13f92189c",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
+   "botState": "working",
+   "botAt": "2026-10-28T03:13:28Z"
+  },
+  {
+   "number": 58,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build approved premium Treasure Hall after verified artwork retrieval",
+   "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Get the ten approved Treasure Hall pictures and the approved v03 mockup to the builder in a private place it can read. The easiest way: download them from the Drive folder \"LOREBOUND Artwork Inbox → Approved → Treasure-Hall-Revamp-v1\" without changing them. Then push them…"
+    },
+    {
+     "who": "noah",
+     "text": "The Sixfold Covenant trophy is a new goal the game doesn't track yet. My suggestion: work it out each time the Hall opens from what's already saved, and save nothing new. The layout spec says you must look at this before it's built. Is that OK?"
+    },
+    {
+     "who": "noah",
+     "text": "A trophy earned for the first time should glow once and then never replay. The game already remembers this for the Chronicle, Guardian Memorial and Last Vigil trophies. For the Crown and the Sixfold Covenant it would have to remember two new things, and that changes what a…"
+    }
+   ],
+   "openedAt": "2026-10-28T03:10:24Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:13:07Z",
+   "headSha": "b5090bbed1bf331b08cc781582fcfb3b6c1d9690",
+   "touchesGame": false,
+   "requestStatus": "Waiting for answers",
    "botState": "questions",
-   "botAt": "2026-10-28T02:13:33Z"
+   "botAt": "2026-10-28T03:13:07Z"
   },
   {
    "number": 54,
@@ -504,6 +517,26 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T03:13:31Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
+   "at": "2026-10-28T03:13:30Z",
+   "kind": "built",
+   "text": "Claude finished building “Intro-style companion pages with shared type habitats and size/weight”"
+  },
+  {
+   "at": "2026-10-28T03:13:20Z",
+   "kind": "built",
+   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
+   "at": "2026-10-28T03:13:07Z",
+   "kind": "question",
+   "text": "Part of “Build approved premium Treasure Hall after verified artwork retrieval” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-28T03:12:32Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
@@ -547,11 +580,6 @@
    "at": "2026-10-28T02:13:44Z",
    "kind": "behind",
    "text": "Behind the scenes: “Only update requests that actually clash with main”"
-  },
-  {
-   "at": "2026-10-28T02:13:33Z",
-   "kind": "built",
-   "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
   },
   {
    "at": "2026-10-28T02:12:38Z",
@@ -687,24 +715,18 @@
    "at": "2026-10-27T23:36:35Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”"
-  },
-  {
-   "at": "2026-10-27T23:24:32Z",
-   "kind": "test",
-   "text": "The test site was updated with “Integrate completed Treasure Hall artwork for testing”"
-  },
-  {
-   "at": "2026-10-27T23:23:57Z",
-   "kind": "built",
-   "text": "Claude finished building “Integrate completed Treasure Hall artwork for testing”"
-  },
-  {
-   "at": "2026-10-27T22:59:59Z",
-   "kind": "live",
-   "text": "“Show damage numbers over the enemy” is live in the game"
   }
  ],
  "otherPulls": [
+  {
+   "number": 59,
+   "headSha": "51df3669ef65583c170ad5b81b63a19ea7914d36",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 57,
    "headSha": "a40a14f965717b412b4726d64f26af5b1e95e73e",
