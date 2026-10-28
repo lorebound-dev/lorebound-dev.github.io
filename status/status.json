@@ -1,10 +1,10 @@
 {
- "generatedAt": "2026-10-28T00:46:16.419Z",
+ "generatedAt": "2026-10-28T00:46:45.468Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
-  "updatedAt": "2026-10-27T22:59:59Z",
+  "updatedAt": "2026-10-28T00:46:00Z",
   "latest": [
-   "Show damage numbers over the enemy"
+   "Integrate completed Treasure Hall artwork for testing"
   ]
  },
  "test": {
@@ -20,17 +20,17 @@
    "by": "Joshua",
    "title": "Integrate completed Treasure Hall artwork for testing",
    "quote": "Ok can you push anything new using that setup? I want the treasure updates and assets to flow there for testing.",
-   "stage": "going-live",
+   "stage": "live",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-10-27T21:08:14Z",
    "mergedAt": "2026-10-28T00:45:57Z",
    "closedAt": "2026-10-28T00:45:57Z",
-   "liveAt": null,
+   "liveAt": "2026-10-28T00:46:00Z",
    "testAt": "2026-10-27T23:41:27Z",
    "onTest": false,
    "testIsCurrent": false,
-   "updatedAt": "2026-10-28T00:45:57Z",
+   "updatedAt": "2026-10-28T00:46:00Z",
    "headSha": "f23db86c16993b874412b51697f229f2e0810a42",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -407,6 +407,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T00:46:00Z",
+   "kind": "live",
+   "text": "“Integrate completed Treasure Hall artwork for testing” is live in the game"
+  },
+  {
    "at": "2026-10-28T00:45:57Z",
    "kind": "approved",
    "text": "Noah approved “Integrate completed Treasure Hall artwork for testing”"
@@ -600,11 +605,6 @@
    "at": "2026-10-27T18:03:11Z",
    "kind": "behind",
    "text": "Behind the scenes: “Suggestion 001: fewer stops after opening a Tome”"
-  },
-  {
-   "at": "2026-10-27T17:40:07Z",
-   "kind": "asked",
-   "text": "Noah started “Show one update popup for every pending save update”"
   }
  ],
  "otherPulls": [
