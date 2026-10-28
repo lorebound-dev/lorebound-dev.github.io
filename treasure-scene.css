@@ -1,0 +1,55 @@
+/* Hall of Triumphs scene. Positions follow the approved v03 mockup at 390×844 (CSS px noted below); other sizes keep the header, trophy and whole plaque on screen and only the background crops. */
+/* Full screen: adventure-dock-prototype.css caps every dialog 12px short of the screen with !important. */
+#treasureHall[data-view=scene]{width:min(100vw,520px);max-width:100vw;height:100dvh;max-height:100dvh!important;border:0;border-radius:0;background:#050b14;box-shadow:none}
+#treasureHall[data-view=scene]:before,#treasureHall[data-view=scene]>header,#treasureHall[data-view=scene]>nav,#treasureHall[data-view=scene]>#treasureBody,#treasureHall[data-view=scene]>footer,#treasureHall[data-view=scene]>.treasure-ambient{display:none!important}
+#treasureHall[data-view=scene]>#treasureStatus{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0}
+#treasureHall>.hall-scene{position:absolute;inset:0;overflow:hidden;container-type:size;isolation:isolate;touch-action:pan-y;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;
+ /* Layout: header → count → trophy space → plaque pinned above the bottom safe area. */
+ --head-top:calc(env(safe-area-inset-top,0px) + clamp(10px,2.5cqh,21px));--head-h:clamp(50px,7cqh,59px);
+ --space-top:calc(var(--head-top) + var(--head-h) + 28px);
+ --plaque-w:min(98.7cqw,440px);--plaque-h:calc(var(--plaque-w) / 2);--plaque-bottom:calc(env(safe-area-inset-bottom,0px) + clamp(6px,1.85cqh,16px));
+ --space-bottom:calc(100cqh - var(--plaque-bottom) - var(--plaque-h));--space:calc(var(--space-bottom) - var(--space-top));
+ /* 325px at 390×844 (83% of the width); shorter phones shrink it to fit the space instead. */
+ --trophy:min(83.3cqw,calc(var(--space) - 64px),400px);--trophy-top:calc(var(--space-top) + (var(--space) - var(--trophy)) / 2)}
+#treasureHall>.hall-scene[hidden]{display:none}
+.hall-scene img{display:block;-webkit-user-drag:none}#treasureHall .hall-scene p{max-width:none}
+.hall-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+/* Screen-only shade at the top and bottom for legibility; the art itself is never darkened. */
+.hall-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(#040912a6,#0409121a 19.5%,#04091200 30%,#04091200 63%,#040912a0 100%)}
+.hall-stage{position:absolute;z-index:2;left:50%;top:var(--trophy-top);width:var(--trophy);height:var(--trophy);transform:translateX(-50%)}
+.hall-trophy{position:absolute;inset:0;transform:translate(var(--x,0px),var(--y,0px))}
+.hall-trophy[hidden]{display:none}
+.hall-trophy img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
+/* Not yet earned: the same trophy as unlit stone. Only the trophy is treated; earned trophies show their own colours. */
+.hall-trophy.locked img{filter:grayscale(1) brightness(.42) contrast(1.08);opacity:.92}
+/* First time a trophy is seen earned: one light pass across the trophy only. */
+.hall-trophy.newly img{animation:hallBloom 2.2s ease-out}
+.hall-trophy.newly:after{content:'';position:absolute;inset:0;pointer-events:none;-webkit-mask:var(--mask) center bottom/contain no-repeat;mask:var(--mask) center bottom/contain no-repeat;background:linear-gradient(105deg,#fff0c800 38%,#fff0c8b0 50%,#fff0c800 62%) 0 0/260% 100% no-repeat;animation:hallSweep 1.6s .15s ease-out both;mix-blend-mode:screen}
+@keyframes hallBloom{0%{filter:brightness(.5) drop-shadow(0 0 0 #ffe39600)}35%{filter:brightness(1.15) drop-shadow(0 0 22px #ffe396b0)}100%{filter:none}}
+@keyframes hallSweep{from{background-position:100% 0}to{background-position:0 0}}
+/* Foreground stone: 440×146.7 at x−25, y575 in the reference, so it sits 61px above the plaque's top. */
+.hall-fore{position:absolute;z-index:3;left:50%;width:calc(var(--plaque-w) * 1.143);height:auto;aspect-ratio:2172/724;transform:translateX(-50%);top:calc(var(--space-bottom) - var(--plaque-w) * .1584);pointer-events:none}
+.hall-head{position:absolute;z-index:5;left:3.2cqw;right:3.2cqw;top:var(--head-top);height:var(--head-h);box-sizing:border-box;display:grid;place-items:center;background:#060e18e6;border:1.5px solid #c7a867;border-radius:5px;box-shadow:0 4px 18px #0007;margin:0!important;padding:0 40px!important}
+#treasureHall .hall-head h2{width:100%;text-align:center;margin:0!important;font:bold clamp(18px,5.8cqw,23px)/1.1 Georgia,serif!important;letter-spacing:.06em;color:#eed49e;text-transform:uppercase;white-space:nowrap;text-shadow:0 2px 3px #000}
+#treasureHall .hall-close{position:absolute;z-index:6;top:calc(var(--head-top) - 5.5px);right:max(0px,env(safe-area-inset-right,0px));width:44px;height:44px;min-height:44px;padding:0;border:0;background:none;display:grid;place-items:center;color:#e7cd93}
+.hall-close span{display:grid;place-items:center;width:24px;height:24px;border:1.5px solid #c7a867;border-radius:50%;background:#060e18e6;box-sizing:border-box}.hall-close svg{width:18px;height:18px}
+#treasureHall .hall-count{position:absolute;z-index:5;left:0;right:0;top:calc(var(--head-top) + var(--head-h) + 15px);transform:translateY(-50%);margin:0!important;text-align:center;font:13px/1.2 Georgia,serif!important;letter-spacing:.08em!important;text-transform:uppercase;color:#d4c7a6;text-shadow:0 1px 3px #000,0 0 8px #000}
+#treasureHall .hall-records{position:absolute;z-index:6;right:max(3.2cqw,env(safe-area-inset-right,0px));top:calc(var(--head-top) + var(--head-h) + 15px);transform:translateY(-50%);min-height:44px;padding:0 6px;border:0;background:none;font:12px Georgia,serif!important;letter-spacing:.04em;color:#c5b58e;text-decoration:underline;text-decoration-color:#c5b58e66;text-underline-offset:3px;text-shadow:0 1px 3px #000}
+/* Arrows: 28×36 drawn, 44×52 to tap, at 58% down the trophy like the mockup. */
+#treasureHall .hall-arrow{position:absolute;z-index:6;top:calc(var(--trophy-top) + var(--trophy) * .585 - 26px);width:44px;height:52px;min-height:44px;padding:0;border:0;background:none;display:grid;place-items:center;color:#e7cd93}
+.hall-prev{left:max(4px,env(safe-area-inset-left,0px))}.hall-next{right:max(4px,env(safe-area-inset-right,0px))}
+.hall-arrow span{display:grid;place-items:center;width:28px;height:36px;box-sizing:border-box;background:#060e18e0;border:1px solid #c7a867;border-radius:4px}.hall-arrow svg{width:21px;height:27px}
+#treasureHall .hall-records:focus-visible{outline:2px solid #f8dc88;outline-offset:-2px}
+#treasureHall .hall-close:focus-visible,#treasureHall .hall-arrow:focus-visible{outline:none}#treasureHall .hall-close:focus-visible span,#treasureHall .hall-arrow:focus-visible span{outline:2px solid #f8dc88;outline-offset:2px}
+.hall-plaque{position:absolute;z-index:4;left:50%;bottom:var(--plaque-bottom);width:var(--plaque-w);height:var(--plaque-h);transform:translateX(-50%)}
+.hall-plaque>img{width:100%;height:100%;object-fit:contain}
+/* Live text stays inside the plaque's dark inset (16–84% across, 41–72% down the art). */
+.hall-plaque-text{position:absolute;left:17%;right:17%;top:42%;height:30%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(1px,calc(var(--plaque-h) * .04 - 4px),4px);text-align:center}
+#treasureHall .hall-plaque-text h3{margin:0!important;font:bold clamp(15px,calc(var(--plaque-w) * .047),20px)/1.15 Georgia,serif!important;color:#f1dcab;text-shadow:0 1px 2px #000;white-space:nowrap}
+#treasureHall .hall-plaque-text p{margin:0!important;line-height:1.2!important;font-family:Georgia,serif!important;white-space:nowrap}
+#treasureHall .hall-requirement{font-size:clamp(12px,calc(var(--plaque-w) * .034),14px)!important;color:#e9e3d3}
+#treasureHall .hall-status{font-size:clamp(12px,calc(var(--plaque-w) * .033),14px)!important;color:#cdb071;letter-spacing:.03em!important}
+#treasureHall .hall-status.earned{font-weight:bold;color:#79d99b;letter-spacing:.08em!important;text-transform:uppercase}
+@media(prefers-reduced-motion:reduce){.hall-trophy.newly img,.hall-trophy.newly:after{animation:none!important}.hall-trophy.newly:after{content:none}}
+/* Records: a quiet way back to the scene. */
+#treasureBack{min-width:44px;font-size:26px!important;padding:0 8px!important;flex:none}
