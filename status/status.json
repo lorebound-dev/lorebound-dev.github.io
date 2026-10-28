@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T00:43:21.995Z",
+ "generatedAt": "2026-10-28T00:45:32.277Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-27T22:59:59Z",
@@ -9,9 +9,9 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-27T23:41:27Z",
-  "number": 36,
-  "title": "Integrate completed Treasure Hall artwork for testing"
+  "updatedAt": "2026-10-28T00:43:25Z",
+  "number": 40,
+  "title": "Party reordering, continuous Auto Summon and in-dock companion decisions"
  },
  "items": [
   {
@@ -20,7 +20,7 @@
    "by": "Joshua",
    "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
    "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "built",
+   "stage": "testing",
    "waitingOn": "both",
    "asks": [
     {
@@ -40,10 +40,10 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-27T23:37:22Z",
-   "onTest": false,
-   "testIsCurrent": false,
-   "updatedAt": "2026-10-28T00:42:57Z",
+   "testAt": "2026-10-28T00:43:25Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "updatedAt": "2026-10-28T00:43:25Z",
    "headSha": "0d8f907f6b8cc91c598ae09373fd85f41218f867",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -79,7 +79,7 @@
    "by": "Joshua",
    "title": "Integrate completed Treasure Hall artwork for testing",
    "quote": "Ok can you push anything new using that setup? I want the treasure updates and assets to flow there for testing.",
-   "stage": "testing",
+   "stage": "built",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-10-27T21:08:14Z",
@@ -87,8 +87,8 @@
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-27T23:41:27Z",
-   "onTest": true,
-   "testIsCurrent": true,
+   "onTest": false,
+   "testIsCurrent": false,
    "updatedAt": "2026-10-27T23:41:27Z",
    "headSha": "f23db86c16993b874412b51697f229f2e0810a42",
    "touchesGame": true,
@@ -407,6 +407,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T00:43:25Z",
+   "kind": "test",
+   "text": "“Party reordering, continuous Auto Summon and in-dock companion decisions” went on the test site"
+  },
+  {
    "at": "2026-10-28T00:42:57Z",
    "kind": "built",
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
@@ -600,14 +605,18 @@
    "at": "2026-10-27T17:31:31Z",
    "kind": "behind",
    "text": "Behind the scenes: “Add a suggestions folder for ideas Joshua decides on”"
-  },
-  {
-   "at": "2026-10-27T17:17:56Z",
-   "kind": "live",
-   "text": "“Fill in the bottom nav icons on iPhones” is live in the game"
   }
  ],
  "otherPulls": [
+  {
+   "number": 51,
+   "headSha": "b2f298f313276c4a54da278ddf661cbf5f470981",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 49,
    "headSha": "ca483ccb93f74c4425aea755c3139d4e14d427df",
