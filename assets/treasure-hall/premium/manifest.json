@@ -1,0 +1,180 @@
+{
+  "schema": "lorebound.treasure-hall.premium-runtime.v1",
+  "masters": {
+    "ref": "review/treasure-hall-premium-masters",
+    "commit": "bdb88e370b23c8ca53efb9148a4d458362ea0a89",
+    "folder": "handoff/treasure-hall-premium-revamp/masters/",
+    "manifest": "handoff/treasure-hall-premium-revamp/APPROVED_ASSET_MANIFEST_v01.json"
+  },
+  "note": "Phone-sized copies of the approved masters. Each is the whole picture (no crop, same aspect ratio, sRGB, lossless alpha), sized for a 3x phone at the largest size the game shows it and never larger than its master. Masters are kept outside dist.",
+  "encoder": {
+    "tool": "sharp 0.34.5 / libwebp 1.6.0",
+    "resize": "lanczos3, premultiplied alpha",
+    "quality": 90,
+    "alphaQuality": 100,
+    "smartSubsample": true,
+    "effort": 6
+  },
+  "pictures": {
+    "treasure-hall/hall-background": {
+      "src": "assets/treasure-hall/premium/treasure-hall-background-v01-1024.webp",
+      "bytes": 516350,
+      "sha256": "54b609bb1233b753414694cd6593999ab6f19ac9d340bc82f32991d1f68afc0c",
+      "width": 1024,
+      "height": 1536,
+      "alpha": false,
+      "shown": "covers the Hall, up to 520 px wide and the full screen height; kept at master size",
+      "master": "LOREBOUND_TreasureHall_Premium_Hall_Background_v01_APPROVED.png",
+      "masterSha256": "93d4d5c538a2c1fe3ba66f261dfa8ad9caac219f85d75cee6f9c69f7cc2f5f35",
+      "masterBytes": 2910329,
+      "masterSize": [
+        1024,
+        1536
+      ]
+    },
+    "treasure-hall/foreground-rim": {
+      "src": "assets/treasure-hall/premium/treasure-hall-foreground-rim-v01-1509.webp",
+      "bytes": 168458,
+      "sha256": "e9fade3ef84061f8b8f0b6526e59c2dbb054a453c0ebdd09864b86e7f5037815",
+      "width": 1509,
+      "height": 503,
+      "alpha": true,
+      "shown": "plaque width (up to 440 px) x 1.143; 503 x 3 = 1509 px wide",
+      "master": "treasure-hall-foreground-rim-v01.png",
+      "masterSha256": "73d76981ed4f838657c8e812a9034712ecc9d212cee5c3f55a21f116bc7d3d74",
+      "masterBytes": 1544321,
+      "masterSize": [
+        2172,
+        724
+      ]
+    },
+    "treasure-hall/plaque-empty": {
+      "src": "assets/treasure-hall/premium/treasure-hall-plaque-empty-v01-1320.webp",
+      "bytes": 176808,
+      "sha256": "61a510c0788ab46e8e184bca9bb124e4c9a2bd93d46e419dc1e7ed822a349a60",
+      "width": 1320,
+      "height": 660,
+      "alpha": true,
+      "shown": "up to 440 px wide; 440 x 3 = 1320 px wide",
+      "master": "treasure-hall-plaque-empty-v01.png",
+      "masterSha256": "e9def02849c73c9e321a593ee49c65160c201c817181fb59527afb2d207b3746",
+      "masterBytes": 1654551,
+      "masterSize": [
+        1774,
+        887
+      ]
+    },
+    "treasure-hall/town-ruined": {
+      "src": "assets/treasure-hall/premium/treasure-hall-town-ruined-v01-690.webp",
+      "bytes": 159264,
+      "sha256": "e3cf382cff801f8a6e4f14e87dda299fb093f6c544a4ab1610c923d35a25d206",
+      "width": 690,
+      "height": 590,
+      "alpha": true,
+      "shown": "230 px Town building box, contain; the Town map never zooms; 230 x 3 = 690 px wide",
+      "master": "treasure-hall-town-ruined-v01.png",
+      "masterSha256": "28e086d183e741ae3b832811f207734bea27530403cd2a19baab2c9df978f93a",
+      "masterBytes": 2188495,
+      "masterSize": [
+        1356,
+        1159
+      ]
+    },
+    "treasure-hall/town-restored": {
+      "src": "assets/treasure-hall/premium/treasure-hall-town-restored-v01-690.webp",
+      "bytes": 169510,
+      "sha256": "9d8783a66068591cbde10622ba2c7c7899f45f2d3a62f337ac74ada9c0477248",
+      "width": 690,
+      "height": 589,
+      "alpha": true,
+      "shown": "230 px Town building box, contain; the Town map never zooms; 230 x 3 = 690 px wide",
+      "master": "treasure-hall-town-restored-v01.png",
+      "masterSha256": "dc262943a5d55a573ea101d5b3e71893f4009c7575d3acccf99fc156dceeba38",
+      "masterBytes": 2272948,
+      "masterSize": [
+        1357,
+        1159
+      ]
+    },
+    "treasure-hall/trophy-conqueror": {
+      "src": "assets/treasure-hall/premium/treasure-hall-trophy-conqueror-v02-1200.webp",
+      "bytes": 272772,
+      "sha256": "75d9c19f56d0d4e8148754797749b7a76f921fc15970d5c16d2d1cf303e78287",
+      "width": 1200,
+      "height": 1200,
+      "alpha": true,
+      "shown": "trophy space, up to 400 px; 400 x 3 = 1200 px wide",
+      "master": "treasure-hall-trophy-conqueror-v02.png",
+      "masterSha256": "b3eb74c9bbf44474d3bddf7f08990669516aa1cb04a23e77fa25d6ed64bcfc51",
+      "masterBytes": 1319876,
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "treasure-hall/trophy-chronicle": {
+      "src": "assets/treasure-hall/premium/treasure-hall-trophy-chronicle-v02-1200.webp",
+      "bytes": 452120,
+      "sha256": "16fcfd0fa85a98b9f800b15f5179884f4a1ddfb63da8bebf0dc5892bf1d76069",
+      "width": 1200,
+      "height": 1200,
+      "alpha": true,
+      "shown": "trophy space, up to 400 px; 400 x 3 = 1200 px wide",
+      "master": "treasure-hall-trophy-chronicle-v02.png",
+      "masterSha256": "18b1c04b0685dd2cde6bb1b1739127a95276b698ce95d9d1da5f174d0c6cbb86",
+      "masterBytes": 2006407,
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "treasure-hall/trophy-sixfold": {
+      "src": "assets/treasure-hall/premium/treasure-hall-trophy-sixfold-v02-1200.webp",
+      "bytes": 405808,
+      "sha256": "19f64e2f3e1b432a1222ffbc7c313038ea23f03cdb8628e4958f059ba636e681",
+      "width": 1200,
+      "height": 1200,
+      "alpha": true,
+      "shown": "trophy space, up to 400 px; 400 x 3 = 1200 px wide",
+      "master": "treasure-hall-trophy-sixfold-v02.png",
+      "masterSha256": "0383e6beeffa9870f712d9d2e8365757142f377f00dd2ba28976fc6ac46c81f1",
+      "masterBytes": 1929160,
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "treasure-hall/trophy-guardian": {
+      "src": "assets/treasure-hall/premium/treasure-hall-trophy-guardian-v02-1200.webp",
+      "bytes": 468592,
+      "sha256": "f4746ce6c0f9e58bd28ed47d22e169900db4d205cfe84b895fcc3939e4c912fc",
+      "width": 1200,
+      "height": 1200,
+      "alpha": true,
+      "shown": "trophy space, up to 400 px; 400 x 3 = 1200 px wide",
+      "master": "treasure-hall-trophy-guardian-v02.png",
+      "masterSha256": "2e1e274c59a5b5846962abef93b87cc8d4d3566aeb74570fe13fe6edc907b171",
+      "masterBytes": 2345710,
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "treasure-hall/trophy-last-vigil": {
+      "src": "assets/treasure-hall/premium/treasure-hall-trophy-last-vigil-v02-1200.webp",
+      "bytes": 579460,
+      "sha256": "9b451d519e4125e59c5d295e4142a842407a180c2159f51deb9ee56d86bb6825",
+      "width": 1200,
+      "height": 1200,
+      "alpha": true,
+      "shown": "trophy space, up to 400 px; 400 x 3 = 1200 px wide",
+      "master": "treasure-hall-trophy-last-vigil-v02.png",
+      "masterSha256": "5b854530a8f4c80cd584ddccbb6f9f07aaa606858acf1e5dacfd8dfdfec9e500",
+      "masterBytes": 2620919,
+      "masterSize": [
+        1254,
+        1254
+      ]
+    }
+  }
+}

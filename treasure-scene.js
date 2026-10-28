@@ -1,20 +1,21 @@
 /* Hall of Triumphs: the one-room Treasure Hall. Presentation only; trophy state comes from LoreTrophies and nothing here writes to a save. */
 (function(root){'use strict';
 const Y=()=>root.LoreTrophies,DIR='assets/treasure-hall/premium/';
-// Every file is Joshua's approved master, byte for byte. sha256 ties it to handoff/treasure-hall-premium-revamp/APPROVED_ASSET_MANIFEST_v01.json.
+// Phone-sized WebP copies of Joshua's approved masters (tools/build-treasure-hall-webp.cjs). masterSha256 ties each to
+// handoff/treasure-hall-premium-revamp/APPROVED_ASSET_MANIFEST_v01.json; assets/treasure-hall/premium/manifest.json records the copies.
 // Trophy x/y are CSS px nudges at the 390×844 reference; they stay 0 unless a screenshot shows a trophy sitting off the shared base line.
-const art=(file,sha256,extra={})=>Object.freeze({src:DIR+file,sha256,...extra});
+const art=(file,masterSha256,extra={})=>Object.freeze({src:DIR+file,masterSha256,...extra});
 const ART=Object.freeze({
- background:art('LOREBOUND_TreasureHall_Premium_Hall_Background_v01_APPROVED.png','93d4d5c538a2c1fe3ba66f261dfa8ad9caac219f85d75cee6f9c69f7cc2f5f35'),
- foreground:art('treasure-hall-foreground-rim-v01.png','73d76981ed4f838657c8e812a9034712ecc9d212cee5c3f55a21f116bc7d3d74'),
- plaque:art('treasure-hall-plaque-empty-v01.png','e9def02849c73c9e321a593ee49c65160c201c817181fb59527afb2d207b3746'),
- town:Object.freeze({ruined:art('treasure-hall-town-ruined-v01.png','28e086d183e741ae3b832811f207734bea27530403cd2a19baab2c9df978f93a'),restored:art('treasure-hall-town-restored-v01.png','dc262943a5d55a573ea101d5b3e71893f4009c7575d3acccf99fc156dceeba38')}),
+ background:art('treasure-hall-background-v01-1024.webp','93d4d5c538a2c1fe3ba66f261dfa8ad9caac219f85d75cee6f9c69f7cc2f5f35'),
+ foreground:art('treasure-hall-foreground-rim-v01-1509.webp','73d76981ed4f838657c8e812a9034712ecc9d212cee5c3f55a21f116bc7d3d74'),
+ plaque:art('treasure-hall-plaque-empty-v01-1320.webp','e9def02849c73c9e321a593ee49c65160c201c817181fb59527afb2d207b3746'),
+ town:Object.freeze({ruined:art('treasure-hall-town-ruined-v01-690.webp','28e086d183e741ae3b832811f207734bea27530403cd2a19baab2c9df978f93a'),restored:art('treasure-hall-town-restored-v01-690.webp','dc262943a5d55a573ea101d5b3e71893f4009c7575d3acccf99fc156dceeba38')}),
  trophies:Object.freeze({
-  'realm-conqueror':art('treasure-hall-trophy-conqueror-v02.png','b3eb74c9bbf44474d3bddf7f08990669516aa1cb04a23e77fa25d6ed64bcfc51',{x:0,y:0}),
-  'whole-chronicle':art('treasure-hall-trophy-chronicle-v02.png','18b1c04b0685dd2cde6bb1b1739127a95276b698ce95d9d1da5f174d0c6cbb86',{x:0,y:0}),
-  'sixfold-covenant':art('treasure-hall-trophy-sixfold-v02.png','0383e6beeffa9870f712d9d2e8365757142f377f00dd2ba28976fc6ac46c81f1',{x:0,y:0}),
-  'guardian-memorial':art('treasure-hall-trophy-guardian-v02.png','2e1e274c59a5b5846962abef93b87cc8d4d3566aeb74570fe13fe6edc907b171',{x:0,y:0}),
-  'last-vigil':art('treasure-hall-trophy-last-vigil-v02.png','5b854530a8f4c80cd584ddccbb6f9f07aaa606858acf1e5dacfd8dfdfec9e500',{x:0,y:0})})});
+  'realm-conqueror':art('treasure-hall-trophy-conqueror-v02-1200.webp','b3eb74c9bbf44474d3bddf7f08990669516aa1cb04a23e77fa25d6ed64bcfc51',{x:0,y:0}),
+  'whole-chronicle':art('treasure-hall-trophy-chronicle-v02-1200.webp','18b1c04b0685dd2cde6bb1b1739127a95276b698ce95d9d1da5f174d0c6cbb86',{x:0,y:0}),
+  'sixfold-covenant':art('treasure-hall-trophy-sixfold-v02-1200.webp','0383e6beeffa9870f712d9d2e8365757142f377f00dd2ba28976fc6ac46c81f1',{x:0,y:0}),
+  'guardian-memorial':art('treasure-hall-trophy-guardian-v02-1200.webp','2e1e274c59a5b5846962abef93b87cc8d4d3566aeb74570fe13fe6edc907b171',{x:0,y:0}),
+  'last-vigil':art('treasure-hall-trophy-last-vigil-v02-1200.webp','5b854530a8f4c80cd584ddccbb6f9f07aaa606858acf1e5dacfd8dfdfec9e500',{x:0,y:0})})});
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const chevron=d=>`<svg viewBox="0 0 28 36" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 let scene,current,index=-1,last='',baseline=null,swipe=null,hooks={};const glowed=new Set();
