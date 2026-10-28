@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T01:22:09.067Z",
+ "generatedAt": "2026-10-28T01:22:37.914Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T00:46:00Z",
@@ -20,6 +20,96 @@
   ]
  },
  "items": [
+  {
+   "number": 40,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
+   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Players who bought the Auto capacity upgrade with Gold paid for a limit that's now gone for everyone. I gave nothing back. If you want, I can refund that Gold. That changes the economy, so it needs your OK."
+    },
+    {
+     "who": "joshua",
+     "text": "The old Auto ON/OFF switch and its Settings button are still inside \"Progression & batch controls\". My suggestion: change them to match the new single Auto button."
+    },
+    {
+     "who": "joshua",
+     "text": "When you swap across rarities, 20% of the invested Essence is lost each time, the same as the game's swap rule today. So swapping a companion out and back costs some Essence. My suggestion: keep it as it is, because the screen shows the exact amount before you confirm."
+    }
+   ],
+   "openedAt": "2026-10-27T21:56:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T01:22:10Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T01:22:10Z",
+   "headSha": "6dd81336a690148d25a5951a19830e48bad788a0",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T00:42:57Z"
+  },
+  {
+   "number": 50,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep automatic combat running behind menus and other tabs",
+   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
+    }
+   ],
+   "openedAt": "2026-10-28T00:41:06Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T01:22:10Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T01:22:10Z",
+   "headSha": "91608190807806a4878cbda9213dabbec7fd3b97",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T00:51:39Z"
+  },
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T01:22:10Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T01:22:10Z",
+   "headSha": "33da31ef20d6fd48ddb6705c408becc8a24f0448",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-27T23:36:03Z"
+  },
   {
    "number": 52,
    "kind": "request",
@@ -78,35 +168,6 @@
    "botAt": "2026-10-28T00:58:42Z"
   },
   {
-   "number": 50,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Keep automatic combat running behind menus and other tabs",
-   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
-    }
-   ],
-   "openedAt": "2026-10-28T00:41:06Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T00:52:07Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T00:52:07Z",
-   "headSha": "91608190807806a4878cbda9213dabbec7fd3b97",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T00:51:39Z"
-  },
-  {
    "number": 36,
    "kind": "request",
    "by": "Joshua",
@@ -129,67 +190,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-27T23:23:57Z"
-  },
-  {
-   "number": 40,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Players who bought the Auto capacity upgrade with Gold paid for a limit that's now gone for everyone. I gave nothing back. If you want, I can refund that Gold. That changes the economy, so it needs your OK."
-    },
-    {
-     "who": "joshua",
-     "text": "The old Auto ON/OFF switch and its Settings button are still inside \"Progression & batch controls\". My suggestion: change them to match the new single Auto button."
-    },
-    {
-     "who": "joshua",
-     "text": "When you swap across rarities, 20% of the invested Essence is lost each time, the same as the game's swap rule today. So swapping a companion out and back costs some Essence. My suggestion: keep it as it is, because the screen shows the exact amount before you confirm."
-    }
-   ],
-   "openedAt": "2026-10-27T21:56:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T00:43:25Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T00:43:25Z",
-   "headSha": "6dd81336a690148d25a5951a19830e48bad788a0",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T00:42:57Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-27T23:36:35Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-27T23:36:35Z",
-   "headSha": "33da31ef20d6fd48ddb6705c408becc8a24f0448",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-27T23:36:03Z"
   },
   {
    "number": 37,
@@ -495,6 +495,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T01:22:10Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
    "at": "2026-10-28T01:21:32Z",
    "kind": "behind",
    "text": "Behind the scenes: “Show everything in progress on the test site, combined”"
@@ -688,11 +693,6 @@
    "at": "2026-10-27T21:08:14Z",
    "kind": "asked",
    "text": "You asked for “Integrate completed Treasure Hall artwork for testing”"
-  },
-  {
-   "at": "2026-10-27T20:51:14Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Keep everything Joshua does inside ChatGPT”"
   }
  ],
  "otherPulls": [
