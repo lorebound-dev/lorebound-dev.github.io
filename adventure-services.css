@@ -94,22 +94,31 @@
 #autoSettingsSheet.economy-auto #summonAutoPane>:not(#economyAuto),#autoSettingsSheet.economy-auto #saveSummonSettings{display:none!important}
 #economyAuto{flex:0 1 auto;min-height:0;display:flex;flex-direction:column}
 #economyAuto *{font-family:Georgia,serif!important;letter-spacing:normal!important}
-#economyAuto .auto-odds-wrap{flex:0 1 auto;min-height:118px;overflow-y:auto;overscroll-behavior:contain;margin:0 0 10px;border:1px solid #a8854f66;background:#07131d}
-#economyAuto .auto-odds{width:100%;border-collapse:collapse}
-#economyAuto .auto-odds th,#economyAuto .auto-odds td{height:44px;padding:0 8px;border-bottom:1px solid #a8854f2e;text-align:left;font-size:14px;font-weight:normal;color:#f1dca3}
-#economyAuto .auto-odds thead th{position:sticky;top:0;z-index:1;height:30px;background:#0d1f2c;font-size:13px;color:#c9b88f;border-bottom-color:#a8854f99}
-#economyAuto .auto-odds td:first-child,#economyAuto .auto-odds thead th:first-child{width:44px;padding:0;text-align:center}
-#economyAuto .auto-odds td:last-child,#economyAuto .auto-odds thead th:last-child{text-align:right;white-space:nowrap}
-#economyAuto .auto-odds input{width:22px;height:22px;margin:0;accent-color:#c9a65a;vertical-align:middle}
-#economyAuto .auto-odds label{display:flex;align-items:center;gap:8px;min-height:44px;cursor:pointer}
+#economyAuto .auto-subtitle{flex:none;margin:-4px 0 8px;text-align:center;font-size:14px;color:#c9b88f}
+#economyAuto .auto-odds-head{flex:none;display:flex;justify-content:space-between;align-items:center;min-height:30px;margin:0 0 4px;padding:0 10px;border:1px solid #a8854f99;border-radius:3px;background:#0d1f2c}
+#economyAuto .auto-odds-head span{font-size:15px;color:#e0c183;text-transform:uppercase}
+#economyAuto .auto-odds-head span+span{font-size:12px;color:#c9b88f}
+#economyAuto .auto-odds-wrap{flex:0 1 auto;min-height:118px;display:flex;flex-direction:column;gap:3px;overflow-y:auto;overscroll-behavior:contain;margin:0 0 10px}
+#economyAuto .auto-row{flex:none;display:flex;align-items:center;gap:10px;min-height:44px;padding:0 10px;border:1px solid #a8854f40;border-radius:3px;background:#07131d;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#economyAuto .auto-row:has(input:checked){border-color:#c9a65a;background:#0d1f2c}
+#economyAuto .auto-row:has(input:focus-visible){outline:2px solid #e0c183;outline-offset:1px}
+#economyAuto .auto-row input{flex:none;width:22px;height:22px;margin:0;accent-color:#c9a65a}
 #economyAuto .auto-gem{flex:none;width:24px;height:24px;display:grid;place-items:center}
-#economyAuto .auto-gem i{width:8px;height:8px;rotate:45deg;background:var(--rarity-color)}
-#economyAuto .auto-gem img{width:24px;height:24px;object-fit:contain}
-#economyAuto .auto-odds tr.is-zero td:last-child,#economyAuto .auto-odds tr.is-zero label{color:#9d9481}
-#economyAuto .auto-quantity{flex:none;display:flex;align-items:center;gap:10px;margin:0 0 8px;font-size:15px;color:#f1d899}
-#economyAuto .auto-quantity span{white-space:nowrap}
-#economyAuto .auto-quantity select{flex:1;min-width:0;background:#0d1f2c;border-color:#a8854f}
-#economyAuto .auto-release-note{flex:none;margin:0;font-size:13px;line-height:1.4;color:#c9b88f}
+#economyAuto .auto-gem img{display:block;width:24px;height:24px;object-fit:contain}
+#economyAuto .auto-name{flex:1;min-width:0;font-size:14px;color:#e9ddbe;text-transform:uppercase}
+#economyAuto .auto-row:has(input:checked) .auto-name{color:#f1d899}
+#economyAuto .auto-pct{flex:none;font-size:14px;color:#f1d899;white-space:nowrap}
+#economyAuto .auto-row.is-zero .auto-name,#economyAuto .auto-row.is-zero .auto-pct{color:#a69c88}
+#economyAuto .auto-quantity{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 8px;padding-top:10px;border-top:1px solid #a8854f80;font-size:15px;color:#f1d899}
+#economyAuto .auto-quantity>span{white-space:nowrap}
+#economyAuto .auto-stepper{flex:0 1 190px;min-width:0;display:flex;align-items:stretch;border:1px solid #a8854f;border-radius:3px;background:#07131d}
+#economyAuto .auto-stepper button{flex:none;width:44px;min-height:44px;margin:0;padding:0;border:0;border-radius:0;background:#16333d;color:#e0c183;font-size:14px}
+#economyAuto .auto-stepper button:first-child{border-right:1px solid #a8854f}
+#economyAuto .auto-stepper button:last-child{border-left:1px solid #a8854f}
+#economyAuto .auto-stepper button:disabled{opacity:.4}
+#economyAuto .auto-stepper output{flex:1;min-width:0;display:grid;place-items:center;font-size:15px;color:#f1dca3;white-space:nowrap}
+#economyAuto .auto-release-note{flex:none;display:flex;align-items:center;gap:10px;margin:0;padding:8px 10px;border:1px solid #a8854f66;border-radius:3px;font-size:13px;line-height:1.4;color:#c9b88f}
+#economyAuto .auto-info{flex:none;width:22px;height:22px;display:grid;place-items:center;border:1px solid #c9a65a;border-radius:50%;font-size:13px;font-style:italic;color:#e0c183}
 #economyAuto #economyAutoReason{flex:none;margin:6px 0 0}
 .party-services #autoSettingsSheet.economy-auto>#settingsStartAuto{flex:none;min-height:52px;background:linear-gradient(#6a4a9c,#48306f);color:#f6ecd6;font:17px Georgia,serif!important;letter-spacing:normal!important}
 .party-services #autoSettingsSheet.economy-auto>#settingsStartAuto:disabled{opacity:.55}
