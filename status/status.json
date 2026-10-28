@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T22:20:02.939Z",
+ "generatedAt": "2026-10-28T22:58:43.729Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T19:03:47Z",
+  "updatedAt": "2026-10-28T22:20:15Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data"
@@ -17,6 +17,91 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 66,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves immediate Challenge Boss placement fix from #65",
+   "quote": "Yes go",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T22:57:44Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T22:58:43Z",
+   "headSha": "c36a2745f26d70061ff000676b2127bc35e76920",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "finished",
+   "botAt": "2026-10-28T22:58:43Z"
+  },
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T22:20:15Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T22:20:15Z",
+   "headSha": "c42a0d960f0d02f7647e71bc8c03f20d6473c56b",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-28T03:15:36Z"
+  },
+  {
+   "number": 60,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
+    },
+    {
+     "who": "joshua",
+     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
+    },
+    {
+     "who": "joshua",
+     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
+    }
+   ],
+   "openedAt": "2026-10-28T04:18:38Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T22:20:15Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T22:20:15Z",
+   "headSha": "79b8116cda5b12357bb154f2c7ce01edaa1fb6e9",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T17:24:37Z"
+  },
   {
    "number": 65,
    "kind": "request",
@@ -53,67 +138,6 @@
    "requestStatus": "Waiting for answers",
    "botState": "questions",
    "botAt": "2026-10-28T22:19:39Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T19:03:47Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T19:03:47Z",
-   "headSha": "c42a0d960f0d02f7647e71bc8c03f20d6473c56b",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-28T03:15:36Z"
-  },
-  {
-   "number": 60,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
-    },
-    {
-     "who": "joshua",
-     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
-    },
-    {
-     "who": "joshua",
-     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
-    }
-   ],
-   "openedAt": "2026-10-28T04:18:38Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T19:03:47Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T19:03:47Z",
-   "headSha": "79b8116cda5b12357bb154f2c7ce01edaa1fb6e9",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T17:24:37Z"
   },
   {
    "number": 64,
@@ -464,33 +488,19 @@
    "requestStatus": "",
    "botState": "",
    "botAt": null
-  },
-  {
-   "number": 25,
-   "kind": "fix",
-   "by": "Noah",
-   "title": "Show \"While you were away\" only after a minute away",
-   "quote": "",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T14:03:06Z",
-   "mergedAt": "2026-10-27T14:03:50Z",
-   "closedAt": "2026-10-27T14:03:50Z",
-   "liveAt": "2026-10-27T14:03:53Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-27T14:03:53Z",
-   "headSha": "e4dfc394b50234d3d6d7944ea98377e8cdacbdf3",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
   }
  ],
  "activity": [
+  {
+   "at": "2026-10-28T22:57:44Z",
+   "kind": "asked",
+   "text": "You asked for “Owner approves immediate Challenge Boss placement fix from #65”"
+  },
+  {
+   "at": "2026-10-28T22:20:15Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
   {
    "at": "2026-10-28T22:19:39Z",
    "kind": "question",
@@ -680,16 +690,6 @@
    "at": "2026-10-28T16:14:28Z",
    "kind": "built",
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-28T16:03:58Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T15:58:33Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
  ],
  "otherPulls": [
