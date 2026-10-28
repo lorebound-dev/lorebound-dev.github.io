@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T17:35:44.745Z",
+ "generatedAt": "2026-10-28T17:41:04.818Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T17:25:15Z",
@@ -473,30 +473,6 @@
    "requestStatus": "",
    "botState": "",
    "botAt": null
-  },
-  {
-   "number": 21,
-   "kind": "fix",
-   "by": "Noah",
-   "title": "Fix Town map drag on phones, boss resets on app switch, and Auto Summon",
-   "quote": "",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T03:12:39Z",
-   "mergedAt": "2026-10-27T03:42:54Z",
-   "closedAt": "2026-10-27T03:42:54Z",
-   "liveAt": "2026-10-27T03:42:57Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-27T03:42:57Z",
-   "headSha": "748f92120186b2d751f8f4fefb4341bba498e522",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
   }
  ],
  "activity": [
@@ -702,6 +678,15 @@
   }
  ],
  "otherPulls": [
+  {
+   "number": 62,
+   "headSha": "af02aa1ba218a0e82af9c713b694c7e92fb8be8f",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 61,
    "headSha": "4dc33aabba6661e032177f5a62e93a14b7dbbd8b",
