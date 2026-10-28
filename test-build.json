@@ -1,5 +1,5 @@
 {
-  "base": "89c85bda7f0488b7e10993874f7e319261bc0d03",
+  "base": "d1317a5071e4f55618c2caa177f612f63919dcad",
   "included": [
     {
       "number": 38,
@@ -9,7 +9,12 @@
     {
       "number": 40,
       "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-      "head": "6dd81336a690148d25a5951a19830e48bad788a0"
+      "head": "5e64cf87a59245d3038bdb121574fcf5ac47b6de"
+    },
+    {
+      "number": 44,
+      "title": "Intro-style companion pages with shared type habitats and size/weight",
+      "head": "e2c0dd2059e5a489a31446c182d05e3a45986aef"
     },
     {
       "number": 50,
@@ -22,17 +27,7 @@
       "head": "cf0115fe9caaa4729ad865f0b3be85179de11f03"
     }
   ],
-  "skipped": [
-    {
-      "number": 44,
-      "title": "Intro-style companion pages with shared type habitats and size/weight",
-      "head": "e2c0dd2059e5a489a31446c182d05e3a45986aef",
-      "files": [
-        "pocket-fortune/dist/summoning.js"
-      ],
-      "with": "others"
-    }
-  ],
-  "commit": "bcba5df7a32c365b2025b63a71874dfef6d07955",
-  "at": "2026-10-28T01:36:16Z"
+  "skipped": [],
+  "commit": "9814b55d64dae477b662271f949f2a619c2e8f6d",
+  "at": "2026-10-28T01:44:01Z"
 }

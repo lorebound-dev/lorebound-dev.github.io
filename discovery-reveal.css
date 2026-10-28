@@ -25,3 +25,6 @@
 @media(prefers-reduced-motion:reduce){.adventure-refined #summonSheet.configured-reveal *{animation:none!important;transition:none!important}}
 .adventure-refined #summonSheet.configured-reveal .summon-scene:after{content:'';position:absolute;bottom:7px;left:15%;width:70%;height:26px;border:1px solid var(--reveal-light);border-radius:50%;box-shadow:0 0 15px var(--reveal-light),inset 0 0 12px var(--reveal-light);opacity:0;pointer-events:none;transition:opacity .5s}
 .adventure-refined #summonSheet.configured-reveal:is([data-discovery-stage=burst],[data-discovery-stage=settled]) .summon-scene:after{opacity:.35}
+.adventure-refined #game #summonSheet.configured-reveal.has-habitat:is([data-discovery-stage=burst],[data-discovery-stage=settled]){background:linear-gradient(#03121cc9,#04131b45 45%,#03131bd9 80%),var(--companion-habitat) center/cover}
+#summonSheet #summonMeasures{display:block;margin:2px 0;font:13px/1.4 Georgia,serif!important;letter-spacing:normal;color:#d0d6d2}
+#summonSheet #summonMeasures:empty{display:none}
