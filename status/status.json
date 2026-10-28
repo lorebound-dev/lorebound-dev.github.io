@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T17:44:58.543Z",
+ "generatedAt": "2026-10-28T17:52:21.305Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T17:25:15Z",
@@ -25,18 +25,18 @@
    "by": "Joshua",
    "title": "Lower battlefield characters and enlarge bosses by 40%",
    "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
+   "stage": "closed",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-10-27T21:22:11Z",
    "mergedAt": null,
-   "closedAt": null,
+   "closedAt": "2026-10-28T17:51:57Z",
    "liveAt": null,
    "testAt": "2026-10-28T17:44:36Z",
-   "onTest": true,
-   "testIsCurrent": true,
+   "onTest": false,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:44:36Z",
+   "updatedAt": "2026-10-28T17:51:57Z",
    "headSha": "042824ee1023e749412855545f3a4a5413c6f1d9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -477,6 +477,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T17:51:57Z",
+   "kind": "closed",
+   "text": "“Lower battlefield characters and enlarge bosses by 40%” was closed"
+  },
+  {
+   "at": "2026-10-28T17:51:55Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Let the request updater push workflow changes with its own key”"
+  },
+  {
    "at": "2026-10-28T17:44:36Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -665,19 +675,18 @@
    "at": "2026-10-28T03:17:34Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:16:20Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:15:36Z",
-   "kind": "built",
-   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
   }
  ],
  "otherPulls": [
+  {
+   "number": 59,
+   "headSha": "51df3669ef65583c170ad5b81b63a19ea7914d36",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 62,
    "headSha": "af02aa1ba218a0e82af9c713b694c7e92fb8be8f",
@@ -690,15 +699,6 @@
   {
    "number": 61,
    "headSha": "4dc33aabba6661e032177f5a62e93a14b7dbbd8b",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 59,
-   "headSha": "51df3669ef65583c170ad5b81b63a19ea7914d36",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
