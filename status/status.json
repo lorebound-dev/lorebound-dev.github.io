@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T18:57:08.675Z",
+ "generatedAt": "2026-10-28T19:03:28.826Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -23,9 +23,18 @@
    "by": "Joshua",
    "title": "Build reusable LOREBOUND UI kit from individually supplied artwork",
    "quote": "\"We just need to start thinking about how to make general assets instead of super specific stuff. It's not very scalable with the stage of development we are at. It's exhausting constantly rendering and sending only for a lot to still not look right.\"  Joshua approved the LOREBOUND shared UI kit concept board, asked how to make the assets available to the builders, and emphasized: \"Claude doesn't do image generation.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Get the UI kit files to the build: the PNGs aren't in this pull request, and the Claude build job can't sign in to Google Drive. Suggestion: have Joshua's ChatGPT copy the UI kit folder into the LOREBOUND Artwork Inbox (for example as Approved/UI-Kit-v01). Then run Fetch art…"
+    },
+    {
+     "who": "noah",
+     "text": "Choose where the 13 small UI pictures live. Suggestion: commit them unchanged as pocket-fortune/dist/assets/ui-kit/v01/…, plus the manifest. Keep the two boards, the README and the CSS reference in handoff/ui-kit-v01/, outside the published folder. Then comment \"@claude build…"
+    }
+   ],
    "openedAt": "2026-10-28T18:56:50Z",
    "mergedAt": null,
    "closedAt": null,
@@ -34,12 +43,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T18:56:50Z",
-   "headSha": "5521ef536e076d43911f0c63c412066d3f1f9aa6",
+   "updatedAt": "2026-10-28T18:59:21Z",
+   "headSha": "9801834ecf7d1d76a3d9f6a860c15f2eb096a048",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "",
-   "botAt": null
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-28T18:59:21Z"
   },
   {
    "number": 38,
@@ -470,6 +479,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T18:59:21Z",
+   "kind": "question",
+   "text": "Part of “Build reusable LOREBOUND UI kit from individually supplied artwork” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-28T18:56:50Z",
    "kind": "asked",
    "text": "You asked for “Build reusable LOREBOUND UI kit from individually supplied artwork”"
@@ -663,11 +677,6 @@
    "at": "2026-10-28T07:34:09Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T07:32:08Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
  ],
  "otherPulls": [
