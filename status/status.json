@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T00:52:05.339Z",
+ "generatedAt": "2026-10-28T00:53:45.485Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T00:46:00Z",
@@ -9,18 +9,41 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T00:43:25Z",
-  "number": 40,
-  "title": "Party reordering, continuous Auto Summon and in-dock companion decisions"
+  "updatedAt": "2026-10-28T00:52:07Z",
+  "number": 50,
+  "title": "Keep automatic combat running behind menus and other tabs"
  },
  "items": [
+  {
+   "number": 52,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Connect approved Drive artwork library and verify private developer staging",
+   "quote": "I want to establish a permanent artwork delivery pipeline so I can generate and approve artwork in ChatGPT, then have Claude Code access it through GitHub without me downloading, extracting or re-uploading ZIP files. Create a build-request pull request for Noah’s Claude Code builder. Do not implement gameplay changes. Do not call this complete unless the source-to-developer transfer has been verified.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T00:53:31Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "updatedAt": "2026-10-28T00:53:31Z",
+   "headSha": "076a5a52201aca2ab652bdec33e86f4095f0c6cc",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 50,
    "kind": "request",
    "by": "Joshua",
    "title": "Keep automatic combat running behind menus and other tabs",
    "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
-   "stage": "built",
+   "stage": "testing",
    "waitingOn": "noah",
    "asks": [
     {
@@ -32,10 +55,10 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "updatedAt": "2026-10-28T00:51:39Z",
+   "testAt": "2026-10-28T00:52:07Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "updatedAt": "2026-10-28T00:52:07Z",
    "headSha": "91608190807806a4878cbda9213dabbec7fd3b97",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -71,7 +94,7 @@
    "by": "Joshua",
    "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
    "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "testing",
+   "stage": "built",
    "waitingOn": "both",
    "asks": [
     {
@@ -92,8 +115,8 @@
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-28T00:43:25Z",
-   "onTest": true,
-   "testIsCurrent": true,
+   "onTest": false,
+   "testIsCurrent": false,
    "updatedAt": "2026-10-28T00:43:25Z",
    "headSha": "0d8f907f6b8cc91c598ae09373fd85f41218f867",
    "touchesGame": true,
@@ -412,6 +435,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T00:53:31Z",
+   "kind": "asked",
+   "text": "You asked for “Connect approved Drive artwork library and verify private developer staging”"
+  },
+  {
+   "at": "2026-10-28T00:52:07Z",
+   "kind": "test",
+   "text": "“Keep automatic combat running behind menus and other tabs” went on the test site"
+  },
+  {
    "at": "2026-10-28T00:51:39Z",
    "kind": "built",
    "text": "Claude finished building “Keep automatic combat running behind menus and other tabs”"
@@ -600,16 +633,6 @@
    "at": "2026-10-27T18:53:53Z",
    "kind": "asked",
    "text": "Noah started “Small fixes: art flash, plurals, second tab, Town, small text”"
-  },
-  {
-   "at": "2026-10-27T18:53:03Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Let Joshua send a request with one tap”"
-  },
-  {
-   "at": "2026-10-27T18:03:17Z",
-   "kind": "live",
-   "text": "“Show one update popup for every pending save update” is live in the game"
   }
  ],
  "otherPulls": [
