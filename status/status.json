@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T18:04:28.037Z",
+ "generatedAt": "2026-10-28T18:05:33.049Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:02:46Z",
@@ -9,40 +9,15 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T18:01:26Z",
+  "updatedAt": "2026-10-28T18:05:08Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Intro-style companion pages with shared type habitats and size/weight",
-   "Keep automatic combat running behind menus and other tabs",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data"
   ],
   "skipped": []
  },
  "items": [
-  {
-   "number": 50,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Keep automatic combat running behind menus and other tabs",
-   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T00:41:06Z",
-   "mergedAt": "2026-10-28T18:02:43Z",
-   "closedAt": "2026-10-28T18:02:43Z",
-   "liveAt": "2026-10-28T18:02:46Z",
-   "testAt": "2026-10-28T18:01:27Z",
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T18:02:46Z",
-   "headSha": "b60a97c3362658326cecbd3ac17c1f411b2fe219",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T00:51:39Z"
-  },
   {
    "number": 38,
    "kind": "request",
@@ -56,11 +31,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T18:01:27Z",
+   "testAt": "2026-10-28T18:05:09Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T18:01:27Z",
+   "updatedAt": "2026-10-28T18:05:09Z",
    "headSha": "484f917c70308d83e33d30f0dc80d0c8b7cd0610",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -85,11 +60,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T18:01:27Z",
+   "testAt": "2026-10-28T18:05:09Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T18:01:27Z",
+   "updatedAt": "2026-10-28T18:05:09Z",
    "headSha": "7db1293e1df40983c10ee7d274d57466ad185b50",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -122,16 +97,40 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T18:01:27Z",
+   "testAt": "2026-10-28T18:05:09Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T18:01:27Z",
+   "updatedAt": "2026-10-28T18:05:09Z",
    "headSha": "9bf4c90b5e6dc48770cbb2884a04cbce19125d32",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T17:24:37Z"
+  },
+  {
+   "number": 50,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep automatic combat running behind menus and other tabs",
+   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
+   "stage": "live",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T00:41:06Z",
+   "mergedAt": "2026-10-28T18:02:43Z",
+   "closedAt": "2026-10-28T18:02:43Z",
+   "liveAt": "2026-10-28T18:02:46Z",
+   "testAt": "2026-10-28T18:01:27Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T18:02:46Z",
+   "headSha": "b60a97c3362658326cecbd3ac17c1f411b2fe219",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T00:51:39Z"
   },
   {
    "number": 40,
@@ -472,6 +471,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T18:05:09Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
    "at": "2026-10-28T18:02:46Z",
    "kind": "live",
    "text": "“Keep automatic combat running behind menus and other tabs” is live in the game"
@@ -663,11 +667,6 @@
   },
   {
    "at": "2026-10-28T03:35:39Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:21:40Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
   }
