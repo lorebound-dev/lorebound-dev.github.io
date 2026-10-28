@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T08:57:41.616Z",
+ "generatedAt": "2026-10-28T11:48:32.467Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -21,6 +21,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 60,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T04:18:38Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T07:34:09Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T07:34:09Z",
+   "headSha": "898e45ec964ba58f748fa39b8fc8c385fc420152",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T04:30:57Z"
+  },
   {
    "number": 58,
    "kind": "request",
@@ -77,39 +101,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T07:31:26Z"
-  },
-  {
-   "number": 60,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "I couldn't open your mockup, so please compare the Journal on the test site with it. Tell me anything that looks different, like colors, row height or where the Claim button sits, and I'll match it."
-    },
-    {
-     "who": "joshua",
-     "text": "The Journal now opens on the tab you last used, not always on Journey. A red diamond on a tab still shows when something there is ready. My suggestion is to keep it this way. Or should it always open on Journey?"
-    }
-   ],
-   "openedAt": "2026-10-28T04:18:38Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T07:34:09Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T07:34:09Z",
-   "headSha": "b16058e0f6a93579ada6e31ed4b23966d9fe1f28",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T04:30:57Z"
   },
   {
    "number": 44,
@@ -582,11 +573,6 @@
    "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   },
   {
-   "at": "2026-10-28T04:30:57Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
    "at": "2026-10-28T04:18:38Z",
    "kind": "asked",
    "text": "You asked for “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -730,6 +716,11 @@
    "at": "2026-10-28T01:44:02Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
+  },
+  {
+   "at": "2026-10-28T01:43:09Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Combine scripts and stylesheets statement by statement on the test site”"
   }
  ],
  "otherPulls": [
