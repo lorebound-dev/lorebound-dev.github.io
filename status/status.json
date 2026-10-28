@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T15:57:07.598Z",
+ "generatedAt": "2026-10-28T15:58:03.217Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -21,6 +21,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 40,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
+   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:56:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T15:50:47Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T15:57:48Z",
+   "headSha": "4940b3a3110808274bd7c7b2a6512a383781e7e4",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "working",
+   "botAt": "2026-10-28T15:57:48Z"
+  },
   {
    "number": 58,
    "kind": "request",
@@ -44,30 +68,6 @@
    "requestStatus": "Waiting for answers",
    "botState": "finished",
    "botAt": "2026-10-28T15:57:05Z"
-  },
-  {
-   "number": 40,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:56:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T15:50:47Z",
-   "onTest": true,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T15:50:47Z",
-   "headSha": "4940b3a3110808274bd7c7b2a6512a383781e7e4",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T15:49:12Z"
   },
   {
    "number": 60,
@@ -513,11 +513,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   },
   {
-   "at": "2026-10-28T15:49:12Z",
-   "kind": "built",
-   "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
    "at": "2026-10-28T11:50:41Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -699,6 +694,11 @@
   },
   {
    "at": "2026-10-28T01:55:24Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
+  },
+  {
+   "at": "2026-10-28T01:44:02Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
   }
