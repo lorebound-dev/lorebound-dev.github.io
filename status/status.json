@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T17:41:04.818Z",
+ "generatedAt": "2026-10-28T17:41:55.687Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T17:25:15Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T17:26:47Z",
+  "updatedAt": "2026-10-28T17:41:33Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Intro-style companion pages with shared type habitats and size/weight",
@@ -32,11 +32,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T17:26:47Z",
+   "testAt": "2026-10-28T17:41:33Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:26:47Z",
+   "updatedAt": "2026-10-28T17:41:33Z",
    "headSha": "042824ee1023e749412855545f3a4a5413c6f1d9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -61,11 +61,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T17:26:47Z",
+   "testAt": "2026-10-28T17:41:33Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:26:47Z",
+   "updatedAt": "2026-10-28T17:41:33Z",
    "headSha": "29105809447882b5827b91cbec0cb32c13fb8534",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -90,11 +90,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T17:26:47Z",
+   "testAt": "2026-10-28T17:41:33Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:26:47Z",
+   "updatedAt": "2026-10-28T17:41:33Z",
    "headSha": "b60a97c3362658326cecbd3ac17c1f411b2fe219",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -127,11 +127,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T17:26:47Z",
+   "testAt": "2026-10-28T17:41:33Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:26:47Z",
+   "updatedAt": "2026-10-28T17:41:33Z",
    "headSha": "21c3e4d4424a3798075d4a9965b12bf3993c46f1",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -477,6 +477,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T17:41:33Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-10-28T17:41:31Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Updater: also re-merge clashing test helpers”"
+  },
+  {
    "at": "2026-10-28T17:26:47Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -663,16 +673,6 @@
   },
   {
    "at": "2026-10-28T03:14:24Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:13:31Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:12:32Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
   }
