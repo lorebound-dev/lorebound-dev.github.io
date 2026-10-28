@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T03:14:03.781Z",
+ "generatedAt": "2026-10-28T03:16:04.225Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T03:13:30Z",
+  "updatedAt": "2026-10-28T03:14:21Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -19,30 +19,6 @@
   "skipped": []
  },
  "items": [
-  {
-   "number": 40,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:56:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T03:13:31Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T03:14:00Z",
-   "headSha": "4d0c2c32a7228289608aebbc22aa22d13f92189c",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-28T03:14:00Z"
-  },
   {
    "number": 44,
    "kind": "request",
@@ -56,16 +32,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:13:31Z",
+   "testAt": "2026-10-28T03:14:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:13:31Z",
+   "updatedAt": "2026-10-28T03:16:07Z",
    "headSha": "b1128db6d30640061860357a6a1adca81b302b06",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-10-28T03:13:30Z"
+   "botAt": "2026-10-28T03:16:07Z"
   },
   {
    "number": 38,
@@ -73,23 +49,47 @@
    "by": "Joshua",
    "title": "Lower battlefield characters and enlarge bosses by 40%",
    "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "building",
+   "stage": "testing",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-10-27T21:22:11Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:13:31Z",
+   "testAt": "2026-10-28T03:14:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:13:31Z",
+   "updatedAt": "2026-10-28T03:15:36Z",
    "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-10-28T03:13:20Z"
+   "botAt": "2026-10-28T03:15:36Z"
+  },
+  {
+   "number": 40,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
+   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:56:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T03:14:24Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:14:24Z",
+   "headSha": "4d0c2c32a7228289608aebbc22aa22d13f92189c",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-28T03:14:00Z"
   },
   {
    "number": 50,
@@ -109,11 +109,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T03:13:31Z",
+   "testAt": "2026-10-28T03:14:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T03:13:31Z",
+   "updatedAt": "2026-10-28T03:14:24Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -517,6 +517,21 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T03:16:07Z",
+   "kind": "built",
+   "text": "Claude finished building “Intro-style companion pages with shared type habitats and size/weight”"
+  },
+  {
+   "at": "2026-10-28T03:15:36Z",
+   "kind": "built",
+   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
+   "at": "2026-10-28T03:14:24Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
    "at": "2026-10-28T03:14:00Z",
    "kind": "built",
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
@@ -525,16 +540,6 @@
    "at": "2026-10-28T03:13:31Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T03:13:30Z",
-   "kind": "built",
-   "text": "Claude finished building “Intro-style companion pages with shared type habitats and size/weight”"
-  },
-  {
-   "at": "2026-10-28T03:13:20Z",
-   "kind": "built",
-   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
   },
   {
    "at": "2026-10-28T03:13:07Z",
@@ -710,11 +715,6 @@
    "at": "2026-10-27T23:41:27Z",
    "kind": "test",
    "text": "The test site was updated with “Integrate completed Treasure Hall artwork for testing”"
-  },
-  {
-   "at": "2026-10-27T23:37:22Z",
-   "kind": "test",
-   "text": "The test site was updated with “Party reordering, continuous Auto Summon and in-dock companion decisions”"
   }
  ],
  "otherPulls": [
