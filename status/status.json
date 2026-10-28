@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T07:33:52.992Z",
+ "generatedAt": "2026-10-28T08:57:41.616Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,12 +9,13 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T07:32:07Z",
+  "updatedAt": "2026-10-28T07:34:08Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
    "Intro-style companion pages with shared type habitats and size/weight",
    "Keep automatic combat running behind menus and other tabs",
+   "Build approved premium Treasure Hall after verified artwork retrieval",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data"
   ],
   "skipped": []
@@ -26,7 +27,7 @@
    "by": "Joshua",
    "title": "Build approved premium Treasure Hall after verified artwork retrieval",
    "quote": "Build the approved Treasure Hall redesign using the detailed layout specification and artwork manifest on branch review/treasure-hall-premium-concept-20261027. Match the approved mobile composite exactly. All ten original PNGs are in the Google Drive Treasure Hall artwork folder. Have Claude verify access and SHA-256 checksums before integrating anything. Follow the existing Noah review process.",
-   "stage": "built",
+   "stage": "testing",
    "waitingOn": "both",
    "asks": [
     {
@@ -42,11 +43,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
+   "testAt": "2026-10-28T07:34:09Z",
+   "onTest": true,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:33:23Z",
+   "updatedAt": "2026-10-28T07:34:09Z",
    "headSha": "ddf065b6b0f88ae9394a1616665e6781626a5c8e",
    "touchesGame": true,
    "requestStatus": "Waiting for answers",
@@ -66,11 +67,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:32:08Z",
+   "testAt": "2026-10-28T07:34:09Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:32:08Z",
+   "updatedAt": "2026-10-28T07:34:09Z",
    "headSha": "b85c22b7d65bea7b1e9782fac93438630d944c62",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -99,11 +100,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:32:08Z",
+   "testAt": "2026-10-28T07:34:09Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:32:08Z",
+   "updatedAt": "2026-10-28T07:34:09Z",
    "headSha": "b16058e0f6a93579ada6e31ed4b23966d9fe1f28",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -128,11 +129,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:32:08Z",
+   "testAt": "2026-10-28T07:34:09Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:32:08Z",
+   "updatedAt": "2026-10-28T07:34:09Z",
    "headSha": "bc2e6088e6155e00f47d8a4c8f20142f79770126",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -152,11 +153,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:32:08Z",
+   "testAt": "2026-10-28T07:34:09Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:32:08Z",
+   "updatedAt": "2026-10-28T07:34:09Z",
    "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -181,11 +182,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-28T07:32:08Z",
+   "testAt": "2026-10-28T07:34:09Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-28T07:32:08Z",
+   "updatedAt": "2026-10-28T07:34:09Z",
    "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -531,6 +532,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T07:34:09Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
    "at": "2026-10-28T07:33:23Z",
    "kind": "built",
    "text": "Claude finished building “Build approved premium Treasure Hall after verified artwork retrieval”"
@@ -724,11 +730,6 @@
    "at": "2026-10-28T01:44:02Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Replace nine companion sprites with Joshua's approved art”"
-  },
-  {
-   "at": "2026-10-28T01:43:09Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Combine scripts and stylesheets statement by statement on the test site”"
   }
  ],
  "otherPulls": [
