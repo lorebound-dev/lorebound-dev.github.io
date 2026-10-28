@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T03:42:54.390Z",
+ "generatedAt": "2026-10-28T03:45:02.517Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T02:18:38Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-28T03:39:07Z",
+  "updatedAt": "2026-10-28T03:43:06Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Party reordering, continuous Auto Summon and in-dock companion decisions",
@@ -19,6 +19,121 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 40,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
+   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The ticked Auto rarities are saved as a new setting in the save. Old saves need no update. Older copies of the game ignore the setting and stop at the lowest ticked rarity instead. Please say if that's OK."
+    },
+    {
+     "who": "noah",
+     "text": "Players who bought the Auto capacity upgrade with Gold paid for a limit that no longer exists. I gave nothing back. I can refund that Gold if you want, but that changes the economy."
+    }
+   ],
+   "openedAt": "2026-10-27T21:56:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T03:43:06Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:43:06Z",
+   "headSha": "4f4453fb7470639cd0739290cbd0760949f54709",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T03:16:38Z"
+  },
+  {
+   "number": 44,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Intro-style companion pages with shared type habitats and size/weight",
+   "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Your Google Drive art (the new Treasure Hall set, plus pictures held for a check) can't reach the game until the artwork delivery steps in #52 are approved. These are a Drive sign-in for the build and a decision on where about 300 MB of art is stored."
+    }
+   ],
+   "openedAt": "2026-10-27T22:33:56Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T03:43:06Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:43:06Z",
+   "headSha": "bc2e6088e6155e00f47d8a4c8f20142f79770126",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T03:21:02Z"
+  },
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T03:43:06Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:43:06Z",
+   "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-28T03:15:36Z"
+  },
+  {
+   "number": 50,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep automatic combat running behind menus and other tabs",
+   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
+    }
+   ],
+   "openedAt": "2026-10-28T00:41:06Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-28T03:43:06Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-28T03:43:06Z",
+   "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T00:51:39Z"
+  },
   {
    "number": 58,
    "kind": "request",
@@ -55,121 +170,6 @@
    "requestStatus": "Waiting for answers",
    "botState": "questions",
    "botAt": "2026-10-28T03:42:27Z"
-  },
-  {
-   "number": 40,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The ticked Auto rarities are saved as a new setting in the save. Old saves need no update. Older copies of the game ignore the setting and stop at the lowest ticked rarity instead. Please say if that's OK."
-    },
-    {
-     "who": "noah",
-     "text": "Players who bought the Auto capacity upgrade with Gold paid for a limit that no longer exists. I gave nothing back. I can refund that Gold if you want, but that changes the economy."
-    }
-   ],
-   "openedAt": "2026-10-27T21:56:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T03:39:08Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T03:39:08Z",
-   "headSha": "4f4453fb7470639cd0739290cbd0760949f54709",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T03:16:38Z"
-  },
-  {
-   "number": 44,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Intro-style companion pages with shared type habitats and size/weight",
-   "quote": "I want you to ask to have all the companion pages look like the first intro egg pages, and if there isn’t a background for it let me know. It should just be one per type not one per each companion. Also drop the one line sentences and just put weights and sizes like in pokemon, it can generate them based on the name.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Your Google Drive art (the new Treasure Hall set, plus pictures held for a check) can't reach the game until the artwork delivery steps in #52 are approved. These are a Drive sign-in for the build and a decision on where about 300 MB of art is stored."
-    }
-   ],
-   "openedAt": "2026-10-27T22:33:56Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T03:39:08Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T03:39:08Z",
-   "headSha": "bc2e6088e6155e00f47d8a4c8f20142f79770126",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T03:21:02Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T03:39:08Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T03:39:08Z",
-   "headSha": "9736318c6378ffd9c43d8296f1e0584316b1b3d8",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-28T03:15:36Z"
-  },
-  {
-   "number": 50,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Keep automatic combat running behind menus and other tabs",
-   "quote": "Before that I want the auto battler to continue no matter what menu or anything is present.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Merging this when you're happy with it. It changes when the game pauses, and nothing in the economy, odds or saves."
-    }
-   ],
-   "openedAt": "2026-10-28T00:41:06Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T03:39:08Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T03:39:08Z",
-   "headSha": "849a6a762b8d212781465042a4b3dd552e1c407a",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T00:51:39Z"
   },
   {
    "number": 54,
@@ -234,7 +234,7 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-10-28T00:58:42Z",
-   "headSha": "4f1e024f569746a0dc3523109f4e492cb0553f9d",
+   "headSha": "89ea81b628059a14d8a1c969e912fbf061f53b5f",
    "touchesGame": false,
    "requestStatus": "Partly built, waiting for answers (transfer not verified)",
    "botState": "questions",
@@ -531,6 +531,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T03:43:06Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”"
+  },
+  {
    "at": "2026-10-28T03:42:27Z",
    "kind": "question",
    "text": "Part of “Build approved premium Treasure Hall after verified artwork retrieval” is waiting for Noah’s OK"
@@ -724,11 +729,6 @@
    "at": "2026-10-28T00:51:39Z",
    "kind": "built",
    "text": "Claude finished building “Keep automatic combat running behind menus and other tabs”"
-  },
-  {
-   "at": "2026-10-28T00:51:39Z",
-   "kind": "question",
-   "text": "Part of “Keep automatic combat running behind menus and other tabs” is waiting for Noah’s OK"
   }
  ],
  "otherPulls": [
