@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T17:18:06.147Z",
+ "generatedAt": "2026-10-28T17:25:11.795Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T17:16:59Z",
@@ -21,61 +21,65 @@
  },
  "items": [
   {
+   "number": 40,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
+   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
+   "stage": "going-live",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:56:04Z",
+   "mergedAt": "2026-10-28T17:25:11Z",
+   "closedAt": "2026-10-28T17:25:11Z",
+   "liveAt": null,
+   "testAt": "2026-10-28T17:17:40Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-28T17:25:11Z",
+   "headSha": "64ec39b5ba29775280582e90e5af941c3ecab811",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T16:14:28Z"
+  },
+  {
    "number": 60,
    "kind": "request",
    "by": "Joshua",
    "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
    "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
+    },
+    {
+     "who": "joshua",
+     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
+    },
+    {
+     "who": "joshua",
+     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
+    }
+   ],
    "openedAt": "2026-10-28T04:18:38Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-28T17:17:40Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:17:40Z",
-   "headSha": "b445f4d02edbb43bc27fc70fc5d4c313ff10557e",
-   "touchesGame": true,
-   "requestStatus": "Waiting for answers",
-   "botState": "finished",
-   "botAt": "2026-10-28T17:02:22Z"
-  },
-  {
-   "number": 40,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Party reordering, continuous Auto Summon and in-dock companion decisions",
-   "quote": "You should be able to hold or long press and drag a character or companion if you have the non-collapsed menu ... drag and re-order them and it changed the position on the map and re-orient them. You should also only be asked to release a companion if you don’t choose auto. Auto should move to a single button ... a menu that shows the current odds in a clean table ... Which rarity should you stop at? ... Start auto summoning. It auto summons until you run out of shards ... if you have the three option unlocked ... open three books ... in the same time you would open up one. If you have auto summon running, it should shake like normal and then pop little sprites ... half the size of the little tome at the bottom ... then fade away for the one behind it ... open 20 at a time ... quickly flash one at a time ... in that tiny view. It only pops up with the full character if you have not discovered it yet, or if it is a rarity that you have selected that you wanted to stop at regardless of whether you have already opened it or not.",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Sound, haptics and reveal speed are no longer on the Auto page, and they have no other place in the game yet. They still work with your saved choices, but you can't change them right now. My suggestion: yes, move them into Profile settings now."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
-    }
-   ],
-   "openedAt": "2026-10-27T21:56:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-28T17:17:40Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-28T17:17:40Z",
-   "headSha": "9f229ee5ea5c5f06b757faff8bfcd1508094b2a6",
+   "updatedAt": "2026-10-28T17:24:37Z",
+   "headSha": "e74f80c7d1d03662e6ce18362eca6517d40818a0",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-10-28T16:14:28Z"
+   "botAt": "2026-10-28T17:24:37Z"
   },
   {
    "number": 44,
@@ -89,10 +93,6 @@
     {
      "who": "noah",
      "text": "Your Google Drive art (the new Treasure Hall set, plus pictures held for a check) can't reach the game until the artwork delivery steps in #52 are approved. These are a Drive sign-in for the build and a decision on where about 300 MB of art is stored."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
    "openedAt": "2026-10-27T22:33:56Z",
@@ -502,6 +502,21 @@
  ],
  "activity": [
   {
+   "at": "2026-10-28T17:25:11Z",
+   "kind": "approved",
+   "text": "Noah approved “Party reordering, continuous Auto Summon and in-dock companion decisions”"
+  },
+  {
+   "at": "2026-10-28T17:24:37Z",
+   "kind": "built",
+   "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-10-28T17:24:37Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
    "at": "2026-10-28T17:17:40Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -532,11 +547,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   },
   {
-   "at": "2026-10-28T17:02:22Z",
-   "kind": "built",
-   "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
    "at": "2026-10-28T16:59:54Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build approved premium Treasure Hall after verified artwork retrieval”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -560,16 +570,6 @@
    "at": "2026-10-28T16:14:28Z",
    "kind": "built",
    "text": "Claude finished building “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-28T16:14:28Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Party reordering, continuous Auto Summon and in-dock companion decisions”"
-  },
-  {
-   "at": "2026-10-28T16:14:28Z",
-   "kind": "question",
-   "text": "Part of “Party reordering, continuous Auto Summon and in-dock companion decisions” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-28T16:03:58Z",
