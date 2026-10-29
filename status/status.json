@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T01:49:17.845Z",
+ "generatedAt": "2026-10-29T01:49:51.688Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -717,6 +717,15 @@
  ],
  "otherPulls": [
   {
+   "number": 70,
+   "headSha": "eb032a7bfb24ad5884fd4350757bb2fc559ff5f2",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
+  {
    "number": 68,
    "headSha": "9aca8815ee87396bdfc6dc671cd890595fd52f57",
    "touchesGame": false,
@@ -899,15 +908,6 @@
   {
    "number": 31,
    "headSha": "6b4b05c9dc7907a0fdd2aff0078e968f453692ec",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 29,
-   "headSha": "1998916570a87ab84c4c693c308a428786a354e7",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
