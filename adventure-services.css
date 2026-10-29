@@ -122,11 +122,12 @@
 #economyAuto #economyAutoReason:empty{display:none}
 .party-services #autoSettingsSheet.economy-auto>#settingsStartAuto{flex:none;min-height:52px;background:linear-gradient(#6a4a9c,#48306f);color:#f6ecd6;font:17px Georgia,serif!important;letter-spacing:normal!important;text-transform:uppercase}
 .party-services #autoSettingsSheet.economy-auto>#settingsStartAuto:disabled{opacity:.55}
-/* During Auto, each released result pops as a small sprite over the Tome (about half its size), then fades. */
-.auto-stream{position:absolute;left:calc(50% - 42px);top:4px;width:36px;height:36px;pointer-events:none;z-index:3}
-.auto-stream-sprite{position:absolute;inset:0;display:block;filter:drop-shadow(0 0 5px color-mix(in srgb,var(--stream-color,#e0c183) 55%,transparent));animation:auto-stream-pop var(--stream-ms,750ms) ease-out both}
+/* During Auto, each released result shows as a small sprite centred inside the portal (about half the Tome's size)
+   for its whole slot (150ms, or 2s for a batch's last), then the next one replaces it. Nothing stacks. */
+.auto-stream{position:absolute;left:calc(50% - 18px);top:calc(50% - 18px);width:36px;height:36px;pointer-events:none;z-index:3}
+.auto-stream-sprite{position:absolute;inset:0;display:block;filter:drop-shadow(0 0 5px color-mix(in srgb,var(--stream-color,#e0c183) 55%,transparent));animation:auto-stream-show var(--stream-ms,750ms) linear both}
 .auto-stream-sprite .companion-art,.auto-stream-sprite .starter-sheet,.auto-stream-sprite img{display:block;width:100%!important;height:100%!important;object-fit:contain}
-@keyframes auto-stream-pop{0%{opacity:0;transform:translateY(6px) scale(.6)}25%{opacity:1;transform:translateY(-14px) scale(1)}70%{opacity:1;transform:translateY(-20px) scale(1)}100%{opacity:0;transform:translateY(-26px) scale(.9)}}
+@keyframes auto-stream-show{0%{opacity:.4;transform:scale(.9)}8%,94%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
 .summon-portal.auto-opening .summon-book{animation:auto-tome-shake .32s ease-in-out}
 @keyframes auto-tome-shake{0%,100%{rotate:0deg}25%{rotate:-3deg}75%{rotate:3deg}}
 @media (prefers-reduced-motion:reduce){.auto-stream-sprite{animation:auto-stream-still var(--stream-ms,750ms) step-end both}.summon-portal.auto-opening .summon-book{animation:none}}
