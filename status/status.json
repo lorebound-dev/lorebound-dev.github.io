@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T20:24:44.885Z",
+ "generatedAt": "2026-10-29T20:32:27.836Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -26,6 +26,30 @@
  },
  "items": [
   {
+   "number": 77,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
+   "quote": "",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T20:31:35Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T20:31:35Z",
+   "headSha": "48e3e2795892398e41384a67b46e053fb6ce6a92",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
+  {
    "number": 75,
    "kind": "request",
    "by": "Joshua",
@@ -40,10 +64,10 @@
    "liveAt": null,
    "testAt": "2026-10-29T20:24:39Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-10-29T20:24:45Z",
-   "headSha": "e83a516bfde3118d30c218f71fc48d3dec136fc5",
+   "headSha": "fed49485b97ff5c73f139d7447e703c78349eba3",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
@@ -644,6 +668,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T20:31:35Z",
+   "kind": "asked",
+   "text": "You asked for “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
+  },
+  {
    "at": "2026-10-29T20:24:45Z",
    "kind": "built",
    "text": "Claude finished building “Owner approves teal color direction for Summoning Rift #74”"
@@ -837,11 +866,6 @@
    "at": "2026-10-29T06:39:08Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”"
-  },
-  {
-   "at": "2026-10-29T06:37:22Z",
-   "kind": "live",
-   "text": "“Build reusable LOREBOUND UI kit from individually supplied artwork” is live in the game"
   }
  ],
  "otherPulls": [
@@ -992,15 +1016,6 @@
   {
    "number": 41,
    "headSha": "8ff674c561a66a5b89d9a38f956f6a76e6a1c6d2",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 39,
-   "headSha": "925bd74f8199254aa1a0a885109dbf6e0718f173",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
