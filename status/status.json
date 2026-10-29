@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T02:35:33.423Z",
+ "generatedAt": "2026-10-29T02:41:48.198Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T02:12:53Z",
@@ -21,6 +21,35 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 71,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages",
+   "quote": "\"Ok I actually want to change things on some things. I want the armory tab to be the treasure hall menu by itself and I want the town tab to go away and be replaced with the shard works page. Armory is gone for now as well as the recruitment and other buildings\"",
+   "stage": "built",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The Hall's Grand Hall page still calls one collection \"Town recruits\", even though Town is hidden now. I suggest renaming it to just \"Recruits\". That's a one-word change; say yes and I'll do it."
+    }
+   ],
+   "openedAt": "2026-10-29T02:26:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T02:41:21Z",
+   "headSha": "175fc00893a298c0e78b6b56f197b39fc1180136",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T02:41:21Z"
+  },
   {
    "number": 65,
    "kind": "request",
@@ -213,30 +242,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-29T01:17:07Z"
-  },
-  {
-   "number": 71,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages",
-   "quote": "\"Ok I actually want to change things on some things. I want the armory tab to be the treasure hall menu by itself and I want the town tab to go away and be replaced with the shard works page. Armory is gone for now as well as the recruitment and other buildings\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T02:26:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-29T02:33:12Z",
-   "headSha": "7043f7d240e546a6dc432c63a676ed24dc0b51e7",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-29T02:33:12Z"
   },
   {
    "number": 67,
@@ -534,6 +539,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T02:41:21Z",
+   "kind": "built",
+   "text": "Claude finished building “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”"
+  },
+  {
+   "at": "2026-10-29T02:41:21Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”"
+  },
+  {
    "at": "2026-10-29T02:35:11Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Build reusable LOREBOUND UI kit from individually supplied artwork”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
@@ -722,16 +737,6 @@
    "at": "2026-10-28T23:13:05Z",
    "kind": "built",
    "text": "Claude finished building “Owner approves immediate Challenge Boss placement fix from #65”"
-  },
-  {
-   "at": "2026-10-28T23:13:05Z",
-   "kind": "question",
-   "text": "Part of “Owner approves immediate Challenge Boss placement fix from #65” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-28T22:57:44Z",
-   "kind": "asked",
-   "text": "You asked for “Owner approves immediate Challenge Boss placement fix from #65”"
   }
  ],
  "otherPulls": [
