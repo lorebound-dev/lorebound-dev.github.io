@@ -17,6 +17,11 @@
       "head": "571aec2781536b99fb1230f798b6ce30bf1f0e45"
     },
     {
+      "number": 65,
+      "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
+      "head": "b9ac0914d0a5450459280e573844309e35d51322"
+    },
+    {
       "number": 66,
       "title": "Owner approves immediate Challenge Boss placement fix from #65",
       "head": "9459e99c80ddec2c13a3fcf5c2b9e7a1e9d87122"
@@ -33,6 +38,6 @@
     }
   ],
   "skipped": [],
-  "commit": "51017436f1e298e2e2861c7d39b2ed1590dfc7d1",
-  "at": "2026-10-29T01:17:57Z"
+  "commit": "3e20c506049320c19fd88cb89360d1bcb6dbf86c",
+  "at": "2026-10-29T01:45:37Z"
 }
