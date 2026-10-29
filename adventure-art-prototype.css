@@ -65,6 +65,9 @@
 .art-rebuild-preview #game #summonPortal {height:80px;padding-left:calc(50% + 25px);overflow:visible;z-index:3}
 .art-rebuild-preview #game #summonPortal:before {inset:-7px auto auto calc(50% - 73px);width:104px;height:98px;background:radial-gradient(ellipse,#cf8aff88,transparent 69%);border-radius:0;transform:none;opacity:.9}
 .art-rebuild-preview #game .summon-book {left:calc(50% - 66px);top:-4px;width:86px;height:86px;filter:brightness(1.12) saturate(1.18) drop-shadow(0 0 8px #bb53f5d0) drop-shadow(0 3px 2px #000);z-index:1}
+/* The Summoning Rift keeps its own teal and stone: no purple glow or extra saturation, and the existing grey when a summon is unaffordable. */
+.art-rebuild-preview #game[data-rail-art=rift] .summon-book {filter:drop-shadow(0 0 6px #4fcdbf55) drop-shadow(0 3px 2px #000)}
+.art-rebuild-preview #game[data-rail-art=rift] .summon-portal[data-funded=false] .summon-book {filter:grayscale(.75) brightness(.67)}
 .art-rebuild-preview #game #summonDock .art-corners:before,.art-rebuild-preview #game #summonDock .art-corners:after {width:25px;height:20px;opacity:.65}
 .art-rebuild-preview #game .dock-summon-copy {gap:7px;z-index:2}
 .art-rebuild-preview #game .tome-action-label {font-size:17px!important;letter-spacing:.4px;text-shadow:0 2px 3px #12071c}

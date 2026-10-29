@@ -40,9 +40,14 @@
       "number": 73,
       "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
       "head": "7b7fe426373a6f8821f887cee496aa9664aae79b"
+    },
+    {
+      "number": 74,
+      "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
+      "head": "d5fe8987d7569249121d59d2afbbb7f2529f3ee2"
     }
   ],
   "skipped": [],
-  "commit": "bc5147cd576e5449235863ef0069194eb13f4c35",
-  "at": "2026-10-29T16:38:05Z"
+  "commit": "1001548931a861f110bd23468227969e7ebcd729",
+  "at": "2026-10-29T16:44:44Z"
 }

@@ -1,6 +1,7 @@
 /* Approved transparent art, fitted inside existing layout bounds. */
 .companion-art>img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;image-rendering:pixelated;pointer-events:none}
 .game .summon-book{background-image:var(--selected-tome-art,url('assets/summon-grimoire.png'));background-size:contain;background-repeat:no-repeat}
+.game[data-rail-art=rift] .summon-book{background-image:var(--rail-rift-art);image-rendering:auto}
 .game .bound-unit.companion-art,.game .battle-follower.companion-art{overflow:visible;background:none!important}
 .game .bound-unit.companion-art{width:70px;height:70px}
 .game .battle-follower.companion-art{width:62px;height:62px}
