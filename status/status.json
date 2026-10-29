@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T18:20:11.792Z",
+ "generatedAt": "2026-10-29T18:28:29.328Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -23,6 +23,39 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 76,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
+   "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
+   "stage": "built",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The Rift's own stone base stands in front of the shrine's round platform, so there are two stone bases on top of each other. Do you like how it looks on the test site? My suggestion: if it looks doubled to you, approve a version of the Rift without its stone base (only the…"
+    },
+    {
+     "who": "joshua",
+     "text": "On small phones, the shrine's corner posts sit under the words \"Library\" and \"Auto\". Is that OK? My suggestion: keep it. If you'd rather keep those words clear, I can make the shrine a little smaller so the posts sit between the buttons."
+    }
+   ],
+   "openedAt": "2026-10-29T18:16:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T18:27:57Z",
+   "headSha": "a10e68b4ba7e19175b459a31900c39125f02db53",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T18:27:57Z"
+  },
   {
    "number": 38,
    "kind": "request",
@@ -297,30 +330,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-29T15:30:04Z"
-  },
-  {
-   "number": 76,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
-   "quote": "\"Also I want the portal to actually feel integrated not just an emblem.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T18:16:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-29T18:18:07Z",
-   "headSha": "a2a5fabcc8e86340e48c344a5f3fe2b5bddeead8",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-29T18:18:07Z"
   },
   {
    "number": 71,
@@ -655,6 +664,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T18:27:57Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved summoning shrine into Adventure rail — visual-only”"
+  },
+  {
+   "at": "2026-10-29T18:27:57Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Integrate approved summoning shrine into Adventure rail — visual-only”"
+  },
+  {
    "at": "2026-10-29T18:19:52Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”"
@@ -843,16 +862,6 @@
    "at": "2026-10-29T02:32:55Z",
    "kind": "question",
    "text": "Part of “Improve Adventure battlefield layout with shared nameplate and party frame” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-29T02:26:36Z",
-   "kind": "asked",
-   "text": "You asked for “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”"
-  },
-  {
-   "at": "2026-10-29T02:15:05Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Build reusable LOREBOUND UI kit from individually supplied artwork”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
   }
  ],
  "otherPulls": [
