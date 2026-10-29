@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T15:21:55.585Z",
+ "generatedAt": "2026-10-29T15:30:39.561Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T06:37:22Z",
@@ -27,10 +27,27 @@
    "kind": "request",
    "by": "Joshua",
    "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
-   "quote": "\"I want a whole scene inside of the shard works where you are inside a mine almost and have different arenas to upgrade and do. Almost emulating a mini tycoon Roblox game. Nothing crazy just a little page inside a mine.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "quote": "\"Ok I actually want to change things on some things. I want the armory tab to be the treasure hall menu by itself and I want the town tab to go away and be replaced with the shard works page. Armory is gone for now as well as the recruitment and other buildings\"",
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "This pull request includes #71 (direct Shardworks and Treasures tabs), because the mine sits on #71's Shardworks tab. I suggest merging #71 first. Also, #71 makes the Treasure Hall version-tag test fail once it's combined with today's main. I suggest updating that test in #71…"
+    },
+    {
+     "who": "joshua",
+     "text": "Your mine painting already has the refinery, reservoir and carts painted in, and the station pictures each bring their own stone platform. Putting them together would show doubled machines. For now the mine uses the painting alone, and the stations get a soft glow as they…"
+    },
+    {
+     "who": "joshua",
+     "text": "The upgrades start at level 0 (0/5). I put levels 0, 1 and 2 under \"Basic\". Is that right? I suggest yes."
+    },
+    {
+     "who": "joshua",
+     "text": "Extraction Pit and Transport show only their names for now, with no \"coming soon\" text. Should they say anything else? I suggest leaving them as names until their upgrades are designed."
+    }
+   ],
    "openedAt": "2026-10-29T15:19:54Z",
    "mergedAt": null,
    "closedAt": null,
@@ -39,12 +56,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T15:21:49Z",
-   "headSha": "36edc58ebefadc9f709e9a621d001b015d5c2c22",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-29T15:21:49Z"
+   "updatedAt": "2026-10-29T15:30:04Z",
+   "headSha": "7b7fe426373a6f8821f887cee496aa9664aae79b",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T15:30:04Z"
   },
   {
    "number": 72,
@@ -568,6 +585,21 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T15:30:04Z",
+   "kind": "built",
+   "text": "Claude finished building “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
+  },
+  {
+   "at": "2026-10-29T15:30:04Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
+  },
+  {
+   "at": "2026-10-29T15:30:04Z",
+   "kind": "question",
+   "text": "Part of “Shardworks mine-hub visual overhaul — approved art, economy unchanged” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-29T15:19:54Z",
    "kind": "asked",
    "text": "You asked for “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
@@ -749,21 +781,6 @@
   },
   {
    "at": "2026-10-29T00:12:35Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
-  },
-  {
-   "at": "2026-10-29T00:06:09Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
-  },
-  {
-   "at": "2026-10-29T00:04:39Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
-  },
-  {
-   "at": "2026-10-28T23:37:29Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
   }
