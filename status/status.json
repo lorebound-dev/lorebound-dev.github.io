@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T23:11:36.142Z",
+ "generatedAt": "2026-10-29T23:15:48.162Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -41,14 +41,14 @@
    "liveAt": null,
    "testAt": "2026-10-29T23:11:18Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T23:11:18Z",
-   "headSha": "997f28c131e9695cd80da6d2ebbbf4a48ec53123",
+   "updatedAt": "2026-10-29T23:15:17Z",
+   "headSha": "299f62775f4b550453772e022aa342e5af31756c",
    "touchesGame": true,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-29T23:04:51Z"
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T23:15:17Z"
   },
   {
    "number": 75,
@@ -690,6 +690,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T23:15:17Z",
+   "kind": "built",
+   "text": "Claude finished building “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
+  },
+  {
    "at": "2026-10-29T23:11:18Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
@@ -698,11 +703,6 @@
    "at": "2026-10-29T23:06:00Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
-  },
-  {
-   "at": "2026-10-29T23:04:51Z",
-   "kind": "built",
-   "text": "Claude finished building “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
   },
   {
    "at": "2026-10-29T23:03:38Z",
