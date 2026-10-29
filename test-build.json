@@ -15,9 +15,14 @@
       "number": 66,
       "title": "Owner approves immediate Challenge Boss placement fix from #65",
       "head": "9459e99c80ddec2c13a3fcf5c2b9e7a1e9d87122"
+    },
+    {
+      "number": 69,
+      "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
+      "head": "5fe08593553cb1ae4f3a9f44806202e0a06f1f52"
     }
   ],
   "skipped": [],
-  "commit": "cfaf395e480d9106281dffa058822adb93a10dc8",
-  "at": "2026-10-29T00:58:39Z"
+  "commit": "d5049618193ab60b031b44c84ae60b118aeab4d3",
+  "at": "2026-10-29T01:14:27Z"
 }

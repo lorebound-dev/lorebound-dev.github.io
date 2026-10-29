@@ -17,3 +17,42 @@
 #historicalCompanion.archive-dialog.archive-habitat{background:linear-gradient(#07131bd0,#0715254d 30%,#0a1729a6 55%,#091426f0 80%),var(--companion-habitat) center/cover no-repeat,#0a1c27}
 #historicalCompanion.archive-habitat :is(h2,h3,p){text-shadow:0 2px 3px #051323}
 #historicalCompanion .archive-measures{margin:4px 0 10px;font:14px/1.5 Georgia,serif!important;letter-spacing:normal;color:#e6dcc0}
+/* The team's companion page (#boundSheet with .companion-page) is the same page as the Omnidex one above: full screen, habitat behind, centred portrait and Georgia text. Its live stats, leveling and team actions follow the shared mastery. */
+#boundSheet.companion-page[open]{inset:0;left:0;right:0;transform:none;width:100%;max-width:none;height:100vh;height:100dvh;max-height:none;margin:0;border:0;border-image:none;border-radius:0;outline:0;box-shadow:none;padding:max(22px,env(safe-area-inset-top)) max(16px,calc((100% - 450px)/2)) max(22px,env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;background:radial-gradient(ellipse at 50% 28%,#40534c88,transparent 55%),#0a1c27;color:#e9d7b1;text-align:center}
+#boundSheet.companion-page.bound-habitat{background:linear-gradient(#07131bd0,#0715254d 30%,#0a1729a6 55%,#091426f0 80%),var(--companion-habitat) center/cover no-repeat,#0a1c27}
+#boundSheet.companion-page :is(p,small,span,button,dt,dd,b){font-family:Georgia,serif!important;letter-spacing:normal}
+#boundSheet.companion-page :is(h2,h3,p,dt,dd,small){text-shadow:0 2px 3px #051323}
+#boundSheet.companion-page :is(#boundKicker,.bound-identity,.bound-art,#boundFlavor,.bound-evolution){display:none}
+#boundSheet.companion-page .bound-sheet-heading{padding:0 44px;border:0;background:none}
+#boundSheet.companion-page .bound-sheet-heading h2{margin:0 0 6px;font:24px/1.2 Georgia,serif!important;color:#ffe4a9;overflow-wrap:anywhere}
+#boundSheet.companion-page .bound-sheet-heading .profile-close{top:-10px;right:-8px}
+#boundSheet.companion-page #boundProfile p,#boundSheet.companion-page #boundProfileNotes p{max-width:none;margin:9px 0;font:14px/1.5 Georgia,serif!important;color:#e9d7b1}
+#boundSheet.companion-page #boundProfile .archive-kicker{font-size:12px!important;letter-spacing:1px;color:#d2ba80}
+#boundSheet.companion-page #boundProfile .archive-measures{margin:4px 0 10px;color:#e6dcc0}
+#boundSheet.companion-page :is(#boundProfile,#boundProfileNotes) .archive-note{font-size:12px!important;color:#bbcbc7}
+#boundSheet.companion-page #boundProfile h3{margin:10px 0;font:18px Georgia,serif!important;color:#eee0bd}
+#boundSheet.companion-page .detail-art{position:relative;height:clamp(150px,30dvh,280px);width:min(100%,280px);margin:auto}
+#boundSheet.companion-page.archive-mastered .detail-art{filter:drop-shadow(0 0 12px #d5ae4e44)}
+#boundSheet.companion-page .detail-art .creature{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#boundSheet.companion-page .detail-art img{width:100%;height:100%;object-fit:contain}
+#boundSheet.companion-page .detail-art .starter-window{max-height:100%;max-width:100%;width:auto;height:100%}
+#boundSheet.companion-page .starter-window>.approved-sprite{width:300%;max-width:none;height:100%}
+#boundSheet.companion-page .detail-art .creature>.approved-sprite{width:100%;height:100%}
+#boundSheet.companion-page .detail-art .archive-vi{position:absolute;bottom:0;right:0;width:60px;height:60px}
+#boundSheet.companion-page .archive-seals{display:flex;justify-content:center;gap:7px;margin:10px 0}
+#boundSheet.companion-page .archive-seals img{width:28px;height:28px;flex:none;object-fit:contain}
+#boundSheet.companion-page #boundProfile progress{width:85%;height:10px;accent-color:#b7ca88}
+#boundSheet.companion-page .bound-stat-card{display:block;margin:14px 0 0}
+#boundSheet.companion-page .bound-attributes{padding:4px 12px 10px;border:1px solid #b79c6055;background:#07131bb8;text-align:left}
+#boundSheet.companion-page .bound-attributes>button{font-size:13px;color:#d2ba80}
+#boundSheet.companion-page .bound-attributes dl{gap:10px}
+#boundSheet.companion-page .bound-attributes dt{font-size:13px!important;line-height:1.4;color:#c9c2a8}
+#boundSheet.companion-page .bound-attributes dd{font-size:16px!important;color:#f1e4c2}
+#boundSheet.companion-page .bound-sources{margin:12px 0}
+#boundSheet.companion-page .bound-sources p{font-size:13px!important;color:#d6d0bc}
+#boundSheet.companion-page .bound-upgrade{margin:12px 0 0;width:100%}
+#boundSheet.companion-page .bound-team-actions{margin:12px 0 0}
+#boundSheet.companion-page .bound-team-actions button{font-size:14px}
+#boundReturn{display:none}
+#boundSheet.companion-page #boundReturn{display:block;width:100%;min-height:44px;margin:14px 0 0;padding:10px;color:#ffe7af;background:#193940;border:1px solid #c3a467;border-radius:3px;font:15px Georgia,serif!important}
+#boundSheet.companion-page #boundReturn:focus-visible{outline:3px solid #436f70;outline-offset:2px}
