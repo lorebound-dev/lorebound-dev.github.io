@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T00:58:25.539Z",
+ "generatedAt": "2026-10-29T00:59:02.710Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-29T00:14:15Z",
+  "updatedAt": "2026-10-29T00:58:39Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -36,11 +36,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T00:14:17Z",
+   "testAt": "2026-10-29T00:58:40Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T00:14:17Z",
+   "updatedAt": "2026-10-29T00:58:40Z",
    "headSha": "9459e99c80ddec2c13a3fcf5c2b9e7a1e9d87122",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -60,11 +60,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T00:14:17Z",
+   "testAt": "2026-10-29T00:58:40Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T00:14:17Z",
+   "updatedAt": "2026-10-29T00:58:40Z",
    "headSha": "c42a0d960f0d02f7647e71bc8c03f20d6473c56b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -97,11 +97,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T00:14:17Z",
+   "testAt": "2026-10-29T00:58:40Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T00:14:17Z",
+   "updatedAt": "2026-10-29T00:58:40Z",
    "headSha": "79b8116cda5b12357bb154f2c7ce01edaa1fb6e9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -519,6 +519,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T00:58:40Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
+  },
+  {
    "at": "2026-10-29T00:58:07Z",
    "kind": "behind",
    "text": "Behind the scenes: “Builds get the Drive art their requests link to, without Noah”"
@@ -712,11 +717,6 @@
    "at": "2026-10-28T17:41:31Z",
    "kind": "behind",
    "text": "Behind the scenes: “Updater: also re-merge clashing test helpers”"
-  },
-  {
-   "at": "2026-10-28T17:26:47Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
  ],
  "otherPulls": [
