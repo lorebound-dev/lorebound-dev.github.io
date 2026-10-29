@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T06:39:28.929Z",
+ "generatedAt": "2026-10-29T14:02:16.509Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T06:37:22Z",
@@ -21,6 +21,47 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 72,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves Recruits label and both battlefield frames",
+   "quote": "yeah get them in i approve all",
+   "stage": "built",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "#65 already has both frames built, so Joshua's approval needs no code change there. Suggestion: post a new report on #65 that lists the two frame questions as answered, so his status page stops asking. I didn't touch #65 or #71 from here, as the request asks."
+    },
+    {
+     "who": "noah",
+     "text": "#71 asks the same \"Recruits\" question. Suggestion: merge this pull request (or move its one-line change into #71), then post a new report on #71 with that question marked answered."
+    },
+    {
+     "who": "noah",
+     "text": "Journal #60's three choices were approved and built in #63, and Challenge Boss placement was built in #66. Suggestion: post a fresh report on #60 too, so those old questions drop off Joshua's status page."
+    },
+    {
+     "who": "noah",
+     "text": "This pull request and #65/#71 all change home.html, so whichever goes in later needs bringing up to date with main. That's the usual one-line fix: keep main's line and re-apply the new tag treasure-hall.js?v=recruitslabel1."
+    }
+   ],
+   "openedAt": "2026-10-29T13:56:21Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T14:01:26Z",
+   "headSha": "60a4f01f9c91ef0e35e41cb8ee62da5669be928e",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T14:01:26Z"
+  },
   {
    "number": 71,
    "kind": "request",
@@ -498,33 +539,24 @@
    "requestStatus": "",
    "botState": "",
    "botAt": null
-  },
-  {
-   "number": 30,
-   "kind": "fix",
-   "by": "Noah",
-   "title": "Show one update popup for every pending save update",
-   "quote": "",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T17:40:07Z",
-   "mergedAt": "2026-10-27T18:03:14Z",
-   "closedAt": "2026-10-27T18:03:14Z",
-   "liveAt": "2026-10-27T18:03:17Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-27T18:03:17Z",
-   "headSha": "073e68532833d2f1bf2253e4898ff7b7b28eb16c",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
   }
  ],
  "activity": [
+  {
+   "at": "2026-10-29T14:01:26Z",
+   "kind": "built",
+   "text": "Claude finished building “Owner approves Recruits label and both battlefield frames”"
+  },
+  {
+   "at": "2026-10-29T14:01:26Z",
+   "kind": "question",
+   "text": "Part of “Owner approves Recruits label and both battlefield frames” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-10-29T13:56:21Z",
+   "kind": "asked",
+   "text": "You asked for “Owner approves Recruits label and both battlefield frames”"
+  },
   {
    "at": "2026-10-29T06:39:08Z",
    "kind": "test",
@@ -709,21 +741,6 @@
    "at": "2026-10-28T23:33:23Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
-  },
-  {
-   "at": "2026-10-28T23:32:17Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
-  },
-  {
-   "at": "2026-10-28T23:30:28Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
-  },
-  {
-   "at": "2026-10-28T23:29:11Z",
-   "kind": "asked",
-   "text": "You asked for “Build explorable vertical Town from approved Mossbound Ruins terrain”"
   }
  ],
  "otherPulls": [
