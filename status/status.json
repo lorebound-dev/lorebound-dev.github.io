@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T01:07:38.871Z",
+ "generatedAt": "2026-10-29T01:09:22.275Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -18,6 +18,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 67,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build explorable vertical Town from approved Mossbound Ruins terrain",
+   "quote": "\"I think we need to render a new draggable background so it looks legit. Also I want to suggest orienting the area to be more vertical as well as more space between them so it feels like a real town. Maybe have different decor and stuff to make it feel real.\"  Joshua confirmed that the Town should be a living village gradually restored over time, and **approved the final terrain-only vertical illustration** on October 28, 2026.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T23:29:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T01:08:55Z",
+   "headSha": "af04bf81a2448d1c5eeee3442bb4544a842c4ef9",
+   "touchesGame": false,
+   "requestStatus": "Waiting for answers",
+   "botState": "finished",
+   "botAt": "2026-10-29T01:08:55Z"
+  },
   {
    "number": 69,
    "kind": "request",
@@ -133,51 +157,14 @@
    "botAt": "2026-10-28T17:24:37Z"
   },
   {
-   "number": 67,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build explorable vertical Town from approved Mossbound Ruins terrain",
-   "quote": "\"I think we need to render a new draggable background so it looks legit. Also I want to suggest orienting the area to be more vertical as well as more space between them so it feels like a real town. Maybe have different decor and stuff to make it feel real.\"  Joshua confirmed that the Town should be a living village gradually restored over time, and **approved the final terrain-only vertical illustration** on October 28, 2026.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T23:29:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-29T00:13:21Z",
-   "headSha": "af04bf81a2448d1c5eeee3442bb4544a842c4ef9",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-10-29T00:13:21Z"
-  },
-  {
    "number": 65,
    "kind": "request",
    "by": "Joshua",
    "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
    "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
-   "stage": "questions",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Please get the two frame pictures: make sure the folder with combat-nameplate-9slice-128.png and party-dock-frame-9slice-128.png is inside the LOREBOUND Artwork Inbox, run Fetch art in download mode with only set to 9slice-128, and attach both PNGs plus MANIFEST.json to this…"
-    },
-    {
-     "who": "noah",
-     "text": "Should I build this when you or a local session can run a browser? The request asks for real screenshots at 390×844 with the party open and closed. I can build it here, but here it can only be checked on the test site."
-    },
-    {
-     "who": "joshua",
-     "text": "Should I fix the Challenge Boss button now, without the new frames? My suggestion: yes, as its own small fix. It would sit just above the party tray, right-aligned, so it never covers the enemy. The frames would come later, once the pictures arrive."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-28T22:17:13Z",
    "mergedAt": null,
    "closedAt": null,
@@ -199,18 +186,9 @@
    "by": "Joshua",
    "title": "Build reusable LOREBOUND UI kit from individually supplied artwork",
    "quote": "\"We just need to start thinking about how to make general assets instead of super specific stuff. It's not very scalable with the stage of development we are at. It's exhausting constantly rendering and sending only for a lot to still not look right.\"  Joshua approved the LOREBOUND shared UI kit concept board, asked how to make the assets available to the builders, and emphasized: \"Claude doesn't do image generation.\"",
-   "stage": "questions",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Get the UI kit files to the build: the PNGs aren't in this pull request, and the Claude build job can't sign in to Google Drive. Suggestion: have Joshua's ChatGPT copy the UI kit folder into the LOREBOUND Artwork Inbox (for example as Approved/UI-Kit-v01). Then run Fetch art…"
-    },
-    {
-     "who": "noah",
-     "text": "Choose where the 13 small UI pictures live. Suggestion: commit them unchanged as pocket-fortune/dist/assets/ui-kit/v01/…, plus the manifest. Keep the two boards, the README and the CSS reference in handoff/ui-kit-v01/, outside the published folder. Then comment \"@claude build…"
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-28T18:56:50Z",
    "mergedAt": null,
    "closedAt": null,
@@ -588,16 +566,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   },
   {
-   "at": "2026-10-28T22:19:39Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Improve Adventure battlefield layout with shared nameplate and party frame”"
-  },
-  {
-   "at": "2026-10-28T22:19:39Z",
-   "kind": "question",
-   "text": "Part of “Improve Adventure battlefield layout with shared nameplate and party frame” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-10-28T22:17:13Z",
    "kind": "asked",
    "text": "You asked for “Improve Adventure battlefield layout with shared nameplate and party frame”"
@@ -606,11 +574,6 @@
    "at": "2026-10-28T19:03:47Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T18:59:21Z",
-   "kind": "question",
-   "text": "Part of “Build reusable LOREBOUND UI kit from individually supplied artwork” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-28T18:56:50Z",
@@ -696,6 +659,21 @@
    "at": "2026-10-28T17:26:47Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-10-28T17:25:37Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-10-28T17:25:15Z",
+   "kind": "live",
+   "text": "“Party reordering, continuous Auto Summon and in-dock companion decisions” is live in the game"
+  },
+  {
+   "at": "2026-10-28T17:25:11Z",
+   "kind": "approved",
+   "text": "Noah approved “Party reordering, continuous Auto Summon and in-dock companion decisions”"
   }
  ],
  "otherPulls": [
