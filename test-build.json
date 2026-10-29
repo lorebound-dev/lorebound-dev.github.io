@@ -49,10 +49,10 @@
     {
       "number": 76,
       "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
-      "head": "a2dc8aa8af2a5866c9da35f1ff55d6e741316a9b"
+      "head": "092af1fbd13fc9e2d9f40b3a921cd5b90afd527e"
     }
   ],
   "skipped": [],
-  "commit": "b19c59b0e02f23a1f4a8b2b7c237c7476c96d1d6",
-  "at": "2026-10-29T19:30:39Z"
+  "commit": "6349cefeb78e458f6b0597ae420e4af38bb17e83",
+  "at": "2026-10-29T19:54:12Z"
 }
