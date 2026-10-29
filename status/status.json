@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T16:02:59.479Z",
+ "generatedAt": "2026-10-29T16:28:41.054Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T06:37:22Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-29T16:01:05Z",
+  "updatedAt": "2026-10-29T16:03:34Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -24,28 +24,15 @@
  },
  "items": [
   {
-   "number": 74,
+   "number": 75,
    "kind": "request",
    "by": "Joshua",
-   "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
-   "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "questions",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Do you approve this teal Rift picture for the game? My suggestion: yes to the look, but ask ChatGPT for a cleaner small version first. It should have fewer floating crystals, a bigger stone arch and swirl, and no red or blue edges around the crystals."
-    },
-    {
-     "who": "joshua",
-     "text": "For the movement, the request asks for separate pieces: (a) the stone and bronze frame with an empty center, (b) the teal swirl by itself, and (c) optionally a few small sparks. Each should be a PNG with a see-through background and about 256×256. My suggestion: ask ChatGPT…"
-    },
-    {
-     "who": "joshua",
-     "text": "When you approve the pieces, please ask ChatGPT to put them in a folder called Summoning-Rift-v01 inside Approved (not Proposed) with a MANIFEST.json, and to link that folder in this request. Then I'll build the moving Rift right away, at the Tome's size and with the Tome as…"
-    }
-   ],
-   "openedAt": "2026-10-29T15:47:43Z",
+   "title": "Owner approves teal color direction for Summoning Rift #74",
+   "quote": "I LIKE TEAL",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T16:27:15Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
@@ -53,12 +40,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:02:31Z",
-   "headSha": "e95cdcb37e04c0b4f999de72ec4cf254209163e6",
+   "updatedAt": "2026-10-29T16:28:03Z",
+   "headSha": "e160a124a9337e95942ba3a918d71ab04a070d66",
    "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-10-29T16:02:31Z"
+   "requestStatus": "Waiting to be built",
+   "botState": "working",
+   "botAt": "2026-10-29T16:28:03Z"
   },
   {
    "number": 73,
@@ -90,11 +77,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T16:01:05Z",
+   "testAt": "2026-10-29T16:03:36Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:01:05Z",
+   "updatedAt": "2026-10-29T16:03:36Z",
    "headSha": "7b7fe426373a6f8821f887cee496aa9664aae79b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -131,11 +118,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T16:01:05Z",
+   "testAt": "2026-10-29T16:03:36Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:01:05Z",
+   "updatedAt": "2026-10-29T16:03:36Z",
    "headSha": "60a4f01f9c91ef0e35e41cb8ee62da5669be928e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -160,11 +147,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T16:01:05Z",
+   "testAt": "2026-10-29T16:03:36Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:01:05Z",
+   "updatedAt": "2026-10-29T16:03:36Z",
    "headSha": "175fc00893a298c0e78b6b56f197b39fc1180136",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -197,11 +184,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T16:01:05Z",
+   "testAt": "2026-10-29T16:03:36Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:01:05Z",
+   "updatedAt": "2026-10-29T16:03:36Z",
    "headSha": "9591b9aaee13c9ae1855cac5978e90665eb9840e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -221,11 +208,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T16:01:05Z",
+   "testAt": "2026-10-29T16:03:36Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:01:05Z",
+   "updatedAt": "2026-10-29T16:03:36Z",
    "headSha": "5980e7beccbbf98fc6e3c81202a75493fb4987b2",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -258,11 +245,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T16:01:05Z",
+   "testAt": "2026-10-29T16:03:36Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:01:05Z",
+   "updatedAt": "2026-10-29T16:03:36Z",
    "headSha": "8aeda5a249076ff7dd764aae0c4a3c4efccd9ac8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -287,11 +274,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T16:01:05Z",
+   "testAt": "2026-10-29T16:03:36Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:01:05Z",
+   "updatedAt": "2026-10-29T16:03:36Z",
    "headSha": "6b278794dbd92795c52ddbd43bd8aeba0b8187e8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -316,16 +303,53 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T16:01:05Z",
+   "testAt": "2026-10-29T16:03:36Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:01:05Z",
+   "updatedAt": "2026-10-29T16:03:36Z",
    "headSha": "d56f8838f1bb8486b2878ffc9d430caa5e1c5437",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-29T01:13:32Z"
+  },
+  {
+   "number": 74,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
+   "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
+   "stage": "questions",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Do you approve this teal Rift picture for the game? My suggestion: yes to the look, but ask ChatGPT for a cleaner small version first. It should have fewer floating crystals, a bigger stone arch and swirl, and no red or blue edges around the crystals."
+    },
+    {
+     "who": "joshua",
+     "text": "For the movement, the request asks for separate pieces: (a) the stone and bronze frame with an empty center, (b) the teal swirl by itself, and (c) optionally a few small sparks. Each should be a PNG with a see-through background and about 256×256. My suggestion: ask ChatGPT…"
+    },
+    {
+     "who": "joshua",
+     "text": "When you approve the pieces, please ask ChatGPT to put them in a folder called Summoning-Rift-v01 inside Approved (not Proposed) with a MANIFEST.json, and to link that folder in this request. Then I'll build the moving Rift right away, at the Tome's size and with the Tome as…"
+    }
+   ],
+   "openedAt": "2026-10-29T15:47:43Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T16:02:31Z",
+   "headSha": "e95cdcb37e04c0b4f999de72ec4cf254209163e6",
+   "touchesGame": false,
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-29T16:02:31Z"
   },
   {
    "number": 64,
@@ -465,11 +489,11 @@
    "mergedAt": "2026-10-28T17:25:11Z",
    "closedAt": "2026-10-28T17:25:11Z",
    "liveAt": "2026-10-28T17:25:15Z",
-   "testAt": "2026-10-28T17:25:37Z",
+   "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-28T17:25:37Z",
+   "updatedAt": "2026-10-28T17:25:15Z",
    "headSha": "64ec39b5ba29775280582e90e5af941c3ecab811",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -598,6 +622,16 @@
   }
  ],
  "activity": [
+  {
+   "at": "2026-10-29T16:27:15Z",
+   "kind": "asked",
+   "text": "You asked for “Owner approves teal color direction for Summoning Rift #74”"
+  },
+  {
+   "at": "2026-10-29T16:03:36Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
+  },
   {
    "at": "2026-10-29T16:02:31Z",
    "kind": "question",
@@ -787,16 +821,6 @@
    "at": "2026-10-29T01:15:35Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”, “Build explorable vertical Town from approved Mossbound Ruins terrain”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
-  },
-  {
-   "at": "2026-10-29T01:14:40Z",
-   "kind": "built",
-   "text": "Claude finished building “Build explorable vertical Town from approved Mossbound Ruins terrain”"
-  },
-  {
-   "at": "2026-10-29T01:14:27Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
   }
  ],
  "otherPulls": [
@@ -965,15 +989,6 @@
   {
    "number": 35,
    "headSha": "cf65d03813eccb8cde0c2a675967a57f923dbebe",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 34,
-   "headSha": "a0b144cfd52b82a9163c5d98e42d7f03ac8046f2",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
