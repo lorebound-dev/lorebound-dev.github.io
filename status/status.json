@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T14:10:24.551Z",
+ "generatedAt": "2026-10-29T15:20:55.434Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T06:37:22Z",
@@ -22,6 +22,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 73,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
+   "quote": "\"I want a whole scene inside of the shard works where you are inside a mine almost and have different arenas to upgrade and do. Almost emulating a mini tycoon Roblox game. Nothing crazy just a little page inside a mine.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T15:19:54Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T15:19:54Z",
+   "headSha": "36edc58ebefadc9f709e9a621d001b015d5c2c22",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 72,
    "kind": "request",
@@ -544,6 +568,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T15:19:54Z",
+   "kind": "asked",
+   "text": "You asked for “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
+  },
+  {
    "at": "2026-10-29T14:02:24Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”, “Owner approves Recruits label and both battlefield frames”"
@@ -737,11 +766,6 @@
    "at": "2026-10-28T23:37:29Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
-  },
-  {
-   "at": "2026-10-28T23:36:11Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
   }
  ],
  "otherPulls": [
@@ -919,15 +943,6 @@
   {
    "number": 34,
    "headSha": "a0b144cfd52b82a9163c5d98e42d7f03ac8046f2",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 32,
-   "headSha": "c684e4bbc03d98b604161aa9b5fd44ab6ef020e3",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
