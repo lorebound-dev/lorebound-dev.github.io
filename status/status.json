@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T23:18:47.499Z",
+ "generatedAt": "2026-10-29T23:20:56.879Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -32,9 +32,30 @@
    "by": "Joshua",
    "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
    "quote": "LOREBOUND — Summoning System UI Refactor. Replace Tome-tier presentation with one permanent Portal progression. This request supersedes earlier Tome-tier UI direction. one permanent Summoning Portal / Rift ... one portal level progression ... Level 1, Level 2, Level 3 ... no Tome I / II / III / IV / V presentation ... no “Library > Tome III” style labeling. This request is primarily a UI / presentation refactor ... preserve current real functionality where possible ... all values displayed are real, live game values.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "[x] Read the request and the current summoning code"
+    },
+    {
+     "who": "noah",
+     "text": "[x] Check how Tome levels, the chosen Tome and the odds work today"
+    },
+    {
+     "who": "noah",
+     "text": "[ ] Build (waiting for the answers below)"
+    },
+    {
+     "who": "noah",
+     "text": "One Portal level means summons always use the odds of the highest Tome unlocked. Players who picked a lower Tome would get those odds from then on. Suggestion: yes. Show the Portal level as the highest Tome unlocked. Set the picked Tome to the highest one the next time the…"
+    },
+    {
+     "who": "noah",
+     "text": "This request needs the teal Rift (#74), the stone shrine rail, the summoning station (Upgrade Rift and Auto Summon plaques) and the newest Auto timing (#75), and none of them are live yet. Suggestion: let me merge the summoning station branch (it already includes the Rift and…"
+    }
+   ],
    "openedAt": "2026-10-29T23:17:42Z",
    "mergedAt": null,
    "closedAt": null,
@@ -43,12 +64,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T23:18:40Z",
-   "headSha": "70f77271891504d8b94de0c9de35f38a85547128",
+   "updatedAt": "2026-10-29T23:20:29Z",
+   "headSha": "879159d32c548c1f5c85b7a84071adb54ee22b2a",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-29T23:18:40Z"
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-29T23:20:29Z"
   },
   {
    "number": 77,
@@ -714,6 +735,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T23:20:29Z",
+   "kind": "question",
+   "text": "Part of “Replace Tome-tier UI with one permanent numeric Portal progression” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-29T23:17:56Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
@@ -905,11 +931,6 @@
   },
   {
    "at": "2026-10-29T16:01:05Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
-  },
-  {
-   "at": "2026-10-29T15:56:17Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
   }
