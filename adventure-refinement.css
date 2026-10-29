@@ -24,7 +24,7 @@
 /* Narrow enough to stay between the Omnidex button and the Endless relics button. */
 .adventure-refined #game.endless-active:not(.boss-room) .enemy-info{width:min(176px,100vw - 212px)}.adventure-refined #game .battle-panel{position:absolute;top:min(calc(var(--court-y) + 5px),calc(100% - 46px));bottom:auto;left:0;right:0;display:flex;justify-content:center;height:44px;margin:0 12px;background:none;border:0;box-shadow:none}
 .adventure-refined #game .progress-row,.adventure-refined #game #killDots,.adventure-refined #game #bossButton{display:none}
-.adventure-refined #game.floor-ready:not(.encounter-boss) #bossButton{display:block;width:180px;margin:0 0 0 auto}
+.adventure-refined #game.floor-ready:not(.encounter-boss) #bossButton{display:block;width:180px}
 .adventure-refined #floorTimeline{display:flex;gap:3px;align-items:center;justify-content:center;padding:8px 12px;background:radial-gradient(ellipse,#061923d9,transparent 74%);max-width:100%}
 .adventure-refined #floorTimeline i{width:6px;height:6px;border:1px solid #c9b17a;rotate:45deg;background:#091c28;flex-shrink:1}
 .adventure-refined #floorTimeline i.complete{background:#f3d98b;box-shadow:0 0 5px #dfba6c77}

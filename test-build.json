@@ -19,7 +19,7 @@
     {
       "number": 65,
       "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-      "head": "96d641547ca451a717a54bbe598023c5059184ab"
+      "head": "9591b9aaee13c9ae1855cac5978e90665eb9840e"
     },
     {
       "number": 66,
@@ -33,6 +33,6 @@
     }
   ],
   "skipped": [],
-  "commit": "05f5a194333093b7b8ccc2f44ac0ba16b9243cf9",
-  "at": "2026-10-29T02:15:05Z"
+  "commit": "d6de5df0717874d737d497616a0c932683d3e950",
+  "at": "2026-10-29T02:33:46Z"
 }
