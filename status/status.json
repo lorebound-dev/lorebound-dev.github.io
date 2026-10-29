@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T01:03:04.487Z",
+ "generatedAt": "2026-10-29T01:07:38.871Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -35,12 +35,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T01:03:04Z",
+   "updatedAt": "2026-10-29T01:07:12Z",
    "headSha": "ec3768b4a487226dc0b5506be4c31ba188cc3c46",
    "touchesGame": false,
    "requestStatus": "Waiting to be built",
    "botState": "finished",
-   "botAt": "2026-10-29T01:03:04Z"
+   "botAt": "2026-10-29T01:07:12Z"
   },
   {
    "number": 66,
@@ -138,30 +138,9 @@
    "by": "Joshua",
    "title": "Build explorable vertical Town from approved Mossbound Ruins terrain",
    "quote": "\"I think we need to render a new draggable background so it looks legit. Also I want to suggest orienting the area to be more vertical as well as more space between them so it feels like a real town. Maybe have different decor and stuff to make it feel real.\"  Joshua confirmed that the Town should be a living village gradually restored over time, and **approved the final terrain-only vertical illustration** on October 28, 2026.",
-   "stage": "questions",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Please fetch the approved Town picture: Actions › Fetch art › Run workflow, mode download, only set to Town_Vertical_Terrain. Check that the WebP's SHA-256 matches the request (44c2c11f…4ad0), then commit only the WebP to this branch as…"
-    },
-    {
-     "who": "noah",
-     "text": "Please fetch the approved Shardworks arch: Fetch art, mode download, only set to Town-Shardworks-Arch-v01. Check that the 512px picture's SHA-256 is 3821b3fd…66a3de, then commit it to this branch as pocket-fortune/dist/assets/town-shardworks-arch-512-v01.png. My suggestion:…"
-    },
-    {
-     "who": "noah",
-     "text": "Please fetch the three proposed building pictures: Fetch art, mode download, only set to Town-Three-Buildings-v01 (run mode inventory first if that finds nothing). Check the three 512px PNGs against the folder's manifest, then commit them as…"
-    },
-    {
-     "who": "noah",
-     "text": "When the pictures are committed, comment \"@claude build it\" and I'll build the whole request. If only the Town picture is ready, I can still build with it and use the current building pictures until the rest arrive."
-    },
-    {
-     "who": "joshua",
-     "text": "Should the five big building buttons become one small \"Locations\" list that moves the map to the building you pick? My suggestion: yes, with a small button in the same corner as now, and each building's state (\"Locked\", \"Ready to restore\" or \"Restored\") written next to its name."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-28T23:29:11Z",
    "mergedAt": null,
    "closedAt": null,
@@ -539,16 +518,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
   },
   {
-   "at": "2026-10-29T00:13:21Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Build explorable vertical Town from approved Mossbound Ruins terrain”"
-  },
-  {
-   "at": "2026-10-29T00:13:21Z",
-   "kind": "question",
-   "text": "Part of “Build explorable vertical Town from approved Mossbound Ruins terrain” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-10-29T00:12:35Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
@@ -715,6 +684,16 @@
   },
   {
    "at": "2026-10-28T17:41:33Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-10-28T17:41:31Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Updater: also re-merge clashing test helpers”"
+  },
+  {
+   "at": "2026-10-28T17:26:47Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
