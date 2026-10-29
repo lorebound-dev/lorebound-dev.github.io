@@ -13,9 +13,10 @@
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=aberrations] {--habitat-light:#d79fca}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-habitat {position:absolute;inset:0;width:100%;height:100%;stroke:var(--habitat-light);stroke-width:1;fill:none;opacity:.18;z-index:1}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-ambient{z-index:2}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-art-stage {position:absolute;inset:14px 3px 29px;display:grid;place-items:center;padding:0;overflow:visible;z-index:3}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait {display:block;position:relative;width:100%;height:auto;aspect-ratio:1;margin:0;image-rendering:pixelated;transform:scale(var(--portrait-scale,1)) translate(var(--portrait-x,0%),var(--portrait-y,0%));filter:brightness(1.13) saturate(1.12) drop-shadow(0 1px 1px #000d) drop-shadow(0 0 2px #fff1)}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait.starter-sheet{width:100%;height:auto;aspect-ratio:1;background-size:300% 100%;background-position:var(--starter-x) center;background-repeat:no-repeat}
+/* The portrait is square and as large as the stage allows, so on short cards it shrinks whole instead of spilling under the Lv. and DPS labels. */
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-art-stage {position:absolute;inset:14px 3px 29px;display:grid;place-items:center;padding:0;overflow:visible;z-index:3;container-type:size}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait {display:block;position:relative;width:100%;width:min(100cqw,100cqh);height:auto;aspect-ratio:1;margin:0;image-rendering:pixelated;transform:scale(var(--portrait-scale,1)) translate(var(--portrait-x,0%),var(--portrait-y,0%));filter:brightness(1.13) saturate(1.12) drop-shadow(0 1px 1px #000d) drop-shadow(0 0 2px #fff1)}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait.starter-sheet{width:100%;width:min(100cqw,100cqh);height:auto;aspect-ratio:1;background-size:300% 100%;background-position:var(--starter-x) center;background-repeat:no-repeat}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait.companion-art img{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-frame {z-index:6}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-rarity{position:absolute;top:5px;left:5px;width:14px;height:14px;z-index:7;filter:drop-shadow(0 1px 2px #000)}

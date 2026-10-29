@@ -50,9 +50,14 @@
       "number": 76,
       "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
       "head": "092af1fbd13fc9e2d9f40b3a921cd5b90afd527e"
+    },
+    {
+      "number": 77,
+      "title": "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
+      "head": "7d6bdea30d2d6bd06aaa5d8108dba8e935183c08"
     }
   ],
   "skipped": [],
-  "commit": "3d5d15cdef0880427c4e7a0c9ad0932d683a24a5",
-  "at": "2026-10-29T20:33:47Z"
+  "commit": "11cb76a60ba19a7cd78e1016b033498e3e104590",
+  "at": "2026-10-29T20:49:36Z"
 }
