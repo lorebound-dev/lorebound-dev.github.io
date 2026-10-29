@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T20:32:27.836Z",
+ "generatedAt": "2026-10-29T20:33:28.307Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -42,12 +42,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T20:31:35Z",
+   "updatedAt": "2026-10-29T20:33:18Z",
    "headSha": "48e3e2795892398e41384a67b46e053fb6ce6a92",
    "touchesGame": false,
    "requestStatus": "Waiting to be built",
-   "botState": "",
-   "botAt": null
+   "botState": "finished",
+   "botAt": "2026-10-29T20:33:18Z"
   },
   {
    "number": 75,
@@ -55,9 +55,30 @@
    "by": "Joshua",
    "title": "Owner approves teal color direction for Summoning Rift #74",
    "quote": "I LIKE TEAL",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "This pull request and the Rift one (#74) both change the same line in home.html, so the test site may leave this one out until #74 is merged and this one is brought up to date. Suggestion: merge #74 first, then ask me to update this one."
+    },
+    {
+     "who": "noah",
+     "text": "With the old Gold summons (saves that haven't switched to Lore Shards yet), Auto keeps its old timing and a tap still opens the ×3/×5/×10 you picked. Suggestion: leave it, since it goes away once a save switches to Lore Shards."
+    },
+    {
+     "who": "joshua",
+     "text": "When Auto finds a brand-new companion you've never had, should it pause and then keep going, like a rarity you ticked? Right now it stops Auto for good, as you asked earlier. Suggestion: yes, let it keep going after you choose, the same as a ticked rarity."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you approve the teal Rift picture in the Proposed folder (LOREBOUND_Summoning_Rift_SeaGlassTeal_Static_v01_PROPOSED.png) as the final look? Suggestion: if it looks good small, say yes and ask ChatGPT to move it to the Approved folder with its manifest."
+    },
+    {
+     "who": "joshua",
+     "text": "Can ChatGPT make separate see-through pictures from that same Rift: the stone frame with no glow, and the teal glow by itself, plus a few sparkles if you want them? Suggestion: yes. Then the glow can move gently while the stone stays still. Without them, the Rift can only be…"
+    }
+   ],
    "openedAt": "2026-10-29T16:27:15Z",
    "mergedAt": null,
    "closedAt": null,
@@ -66,12 +87,12 @@
    "onTest": true,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T20:24:45Z",
+   "updatedAt": "2026-10-29T20:32:50Z",
    "headSha": "fed49485b97ff5c73f139d7447e703c78349eba3",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-29T20:24:45Z"
+   "botState": "questions",
+   "botAt": "2026-10-29T20:32:50Z"
   },
   {
    "number": 76,
@@ -668,14 +689,24 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T20:32:50Z",
+   "kind": "built",
+   "text": "Claude finished building “Owner approves teal color direction for Summoning Rift #74”"
+  },
+  {
+   "at": "2026-10-29T20:32:50Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Owner approves teal color direction for Summoning Rift #74”"
+  },
+  {
+   "at": "2026-10-29T20:32:50Z",
+   "kind": "question",
+   "text": "Part of “Owner approves teal color direction for Summoning Rift #74” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-29T20:31:35Z",
    "kind": "asked",
    "text": "You asked for “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
-  },
-  {
-   "at": "2026-10-29T20:24:45Z",
-   "kind": "built",
-   "text": "Claude finished building “Owner approves teal color direction for Summoning Rift #74”"
   },
   {
    "at": "2026-10-29T20:24:39Z",
@@ -856,16 +887,6 @@
    "at": "2026-10-29T14:01:26Z",
    "kind": "question",
    "text": "Part of “Owner approves Recruits label and both battlefield frames” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-29T13:56:21Z",
-   "kind": "asked",
-   "text": "You asked for “Owner approves Recruits label and both battlefield frames”"
-  },
-  {
-   "at": "2026-10-29T06:39:08Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”"
   }
  ],
  "otherPulls": [
