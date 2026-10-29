@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T19:04:39.445Z",
+ "generatedAt": "2026-10-29T19:29:57.811Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -40,14 +40,14 @@
    "liveAt": null,
    "testAt": "2026-10-29T19:03:29Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T19:04:21Z",
-   "headSha": "8189fa4bc1e09adcc0bc3985de71469a68ecf0c5",
+   "updatedAt": "2026-10-29T19:04:47Z",
+   "headSha": "a2dc8aa8af2a5866c9da35f1ff55d6e741316a9b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-10-29T19:04:21Z"
+   "botState": "finished",
+   "botAt": "2026-10-29T19:04:47Z"
   },
   {
    "number": 75,
@@ -644,6 +644,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T19:04:47Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved summoning shrine into Adventure rail — visual-only”"
+  },
+  {
    "at": "2026-10-29T19:03:29Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”"
@@ -835,11 +840,6 @@
   },
   {
    "at": "2026-10-29T02:35:11Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Build reusable LOREBOUND UI kit from individually supplied artwork”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
-  },
-  {
-   "at": "2026-10-29T02:33:46Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Build reusable LOREBOUND UI kit from individually supplied artwork”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
   }
