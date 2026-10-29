@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T01:49:51.688Z",
+ "generatedAt": "2026-10-29T02:02:02.564Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -515,6 +515,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T02:01:44Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Give Claude's builds 250 turns and 75 minutes”"
+  },
+  {
    "at": "2026-10-29T01:49:21Z",
    "kind": "built",
    "text": "Claude finished building “Improve Adventure battlefield layout with shared nameplate and party frame”"
@@ -708,11 +713,6 @@
    "at": "2026-10-28T18:32:19Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T18:27:23Z",
-   "kind": "live",
-   "text": "“Intro-style companion pages with shared type habitats and size/weight” is live in the game"
   }
  ],
  "otherPulls": [
