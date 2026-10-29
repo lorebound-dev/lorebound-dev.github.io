@@ -29,7 +29,7 @@
     {
       "number": 71,
       "title": "Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages",
-      "head": "175fc00893a298c0e78b6b56f197b39fc1180136"
+      "head": "b59d7a36e90f78f8a13708a6831526dd309ddd0f"
     },
     {
       "number": 72,
@@ -48,6 +48,6 @@
     }
   ],
   "skipped": [],
-  "commit": "1001548931a861f110bd23468227969e7ebcd729",
-  "at": "2026-10-29T16:44:44Z"
+  "commit": "bc063ed45b5c4b59ccf5b86df98eaea0aaaa3d46",
+  "at": "2026-10-29T18:09:19Z"
 }
