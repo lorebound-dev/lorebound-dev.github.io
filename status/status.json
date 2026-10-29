@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T00:05:09.801Z",
+ "generatedAt": "2026-10-29T00:05:55.695Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -24,9 +24,26 @@
    "by": "Joshua",
    "title": "Build explorable vertical Town from approved Mossbound Ruins terrain",
    "quote": "\"I think we need to render a new draggable background so it looks legit. Also I want to suggest orienting the area to be more vertical as well as more space between them so it feels like a real town. Maybe have different decor and stuff to make it feel real.\"  Joshua confirmed that the Town should be a living village gradually restored over time, and **approved the final terrain-only vertical illustration** on October 28, 2026.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Please get the approved Town picture onto this pull request. Run Actions › Fetch art › Run workflow with mode download and only set to Town_Vertical_Terrain. The Town folder (17ZTeatQo4hDPX2zCZ70Y-7c4gQWn4CzZ) has to be inside the LOREBOUND Artwork Inbox. Check that the…"
+    },
+    {
+     "who": "noah",
+     "text": "Please also fetch the three proposed building pictures: Fetch art with mode download and only set to Town-Three-Buildings-v01. If that finds nothing, run mode inventory first to see the folder's real name. Check the three 512px PNGs against the folder's manifest, then commit…"
+    },
+    {
+     "who": "noah",
+     "text": "When both are committed, comment \"@claude build it\" and I'll build the whole request."
+    },
+    {
+     "who": "joshua",
+     "text": "Should the five big building buttons become one small \"Locations\" list that moves the map to the building you pick? My suggestion: yes, with a small button in the same corner as now, and each building's state (\"Locked\", \"Ready to restore\" or \"Restored\") written next to its name."
+    }
+   ],
    "openedAt": "2026-10-28T23:29:11Z",
    "mergedAt": null,
    "closedAt": null,
@@ -35,12 +52,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T00:04:41Z",
+   "updatedAt": "2026-10-29T00:05:30Z",
    "headSha": "8c0af2807962a57e213cca8c6ee028fb395801d7",
    "touchesGame": false,
    "requestStatus": "Waiting for answers",
-   "botState": "working",
-   "botAt": "2026-10-29T00:04:41Z"
+   "botState": "questions",
+   "botAt": "2026-10-29T00:05:30Z"
   },
   {
    "number": 66,
@@ -522,6 +539,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T00:05:30Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Build explorable vertical Town from approved Mossbound Ruins terrain”"
+  },
+  {
+   "at": "2026-10-29T00:05:30Z",
+   "kind": "question",
+   "text": "Part of “Build explorable vertical Town from approved Mossbound Ruins terrain” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-29T00:04:39Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
@@ -710,16 +737,6 @@
    "at": "2026-10-28T17:24:37Z",
    "kind": "built",
    "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T17:24:37Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T17:17:40Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
  ],
  "otherPulls": [
