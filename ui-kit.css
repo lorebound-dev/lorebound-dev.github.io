@@ -1,0 +1,146 @@
+/* LOREBOUND Shared UI Kit v01. Opt-in `lb-` components built on Joshua's approved
+   9-slice frames, stone tile and progress fills (assets/ui-kit/v01, hashes in
+   handoff/ui-kit-v01/MANIFEST.json). No game screen loads this yet.
+   Frames: 128px sources, 24px slice drawn at 12px, so phones at 2x show them 1:1.
+   CSS owns every fill, word and state; the PNGs only draw the edges.
+   Text uses Georgia with !important because adventure.css forces the pixel font. */
+:root {
+  --lb-base: #142635;
+  --lb-panel: #203645;
+  --lb-inset: #0c1c29;
+  --lb-navy: #142635;
+  --lb-slate: #203645;
+  --lb-bronze: #b69a66;
+  --lb-gold: #e0c285;
+  --lb-cream: #e9d7af;
+  --lb-text: #e9d7af;
+  --lb-text-2: #acbdc5;
+  --lb-blue: #4c7fb2;
+  --lb-green: #6fbf82;
+  --lb-warning: #e5a158;
+  --lb-red: #c95b58;
+  --lb-violet: #8363ab;
+  --lb-outline: #695435;
+  --lb-shadow: #050c13;
+  --lb-fill-primary: #2c4d6e;
+  --lb-fill-claim: #1f5a3c;
+  --lb-fill-danger: #5a2a2e;
+  --lb-fill-disabled: #18242e;
+  --lb-edge: 12px;
+  --lb-hit: 44px;
+  --lb-label: 12px;
+  --lb-body: 14px;
+  --lb-title: 18px;
+}
+
+/* Default background for ordinary menus. Special scenes keep their own art. */
+.lb-surface {
+  background: var(--lb-base) url("assets/ui-kit/v01/texture/menu-stone-tile-128.png") repeat;
+  background-size: 128px 128px;
+  color: var(--lb-text);
+}
+
+.lb-panel, .lb-button, .lb-tab, .lb-icon-frame {
+  box-sizing: border-box;
+  border: var(--lb-edge) solid transparent;
+  border-image: url("assets/ui-kit/v01/frames/panel-standard-128.png") 24 / var(--lb-edge) / 0 stretch;
+  border-radius: 0;
+  /* The fill runs under the frame up to its inner line (source px 10 = 5px),
+     so no dark ring shows between the line and the fill. */
+  --lb-fill: var(--lb-panel);
+  background: linear-gradient(var(--lb-fill), var(--lb-fill)) 50% 50% / calc(100% - 10px) calc(100% - 10px) no-repeat border-box;
+  color: var(--lb-text);
+}
+.lb-panel, .lb-panel *, .lb-button, .lb-tab, .lb-row, .lb-row *, .lb-progress, .lb-progress * {
+  font-family: Georgia, serif !important;
+}
+
+/* Panels */
+.lb-panel { display: block; min-width: 0; padding: 4px; }
+.lb-panel--inset { border-image-source: url("assets/ui-kit/v01/frames/panel-inset-128.png"); --lb-fill: var(--lb-inset); }
+.lb-panel--highlighted { border-image-source: url("assets/ui-kit/v01/frames/panel-highlighted-128.png"); }
+.lb-panel--disabled { border-image-source: url("assets/ui-kit/v01/frames/panel-disabled-128.png"); --lb-fill: var(--lb-fill-disabled); color: var(--lb-text-2); }
+.lb-panel__title { margin: 0 0 4px; color: var(--lb-gold); font-size: var(--lb-title); font-weight: normal; line-height: 1.2; }
+.lb-panel__text { margin: 0; color: var(--lb-text-2); font-size: var(--lb-body); line-height: 1.35; }
+.lb-heading { margin: 0 0 8px; color: var(--lb-gold); font: normal var(--lb-label)/1.2 Georgia, serif !important; letter-spacing: .08em; text-transform: uppercase; }
+
+/* Buttons stay real <button>s: text, focus and disabled state are live HTML. */
+.lb-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: var(--lb-hit); min-height: var(--lb-hit); max-width: 100%;
+  margin: 0; padding: 0 8px;
+  font-size: var(--lb-body); line-height: 1.15; letter-spacing: .04em; text-align: center;
+  cursor: pointer; touch-action: manipulation;
+  transition: filter 120ms, transform 120ms;
+}
+.lb-button--primary { border-image-source: url("assets/ui-kit/v01/frames/panel-highlighted-128.png"); --lb-fill: var(--lb-fill-primary); }
+.lb-button--secondary { --lb-fill: var(--lb-panel); }
+.lb-button--claim { border-image-source: url("assets/ui-kit/v01/frames/panel-highlighted-128.png"); --lb-fill: var(--lb-fill-claim); }
+.lb-button--danger { border-image-source: url("assets/ui-kit/v01/frames/button-danger-128.png"); --lb-fill: var(--lb-fill-danger); }
+.lb-button--small { min-height: var(--lb-hit); padding: 0 4px; font-size: var(--lb-label); }
+.lb-button--block { display: flex; width: 100%; }
+.lb-button:not(:disabled):hover { filter: brightness(1.12); }
+.lb-button:not(:disabled):active { transform: translateY(1px); filter: brightness(1.2); }
+.lb-button:disabled, .lb-button[aria-disabled=true] {
+  border-image-source: url("assets/ui-kit/v01/frames/panel-disabled-128.png");
+  --lb-fill: var(--lb-fill-disabled); color: #8d9aa2; cursor: default;
+}
+
+/* Tabs: a row of buttons with aria-selected. */
+.lb-tabs { display: flex; gap: 4px; min-width: 0; }
+.lb-tab {
+  flex: 1 1 0; min-width: 0; min-height: var(--lb-hit); margin: 0; padding: 0 4px;
+  border-image-source: url("assets/ui-kit/v01/frames/panel-inset-128.png");
+  --lb-fill: var(--lb-inset); color: var(--lb-text-2);
+  font-size: var(--lb-body); line-height: 1.15; text-align: center;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  cursor: pointer; touch-action: manipulation;
+}
+.lb-tab[aria-selected=true] { border-image-source: url("assets/ui-kit/v01/frames/tab-selected-128.png"); --lb-fill: var(--lb-fill-primary); color: var(--lb-text); }
+
+.lb-button:focus-visible, .lb-tab:focus-visible { outline: 2px solid var(--lb-gold); outline-offset: 2px; }
+
+/* Icon frames hold existing art; they never replace it. */
+.lb-icon-frame {
+  display: inline-grid; place-items: center; flex: none;
+  width: 56px; height: 56px; padding: 0; overflow: hidden;
+  border-image-source: url("assets/ui-kit/v01/frames/panel-standard-128.png");
+  --lb-fill: var(--lb-inset);
+}
+.lb-icon-frame--rare { border-image-source: url("assets/ui-kit/v01/frames/icon-rare-128.png"); }
+.lb-icon-frame--epic { border-image-source: url("assets/ui-kit/v01/frames/icon-epic-128.png"); }
+.lb-icon-frame > img, .lb-icon-frame > svg { max-width: 100%; max-height: 100%; image-rendering: pixelated; }
+.lb-icon-frame--small { width: 44px; height: 44px; }
+
+/* Status / info row: icon, title, note, optional progress, optional action. */
+.lb-row { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.lb-row__copy { flex: 1 1 auto; min-width: 0; display: grid; gap: 2px; }
+.lb-row__title { margin: 0; color: var(--lb-text); font-size: var(--lb-body); line-height: 1.25; overflow-wrap: anywhere; }
+.lb-row__note { margin: 0; color: var(--lb-text-2); font-size: var(--lb-label); line-height: 1.3; overflow-wrap: anywhere; }
+.lb-row__action { flex: none; max-width: 34%; }
+.lb-row--locked .lb-row__title, .lb-row--locked .lb-row__note { color: #8d9aa2; }
+
+/* Progress: the fill width is live CSS, the texture repeats sideways. */
+.lb-progress {
+  position: relative; box-sizing: border-box; height: 16px; min-width: 0;
+  border: 1px solid var(--lb-outline); background: var(--lb-inset); overflow: hidden;
+}
+.lb-progress > i {
+  display: block; height: 100%; width: 0; max-width: 100%;
+  background: var(--lb-gold) url("assets/ui-kit/v01/accents/progress-gold-64x16.png") repeat-x left center;
+  background-size: 64px 100%; image-rendering: pixelated;
+  transition: width 200ms ease-out;
+}
+.lb-progress--blue > i { background-color: var(--lb-blue); background-image: url("assets/ui-kit/v01/accents/progress-blue-64x16.png"); }
+.lb-progress--green > i { background-color: var(--lb-green); background-image: url("assets/ui-kit/v01/accents/progress-green-64x16.png"); }
+.lb-progress--violet > i { background-color: var(--lb-violet); background-image: url("assets/ui-kit/v01/accents/progress-violet-64x16.png"); }
+.lb-progress__label {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-end; padding: 0 6px;
+  color: var(--lb-text); font-size: var(--lb-label); line-height: 1; font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 0 var(--lb-shadow), 1px 0 0 var(--lb-shadow), -1px 0 0 var(--lb-shadow), 0 -1px 0 var(--lb-shadow);
+}
+.lb-progress--label { height: 18px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-button, .lb-progress > i { transition: none; }
+}

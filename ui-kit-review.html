@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>TEST · LOREBOUND · UI kit review</title><link rel="stylesheet" href="ui-kit.css?v=t5101743"><link rel="stylesheet" href="ui-kit-review.css?v=t5101743"><body class="lb-surface">
+<header class="kit-header"><p class="lb-heading">LOREBOUND · Developer tool</p><h1>Shared UI kit v01</h1><p class="kit-note">Sample words only. No save is read or written.</p></header>
+<main class="kit-main">
+
+<section class="lb-panel kit-section" aria-labelledby="hPanels"><h2 class="lb-heading" id="hPanels">Panels</h2>
+<div class="kit-grid">
+<div class="lb-panel"><h3 class="lb-panel__title">Standard</h3><p class="lb-panel__text">Main menu panel.</p></div>
+<div class="lb-panel lb-panel--inset"><h3 class="lb-panel__title">Inset</h3><p class="lb-panel__text">Panel inside a panel.</p></div>
+<div class="lb-panel lb-panel--highlighted"><h3 class="lb-panel__title">Highlighted</h3><p class="lb-panel__text">Selected or ready.</p></div>
+<div class="lb-panel lb-panel--disabled"><h3 class="lb-panel__title">Disabled</h3><p class="lb-panel__text">Locked or not yet.</p></div>
+</div></section>
+
+<section class="lb-panel kit-section" aria-labelledby="hButtons"><h2 class="lb-heading" id="hButtons">Buttons</h2>
+<div class="kit-wrap">
+<button class="lb-button lb-button--primary" type="button">Continue</button>
+<button class="lb-button lb-button--secondary" type="button">Back</button>
+<button class="lb-button lb-button--claim" type="button">Claim</button>
+<button class="lb-button lb-button--danger" type="button">Remove</button>
+<button class="lb-button" type="button" disabled>Locked</button>
+<button class="lb-button lb-button--small" type="button" aria-label="Settings">⚙</button>
+</div>
+<button class="lb-button lb-button--primary lb-button--block kit-gap" type="button">A much longer button label that has to wrap on narrow phones</button>
+</section>
+
+<section class="lb-panel kit-section" aria-labelledby="hTabs"><h2 class="lb-heading" id="hTabs">Tabs</h2>
+<div class="lb-tabs" role="tablist" id="kitTabs">
+<button class="lb-tab" role="tab" type="button" aria-selected="true">Active</button>
+<button class="lb-tab" role="tab" type="button" aria-selected="false">Inactive</button>
+<button class="lb-tab" role="tab" type="button" aria-selected="false">Achievements</button>
+</div>
+<p class="lb-panel__text kit-gap" id="kitTabNote" role="status">Tap a tab to move the selection.</p>
+</section>
+
+<section class="lb-panel kit-section" aria-labelledby="hIcons"><h2 class="lb-heading" id="hIcons">Icon frames</h2>
+<div class="kit-wrap kit-icons">
+<figure><span class="lb-icon-frame"><img src="assets/journal.svg" alt="" width="32" height="32"></span><figcaption>Base</figcaption></figure>
+<figure><span class="lb-icon-frame lb-icon-frame--rare"><img src="assets/luck-clover.svg" alt="" width="32" height="32"></span><figcaption>Rare</figcaption></figure>
+<figure><span class="lb-icon-frame lb-icon-frame--epic"><img src="assets/omnidex.svg" alt="" width="32" height="32"></span><figcaption>Epic</figcaption></figure>
+<figure><span class="lb-icon-frame lb-icon-frame--small"></span><figcaption>Small</figcaption></figure>
+</div></section>
+
+<section class="lb-panel kit-section" aria-labelledby="hRows"><h2 class="lb-heading" id="hRows">Status rows</h2>
+<div class="lb-panel lb-panel--inset lb-row">
+<span class="lb-icon-frame lb-icon-frame--rare lb-icon-frame--small"><img src="assets/luck-clover.svg" alt="" width="24" height="24"></span>
+<div class="lb-row__copy"><p class="lb-row__title">Sample task title</p><p class="lb-row__note">Short description of the task.</p>
+<div class="lb-progress lb-progress--blue lb-progress--label" role="progressbar" aria-valuemin="0" aria-valuemax="10" aria-valuenow="3"><i style="width:30%"></i><span class="lb-progress__label">3 / 10</span></div></div>
+<button class="lb-button lb-button--claim lb-row__action" type="button">Claim</button>
+</div>
+<div class="lb-panel lb-panel--disabled lb-row lb-row--locked kit-gap">
+<span class="lb-icon-frame lb-icon-frame--small"></span>
+<div class="lb-row__copy"><p class="lb-row__title">A locked sample task with a very long name that wraps</p><p class="lb-row__note">Finish the one before to unlock this.</p>
+<div class="lb-progress lb-progress--label" role="progressbar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0"><i style="width:0%"></i><span class="lb-progress__label">0 / 1</span></div></div>
+<button class="lb-button lb-row__action" type="button" disabled>Locked</button>
+</div>
+</section>
+
+<section class="lb-panel kit-section" aria-labelledby="hProgress"><h2 class="lb-heading" id="hProgress">Progress bars</h2>
+<div class="kit-bars">
+<span>Gold</span><div class="lb-progress lb-progress--label" data-kit-bar><i></i><span class="lb-progress__label"></span></div>
+<span>Blue</span><div class="lb-progress lb-progress--blue lb-progress--label" data-kit-bar><i></i><span class="lb-progress__label"></span></div>
+<span>Green</span><div class="lb-progress lb-progress--green lb-progress--label" data-kit-bar><i></i><span class="lb-progress__label"></span></div>
+<span>Violet</span><div class="lb-progress lb-progress--violet lb-progress--label" data-kit-bar><i></i><span class="lb-progress__label"></span></div>
+</div>
+<label class="kit-slider">Sample fill <input type="range" min="0" max="100" value="65" id="kitFill"></label>
+</section>
+
+<section class="kit-section" aria-labelledby="hScale"><h2 class="lb-heading" id="hScale">Scale test</h2>
+<p class="kit-note">One frame picture, from a chip to a full-width panel. Corners keep their size.</p>
+<div class="kit-wrap"><span class="lb-panel kit-chip">Chip</span><span class="lb-panel lb-panel--highlighted kit-chip">Chip</span></div>
+<div class="lb-panel kit-gap kit-wide"><p class="lb-panel__text">Full width</p></div>
+<div class="lb-panel lb-panel--inset kit-gap kit-tall"><p class="lb-panel__text">Tall</p></div>
+<div class="kit-narrow kit-gap lb-panel"><h3 class="lb-panel__title">320px example</h3><p class="lb-panel__text">A fixed 296px-wide panel, the space left on a 320px phone.</p><button class="lb-button lb-button--primary lb-button--block kit-gap" type="button">Continue</button></div>
+</section>
+</main>
+<script src="ui-kit-review.js?v=t5101743"></script><div id="test-build-tag" aria-hidden="true" style="position:fixed;z-index:2147483647;top:env(safe-area-inset-top,0px);left:50%;transform:translateX(-50%);pointer-events:none;padding:1px 8px;border:1px solid #a38c59;border-top:0;background:#0b1418e6;color:#f5dc96;font:12px/1.4 Georgia,serif!important;letter-spacing:0;text-transform:none;white-space:nowrap">TEST · main 87fc1fd + #38 #60 #64 #66 #67 #69</div><script>setTimeout(function(){var t=document.getElementById('test-build-tag');if(t)t.remove()},6000)</script></body></html>
