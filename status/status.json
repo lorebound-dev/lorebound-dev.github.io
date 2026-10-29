@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T20:51:55.416Z",
+ "generatedAt": "2026-10-29T21:03:28.128Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -32,23 +32,32 @@
    "by": "Joshua",
    "title": "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
    "quote": "",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Locked Tome seals (grey) can't be tapped. Suggestion: keep it that way. If you'd like, tapping a locked seal could open the Tome Library to preview that Tome, without buying anything."
+    },
+    {
+     "who": "joshua",
+     "text": "The odds open in the Tome Library rather than inside this menu. Suggestion: keep it that way, because the Library already shows every Tome's real odds. If you'd prefer, I can show the odds for your Tome as coloured bars right inside Rift Upgrades."
+    }
+   ],
    "openedAt": "2026-10-29T20:31:35Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-29T20:50:31Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T20:51:34Z",
-   "headSha": "7d6bdea30d2d6bd06aaa5d8108dba8e935183c08",
+   "updatedAt": "2026-10-29T21:02:55Z",
+   "headSha": "3b577c07af458e8cd1f85ac697144502fa8353dd",
    "touchesGame": true,
-   "requestStatus": "Waiting to be built",
-   "botState": "working",
-   "botAt": "2026-10-29T20:51:34Z"
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T21:02:55Z"
   },
   {
    "number": 75,
@@ -690,6 +699,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T21:02:55Z",
+   "kind": "built",
+   "text": "Claude finished building “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
+  },
+  {
+   "at": "2026-10-29T21:02:55Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
+  },
+  {
    "at": "2026-10-29T20:50:31Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
@@ -878,16 +897,6 @@
    "at": "2026-10-29T15:30:04Z",
    "kind": "question",
    "text": "Claude has a question for you about “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
-  },
-  {
-   "at": "2026-10-29T15:30:04Z",
-   "kind": "question",
-   "text": "Part of “Shardworks mine-hub visual overhaul — approved art, economy unchanged” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-29T15:19:54Z",
-   "kind": "asked",
-   "text": "You asked for “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
   }
  ],
  "otherPulls": [
