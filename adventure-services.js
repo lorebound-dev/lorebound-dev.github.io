@@ -5,11 +5,13 @@ const $=id=>document.getElementById(id);let mounted=false,last='';
 function mount(){
  if(mounted||!root.__ADVENTURE_DOCK_READY__)return;mounted=true;
  document.documentElement.classList.add('party-services');
- // Upgrade Rift: the shrine's left plaque opens the existing Summoning Tome sheet, titled Rift Upgrades: Tome upgrade,
- // quantity, Auto, and its link to the Tome Library and exact odds. The Tome I–V tiers, costs and odds are unchanged.
+ // Upgrade Rift: the shrine's left plaque opens the Rift Upgrades menu (#tomeQuickSheet): the Tome I–V track, the upgrade,
+ // quantity and a Summoning odds entry. Auto stays on its own plaque, so the menu's Auto row is hidden (tome-popup.css).
+ // The Tome I–V tiers, costs and odds are unchanged.
  $('tomeQuickAccess').onclick=()=>root.LoreSummoning.openSettings('upgrade');
  $('tomeQuickAccess').querySelector('.dock-tome-options').textContent='Upgrade Rift';
- $('tomePopupHeading').textContent='RIFT UPGRADES';$('closeTomeQuick').setAttribute('aria-label','Close Rift Upgrades');
+ // Summoning odds opens the Tome Library straight on its Exact odds tab.
+ $('quickTomeDetails').onclick=()=>{root.LoreTomePopup.close();root.LoreTomes.resetPreview();root.LoreSummoning.openSettings('odds');};
  $('summonSettings').setAttribute('aria-label','Tome Library');$('summonSettings').querySelector('h2').textContent='Tome Library';
  $('summonSettings').querySelector('.summon-cost').textContent='Select your book and its level';$('tomeCommon').append($('tomeTierCards'),$('summonLuckProgress'));const heading=document.createElement('p');heading.className='tome-level-label';heading.textContent='Tome level';$('tomeCommon').insertBefore(heading,$('tomeTierCards'));
  const footer=document.createElement('footer');footer.id='libraryProgression';
