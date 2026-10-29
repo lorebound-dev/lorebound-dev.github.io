@@ -30,9 +30,14 @@
       "number": 69,
       "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
       "head": "d56f8838f1bb8486b2878ffc9d430caa5e1c5437"
+    },
+    {
+      "number": 71,
+      "title": "Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages",
+      "head": "175fc00893a298c0e78b6b56f197b39fc1180136"
     }
   ],
   "skipped": [],
-  "commit": "30ce8fd947c359493db227ec49a2946eb2fd551a",
-  "at": "2026-10-29T02:35:10Z"
+  "commit": "df09beca53310c32703438b876c2d4d8fe42bad8",
+  "at": "2026-10-29T02:42:20Z"
 }

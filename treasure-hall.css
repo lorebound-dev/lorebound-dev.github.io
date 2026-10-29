@@ -45,3 +45,14 @@
 @media(prefers-reduced-motion:reduce){[data-hall-effect],.treasure-earned-burst{display:none!important}}
 .treasure-art-window>.phase1-art,.treasure-art-window>.companion-art,.treasure-art-window>.starter-sheet{position:absolute;inset:15%;width:70%;height:70%;display:block}
 #treasureHall .treasure-seals i:not(:has(img)){border:1px solid #8d825e;width:23px;height:24px;min-height:24px;margin-top:3px}#treasureHall .treasure-seals i.earned:not(:has(img)){background:#66532e;color:#ffe6a1;border-color:#d6bb75}
+
+/* Treasures tab: the Hall fills the game area between the top bar and the bottom bar, in place of the old full-screen dialog. */
+#destinationPage[data-area=treasures]{padding:0!important;border:0!important;margin:0!important;overflow:hidden;background:#050b14;box-shadow:none}
+#destinationPage[data-area=treasures]>header{display:none}
+#destinationPage[data-area=treasures] #destinationContent{height:100%;min-height:0}
+#destinationPage[data-area=treasures] .treasure-wait{margin:12px}
+#treasureHall.hall-page{position:relative;inset:auto;width:100%;max-width:none;height:100%;max-height:none!important;margin:0;border:0;border-radius:0;box-shadow:none}
+#treasureHall.hall-page[data-view=scene]{width:100%;height:100%;max-height:none!important}
+#treasureHall.hall-page>header{padding-top:10px}
+#treasureHall.hall-page>.hall-scene{--head-top:clamp(8px,2cqh,16px);--plaque-bottom:clamp(6px,1.85cqh,16px)}
+#treasureHall .treasure-restore{margin:12px 0;padding:16px 12px;background:#081b28eb;border:1px solid #c4a96555;border-radius:5px}

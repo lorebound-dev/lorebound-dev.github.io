@@ -159,7 +159,8 @@
 /* Original global navigation, visually joined to the rail and padded above the home indicator. */
 .adventure-dock-preview #game>.realm-navigation {grid-row:5;grid-column:1;position:relative;inset:auto;height:calc(58px + var(--adventure-safe-bottom));min-height:58px;margin:0 6px;padding:3px 3px calc(3px + var(--adventure-safe-bottom));border:1px solid #ae925c;border-top:1px solid #a88c5144;border-radius:0 0 14px 14px;background:linear-gradient(#081a25,#04111b);z-index:7}
 .adventure-dock-preview #game>.realm-navigation button {min-height:50px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;margin:0;padding:0 0 3px;border:0;background:none}
-.adventure-dock-preview #game>.realm-navigation button svg {width:28px;height:28px}
+.adventure-dock-preview #game>.realm-navigation button :is(svg,.nav-art) {width:28px;height:28px}
+.adventure-dock-preview #game>.realm-navigation button .nav-art {display:block;flex:none;object-fit:contain;filter:drop-shadow(0 1px 1px #000a)}
 .adventure-dock-preview #game>.realm-navigation button span {font:var(--ui-label)/14px Georgia,serif!important}
 .adventure-dock-preview #game>.realm-navigation button.active {background:radial-gradient(ellipse at 50% 95%,#bfa05a1a,transparent 70%);color:#f2d99e}
 .adventure-dock-preview #game>.realm-navigation button.active:after {bottom:0;width:28px;height:2px}
@@ -214,7 +215,7 @@
   .adventure-dock-preview #game.dock-is-collapsed .summon-book {top:-4px;left:calc(50% - 52px);width:68px;height:68px}
   .adventure-dock-preview #game>.realm-navigation {height:calc(58px + var(--adventure-safe-bottom));min-height:58px;padding-top:2px;padding-bottom:calc(3px + var(--adventure-safe-bottom))}
   .adventure-dock-preview #game>.realm-navigation button {min-height:48px}
-  .adventure-dock-preview #game>.realm-navigation button svg {width:26px;height:26px}
+  .adventure-dock-preview #game>.realm-navigation button :is(svg,.nav-art) {width:26px;height:26px}
   .adventure-dock-preview #game>.realm-navigation button span {font-size:var(--ui-label)!important}
   .adventure-dock-preview #game.area-open {grid-template-rows:48px minmax(0,1fr) 0 0 calc(58px + var(--adventure-safe-bottom))}
 }
