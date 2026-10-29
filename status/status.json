@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T02:27:30.586Z",
+ "generatedAt": "2026-10-29T02:33:36.696Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T02:12:53Z",
@@ -38,12 +38,49 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T02:27:09Z",
+   "updatedAt": "2026-10-29T02:33:12Z",
    "headSha": "7043f7d240e546a6dc432c63a676ed24dc0b51e7",
    "touchesGame": false,
    "requestStatus": "Waiting to be built",
-   "botState": "working",
-   "botAt": "2026-10-29T02:27:09Z"
+   "botState": "finished",
+   "botAt": "2026-10-29T02:33:12Z"
+  },
+  {
+   "number": 65,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
+   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this puts two new pictures, which Joshua hasn't approved yet, into the real game (they're in his Proposed folder). My suggestion: merge only after Joshua says yes on the test site."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new frame around the enemy's name? My suggestion: yes, the name and health bar are easier to read now."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new party tray frame? With it, the closed tray shows the frame's corners and the background's own curls together. My suggestion: keep it, but only if the two sets of ornaments don't bother you. If they do, I can go back to the old tray edge."
+    }
+   ],
+   "openedAt": "2026-10-28T22:17:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-29T02:15:05Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T02:32:55Z",
+   "headSha": "9591b9aaee13c9ae1855cac5978e90665eb9840e",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T02:32:55Z"
   },
   {
    "number": 38,
@@ -105,30 +142,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T17:24:37Z"
-  },
-  {
-   "number": 65,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T22:17:13Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-29T02:15:05Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-29T02:15:05Z",
-   "headSha": "96d641547ca451a717a54bbe598023c5059184ab",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-29T01:49:21Z"
   },
   {
    "number": 66,
@@ -521,6 +534,21 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T02:32:55Z",
+   "kind": "built",
+   "text": "Claude finished building “Improve Adventure battlefield layout with shared nameplate and party frame”"
+  },
+  {
+   "at": "2026-10-29T02:32:55Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Improve Adventure battlefield layout with shared nameplate and party frame”"
+  },
+  {
+   "at": "2026-10-29T02:32:55Z",
+   "kind": "question",
+   "text": "Part of “Improve Adventure battlefield layout with shared nameplate and party frame” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-29T02:26:36Z",
    "kind": "asked",
    "text": "You asked for “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”"
@@ -554,11 +582,6 @@
    "at": "2026-10-29T02:01:44Z",
    "kind": "behind",
    "text": "Behind the scenes: “Give Claude's builds 250 turns and 75 minutes”"
-  },
-  {
-   "at": "2026-10-29T01:49:21Z",
-   "kind": "built",
-   "text": "Claude finished building “Improve Adventure battlefield layout with shared nameplate and party frame”"
   },
   {
    "at": "2026-10-29T01:46:47Z",
@@ -709,16 +732,6 @@
    "at": "2026-10-28T22:17:13Z",
    "kind": "asked",
    "text": "You asked for “Improve Adventure battlefield layout with shared nameplate and party frame”"
-  },
-  {
-   "at": "2026-10-28T19:03:47Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T18:56:50Z",
-   "kind": "asked",
-   "text": "You asked for “Build reusable LOREBOUND UI kit from individually supplied artwork”"
   }
  ],
  "otherPulls": [
