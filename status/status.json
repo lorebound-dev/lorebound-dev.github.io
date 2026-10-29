@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T01:48:05.688Z",
+ "generatedAt": "2026-10-29T01:49:17.845Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -39,12 +39,12 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T01:46:47Z",
+   "updatedAt": "2026-10-29T01:49:21Z",
    "headSha": "b9ac0914d0a5450459280e573844309e35d51322",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-10-29T01:46:02Z"
+   "botAt": "2026-10-29T01:49:21Z"
   },
   {
    "number": 69,
@@ -515,14 +515,14 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T01:49:21Z",
+   "kind": "built",
+   "text": "Claude finished building “Improve Adventure battlefield layout with shared nameplate and party frame”"
+  },
+  {
    "at": "2026-10-29T01:46:47Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Build reusable LOREBOUND UI kit from individually supplied artwork”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Build explorable vertical Town from approved Mossbound Ruins terrain”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
-  },
-  {
-   "at": "2026-10-29T01:46:02Z",
-   "kind": "built",
-   "text": "Claude finished building “Improve Adventure battlefield layout with shared nameplate and party frame”"
   },
   {
    "at": "2026-10-29T01:45:37Z",
