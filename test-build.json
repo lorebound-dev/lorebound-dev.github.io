@@ -1,5 +1,5 @@
 {
-  "base": "a3de9fe1821cb87827e2ec7279b6b494cb0c9ab9",
+  "base": "79ab29d8d364fdaf0b418ef0d40175e75dcf01f3",
   "included": [
     {
       "number": 38,
@@ -10,11 +10,6 @@
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
       "head": "8aeda5a249076ff7dd764aae0c4a3c4efccd9ac8"
-    },
-    {
-      "number": 64,
-      "title": "Build reusable LOREBOUND UI kit from individually supplied artwork",
-      "head": "571aec2781536b99fb1230f798b6ce30bf1f0e45"
     },
     {
       "number": 65,
@@ -38,6 +33,6 @@
     }
   ],
   "skipped": [],
-  "commit": "df09beca53310c32703438b876c2d4d8fe42bad8",
-  "at": "2026-10-29T02:42:20Z"
+  "commit": "84e9c62e734dfd620ecf45140062678fc0f1fede",
+  "at": "2026-10-29T06:39:08Z"
 }
