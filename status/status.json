@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T19:31:01.262Z",
+ "generatedAt": "2026-10-29T19:53:41.810Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -40,14 +40,14 @@
    "liveAt": null,
    "testAt": "2026-10-29T19:30:39Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T19:30:39Z",
-   "headSha": "a2dc8aa8af2a5866c9da35f1ff55d6e741316a9b",
+   "updatedAt": "2026-10-29T19:53:00Z",
+   "headSha": "092af1fbd13fc9e2d9f40b3a921cd5b90afd527e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-29T19:04:47Z"
+   "botState": "questions",
+   "botAt": "2026-10-29T19:53:00Z"
   },
   {
    "number": 75,
@@ -644,14 +644,14 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T19:53:00Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved summoning shrine into Adventure rail — visual-only”"
+  },
+  {
    "at": "2026-10-29T19:30:39Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”"
-  },
-  {
-   "at": "2026-10-29T19:04:47Z",
-   "kind": "built",
-   "text": "Claude finished building “Integrate approved summoning shrine into Adventure rail — visual-only”"
   },
   {
    "at": "2026-10-29T19:03:29Z",
