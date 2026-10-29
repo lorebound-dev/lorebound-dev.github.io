@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T15:49:42.604Z",
+ "generatedAt": "2026-10-29T15:50:42.885Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T06:37:22Z",
@@ -29,9 +29,18 @@
    "by": "Joshua",
    "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
    "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Which color should the Rift's glow be: sea-glass teal (my suggestion, because it won't get mixed up with the purple Lore Shards), pale moonlight blue, or warm amber? The stone and bronze stay the same whichever you pick."
+    },
+    {
+     "who": "joshua",
+     "text": "The Rift art isn't in your LOREBOUND Artwork Inbox yet. Please ask ChatGPT to make it and put it in a folder called Summoning-Rift-v01 inside Approved, with a MANIFEST.json, and to link that folder in this request. Suggested files, each a separate PNG with a see-through…"
+    }
+   ],
    "openedAt": "2026-10-29T15:47:43Z",
    "mergedAt": null,
    "closedAt": null,
@@ -40,12 +49,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T15:49:46Z",
-   "headSha": "5634d271441fb38aaa4a0c1cd3ffd73641555eb9",
+   "updatedAt": "2026-10-29T15:50:14Z",
+   "headSha": "22289ae1948780ceeed874905adf3c403b698bd3",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-29T15:49:46Z"
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-10-29T15:50:14Z"
   },
   {
    "number": 73,
@@ -586,6 +595,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T15:50:14Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Animated compact Summoning Rift — replace rail Tome after color/art approval”"
+  },
+  {
    "at": "2026-10-29T15:47:43Z",
    "kind": "asked",
    "text": "You asked for “Animated compact Summoning Rift — replace rail Tome after color/art approval”"
@@ -779,11 +793,6 @@
    "at": "2026-10-29T00:58:40Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
-  },
-  {
-   "at": "2026-10-29T00:58:07Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Builds get the Drive art their requests link to, without Noah”"
   }
  ],
  "otherPulls": [
