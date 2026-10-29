@@ -104,7 +104,10 @@
 #economyAuto .auto-name{flex:1;min-width:0;text-align:left;font-size:14px;color:#e9ddbe;text-transform:uppercase}
 #economyAuto .auto-row:has(input:checked) .auto-name{color:#f1d899}
 #economyAuto .auto-pct{flex:none;font-size:14px;color:#f1d899;white-space:nowrap}
-#economyAuto .auto-row.is-zero .auto-name,#economyAuto .auto-row.is-zero .auto-pct{color:#a69c88}
+#economyAuto .auto-row.is-zero .auto-name,#economyAuto .auto-row.is-zero .auto-pct,#economyAuto .auto-row.is-zero:has(input:checked) .auto-name{color:#a69c88}
+/* A rarity this Tome can't give: its box is greyed out and can't be ticked, but the row and its 0% stay readable. */
+#economyAuto .auto-row.is-zero,#economyAuto .auto-row.is-zero:has(input:checked){cursor:default;border-color:#a8854f26;background:#060f17}
+#economyAuto .auto-row.is-zero input,#economyAuto .auto-row.is-zero input:checked{border-color:#6f6a5e;background-color:#2a2c2c;opacity:.6}
 #economyAuto .auto-quantity{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 8px;padding-top:10px;border-top:1px solid #a8854f80;font-size:15px;color:#f1d899}
 #economyAuto .auto-quantity>span{white-space:nowrap}
 #economyAuto .auto-stepper{flex:0 1 190px;min-width:0;display:flex;align-items:stretch;border:1px solid #a8854f;border-radius:3px;background:#07131d}

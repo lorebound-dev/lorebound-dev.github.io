@@ -42,12 +42,17 @@
       "head": "39ca0b88b04bfee140a385f51388e49e83477864"
     },
     {
+      "number": 75,
+      "title": "Owner approves teal color direction for Summoning Rift #74",
+      "head": "ac17deed980342473b6ed574c691c9a40fb0c225"
+    },
+    {
       "number": 76,
       "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
       "head": "a10e68b4ba7e19175b459a31900c39125f02db53"
     }
   ],
   "skipped": [],
-  "commit": "8ce3a2f3c7f4c4d8337edb2949e31f7d91de1f9c",
-  "at": "2026-10-29T18:34:44Z"
+  "commit": "935cc6cd9e75103318159074916e6073919173e0",
+  "at": "2026-10-29T18:39:25Z"
 }
