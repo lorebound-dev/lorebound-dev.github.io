@@ -1,5 +1,5 @@
 {
-  "base": "feff0e9132b2267a92c969f284eedf3383bda89c",
+  "base": "a3de9fe1821cb87827e2ec7279b6b494cb0c9ab9",
   "included": [
     {
       "number": 38,
@@ -27,17 +27,12 @@
       "head": "9459e99c80ddec2c13a3fcf5c2b9e7a1e9d87122"
     },
     {
-      "number": 67,
-      "title": "Build explorable vertical Town from approved Mossbound Ruins terrain",
-      "head": "31086aff13715089b8cf56359dee26ffc3a074ef"
-    },
-    {
       "number": 69,
       "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
       "head": "5fe08593553cb1ae4f3a9f44806202e0a06f1f52"
     }
   ],
   "skipped": [],
-  "commit": "a89107c45538efb558a0d041239272cb2afb8cb8",
-  "at": "2026-10-29T02:02:29Z"
+  "commit": "d8c2b3b2d2cc6d9c3667fdb7e64d21a07a52c296",
+  "at": "2026-10-29T02:13:35Z"
 }
