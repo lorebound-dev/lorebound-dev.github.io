@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T01:11:29.546Z",
+ "generatedAt": "2026-10-29T01:13:55.138Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -19,6 +19,35 @@
  },
  "items": [
   {
+   "number": 69,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
+   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
+   "stage": "built",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Joshua said yes, for now, to the Town Locations menu in #67: one small Locations menu in the corner instead of the five big building buttons. It moves the camera to the building and shows Locked / Ready to restore / Restored. Dragging, keyboard and tapping buildings all stay.…"
+    }
+   ],
+   "openedAt": "2026-10-29T01:01:40Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T01:13:32Z",
+   "headSha": "5fe08593553cb1ae4f3a9f44806202e0a06f1f52",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T01:13:32Z"
+  },
+  {
    "number": 64,
    "kind": "request",
    "by": "Joshua",
@@ -35,12 +64,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T01:11:22Z",
+   "updatedAt": "2026-10-29T01:12:00Z",
    "headSha": "9801834ecf7d1d76a3d9f6a860c15f2eb096a048",
    "touchesGame": false,
    "requestStatus": "Waiting for answers",
    "botState": "finished",
-   "botAt": "2026-10-29T01:11:22Z"
+   "botAt": "2026-10-29T01:12:00Z"
   },
   {
    "number": 67,
@@ -89,30 +118,6 @@
    "requestStatus": "Waiting for answers",
    "botState": "finished",
    "botAt": "2026-10-29T01:10:17Z"
-  },
-  {
-   "number": 69,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T01:01:40Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-29T01:07:12Z",
-   "headSha": "ec3768b4a487226dc0b5506be4c31ba188cc3c46",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-29T01:07:12Z"
   },
   {
    "number": 66,
@@ -476,6 +481,16 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T01:13:32Z",
+   "kind": "built",
+   "text": "Claude finished building “Unify team and Omnidex companion pages; approve Locations provisionally”"
+  },
+  {
+   "at": "2026-10-29T01:13:32Z",
+   "kind": "question",
+   "text": "Part of “Unify team and Omnidex companion pages; approve Locations provisionally” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-29T01:01:40Z",
    "kind": "asked",
    "text": "You asked for “Unify team and Omnidex companion pages; approve Locations provisionally”"
@@ -664,16 +679,6 @@
    "at": "2026-10-28T17:25:37Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T17:25:15Z",
-   "kind": "live",
-   "text": "“Party reordering, continuous Auto Summon and in-dock companion decisions” is live in the game"
-  },
-  {
-   "at": "2026-10-28T17:25:11Z",
-   "kind": "approved",
-   "text": "Noah approved “Party reordering, continuous Auto Summon and in-dock companion decisions”"
   }
  ],
  "otherPulls": [
