@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T18:28:29.328Z",
+ "generatedAt": "2026-10-29T18:31:53.217Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-29T18:19:51Z",
+  "updatedAt": "2026-10-29T18:29:19Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -18,7 +18,8 @@
    "Unify team and Omnidex companion pages; approve Locations provisionally",
    "Owner approves Recruits label and both battlefield frames",
    "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
-   "Animated compact Summoning Rift — replace rail Tome after color/art approval"
+   "Animated compact Summoning Rift — replace rail Tome after color/art approval",
+   "Integrate approved summoning shrine into Adventure rail — visual-only"
   ],
   "skipped": []
  },
@@ -29,7 +30,7 @@
    "by": "Joshua",
    "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
    "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "built",
+   "stage": "testing",
    "waitingOn": "joshua",
    "asks": [
     {
@@ -45,11 +46,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
+   "testAt": "2026-10-29T18:29:20Z",
+   "onTest": true,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T18:27:57Z",
+   "updatedAt": "2026-10-29T18:29:20Z",
    "headSha": "a10e68b4ba7e19175b459a31900c39125f02db53",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -69,11 +70,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T18:19:52Z",
+   "testAt": "2026-10-29T18:29:20Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T18:19:52Z",
+   "updatedAt": "2026-10-29T18:29:20Z",
    "headSha": "71244ee80429b9f5f7fe41451f5b88b4b7a66b1a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -106,11 +107,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T18:19:52Z",
+   "testAt": "2026-10-29T18:29:20Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T18:19:52Z",
+   "updatedAt": "2026-10-29T18:29:20Z",
    "headSha": "a2846cb139f3810c875c658c76b7dbe3d7d2bcca",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -143,11 +144,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T18:19:52Z",
+   "testAt": "2026-10-29T18:29:20Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T18:19:52Z",
+   "updatedAt": "2026-10-29T18:29:20Z",
    "headSha": "b935a155e2d9540e9a7ba74194d285eb9291fe6a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -172,11 +173,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T18:19:52Z",
+   "testAt": "2026-10-29T18:29:20Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T18:19:52Z",
+   "updatedAt": "2026-10-29T18:29:20Z",
    "headSha": "931e96470a33355ca99125226bb1893e27899bf2",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -201,11 +202,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T18:19:52Z",
+   "testAt": "2026-10-29T18:29:20Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T18:19:52Z",
+   "updatedAt": "2026-10-29T18:29:20Z",
    "headSha": "eae73ab0084d9768da905b57ec9c5be6b3a88642",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -242,11 +243,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T18:19:52Z",
+   "testAt": "2026-10-29T18:29:20Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T18:19:52Z",
+   "updatedAt": "2026-10-29T18:29:20Z",
    "headSha": "ea3d1336cd8872addbf627266ab9495660019613",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -275,11 +276,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T18:19:52Z",
+   "testAt": "2026-10-29T18:29:20Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T18:19:52Z",
+   "updatedAt": "2026-10-29T18:29:20Z",
    "headSha": "39ca0b88b04bfee140a385f51388e49e83477864",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -320,11 +321,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T18:19:52Z",
+   "testAt": "2026-10-29T18:29:20Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T18:19:52Z",
+   "updatedAt": "2026-10-29T18:29:20Z",
    "headSha": "7b7fe426373a6f8821f887cee496aa9664aae79b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -361,22 +362,9 @@
    "by": "Joshua",
    "title": "Owner approves teal color direction for Summoning Rift #74",
    "quote": "I LIKE TEAL",
-   "stage": "questions",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "This pull request only changes a note in the requests folder, and the Rift build continues in #74. Noah can close it, or merge it to keep a record of the answer. Either is fine."
-    },
-    {
-     "who": "joshua",
-     "text": "Do you approve the teal Rift picture in the Proposed folder (LOREBOUND_Summoning_Rift_SeaGlassTeal_Static_v01_PROPOSED.png) as the final look? Suggestion: if you like it at small size, say yes and ask ChatGPT to move it to the Approved folder with its manifest."
-    },
-    {
-     "who": "joshua",
-     "text": "Can ChatGPT make separate see-through pictures from that same Rift: the stone frame with no glow, and the teal glow alone, plus a few sparkles if you want them? Suggestion: yes. That lets the glow move gently while the stone stays still. Without them, the Rift can only be a…"
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-29T16:27:15Z",
    "mergedAt": null,
    "closedAt": null,
@@ -386,7 +374,7 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-10-29T16:29:02Z",
-   "headSha": "9eb9516789fe07c1111b6b83712efc6b51affc5a",
+   "headSha": "b0f63022107794287cda0397e7539a68df3b85d1",
    "touchesGame": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
@@ -482,7 +470,7 @@
    "mergedAt": "2026-10-28T18:27:19Z",
    "closedAt": "2026-10-28T18:27:19Z",
    "liveAt": "2026-10-28T18:27:23Z",
-   "testAt": "2026-10-28T18:05:09Z",
+   "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
@@ -664,6 +652,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T18:29:20Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved summoning shrine into Adventure rail — visual-only”"
+  },
+  {
    "at": "2026-10-29T18:27:57Z",
    "kind": "built",
    "text": "Claude finished building “Integrate approved summoning shrine into Adventure rail — visual-only”"
@@ -722,16 +715,6 @@
    "at": "2026-10-29T16:30:17Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
-  },
-  {
-   "at": "2026-10-29T16:29:02Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Owner approves teal color direction for Summoning Rift #74”"
-  },
-  {
-   "at": "2026-10-29T16:29:02Z",
-   "kind": "question",
-   "text": "Part of “Owner approves teal color direction for Summoning Rift #74” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-29T16:27:15Z",
@@ -862,6 +845,11 @@
    "at": "2026-10-29T02:32:55Z",
    "kind": "question",
    "text": "Part of “Improve Adventure battlefield layout with shared nameplate and party frame” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-10-29T02:26:36Z",
+   "kind": "asked",
+   "text": "You asked for “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”"
   }
  ],
  "otherPulls": [
