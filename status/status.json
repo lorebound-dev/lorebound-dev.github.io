@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T02:15:27.022Z",
+ "generatedAt": "2026-10-29T02:27:30.586Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T02:12:53Z",
@@ -21,6 +21,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 71,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages",
+   "quote": "\"Ok I actually want to change things on some things. I want the armory tab to be the treasure hall menu by itself and I want the town tab to go away and be replaced with the shard works page. Armory is gone for now as well as the recruitment and other buildings\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T02:26:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T02:27:09Z",
+   "headSha": "7043f7d240e546a6dc432c63a676ed24dc0b51e7",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "working",
+   "botAt": "2026-10-29T02:27:09Z"
+  },
   {
    "number": 38,
    "kind": "request",
@@ -497,6 +521,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T02:26:36Z",
+   "kind": "asked",
+   "text": "You asked for “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”"
+  },
+  {
    "at": "2026-10-29T02:15:05Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Build reusable LOREBOUND UI kit from individually supplied artwork”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
@@ -690,11 +719,6 @@
    "at": "2026-10-28T18:56:50Z",
    "kind": "asked",
    "text": "You asked for “Build reusable LOREBOUND UI kit from individually supplied artwork”"
-  },
-  {
-   "at": "2026-10-28T18:54:36Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
  ],
  "otherPulls": [
@@ -881,15 +905,6 @@
   {
    "number": 32,
    "headSha": "c684e4bbc03d98b604161aa9b5fd44ab6ef020e3",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 31,
-   "headSha": "6b4b05c9dc7907a0fdd2aff0078e968f453692ec",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
