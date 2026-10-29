@@ -4,10 +4,34 @@
 #journalSheet .journal-index{position:static;inset:auto}#journalSheet .journal-row header{flex-wrap:wrap}#journalSheet .journal-row h4{min-width:100px}#journalSheet .journal-row .journal-met{margin-left:auto}
 .shardworks button,.shardworks button small{font-family:Georgia,serif!important}
 
-/* Shardworks tab: the approved stone arch, dimmed by CSS until the workshop is restored. */
+/* Shardworks tab: the approved mine backdrop, dimmed by CSS until the workshop is restored. */
 #destinationPage[data-area=shardworks] .shardworks{margin:0 0 8px;border-top:0;background:none;padding:0}
-#destinationPage[data-area=shardworks] .shardworks-scene{height:clamp(120px,25dvh,230px);margin:4px 0 0;border:1px solid #9b855166;background:radial-gradient(ellipse at 50% 70%,#5a46a033,transparent 65%),linear-gradient(#081b24aa,#06131c)}
-.shardworks .shardworks-scene img{image-rendering:auto;transition:filter .3s}
+#destinationPage[data-area=shardworks] .shardworks-scene{height:auto;aspect-ratio:2/3;margin:6px 0 10px;border:1px solid #9b855166;background:#06131c}
+.shardworks .shardworks-scene img{display:block;object-fit:cover;image-rendering:auto;transition:filter .3s}
+
+/* Mine areas: squared plaques over the painted stations, placed in % of the 2:3 backdrop. */
+.mine-scene .mine-plaque{position:absolute;z-index:2;display:flex;flex-direction:column;justify-content:center;width:auto;min-height:44px;margin:0;padding:5px 10px;border:1px solid #9b8551;border-radius:2px;background:linear-gradient(#0d2230ee,#06131ced);box-shadow:0 2px 8px #000a;color:#f3da9c;font:13px/1.2 Georgia,serif!important;text-align:left;white-space:nowrap}
+.mine-scene .mine-plaque small{margin-top:3px;font:12px/1.2 Georgia,serif!important;color:#c5d3ce}
+.mine-scene .mine-plaque.scenic{min-height:0;padding:4px 8px;border-color:#9b855199;background:#06131cd0;color:#c9b88f;pointer-events:none}
+.mine-scene button.mine-plaque::after{content:'›';position:absolute;right:8px;top:50%;transform:translateY(-50%);font:18px/1 Georgia,serif!important;color:#d9b866}
+.mine-scene button.mine-plaque{padding-right:24px}
+.mine-scene button.mine-plaque[aria-pressed=true]{border-color:#e2c477;box-shadow:0 0 0 1px #e2c47766,0 2px 8px #000a}
+.mine-plaque[data-place=extraction]{left:3%;top:31%;transform:translateY(-50%)}
+.mine-plaque[data-place=refinement]{left:53%;top:12%;transform:translate(-50%,-50%)}
+.mine-plaque[data-place=reservoir]{right:2%;top:27%;transform:translateY(-50%)}
+.mine-plaque[data-place=transport]{left:60%;top:85%;transform:translate(-50%,-50%)}
+/* Developed and Masterwork add light to the painted refinery crystal and reservoir pool; Basic is the painting as approved. */
+.mine-glow{position:absolute;z-index:1;border-radius:50%;pointer-events:none;mix-blend-mode:screen;opacity:0;transform:translate(-50%,-50%)}
+.mine-glow[data-place=refinement]{left:53.5%;top:37.5%;width:30%;aspect-ratio:1;background:radial-gradient(#a98cff 0,#6d55d488 35%,transparent 70%)}
+.mine-glow[data-place=reservoir]{left:85%;top:58%;width:30%;aspect-ratio:2;background:radial-gradient(#9fdcff 0,#4f9fd488 35%,transparent 70%)}
+.mine-glow[data-stage=developed]{opacity:.35}.mine-glow[data-stage=masterwork]{opacity:.6}
+
+/* The selected station's card: squared plaque, real numbers, existing upgrade button. */
+.shardworks .mine-drawer{margin:12px 0 0;padding:12px;border:1px solid #9b855199;border-radius:2px;background:linear-gradient(#0d2230e6,#06131cf0)}
+.shardworks .mine-drawer h4{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:4px 10px;margin:0;font:18px Georgia,serif;color:#f3da9c}
+.shardworks .mine-drawer h4 span{font:12px Georgia,serif!important;letter-spacing:.06em;text-transform:uppercase;color:#c9b88f}
+.shardworks .mine-drawer dl{margin:10px 0}.shardworks .mine-drawer dd{font-size:16px}
+.shardworks .mine-output{margin:6px 0 10px}
 .shardworks[data-state=locked] .shardworks-scene img{filter:grayscale(.55) brightness(.5)}
 .shardworks[data-state=ready] .shardworks-scene img{filter:brightness(.82)}
 .shardworks .shardworks-state{margin:10px 0 4px!important;padding:7px 10px!important;border:1px solid #9b855166;border-left:3px solid #8c7a55;background:#071822cc;font:13px/1.3 Georgia,serif!important;letter-spacing:.04em;text-transform:uppercase;color:#c9b88f!important}

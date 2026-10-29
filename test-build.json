@@ -35,9 +35,14 @@
       "number": 72,
       "title": "Owner approves Recruits label and both battlefield frames",
       "head": "60a4f01f9c91ef0e35e41cb8ee62da5669be928e"
+    },
+    {
+      "number": 73,
+      "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
+      "head": "7b7fe426373a6f8821f887cee496aa9664aae79b"
     }
   ],
   "skipped": [],
-  "commit": "3ce7126285b05f54f0d27cde3aa0139fc62cc2d6",
-  "at": "2026-10-29T14:02:24Z"
+  "commit": "908b14981ac341303840672bd26cf36372418863",
+  "at": "2026-10-29T15:31:20Z"
 }
