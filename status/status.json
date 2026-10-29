@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T16:01:44.939Z",
+ "generatedAt": "2026-10-29T16:02:59.479Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T06:37:22Z",
@@ -29,9 +29,22 @@
    "by": "Joshua",
    "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
    "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Do you approve this teal Rift picture for the game? My suggestion: yes to the look, but ask ChatGPT for a cleaner small version first. It should have fewer floating crystals, a bigger stone arch and swirl, and no red or blue edges around the crystals."
+    },
+    {
+     "who": "joshua",
+     "text": "For the movement, the request asks for separate pieces: (a) the stone and bronze frame with an empty center, (b) the teal swirl by itself, and (c) optionally a few small sparks. Each should be a PNG with a see-through background and about 256×256. My suggestion: ask ChatGPT…"
+    },
+    {
+     "who": "joshua",
+     "text": "When you approve the pieces, please ask ChatGPT to put them in a folder called Summoning-Rift-v01 inside Approved (not Proposed) with a MANIFEST.json, and to link that folder in this request. Then I'll build the moving Rift right away, at the Tome's size and with the Tome as…"
+    }
+   ],
    "openedAt": "2026-10-29T15:47:43Z",
    "mergedAt": null,
    "closedAt": null,
@@ -40,12 +53,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T16:01:16Z",
+   "updatedAt": "2026-10-29T16:02:31Z",
    "headSha": "e95cdcb37e04c0b4f999de72ec4cf254209163e6",
    "touchesGame": false,
    "requestStatus": "Waiting for answers",
-   "botState": "working",
-   "botAt": "2026-10-29T16:01:16Z"
+   "botState": "questions",
+   "botAt": "2026-10-29T16:02:31Z"
   },
   {
    "number": 73,
@@ -586,6 +599,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T16:02:31Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Animated compact Summoning Rift — replace rail Tome after color/art approval”"
+  },
+  {
    "at": "2026-10-29T16:01:05Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
@@ -779,11 +797,6 @@
    "at": "2026-10-29T01:14:27Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
-  },
-  {
-   "at": "2026-10-29T01:13:32Z",
-   "kind": "built",
-   "text": "Claude finished building “Unify team and Omnidex companion pages; approve Locations provisionally”"
   }
  ],
  "otherPulls": [
