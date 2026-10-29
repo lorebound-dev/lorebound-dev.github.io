@@ -30,9 +30,14 @@
       "number": 71,
       "title": "Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages",
       "head": "175fc00893a298c0e78b6b56f197b39fc1180136"
+    },
+    {
+      "number": 72,
+      "title": "Owner approves Recruits label and both battlefield frames",
+      "head": "60a4f01f9c91ef0e35e41cb8ee62da5669be928e"
     }
   ],
   "skipped": [],
-  "commit": "84e9c62e734dfd620ecf45140062678fc0f1fede",
-  "at": "2026-10-29T06:39:08Z"
+  "commit": "3ce7126285b05f54f0d27cde3aa0139fc62cc2d6",
+  "at": "2026-10-29T14:02:24Z"
 }
