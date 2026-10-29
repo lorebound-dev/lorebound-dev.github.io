@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T01:17:30.192Z",
+ "generatedAt": "2026-10-29T01:45:47.913Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -9,10 +9,12 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-29T01:15:34Z",
+  "updatedAt": "2026-10-29T01:45:37Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+   "Build reusable LOREBOUND UI kit from individually supplied artwork",
+   "Improve Adventure battlefield layout with shared nameplate and party frame",
    "Owner approves immediate Challenge Boss placement fix from #65",
    "Build explorable vertical Town from approved Mossbound Ruins terrain",
    "Unify team and Omnidex companion pages; approve Locations provisionally"
@@ -21,12 +23,65 @@
  },
  "items": [
   {
+   "number": 69,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
+   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Joshua said yes, for now, to the Town Locations menu in #67: one small Locations menu in the corner instead of the five big building buttons. It moves the camera to the building and shows Locked / Ready to restore / Restored. Dragging, keyboard and tapping buildings all stay.…"
+    }
+   ],
+   "openedAt": "2026-10-29T01:01:40Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-29T01:45:37Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-29T01:45:37Z",
+   "headSha": "5fe08593553cb1ae4f3a9f44806202e0a06f1f52",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T01:13:32Z"
+  },
+  {
+   "number": 65,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
+   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T22:17:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-29T01:45:37Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-29T01:45:37Z",
+   "headSha": "b9ac0914d0a5450459280e573844309e35d51322",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T01:44:44Z"
+  },
+  {
    "number": 64,
    "kind": "request",
    "by": "Joshua",
    "title": "Build reusable LOREBOUND UI kit from individually supplied artwork",
    "quote": "\"We just need to start thinking about how to make general assets instead of super specific stuff. It's not very scalable with the stage of development we are at. It's exhausting constantly rendering and sending only for a lot to still not look right.\"  Joshua approved the LOREBOUND shared UI kit concept board, asked how to make the assets available to the builders, and emphasized: \"Claude doesn't do image generation.\"",
-   "stage": "built",
+   "stage": "testing",
    "waitingOn": "both",
    "asks": [
     {
@@ -46,11 +101,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
+   "testAt": "2026-10-29T01:45:37Z",
+   "onTest": true,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T01:17:07Z",
+   "updatedAt": "2026-10-29T01:45:37Z",
    "headSha": "571aec2781536b99fb1230f798b6ce30bf1f0e45",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -87,45 +142,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T01:15:35Z",
+   "testAt": "2026-10-29T01:45:37Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T01:15:35Z",
+   "updatedAt": "2026-10-29T01:45:37Z",
    "headSha": "31086aff13715089b8cf56359dee26ffc3a074ef",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-29T01:14:40Z"
-  },
-  {
-   "number": 69,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Joshua said yes, for now, to the Town Locations menu in #67: one small Locations menu in the corner instead of the five big building buttons. It moves the camera to the building and shows Locked / Ready to restore / Restored. Dragging, keyboard and tapping buildings all stay.…"
-    }
-   ],
-   "openedAt": "2026-10-29T01:01:40Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-29T01:15:35Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-29T01:15:35Z",
-   "headSha": "5fe08593553cb1ae4f3a9f44806202e0a06f1f52",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T01:13:32Z"
   },
   {
    "number": 66,
@@ -145,11 +171,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T01:15:35Z",
+   "testAt": "2026-10-29T01:45:37Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T01:15:35Z",
+   "updatedAt": "2026-10-29T01:45:37Z",
    "headSha": "9459e99c80ddec2c13a3fcf5c2b9e7a1e9d87122",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -169,11 +195,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T01:15:35Z",
+   "testAt": "2026-10-29T01:45:37Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T01:15:35Z",
+   "updatedAt": "2026-10-29T01:45:37Z",
    "headSha": "c42a0d960f0d02f7647e71bc8c03f20d6473c56b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -206,40 +232,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-29T01:15:35Z",
+   "testAt": "2026-10-29T01:45:37Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-29T01:15:35Z",
+   "updatedAt": "2026-10-29T01:45:37Z",
    "headSha": "79b8116cda5b12357bb154f2c7ce01edaa1fb6e9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T17:24:37Z"
-  },
-  {
-   "number": 65,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T22:17:13Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-29T01:10:17Z",
-   "headSha": "11d5ea97e7fb0abb1ea7290b2e5b0398975a9883",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "finished",
-   "botAt": "2026-10-29T01:10:17Z"
   },
   {
    "number": 63,
@@ -513,6 +515,21 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T01:45:37Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Build reusable LOREBOUND UI kit from individually supplied artwork”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Build explorable vertical Town from approved Mossbound Ruins terrain”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
+  },
+  {
+   "at": "2026-10-29T01:44:44Z",
+   "kind": "built",
+   "text": "Claude finished building “Improve Adventure battlefield layout with shared nameplate and party frame”"
+  },
+  {
+   "at": "2026-10-29T01:17:58Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Build reusable LOREBOUND UI kit from individually supplied artwork”, “Owner approves immediate Challenge Boss placement fix from #65”, “Build explorable vertical Town from approved Mossbound Ruins terrain”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
+  },
+  {
    "at": "2026-10-29T01:17:07Z",
    "kind": "built",
    "text": "Claude finished building “Build reusable LOREBOUND UI kit from individually supplied artwork”"
@@ -696,21 +713,6 @@
    "at": "2026-10-28T18:27:19Z",
    "kind": "approved",
    "text": "Noah approved “Intro-style companion pages with shared type habitats and size/weight”"
-  },
-  {
-   "at": "2026-10-28T18:05:09Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T18:02:46Z",
-   "kind": "live",
-   "text": "“Keep automatic combat running behind menus and other tabs” is live in the game"
-  },
-  {
-   "at": "2026-10-28T18:02:43Z",
-   "kind": "approved",
-   "text": "Noah approved “Keep automatic combat running behind menus and other tabs”"
   }
  ],
  "otherPulls": [
