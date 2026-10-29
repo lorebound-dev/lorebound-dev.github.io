@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T00:44:35.743Z",
+ "generatedAt": "2026-10-29T00:58:25.539Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-28T18:27:23Z",
@@ -519,6 +519,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T00:58:07Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Builds get the Drive art their requests link to, without Noah”"
+  },
+  {
    "at": "2026-10-29T00:14:17Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Owner approves immediate Challenge Boss placement fix from #65”"
@@ -712,11 +717,6 @@
    "at": "2026-10-28T17:26:47Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-10-28T17:25:37Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Party reordering, continuous Auto Summon and in-dock companion decisions”, “Intro-style companion pages with shared type habitats and size/weight”, “Keep automatic combat running behind menus and other tabs”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
   }
  ],
  "otherPulls": [
