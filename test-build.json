@@ -40,9 +40,14 @@
       "number": 74,
       "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
       "head": "39ca0b88b04bfee140a385f51388e49e83477864"
+    },
+    {
+      "number": 76,
+      "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
+      "head": "a10e68b4ba7e19175b459a31900c39125f02db53"
     }
   ],
   "skipped": [],
-  "commit": "55aee4083e96029f93df320edf957dd28fa95eff",
-  "at": "2026-10-29T18:19:51Z"
+  "commit": "582547e9e47d09f72cd8fda995bd58248ded4e90",
+  "at": "2026-10-29T18:29:19Z"
 }

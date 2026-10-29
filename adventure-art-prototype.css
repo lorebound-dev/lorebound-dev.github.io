@@ -61,9 +61,9 @@
 .art-rebuild-preview #game .dock-tome-choices button[aria-pressed=true] {background:linear-gradient(90deg,#733fa22e,#20112f22);box-shadow:inset 0 0 0 1px #bb83da66;border-radius:3px}
 .art-rebuild-preview #game .dock-tome-links {background:#06131b88;border-color:#bda05c55}
 /* Central Tome, textured ritual rail, real costs and stateful original controls. */
-.art-rebuild-preview #game #summonDock {margin:0 4px;padding:5px 6px 2px;grid-template-columns:66px minmax(0,1fr) 64px;gap:3px;border:0;border-top:1px solid #c2a06b;border-radius:14px 14px 0 0;background:radial-gradient(ellipse at 44% 48%,#a94aea80,#47286570 48%,#071522ed 84%);box-shadow:inset 0 1px #efd6a544,inset 0 0 22px #7944ad22}
+.art-rebuild-preview #game #summonDock {margin:0 4px;padding:5px 6px 2px;grid-template-columns:66px minmax(0,1fr) 64px;gap:3px;border:0;border-top:1px solid #c2a06b;border-radius:14px 14px 0 0;background:url('assets/summoning-rail-shrine-v01.png') calc(50% - 22px) 57%/auto 130% no-repeat,radial-gradient(ellipse at 44% 62%,#2f8a8a40,#0c2a3488 48%,#071522ed 84%);box-shadow:inset 0 1px #efd6a544,inset 0 0 22px #2c6f7522;text-shadow:0 0 3px #000,0 0 6px #000d,0 1px 2px #000}
 .art-rebuild-preview #game #summonPortal {height:80px;padding-left:calc(50% + 25px);overflow:visible;z-index:3}
-.art-rebuild-preview #game #summonPortal:before {inset:-7px auto auto calc(50% - 73px);width:104px;height:98px;background:radial-gradient(ellipse,#cf8aff88,transparent 69%);border-radius:0;transform:none;opacity:.9}
+.art-rebuild-preview #game #summonPortal:before {inset:-7px auto auto calc(50% - 73px);width:104px;height:98px;background:radial-gradient(ellipse,#4fcdbf40,transparent 66%);border-radius:0;transform:none;opacity:.9}
 .art-rebuild-preview #game .summon-book {left:calc(50% - 66px);top:-4px;width:86px;height:86px;filter:brightness(1.12) saturate(1.18) drop-shadow(0 0 8px #bb53f5d0) drop-shadow(0 3px 2px #000);z-index:1}
 /* The Summoning Rift keeps its own teal and stone: no purple glow or extra saturation, and the existing grey when a summon is unaffordable. */
 .art-rebuild-preview #game[data-rail-art=rift] .summon-book {filter:drop-shadow(0 0 6px #4fcdbf55) drop-shadow(0 3px 2px #000)}
