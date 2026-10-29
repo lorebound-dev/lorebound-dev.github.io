@@ -4,16 +4,16 @@
 #destinationPage[data-area="town"] #destinationContent{height:100%;min-height:0}
 .town-landscape{height:100%;position:relative;overflow:hidden;isolation:isolate}
 .town-map{position:absolute;inset:0;overflow:hidden;touch-action:none;cursor:grab;outline-offset:-4px;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;background:#142d28}
-.town-map.dragging{cursor:grabbing}.town-world{position:absolute;left:50%;top:50%;width:1000px;height:800px;will-change:transform}
-.town-terrain{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.town-map.dragging{cursor:grabbing}.town-world{position:absolute;left:50%;top:50%;width:1000px;height:2000px;will-change:transform}
+.town-terrain{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
 .town-map-title{position:absolute;left:0;right:0;top:0;padding:18px 20px 36px;pointer-events:none;background:linear-gradient(#04101be8,#07172066,transparent);text-shadow:0 2px 4px #000}
 .town-map-title span{font:10px Georgia,serif;letter-spacing:2px;color:#dbc38c}.town-map-title h3{font:30px Georgia,serif!important;color:#ffe5ac;margin:3px 0!important}.town-map-title p{font:12px Georgia,serif;color:#dce3d0;margin:0}
-.town-building{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:230px;height:230px;border:0!important;background:none!important;box-shadow:none!important;padding:0!important;color:#ffedbd;cursor:pointer;filter:drop-shadow(0 12px 9px #05120eb0)}
-.town-building>img{width:100%;height:100%;object-fit:contain;pointer-events:none}.town-building.dormant>img{filter:saturate(.65)}.town-building>img.treasure-marker{filter:none}
+.town-building{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:210px;height:210px;border:0!important;background:none!important;box-shadow:none!important;padding:0!important;color:#ffedbd;cursor:pointer;filter:drop-shadow(0 12px 9px #05120eb0)}
+.town-building>img{width:100%;height:100%;object-fit:contain;pointer-events:none}
 .town-building>span{position:absolute;top:88%;left:50%;transform:translateX(-50%);width:185px;padding:9px 6px;background:linear-gradient(90deg,#071b1b00,#071b1bf2 15%,#071b1bf2 85%,#071b1b00);border-block:1px solid #b5985d88;text-align:center;pointer-events:none}.town-building b{display:block;font:18px Georgia,serif!important}.town-building small{display:block;font:12px Georgia,serif!important;color:#dce5cd;margin-top:4px}
-.town-map-controls{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:linear-gradient(#06171d00,#06171df0 26px);pointer-events:none}.town-map-controls p{font:12px Georgia,serif;color:#ece5c9;text-shadow:0 1px 3px #000}.town-map-controls button{pointer-events:auto;min-height:44px;padding:8px 12px;border:1px solid #ad9360;background:#0b222be8;border-radius:5px;color:#ffe1a5;font:16px Georgia,serif}.town-map-controls button span{font-size:13px}
+.town-map-controls{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px 14px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;background:linear-gradient(#06171d00,#06171df0 26px);pointer-events:none}.town-map-controls p{font:12px Georgia,serif;color:#ece5c9;text-shadow:0 1px 3px #000}.town-map-controls button{pointer-events:auto;min-height:44px;padding:8px 12px;border:1px solid #ad9360;background:#0b222be8;border-radius:5px;color:#ffe1a5;font:16px Georgia,serif}.town-map-controls button span{font-size:13px}
 dialog.town-workshop-sheet{width:min(430px,calc(100% - 20px));max-height:calc(100dvh - 40px - env(safe-area-inset-top) - env(safe-area-inset-bottom));padding:0;background:#081c29;border:1px solid #b19865;color:#f4e0ad;overflow:auto;overscroll-behavior:contain;box-shadow:0 18px 70px #000b}dialog.town-workshop-sheet::backdrop{background:#031119b8;backdrop-filter:blur(3px)}.town-workshop-sheet>header{position:sticky;top:0;z-index:2;background:#091d29;display:flex;align-items:center;justify-content:space-between;padding:4px 12px;border-bottom:1px solid #947c4f}.town-workshop-sheet>header h2{font:22px Georgia,serif!important}.town-close{width:44px;height:44px;background:none;border:0;color:#ffe2aa;font:28px Georgia,serif}.town-workshop-details .shardworks{margin:0;border:0}.town-workshop-details .shardworks>h3{display:none}.town-workshop-details .shardworks-scene{height:140px}
-@media(max-height:650px){.town-map-title{padding:12px 14px 28px}.town-map-title h3{font-size:25px!important}.town-building{width:200px;height:200px}.town-workshop-details .shardworks-scene{height:90px}}
+@media(max-height:650px){.town-map-title{padding:12px 14px 28px}.town-map-title h3{font-size:25px!important}.town-building{width:190px;height:190px}.town-workshop-details .shardworks-scene{height:90px}}
 
 #destinationPage .town-map-title p,.town-map-controls p,.town-map-controls button,.town-map-controls button span{font-family:Georgia,serif!important}
 dialog.town-workshop-sheet{height:auto!important;min-height:0!important;margin:auto!important;inset:0!important}dialog.town-workshop-sheet>header{min-height:52px!important;height:auto!important;margin:0!important;padding:4px 12px!important}dialog.town-workshop-sheet>header h2{margin:0!important;padding:0!important}
@@ -28,3 +28,26 @@ dialog.town-workshop-sheet{height:auto!important;min-height:0!important;margin:a
 /* Global summon dialogs center a full-height flex stage. This is a content sheet. */
 dialog.town-workshop-sheet[open]{display:block!important;height:fit-content!important;align-items:normal;justify-content:normal}
 .town-workshop-sheet>header,.town-workshop-details{width:100%}
+
+/* Building states come from each system's real ledger (town-landscape.js show()); words and a lock carry them as well as color. */
+.town-building>img{transition:filter .2s}
+.town-building[data-state=locked]>img{filter:saturate(.3) brightness(.5)}
+.town-building[data-state=locked]>img.treasure-marker{filter:saturate(.5) brightness(.6)}
+.town-building[data-state=ready]>img{filter:saturate(.75) brightness(.82) drop-shadow(0 0 1.5px #e0bd70)}
+.town-building[data-state=ready]>img.treasure-marker{filter:saturate(.85) brightness(.9) drop-shadow(0 0 1.5px #e0bd70)}
+.town-building[data-state=locked]>span{border-color:#7d735c88}.town-building[data-state=locked] b{color:#d3c6a4}.town-building[data-state=locked] small{color:#c4c9bb}
+.town-building[data-state=ready]>span{border-color:#d8b46a}.town-building[data-state=ready] small{color:#f1d58f}
+.town-lock{display:inline-block;width:10px;height:12px;margin-right:5px;vertical-align:-1px}
+.town-building:focus-visible{outline:2px solid #e3c47c;outline-offset:-6px}
+@media(prefers-reduced-motion:reduce){.town-building>img{transition:none}}
+
+/* One Locations chooser replaces the five locator buttons; it opens above its button. */
+.town-map-controls p{margin:0}
+.town-locations{position:absolute;right:14px;bottom:64px;width:min(250px,calc(100% - 28px));pointer-events:auto;display:flex;flex-direction:column;background:#081c26f5;border:1px solid #ad9360;border-radius:3px;box-shadow:0 12px 30px #000a}
+.town-locations[hidden]{display:none}
+.town-map-controls .town-locations button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:44px;margin:0;padding:8px 12px;border:0;border-bottom:1px solid #ad936044;border-radius:0;background:none;text-align:left}
+.town-map-controls .town-locations button:last-child{border-bottom:0}
+.town-locations b{font:15px Georgia,serif!important;color:#ffe1a5}
+.town-locations small{flex:none;font:12px Georgia,serif!important;color:#dce5cd}
+.town-locations [data-state=locked] b{color:#cbbf9f}.town-locations [data-state=locked] small{color:#b9bfb1}.town-locations [data-state=ready] small{color:#f1d58f}
+.town-locations-toggle[aria-expanded=true]{background:#173540f0!important}
