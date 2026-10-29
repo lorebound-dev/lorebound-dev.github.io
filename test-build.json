@@ -55,9 +55,14 @@
       "number": 77,
       "title": "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
       "head": "299f62775f4b550453772e022aa342e5af31756c"
+    },
+    {
+      "number": 79,
+      "title": "Use floating team card in swaps and highlight improving slots",
+      "head": "2e12bd0a451421c70a9d161e27c73894a2bc8422"
     }
   ],
   "skipped": [],
-  "commit": "3cbbd743a2d5ad8500159b29f017ea187586054c",
-  "at": "2026-10-29T23:55:01Z"
+  "commit": "71ad90aec588762d7759b68650c399c0bf0ac924",
+  "at": "2026-10-29T23:56:02Z"
 }
