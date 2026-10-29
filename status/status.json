@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T18:14:24.041Z",
+ "generatedAt": "2026-10-29T18:16:58.171Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -24,6 +24,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 76,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
+   "quote": "\"Also I want the portal to actually feel integrated not just an emblem.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T18:16:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-29T18:16:04Z",
+   "headSha": "a2a5fabcc8e86340e48c344a5f3fe2b5bddeead8",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 71,
    "kind": "request",
@@ -632,6 +656,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-29T18:16:04Z",
+   "kind": "asked",
+   "text": "You asked for “Integrate approved summoning shrine into Adventure rail — visual-only”"
+  },
+  {
    "at": "2026-10-29T18:13:02Z",
    "kind": "live",
    "text": "“Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages” is live in the game"
@@ -825,11 +854,6 @@
    "at": "2026-10-29T02:13:36Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Build reusable LOREBOUND UI kit from individually supplied artwork”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”"
-  },
-  {
-   "at": "2026-10-29T02:12:53Z",
-   "kind": "live",
-   "text": "“Build explorable vertical Town from approved Mossbound Ruins terrain” is live in the game"
   }
  ],
  "otherPulls": [
@@ -989,15 +1013,6 @@
   {
    "number": 39,
    "headSha": "925bd74f8199254aa1a0a885109dbf6e0718f173",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 35,
-   "headSha": "cf65d03813eccb8cde0c2a675967a57f923dbebe",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
