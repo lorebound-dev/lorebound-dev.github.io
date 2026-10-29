@@ -34,7 +34,7 @@
     {
       "number": 73,
       "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
-      "head": "7b7fe426373a6f8821f887cee496aa9664aae79b"
+      "head": "1cdbf3c8072657d2c010ac599aaa6af357392e90"
     },
     {
       "number": 74,
@@ -44,7 +44,7 @@
     {
       "number": 75,
       "title": "Owner approves teal color direction for Summoning Rift #74",
-      "head": "fed49485b97ff5c73f139d7447e703c78349eba3"
+      "head": "4744dc4415ed4ea3b3a9d02a9668af4998a5abbe"
     },
     {
       "number": 76,
@@ -58,6 +58,6 @@
     }
   ],
   "skipped": [],
-  "commit": "f5e7dd11be25370bb0c09aa7923eb3beffa3b815",
-  "at": "2026-10-29T23:21:27Z"
+  "commit": "3cbbd743a2d5ad8500159b29f017ea187586054c",
+  "at": "2026-10-29T23:55:01Z"
 }
