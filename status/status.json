@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T23:57:05.973Z",
+ "generatedAt": "2026-10-30T00:04:35.686Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -33,23 +33,85 @@
    "by": "Joshua",
    "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
    "quote": "\"I want a whole scene inside of the shard works where you are inside a mine almost and have different arenas to upgrade and do. Almost emulating a mini tycoon Roblox game. Nothing crazy just a little page inside a mine.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The WebP copy of the mine picture couldn't be made in this run, because installing sharp and running Chrome are both blocked by this run's tool permissions. I suggest one of two ways: run pocket-fortune/tools/build-shardworks-mine-webp.cjs locally on the approved master and…"
+    }
+   ],
    "openedAt": "2026-10-29T15:19:54Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-29T23:56:03Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-29T23:57:07Z",
-   "headSha": "1cdbf3c8072657d2c010ac599aaa6af357392e90",
+   "updatedAt": "2026-10-30T00:03:51Z",
+   "headSha": "71f2364813eb6d447f06e5bfb2048cd9498cd43a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-29T23:57:07Z"
+   "botState": "questions",
+   "botAt": "2026-10-30T00:03:51Z"
+  },
+  {
+   "number": 75,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves teal color direction for Summoning Rift #74",
+   "quote": "I LIKE TEAL",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "This pull request and the Rift one (#74) both change the same line in home.html, so the test site may leave this one out until #74 is merged and this one is brought up to date. Suggestion: merge #74 first, then ask me to update this one."
+    },
+    {
+     "who": "noah",
+     "text": "With the old Gold summons (saves that haven't switched to Lore Shards yet), Auto keeps its old timing and a tap still opens the ×3/×5/×10 you picked. Suggestion: leave it, since it goes away once a save switches to Lore Shards."
+    },
+    {
+     "who": "noah",
+     "text": "Joshua asked for a short phone recording of Auto. This build can't open a browser. Suggestion: Noah records one from the test site, or asks me to make one in a local session."
+    },
+    {
+     "who": "joshua",
+     "text": "If companions still change too fast to see now that they stay on screen, should Auto wait a bit longer between them, like 0.4 seconds instead of 0.15? Suggestion: try it on the test site first. If it's still too fast, say \"0.4 seconds\"."
+    },
+    {
+     "who": "joshua",
+     "text": "The Tome button on the left of the summon bar still says \"Auto OFF ▾\" under the Tome name. Should that go too, now that the right side has the Auto icon? Suggestion: yes, remove it so only the Tome name shows."
+    },
+    {
+     "who": "joshua",
+     "text": "When Auto finds a brand-new companion you've never had, should it pause and then keep going, like a rarity you ticked? Right now it stops Auto for good, as you asked earlier. Suggestion: yes, let it keep going after you choose, the same as a ticked rarity."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you approve the teal Rift picture in the Proposed folder (LOREBOUND_Summoning_Rift_SeaGlassTeal_Static_v01_PROPOSED.png) as the final look? Suggestion: if it looks good small, say yes and ask ChatGPT to move it to the Approved folder with its manifest."
+    },
+    {
+     "who": "joshua",
+     "text": "Can ChatGPT make separate see-through pictures from that same Rift: the stone frame with no glow, and the teal glow by itself, plus a few sparkles if you want them? Suggestion: yes. Then the glow can move gently while the stone stays still. Without them, the Rift can only be…"
+    }
+   ],
+   "openedAt": "2026-10-29T16:27:15Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-29T23:56:03Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-30T00:03:33Z",
+   "headSha": "bb02d82f2247f0400490bfcb73931f109a273fea",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-30T00:03:33Z"
   },
   {
    "number": 79,
@@ -79,30 +141,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-29T23:55:13Z"
-  },
-  {
-   "number": 75,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner approves teal color direction for Summoning Rift #74",
-   "quote": "I LIKE TEAL",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T16:27:15Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-29T23:56:03Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-29T23:56:03Z",
-   "headSha": "4744dc4415ed4ea3b3a9d02a9668af4998a5abbe",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-29T23:54:36Z"
   },
   {
    "number": 77,
@@ -723,9 +761,29 @@
  ],
  "activity": [
   {
-   "at": "2026-10-29T23:57:07Z",
+   "at": "2026-10-30T00:03:51Z",
    "kind": "built",
    "text": "Claude finished building “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
+  },
+  {
+   "at": "2026-10-30T00:03:51Z",
+   "kind": "question",
+   "text": "Part of “Shardworks mine-hub visual overhaul — approved art, economy unchanged” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-10-30T00:03:33Z",
+   "kind": "built",
+   "text": "Claude finished building “Owner approves teal color direction for Summoning Rift #74”"
+  },
+  {
+   "at": "2026-10-30T00:03:33Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Owner approves teal color direction for Summoning Rift #74”"
+  },
+  {
+   "at": "2026-10-30T00:03:33Z",
+   "kind": "question",
+   "text": "Part of “Owner approves teal color direction for Summoning Rift #74” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-29T23:56:03Z",
@@ -746,11 +804,6 @@
    "at": "2026-10-29T23:55:01Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
-  },
-  {
-   "at": "2026-10-29T23:54:36Z",
-   "kind": "built",
-   "text": "Claude finished building “Owner approves teal color direction for Summoning Rift #74”"
   },
   {
    "at": "2026-10-29T23:48:17Z",
@@ -906,21 +959,6 @@
    "at": "2026-10-29T18:09:19Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”"
-  },
-  {
-   "at": "2026-10-29T16:44:44Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”"
-  },
-  {
-   "at": "2026-10-29T16:43:56Z",
-   "kind": "built",
-   "text": "Claude finished building “Animated compact Summoning Rift — replace rail Tome after color/art approval”"
-  },
-  {
-   "at": "2026-10-29T16:43:56Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Animated compact Summoning Rift — replace rail Tome after color/art approval”"
   }
  ],
  "otherPulls": [
