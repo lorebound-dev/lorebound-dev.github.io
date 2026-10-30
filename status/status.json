@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T21:42:56.579Z",
+ "generatedAt": "2026-10-30T21:43:41.060Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T04:42:27Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-30T05:06:56Z",
+  "updatedAt": "2026-10-30T21:43:31Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -39,11 +39,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T05:06:56Z",
+   "testAt": "2026-10-30T21:43:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T05:06:56Z",
+   "updatedAt": "2026-10-30T21:43:31Z",
    "headSha": "70f102d9a88a86bce75dc9fc64f2ea5f84c031b9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -63,11 +63,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T05:06:56Z",
+   "testAt": "2026-10-30T21:43:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T05:06:56Z",
+   "updatedAt": "2026-10-30T21:43:31Z",
    "headSha": "33a89d98c02455718dcedc66bfc8027e8747ebdf",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -100,11 +100,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T05:06:56Z",
+   "testAt": "2026-10-30T21:43:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T05:06:56Z",
+   "updatedAt": "2026-10-30T21:43:31Z",
    "headSha": "18f4c4f87c72bd2229a14ced042abf0c79c5520b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -137,11 +137,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T05:06:56Z",
+   "testAt": "2026-10-30T21:43:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T05:06:56Z",
+   "updatedAt": "2026-10-30T21:43:31Z",
    "headSha": "c0af4886feb1782a8189c2869306eac4a06a4e01",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -166,11 +166,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T05:06:56Z",
+   "testAt": "2026-10-30T21:43:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T05:06:56Z",
+   "updatedAt": "2026-10-30T21:43:31Z",
    "headSha": "b9af3563da817a059ab3b3215667aa8849e8390b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -195,11 +195,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T05:06:56Z",
+   "testAt": "2026-10-30T21:43:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T05:06:56Z",
+   "updatedAt": "2026-10-30T21:43:31Z",
    "headSha": "76d633d961276900daaed8f4dfb12c861243e35f",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -236,11 +236,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T05:06:56Z",
+   "testAt": "2026-10-30T21:43:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T05:06:56Z",
+   "updatedAt": "2026-10-30T21:43:31Z",
    "headSha": "b6ebb07af65bf8e2a097fb0e9954666ed4c0a966",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -269,11 +269,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T05:06:56Z",
+   "testAt": "2026-10-30T21:43:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T05:06:56Z",
+   "updatedAt": "2026-10-30T21:43:31Z",
    "headSha": "98079fba9b05e0e131d2f6a5c3312b8f05cb0184",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -453,7 +453,7 @@
    "asks": [
     {
      "who": "noah",
-     "text": "It needs updating to the newest game before it can go on the test site. It clashes in adventure-services.css and adventure-services.js and home.html."
+     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet."
     }
    ],
    "openedAt": "2026-10-29T20:31:35Z",
@@ -812,6 +812,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-30T21:43:31Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”"
+  },
+  {
    "at": "2026-10-30T05:06:56Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”"
@@ -1005,11 +1010,6 @@
    "at": "2026-10-29T23:20:29Z",
    "kind": "question",
    "text": "Part of “Replace Tome-tier UI with one permanent numeric Portal progression” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-29T23:17:56Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
   }
  ],
  "otherPulls": [
