@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T01:42:13.776Z",
+ "generatedAt": "2026-10-30T01:46:12.698Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-29T18:13:02Z",
@@ -30,6 +30,30 @@
  },
  "items": [
   {
+   "number": 80,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved idle vortex animation in Adventure Rift",
+   "quote": "\"Honestly I don’t want you to get into the logic of it I need assets and animation ... I want idle spinning gif or something\"  \"Approved\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-30T00:12:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-30T01:40:45Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-30T01:45:45Z",
+   "headSha": "98aebd6655b86e7ceab43944bde4b0166733b598",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-30T01:45:45Z"
+  },
+  {
    "number": 82,
    "kind": "request",
    "by": "Joshua",
@@ -52,30 +76,6 @@
    "requestStatus": "Waiting to be built",
    "botState": "finished",
    "botAt": "2026-10-30T01:42:03Z"
-  },
-  {
-   "number": 80,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved idle vortex animation in Adventure Rift",
-   "quote": "\"Honestly I don’t want you to get into the logic of it I need assets and animation ... I want idle spinning gif or something\"  \"Approved\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-30T00:12:50Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T01:40:45Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-30T01:40:45Z",
-   "headSha": "9cb964542c23db4b990bb7ed8392d09c3263ed1d",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-30T01:37:21Z"
   },
   {
    "number": 73,
@@ -853,6 +853,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-30T01:45:45Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved idle vortex animation in Adventure Rift”"
+  },
+  {
    "at": "2026-10-30T01:41:03Z",
    "kind": "asked",
    "text": "You asked for “Owner answers: Auto Summon 0.4s cadence and resume after discovery”"
@@ -861,11 +866,6 @@
    "at": "2026-10-30T01:40:45Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”"
-  },
-  {
-   "at": "2026-10-30T01:37:21Z",
-   "kind": "built",
-   "text": "Claude finished building “Integrate approved idle vortex animation in Adventure Rift”"
   },
   {
    "at": "2026-10-30T01:36:01Z",
