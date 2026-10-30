@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T05:07:28.203Z",
+ "generatedAt": "2026-10-30T05:37:11.748Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T04:42:27Z",
@@ -453,7 +453,7 @@
    "asks": [
     {
      "who": "noah",
-     "text": "It needs updating to the newest game before it can go on the test site. It clashes in adventure-services.css and adventure-services.js and home.html."
+     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
     }
    ],
    "openedAt": "2026-10-29T20:31:35Z",
