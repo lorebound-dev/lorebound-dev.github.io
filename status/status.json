@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T04:32:35.698Z",
+ "generatedAt": "2026-10-30T04:38:36.147Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T04:00:04Z",
@@ -34,9 +34,14 @@
    "by": "Joshua",
    "title": "Owner answers: Auto Summon 0.4s cadence and resume after discovery",
    "quote": "\"Starting with the interval question. Increase timing, yes, yes resume, agreed, agreed, agreed, keep, agreed, agreed. Respond\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "built",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-10-30T01:41:03Z",
    "mergedAt": null,
    "closedAt": null,
@@ -45,12 +50,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-10-30T04:32:21Z",
-   "headSha": "07ec2b5fa8a4801a9d21a90588de83a5067f6164",
+   "updatedAt": "2026-10-30T04:38:06Z",
+   "headSha": "1816c3b4e53865f631d412689d5ac703943da914",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-10-30T04:32:21Z"
+   "botAt": "2026-10-30T04:38:06Z"
   },
   {
    "number": 38,
@@ -847,9 +852,14 @@
  ],
  "activity": [
   {
-   "at": "2026-10-30T04:32:21Z",
+   "at": "2026-10-30T04:38:06Z",
    "kind": "built",
    "text": "Claude finished building “Owner answers: Auto Summon 0.4s cadence and resume after discovery”"
+  },
+  {
+   "at": "2026-10-30T04:38:06Z",
+   "kind": "question",
+   "text": "Part of “Owner answers: Auto Summon 0.4s cadence and resume after discovery” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-30T04:02:36Z",
@@ -1040,11 +1050,6 @@
    "at": "2026-10-29T23:17:06Z",
    "kind": "question",
    "text": "Part of “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-29T23:16:31Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
   }
  ],
  "otherPulls": [
