@@ -21,3 +21,9 @@
 #game[data-rail-art=rift] .summon-portal.summoned .summon-book::after{animation:riftSummoned .6s ease-out}
 @keyframes riftSummoned{30%{filter:brightness(1.35) saturate(1.1) drop-shadow(0 0 3px #7fe8d8)}}
 @media(prefers-reduced-motion:reduce){#game[data-rail-art=rift] .summon-book::after{content:none}}
+/* Joshua: the Rift never dims or greys, also when a summon can't be afforded (data-funded=false). The Tome's grey,
+   dimmed, still look (realm-ui-polish.css, and the Rift's own grey rule in adventure-art-prototype.css) is replaced by the
+   Rift's ordinary look: the same teal glow and the same gentle bob. The tap is still refused and warned about as before
+   (aria-disabled, the price warning and the message). */
+html.art-rebuild-preview #game[data-rail-art=rift] .summon-portal[data-funded=false] .summon-book{filter:drop-shadow(0 0 6px #4fcdbf55);opacity:1}
+@media(prefers-reduced-motion:no-preference){html.adventure-dock-preview #game[data-rail-art=rift] .summon-portal[data-funded=false] .summon-book{animation:bookIdle 4s ease-in-out infinite}}

@@ -59,7 +59,7 @@
     {
       "number": 80,
       "title": "Integrate approved idle vortex animation in Adventure Rift",
-      "head": "5f5d1bdc686b3c0f997e48905cf874ea11007b6b"
+      "head": "2e5f6c7d85d5cd96e826baf6b4e9be2511d4ee0e"
     },
     {
       "number": 82,
@@ -79,6 +79,6 @@
       "with": "others"
     }
   ],
-  "commit": "3f229847e49757fd70c19b883ecc3d1949dbdd8e",
-  "at": "2026-10-30T02:05:04Z"
+  "commit": "27be7ec7344910c1da33eb7451af09b685530826",
+  "at": "2026-10-30T02:10:07Z"
 }
