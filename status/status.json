@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T03:10:34.039Z",
+ "generatedAt": "2026-10-30T03:53:55.539Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T03:04:13Z",
@@ -29,6 +29,30 @@
   ]
  },
  "items": [
+  {
+   "number": 79,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use floating team card in swaps and highlight improving slots",
+   "quote": "when you are in the swapping menu ... just has the floating card that it will have once it’s in the team ... if there is a card where it would be an improvement ... thin glowing green outline",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T23:48:17Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-30T03:06:07Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-30T03:53:51Z",
+   "headSha": "a6ac2916aad51cab1c57e6bf01e4fc0829fb599d",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-30T03:53:51Z"
+  },
   {
    "number": 38,
    "kind": "request",
@@ -315,35 +339,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-30T00:03:33Z"
-  },
-  {
-   "number": 79,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use floating team card in swaps and highlight improving slots",
-   "quote": "when you are in the swapping menu ... just has the floating card that it will have once it’s in the team ... if there is a card where it would be an improvement ... thin glowing green outline",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The floating card has a small name and rarity line next to it, because the team card itself doesn't show a name. Suggestion: keep it. Say if you'd like only the card."
-    }
-   ],
-   "openedAt": "2026-10-29T23:48:17Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T03:06:07Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-30T03:06:07Z",
-   "headSha": "a6ac2916aad51cab1c57e6bf01e4fc0829fb599d",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T23:55:13Z"
   },
   {
    "number": 80,
@@ -862,6 +857,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-30T03:53:51Z",
+   "kind": "built",
+   "text": "Claude finished building “Use floating team card in swaps and highlight improving slots”"
+  },
+  {
    "at": "2026-10-30T03:06:07Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”"
@@ -992,16 +992,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”, “Use floating team card in swaps and highlight improving slots”"
   },
   {
-   "at": "2026-10-29T23:55:13Z",
-   "kind": "built",
-   "text": "Claude finished building “Use floating team card in swaps and highlight improving slots”"
-  },
-  {
-   "at": "2026-10-29T23:55:13Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Use floating team card in swaps and highlight improving slots”"
-  },
-  {
    "at": "2026-10-29T23:55:01Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
@@ -1058,6 +1048,11 @@
   },
   {
    "at": "2026-10-29T23:03:38Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
+  },
+  {
+   "at": "2026-10-29T21:04:24Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
   }
