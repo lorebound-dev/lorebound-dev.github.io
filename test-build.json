@@ -1,84 +1,88 @@
 {
-  "base": "f829e7b2fa7fd1ecd421411cc9d85a8dc81f946e",
+  "base": "aacce8d3224503c9c21757c7ea62ca6fbea0e5a9",
   "included": [
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "71244ee80429b9f5f7fe41451f5b88b4b7a66b1a"
+      "head": "9ae8fbf435f00bac0c29bd850ac524850146eff8"
     },
     {
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-      "head": "a2846cb139f3810c875c658c76b7dbe3d7d2bcca"
+      "head": "2a666010eb1f4b9844a8625031f6903a59c539ff"
     },
     {
       "number": 65,
       "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-      "head": "b935a155e2d9540e9a7ba74194d285eb9291fe6a"
+      "head": "5022dda7b9a6b8da962e3133780176ef2a3ca8c8"
     },
     {
       "number": 66,
       "title": "Owner approves immediate Challenge Boss placement fix from #65",
-      "head": "931e96470a33355ca99125226bb1893e27899bf2"
+      "head": "fa43776bc78a5a0a64d8a7fae3aa75d950f5aae0"
     },
     {
       "number": 69,
       "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-      "head": "eae73ab0084d9768da905b57ec9c5be6b3a88642"
+      "head": "bd6980962a4d65c00bf4e1c61a3ce59c21cae14e"
     },
     {
       "number": 72,
       "title": "Owner approves Recruits label and both battlefield frames",
-      "head": "ea3d1336cd8872addbf627266ab9495660019613"
-    },
-    {
-      "number": 73,
-      "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
-      "head": "d0ea9ba52ed329bdeb3be35cb613fc64a0ad8665"
+      "head": "7a64f0081d3f6cceb46c5691ce0d66fbf481d522"
     },
     {
       "number": 74,
       "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
-      "head": "39ca0b88b04bfee140a385f51388e49e83477864"
+      "head": "040fef17563fa6a1a61b6959d3db0868f07a95e4"
     },
     {
       "number": 75,
       "title": "Owner approves teal color direction for Summoning Rift #74",
-      "head": "bb02d82f2247f0400490bfcb73931f109a273fea"
-    },
-    {
-      "number": 76,
-      "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
-      "head": "092af1fbd13fc9e2d9f40b3a921cd5b90afd527e"
+      "head": "f5485386bc366c3b7b4c9eb851219c1ad2ff8db9"
     },
     {
       "number": 79,
       "title": "Use floating team card in swaps and highlight improving slots",
-      "head": "2e12bd0a451421c70a9d161e27c73894a2bc8422"
+      "head": "a6ac2916aad51cab1c57e6bf01e4fc0829fb599d"
     },
     {
       "number": 80,
       "title": "Integrate approved idle vortex animation in Adventure Rift",
-      "head": "2e5f6c7d85d5cd96e826baf6b4e9be2511d4ee0e"
-    },
-    {
-      "number": 82,
-      "title": "Owner answers: Auto Summon 0.4s cadence and resume after discovery",
-      "head": "fddcb1ec805bfd655ce42fe6ab7b36721a399bc2"
+      "head": "89f3016acdba3053b5391003db9f4c92da71904d"
     }
   ],
   "skipped": [
     {
+      "number": 76,
+      "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
+      "head": "734e6115cd6106e69875b8929ea488de9b01281f",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
+    },
+    {
       "number": 77,
       "title": "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
-      "head": "299f62775f4b550453772e022aa342e5af31756c",
+      "head": "2149903f7ffe7990022517f927831bd9f317a667",
       "files": [
         "pocket-fortune/dist/adventure-services.css",
-        "pocket-fortune/dist/adventure-services.js"
+        "pocket-fortune/dist/adventure-services.js",
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
+    },
+    {
+      "number": 82,
+      "title": "Owner answers: Auto Summon 0.4s cadence and resume after discovery",
+      "head": "135d5ecdc1dac82ff9ff2e8e68f0543fff419317",
+      "files": [
+        "pocket-fortune/dist/home.html"
       ],
       "with": "others"
     }
   ],
-  "commit": "3df1faed27e81448945d0f58635bed93daff580c",
-  "at": "2026-10-30T02:38:00Z"
+  "commit": "623c9c555f16b586c9ac90aa3698370181688c41",
+  "at": "2026-10-30T03:06:07Z"
 }
