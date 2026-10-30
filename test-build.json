@@ -1,57 +1,52 @@
 {
-  "base": "d71a080aa97b4edd1204aff2b1698689986d3f17",
+  "base": "7243b324c1e484749d7292822bfda6897b97227b",
   "included": [
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "a900b9ebb331f1d26a6eff2f60c1ee2d5920e8f0"
+      "head": "33a89d98c02455718dcedc66bfc8027e8747ebdf"
     },
     {
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-      "head": "039eac2a49893a4d48994cf7aa3492fbf6db2673"
+      "head": "18f4c4f87c72bd2229a14ced042abf0c79c5520b"
     },
     {
       "number": 65,
       "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-      "head": "21e35ca4bf68e850b24ffd0ae703769ddb41b49c"
+      "head": "c0af4886feb1782a8189c2869306eac4a06a4e01"
     },
     {
       "number": 66,
       "title": "Owner approves immediate Challenge Boss placement fix from #65",
-      "head": "723ae45db59ac45a052dbacd5a5b2549696407f9"
+      "head": "b9af3563da817a059ab3b3215667aa8849e8390b"
     },
     {
       "number": 69,
       "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-      "head": "d747e724e759dfff49352d00bad5655d69d6b4a6"
+      "head": "76d633d961276900daaed8f4dfb12c861243e35f"
     },
     {
       "number": 72,
       "title": "Owner approves Recruits label and both battlefield frames",
-      "head": "667387f6c675c91c2c835135bc91f9a8a4b898c1"
+      "head": "b6ebb07af65bf8e2a097fb0e9954666ed4c0a966"
     },
     {
       "number": 74,
       "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
-      "head": "a8e4cdd33df289953098c3b01d7859f0c817cd82"
-    },
-    {
-      "number": 75,
-      "title": "Owner approves teal color direction for Summoning Rift #74",
-      "head": "383f3a91afc98e808afd9a389e314cce8fc3a664"
+      "head": "98079fba9b05e0e131d2f6a5c3312b8f05cb0184"
     },
     {
       "number": 80,
       "title": "Integrate approved idle vortex animation in Adventure Rift",
-      "head": "5f9349d3468457882eddfb10e3dbfc21048a444a"
+      "head": "3c44049ebc3564e4c43690392b0a90743c724bb7"
     }
   ],
   "skipped": [
     {
       "number": 76,
       "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
-      "head": "78afb3f8e332a9a5c9ece21e87e679e5ef71c7e9",
+      "head": "dfbd83442a62e6fda6d66fd582c6f414f10dc734",
       "files": [
         "pocket-fortune/dist/home.html"
       ],
@@ -66,18 +61,9 @@
         "pocket-fortune/dist/adventure-services.js",
         "pocket-fortune/dist/home.html"
       ],
-      "with": "others"
-    },
-    {
-      "number": 82,
-      "title": "Owner answers: Auto Summon 0.4s cadence and resume after discovery",
-      "head": "1816c3b4e53865f631d412689d5ac703943da914",
-      "files": [
-        "pocket-fortune/dist/home.html"
-      ],
-      "with": "others"
+      "with": "main"
     }
   ],
-  "commit": "ecf0162529d2a1acdfb2b2ac9498023e83618d0a",
-  "at": "2026-10-30T04:39:05Z"
+  "commit": "df0a0956f1766734bd6b576ee9c6e4cfe7793a5a",
+  "at": "2026-10-30T04:44:52Z"
 }
