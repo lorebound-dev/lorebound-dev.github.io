@@ -44,7 +44,7 @@
     {
       "number": 79,
       "title": "Use floating team card in swaps and highlight improving slots",
-      "head": "98497bf4609f6679da44d58e2c5050923f5d708b"
+      "head": "ddd2137657e0a8455b73e225f111dee0a55999f4"
     },
     {
       "number": 80,
@@ -83,6 +83,6 @@
       "with": "others"
     }
   ],
-  "commit": "23a457d7fba4729ee744a46010a18a8fe5c812b8",
-  "at": "2026-10-30T03:56:15Z"
+  "commit": "5c9e5ab4dab282e021219897ef78b33b650db109",
+  "at": "2026-10-30T03:58:48Z"
 }
