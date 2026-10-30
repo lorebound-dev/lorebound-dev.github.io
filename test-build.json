@@ -55,6 +55,11 @@
       "number": 79,
       "title": "Use floating team card in swaps and highlight improving slots",
       "head": "2e12bd0a451421c70a9d161e27c73894a2bc8422"
+    },
+    {
+      "number": 80,
+      "title": "Integrate approved idle vortex animation in Adventure Rift",
+      "head": "672f3c03f68185b308df3ef07c41d8d794897b0b"
     }
   ],
   "skipped": [
@@ -69,6 +74,6 @@
       "with": "others"
     }
   ],
-  "commit": "46e4cdc761687aa30ba93dcfa61c042f64e55998",
-  "at": "2026-10-30T00:04:47Z"
+  "commit": "c806787c4a352e0f6f38de1ba2c44f8847754428",
+  "at": "2026-10-30T00:29:44Z"
 }

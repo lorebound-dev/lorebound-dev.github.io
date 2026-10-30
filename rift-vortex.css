@@ -1,0 +1,15 @@
+/* Joshua's approved idle vortex (Approved/Rift-Idle-Vortex-v01, previews/vortex_idle_3sec.webp: 24 frames, 125ms each,
+   one clockwise turn every 3 seconds) spins over the centre of the static Summoning Rift, only while the rail draws the
+   Rift (data-rail-art=rift, set by summoning.js). It is a picture inside .summon-book, so it moves, greys and is masked
+   with the Rift, and the Summon button underneath stays the only tap target.
+
+   The static Rift is drawn with background-size:contain from summoning-rift-teal-v01-trim.png (258x264, the approved
+   master's 964x986 box from 146,108). The vortex is the master's 302px square from 474,423, so in the drawn Rift (H tall,
+   0.97727H wide, centred) it is 0.3062H across, its left edge 0.15612H left of centre and its top 0.18053H above centre.
+   The frames are cut from the same painted centre, so they cover it, and the static centre shows only through their soft
+   outer edge. If the animation can't load, or motion is reduced, the static Rift shows as before. */
+@supports (width:1cqh){
+#game[data-rail-art=rift] .summon-book{container-type:size}
+#game[data-rail-art=rift] .summon-book::after{--rift-h:min(100cqh,102.326cqw);content:'';position:absolute;left:calc(50% - var(--rift-h)*.15612);top:calc(50% - var(--rift-h)*.18053);width:calc(var(--rift-h)*.3062);height:calc(var(--rift-h)*.3062);background:url('assets/summoning-rift-vortex-v01.webp') center/100% 100% no-repeat;pointer-events:none}
+}
+@media(prefers-reduced-motion:reduce){#game[data-rail-art=rift] .summon-book::after{content:none}}
