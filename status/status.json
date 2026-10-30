@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T04:06:19.880Z",
+ "generatedAt": "2026-10-30T04:32:35.698Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T04:00:04Z",
@@ -28,6 +28,30 @@
   ]
  },
  "items": [
+  {
+   "number": 82,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner answers: Auto Summon 0.4s cadence and resume after discovery",
+   "quote": "\"Starting with the interval question. Increase timing, yes, yes resume, agreed, agreed, agreed, keep, agreed, agreed. Respond\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-30T01:41:03Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-30T02:38:01Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-10-30T04:32:21Z",
+   "headSha": "07ec2b5fa8a4801a9d21a90588de83a5067f6164",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-30T04:32:21Z"
+  },
   {
    "number": 38,
    "kind": "request",
@@ -415,39 +439,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-29T19:54:35Z"
-  },
-  {
-   "number": 82,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner answers: Auto Summon 0.4s cadence and resume after discovery",
-   "quote": "\"Starting with the interval question. Increase timing, yes, yes resume, agreed, agreed, agreed, keep, agreed, agreed. Respond\"",
-   "stage": "built",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "This pull request includes all of PR #75's Auto work, because #75 isn't merged yet. Suggestion: merge #75 first, then this one, or close #75 and merge only this one."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet."
-    }
-   ],
-   "openedAt": "2026-10-30T01:41:03Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "07ec2b5fa8a4801a9d21a90588de83a5067f6164",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-30T01:48:11Z"
   },
   {
    "number": 81,
@@ -856,6 +847,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-30T04:32:21Z",
+   "kind": "built",
+   "text": "Claude finished building “Owner answers: Auto Summon 0.4s cadence and resume after discovery”"
+  },
+  {
    "at": "2026-10-30T04:02:36Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved idle vortex animation in Adventure Rift”"
@@ -924,16 +920,6 @@
    "at": "2026-10-30T01:49:15Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”, “Owner answers: Auto Summon 0.4s cadence and resume after discovery”"
-  },
-  {
-   "at": "2026-10-30T01:48:11Z",
-   "kind": "built",
-   "text": "Claude finished building “Owner answers: Auto Summon 0.4s cadence and resume after discovery”"
-  },
-  {
-   "at": "2026-10-30T01:48:11Z",
-   "kind": "question",
-   "text": "Part of “Owner answers: Auto Summon 0.4s cadence and resume after discovery” is waiting for Noah’s OK"
   },
   {
    "at": "2026-10-30T01:47:00Z",
@@ -1054,6 +1040,11 @@
    "at": "2026-10-29T23:17:06Z",
    "kind": "question",
    "text": "Part of “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-10-29T23:16:31Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
   }
  ],
  "otherPulls": [
