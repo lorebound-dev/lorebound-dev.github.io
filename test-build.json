@@ -60,6 +60,11 @@
       "number": 80,
       "title": "Integrate approved idle vortex animation in Adventure Rift",
       "head": "98aebd6655b86e7ceab43944bde4b0166733b598"
+    },
+    {
+      "number": 82,
+      "title": "Owner answers: Auto Summon 0.4s cadence and resume after discovery",
+      "head": "fddcb1ec805bfd655ce42fe6ab7b36721a399bc2"
     }
   ],
   "skipped": [
@@ -74,6 +79,6 @@
       "with": "others"
     }
   ],
-  "commit": "5e5c71f30fd305f5e85b1d730e7825790abae002",
-  "at": "2026-10-30T01:46:58Z"
+  "commit": "066a5fe2fc55f3863213b2f73948b1014e18f9de",
+  "at": "2026-10-30T01:49:14Z"
 }
