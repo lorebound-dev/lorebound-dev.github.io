@@ -1,15 +1,15 @@
 {
- "generatedAt": "2026-10-30T02:38:30.639Z",
+ "generatedAt": "2026-10-30T03:10:34.039Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
-  "updatedAt": "2026-10-29T18:13:02Z",
+  "updatedAt": "2026-10-30T03:04:13Z",
   "latest": [
-   "Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages"
+   "Shardworks mine-hub visual overhaul — approved art, economy unchanged"
   ]
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-30T02:38:00Z",
+  "updatedAt": "2026-10-30T03:06:07Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -17,100 +17,247 @@
    "Owner approves immediate Challenge Boss placement fix from #65",
    "Unify team and Omnidex companion pages; approve Locations provisionally",
    "Owner approves Recruits label and both battlefield frames",
-   "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
    "Animated compact Summoning Rift — replace rail Tome after color/art approval",
    "Owner approves teal color direction for Summoning Rift #74",
-   "Integrate approved summoning shrine into Adventure rail — visual-only",
    "Use floating team card in swaps and highlight improving slots",
-   "Integrate approved idle vortex animation in Adventure Rift",
-   "Owner answers: Auto Summon 0.4s cadence and resume after discovery"
+   "Integrate approved idle vortex animation in Adventure Rift"
   ],
   "skipped": [
-   "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions"
+   "Integrate approved summoning shrine into Adventure rail — visual-only",
+   "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
+   "Owner answers: Auto Summon 0.4s cadence and resume after discovery"
   ]
  },
  "items": [
   {
-   "number": 73,
+   "number": 38,
    "kind": "request",
    "by": "Joshua",
-   "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
-   "quote": "\"I want a whole scene inside of the shard works where you are inside a mine almost and have different arenas to upgrade and do. Almost emulating a mini tycoon Roblox game. Nothing crazy just a little page inside a mine.\"",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The WebP copy of the mine picture couldn't be made in this run, because installing sharp and running Chrome are both blocked by this run's tool permissions. I suggest one of two ways: run pocket-fortune/tools/build-shardworks-mine-webp.cjs locally on the approved master and…"
-    }
-   ],
-   "openedAt": "2026-10-29T15:19:54Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "d0ea9ba52ed329bdeb3be35cb613fc64a0ad8665",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-30T00:03:51Z"
-  },
-  {
-   "number": 80,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved idle vortex animation in Adventure Rift",
-   "quote": "\"Honestly I don’t want you to get into the logic of it I need assets and animation ... I want idle spinning gif or something\"  \"Approved\"",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
    "stage": "testing",
    "waitingOn": null,
    "asks": [],
-   "openedAt": "2026-10-30T00:12:50Z",
+   "openedAt": "2026-10-27T21:22:11Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
+   "testAt": "2026-10-30T03:06:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "2e5f6c7d85d5cd96e826baf6b4e9be2511d4ee0e",
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "9ae8fbf435f00bac0c29bd850ac524850146eff8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-10-30T02:09:02Z"
+   "botAt": "2026-10-28T03:15:36Z"
   },
   {
-   "number": 82,
+   "number": 60,
    "kind": "request",
    "by": "Joshua",
-   "title": "Owner answers: Auto Summon 0.4s cadence and resume after discovery",
-   "quote": "\"Starting with the interval question. Increase timing, yes, yes resume, agreed, agreed, agreed, keep, agreed, agreed. Respond\"",
+   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
+    },
+    {
+     "who": "joshua",
+     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
+    },
+    {
+     "who": "joshua",
+     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
+    }
+   ],
+   "openedAt": "2026-10-28T04:18:38Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-30T03:06:07Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "2a666010eb1f4b9844a8625031f6903a59c539ff",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T17:24:37Z"
+  },
+  {
+   "number": 65,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
+   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this puts two new pictures, which Joshua hasn't approved yet, into the real game (they're in his Proposed folder). My suggestion: merge only after Joshua says yes on the test site."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new frame around the enemy's name? My suggestion: yes, the name and health bar are easier to read now."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new party tray frame? With it, the closed tray shows the frame's corners and the background's own curls together. My suggestion: keep it, but only if the two sets of ornaments don't bother you. If they do, I can go back to the old tray edge."
+    }
+   ],
+   "openedAt": "2026-10-28T22:17:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-30T03:06:07Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "5022dda7b9a6b8da962e3133780176ef2a3ca8c8",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T02:32:55Z"
+  },
+  {
+   "number": 66,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves immediate Challenge Boss placement fix from #65",
+   "quote": "Yes go",
    "stage": "testing",
    "waitingOn": "noah",
    "asks": [
     {
      "who": "noah",
-     "text": "This pull request includes all of PR #75's Auto work, because #75 isn't merged yet. Suggestion: merge #75 first, then this one, or close #75 and merge only this one."
+     "text": "Nothing new. Merging this puts the moved button in the real game, so it waits for your OK as usual."
     }
    ],
-   "openedAt": "2026-10-30T01:41:03Z",
+   "openedAt": "2026-10-28T22:57:44Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
+   "testAt": "2026-10-30T03:06:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "fddcb1ec805bfd655ce42fe6ab7b36721a399bc2",
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "fa43776bc78a5a0a64d8a7fae3aa75d950f5aae0",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-10-30T01:48:11Z"
+   "botAt": "2026-10-28T23:13:05Z"
+  },
+  {
+   "number": 69,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
+   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Joshua said yes, for now, to the Town Locations menu in #67: one small Locations menu in the corner instead of the five big building buttons. It moves the camera to the building and shows Locked / Ready to restore / Restored. Dragging, keyboard and tapping buildings all stay.…"
+    }
+   ],
+   "openedAt": "2026-10-29T01:01:40Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-30T03:06:07Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "bd6980962a4d65c00bf4e1c61a3ce59c21cae14e",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T01:13:32Z"
+  },
+  {
+   "number": 72,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves Recruits label and both battlefield frames",
+   "quote": "yeah get them in i approve all",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "#65 already has both frames built, so Joshua's approval needs no code change there. Suggestion: post a new report on #65 that lists the two frame questions as answered, so his status page stops asking. I didn't touch #65 or #71 from here, as the request asks."
+    },
+    {
+     "who": "noah",
+     "text": "#71 asks the same \"Recruits\" question. Suggestion: merge this pull request (or move its one-line change into #71), then post a new report on #71 with that question marked answered."
+    },
+    {
+     "who": "noah",
+     "text": "Journal #60's three choices were approved and built in #63, and Challenge Boss placement was built in #66. Suggestion: post a fresh report on #60 too, so those old questions drop off Joshua's status page."
+    },
+    {
+     "who": "noah",
+     "text": "This pull request and #65/#71 all change home.html, so whichever goes in later needs bringing up to date with main. That's the usual one-line fix: keep main's line and re-apply the new tag treasure-hall.js?v=recruitslabel1."
+    }
+   ],
+   "openedAt": "2026-10-29T13:56:21Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-30T03:06:07Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "7a64f0081d3f6cceb46c5691ce0d66fbf481d522",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T14:01:26Z"
+  },
+  {
+   "number": 74,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
+   "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The Rift is a still picture for now. To make the swirl actually turn inside the stone, ChatGPT needs to make separate pictures: (a) the stone and bronze frame with an empty middle, (b) the teal swirl by itself, and (c) if you want, a few small sparks. Each should be a PNG…"
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want the Rift to glow a little brighter for a moment after each summon? My suggestion: yes, a short soft teal flash. I can add it to this still picture now, without new art."
+    }
+   ],
+   "openedAt": "2026-10-29T15:47:43Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-30T03:06:07Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "040fef17563fa6a1a61b6959d3db0868f07a95e4",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T16:43:56Z"
   },
   {
    "number": 75,
@@ -158,12 +305,12 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
+   "testAt": "2026-10-30T03:06:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "bb02d82f2247f0400490bfcb73931f109a273fea",
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "f5485386bc366c3b7b4c9eb851219c1ad2ff8db9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
@@ -187,16 +334,64 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
+   "testAt": "2026-10-30T03:06:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "2e12bd0a451421c70a9d161e27c73894a2bc8422",
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "a6ac2916aad51cab1c57e6bf01e4fc0829fb599d",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-29T23:55:13Z"
+  },
+  {
+   "number": 80,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved idle vortex animation in Adventure Rift",
+   "quote": "\"Honestly I don’t want you to get into the logic of it I need assets and animation ... I want idle spinning gif or something\"  \"Approved\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-30T00:12:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-10-30T03:06:07Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-10-30T03:06:07Z",
+   "headSha": "89f3016acdba3053b5391003db9f4c92da71904d",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-30T02:09:02Z"
+  },
+  {
+   "number": 73,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
+   "quote": "\"I want a whole scene inside of the shard works where you are inside a mine almost and have different arenas to upgrade and do. Almost emulating a mini tycoon Roblox game. Nothing crazy just a little page inside a mine.\"",
+   "stage": "live",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T15:19:54Z",
+   "mergedAt": "2026-10-30T03:04:10Z",
+   "closedAt": "2026-10-30T03:04:10Z",
+   "liveAt": "2026-10-30T03:04:13Z",
+   "testAt": "2026-10-30T02:38:01Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-30T03:04:13Z",
+   "headSha": "d0ea9ba52ed329bdeb3be35cb613fc64a0ad8665",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-30T00:03:51Z"
   },
   {
    "number": 76,
@@ -204,253 +399,61 @@
    "by": "Joshua",
    "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
    "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "built",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-10-29T18:16:04Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-30T02:38:01Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
    "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "092af1fbd13fc9e2d9f40b3a921cd5b90afd527e",
+   "headSha": "734e6115cd6106e69875b8929ea488de9b01281f",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-29T19:54:35Z"
   },
   {
-   "number": 38,
+   "number": 82,
    "kind": "request",
    "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "71244ee80429b9f5f7fe41451f5b88b4b7a66b1a",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-28T03:15:36Z"
-  },
-  {
-   "number": 60,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
-    },
-    {
-     "who": "joshua",
-     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
-    },
-    {
-     "who": "joshua",
-     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
-    }
-   ],
-   "openedAt": "2026-10-28T04:18:38Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "a2846cb139f3810c875c658c76b7dbe3d7d2bcca",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T17:24:37Z"
-  },
-  {
-   "number": 65,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Merging this puts two new pictures, which Joshua hasn't approved yet, into the real game (they're in his Proposed folder). My suggestion: merge only after Joshua says yes on the test site."
-    },
-    {
-     "who": "joshua",
-     "text": "Do you want to keep the new frame around the enemy's name? My suggestion: yes, the name and health bar are easier to read now."
-    },
-    {
-     "who": "joshua",
-     "text": "Do you want to keep the new party tray frame? With it, the closed tray shows the frame's corners and the background's own curls together. My suggestion: keep it, but only if the two sets of ornaments don't bother you. If they do, I can go back to the old tray edge."
-    }
-   ],
-   "openedAt": "2026-10-28T22:17:13Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "b935a155e2d9540e9a7ba74194d285eb9291fe6a",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T02:32:55Z"
-  },
-  {
-   "number": 66,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner approves immediate Challenge Boss placement fix from #65",
-   "quote": "Yes go",
-   "stage": "testing",
+   "title": "Owner answers: Auto Summon 0.4s cadence and resume after discovery",
+   "quote": "\"Starting with the interval question. Increase timing, yes, yes resume, agreed, agreed, agreed, keep, agreed, agreed. Respond\"",
+   "stage": "built",
    "waitingOn": "noah",
    "asks": [
     {
      "who": "noah",
-     "text": "Nothing new. Merging this puts the moved button in the real game, so it waits for your OK as usual."
+     "text": "This pull request includes all of PR #75's Auto work, because #75 isn't merged yet. Suggestion: merge #75 first, then this one, or close #75 and merge only this one."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet."
     }
    ],
-   "openedAt": "2026-10-28T22:57:44Z",
+   "openedAt": "2026-10-30T01:41:03Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-10-30T02:38:01Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
    "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "931e96470a33355ca99125226bb1893e27899bf2",
+   "headSha": "135d5ecdc1dac82ff9ff2e8e68f0543fff419317",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-10-28T23:13:05Z"
-  },
-  {
-   "number": 69,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Joshua said yes, for now, to the Town Locations menu in #67: one small Locations menu in the corner instead of the five big building buttons. It moves the camera to the building and shows Locked / Ready to restore / Restored. Dragging, keyboard and tapping buildings all stay.…"
-    }
-   ],
-   "openedAt": "2026-10-29T01:01:40Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "eae73ab0084d9768da905b57ec9c5be6b3a88642",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T01:13:32Z"
-  },
-  {
-   "number": 72,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner approves Recruits label and both battlefield frames",
-   "quote": "yeah get them in i approve all",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "#65 already has both frames built, so Joshua's approval needs no code change there. Suggestion: post a new report on #65 that lists the two frame questions as answered, so his status page stops asking. I didn't touch #65 or #71 from here, as the request asks."
-    },
-    {
-     "who": "noah",
-     "text": "#71 asks the same \"Recruits\" question. Suggestion: merge this pull request (or move its one-line change into #71), then post a new report on #71 with that question marked answered."
-    },
-    {
-     "who": "noah",
-     "text": "Journal #60's three choices were approved and built in #63, and Challenge Boss placement was built in #66. Suggestion: post a fresh report on #60 too, so those old questions drop off Joshua's status page."
-    },
-    {
-     "who": "noah",
-     "text": "This pull request and #65/#71 all change home.html, so whichever goes in later needs bringing up to date with main. That's the usual one-line fix: keep main's line and re-apply the new tag treasure-hall.js?v=recruitslabel1."
-    }
-   ],
-   "openedAt": "2026-10-29T13:56:21Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "ea3d1336cd8872addbf627266ab9495660019613",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T14:01:26Z"
-  },
-  {
-   "number": 74,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
-   "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The Rift is a still picture for now. To make the swirl actually turn inside the stone, ChatGPT needs to make separate pictures: (a) the stone and bronze frame with an empty middle, (b) the teal swirl by itself, and (c) if you want, a few small sparks. Each should be a PNG…"
-    },
-    {
-     "who": "joshua",
-     "text": "Do you want the Rift to glow a little brighter for a moment after each summon? My suggestion: yes, a short soft teal flash. I can add it to this still picture now, without new art."
-    }
-   ],
-   "openedAt": "2026-10-29T15:47:43Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "39ca0b88b04bfee140a385f51388e49e83477864",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T16:43:56Z"
+   "botAt": "2026-10-30T01:48:11Z"
   },
   {
    "number": 81,
@@ -500,7 +503,7 @@
    "asks": [
     {
      "who": "noah",
-     "text": "It clashes with another change in progress, in adventure-services.css and adventure-services.js, so it isn't on the test site yet."
+     "text": "It clashes with another change in progress, in adventure-services.css and adventure-services.js and home.html, so it isn't on the test site yet."
     }
    ],
    "openedAt": "2026-10-29T20:31:35Z",
@@ -512,7 +515,7 @@
    "testIsCurrent": false,
    "clashes": true,
    "updatedAt": "2026-10-29T23:56:03Z",
-   "headSha": "299f62775f4b550453772e022aa342e5af31756c",
+   "headSha": "2149903f7ffe7990022517f927831bd9f317a667",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
@@ -859,6 +862,21 @@
  ],
  "activity": [
   {
+   "at": "2026-10-30T03:06:07Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”"
+  },
+  {
+   "at": "2026-10-30T03:04:13Z",
+   "kind": "live",
+   "text": "“Shardworks mine-hub visual overhaul — approved art, economy unchanged” is live in the game"
+  },
+  {
+   "at": "2026-10-30T03:04:10Z",
+   "kind": "approved",
+   "text": "Noah approved “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
+  },
+  {
    "at": "2026-10-30T02:38:01Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”, “Owner answers: Auto Summon 0.4s cadence and resume after discovery”"
@@ -954,11 +972,6 @@
    "text": "Claude finished building “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
   },
   {
-   "at": "2026-10-30T00:03:51Z",
-   "kind": "question",
-   "text": "Part of “Shardworks mine-hub visual overhaul — approved art, economy unchanged” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-10-30T00:03:33Z",
    "kind": "built",
    "text": "Claude finished building “Owner approves teal color direction for Summoning Rift #74”"
@@ -1045,16 +1058,6 @@
   },
   {
    "at": "2026-10-29T23:03:38Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
-  },
-  {
-   "at": "2026-10-29T21:04:24Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
-  },
-  {
-   "at": "2026-10-29T20:50:31Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
   }
