@@ -1,4 +1,4 @@
-/* Joshua's approved idle vortex (Approved/Rift-Idle-Vortex-v01, previews/vortex_idle_3sec.webp: 24 frames, 125ms each,
+/* Joshua's approved idle vortex (Approved/Rift-Idle-Vortex-v01, frames/vortex_00..23.png: 24 frames, 125ms each,
    one clockwise turn every 3 seconds) spins over the centre of the static Summoning Rift, only while the rail draws the
    Rift (data-rail-art=rift, set by summoning.js). It is a picture inside .summon-book, so it moves, greys and is masked
    with the Rift, and the Summon button underneath stays the only tap target.
@@ -7,9 +7,17 @@
    master's 964x986 box from 146,108). The vortex is the master's 302px square from 474,423, so in the drawn Rift (H tall,
    0.97727H wide, centred) it is 0.3062H across, its left edge 0.15612H left of centre and its top 0.18053H above centre.
    The frames are cut from the same painted centre, so they cover it, and the static centre shows only through their soft
-   outer edge. If the animation can't load, or motion is reduced, the static Rift shows as before. */
+   outer edge. If the animation can't load, or motion is reduced, the static Rift shows as before.
+
+   The Rift is at most 98px tall, so the vortex shows at most 30px across: the runtime copy is a 96px animated PNG
+   made from the approved frames by tools/build-rift-vortex.cjs, enough for a 3x iPhone screen. */
 @supports (width:1cqh){
 #game[data-rail-art=rift] .summon-book{container-type:size}
-#game[data-rail-art=rift] .summon-book::after{--rift-h:min(100cqh,102.326cqw);content:'';position:absolute;left:calc(50% - var(--rift-h)*.15612);top:calc(50% - var(--rift-h)*.18053);width:calc(var(--rift-h)*.3062);height:calc(var(--rift-h)*.3062);background:url('assets/summoning-rift-vortex-v01.webp') center/100% 100% no-repeat;pointer-events:none}
+#game[data-rail-art=rift] .summon-book::after{--rift-h:min(100cqh,102.326cqw);content:'';position:absolute;left:calc(50% - var(--rift-h)*.15612);top:calc(50% - var(--rift-h)*.18053);width:calc(var(--rift-h)*.3062);height:calc(var(--rift-h)*.3062);background:url('assets/summoning-rift-vortex-v01-96.png') center/100% 100% no-repeat;pointer-events:none}
 }
+/* After a summon that went through (summoning.js adds .summoned for 600ms, not restarted while one runs, so fast Auto
+   doesn't flicker), the vortex brightens once in sea-glass teal. Only the moving centre glows: the carved stone and
+   frame stay as painted. Reduced motion has no vortex, so no pulse either. */
+#game[data-rail-art=rift] .summon-portal.summoned .summon-book::after{animation:riftSummoned .6s ease-out}
+@keyframes riftSummoned{30%{filter:brightness(1.35) saturate(1.1) drop-shadow(0 0 3px #7fe8d8)}}
 @media(prefers-reduced-motion:reduce){#game[data-rail-art=rift] .summon-book::after{content:none}}
