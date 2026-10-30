@@ -1,0 +1,33 @@
+{
+  "schema": "lorebound.shardworks.mine-runtime.v1",
+  "masters": {
+    "folder": "LOREBOUND Artwork Inbox/Approved/Shardworks-Mine-Hub-v01/masters/",
+    "manifest": "MANIFEST.json"
+  },
+  "note": "Phone-sized copy of the approved master: the whole picture (no crop, same aspect ratio, sRGB, no colour change), sized for a 3x phone. The master is kept outside dist.",
+  "encoder": {
+    "tool": "sharp 0.34.5 / libwebp 1.6.0",
+    "resize": "lanczos3",
+    "quality": 88,
+    "smartSubsample": true,
+    "effort": 6
+  },
+  "pictures": {
+    "shardworks/mine-backdrop": {
+      "src": "assets/shardworks/shardworks-mine-768-v01.webp",
+      "bytes": 319426,
+      "sha256": "1a1f231cd8e44e4fb484d63b5d04bcfb16814af1112f425320b3da12f6528ef0",
+      "width": 768,
+      "height": 1152,
+      "alpha": false,
+      "shown": "fills the Shardworks tab width, up to 430 px on phones; 768 px covers 3x",
+      "master": "LOREBOUND_Shardworks_Mine_Backdrop_v01_APPROVED.png",
+      "masterSha256": "a359d150638b1ddf50f1d3ba61b5b66e430fe82cdb9fcdfd817005fa1215f0f0",
+      "masterBytes": 3140354,
+      "masterSize": [
+        1024,
+        1536
+      ]
+    }
+  }
+}

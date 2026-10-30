@@ -34,7 +34,7 @@
     {
       "number": 73,
       "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
-      "head": "71f2364813eb6d447f06e5bfb2048cd9498cd43a"
+      "head": "d0ea9ba52ed329bdeb3be35cb613fc64a0ad8665"
     },
     {
       "number": 74,
@@ -79,6 +79,6 @@
       "with": "others"
     }
   ],
-  "commit": "27be7ec7344910c1da33eb7451af09b685530826",
-  "at": "2026-10-30T02:10:07Z"
+  "commit": "3df1faed27e81448945d0f58635bed93daff580c",
+  "at": "2026-10-30T02:38:00Z"
 }
