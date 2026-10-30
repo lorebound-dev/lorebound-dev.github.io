@@ -34,7 +34,7 @@
     {
       "number": 73,
       "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
-      "head": "1cdbf3c8072657d2c010ac599aaa6af357392e90"
+      "head": "71f2364813eb6d447f06e5bfb2048cd9498cd43a"
     },
     {
       "number": 74,
@@ -44,7 +44,7 @@
     {
       "number": 75,
       "title": "Owner approves teal color direction for Summoning Rift #74",
-      "head": "4744dc4415ed4ea3b3a9d02a9668af4998a5abbe"
+      "head": "bb02d82f2247f0400490bfcb73931f109a273fea"
     },
     {
       "number": 76,
@@ -52,17 +52,23 @@
       "head": "092af1fbd13fc9e2d9f40b3a921cd5b90afd527e"
     },
     {
-      "number": 77,
-      "title": "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
-      "head": "299f62775f4b550453772e022aa342e5af31756c"
-    },
-    {
       "number": 79,
       "title": "Use floating team card in swaps and highlight improving slots",
       "head": "2e12bd0a451421c70a9d161e27c73894a2bc8422"
     }
   ],
-  "skipped": [],
-  "commit": "71ad90aec588762d7759b68650c399c0bf0ac924",
-  "at": "2026-10-29T23:56:02Z"
+  "skipped": [
+    {
+      "number": 77,
+      "title": "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
+      "head": "299f62775f4b550453772e022aa342e5af31756c",
+      "files": [
+        "pocket-fortune/dist/adventure-services.css",
+        "pocket-fortune/dist/adventure-services.js"
+      ],
+      "with": "others"
+    }
+  ],
+  "commit": "46e4cdc761687aa30ba93dcfa61c042f64e55998",
+  "at": "2026-10-30T00:04:47Z"
 }

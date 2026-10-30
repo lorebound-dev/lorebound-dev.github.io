@@ -3,18 +3,8 @@
 .party-services #game #partyTraining{min-height:44px;padding:0 12px;color:#e7c98c;font:14px Georgia,serif!important;background:transparent;border:0;border-left:1px solid #b5965140}
 .party-services #game #dockPages{overflow:hidden;touch-action:pan-y}
 .party-services #game #dockPanel-party{width:100%;flex:0 0 100%}
-/* Upgrade Rift and Auto Summon (Joshua's approved station design): one squared stone plaque on each side slab of the
-   shrine, in the approved UI kit bronze frame (assets/ui-kit/v01). Each whole plaque is the button, at least 46px tall;
-   the shrine behind them is only a background. --rail-slab and the rail's size are in adventure-art-prototype.css. */
-.party-services #game :is(#tomeQuickAccess,#autoAccess){position:relative;grid-row:1;align-self:end;width:min(100%,calc(var(--rail-slab,70px) + 24px));height:auto;min-height:46px;min-width:0;margin:0 0 3px;padding:5px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:1px solid transparent;border-image:url('assets/ui-kit/v01/frames/panel-standard-128.png') 24 / 12px stretch;border-radius:0;background:linear-gradient(#1b2f38,#0b1921) 50% 50%/calc(100% - 10px) calc(100% - 10px) no-repeat border-box;box-shadow:none;filter:drop-shadow(0 2px 3px #000c);color:#f0dcab;text-align:center;text-shadow:0 1px 2px #000;z-index:4;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.party-services #game #tomeQuickAccess{grid-column:1;justify-self:end}
-.party-services #game #autoAccess{grid-column:3;justify-self:start}
-.party-services #game #tomeQuickAccess>:not(.dock-tome-options){display:none}
-.party-services #game #tomeQuickAccess .dock-tome-options,.party-services #game #autoAccess span{order:0;font:13px/1.15 Georgia,serif!important;letter-spacing:normal!important;color:#f0dcab;text-wrap:balance}
-.party-services #autoAccess small{font:var(--ui-label)/1.2 Georgia,serif!important;letter-spacing:normal!important;color:#c9b88f;white-space:nowrap;text-shadow:0 1px 2px #000}
-.party-services #game :is(#tomeQuickAccess,#autoAccess):focus-visible{outline:2px solid #f3d38c;outline-offset:2px}
-.party-services #game :is(#tomeQuickAccess,#autoAccess):active{filter:brightness(1.15) drop-shadow(0 2px 3px #000c);transform:translateY(1px)}
-@media(max-height:700px),(max-width:350px){.party-services #game #tomeQuickAccess .dock-tome-options,.party-services #game #autoAccess span{font-size:12px!important}.party-services #game :is(#tomeQuickAccess,#autoAccess){margin-bottom:0}}
+.party-services #game #autoAccess{grid-column:3;align-self:stretch;min-height:44px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;background:transparent;color:#efdcb7;font:15px Georgia,serif!important;padding:0 calc(100% - var(--rail-slab,calc(100% - 4px))) 0 4px}
+.party-services #game #autoAccess:focus-visible{outline:2px solid #f3d38c;outline-offset:-3px}
 .party-services .training-intro{padding:8px 0 12px;border-bottom:1px solid #a88c514d}
 .party-services .training-intro small{font:10px Georgia,serif!important;letter-spacing:1px;color:#c2aa7b}
 .party-services .training-intro h2{font:26px Georgia,serif!important;margin:7px 0;color:#f2ddb1}
@@ -38,6 +28,7 @@
 .party-services #autoSettingsSheet label,.party-services #autoSettingsSheet p{font:14px/1.5 Georgia,serif!important}
 .party-services #autoSettingsSheet .auto-entry-note{color:#c6b5dd;font-size:12px!important}
 .party-services #autoSettingsSheet .summon-save{font:15px Georgia,serif!important}
+.party-services #game #autoAccess span{font:15px Georgia,serif!important}
 .party-services #trainingSheet .armory-summary{display:none}
 .party-services #trainingSheet .permanent-upgrade{display:grid;grid-template-columns:30px minmax(0,1fr);align-items:start;padding:12px 10px}
 .party-services #trainingSheet .permanent-upgrade>svg{width:30px;height:34px;margin:0}
@@ -83,9 +74,12 @@
 .party-services #tomeTierCards [aria-pressed=true] small{color:#ffe8b4}
 #trainingSheet::backdrop{background:#020b17a8;backdrop-filter:blur(3px)}
 
-/* One Auto plaque: "Auto Summon · Set up" when off, "Stop Auto · N opened" while running, in the highlighted frame. */
-.party-services #game #autoAccess.is-running span{color:#f6d68f}
-.party-services #game #autoAccess.is-running{border-image-source:url('assets/ui-kit/v01/frames/panel-highlighted-128.png');background-image:linear-gradient(#2a3a3a,#122228);filter:drop-shadow(0 0 4px #d8b15b77) drop-shadow(0 2px 3px #000c)}
+/* One Auto button: a small antique-gold icon when off, a compact red "Stop Auto" while running. The whole rail cell
+   stays the tap target (at least 44px) even though the visible button is small. */
+.party-services #game #autoAccess .auto-access-icon{width:24px;height:24px;fill:none;stroke:#d8bd7e;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 2px #000)}
+.party-services #game #autoAccess.is-running .auto-access-icon{display:none}
+.party-services #game #autoAccess .auto-access-stop{max-width:100%;padding:4px 5px;background:linear-gradient(#a3333b,#6f1d25);border:1px solid #e3a0a0;border-radius:3px;color:#fff3ea;font:13px/1.15 Georgia,serif!important;text-align:center;text-shadow:0 1px 1px #0009}
+.party-services #game #autoAccess .auto-access-stop[hidden]{display:none}
 .dock-sr-only{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
 /* Auto setup (Joshua's approved design): a matte dark navy panel with thin bronze trim, a small violet Tome emblem,
    ten 44px rarity rows, "Open per cycle" and one large violet Start. Only the rarity list scrolls on short screens, so
@@ -130,13 +124,9 @@
 #economyAuto #economyAutoReason:empty{display:none}
 .party-services #autoSettingsSheet.economy-auto>#settingsStartAuto{flex:none;min-height:52px;background:linear-gradient(#6a4a9c,#48306f);color:#f6ecd6;font:17px Georgia,serif!important;letter-spacing:normal!important;text-transform:uppercase}
 .party-services #autoSettingsSheet.economy-auto>#settingsStartAuto:disabled{opacity:.55}
-/* During Auto, each released result shows as a small sprite centred inside the portal (about half the Tome's size)
-   for its whole slot (150ms, or 2s for a batch's last), then the next one replaces it. Nothing stacks. */
+/* During Auto, each released result shows as a small sprite centred inside the portal (about half the Tome's size).
+   It stays at full opacity, without fades or scaling, until the next one's loaded picture replaces it. Nothing stacks,
+   and the Tome stays still underneath. */
 .auto-stream{position:absolute;left:calc(50% - 18px);top:calc(50% - 18px);width:36px;height:36px;pointer-events:none;z-index:3}
-.auto-stream-sprite{position:absolute;inset:0;display:block;filter:drop-shadow(0 0 5px color-mix(in srgb,var(--stream-color,#e0c183) 55%,transparent));animation:auto-stream-show var(--stream-ms,750ms) linear both}
-.auto-stream-sprite .companion-art,.auto-stream-sprite .starter-sheet,.auto-stream-sprite img{display:block;width:100%!important;height:100%!important;object-fit:contain}
-@keyframes auto-stream-show{0%{opacity:.4;transform:scale(.9)}8%,94%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
-.summon-portal.auto-opening .summon-book{animation:auto-tome-shake .32s ease-in-out}
-@keyframes auto-tome-shake{0%,100%{rotate:0deg}25%{rotate:-3deg}75%{rotate:3deg}}
-@media (prefers-reduced-motion:reduce){.auto-stream-sprite{animation:auto-stream-still var(--stream-ms,750ms) step-end both}.summon-portal.auto-opening .summon-book{animation:none}}
-@keyframes auto-stream-still{0%{opacity:1}100%{opacity:0}}
+.auto-stream-sprite{position:absolute;inset:0;display:block;filter:drop-shadow(0 0 5px color-mix(in srgb,var(--stream-color,#e0c183) 55%,transparent))}
+.auto-stream-sprite .companion-art,.auto-stream-sprite .starter-sheet,.auto-stream-sprite img{display:block;width:100%!important;height:100%!important;object-fit:contain;filter:none}
