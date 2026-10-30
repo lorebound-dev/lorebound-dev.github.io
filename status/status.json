@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T03:53:55.539Z",
+ "generatedAt": "2026-10-30T03:55:53.627Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T03:04:13Z",
@@ -35,7 +35,7 @@
    "by": "Joshua",
    "title": "Use floating team card in swaps and highlight improving slots",
    "quote": "when you are in the swapping menu ... just has the floating card that it will have once it’s in the team ... if there is a card where it would be an improvement ... thin glowing green outline",
-   "stage": "building",
+   "stage": "testing",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-10-29T23:48:17Z",
@@ -44,14 +44,14 @@
    "liveAt": null,
    "testAt": "2026-10-30T03:06:07Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-30T03:53:51Z",
-   "headSha": "a6ac2916aad51cab1c57e6bf01e4fc0829fb599d",
+   "updatedAt": "2026-10-30T03:55:25Z",
+   "headSha": "98497bf4609f6679da44d58e2c5050923f5d708b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-10-30T03:53:51Z"
+   "botAt": "2026-10-30T03:55:25Z"
   },
   {
    "number": 38,
@@ -857,7 +857,7 @@
  ],
  "activity": [
   {
-   "at": "2026-10-30T03:53:51Z",
+   "at": "2026-10-30T03:55:25Z",
    "kind": "built",
    "text": "Claude finished building “Use floating team card in swaps and highlight improving slots”"
   },
