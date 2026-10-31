@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T02:24:59.314Z",
+ "generatedAt": "2026-10-31T02:28:47.804Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -340,8 +340,13 @@
    "title": "Integrate approved idle vortex animation in Adventure Rift",
    "quote": "\"Honestly I don’t want you to get into the logic of it I need assets and animation ... I want idle spinning gif or something\"  \"Approved\"",
    "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
+    }
+   ],
    "openedAt": "2026-10-30T00:12:50Z",
    "mergedAt": null,
    "closedAt": null,
