@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T00:32:33.392Z",
+ "generatedAt": "2026-10-31T00:37:04.430Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T04:42:27Z",
@@ -27,6 +27,51 @@
  },
  "items": [
   {
+   "number": 81,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
+   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The shrine cleanup (part B) is already built in #77, so I left it out here. My suggestion: decide #77 first. After it's merged, write \"@claude check part B\" here and I'll fix anything still missing."
+    },
+    {
+     "who": "noah",
+     "text": "This request, #77 and #80 all change home.html, and this one and #77 both change adventure-art-cards.css. The test site combines all three without trouble. Whichever one is merged later will need main merged in first. My suggestion: for adventure-art-cards.css, keep this…"
+    },
+    {
+     "who": "noah",
+     "text": "The old card frames and rarity badges (assets/adventure-rebuild/*-frame.svg, *-emblem.svg) aren't used any more. I left them in place. My suggestion: delete them only after Joshua is happy with the new frames."
+    },
+    {
+     "who": "joshua",
+     "text": "On a phone, the frames' name plate is very small: about 45 by 11 points on a normal-size phone, and the level plate about 22 by 9. Game text can't be smaller than 12, so names and levels are a little bigger than their plates and spill slightly onto the frame. Long names use…"
+    },
+    {
+     "who": "joshua",
+     "text": "The frames' window is smaller than the old cards' picture area, so companions now look about one fifth smaller on the cards. My suggestion: keep it this way, because a bigger picture would mean bigger cards and less room for the battle."
+    }
+   ],
+   "openedAt": "2026-10-30T01:27:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-31T00:36:36Z",
+   "headSha": "de1e55d1e97196f886198530a611e000cd288594",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-31T00:36:36Z"
+  },
+  {
    "number": 83,
    "kind": "request",
    "by": "Joshua",
@@ -49,30 +94,6 @@
    "requestStatus": "Waiting to be built",
    "botState": "finished",
    "botAt": "2026-10-31T00:32:34Z"
-  },
-  {
-   "number": 81,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-30T01:27:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-31T00:24:18Z",
-   "headSha": "31f3ae21e11320dfbac1466615ebc1b55067db3e",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-31T00:24:18Z"
   },
   {
    "number": 80,
@@ -799,6 +820,21 @@
  ],
  "activity": [
   {
+   "at": "2026-10-31T00:36:36Z",
+   "kind": "built",
+   "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
+  },
+  {
+   "at": "2026-10-31T00:36:36Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Use approved rarity-frame design and simplify Adventure Rift rail”"
+  },
+  {
+   "at": "2026-10-31T00:36:36Z",
+   "kind": "question",
+   "text": "Part of “Use approved rarity-frame design and simplify Adventure Rift rail” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-10-31T00:30:55Z",
    "kind": "asked",
    "text": "You asked for “Stage approved companion habitats on dev for mobile QA”"
@@ -982,21 +1018,6 @@
    "at": "2026-10-29T23:55:01Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
-  },
-  {
-   "at": "2026-10-29T23:48:17Z",
-   "kind": "asked",
-   "text": "You asked for “Use floating team card in swaps and highlight improving slots”"
-  },
-  {
-   "at": "2026-10-29T23:21:29Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
-  },
-  {
-   "at": "2026-10-29T23:20:29Z",
-   "kind": "question",
-   "text": "Part of “Replace Tome-tier UI with one permanent numeric Portal progression” is waiting for Noah’s OK"
   }
  ],
  "otherPulls": [
