@@ -167,7 +167,7 @@
 .adventure-dock-preview #game.dock-is-collapsed .enemy-sprite {--enemy-size:min(clamp(115px,18dvh,168px),100cqh)}
 .adventure-dock-preview #game.dock-is-collapsed .enemy-sprite.boss {--enemy-size:min(clamp(125px,20dvh,185px),100cqh)}
 .adventure-dock-preview #game.dock-is-collapsed #summonDock {padding-top:9px;padding-bottom:5px}
-.adventure-dock-preview #game.dock-is-collapsed #summonPortal,.adventure-dock-preview #game.dock-is-collapsed #tomeQuickAccess,.adventure-dock-preview #game.dock-is-collapsed #autoSummon.dock-auto-button {height:64px}
+.adventure-dock-preview #game.dock-is-collapsed #summonPortal,.adventure-dock-preview #game.dock-is-collapsed #autoSummon.dock-auto-button {height:64px}
 .adventure-dock-preview #game.dock-is-collapsed .summon-book {top:-6px;left:calc(50% - 57px);width:76px;height:76px}
 .adventure-dock-preview #game.dock-is-collapsed #summonPortal:before {top:-4px;left:calc(50% - 58px);width:78px;height:74px}
 .adventure-dock-preview #game.dock-is-collapsed .tome-action-label {font-size:15px!important}
@@ -210,8 +210,8 @@
   .adventure-dock-preview #game #summonPortal:before {width:72px;height:72px;left:calc(50% - 54px)}
   .adventure-dock-preview #game .tome-action-label {font-size:14px!important;letter-spacing:.3px}
   .adventure-dock-preview #game .portal-caption b,.adventure-dock-preview #game .portal-caption small {font-size:12px!important}
-  .adventure-dock-preview #game #tomeQuickAccess,.adventure-dock-preview #game #autoSummon.dock-auto-button {height:78px}
-  .adventure-dock-preview #game.dock-is-collapsed #summonPortal,.adventure-dock-preview #game.dock-is-collapsed #tomeQuickAccess,.adventure-dock-preview #game.dock-is-collapsed #autoSummon.dock-auto-button {height:60px}
+  .adventure-dock-preview #game #autoSummon.dock-auto-button {height:78px}
+  .adventure-dock-preview #game.dock-is-collapsed #summonPortal,.adventure-dock-preview #game.dock-is-collapsed #autoSummon.dock-auto-button {height:60px}
   .adventure-dock-preview #game.dock-is-collapsed .summon-book {top:-4px;left:calc(50% - 52px);width:68px;height:68px}
   .adventure-dock-preview #game>.realm-navigation {height:calc(58px + var(--adventure-safe-bottom));min-height:58px;padding-top:2px;padding-bottom:calc(3px + var(--adventure-safe-bottom))}
   .adventure-dock-preview #game>.realm-navigation button {min-height:48px}

@@ -3,8 +3,20 @@
 .party-services #game #partyTraining{min-height:44px;padding:0 12px;color:#e7c98c;font:14px Georgia,serif!important;background:transparent;border:0;border-left:1px solid #b5965140}
 .party-services #game #dockPages{overflow:hidden;touch-action:pan-y}
 .party-services #game #dockPanel-party{width:100%;flex:0 0 100%}
-.party-services #game #autoAccess{grid-column:3;align-self:stretch;min-height:44px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;background:transparent;color:#efdcb7;font:15px Georgia,serif!important;padding:0 4px}
-.party-services #game #autoAccess:focus-visible{outline:2px solid #f3d38c;outline-offset:-3px}
+/* Upgrade Rift (Joshua's approved station design): a squared stone plaque on the shrine's left slab, in the approved UI
+   kit bronze frame (assets/ui-kit/v01). Auto sits in the same spot on the right slab. Each whole button is at least 46px
+   tall; the shrine behind them is only a background. --rail-slab and the rail's size are in adventure-art-prototype.css. */
+.party-services #game :is(#tomeQuickAccess,#autoAccess){position:relative;grid-row:1;align-self:end;width:min(100%,calc(var(--rail-slab,70px) + 24px));height:auto;min-height:46px;min-width:0;margin:0 0 3px;padding:5px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:1px solid transparent;border-image:url('assets/ui-kit/v01/frames/panel-standard-128.png') 24 / 12px stretch;border-radius:0;background:linear-gradient(#1b2f38,#0b1921) 50% 50%/calc(100% - 10px) calc(100% - 10px) no-repeat border-box;box-shadow:none;filter:drop-shadow(0 2px 3px #000c);color:#f0dcab;text-align:center;text-shadow:0 1px 2px #000;z-index:4;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.party-services #game #tomeQuickAccess{grid-column:1;justify-self:end}
+.party-services #game #autoAccess{grid-column:3;justify-self:start}
+.party-services #game #tomeQuickAccess>:not(.dock-tome-options){display:none}
+.party-services #game #tomeQuickAccess .dock-tome-options,.party-services #game #autoAccess span{order:0;font:13px/1.15 Georgia,serif!important;letter-spacing:normal!important;color:#f0dcab;text-wrap:balance}
+.party-services #game :is(#tomeQuickAccess,#autoAccess):focus-visible{outline:2px solid #f3d38c;outline-offset:2px}
+.party-services #game :is(#tomeQuickAccess,#autoAccess):active{filter:brightness(1.15) drop-shadow(0 2px 3px #000c);transform:translateY(1px)}
+@media(max-height:700px),(max-width:350px){.party-services #game #tomeQuickAccess .dock-tome-options,.party-services #game #autoAccess span{font-size:12px!important}.party-services #game :is(#tomeQuickAccess,#autoAccess){margin-bottom:0}}
+/* Auto keeps Joshua's later look from #82: no words while it's off, only the small antique-gold icon, and a compact red
+   "Stop Auto" while it runs or waits on a paused decision, so it has no plaque frame. Its whole spot stays the tap target. */
+.party-services #game #autoAccess{border:0;border-image:none;background:transparent;filter:none}
 .party-services .training-intro{padding:8px 0 12px;border-bottom:1px solid #a88c514d}
 .party-services .training-intro small{font:10px Georgia,serif!important;letter-spacing:1px;color:#c2aa7b}
 .party-services .training-intro h2{font:26px Georgia,serif!important;margin:7px 0;color:#f2ddb1}
@@ -28,7 +40,6 @@
 .party-services #autoSettingsSheet label,.party-services #autoSettingsSheet p{font:14px/1.5 Georgia,serif!important}
 .party-services #autoSettingsSheet .auto-entry-note{color:#c6b5dd;font-size:12px!important}
 .party-services #autoSettingsSheet .summon-save{font:15px Georgia,serif!important}
-.party-services #game #autoAccess span{font:15px Georgia,serif!important}
 .party-services #trainingSheet .armory-summary{display:none}
 .party-services #trainingSheet .permanent-upgrade{display:grid;grid-template-columns:30px minmax(0,1fr);align-items:start;padding:12px 10px}
 .party-services #trainingSheet .permanent-upgrade>svg{width:30px;height:34px;margin:0}

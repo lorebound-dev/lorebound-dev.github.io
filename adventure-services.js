@@ -5,8 +5,13 @@ const $=id=>document.getElementById(id);let mounted=false,last='';
 function mount(){
  if(mounted||!root.__ADVENTURE_DOCK_READY__)return;mounted=true;
  document.documentElement.classList.add('party-services');
- $('tomeQuickAccess').onclick=()=>{root.LoreTomes.resetPreview();root.LoreSummoning.openSettings('overview');};
- $('tomeQuickAccess').querySelector('.dock-tome-options').textContent='Library ›';
+ // Upgrade Rift: the shrine's left plaque opens the Rift Upgrades menu (#tomeQuickSheet): the Tome I–V track, the upgrade,
+ // quantity and a Summoning odds entry. Auto stays on its own plaque, so the menu's Auto row is hidden (tome-popup.css).
+ // The Tome I–V tiers, costs and odds are unchanged.
+ $('tomeQuickAccess').onclick=()=>root.LoreSummoning.openSettings('upgrade');
+ $('tomeQuickAccess').querySelector('.dock-tome-options').textContent='Upgrade Rift';
+ // Summoning odds opens the Tome Library straight on its Exact odds tab.
+ $('quickTomeDetails').onclick=()=>{root.LoreTomePopup.close();root.LoreTomes.resetPreview();root.LoreSummoning.openSettings('odds');};
  $('summonSettings').setAttribute('aria-label','Tome Library');$('summonSettings').querySelector('h2').textContent='Tome Library';
  $('summonSettings').querySelector('.summon-cost').textContent='Select your book and its level';$('tomeCommon').append($('tomeTierCards'),$('summonLuckProgress'));const heading=document.createElement('p');heading.className='tome-level-label';heading.textContent='Tome level';$('tomeCommon').insertBefore(heading,$('tomeTierCards'));
  const footer=document.createElement('footer');footer.id='libraryProgression';
@@ -24,7 +29,6 @@ function refresh(){
  mount();if(!mounted||!state)return;
  const s=state,R=root.LoreRealm,t=R.C.tomes[s.summoning.unlocked-1],auto=root.LoreSummoning.auto;
  const key=[s.summoning.selected,s.summoning.unlocked,s.shards,s.gold,R.discoveredIds(s).length,auto,root.LoreSummoning.opened].join(':');if(key===last)return;const wasAuto=last.split(':')[5]==='true';last=key;
- $('tomeQuickAccess').setAttribute('aria-label','Open Tome Library');
  $('autoAccess').classList.toggle('is-running',auto);$('autoAccessLabel').hidden=!auto;$('autoAccess').setAttribute('aria-label',auto?'Stop Auto. '+root.LoreSummoning.opened+' opened so far.':'Auto summon settings');
  // Screen readers hear when Auto stops and why, never each flashing result.
  if(wasAuto&&!auto)$('autoAccessStatus').textContent='Auto Summon stopped'+(root.LoreSummoning.stopReason?': '+root.LoreSummoning.stopReason:'')+'.';

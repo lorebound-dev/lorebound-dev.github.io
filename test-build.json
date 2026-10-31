@@ -1,5 +1,5 @@
 {
-  "base": "7243b324c1e484749d7292822bfda6897b97227b",
+  "base": "c235fd25d5f2eee5272aac93aeb9aad848cc2816",
   "included": [
     {
       "number": 38,
@@ -32,11 +32,6 @@
       "head": "b6ebb07af65bf8e2a097fb0e9954666ed4c0a966"
     },
     {
-      "number": 74,
-      "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
-      "head": "98079fba9b05e0e131d2f6a5c3312b8f05cb0184"
-    },
-    {
       "number": 80,
       "title": "Integrate approved idle vortex animation in Adventure Rift",
       "head": "70f102d9a88a86bce75dc9fc64f2ea5f84c031b9"
@@ -49,34 +44,35 @@
     {
       "number": 83,
       "title": "Stage approved companion habitats on dev for mobile QA",
-      "head": "33dc23678fb27649eb48ec2323d2acee2844e41c"
+      "head": "f248c227b154721837c6f1bcd4183977b668ac74"
     },
     {
       "number": 84,
       "title": "Integrate approved 10 unique Auto Summon rarity rows",
-      "head": "31aa0b998b3bc76cef2c03cb108c4e8c64900bf1"
+      "head": "5dd27bedd568246d870da161cb61f2af57edfa5b"
     }
   ],
   "skipped": [
+    {
+      "number": 74,
+      "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
+      "head": "98079fba9b05e0e131d2f6a5c3312b8f05cb0184",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "main"
+    },
     {
       "number": 76,
       "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
       "head": "dfbd83442a62e6fda6d66fd582c6f414f10dc734",
       "files": [
+        "pocket-fortune/dist/adventure-services.css",
         "pocket-fortune/dist/home.html"
       ],
-      "with": "others"
-    },
-    {
-      "number": 77,
-      "title": "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
-      "head": "51b3e503cf7d191d6c7cac98e6c2d2d30ed2f50e",
-      "files": [
-        "pocket-fortune/dist/home.html"
-      ],
-      "with": "others"
+      "with": "main"
     }
   ],
-  "commit": "1b2e8323bf8c510a21b05f20fb5a840a1b52730d",
-  "at": "2026-10-31T02:23:09Z"
+  "commit": "3f65d4a9985f9d701e219d84fb9d115e5580c1c3",
+  "at": "2026-10-31T02:24:15Z"
 }
