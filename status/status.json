@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T00:24:17.433Z",
+ "generatedAt": "2026-10-31T00:31:08.722Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T04:42:27Z",
@@ -26,6 +26,30 @@
   ]
  },
  "items": [
+  {
+   "number": 83,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Stage approved companion habitats on dev for mobile QA",
+   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-31T00:30:55Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-31T00:30:55Z",
+   "headSha": "7b5985b468494175b21432d12b7c6158aa99282f",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 81,
    "kind": "request",
@@ -771,33 +795,14 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-27T23:23:57Z"
-  },
-  {
-   "number": 37,
-   "kind": "fix",
-   "by": "Noah",
-   "title": "Show damage numbers over the enemy",
-   "quote": "",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:14:02Z",
-   "mergedAt": "2026-10-27T22:59:57Z",
-   "closedAt": "2026-10-27T22:59:57Z",
-   "liveAt": "2026-10-27T22:59:59Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-27T22:59:59Z",
-   "headSha": "cf5bae107b1f36dc6a45389f77c2f86a5c6386c2",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
   }
  ],
  "activity": [
+  {
+   "at": "2026-10-31T00:30:55Z",
+   "kind": "asked",
+   "text": "You asked for “Stage approved companion habitats on dev for mobile QA”"
+  },
   {
    "at": "2026-10-31T00:23:05Z",
    "kind": "test",
@@ -992,11 +997,6 @@
    "at": "2026-10-29T23:20:29Z",
    "kind": "question",
    "text": "Part of “Replace Tome-tier UI with one permanent numeric Portal progression” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-29T23:17:56Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
   }
  ],
  "otherPulls": [
