@@ -4,32 +4,32 @@
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "33a89d98c02455718dcedc66bfc8027e8747ebdf"
+      "head": "9ae161d173b7b9e0d431bdee799900ea0d9408fd"
     },
     {
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-      "head": "18f4c4f87c72bd2229a14ced042abf0c79c5520b"
+      "head": "f331038e2d198ea20f4d6ef2d9cd3e98ed57a543"
     },
     {
       "number": 65,
       "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-      "head": "c0af4886feb1782a8189c2869306eac4a06a4e01"
+      "head": "86b71c57eaf2c6671d290d6bedc08fbe00082f63"
     },
     {
       "number": 66,
       "title": "Owner approves immediate Challenge Boss placement fix from #65",
-      "head": "b9af3563da817a059ab3b3215667aa8849e8390b"
+      "head": "dab9e4d64ff232d4805541c0a1774aba6766ef00"
     },
     {
       "number": 69,
       "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-      "head": "76d633d961276900daaed8f4dfb12c861243e35f"
+      "head": "b520d1052349bbac4791ca3294acec68fe51fa33"
     },
     {
       "number": 72,
       "title": "Owner approves Recruits label and both battlefield frames",
-      "head": "b6ebb07af65bf8e2a097fb0e9954666ed4c0a966"
+      "head": "21dcbd13999741eaccfa14c9d286fc55e15b2b83"
     },
     {
       "number": 80,
@@ -39,7 +39,7 @@
     {
       "number": 81,
       "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-      "head": "de1e55d1e97196f886198530a611e000cd288594"
+      "head": "0c71bb6e956e2899f96699672d9933a672fdcf3a"
     },
     {
       "number": 83,
@@ -52,27 +52,7 @@
       "head": "5dd27bedd568246d870da161cb61f2af57edfa5b"
     }
   ],
-  "skipped": [
-    {
-      "number": 74,
-      "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
-      "head": "98079fba9b05e0e131d2f6a5c3312b8f05cb0184",
-      "files": [
-        "pocket-fortune/dist/home.html"
-      ],
-      "with": "main"
-    },
-    {
-      "number": 76,
-      "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
-      "head": "dfbd83442a62e6fda6d66fd582c6f414f10dc734",
-      "files": [
-        "pocket-fortune/dist/adventure-services.css",
-        "pocket-fortune/dist/home.html"
-      ],
-      "with": "main"
-    }
-  ],
-  "commit": "3f65d4a9985f9d701e219d84fb9d115e5580c1c3",
-  "at": "2026-10-31T02:24:15Z"
+  "skipped": [],
+  "commit": "6b99de9369cead2fe156aa3c50b5afeb1b2c78bd",
+  "at": "2026-10-31T02:24:58Z"
 }
