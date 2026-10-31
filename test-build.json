@@ -40,6 +40,11 @@
       "number": 80,
       "title": "Integrate approved idle vortex animation in Adventure Rift",
       "head": "70f102d9a88a86bce75dc9fc64f2ea5f84c031b9"
+    },
+    {
+      "number": 81,
+      "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
+      "head": "de1e55d1e97196f886198530a611e000cd288594"
     }
   ],
   "skipped": [
@@ -62,6 +67,6 @@
       "with": "others"
     }
   ],
-  "commit": "e1719cfdc9fea8d3e57bc9dbddc361d75fa84e4c",
-  "at": "2026-10-31T00:23:05Z"
+  "commit": "97e41562294f88bbbb5864465be8e9e05afd24dc",
+  "at": "2026-10-31T00:37:24Z"
 }

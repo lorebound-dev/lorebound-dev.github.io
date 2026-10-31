@@ -1,10 +1,28 @@
-/* Shared live layered cards and non-game art-study sheet. No production entry loads it. */
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card {--habitat-light:#b7a84b;position:relative;isolation:isolate;display:block;min-width:0;min-height:88px;width:100%;height:100%;padding:0;border:0;background:#102019;box-shadow:0 3px 7px #0008;border-radius:5px;color:#f5e6c2;overflow:hidden;cursor:pointer;touch-action:manipulation}
+/* Shared live layered cards and non-game art-study sheet. */
+/* Each card is Joshua's approved rarity frame at its own 3:4 shape, as large as the card allows, with the DPS strip under
+   it. The portrait shows through the frame's window; the level sits on the frame's top plate and the companion's name on
+   its bottom plate. */
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card {--habitat-light:#b7a84b;position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;min-height:88px;width:100%;height:100%;padding:0;border:0;background:none;box-shadow:none;border-radius:5px;color:#f5e6c2;overflow:visible;cursor:pointer;touch-action:manipulation;container-type:size}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card>*{pointer-events:none}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-backplate,:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-frame,:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-ambient {position:absolute;inset:0;width:100%;height:100%;margin:0;object-fit:fill;image-rendering:auto}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-backplate {z-index:0;inset:-8%;width:116%;height:116%;filter:saturate(1.15) brightness(1.16)}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=common] .card-backplate {filter:saturate(1.28) brightness(1.32)}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-habitat-light {position:absolute;inset:5% 3% 19%;z-index:1;background:radial-gradient(ellipse at 50% 58%,var(--habitat-light) 0%,var(--habitat-light) 14%,transparent 76%);mix-blend-mode:screen;opacity:.62}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-face {position:relative;flex:none;display:block;width:100%;width:min(100cqw,calc((100cqh - 24px) * .75));aspect-ratio:3/4;filter:drop-shadow(0 3px 4px #0009)}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-frame {position:absolute;inset:0;width:100%;height:100%;margin:0;object-fit:fill;image-rendering:auto;z-index:6}
+/* Where each frame's see-through window is, as insets of the frame (measured from the approved masters), reaching a
+   little under the frame so no gap shows at its inner edge. --name-y and --level-* place the text on the two plates. */
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card {--window:9.5% 12% 20.9% 12.1%;--name-y:84.5%;--level-x:12.4%;--level-y:15.2%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=uncommon] {--window:11.1% 13.3% 20.5% 13.3%;--name-y:85%;--level-x:14.8%;--level-y:16.4%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=rare] {--window:9.6% 11.7% 22.3% 11.8%;--name-y:83.5%;--level-x:13.5%;--level-y:15.3%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=epic] {--window:12.9% 15.6% 23.2% 15.6%;--name-y:82.5%;--level-x:16.4%;--level-y:18.3%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=legendary] {--window:15.4% 12.3% 19.6% 12.2%;--name-y:85%;--level-x:17%;--level-y:20.5%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=mythic] {--window:16.5% 17.4% 26.2% 17.4%;--name-y:79.5%;--level-x:21%;--level-y:21.9%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=ancient] {--window:15.9% 17.2% 23.7% 17.1%;--name-y:81.5%;--level-x:15.9%;--level-y:21.1%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=exalted] {--window:16.2% 18.4% 23.5% 18.3%;--name-y:83%;--level-x:19.1%;--level-y:21.6%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=transcendent] {--window:19.8% 18.5% 23.4% 18.4%;--name-y:81%;--level-x:21%;--level-y:24.5%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=eternal] {--window:15.6% 14.7% 25.8% 14.6%;--name-y:80%;--level-x:14%;--level-y:20.5%}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-window {position:absolute;inset:var(--window);z-index:0;overflow:hidden;background:#0b1a1f}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-backplate,:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-ambient {position:absolute;inset:0;width:100%;height:100%;margin:0;object-fit:cover;image-rendering:auto}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-backplate {z-index:0;filter:saturate(1.15) brightness(1.16)}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-backplate[src*=common] {filter:saturate(1.28) brightness(1.32)}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-habitat-light {position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 50% 58%,var(--habitat-light) 0%,var(--habitat-light) 14%,transparent 76%);mix-blend-mode:screen;opacity:.62}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=wildgrowth] {--habitat-light:#75d64c}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=beasts] {--habitat-light:#ff8a35}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=constructs] {--habitat-light:#36c8ee}
@@ -13,14 +31,18 @@
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=aberrations] {--habitat-light:#d79fca}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-habitat {position:absolute;inset:0;width:100%;height:100%;stroke:var(--habitat-light);stroke-width:1;fill:none;opacity:.18;z-index:1}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-ambient{z-index:2}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-art-stage {position:absolute;inset:14px 3px 29px;display:grid;place-items:center;padding:0;overflow:visible;z-index:3}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait {display:block;position:relative;width:100%;height:auto;aspect-ratio:1;margin:0;image-rendering:pixelated;transform:scale(var(--portrait-scale,1)) translate(var(--portrait-x,0%),var(--portrait-y,0%));filter:brightness(1.13) saturate(1.12) drop-shadow(0 1px 1px #000d) drop-shadow(0 0 2px #fff1)}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait.starter-sheet{width:100%;height:auto;aspect-ratio:1;background-size:300% 100%;background-position:var(--starter-x) center;background-repeat:no-repeat}
+/* The portrait is square and as large as the stage allows, so on short cards it shrinks whole instead of spilling under the Lv. and DPS labels. */
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-art-stage {position:absolute;inset:0;display:grid;place-items:center;padding:0;overflow:visible;z-index:3;container-type:size}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait {display:block;position:relative;width:100%;width:min(100cqw,100cqh);height:auto;aspect-ratio:1;margin:0;image-rendering:pixelated;transform:scale(var(--portrait-scale,1)) translate(var(--portrait-x,0%),var(--portrait-y,0%));filter:brightness(1.13) saturate(1.12) drop-shadow(0 1px 1px #000d) drop-shadow(0 0 2px #fff1)}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait.starter-sheet{width:100%;width:min(100cqw,100cqh);height:auto;aspect-ratio:1;background-size:300% 100%;background-position:var(--starter-x) center;background-repeat:no-repeat}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait.companion-art img{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-frame {z-index:6}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-rarity{position:absolute;top:5px;left:5px;width:14px;height:14px;z-index:7;filter:drop-shadow(0 1px 2px #000)}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps{position:absolute;bottom:5px;left:5px;right:5px;min-width:0;height:23px;display:flex;align-items:center;justify-content:center;gap:3px;background:#06121ef5;border:0;z-index:7;white-space:nowrap;font:13px/1.1 Georgia,serif;color:#fff0c9;text-shadow:0 1px 2px #000}
+/* The companion's real name, centred on the bottom plate: up to two 12px lines, so long names wrap (hyphenating a
+   single long word) instead of vanishing. */
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-name {position:absolute;left:1px;right:1px;top:var(--name-y);z-index:8;transform:translateY(-50%);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;text-align:center;font:12px/1.05 Georgia,serif!important;letter-spacing:0!important;color:#fff0c9;text-shadow:0 0 2px #000,0 0 3px #000,0 1px 2px #000;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
+/* The real level on the top plate, keeping the green ready-to-level cue (ownership-adventure.css). */
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-level {left:var(--level-x);top:var(--level-y);z-index:8;transform:translateY(-50%);padding:1px 3px;border-radius:2px;background:#081923e6;line-height:1.05;white-space:nowrap;letter-spacing:0!important}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps{position:relative;flex:none;width:100%;min-width:0;height:22px;display:flex;align-items:center;justify-content:center;gap:3px;background:#06121ef0;border:1px solid #a78b5044;border-radius:3px;z-index:7;white-space:nowrap;font:13px/1.1 Georgia,serif;color:#fff0c9;text-shadow:0 1px 2px #000}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps b{font:bold 14px/1 Georgia,serif}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps small{font:9px/1 Georgia,serif;color:#bcb7a4}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps small{font:12px/1 Georgia,serif;color:#bcb7a4}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card:focus-visible{outline:2px solid #ffefbe;outline-offset:2px}
-@media(max-width:350px){:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-art-stage{inset:13px 2px 28px}:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-rarity{width:12px;height:12px;left:4px;top:4px}:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps{gap:2px;left:4px;right:4px}:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps b{font-size:13px}:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps small{font-size:8px}}
+@media(max-width:350px){:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps{gap:2px}:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps b{font-size:13px}}

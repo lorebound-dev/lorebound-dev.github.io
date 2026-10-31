@@ -1,0 +1,132 @@
+{
+ "schema": "lorebound.rarity-frames.runtime.v1",
+ "masters": {
+  "folder": "LOREBOUND Artwork Inbox/Approved/Rarity-Frames-Independent-v02/",
+  "approval": "Owner-approved 10 independently generated frame artworks; integration pending QA",
+  "width": 1086,
+  "height": 1448
+ },
+ "note": "Phone-sized copies of the ten approved v02 frames. Each is the whole picture (no crop, same 3:4 shape, lossless alpha), area-averaged with premultiplied alpha to 3x the widest Party card (88 px). Masters are kept outside dist.",
+ "copies": {
+  "common": {
+   "file": "rarity-frame-common-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 96772,
+   "sha256": "96a3832fdf98aef519a66db0596dadbe0568255a518fc3ade27e5cf12f5b1e1f",
+   "master": {
+    "path": "frames/rarity_frame_00_common_approved_v02.png",
+    "sha256": "d95a60cb558cbc0174a6438169579c1fef112cdb3e4ffe340bec96504a11551d",
+    "bytes": 1094441
+   }
+  },
+  "uncommon": {
+   "file": "rarity-frame-uncommon-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 125321,
+   "sha256": "aee92ac6a3345c93b58e5262275c818608e8b0f5b22cee3c7d851378f22fcc61",
+   "master": {
+    "path": "frames/rarity_frame_01_uncommon_approved_v02.png",
+    "sha256": "8809e5b3e3d264b48f89753d29e02a3b5025988aa120a13fec47cdb889609af0",
+    "bytes": 1436431
+   }
+  },
+  "rare": {
+   "file": "rarity-frame-rare-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 124556,
+   "sha256": "3b2afa7a7c553eab10bd7e1c96a99061267e02fd21eb50b3e79d55deed2582b3",
+   "master": {
+    "path": "frames/rarity_frame_02_rare_approved_v02.png",
+    "sha256": "df0beddab644b356c0cbe0d67ac28ae076046e2fd3b89608d3e1628c68e0ea83",
+    "bytes": 1368629
+   }
+  },
+  "epic": {
+   "file": "rarity-frame-epic-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 122999,
+   "sha256": "a1dd45807a922139ca0a2bb4c65d6b7dd0f9eace0c20049ee995f569e3d801d6",
+   "master": {
+    "path": "frames/rarity_frame_03_epic_approved_v02.png",
+    "sha256": "9ee3bf46a6346963fa791031cd98baf78d36439570d51c94d8eb67f9fc1783b5",
+    "bytes": 1471866
+   }
+  },
+  "legendary": {
+   "file": "rarity-frame-legendary-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 128074,
+   "sha256": "4289a8efc8ece2cb773b168c172058917805a48d993104c2adc7aa3daeedbbb4",
+   "master": {
+    "path": "frames/rarity_frame_04_legendary_approved_v02.png",
+    "sha256": "043b021717f8be3e90cbc7c912748c62b319afc6d510ed13905050954e6b566a",
+    "bytes": 1524616
+   }
+  },
+  "mythic": {
+   "file": "rarity-frame-mythic-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 132517,
+   "sha256": "2411d145599bfa39fc01352b159263b69c025edc74ef6e8464110b5b3a24c60f",
+   "master": {
+    "path": "frames/rarity_frame_05_mythic_approved_v02.png",
+    "sha256": "cf84c6a283106152230fbcfb6d8ea6ae912ab71f075eab7dcde0f6ae3a6b7e11",
+    "bytes": 1562219
+   }
+  },
+  "ancient": {
+   "file": "rarity-frame-ancient-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 144790,
+   "sha256": "bfe66897869ba006fa3b9a74b8b9cbdd2090d69a6401addba6bcfb0934ac0a49",
+   "master": {
+    "path": "frames/rarity_frame_06_ancient_approved_v02.png",
+    "sha256": "7fb81d86bfca1f14e94b9b22563d33972e4c66abdae9396c35573478f9ccdcb8",
+    "bytes": 1807120
+   }
+  },
+  "exalted": {
+   "file": "rarity-frame-exalted-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 146040,
+   "sha256": "ba3c24402625369224645eab9ef8432293ae55b9706cf4eb8166fd7653899cb2",
+   "master": {
+    "path": "frames/rarity_frame_07_exalted_approved_v02.png",
+    "sha256": "dd80dac2149e32b3cf86bee5061ea0eb7bd68d1e969b309d1fdb0374536da876",
+    "bytes": 1580880
+   }
+  },
+  "transcendent": {
+   "file": "rarity-frame-transcendent-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 132307,
+   "sha256": "b458470754ea135353f3c2221aac67a91838939c097efa99fdb1476539cdb9d5",
+   "master": {
+    "path": "frames/rarity_frame_08_transcendent_approved_v02.png",
+    "sha256": "628937d8463ddf7e75ca7daca87ddc8f09163c9bea161958b5281638a7b4f70d",
+    "bytes": 1558490
+   }
+  },
+  "eternal": {
+   "file": "rarity-frame-eternal-v02-264.png",
+   "width": 264,
+   "height": 352,
+   "bytes": 151942,
+   "sha256": "148d3c19f443f8e5fcbc4b1e67068e4e8a1681ed4aacc3405a6300d06989667a",
+   "master": {
+    "path": "frames/rarity_frame_09_eternal_approved_v02.png",
+    "sha256": "d32dcd054afaac4e80419e8872b76aec70a7f957ca7ee4eb187a84e31a5c6f17",
+    "bytes": 1802999
+   }
+  }
+ }
+}
