@@ -1,7 +1,8 @@
 /* Cosmetic companion lore: one habitat per category and fixed display measurements. No combat, odds or save data. */
 (function(root){'use strict';
-// Only three full-screen habitats exist. Mortals, Spirits and Aberrations use the tutorial egg screen's starry void until Joshua supplies art (see pocket-fortune/docs/ARTWORK-NEEDS.md).
-const habitats=Object.freeze({Wildgrowth:'habitat-woodland',Beasts:'habitat-volcanic',Constructs:'habitat-moonlit',Mortals:null,Spirits:null,Aberrations:null});
+// One full-screen habitat per category; the starry void stays as the fallback. Mortals uses the Ruined Fortress v03
+// for testing; the approved Forgotten Courtyard v02 and the Wildstone Grotto (Beasts) are only on habitat-review.html.
+const habitats=Object.freeze({Wildgrowth:'habitat-woodland',Beasts:'habitat-volcanic',Constructs:'habitat-moonlit',Mortals:'habitat-ruined-fortress',Spirits:'habitat-veiled-sanctuary',Aberrations:'habitat-fractured-observatory'});
 const fallback='void';
 // Species id (owned copy ids like 'bramblebud~3' resolve too): [size label, metres, weight in kg or a word for bodiless species]
 const measures=Object.freeze({

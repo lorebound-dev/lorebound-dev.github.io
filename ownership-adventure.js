@@ -49,9 +49,8 @@ function compare(){const s=read(),p=s.pending,h=R.species(p.speciesId);let box=$
 // This preview never writes the save.
 let picking=false,chosen=null,deltaKey='',deltas=[];
 const dps=n=>typeof statFmt==='function'?statFmt(n):String(Math.round(n*10)/10);
-// The tutorial egg screen's habitats by type. The other types have no approved habitat yet, so they use the egg
-// screen's own fallback.
-const HABITATS={Wildgrowth:'habitat-woodland.png',Beasts:'habitat-volcanic.png',Constructs:'habitat-moonlit.png'};
+// Each type's habitat comes from companion-profile.js, so this view matches the team and Omnidex pages.
+const habitat=category=>root.LoreCompanionProfile?.habitat(category)||"url('assets/void.png')";
 const signed=d=>Math.abs(d)<1e-9?{way:'same',text:'±0'}:{way:d>0?'up':'down',text:(d>0?'+':'−')+dps(Math.abs(d))};
 function projection(s,slot){const p=s.pending,occupied=slot<s.owned.length,old=occupied?s.owned[slot]:null;if(!occupied&&s.owned.length>=5)return null;const next=O.hydrate(O.decide(s,p.drawId,occupied?'swap':'recruit',old?.id));return {occupied,old,next,now:R.total(s),then:R.total(next)};}
 // One projection per slot for the current waiting companion and party; open slots all share the "add" projection.
@@ -67,7 +66,7 @@ function floatingCard(h,item,level,power,placed){const label=h.name+', '+h.rarit
  catch{return '<div class="choice-fallback" role="img" aria-label="'+esc(label)+'">'+root.LoreArt.portrait(item)+'</div>';}}
 function choose(){const s=read();if(!s?.pending||s.owned.some(c=>c.speciesId===s.pending.speciesId)||!root.__ADVENTURE_DOCK_READY__||!$('adventureDeck'))return false;picking=true;chosen=null;$('summonSheet').hidden=true;$('game').classList.remove('summon-active');$('combatLayout').inert=false;root.LoreNavigation?.showAdventure?.();root.LoreAdventureDock?.collapse(false);$('game').classList.add('dock-choosing');let panel=$('dockChoice');if(!panel){panel=document.createElement('section');panel.id='dockChoice';panel.setAttribute('aria-label','Choose a party slot');$('adventureDeck').appendChild(panel);}panel.hidden=false;renderChoice();($('choiceBack')||$('choiceRelease'))?.focus?.({preventScroll:true});return true;}
 function renderChoice(){const s=read(),panel=$('dockChoice');if(!picking||!s?.pending||!panel)return;const p=s.pending,h=R.species(p.speciesId),item=root.LoreSummonModel.item(p.id),out=p.displaced;let x=null;try{x=chosen===null?null:projection(s,chosen);}catch(e){x=null;}
- panel.style.setProperty('--choice-color',item.color);panel.style.setProperty('--choice-habitat',"url('assets/"+(HABITATS[h.category]||'void.png')+"')");panel.dataset.rarity=h.rarity.toLowerCase();const top=$('adventureDeck')?.getBoundingClientRect?.().top;if(top>0)panel.style.maxHeight=Math.max(270,top-12)+'px';
+ panel.style.setProperty('--choice-color',item.color);panel.style.setProperty('--choice-habitat',habitat(h.category));panel.dataset.rarity=h.rarity.toLowerCase();const top=$('adventureDeck')?.getBoundingClientRect?.().top;if(top>0)panel.style.maxHeight=Math.max(270,top-12)+'px';
  const level=x?O.leveling(x.next,p.id).level:O.pendingLevel(s),power=(x?R.combat(x.next,p.id):R.combat(s,p.id)).expectedDps,same=x?.occupied&&R.species(x.old.speciesId).rarity===h.rarity,was=x?.occupied?esc(R.species(x.old.speciesId).name):'',brings=x?.occupied&&Number(x.old.invested?.n||0)>0;
  let html='<div class="choice-head"><div class="choice-card">'+floatingCard(h,item,level,power,!!x)+'</div><div class="choice-info"><b class="choice-name">'+esc(h.name)+'</b><small class="choice-rarity"><i aria-hidden="true"></i>'+esc(h.rarity)+'</small>';
  const v=x&&signed(x.then-x.now);

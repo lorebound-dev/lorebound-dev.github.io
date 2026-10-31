@@ -45,6 +45,11 @@
       "number": 81,
       "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
       "head": "de1e55d1e97196f886198530a611e000cd288594"
+    },
+    {
+      "number": 83,
+      "title": "Stage approved companion habitats on dev for mobile QA",
+      "head": "33dc23678fb27649eb48ec2323d2acee2844e41c"
     }
   ],
   "skipped": [
@@ -67,6 +72,6 @@
       "with": "others"
     }
   ],
-  "commit": "97e41562294f88bbbb5864465be8e9e05afd24dc",
-  "at": "2026-10-31T00:37:24Z"
+  "commit": "d65bb3170eb6d0f6240eb03f1b00ab8ab814858d",
+  "at": "2026-10-31T00:39:09Z"
 }
