@@ -95,30 +95,36 @@
 #economyAuto .auto-odds-head{flex:none;display:flex;justify-content:space-between;align-items:center;min-height:30px;margin:0 0 4px;padding:0 10px;border:1px solid #a8854f99;border-radius:3px;background:#0d1f2c}
 #economyAuto .auto-odds-head span{font-size:15px;color:#e0c183;text-transform:uppercase}
 #economyAuto .auto-odds-head span+span{font-size:12px;color:#c9b88f}
-#economyAuto .auto-odds-wrap{flex:0 1 auto;min-height:118px;display:flex;flex-direction:column;gap:2px;overflow-y:auto;overscroll-behavior:contain;margin:0 0 8px}
+/* Only this list scrolls; it takes all the height the sheet has left. The 11px on top is room for the first diamond's tip.
+   The sticky fade at the bottom shows there's more below, and once the list reaches Eternal it sits under it as blank space,
+   so no row is ever left half-hidden behind "Open per cycle". */
+#economyAuto .auto-odds-wrap{flex:0 1 auto;min-height:118px;display:flex;flex-direction:column;gap:0;padding:11px 0 0;overflow-y:auto;overscroll-behavior:contain;margin:0 0 8px;scrollbar-width:thin;scrollbar-color:#a8854f transparent}
+#economyAuto .auto-odds-wrap::after{content:"";position:-webkit-sticky;position:sticky;bottom:0;z-index:1;flex:none;height:18px;pointer-events:none;background:linear-gradient(#0a182400,#0a1824)}
 /* Joshua's approved row art (Approved/Auto-Summon-Rarity-Rows-v01): one plate per rarity, picked by data-rarity, never by
-   order or state. Each plate is 362×96 (tools/art/make-auto-rows.cjs) drawn as a 3-slice at half size in a 48px row: the
-   left 100px (diamond and rounded end) and right 50px (pointed end) keep their shape, and only the plain stone between
-   them stretches. The gem sits in the diamond; the box, name and odds sit on the stone. The whole 48px row is the tap target. */
-#economyAuto .auto-row{position:relative;isolation:isolate;flex:none;display:flex;align-items:center;gap:6px;height:48px;min-height:48px;padding:0 24px 0 0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
-#economyAuto .auto-row::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-style:solid;border-color:transparent;border-width:0 25px 0 50px;border-image-slice:0 50 0 100 fill;border-image-width:0 25px 0 50px;border-image-repeat:stretch}
-#economyAuto .auto-row[data-rarity=common]::before{border-image-source:url(assets/auto-rows/auto-row-common-v01.png)}
-#economyAuto .auto-row[data-rarity=uncommon]::before{border-image-source:url(assets/auto-rows/auto-row-uncommon-v01.png)}
-#economyAuto .auto-row[data-rarity=rare]::before{border-image-source:url(assets/auto-rows/auto-row-rare-v01.png)}
-#economyAuto .auto-row[data-rarity=epic]::before{border-image-source:url(assets/auto-rows/auto-row-epic-v01.png)}
-#economyAuto .auto-row[data-rarity=legendary]::before{border-image-source:url(assets/auto-rows/auto-row-legendary-v01.png)}
-#economyAuto .auto-row[data-rarity=mythic]::before{border-image-source:url(assets/auto-rows/auto-row-mythic-v01.png)}
-#economyAuto .auto-row[data-rarity=ancient]::before{border-image-source:url(assets/auto-rows/auto-row-ancient-v01.png)}
-#economyAuto .auto-row[data-rarity=exalted]::before{border-image-source:url(assets/auto-rows/auto-row-exalted-v01.png)}
-#economyAuto .auto-row[data-rarity=transcendent]::before{border-image-source:url(assets/auto-rows/auto-row-transcendent-v01.png)}
-#economyAuto .auto-row[data-rarity=eternal]::before{border-image-source:url(assets/auto-rows/auto-row-eternal-v01.png)}
+   order or state. Each plate is 543×144 (tools/art/make-auto-rows.cjs) drawn 66px tall as a 3-slice: the left 150px
+   (diamond and rounded end) and right 75px (pointed end) keep their shape, and only the plain stone between them stretches.
+   The plate's stone is about 58% of its height, so at 66px the stone fills 38px of each 44px row and neighbouring stones sit
+   about 6px apart; the diamond reaches 11px past the row above and below. The whole 44px row is the tap target. The gem sits
+   in the diamond; the box, name and odds sit on the stone. */
+#economyAuto .auto-row{position:relative;isolation:isolate;flex:none;display:flex;align-items:center;gap:6px;height:44px;min-height:44px;padding:0 36px 0 0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#economyAuto .auto-row::before{content:"";position:absolute;inset:-11px 0;z-index:-1;pointer-events:none;border-style:solid;border-color:transparent;border-width:0 34.375px 0 68.75px;border-image-slice:0 75 0 150 fill;border-image-width:0 34.375px 0 68.75px;border-image-repeat:stretch}
+#economyAuto .auto-row[data-rarity=common]::before{border-image-source:url(assets/auto-rows/auto-row-common-v02.png)}
+#economyAuto .auto-row[data-rarity=uncommon]::before{border-image-source:url(assets/auto-rows/auto-row-uncommon-v02.png)}
+#economyAuto .auto-row[data-rarity=rare]::before{border-image-source:url(assets/auto-rows/auto-row-rare-v02.png)}
+#economyAuto .auto-row[data-rarity=epic]::before{border-image-source:url(assets/auto-rows/auto-row-epic-v02.png)}
+#economyAuto .auto-row[data-rarity=legendary]::before{border-image-source:url(assets/auto-rows/auto-row-legendary-v02.png)}
+#economyAuto .auto-row[data-rarity=mythic]::before{border-image-source:url(assets/auto-rows/auto-row-mythic-v02.png)}
+#economyAuto .auto-row[data-rarity=ancient]::before{border-image-source:url(assets/auto-rows/auto-row-ancient-v02.png)}
+#economyAuto .auto-row[data-rarity=exalted]::before{border-image-source:url(assets/auto-rows/auto-row-exalted-v02.png)}
+#economyAuto .auto-row[data-rarity=transcendent]::before{border-image-source:url(assets/auto-rows/auto-row-transcendent-v02.png)}
+#economyAuto .auto-row[data-rarity=eternal]::before{border-image-source:url(assets/auto-rows/auto-row-eternal-v02.png)}
 /* Ticked: a soft gold glow around the plate as well as the gold box, so the row's own colours stay. */
 #economyAuto .auto-row:has(input:checked)::before{filter:drop-shadow(0 0 3px #f1d899b3)}
 #economyAuto .auto-row:has(input:focus-visible){outline:2px solid #e0c183;outline-offset:0;border-radius:3px}
 #economyAuto .auto-row input{flex:none;width:18px;height:18px;margin:0;-webkit-appearance:none;appearance:none;border:1px solid #c9b88fd9;border-radius:2px;background:#050e16 center/14px 14px no-repeat}
 #economyAuto .auto-row input:checked{border-color:#f1d899;background-color:#c9a65a;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='%230a1824' stroke-width='2.2'/%3E%3C/svg%3E")}
-#economyAuto .auto-gem{order:-1;flex:none;width:44px;height:44px;display:grid;place-items:center}
-#economyAuto .auto-gem img{display:block;width:22px;height:22px;object-fit:contain}
+#economyAuto .auto-gem{order:-1;flex:none;width:60px;height:44px;display:grid;place-items:center}
+#economyAuto .auto-gem img{display:block;width:26px;height:26px;object-fit:contain}
 #economyAuto .auto-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;font-size:14px;color:#efe4c6;text-transform:uppercase;text-shadow:0 1px 2px #000,0 0 3px #000}
 #economyAuto .auto-row:has(input:checked) .auto-name{color:#f6dfa0}
 #economyAuto .auto-pct{flex:none;font-size:14px;color:#f6dfa0;white-space:nowrap;text-shadow:0 1px 2px #000,0 0 3px #000}
