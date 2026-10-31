@@ -70,13 +70,13 @@
     {
       "number": 77,
       "title": "Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions",
-      "head": "b55c320a49f37a8638b0c825c788bf62663d8300",
+      "head": "51b3e503cf7d191d6c7cac98e6c2d2d30ed2f50e",
       "files": [
         "pocket-fortune/dist/home.html"
       ],
       "with": "others"
     }
   ],
-  "commit": "8b8a1f2b21525e322e6ce8275dd38c933441989b",
-  "at": "2026-10-31T01:46:47Z"
+  "commit": "1b2e8323bf8c510a21b05f20fb5a840a1b52730d",
+  "at": "2026-10-31T02:23:09Z"
 }
