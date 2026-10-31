@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T02:24:16.939Z",
+ "generatedAt": "2026-10-31T02:24:59.314Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-31T02:24:15Z",
+  "updatedAt": "2026-10-31T02:24:58Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -22,10 +22,7 @@
    "Stage approved companion habitats on dev for mobile QA",
    "Integrate approved 10 unique Auto Summon rarity rows"
   ],
-  "skipped": [
-   "Animated compact Summoning Rift — replace rail Tome after color/art approval",
-   "Integrate approved summoning shrine into Adventure rail — visual-only"
-  ]
+  "skipped": []
  },
  "items": [
   {
@@ -41,11 +38,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "9ae161d173b7b9e0d431bdee799900ea0d9408fd",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -58,18 +55,31 @@
    "by": "Joshua",
    "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
    "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
+    },
+    {
+     "who": "joshua",
+     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
+    },
+    {
+     "who": "joshua",
+     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
+    }
+   ],
    "openedAt": "2026-10-28T04:18:38Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "f331038e2d198ea20f4d6ef2d9cd3e98ed57a543",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -82,18 +92,31 @@
    "by": "Joshua",
    "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
    "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this puts two new pictures, which Joshua hasn't approved yet, into the real game (they're in his Proposed folder). My suggestion: merge only after Joshua says yes on the test site."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new frame around the enemy's name? My suggestion: yes, the name and health bar are easier to read now."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new party tray frame? With it, the closed tray shows the frame's corners and the background's own curls together. My suggestion: keep it, but only if the two sets of ornaments don't bother you. If they do, I can go back to the old tray edge."
+    }
+   ],
    "openedAt": "2026-10-28T22:17:13Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "86b71c57eaf2c6671d290d6bedc08fbe00082f63",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -118,11 +141,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "dab9e4d64ff232d4805541c0a1774aba6766ef00",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -147,11 +170,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "b520d1052349bbac4791ca3294acec68fe51fa33",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -188,11 +211,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "21dcbd13999741eaccfa14c9d286fc55e15b2b83",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -233,11 +256,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "0c71bb6e956e2899f96699672d9933a672fdcf3a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -270,11 +293,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "f248c227b154721837c6f1bcd4183977b668ac74",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -299,11 +322,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "5dd27bedd568246d870da161cb61f2af57edfa5b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -323,11 +346,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T02:24:16Z",
+   "testAt": "2026-10-31T02:24:58Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T02:24:16Z",
+   "updatedAt": "2026-10-31T02:24:58Z",
    "headSha": "70f102d9a88a86bce75dc9fc64f2ea5f84c031b9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -335,36 +358,47 @@
    "botAt": "2026-10-30T02:09:02Z"
   },
   {
+   "number": 76,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
+   "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
+   "stage": "closed",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T18:16:04Z",
+   "mergedAt": null,
+   "closedAt": "2026-10-31T02:24:29Z",
+   "liveAt": null,
+   "testAt": "2026-10-30T02:38:01Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-31T02:24:29Z",
+   "headSha": "dfbd83442a62e6fda6d66fd582c6f414f10dc734",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-29T19:54:35Z"
+  },
+  {
    "number": 74,
    "kind": "request",
    "by": "Joshua",
    "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
    "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "built",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The Rift is a still picture for now. To make the swirl actually turn inside the stone, ChatGPT needs to make separate pictures: (a) the stone and bronze frame with an empty middle, (b) the teal swirl by itself, and (c) if you want, a few small sparks. Each should be a PNG…"
-    },
-    {
-     "who": "joshua",
-     "text": "Do you want the Rift to glow a little brighter for a moment after each summon? My suggestion: yes, a short soft teal flash. I can add it to this still picture now, without new art."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
-    }
-   ],
+   "stage": "closed",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-29T15:47:43Z",
    "mergedAt": null,
-   "closedAt": null,
+   "closedAt": "2026-10-31T02:24:26Z",
    "liveAt": null,
    "testAt": "2026-10-31T02:23:12Z",
    "onTest": false,
    "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-10-31T02:23:12Z",
+   "clashes": false,
+   "updatedAt": "2026-10-31T02:24:26Z",
    "headSha": "98079fba9b05e0e131d2f6a5c3312b8f05cb0184",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -490,35 +524,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-30T00:03:51Z"
-  },
-  {
-   "number": 76,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
-   "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "built",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "It clashes with the live game, so Claude can’t rebuild it until it’s brought up to date. Tell Claude “update the requests”."
-    }
-   ],
-   "openedAt": "2026-10-29T18:16:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-10-30T02:38:01Z",
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-10-30T02:38:01Z",
-   "headSha": "dfbd83442a62e6fda6d66fd582c6f414f10dc734",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-29T19:54:35Z"
   },
   {
    "number": 78,
@@ -837,6 +842,21 @@
  ],
  "activity": [
   {
+   "at": "2026-10-31T02:24:58Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
+  },
+  {
+   "at": "2026-10-31T02:24:29Z",
+   "kind": "closed",
+   "text": "“Integrate approved summoning shrine into Adventure rail — visual-only” was closed"
+  },
+  {
+   "at": "2026-10-31T02:24:26Z",
+   "kind": "closed",
+   "text": "“Animated compact Summoning Rift — replace rail Tome after color/art approval” was closed"
+  },
+  {
    "at": "2026-10-31T02:24:16Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
@@ -1020,21 +1040,6 @@
    "at": "2026-10-30T03:04:10Z",
    "kind": "approved",
    "text": "Noah approved “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
-  },
-  {
-   "at": "2026-10-30T02:38:01Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”, “Owner answers: Auto Summon 0.4s cadence and resume after discovery”"
-  },
-  {
-   "at": "2026-10-30T02:10:08Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”, “Owner answers: Auto Summon 0.4s cadence and resume after discovery”"
-  },
-  {
-   "at": "2026-10-30T02:09:02Z",
-   "kind": "built",
-   "text": "Claude finished building “Integrate approved idle vortex animation in Adventure Rift”"
   }
  ],
  "otherPulls": [
