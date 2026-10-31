@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T00:37:04.430Z",
+ "generatedAt": "2026-10-31T00:38:37.857Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T04:42:27Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-10-31T00:23:05Z",
+  "updatedAt": "2026-10-31T00:37:24Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -18,7 +18,8 @@
    "Unify team and Omnidex companion pages; approve Locations provisionally",
    "Owner approves Recruits label and both battlefield frames",
    "Animated compact Summoning Rift — replace rail Tome after color/art approval",
-   "Integrate approved idle vortex animation in Adventure Rift"
+   "Integrate approved idle vortex animation in Adventure Rift",
+   "Use approved rarity-frame design and simplify Adventure Rift rail"
   ],
   "skipped": [
    "Integrate approved summoning shrine into Adventure rail — visual-only",
@@ -27,12 +28,49 @@
  },
  "items": [
   {
+   "number": 83,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Stage approved companion habitats on dev for mobile QA",
+   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Before this goes live: the two comparison pictures (Forgotten Courtyard v02 and Wildstone Grotto, about 6 MB together) and the review page would also be published, because everything in the game folder goes live. My suggestion: once Joshua picks, keep only the pictures the…"
+    },
+    {
+     "who": "joshua",
+     "text": "For Mortals, do you want Ruined Fortress v03 (in the test game now) or Forgotten Courtyard v02? Compare them on the habitat review page. My suggestion: keep v03 if the name and stats are easy to read over it on your phone."
+    },
+    {
+     "who": "joshua",
+     "text": "For Beasts, should the volcano stay for every Beast, or should Wildstone Grotto replace it? My suggestion: keep the volcano, which you asked for. Grotto stays on the review page only."
+    }
+   ],
+   "openedAt": "2026-10-31T00:30:55Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-10-31T00:38:04Z",
+   "headSha": "33dc23678fb27649eb48ec2323d2acee2844e41c",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-31T00:38:04Z"
+  },
+  {
    "number": 81,
    "kind": "request",
    "by": "Joshua",
    "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
    "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "built",
+   "stage": "testing",
    "waitingOn": "both",
    "asks": [
     {
@@ -60,40 +98,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
+   "testAt": "2026-10-31T00:37:24Z",
+   "onTest": true,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T00:36:36Z",
+   "updatedAt": "2026-10-31T00:37:24Z",
    "headSha": "de1e55d1e97196f886198530a611e000cd288594",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-31T00:36:36Z"
-  },
-  {
-   "number": 83,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Stage approved companion habitats on dev for mobile QA",
-   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-31T00:30:55Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-31T00:32:34Z",
-   "headSha": "7b5985b468494175b21432d12b7c6158aa99282f",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-10-31T00:32:34Z"
   },
   {
    "number": 80,
@@ -108,11 +122,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T00:23:05Z",
+   "testAt": "2026-10-31T00:37:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T00:23:05Z",
+   "updatedAt": "2026-10-31T00:37:24Z",
    "headSha": "70f102d9a88a86bce75dc9fc64f2ea5f84c031b9",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -132,11 +146,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T00:23:05Z",
+   "testAt": "2026-10-31T00:37:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T00:23:05Z",
+   "updatedAt": "2026-10-31T00:37:24Z",
    "headSha": "33a89d98c02455718dcedc66bfc8027e8747ebdf",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -169,11 +183,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T00:23:05Z",
+   "testAt": "2026-10-31T00:37:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T00:23:05Z",
+   "updatedAt": "2026-10-31T00:37:24Z",
    "headSha": "18f4c4f87c72bd2229a14ced042abf0c79c5520b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -206,11 +220,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T00:23:05Z",
+   "testAt": "2026-10-31T00:37:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T00:23:05Z",
+   "updatedAt": "2026-10-31T00:37:24Z",
    "headSha": "c0af4886feb1782a8189c2869306eac4a06a4e01",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -235,11 +249,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T00:23:05Z",
+   "testAt": "2026-10-31T00:37:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T00:23:05Z",
+   "updatedAt": "2026-10-31T00:37:24Z",
    "headSha": "b9af3563da817a059ab3b3215667aa8849e8390b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -264,11 +278,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T00:23:05Z",
+   "testAt": "2026-10-31T00:37:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T00:23:05Z",
+   "updatedAt": "2026-10-31T00:37:24Z",
    "headSha": "76d633d961276900daaed8f4dfb12c861243e35f",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -305,11 +319,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T00:23:05Z",
+   "testAt": "2026-10-31T00:37:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T00:23:05Z",
+   "updatedAt": "2026-10-31T00:37:24Z",
    "headSha": "b6ebb07af65bf8e2a097fb0e9954666ed4c0a966",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -338,11 +352,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-10-31T00:23:05Z",
+   "testAt": "2026-10-31T00:37:24Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-10-31T00:23:05Z",
+   "updatedAt": "2026-10-31T00:37:24Z",
    "headSha": "98079fba9b05e0e131d2f6a5c3312b8f05cb0184",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -820,6 +834,26 @@
  ],
  "activity": [
   {
+   "at": "2026-10-31T00:38:04Z",
+   "kind": "built",
+   "text": "Claude finished building “Stage approved companion habitats on dev for mobile QA”"
+  },
+  {
+   "at": "2026-10-31T00:38:04Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Stage approved companion habitats on dev for mobile QA”"
+  },
+  {
+   "at": "2026-10-31T00:38:04Z",
+   "kind": "question",
+   "text": "Part of “Stage approved companion habitats on dev for mobile QA” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-10-31T00:37:24Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”"
+  },
+  {
    "at": "2026-10-31T00:36:36Z",
    "kind": "built",
    "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
@@ -998,26 +1032,6 @@
    "at": "2026-10-30T00:04:47Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Use floating team card in swaps and highlight improving slots”"
-  },
-  {
-   "at": "2026-10-30T00:03:51Z",
-   "kind": "built",
-   "text": "Claude finished building “Shardworks mine-hub visual overhaul — approved art, economy unchanged”"
-  },
-  {
-   "at": "2026-10-30T00:03:33Z",
-   "kind": "built",
-   "text": "Claude finished building “Owner approves teal color direction for Summoning Rift #74”"
-  },
-  {
-   "at": "2026-10-29T23:56:03Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”, “Use floating team card in swaps and highlight improving slots”"
-  },
-  {
-   "at": "2026-10-29T23:55:01Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
   }
  ],
  "otherPulls": [
