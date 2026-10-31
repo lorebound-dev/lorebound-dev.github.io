@@ -96,19 +96,41 @@
 #economyAuto .auto-odds-head span{font-size:15px;color:#e0c183;text-transform:uppercase}
 #economyAuto .auto-odds-head span+span{font-size:12px;color:#c9b88f}
 #economyAuto .auto-odds-wrap{flex:0 1 auto;min-height:118px;display:flex;flex-direction:column;gap:2px;overflow-y:auto;overscroll-behavior:contain;margin:0 0 8px}
-#economyAuto .auto-row{flex:none;display:flex;align-items:center;gap:10px;min-height:44px;padding:0 10px;border:1px solid #a8854f40;border-radius:3px;background:#07131d;cursor:pointer;-webkit-tap-highlight-color:transparent}
-#economyAuto .auto-row:has(input:checked){border-color:#c9a65a;background:#0d1f2c}
-#economyAuto .auto-row:has(input:focus-visible){outline:2px solid #e0c183;outline-offset:1px}
-#economyAuto .auto-row input{flex:none;width:22px;height:22px;margin:0;-webkit-appearance:none;appearance:none;border:1px solid #c9b88fb3;border-radius:2px;background:#050e16 center/16px 16px no-repeat}
-#economyAuto .auto-row input:checked{border-color:#e0c183;background-color:#c9a65a;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='%230a1824' stroke-width='2.2'/%3E%3C/svg%3E")}
-#economyAuto .auto-gem{flex:none;width:24px;height:24px;display:grid;place-items:center}
-#economyAuto .auto-gem img{display:block;width:24px;height:24px;object-fit:contain}
-#economyAuto .auto-name{flex:1;min-width:0;text-align:left;font-size:14px;color:#e9ddbe;text-transform:uppercase}
-#economyAuto .auto-row:has(input:checked) .auto-name{color:#f1d899}
-#economyAuto .auto-pct{flex:none;font-size:14px;color:#f1d899;white-space:nowrap}
-#economyAuto .auto-row.is-zero .auto-name,#economyAuto .auto-row.is-zero .auto-pct,#economyAuto .auto-row.is-zero:has(input:checked) .auto-name{color:#a69c88}
-/* A rarity this Tome can't give: its box is greyed out and can't be ticked, but the row and its 0% stay readable. */
-#economyAuto .auto-row.is-zero,#economyAuto .auto-row.is-zero:has(input:checked){cursor:default;border-color:#a8854f26;background:#060f17}
+/* Joshua's approved row art (Approved/Auto-Summon-Rarity-Rows-v01): one plate per rarity, picked by data-rarity, never by
+   order or state. Each plate is 362×96 (tools/art/make-auto-rows.cjs) drawn as a 3-slice at half size in a 48px row: the
+   left 100px (diamond and rounded end) and right 50px (pointed end) keep their shape, and only the plain stone between
+   them stretches. The gem sits in the diamond; the box, name and odds sit on the stone. The whole 48px row is the tap target. */
+#economyAuto .auto-row{position:relative;isolation:isolate;flex:none;display:flex;align-items:center;gap:6px;height:48px;min-height:48px;padding:0 24px 0 0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#economyAuto .auto-row::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-style:solid;border-color:transparent;border-width:0 25px 0 50px;border-image-slice:0 50 0 100 fill;border-image-width:0 25px 0 50px;border-image-repeat:stretch}
+#economyAuto .auto-row[data-rarity=common]::before{border-image-source:url(assets/auto-rows/auto-row-common-v01.png)}
+#economyAuto .auto-row[data-rarity=uncommon]::before{border-image-source:url(assets/auto-rows/auto-row-uncommon-v01.png)}
+#economyAuto .auto-row[data-rarity=rare]::before{border-image-source:url(assets/auto-rows/auto-row-rare-v01.png)}
+#economyAuto .auto-row[data-rarity=epic]::before{border-image-source:url(assets/auto-rows/auto-row-epic-v01.png)}
+#economyAuto .auto-row[data-rarity=legendary]::before{border-image-source:url(assets/auto-rows/auto-row-legendary-v01.png)}
+#economyAuto .auto-row[data-rarity=mythic]::before{border-image-source:url(assets/auto-rows/auto-row-mythic-v01.png)}
+#economyAuto .auto-row[data-rarity=ancient]::before{border-image-source:url(assets/auto-rows/auto-row-ancient-v01.png)}
+#economyAuto .auto-row[data-rarity=exalted]::before{border-image-source:url(assets/auto-rows/auto-row-exalted-v01.png)}
+#economyAuto .auto-row[data-rarity=transcendent]::before{border-image-source:url(assets/auto-rows/auto-row-transcendent-v01.png)}
+#economyAuto .auto-row[data-rarity=eternal]::before{border-image-source:url(assets/auto-rows/auto-row-eternal-v01.png)}
+/* Ticked: a soft gold glow around the plate as well as the gold box, so the row's own colours stay. */
+#economyAuto .auto-row:has(input:checked)::before{filter:drop-shadow(0 0 3px #f1d899b3)}
+#economyAuto .auto-row:has(input:focus-visible){outline:2px solid #e0c183;outline-offset:0;border-radius:3px}
+#economyAuto .auto-row input{flex:none;width:18px;height:18px;margin:0;-webkit-appearance:none;appearance:none;border:1px solid #c9b88fd9;border-radius:2px;background:#050e16 center/14px 14px no-repeat}
+#economyAuto .auto-row input:checked{border-color:#f1d899;background-color:#c9a65a;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3L13 4.5' fill='none' stroke='%230a1824' stroke-width='2.2'/%3E%3C/svg%3E")}
+#economyAuto .auto-gem{order:-1;flex:none;width:44px;height:44px;display:grid;place-items:center}
+#economyAuto .auto-gem img{display:block;width:22px;height:22px;object-fit:contain}
+#economyAuto .auto-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left;font-size:14px;color:#efe4c6;text-transform:uppercase;text-shadow:0 1px 2px #000,0 0 3px #000}
+#economyAuto .auto-row:has(input:checked) .auto-name{color:#f6dfa0}
+#economyAuto .auto-pct{flex:none;font-size:14px;color:#f6dfa0;white-space:nowrap;text-shadow:0 1px 2px #000,0 0 3px #000}
+#economyAuto .auto-row.is-zero .auto-name,#economyAuto .auto-row.is-zero .auto-pct,#economyAuto .auto-row.is-zero:has(input:checked) .auto-name{color:#b9b09c}
+/* Exalted's ivory stone takes dark text. */
+#economyAuto .auto-row[data-rarity=exalted] .auto-name,#economyAuto .auto-row[data-rarity=exalted] .auto-pct,#economyAuto .auto-row[data-rarity=exalted]:has(input:checked) .auto-name{color:#2b1d0b;text-shadow:0 1px 0 #fff6}
+#economyAuto .auto-row[data-rarity=exalted].is-zero .auto-name,#economyAuto .auto-row[data-rarity=exalted].is-zero .auto-pct{color:#3d3222}
+/* A rarity this Tome can't give: the plate is dimmed but keeps its colour, its box is greyed out and can't be ticked,
+   and the name and 0% stay readable. */
+#economyAuto .auto-row.is-zero,#economyAuto .auto-row.is-zero:has(input:checked){cursor:default}
+#economyAuto .auto-row.is-zero::before,#economyAuto .auto-row.is-zero:has(input:checked)::before{filter:saturate(.7) brightness(.72)}
+#economyAuto .auto-row.is-zero .auto-gem img{opacity:.7}
 #economyAuto .auto-row.is-zero input,#economyAuto .auto-row.is-zero input:checked{border-color:#6f6a5e;background-color:#2a2c2c;opacity:.6}
 #economyAuto .auto-quantity{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 8px;padding-top:10px;border-top:1px solid #a8854f80;font-size:15px;color:#f1d899}
 #economyAuto .auto-quantity>span{white-space:nowrap}
