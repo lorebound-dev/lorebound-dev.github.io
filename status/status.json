@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T01:08:44.574Z",
+ "generatedAt": "2026-10-31T01:14:53.524Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T04:42:27Z",
@@ -34,7 +34,7 @@
    "by": "Joshua",
    "title": "Integrate approved 10 unique Auto Summon rarity rows",
    "quote": "\"I want each line to have its own pattern and color for each rarity\" \"Approved\"",
-   "stage": "building",
+   "stage": "built",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-10-31T01:06:23Z",
@@ -45,12 +45,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-10-31T01:08:38Z",
-   "headSha": "595439df701366e94b4e0e9bc01efb4f13ec8684",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
+   "updatedAt": "2026-10-31T01:14:24Z",
+   "headSha": "2721ec8a1674dfbc68fc0480e83054c3db8184c2",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-10-31T01:08:38Z"
+   "botAt": "2026-10-31T01:14:24Z"
   },
   {
    "number": 83,
@@ -859,6 +859,11 @@
  ],
  "activity": [
   {
+   "at": "2026-10-31T01:14:24Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved 10 unique Auto Summon rarity rows”"
+  },
+  {
    "at": "2026-10-31T01:06:23Z",
    "kind": "asked",
    "text": "You asked for “Integrate approved 10 unique Auto Summon rarity rows”"
@@ -1052,11 +1057,6 @@
    "at": "2026-10-30T01:27:11Z",
    "kind": "asked",
    "text": "You asked for “Use approved rarity-frame design and simplify Adventure Rift rail”"
-  },
-  {
-   "at": "2026-10-30T00:29:45Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”"
   }
  ],
  "otherPulls": [
