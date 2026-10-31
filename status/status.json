@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T21:43:41.060Z",
+ "generatedAt": "2026-10-31T00:22:34.548Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-30T04:42:27Z",
@@ -411,22 +411,9 @@
    "by": "Joshua",
    "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
    "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "questions",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The shrine cleanup in this request is already built in #77, which also depends on #74, #76 and #80. My suggestion: decide on #77 first. Once it's merged, write \"@claude build part B on top of #77\" here, and I'll check the shrine and fix anything still missing."
-    },
-    {
-     "who": "joshua",
-     "text": "Seven of the ten frame cutouts are damaged: Rare, Epic, Ancient, Exalted, Transcendent and Eternal are missing their left side or show part of the frame next to them, and Legendary also shows background rocks. My suggestion: have ChatGPT draw each frame as its own picture…"
-    },
-    {
-     "who": "joshua",
-     "text": "Should companion names wait for the new frames, or go on today's cards now? My suggestion: wait, so each name sits on the new frame's name plate and only has to be placed once."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-10-30T01:27:11Z",
    "mergedAt": null,
    "closedAt": null,
@@ -436,9 +423,9 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-10-30T01:31:43Z",
-   "headSha": "60e3faef319f7564c25824b6ec89e761e049a505",
+   "headSha": "31f3ae21e11320dfbac1466615ebc1b55067db3e",
    "touchesGame": false,
-   "requestStatus": "Waiting for answers",
+   "requestStatus": "Waiting to be built",
    "botState": "questions",
    "botAt": "2026-10-30T01:31:43Z"
   },
@@ -947,16 +934,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”"
   },
   {
-   "at": "2026-10-30T01:31:43Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Use approved rarity-frame design and simplify Adventure Rift rail”"
-  },
-  {
-   "at": "2026-10-30T01:31:43Z",
-   "kind": "question",
-   "text": "Part of “Use approved rarity-frame design and simplify Adventure Rift rail” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-10-30T01:27:11Z",
    "kind": "asked",
    "text": "You asked for “Use approved rarity-frame design and simplify Adventure Rift rail”"
@@ -1010,6 +987,16 @@
    "at": "2026-10-29T23:20:29Z",
    "kind": "question",
    "text": "Part of “Replace Tome-tier UI with one permanent numeric Portal progression” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-10-29T23:17:56Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Shardworks mine-hub visual overhaul — approved art, economy unchanged”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Integrate approved summoning shrine into Adventure rail — visual-only”, “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
+  },
+  {
+   "at": "2026-10-29T23:17:42Z",
+   "kind": "asked",
+   "text": "You asked for “Replace Tome-tier UI with one permanent numeric Portal progression”"
   }
  ],
  "otherPulls": [
