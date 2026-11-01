@@ -66,13 +66,13 @@
     {
       "number": 87,
       "title": "Prototype Ruins Reclaimed: compact isometric clearing minigame",
-      "head": "9dbfef2006162ddf722050d66ead1b72a807720d",
+      "head": "790b560addefdb30d392ac5177788e8cfb25a169",
       "files": [
         "pocket-fortune/dist/home.html"
       ],
       "with": "others"
     }
   ],
-  "commit": "186f86107f7169ba0deb1dccbfecf35375fbc7ab",
-  "at": "2026-11-01T03:27:47Z"
+  "commit": "b9a1562a2b3a2ed9f184c99b1dae5e8161d16044",
+  "at": "2026-11-01T03:40:42Z"
 }
