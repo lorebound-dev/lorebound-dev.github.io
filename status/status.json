@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T03:45:47.603Z",
+ "generatedAt": "2026-11-01T03:47:47.909Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -29,6 +29,54 @@
   ]
  },
  "items": [
+  {
+   "number": 89,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
+   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-01T03:47:10Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:47:10Z",
+   "headSha": "46a5a8bd3b92a86fe2dc31b0e5847aea7d5c57e0",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 88,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Completely replace Arena with Progress Knight-style Ascension",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-01T03:34:49Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:46:56Z",
+   "headSha": "d304da4e74dd3685d37ebd1dc3a149806f2125e9",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "questions",
+   "botAt": "2026-11-01T03:46:56Z"
+  },
   {
    "number": 86,
    "kind": "request",
@@ -463,30 +511,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-01T03:39:32Z"
-  },
-  {
-   "number": 88,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Completely replace Arena with Progress Knight-style Ascension",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-01T03:34:49Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:36:12Z",
-   "headSha": "d304da4e74dd3685d37ebd1dc3a149806f2125e9",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-01T03:36:12Z"
   },
   {
    "number": 76,
@@ -949,6 +973,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-01T03:47:10Z",
+   "kind": "asked",
+   "text": "You asked for “Add approved Realm 2 companions to universal summoning and Omnidex”"
+  },
+  {
    "at": "2026-11-01T03:45:10Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”"
@@ -1142,11 +1171,6 @@
    "at": "2026-10-31T00:36:36Z",
    "kind": "question",
    "text": "Part of “Use approved rarity-frame design and simplify Adventure Rift rail” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-31T00:30:55Z",
-   "kind": "asked",
-   "text": "You asked for “Stage approved companion habitats on dev for mobile QA”"
   }
  ],
  "otherPulls": [
@@ -1207,15 +1231,6 @@
   {
    "number": 56,
    "headSha": "9ff78a49d6c22e0ee9238edc515fd085faf485ab",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 55,
-   "headSha": "755c33d465e51d3d361df70e942a1d1e56abd529",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
