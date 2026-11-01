@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T19:15:30.317Z",
+ "generatedAt": "2026-11-01T19:16:36.878Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -31,6 +31,30 @@
   ]
  },
  "items": [
+  {
+   "number": 90,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-01T12:05:15Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-01T19:16:06Z",
+   "headSha": "196e335643c3a218484a70512de1ac509f7e92c9",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-01T19:16:06Z"
+  },
   {
    "number": 86,
    "kind": "request",
@@ -428,30 +452,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-31T01:45:36Z"
-  },
-  {
-   "number": 90,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-01T12:05:15Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-01T12:20:23Z",
-   "headSha": "196e335643c3a218484a70512de1ac509f7e92c9",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-01T12:20:23Z"
   },
   {
    "number": 88,
@@ -1037,6 +1037,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-01T19:16:06Z",
+   "kind": "built",
+   "text": "Claude finished building “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”"
+  },
+  {
    "at": "2026-11-01T19:15:01Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”"
@@ -1045,11 +1050,6 @@
    "at": "2026-11-01T12:21:33Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”"
-  },
-  {
-   "at": "2026-11-01T12:20:23Z",
-   "kind": "built",
-   "text": "Claude finished building “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”"
   },
   {
    "at": "2026-11-01T12:05:15Z",
