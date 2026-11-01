@@ -80,8 +80,17 @@
         "pocket-fortune/dist/home.html"
       ],
       "with": "others"
+    },
+    {
+      "number": 90,
+      "title": "Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven",
+      "head": "cde35ed7d9fee5cd86090f3c0285af323f9c0fcc",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "147c57032c3bada28a2d9a0e9718fc987f2dd3b8",
-  "at": "2026-11-01T03:52:50Z"
+  "commit": "05cc89f0a06635f56c5552e09ba4850b82a47a6e",
+  "at": "2026-11-01T12:21:33Z"
 }
