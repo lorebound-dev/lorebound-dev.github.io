@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T02:32:15.293Z",
+ "generatedAt": "2026-11-01T02:03:57.558Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -25,6 +25,30 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 85,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
+   "quote": "\"I want it to look like this. And some of the higher ones being gifs.\"  \"No I want you to render and provide resources for it to use\"  \"That's good but I need individual, approved\"  \"Send it\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-01T02:03:26Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-01T02:03:26Z",
+   "headSha": "8cdde21d3ee91cb4286f185fa856b8a315485c44",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 80,
    "kind": "request",
@@ -842,6 +866,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-01T02:03:26Z",
+   "kind": "asked",
+   "text": "You asked for “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”"
+  },
+  {
    "at": "2026-10-31T02:31:43Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
@@ -1035,11 +1064,6 @@
    "at": "2026-10-30T03:06:07Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Owner approves teal color direction for Summoning Rift #74”, “Use floating team card in swaps and highlight improving slots”, “Integrate approved idle vortex animation in Adventure Rift”"
-  },
-  {
-   "at": "2026-10-30T03:04:13Z",
-   "kind": "live",
-   "text": "“Shardworks mine-hub visual overhaul — approved art, economy unchanged” is live in the game"
   }
  ],
  "otherPulls": [
@@ -1127,15 +1151,6 @@
   {
    "number": 51,
    "headSha": "b2f298f313276c4a54da278ddf661cbf5f470981",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 49,
-   "headSha": "ca483ccb93f74c4425aea755c3139d4e14d427df",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
