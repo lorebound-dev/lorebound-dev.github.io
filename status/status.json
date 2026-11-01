@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T03:52:26.540Z",
+ "generatedAt": "2026-11-01T09:40:14.665Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-01T03:45:09Z",
+  "updatedAt": "2026-11-01T03:52:50Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -25,10 +25,409 @@
    "Retire Trophy Room showcase and preserve Treasures records"
   ],
   "skipped": [
-   "Prototype Ruins Reclaimed: compact isometric clearing minigame"
+   "Prototype Ruins Reclaimed: compact isometric clearing minigame",
+   "Completely replace Arena with Progress Knight-style Ascension"
   ]
  },
  "items": [
+  {
+   "number": 86,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Retire Trophy Room showcase and preserve Treasures records",
+   "quote": "\"Ok I want you to request to remove the trophy room and make an incremental mini game. Give me ideas\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The Town map still calls the restored building \"Hall of Triumphs\", which was the trophy room's name. I suggest renaming it to \"Treasure Hall\" to match the screen it opens. Should I?"
+    },
+    {
+     "who": "joshua",
+     "text": "The Grand Hall still has its name and its \"Your enduring legacy\" summary. I suggest keeping both as they are until the new minigame is picked. Is that OK?"
+    }
+   ],
+   "openedAt": "2026-11-01T02:27:34Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "bae6b7edc155098c47531b71040d5b956b1f3b42",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-01T02:30:51Z"
+  },
+  {
+   "number": 85,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
+   "quote": "\"I want it to look like this. And some of the higher ones being gifs.\"  \"No I want you to render and provide resources for it to use\"  \"That's good but I need individual, approved\"  \"Send it\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The gargoyle menu frame (rift_upgrades_menu_frame_v04) isn't in yet. It is made for one fixed shape and has its own Rift emblem at the top, which would repeat the one already in the header. On small phones it would also take about 60px from the list. My suggestion is to keep…"
+    },
+    {
+     "who": "joshua",
+     "text": "The row names are now cream on every row (dark on Exalted) instead of each rarity's own colour, like in your sample picture. Is that what you want? My suggestion is to keep cream, because the art already shows the rarity colour."
+    }
+   ],
+   "openedAt": "2026-11-01T02:03:26Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "53182398563a75453669d1f29c304f121676a590",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-01T02:13:52Z"
+  },
+  {
+   "number": 80,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved idle vortex animation in Adventure Rift",
+   "quote": "\"Honestly I don’t want you to get into the logic of it I need assets and animation ... I want idle spinning gif or something\"  \"Approved\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-30T00:12:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "b1e0ddc060db099c09debd689ba279356c57e0ec",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-30T02:09:02Z"
+  },
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "9ae161d173b7b9e0d431bdee799900ea0d9408fd",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-28T03:15:36Z"
+  },
+  {
+   "number": 60,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
+    },
+    {
+     "who": "joshua",
+     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
+    },
+    {
+     "who": "joshua",
+     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
+    }
+   ],
+   "openedAt": "2026-10-28T04:18:38Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "f331038e2d198ea20f4d6ef2d9cd3e98ed57a543",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T17:24:37Z"
+  },
+  {
+   "number": 65,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
+   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this puts two new pictures, which Joshua hasn't approved yet, into the real game (they're in his Proposed folder). My suggestion: merge only after Joshua says yes on the test site."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new frame around the enemy's name? My suggestion: yes, the name and health bar are easier to read now."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new party tray frame? With it, the closed tray shows the frame's corners and the background's own curls together. My suggestion: keep it, but only if the two sets of ornaments don't bother you. If they do, I can go back to the old tray edge."
+    }
+   ],
+   "openedAt": "2026-10-28T22:17:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "86b71c57eaf2c6671d290d6bedc08fbe00082f63",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T02:32:55Z"
+  },
+  {
+   "number": 66,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves immediate Challenge Boss placement fix from #65",
+   "quote": "Yes go",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Nothing new. Merging this puts the moved button in the real game, so it waits for your OK as usual."
+    }
+   ],
+   "openedAt": "2026-10-28T22:57:44Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "dab9e4d64ff232d4805541c0a1774aba6766ef00",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T23:13:05Z"
+  },
+  {
+   "number": 69,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
+   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Joshua said yes, for now, to the Town Locations menu in #67: one small Locations menu in the corner instead of the five big building buttons. It moves the camera to the building and shows Locked / Ready to restore / Restored. Dragging, keyboard and tapping buildings all stay.…"
+    }
+   ],
+   "openedAt": "2026-10-29T01:01:40Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "b520d1052349bbac4791ca3294acec68fe51fa33",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T01:13:32Z"
+  },
+  {
+   "number": 72,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves Recruits label and both battlefield frames",
+   "quote": "yeah get them in i approve all",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "#65 already has both frames built, so Joshua's approval needs no code change there. Suggestion: post a new report on #65 that lists the two frame questions as answered, so his status page stops asking. I didn't touch #65 or #71 from here, as the request asks."
+    },
+    {
+     "who": "noah",
+     "text": "#71 asks the same \"Recruits\" question. Suggestion: merge this pull request (or move its one-line change into #71), then post a new report on #71 with that question marked answered."
+    },
+    {
+     "who": "noah",
+     "text": "Journal #60's three choices were approved and built in #63, and Challenge Boss placement was built in #66. Suggestion: post a fresh report on #60 too, so those old questions drop off Joshua's status page."
+    },
+    {
+     "who": "noah",
+     "text": "This pull request and #65/#71 all change home.html, so whichever goes in later needs bringing up to date with main. That's the usual one-line fix: keep main's line and re-apply the new tag treasure-hall.js?v=recruitslabel1."
+    }
+   ],
+   "openedAt": "2026-10-29T13:56:21Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "21dcbd13999741eaccfa14c9d286fc55e15b2b83",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T14:01:26Z"
+  },
+  {
+   "number": 81,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
+   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The shrine cleanup (part B) is already built in #77, so I left it out here. My suggestion: decide #77 first. After it's merged, write \"@claude check part B\" here and I'll fix anything still missing."
+    },
+    {
+     "who": "noah",
+     "text": "This request, #77 and #80 all change home.html, and this one and #77 both change adventure-art-cards.css. The test site combines all three without trouble. Whichever one is merged later will need main merged in first. My suggestion: for adventure-art-cards.css, keep this…"
+    },
+    {
+     "who": "noah",
+     "text": "The old card frames and rarity badges (assets/adventure-rebuild/*-frame.svg, *-emblem.svg) aren't used any more. I left them in place. My suggestion: delete them only after Joshua is happy with the new frames."
+    },
+    {
+     "who": "joshua",
+     "text": "On a phone, the frames' name plate is very small: about 45 by 11 points on a normal-size phone, and the level plate about 22 by 9. Game text can't be smaller than 12, so names and levels are a little bigger than their plates and spill slightly onto the frame. Long names use…"
+    },
+    {
+     "who": "joshua",
+     "text": "The frames' window is smaller than the old cards' picture area, so companions now look about one fifth smaller on the cards. My suggestion: keep it this way, because a bigger picture would mean bigger cards and less room for the battle."
+    }
+   ],
+   "openedAt": "2026-10-30T01:27:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "0c71bb6e956e2899f96699672d9933a672fdcf3a",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-31T00:36:36Z"
+  },
+  {
+   "number": 83,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Stage approved companion habitats on dev for mobile QA",
+   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Before this goes live: the two comparison pictures (Forgotten Courtyard v02 and Wildstone Grotto, about 6 MB together) and the review page would also be published, because everything in the game folder goes live. My suggestion: once Joshua picks, keep only the pictures the…"
+    },
+    {
+     "who": "joshua",
+     "text": "For Mortals, do you want Ruined Fortress v03 (in the test game now) or Forgotten Courtyard v02? Compare them on the habitat review page. My suggestion: keep v03 if the name and stats are easy to read over it on your phone."
+    },
+    {
+     "who": "joshua",
+     "text": "For Beasts, should the volcano stay for every Beast, or should Wildstone Grotto replace it? My suggestion: keep the volcano, which you asked for. Grotto stays on the review page only."
+    }
+   ],
+   "openedAt": "2026-10-31T00:30:55Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "f248c227b154721837c6f1bcd4183977b668ac74",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-31T00:38:04Z"
+  },
+  {
+   "number": 84,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved 10 unique Auto Summon rarity rows",
+   "quote": "\"I want each line to have its own pattern and color for each rarity\" \"Approved\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "With rows this close, the tall diamonds on the left overlap a little at their tips, like a chain. Is that OK? My suggestion: keep it. The other choices are bigger gaps (about 20px, like before) or rows shorter than the 44px a finger needs."
+    }
+   ],
+   "openedAt": "2026-10-31T01:06:23Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-01T03:52:51Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-01T03:52:51Z",
+   "headSha": "5dd27bedd568246d870da161cb61f2af57edfa5b",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-31T01:45:36Z"
+  },
   {
    "number": 88,
    "kind": "request",
@@ -36,8 +435,13 @@
    "title": "Completely replace Arena with Progress Knight-style Ascension",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
    "stage": "built",
-   "waitingOn": null,
-   "asks": [],
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-11-01T03:34:49Z",
    "mergedAt": null,
    "closedAt": null,
@@ -45,7 +449,7 @@
    "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
-   "clashes": false,
+   "clashes": true,
    "updatedAt": "2026-11-01T03:51:56Z",
    "headSha": "646467fe14d2453d115feaff750f389b30af1611",
    "touchesGame": true,
@@ -109,404 +513,6 @@
    "requestStatus": "Waiting for answers",
    "botState": "questions",
    "botAt": "2026-11-01T03:50:41Z"
-  },
-  {
-   "number": 86,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Retire Trophy Room showcase and preserve Treasures records",
-   "quote": "\"Ok I want you to request to remove the trophy room and make an incremental mini game. Give me ideas\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The Town map still calls the restored building \"Hall of Triumphs\", which was the trophy room's name. I suggest renaming it to \"Treasure Hall\" to match the screen it opens. Should I?"
-    },
-    {
-     "who": "joshua",
-     "text": "The Grand Hall still has its name and its \"Your enduring legacy\" summary. I suggest keeping both as they are until the new minigame is picked. Is that OK?"
-    }
-   ],
-   "openedAt": "2026-11-01T02:27:34Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "bae6b7edc155098c47531b71040d5b956b1f3b42",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-01T02:30:51Z"
-  },
-  {
-   "number": 85,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
-   "quote": "\"I want it to look like this. And some of the higher ones being gifs.\"  \"No I want you to render and provide resources for it to use\"  \"That's good but I need individual, approved\"  \"Send it\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The gargoyle menu frame (rift_upgrades_menu_frame_v04) isn't in yet. It is made for one fixed shape and has its own Rift emblem at the top, which would repeat the one already in the header. On small phones it would also take about 60px from the list. My suggestion is to keep…"
-    },
-    {
-     "who": "joshua",
-     "text": "The row names are now cream on every row (dark on Exalted) instead of each rarity's own colour, like in your sample picture. Is that what you want? My suggestion is to keep cream, because the art already shows the rarity colour."
-    }
-   ],
-   "openedAt": "2026-11-01T02:03:26Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "53182398563a75453669d1f29c304f121676a590",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-01T02:13:52Z"
-  },
-  {
-   "number": 80,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved idle vortex animation in Adventure Rift",
-   "quote": "\"Honestly I don’t want you to get into the logic of it I need assets and animation ... I want idle spinning gif or something\"  \"Approved\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-30T00:12:50Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "b1e0ddc060db099c09debd689ba279356c57e0ec",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-30T02:09:02Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "9ae161d173b7b9e0d431bdee799900ea0d9408fd",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-28T03:15:36Z"
-  },
-  {
-   "number": 60,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
-    },
-    {
-     "who": "joshua",
-     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
-    },
-    {
-     "who": "joshua",
-     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
-    }
-   ],
-   "openedAt": "2026-10-28T04:18:38Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "f331038e2d198ea20f4d6ef2d9cd3e98ed57a543",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T17:24:37Z"
-  },
-  {
-   "number": 65,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Merging this puts two new pictures, which Joshua hasn't approved yet, into the real game (they're in his Proposed folder). My suggestion: merge only after Joshua says yes on the test site."
-    },
-    {
-     "who": "joshua",
-     "text": "Do you want to keep the new frame around the enemy's name? My suggestion: yes, the name and health bar are easier to read now."
-    },
-    {
-     "who": "joshua",
-     "text": "Do you want to keep the new party tray frame? With it, the closed tray shows the frame's corners and the background's own curls together. My suggestion: keep it, but only if the two sets of ornaments don't bother you. If they do, I can go back to the old tray edge."
-    }
-   ],
-   "openedAt": "2026-10-28T22:17:13Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "86b71c57eaf2c6671d290d6bedc08fbe00082f63",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T02:32:55Z"
-  },
-  {
-   "number": 66,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner approves immediate Challenge Boss placement fix from #65",
-   "quote": "Yes go",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Nothing new. Merging this puts the moved button in the real game, so it waits for your OK as usual."
-    }
-   ],
-   "openedAt": "2026-10-28T22:57:44Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "dab9e4d64ff232d4805541c0a1774aba6766ef00",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T23:13:05Z"
-  },
-  {
-   "number": 69,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Joshua said yes, for now, to the Town Locations menu in #67: one small Locations menu in the corner instead of the five big building buttons. It moves the camera to the building and shows Locked / Ready to restore / Restored. Dragging, keyboard and tapping buildings all stay.…"
-    }
-   ],
-   "openedAt": "2026-10-29T01:01:40Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "b520d1052349bbac4791ca3294acec68fe51fa33",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T01:13:32Z"
-  },
-  {
-   "number": 72,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner approves Recruits label and both battlefield frames",
-   "quote": "yeah get them in i approve all",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "#65 already has both frames built, so Joshua's approval needs no code change there. Suggestion: post a new report on #65 that lists the two frame questions as answered, so his status page stops asking. I didn't touch #65 or #71 from here, as the request asks."
-    },
-    {
-     "who": "noah",
-     "text": "#71 asks the same \"Recruits\" question. Suggestion: merge this pull request (or move its one-line change into #71), then post a new report on #71 with that question marked answered."
-    },
-    {
-     "who": "noah",
-     "text": "Journal #60's three choices were approved and built in #63, and Challenge Boss placement was built in #66. Suggestion: post a fresh report on #60 too, so those old questions drop off Joshua's status page."
-    },
-    {
-     "who": "noah",
-     "text": "This pull request and #65/#71 all change home.html, so whichever goes in later needs bringing up to date with main. That's the usual one-line fix: keep main's line and re-apply the new tag treasure-hall.js?v=recruitslabel1."
-    }
-   ],
-   "openedAt": "2026-10-29T13:56:21Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "21dcbd13999741eaccfa14c9d286fc55e15b2b83",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T14:01:26Z"
-  },
-  {
-   "number": 81,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The shrine cleanup (part B) is already built in #77, so I left it out here. My suggestion: decide #77 first. After it's merged, write \"@claude check part B\" here and I'll fix anything still missing."
-    },
-    {
-     "who": "noah",
-     "text": "This request, #77 and #80 all change home.html, and this one and #77 both change adventure-art-cards.css. The test site combines all three without trouble. Whichever one is merged later will need main merged in first. My suggestion: for adventure-art-cards.css, keep this…"
-    },
-    {
-     "who": "noah",
-     "text": "The old card frames and rarity badges (assets/adventure-rebuild/*-frame.svg, *-emblem.svg) aren't used any more. I left them in place. My suggestion: delete them only after Joshua is happy with the new frames."
-    },
-    {
-     "who": "joshua",
-     "text": "On a phone, the frames' name plate is very small: about 45 by 11 points on a normal-size phone, and the level plate about 22 by 9. Game text can't be smaller than 12, so names and levels are a little bigger than their plates and spill slightly onto the frame. Long names use…"
-    },
-    {
-     "who": "joshua",
-     "text": "The frames' window is smaller than the old cards' picture area, so companions now look about one fifth smaller on the cards. My suggestion: keep it this way, because a bigger picture would mean bigger cards and less room for the battle."
-    }
-   ],
-   "openedAt": "2026-10-30T01:27:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "0c71bb6e956e2899f96699672d9933a672fdcf3a",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-31T00:36:36Z"
-  },
-  {
-   "number": 83,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Stage approved companion habitats on dev for mobile QA",
-   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Before this goes live: the two comparison pictures (Forgotten Courtyard v02 and Wildstone Grotto, about 6 MB together) and the review page would also be published, because everything in the game folder goes live. My suggestion: once Joshua picks, keep only the pictures the…"
-    },
-    {
-     "who": "joshua",
-     "text": "For Mortals, do you want Ruined Fortress v03 (in the test game now) or Forgotten Courtyard v02? Compare them on the habitat review page. My suggestion: keep v03 if the name and stats are easy to read over it on your phone."
-    },
-    {
-     "who": "joshua",
-     "text": "For Beasts, should the volcano stay for every Beast, or should Wildstone Grotto replace it? My suggestion: keep the volcano, which you asked for. Grotto stays on the review page only."
-    }
-   ],
-   "openedAt": "2026-10-31T00:30:55Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "f248c227b154721837c6f1bcd4183977b668ac74",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-31T00:38:04Z"
-  },
-  {
-   "number": 84,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved 10 unique Auto Summon rarity rows",
-   "quote": "\"I want each line to have its own pattern and color for each rarity\" \"Approved\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "With rows this close, the tall diamonds on the left overlap a little at their tips, like a chain. Is that OK? My suggestion: keep it. The other choices are bigger gaps (about 20px, like before) or rows shorter than the 44px a finger needs."
-    }
-   ],
-   "openedAt": "2026-10-31T01:06:23Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-01T03:45:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-01T03:45:10Z",
-   "headSha": "5dd27bedd568246d870da161cb61f2af57edfa5b",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-31T01:45:36Z"
   },
   {
    "number": 87,
@@ -1006,9 +1012,19 @@
  ],
  "activity": [
   {
+   "at": "2026-11-01T03:52:51Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”"
+  },
+  {
    "at": "2026-11-01T03:51:56Z",
    "kind": "built",
    "text": "Claude finished building “Completely replace Arena with Progress Knight-style Ascension”"
+  },
+  {
+   "at": "2026-11-01T03:51:56Z",
+   "kind": "question",
+   "text": "Part of “Completely replace Arena with Progress Knight-style Ascension” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-01T03:50:41Z",
@@ -1194,16 +1210,6 @@
    "at": "2026-10-31T00:38:04Z",
    "kind": "question",
    "text": "Claude has a question for you about “Stage approved companion habitats on dev for mobile QA”"
-  },
-  {
-   "at": "2026-10-31T00:38:04Z",
-   "kind": "question",
-   "text": "Part of “Stage approved companion habitats on dev for mobile QA” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-10-31T00:37:24Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”"
   }
  ],
  "otherPulls": [
