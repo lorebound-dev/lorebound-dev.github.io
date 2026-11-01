@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T03:48:44.876Z",
+ "generatedAt": "2026-11-01T03:51:16.895Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -35,9 +35,42 @@
    "by": "Joshua",
    "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
    "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Adding 30 companions to the game changes summon odds: each Tome's Common, Uncommon and Rare chances would be split across more companions. I suggest keeping each rarity's total chance exactly the same and sharing it evenly between old and new companions of that rarity. Rare…"
+    },
+    {
+     "who": "noah",
+     "text": "Saves have to accept 30 new companion names, which means changing the save checks. I suggest no save update or popup at all: old saves stay valid as they are, and new companions simply start as undiscovered. Summons already waiting in a save keep their original result."
+    },
+    {
+     "who": "noah",
+     "text": "This should go in after the Portal request (#78) or be built on top of it, so the odds don't get changed twice. I suggest waiting for #78 to merge, then building this on top of it."
+    },
+    {
+     "who": "joshua",
+     "text": "Each new companion needs an attack speed and a crit chance. I suggest using the average for its rarity and type from Realm 1 (for example, a Common Beast attacks about every 1.4 seconds with 2% crit). Is that OK, or would you like to pick them?"
+    },
+    {
+     "who": "joshua",
+     "text": "Should the new companions be summonable now, or only show up in the Omnidex as undiscovered until you choose their chances? I suggest summonable now, with each rarity's chances shared evenly (see Noah's item 1)."
+    },
+    {
+     "who": "joshua",
+     "text": "The two Epic companions (The Last Waltz and Hushgate) can't come from any Tome right now, because no Tome gives Epics. I suggest adding them to the Omnidex as undiscovered and making them summonable once the Portal unlocks Epic. Is that OK?"
+    },
+    {
+     "who": "joshua",
+     "text": "The Epics also need mastery steps (how many copies for each of the six ranks). I suggest 2, 3, 4, 6, 8 and 10 copies, a bit fewer than Rare. Is that OK?"
+    },
+    {
+     "who": "joshua",
+     "text": "The Realm 2 companion pictures are inside ZIP files on Drive, so they couldn't be fetched. Please ask ChatGPT to put the 30 approved companion pictures (not the superseded ones) in one folder inside the Artwork Inbox's Approved folder, named something like…"
+    }
+   ],
    "openedAt": "2026-11-01T03:47:10Z",
    "mergedAt": null,
    "closedAt": null,
@@ -46,12 +79,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-01T03:48:24Z",
-   "headSha": "46a5a8bd3b92a86fe2dc31b0e5847aea7d5c57e0",
+   "updatedAt": "2026-11-01T03:50:41Z",
+   "headSha": "6fc7d5b9217715c9d4f9dd21b79f558aecf3e570",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "working",
-   "botAt": "2026-11-01T03:48:24Z"
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-11-01T03:50:41Z"
   },
   {
    "number": 88,
@@ -70,12 +103,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-01T03:46:56Z",
-   "headSha": "d304da4e74dd3685d37ebd1dc3a149806f2125e9",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
+   "updatedAt": "2026-11-01T03:50:29Z",
+   "headSha": "646467fe14d2453d115feaff750f389b30af1611",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-01T03:46:56Z"
+   "botAt": "2026-11-01T03:50:29Z"
   },
   {
    "number": 86,
@@ -973,6 +1006,21 @@
  ],
  "activity": [
   {
+   "at": "2026-11-01T03:50:41Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Add approved Realm 2 companions to universal summoning and Omnidex”"
+  },
+  {
+   "at": "2026-11-01T03:50:41Z",
+   "kind": "question",
+   "text": "Part of “Add approved Realm 2 companions to universal summoning and Omnidex” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-01T03:50:29Z",
+   "kind": "built",
+   "text": "Claude finished building “Completely replace Arena with Progress Knight-style Ascension”"
+  },
+  {
    "at": "2026-11-01T03:47:10Z",
    "kind": "asked",
    "text": "You asked for “Add approved Realm 2 companions to universal summoning and Omnidex”"
@@ -1156,21 +1204,6 @@
    "at": "2026-10-31T00:37:24Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”"
-  },
-  {
-   "at": "2026-10-31T00:36:36Z",
-   "kind": "built",
-   "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
-  },
-  {
-   "at": "2026-10-31T00:36:36Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Use approved rarity-frame design and simplify Adventure Rift rail”"
-  },
-  {
-   "at": "2026-10-31T00:36:36Z",
-   "kind": "question",
-   "text": "Part of “Use approved rarity-frame design and simplify Adventure Rift rail” is waiting for Noah’s OK"
   }
  ],
  "otherPulls": [
