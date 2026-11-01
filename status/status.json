@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T19:16:36.878Z",
+ "generatedAt": "2026-11-01T19:20:17.594Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -37,9 +37,42 @@
    "by": "Joshua",
    "title": "Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Please confirm that https://lorebound-dev.github.io/test-build.json lists 90 under \"included\" once the test site has updated. I couldn't open it from here. If it's still skipped, run the Publish test workflow by hand."
+    },
+    {
+     "who": "noah",
+     "text": "This pull request contains #86, #87 and #88. Merging it brings in all three, so after merging, close them without merging. My suggestion: merge only this one."
+    },
+    {
+     "who": "noah",
+     "text": "Merging removes the Treasure Hall from the real game, including its 750 Gold restoration. Players who already paid keep their saved records but get no refund, as Joshua asked. My suggestion: OK, because that's Joshua's call."
+    },
+    {
+     "who": "noah",
+     "text": "Ruins Reclaimed (Haven) and Ascension (Ascend) still run only on the test site. On the real game, Haven and Ascend show a \"Coming Soon\" card. My suggestion: keep it that way until Joshua approves both games for the real game, as a separate request."
+    },
+    {
+     "who": "noah",
+     "text": "The old Hall files (treasure-ui.js, treasure-scene.js, treasure-trophies.js, treasure-effects.js, treasure-assets.js, treasure-art-data.js, treasure-hall.css, treasure-scene.css and assets/treasure-hall/) are no longer used, but I didn't delete them. treasure-scene.css is…"
+    },
+    {
+     "who": "joshua",
+     "text": "Inside the fourth tab, the game still calls itself \"Ascension\" in a few places, such as the \"Start Ascension over\" button. The tab and title say \"Ascend\". My suggestion: keep \"Ascension\" as the name of the game inside the tab."
+    },
+    {
+     "who": "joshua",
+     "text": "Only the Forge tab and its title were renamed. The Forge screen itself still says \"Shardworks\" inside. My suggestion: leave it, because Shardworks is the name of the place inside the Forge."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-11-01T12:05:15Z",
    "mergedAt": null,
    "closedAt": null,
@@ -48,12 +81,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-11-01T19:16:06Z",
-   "headSha": "196e335643c3a218484a70512de1ac509f7e92c9",
+   "updatedAt": "2026-11-01T19:19:40Z",
+   "headSha": "4a07f71c4b190580632f64b7e55a19144303f321",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-01T19:16:06Z"
+   "botState": "questions",
+   "botAt": "2026-11-01T19:19:40Z"
   },
   {
    "number": 86,
@@ -1037,9 +1070,19 @@
  ],
  "activity": [
   {
-   "at": "2026-11-01T19:16:06Z",
+   "at": "2026-11-01T19:19:40Z",
    "kind": "built",
    "text": "Claude finished building “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”"
+  },
+  {
+   "at": "2026-11-01T19:19:40Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”"
+  },
+  {
+   "at": "2026-11-01T19:19:40Z",
+   "kind": "question",
+   "text": "Part of “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-01T19:15:01Z",
@@ -1225,16 +1268,6 @@
    "at": "2026-10-31T01:45:36Z",
    "kind": "question",
    "text": "Claude has a question for you about “Integrate approved 10 unique Auto Summon rarity rows”"
-  },
-  {
-   "at": "2026-10-31T01:36:56Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
-  },
-  {
-   "at": "2026-10-31T01:15:22Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
   }
  ],
  "otherPulls": [
