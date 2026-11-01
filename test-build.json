@@ -71,8 +71,17 @@
         "pocket-fortune/dist/home.html"
       ],
       "with": "others"
+    },
+    {
+      "number": 88,
+      "title": "Completely replace Arena with Progress Knight-style Ascension",
+      "head": "646467fe14d2453d115feaff750f389b30af1611",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "ce661c4124c88177ba5304d327ffd5fdde1ab445",
-  "at": "2026-11-01T03:45:09Z"
+  "commit": "147c57032c3bada28a2d9a0e9718fc987f2dd3b8",
+  "at": "2026-11-01T03:52:50Z"
 }
