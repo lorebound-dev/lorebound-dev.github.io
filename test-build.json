@@ -50,9 +50,14 @@
       "number": 84,
       "title": "Integrate approved 10 unique Auto Summon rarity rows",
       "head": "5dd27bedd568246d870da161cb61f2af57edfa5b"
+    },
+    {
+      "number": 85,
+      "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
+      "head": "53182398563a75453669d1f29c304f121676a590"
     }
   ],
   "skipped": [],
-  "commit": "35896ddaab1f280a58934a70e4fee8aadae343a2",
-  "at": "2026-10-31T02:31:43Z"
+  "commit": "87b487d107772c271587648d5faf9022c847daa3",
+  "at": "2026-11-01T02:14:56Z"
 }
