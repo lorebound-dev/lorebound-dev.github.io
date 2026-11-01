@@ -55,9 +55,14 @@
       "number": 85,
       "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
       "head": "53182398563a75453669d1f29c304f121676a590"
+    },
+    {
+      "number": 86,
+      "title": "Retire Trophy Room showcase and preserve Treasures records",
+      "head": "bae6b7edc155098c47531b71040d5b956b1f3b42"
     }
   ],
   "skipped": [],
-  "commit": "87b487d107772c271587648d5faf9022c847daa3",
-  "at": "2026-11-01T02:14:56Z"
+  "commit": "71ab5e12e2a8d888f07023e7a50fabe5dbc6b726",
+  "at": "2026-11-01T02:32:10Z"
 }
