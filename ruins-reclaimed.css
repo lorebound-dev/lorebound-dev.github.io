@@ -1,0 +1,37 @@
+/* Ruins Reclaimed test prototype (ruins-reclaimed.js). Haven tab, test site only. Scoped to .ruins-shell / .ruins-proto. */
+.ruins-shell{display:flex;flex-direction:column;height:100%;min-height:0}
+.ruins-slot{flex:1;min-height:0;display:flex;flex-direction:column}
+
+.ruins-proto{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:8px;padding:10px 12px max(12px,env(safe-area-inset-bottom));border:1px solid #a68c56;border-radius:6px;background:linear-gradient(#0c1f27,#091923);color:#eadfbe;font-family:Georgia,serif}
+.ruins-proto *{box-sizing:border-box}
+.ruins-proto [hidden]{display:none!important}
+.ruins-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ruins-head small{display:block;font:12px Georgia,serif!important;letter-spacing:.06em;text-transform:uppercase;color:#9fc2b4}
+.ruins-head h3{margin:2px 0 0;font-size:19px;color:#e7d7b1}
+.ruins-head>div{min-width:0}
+.ruins-head-actions{display:flex;gap:6px;flex-shrink:0}
+.ruins-help-toggle{flex:0 0 44px;width:44px;height:44px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;font:bold 18px Georgia,serif!important;cursor:pointer}
+.ruins-help{padding:8px 10px;border:1px solid #927b4566;border-radius:5px;background:#0b1a22}
+.ruins-help p{margin:0 0 6px;font:13px/1.45 Georgia,serif!important;color:#c9d2cc}
+.ruins-help button{min-height:44px;padding:8px 12px;border:1px solid #8a5a4a;border-radius:5px;background:#2a1d1b;color:#f0d6c4;font:13px Georgia,serif!important;cursor:pointer}
+.ruins-stats{display:grid;grid-template-columns:auto 1fr;gap:6px;margin:0}
+.ruins-stats>div{padding:6px 10px;border:1px solid #927b4566;border-radius:4px;background:#0b1a22}
+.ruins-stats>div:last-child{text-align:right}
+.ruins-stats dt{font:12px Georgia,serif!important;color:#b8c3bd}
+.ruins-stats dd{margin:2px 0 0;font-size:16px;color:#ffe8af}
+.ruins-scene{position:relative;display:flex;flex-direction:column;align-items:center;padding:6px 0 4px;border:1px solid #2e4a3c;border-radius:4px;background:radial-gradient(ellipse at 50% 55%,#173628,#0a1a1f 72%)}
+.ruins-scene canvas{display:block;max-width:100%;touch-action:pan-y;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;cursor:pointer;border-radius:3px}
+.ruins-scene canvas:focus-visible{outline:2px solid #f8dc88;outline-offset:2px}
+.ruins-work{margin:0;width:100%;padding:4px 10px 0;min-height:20px;font:12px/1.4 Georgia,serif!important;color:#9fd8c0;text-align:center}
+.ruins-stage{margin:0;min-height:18px;font:13px/1.4 Georgia,serif!important;color:#d6bd81;text-align:center}
+.ruins-continue{min-height:48px;padding:10px 14px;border:1px solid #dac17c;border-radius:5px;background:#2b3837;color:#ffe8af;font:bold 15px Georgia,serif!important;box-shadow:inset 0 -2px #d6bd81;cursor:pointer}
+.ruins-upgrades{display:grid;gap:6px}
+.ruins-upgrade{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:56px;padding:8px 12px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;text-align:left;cursor:pointer}
+.ruins-upgrade span{display:grid;gap:2px;min-width:0}
+.ruins-upgrade strong{font:bold 14px Georgia,serif!important}
+.ruins-upgrade small{font:12px/1.35 Georgia,serif!important;color:#b8c3bd}
+.ruins-upgrade b{flex-shrink:0;padding:4px 8px;border:1px solid #a68c56;border-radius:3px;background:#0b1a22;font:bold 13px Georgia,serif!important;color:#ffe8af;white-space:nowrap}
+.ruins-upgrade:disabled{opacity:.62;cursor:default}
+.ruins-upgrade:not(:disabled):active,.ruins-continue:active{transform:translateY(1px)}
+.ruins-proto button:focus-visible{outline:2px solid #f8dc88;outline-offset:2px}
+@media (max-width:340px){.ruins-head h3{font-size:17px}}

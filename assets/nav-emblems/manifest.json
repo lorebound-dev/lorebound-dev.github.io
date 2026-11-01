@@ -1,0 +1,112 @@
+{
+ "source": "LOREBOUND Artwork Inbox / Approved / LOREBOUND_BottomNav_Rebrand_APPROVED_v01",
+ "tool": "tools/build-nav-emblems.cjs",
+ "size": 96,
+ "copies": {
+  "haven-emblem-96.png": {
+   "master": "assets/haven_emblem.png",
+   "masterSha256": "e2a1c3b17c04f1058fb85e3b3539ad451de704c62f9e6151b40f4c0ecd484428",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "crop": {
+    "x": 0,
+    "y": 20,
+    "side": 1234,
+    "visibleBox": [
+     0,
+     27,
+     1233,
+     1253
+    ]
+   },
+   "bytes": 15395,
+   "sha256": "371cc9c7c10ace8ac034a07f055c8f497f73440f619fc7f5ac28f19810cd65e4"
+  },
+  "forge-emblem-96.png": {
+   "master": "assets/forge_emblem.png",
+   "masterSha256": "93526e431c00f4b4812be8943cf78a96ca789840337cb8b3c3f1c8b73643235b",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "crop": {
+    "x": 19,
+    "y": 21,
+    "side": 1233,
+    "visibleBox": [
+     47,
+     21,
+     1223,
+     1253
+    ]
+   },
+   "bytes": 13438,
+   "sha256": "a0336333cd8eca187ff2500bd413e9b0423ddc6ac1dc17722ec64127855d268c"
+  },
+  "quest-emblem-96.png": {
+   "master": "assets/quest_emblem.png",
+   "masterSha256": "ff9e0cf9af7723a7f966d76f269603f8bb7ade0ac48976beaa89a74351210d4b",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "crop": {
+    "x": 0,
+    "y": 28,
+    "side": 1226,
+    "visibleBox": [
+     0,
+     35,
+     1225,
+     1253
+    ]
+   },
+   "bytes": 15376,
+   "sha256": "582264b921cd71b7798654ef99289261268f61d2d7abfb572d95c7eccd57bf9a"
+  },
+  "ascend-emblem-96.png": {
+   "master": "assets/ascend_emblem.png",
+   "masterSha256": "b5eeb6fe72259aabba8affc95ca531a7facc5a9ddc97065760653b645ca9c5ad",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "crop": {
+    "x": 0,
+    "y": 25,
+    "side": 1229,
+    "visibleBox": [
+     0,
+     25,
+     1219,
+     1253
+    ]
+   },
+   "bytes": 15012,
+   "sha256": "5978fa5291b093a426ce956d1ce30b2fecb01a51b92607ea18a698fed684f90e"
+  },
+  "market-emblem-96.png": {
+   "master": "assets/market_emblem.png",
+   "masterSha256": "f9863c9e91e894ae61526957b23a24d5dc86d440d32761052745f250cc1880c5",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "crop": {
+    "x": 0,
+    "y": 6,
+    "side": 1248,
+    "visibleBox": [
+     0,
+     19,
+     1247,
+     1253
+    ]
+   },
+   "bytes": 14383,
+   "sha256": "510fa700bbebad30e7b3abf2760e532982cb9887e18cebb75fc3293dcc87e67f"
+  }
+ }
+}

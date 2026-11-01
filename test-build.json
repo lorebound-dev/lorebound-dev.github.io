@@ -60,6 +60,11 @@
       "number": 86,
       "title": "Retire Trophy Room showcase and preserve Treasures records",
       "head": "bae6b7edc155098c47531b71040d5b956b1f3b42"
+    },
+    {
+      "number": 90,
+      "title": "Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven",
+      "head": "4a07f71c4b190580632f64b7e55a19144303f321"
     }
   ],
   "skipped": [
@@ -80,17 +85,8 @@
         "pocket-fortune/dist/home.html"
       ],
       "with": "others"
-    },
-    {
-      "number": 90,
-      "title": "Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven",
-      "head": "196e335643c3a218484a70512de1ac509f7e92c9",
-      "files": [
-        "pocket-fortune/dist/home.html"
-      ],
-      "with": "others"
     }
   ],
-  "commit": "92860faf333e77dd041dbd3be3bc6c4a08ec97c7",
-  "at": "2026-11-01T19:15:01Z"
+  "commit": "52d61708b9b335d978891be7f81b3dcb865d42c7",
+  "at": "2026-11-01T19:20:52Z"
 }

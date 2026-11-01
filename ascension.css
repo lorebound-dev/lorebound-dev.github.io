@@ -1,0 +1,76 @@
+/* Ascension (fourth tab, test prototype). Matches the Shardworks panel: navy, antique gold, squared plaques, Georgia, nothing under 12px. */
+.destination-page[data-area="ascension"]{--area-art:url('assets/habitat-moonlit.png');--area-base:#0a1a27;--area-shade:#06131dee;--area-accent:#e2c180;--area-panel:#0c2430ee;--area-edge:#9b8551}
+.ascension{display:grid;gap:12px;margin:6px 0 18px;color:#e7dfc8}
+.ascension,.ascension *{font-family:Georgia,serif!important}
+.ascension p{margin:0}
+.ascension .asc-intro{font-size:14px!important;line-height:1.5;color:#c3d2d5}
+.ascension .asc-note{font-size:12px!important;line-height:1.45;color:#aac0c9}
+.ascension .asc-warn{padding:10px 12px;border:1px solid #c47c65;background:#2a1414;color:#f3d2c2;font-size:13px!important;line-height:1.4}
+.ascension .asc-warn[hidden],.ascension [hidden]{display:none!important}
+.asc-hero{display:grid;grid-template-columns:minmax(96px,34%) 1fr;gap:8px;align-items:stretch}
+.asc-figure{margin:0;display:grid;grid-template-rows:1fr auto;gap:6px;padding:8px 6px;border:1px solid #9b8551;background:radial-gradient(circle at 50% 42%,#1d3b4a,#061621 72%)}
+.asc-figure-frame{display:grid;place-items:center;min-height:120px}
+.asc-figure-art{width:100%;max-width:120px;height:auto;aspect-ratio:24/28;image-rendering:pixelated}
+.asc-figure-art.is-gone{filter:grayscale(1) brightness(.6)}
+.asc-figure-body{animation:asc-idle 2.4s steps(2,end) infinite}
+@keyframes asc-idle{50%{transform:translateY(-.5px)}}
+@media(prefers-reduced-motion:reduce){.asc-figure-body{animation:none}}
+.asc-figure figcaption{display:grid;justify-items:center;gap:4px;text-align:center}
+.asc-figure strong{font-size:13px;font-weight:normal;color:#f3da9c;line-height:1.2}
+.asc-lives{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:3px;font-size:12px;color:#c9b37c}
+.asc-lives span{flex-basis:100%}
+.asc-diamond{display:inline-block;width:6px;height:6px;background:#c9a560;transform:rotate(45deg);margin:2px}
+.asc-planned{color:#c9b37c!important}
+.asc-hero .asc-status{grid-template-columns:1fr;gap:6px}
+.asc-hero .asc-status div{padding:6px 10px}
+.asc-status{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0}
+.asc-status div{padding:8px 10px;border:1px solid #9b855155;background:#0c2430;min-width:0}
+.asc-status dt{font-size:12px;color:#b6c4c7}
+.asc-status dd{margin:3px 0 0;font-size:16px;color:#f3da9c;overflow-wrap:anywhere}
+.asc-bar{height:6px;background:#06101b;border:1px solid #9b855133;overflow:hidden}
+.asc-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b6d32,#e2c180)}
+.asc-life i{background:linear-gradient(90deg,#3f6d7a,#97dbff)}
+.asc-active{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.asc-card{display:grid;gap:5px;align-content:start;padding:10px;border:1px solid #9b8551;background:linear-gradient(#0a2232,#061621);min-width:0}
+.asc-card .asc-kicker{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c9b37c}
+.asc-card h3{margin:0;font-size:17px!important;line-height:1.2;color:#f1e2be;overflow-wrap:anywhere}
+.asc-card .asc-level{font-size:13px!important;color:#c4e9ff}
+.asc-auto{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:10px;border:1px solid #9b855155;background:#0c2430}
+.asc-auto label{display:flex;gap:8px;align-items:center;min-height:44px;font-size:14px;color:#f1e2be}
+.asc-auto input{width:20px;height:20px;accent-color:#c9a560;margin:0}
+.asc-auto input:disabled+*,.asc-auto label:has(input:disabled){opacity:.6}
+.asc-auto .asc-note{flex-basis:100%}
+.asc-list{border:1px solid #9b855166;background:#081d29}
+.asc-list>summary,.asc-group>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 12px;font-size:16px;color:#f3da9c}
+.asc-list>summary::-webkit-details-marker,.asc-group>summary::-webkit-details-marker{display:none}
+.asc-list>summary:after,.asc-group>summary:after{content:'';width:7px;height:7px;border-right:2px solid #c9a560;border-bottom:2px solid #c9a560;transform:rotate(45deg);margin-top:-4px}
+.asc-list[open]>summary:after,.asc-group[open]>summary:after{transform:rotate(225deg);margin-top:4px}
+.asc-list>.asc-note{padding:0 12px 8px}
+.asc-group{border-top:1px solid #9b855133}
+.asc-group>summary{font-size:14px;color:#e2c180;min-height:40px;padding-left:16px}
+.asc-rows{list-style:none;margin:0;padding:0 8px 8px;display:grid;gap:6px}
+.asc-rows li{display:grid;gap:0;border:1px solid #546b7d66;background:#0a1a27}
+.asc-rows li.is-active{border-color:#e2c180;background:#14303d}
+.asc-rows button{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 10px;width:100%;min-height:44px;padding:8px 10px;border:0;background:none;color:#f1e2be;text-align:left}
+.asc-rows li.is-active button{color:#f3da9c}
+.asc-rows li.is-locked button{color:#9fb0b8}
+.asc-rows button:disabled{cursor:default}
+.asc-row-name{font-size:14px}
+.asc-row-meta{font-size:12px;color:#b6c4c7;text-align:right;margin-left:auto}
+.asc-rows .asc-bar{height:4px;border:0;border-top:1px solid #9b855122}
+.asc-rebirth{display:grid;gap:8px;padding:12px;border:1px solid #9b8551;background:linear-gradient(#0a2232,#061621)}
+.asc-rebirth h3{margin:0;font-size:18px!important;color:#f3da9c}
+.asc-button{width:100%;min-height:48px;border:1px solid #998651;border-radius:4px;background:linear-gradient(#244958,#0d2a39);color:#f6dfac;font-size:15px;padding:10px}
+.asc-button:disabled{opacity:.55}
+.asc-button.asc-quiet{background:#0a1a27;color:#d9cfb3;border-color:#9b855188}
+.asc-confirm{display:grid;gap:8px;padding:12px;border:1px solid #c4a365;background:#0c2430}
+.asc-confirm strong{font-size:16px;color:#f3da9c}
+.asc-bonus{margin:0;padding-left:18px;font-size:13px;line-height:1.5;color:#c4e9ff}
+.asc-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.asc-footer{display:grid;gap:10px;padding-top:4px}
+.asc-speed{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.asc-speed span{flex-basis:100%;font-size:12px;color:#b6c4c7}
+.asc-speed button{flex:1;min-height:44px;border:1px solid #9b855188;background:#0a1a27;color:#d9cfb3;font-size:14px}
+.asc-speed button[aria-pressed="true"]{border-color:#e2c180;background:#14303d;color:#f3da9c}
+.ascension button:focus-visible,.ascension summary:focus-visible,.ascension input:focus-visible{outline:2px solid #e2c180;outline-offset:2px}
+@media(max-width:350px){.asc-active,.asc-status{grid-template-columns:1fr}.asc-card h3{font-size:16px!important}.asc-hero{grid-template-columns:92px 1fr}.asc-status dd{font-size:15px}}
