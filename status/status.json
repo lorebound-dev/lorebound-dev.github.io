@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T04:08:12.892Z",
+ "generatedAt": "2026-11-02T04:12:58.518Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -41,9 +41,38 @@
    "by": "Joshua",
    "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
    "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Summon chances for every rarity at every Portal level. Only Uncommon, Rare and Epic can be rolled under the new plan, and the Legendary to Eternal chances aren't set yet (#78). I suggest deciding them in #78 first. Then this request can use them."
+    },
+    {
+     "who": "noah",
+     "text": "Power. Under today's damage rule, moving up one rarity doubles a companion's base damage, so 38 companions would hit 4 times as hard and 3 would hit 8 times as hard. That would make story bosses much easier. I suggest one of two fixes: keep each companion's current damage…"
+    },
+    {
+     "who": "noah",
+     "text": "A save update that keeps everyone's owned companions, mastery, Essence, claims and waiting summons exactly as they are. I suggest building it last, once the new Commons, chances and power are settled, and testing it on a made-up save first."
+    },
+    {
+     "who": "noah",
+     "text": "Mastery (how many copies each mastery level needs) for the new rarities. Today's tables stop at Rare. Epic is a draft in #89, and Epic Aberration, Legendary and Mythic have none. I suggest using the Rare table for all of them until balance numbers are approved."
+    },
+    {
+     "who": "joshua",
+     "text": "The 15 new Common companions are needed before new players can start. A new player's Portal is 100% Common today. I suggest designing them next, with one Aberration among them, and putting their art in your Artwork Inbox's Approved folder."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to move any companion to a different rarity once you've seen the art side by side? I suggest keeping the request's list for now and changing names later in a short Changes note."
+    },
+    {
+     "who": "joshua",
+     "text": "Most companions move up two rarities, because only 15 fit in each one. Is that OK, or should more of them stop at one step? I suggest keeping two steps, so that Uncommon, Rare and Epic each have a full 15 right away."
+    }
+   ],
    "openedAt": "2026-11-02T04:06:28Z",
    "mergedAt": null,
    "closedAt": null,
@@ -52,12 +81,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-02T04:08:15Z",
-   "headSha": "4aa46868b7101d05605a4f96dde5d0e4358498fa",
+   "updatedAt": "2026-11-02T04:12:31Z",
+   "headSha": "8216ecd4812f8f8993d7e75b00881a221e35b0be",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-02T04:08:15Z"
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-02T04:12:31Z"
   },
   {
    "number": 89,
@@ -1255,6 +1284,16 @@
  ],
  "activity": [
   {
+   "at": "2026-11-02T04:12:31Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
+  },
+  {
+   "at": "2026-11-02T04:12:31Z",
+   "kind": "question",
+   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-02T04:06:28Z",
    "kind": "asked",
    "text": "You asked for “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
@@ -1441,16 +1480,6 @@
   },
   {
    "at": "2026-11-02T02:52:50Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
-  },
-  {
-   "at": "2026-11-02T02:47:30Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
-  },
-  {
-   "at": "2026-11-02T02:43:03Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
   }
