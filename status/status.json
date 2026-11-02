@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T03:24:03.514Z",
+ "generatedAt": "2026-11-02T03:25:37.836Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -41,9 +41,38 @@
    "by": "Joshua",
    "title": "Owner approves Haven timing and accessible Party collapse target",
    "quote": "All are approved",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "[x] Read the request"
+    },
+    {
+     "who": "noah",
+     "text": "[x] Check where #91, #93 and #94 stand"
+    },
+    {
+     "who": "noah",
+     "text": "[x] Decide what can be built here"
+    },
+    {
+     "who": "noah",
+     "text": "[x] Set this request's Status to \"Waiting for answers\" and push it"
+    },
+    {
+     "who": "noah",
+     "text": "Pass Joshua's Haven answer to #91: comment on #91 \"@claude Joshua approved the current timing for testing: about two hits per second (0.48s apart) and 20-second regrowth. Keep the numbers and the test-save update as they are, update your report so it doesn't ask about timing…"
+    },
+    {
+     "who": "noah",
+     "text": "Pass Joshua's Party answer to #93: comment on #93 \"@claude Joshua wants the collapse button's tap area to be at least 44px, not 22px, while keeping the smaller gap above the cards. The Boss button sits right above the chevron, so try moving the tap area to one side, clear of…"
+    },
+    {
+     "who": "noah",
+     "text": "Pass #94's six approvals to their own pull requests (#90, #83, #81, #85, #84, #87), as #94 asks. Then this request, #94 and #95 can be closed without merging, because they only carry answers."
+    }
+   ],
    "openedAt": "2026-11-02T03:22:55Z",
    "mergedAt": null,
    "closedAt": null,
@@ -52,12 +81,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-02T03:24:02Z",
-   "headSha": "0def00a8052052c2f6c362c4cf429ddea414a1af",
+   "updatedAt": "2026-11-02T03:25:09Z",
+   "headSha": "14490ef9050619c403d8ebbf234d18fbeb377962",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-02T03:24:02Z"
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-11-02T03:25:09Z"
   },
   {
    "number": 89,
@@ -76,12 +105,12 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T03:23:35Z",
+   "updatedAt": "2026-11-02T03:24:15Z",
    "headSha": "bcfc831888c6f5b10072d1c0571d6f88fbd87a6c",
    "touchesGame": true,
    "requestStatus": "Waiting for answers",
-   "botState": "working",
-   "botAt": "2026-11-02T03:23:35Z"
+   "botState": "finished",
+   "botAt": "2026-11-02T03:24:15Z"
   },
   {
    "number": 92,
@@ -1124,6 +1153,16 @@
  ],
  "activity": [
   {
+   "at": "2026-11-02T03:25:09Z",
+   "kind": "question",
+   "text": "Part of “Owner approves Haven timing and accessible Party collapse target” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-02T03:24:15Z",
+   "kind": "built",
+   "text": "Claude finished building “Add approved Realm 2 companions to universal summoning and Omnidex”"
+  },
+  {
    "at": "2026-11-02T03:23:10Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1312,16 +1351,6 @@
    "at": "2026-11-01T03:40:42Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”"
-  },
-  {
-   "at": "2026-11-01T03:39:32Z",
-   "kind": "built",
-   "text": "Claude finished building “Prototype Ruins Reclaimed: compact isometric clearing minigame”"
-  },
-  {
-   "at": "2026-11-01T03:39:32Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Prototype Ruins Reclaimed: compact isometric clearing minigame”"
   }
  ],
  "otherPulls": [
