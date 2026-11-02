@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T13:30:27.440Z",
+ "generatedAt": "2026-11-02T13:31:46.200Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -42,9 +42,22 @@
    "by": "Joshua",
    "title": "Owner approves caravan defaults and provisional roster placements",
    "quote": "Yes",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Comment \"@claude please apply Joshua's answers from #99 to this request and update your report\" on pull request #96 (caravans). Its old questions about the four caravan choices stay on Joshua's status page until that pull request's own report is updated."
+    },
+    {
+     "who": "noah",
+     "text": "Make the same comment on pull request #98 (roster). That clears its old placement question, while the 15 new Commons and the power review stay listed as open work."
+    },
+    {
+     "who": "noah",
+     "text": "Once you've checked it, close this pull request or merge it. It only adds a note in requests/, so merging doesn't change the game."
+    }
+   ],
    "openedAt": "2026-11-02T13:28:10Z",
    "mergedAt": null,
    "closedAt": null,
@@ -1310,6 +1323,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-02T13:30:24Z",
+   "kind": "question",
+   "text": "Part of “Owner approves caravan defaults and provisional roster placements” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-02T13:28:10Z",
    "kind": "asked",
    "text": "You asked for “Owner approves caravan defaults and provisional roster placements”"
@@ -1503,11 +1521,6 @@
    "at": "2026-11-02T03:04:49Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
-  },
-  {
-   "at": "2026-11-02T03:03:19Z",
-   "kind": "built",
-   "text": "Claude finished building “Haven: persistent settlement with mining, building and expansion”"
   }
  ],
  "otherPulls": [
