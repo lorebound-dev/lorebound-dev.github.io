@@ -69,7 +69,7 @@
     {
       "number": 91,
       "title": "Haven: persistent settlement with mining, building and expansion",
-      "head": "0fadc7e933c7a70e69515de4d270f02f42987463"
+      "head": "f237260d249616308fdd96e8826dc4b2cc88d8ad"
     }
   ],
   "skipped": [
@@ -92,6 +92,6 @@
       "with": "others"
     }
   ],
-  "commit": "dd9430fab6d1dacc8907aa82b86bf6a4fc09a3f7",
-  "at": "2026-11-02T02:47:28Z"
+  "commit": "cda1659c6c803c00b7495324041ba03d9cea8443",
+  "at": "2026-11-02T02:52:48Z"
 }
