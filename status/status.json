@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T02:49:02.604Z",
+ "generatedAt": "2026-11-02T02:52:03.577Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -49,12 +49,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:48:35Z",
+   "updatedAt": "2026-11-02T02:49:08Z",
    "headSha": "083e6ea7007e895bdd457c80bb4b66c9e7901a4d",
    "touchesGame": false,
    "requestStatus": "Waiting to be built",
-   "botState": "working",
-   "botAt": "2026-11-02T02:48:35Z"
+   "botState": "finished",
+   "botAt": "2026-11-02T02:49:08Z"
   },
   {
    "number": 91,
@@ -62,36 +62,19 @@
    "by": "Joshua",
    "title": "Haven: persistent settlement with mining, building and expansion",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Haven now saves under its own test key, lorebound-haven-settlement-v2. It reads the old lorebound-ruins-prototype-v01 key once to carry the demo over and never changes it. This is a new save layout, but only for the test Haven, not the game's real save. I built it because the…"
-    },
-    {
-     "who": "noah",
-     "text": "This pull request contains all of #90. My suggestion: merge #90 first, then this one, after Joshua has played both."
-    },
-    {
-     "who": "joshua",
-     "text": "Do the hit counts feel right: bush 2, tree 4 to 5, stone 7, ore 12? My suggestion: try them on the test site first, then tell ChatGPT \"harder\" or \"easier\"."
-    },
-    {
-     "who": "joshua",
-     "text": "Buildings are simple drawn stand-ins for now. Should I make an art request for proper building pictures once you're happy with how Haven plays? My suggestion: yes, after you've played it."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-11-02T02:21:05Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-02T02:47:30Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-11-02T02:47:30Z",
-   "headSha": "0fadc7e933c7a70e69515de4d270f02f42987463",
+   "headSha": "f237260d249616308fdd96e8826dc4b2cc88d8ad",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
@@ -1123,16 +1106,6 @@
    "text": "Claude finished building “Haven: persistent settlement with mining, building and expansion”"
   },
   {
-   "at": "2026-11-02T02:41:55Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Haven: persistent settlement with mining, building and expansion”"
-  },
-  {
-   "at": "2026-11-02T02:41:55Z",
-   "kind": "question",
-   "text": "Part of “Haven: persistent settlement with mining, building and expansion” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-11-02T02:38:48Z",
    "kind": "asked",
    "text": "You asked for “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1306,6 +1279,16 @@
    "at": "2026-10-31T02:24:29Z",
    "kind": "closed",
    "text": "“Integrate approved summoning shrine into Adventure rail — visual-only” was closed"
+  },
+  {
+   "at": "2026-10-31T02:24:26Z",
+   "kind": "closed",
+   "text": "“Animated compact Summoning Rift — replace rail Tome after color/art approval” was closed"
+  },
+  {
+   "at": "2026-10-31T02:24:16Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
   }
  ],
  "otherPulls": [
