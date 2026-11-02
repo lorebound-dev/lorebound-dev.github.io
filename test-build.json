@@ -65,6 +65,11 @@
       "number": 90,
       "title": "Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven",
       "head": "4a07f71c4b190580632f64b7e55a19144303f321"
+    },
+    {
+      "number": 91,
+      "title": "Haven: persistent settlement with mining, building and expansion",
+      "head": "0fadc7e933c7a70e69515de4d270f02f42987463"
     }
   ],
   "skipped": [
@@ -87,6 +92,6 @@
       "with": "others"
     }
   ],
-  "commit": "52d61708b9b335d978891be7f81b3dcb865d42c7",
-  "at": "2026-11-01T19:20:52Z"
+  "commit": "cfc018a138d4ba9f773a9ac95649dac84eed6dd9",
+  "at": "2026-11-02T02:43:03Z"
 }
