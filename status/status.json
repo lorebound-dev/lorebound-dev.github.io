@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T03:00:55.826Z",
+ "generatedAt": "2026-11-02T03:04:09.659Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-02T02:59:08Z",
+  "updatedAt": "2026-11-02T03:02:04Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -28,25 +28,91 @@
   ],
   "skipped": [
    "Prototype Ruins Reclaimed: compact isometric clearing minigame",
-   "Completely replace Arena with Progress Knight-style Ascension"
+   "Completely replace Arena with Progress Knight-style Ascension",
+   "Reduce empty space above expanded Party cards"
   ]
  },
  "items": [
   {
-   "number": 93,
+   "number": 91,
    "kind": "request",
    "by": "Joshua",
-   "title": "Reduce empty space above expanded Party cards",
-   "quote": "Also the distance between the top of the menus and the companions is too big",
-   "stage": "built",
-   "waitingOn": "joshua",
+   "title": "Haven: persistent settlement with mining, building and expansion",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": "both",
    "asks": [
     {
+     "who": "noah",
+     "text": "Haven's own test save moved up a version, in the same place. The old copy is kept under lorebound-haven-settlement-v2-before-v3. Only the test Haven uses this save, never the game's real one. The request allowed this. My suggestion: keep it."
+    },
+    {
+     "who": "noah",
+     "text": "This pull request still contains all of #90. My suggestion: merge #90 first, then this one, after Joshua has played both."
+    },
+    {
      "who": "joshua",
-     "text": "The request asks for a tap area of at least 44px around the collapse arrow. It can't be that tall without covering the Challenge Boss button or the cards. Before, it was about 30px tall. Now it's about 22px tall but wider (about 104px). My suggestion is to keep it like this.…"
+     "text": "Is about two hits a second the right pace for your taps? My suggestion: try it on the test site first, then tell ChatGPT \"slower\" or \"faster\"."
+    },
+    {
+     "who": "joshua",
+     "text": "Should things grow back every 20 seconds, or at a different time? My suggestion: keep 20 seconds for now."
     }
    ],
-   "openedAt": "2026-11-02T02:55:24Z",
+   "openedAt": "2026-11-02T02:21:05Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-02T03:02:04Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-02T03:03:19Z",
+   "headSha": "f306e3cd9a1bd35c4f42bdeecfaf6b83b8a1b4e2",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-02T03:03:19Z"
+  },
+  {
+   "number": 89,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
+   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Adding the new Common, Uncommon and Rare companions to summoning changes each companion's chance. Joshua approved keeping each rarity's total chance and sharing it evenly, with Forgotten Watcher keeping its own 0.1%. Today's game sets one fixed chance for each companion in…"
+    },
+    {
+     "who": "noah",
+     "text": "Saves only accept the 30 Realm 1 companions today, so that check has to accept the 30 new names. I suggest no save update and no popup: old saves stay as they are, new companions start undiscovered, and summons already waiting in a save keep their result. Please confirm."
+    },
+    {
+     "who": "noah",
+     "text": "The new companion pictures still need to get from the Realm 2 ZIP on Drive into their own folder in the inbox's Approved folder, with a MANIFEST.json. The art robot can only read, so it can't do this, and Joshua asked not to do it by hand. I suggest Noah unzips the 30 active…"
+    },
+    {
+     "who": "joshua",
+     "text": "Realm 1 has no Rare Spirit and no Rare Wildgrowth to take an average from. For Morrowthread and Inkspore Cantor I used the average of all Realm 1 Rares: an attack every 2.38 seconds with 4.25% crit. Is that OK?"
+    },
+    {
+     "who": "joshua",
+     "text": "Proposed Epic attack stats: The Last Waltz attacks every 2.38 seconds with 5.25% crit, and Hushgate every 2.8 seconds with 5% crit. That's the Realm 1 Rare average for their type, plus one point of crit. Is that OK, or would you like other numbers?"
+    },
+    {
+     "who": "joshua",
+     "text": "Parallax Shard (Common) and Riftmourn (Rare) are Aberrations. In Realm 1, Aberrations hit four times as hard, level up mastery faster, and are very hard to summon (Forgotten Watcher is 0.1%). Should the new Aberrations follow the same rules, with their own small chance,…"
+    },
+    {
+     "who": "joshua",
+     "text": "At which Portal level should Epic unlock, and at what chance? I suggest Epic at 1% when the Portal reaches its Rare-at-5% level, shared evenly between The Last Waltz and Hushgate. That's only a suggestion, and it stays at 0% until you pick."
+    }
+   ],
+   "openedAt": "2026-11-01T03:47:10Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
@@ -54,36 +120,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-02T03:00:32Z",
-   "headSha": "c14c3e61264e2e4ec745277cda6ea1a31dd8f9f2",
+   "updatedAt": "2026-11-02T03:02:51Z",
+   "headSha": "30445bad6bf0af1776b2f39caccba628dc05240e",
    "touchesGame": true,
-   "requestStatus": "Built, ready to check",
+   "requestStatus": "Waiting for answers",
    "botState": "questions",
-   "botAt": "2026-11-02T03:00:32Z"
-  },
-  {
-   "number": 91,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven: persistent settlement with mining, building and expansion",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T02:21:05Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
-   "headSha": "00eca65666ea0550c320d507719d2334863f0520",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-02T02:55:27Z"
+   "botAt": "2026-11-02T03:02:51Z"
   },
   {
    "number": 90,
@@ -127,11 +169,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "4a07f71c4b190580632f64b7e55a19144303f321",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -160,11 +202,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "bae6b7edc155098c47531b71040d5b956b1f3b42",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -193,11 +235,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "53182398563a75453669d1f29c304f121676a590",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -217,11 +259,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "b1e0ddc060db099c09debd689ba279356c57e0ec",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -241,11 +283,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "9ae161d173b7b9e0d431bdee799900ea0d9408fd",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -278,11 +320,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "f331038e2d198ea20f4d6ef2d9cd3e98ed57a543",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -315,11 +357,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "86b71c57eaf2c6671d290d6bedc08fbe00082f63",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -344,11 +386,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "dab9e4d64ff232d4805541c0a1774aba6766ef00",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -373,11 +415,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "b520d1052349bbac4791ca3294acec68fe51fa33",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -414,11 +456,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "21dcbd13999741eaccfa14c9d286fc55e15b2b83",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -459,11 +501,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "0c71bb6e956e2899f96699672d9933a672fdcf3a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -496,11 +538,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "f248c227b154721837c6f1bcd4183977b668ac74",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -525,11 +567,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-02T02:59:10Z",
+   "testAt": "2026-11-02T03:02:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:59:10Z",
+   "updatedAt": "2026-11-02T03:02:04Z",
    "headSha": "5dd27bedd568246d870da161cb61f2af57edfa5b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -537,28 +579,37 @@
    "botAt": "2026-10-31T01:45:36Z"
   },
   {
-   "number": 89,
+   "number": 93,
    "kind": "request",
    "by": "Joshua",
-   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-01T03:47:10Z",
+   "title": "Reduce empty space above expanded Party cards",
+   "quote": "Also the distance between the top of the menus and the companions is too big",
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The request asks for a tap area of at least 44px around the collapse arrow. It can't be that tall without covering the Challenge Boss button or the cards. Before, it was about 30px tall. Now it's about 22px tall but wider (about 104px). My suggestion is to keep it like this.…"
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in realm1-art.js, so it isn't on the test site yet."
+    }
+   ],
+   "openedAt": "2026-11-02T02:55:24Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-02T02:56:26Z",
-   "headSha": "a07df9ae0866927d079990c1935801d5ca9378c2",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "finished",
-   "botAt": "2026-11-02T02:56:26Z"
+   "clashes": true,
+   "updatedAt": "2026-11-02T03:00:32Z",
+   "headSha": "c14c3e61264e2e4ec745277cda6ea1a31dd8f9f2",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-02T03:00:32Z"
   },
   {
    "number": 92,
@@ -1063,6 +1114,41 @@
  ],
  "activity": [
   {
+   "at": "2026-11-02T03:03:19Z",
+   "kind": "built",
+   "text": "Claude finished building “Haven: persistent settlement with mining, building and expansion”"
+  },
+  {
+   "at": "2026-11-02T03:03:19Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Haven: persistent settlement with mining, building and expansion”"
+  },
+  {
+   "at": "2026-11-02T03:03:19Z",
+   "kind": "question",
+   "text": "Part of “Haven: persistent settlement with mining, building and expansion” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-02T03:02:51Z",
+   "kind": "built",
+   "text": "Claude finished building “Add approved Realm 2 companions to universal summoning and Omnidex”"
+  },
+  {
+   "at": "2026-11-02T03:02:51Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Add approved Realm 2 companions to universal summoning and Omnidex”"
+  },
+  {
+   "at": "2026-11-02T03:02:51Z",
+   "kind": "question",
+   "text": "Part of “Add approved Realm 2 companions to universal summoning and Omnidex” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-02T03:02:04Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
+  },
+  {
    "at": "2026-11-02T03:00:32Z",
    "kind": "built",
    "text": "Claude finished building “Reduce empty space above expanded Party cards”"
@@ -1073,6 +1159,11 @@
    "text": "Claude has a question for you about “Reduce empty space above expanded Party cards”"
   },
   {
+   "at": "2026-11-02T03:00:32Z",
+   "kind": "question",
+   "text": "Part of “Reduce empty space above expanded Party cards” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-02T02:59:10Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
@@ -1081,11 +1172,6 @@
    "at": "2026-11-02T02:55:30Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
-  },
-  {
-   "at": "2026-11-02T02:55:27Z",
-   "kind": "built",
-   "text": "Claude finished building “Haven: persistent settlement with mining, building and expansion”"
   },
   {
    "at": "2026-11-02T02:55:24Z",
@@ -1226,41 +1312,6 @@
    "at": "2026-11-01T02:30:51Z",
    "kind": "built",
    "text": "Claude finished building “Retire Trophy Room showcase and preserve Treasures records”"
-  },
-  {
-   "at": "2026-11-01T02:30:51Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Retire Trophy Room showcase and preserve Treasures records”"
-  },
-  {
-   "at": "2026-11-01T02:27:34Z",
-   "kind": "asked",
-   "text": "You asked for “Retire Trophy Room showcase and preserve Treasures records”"
-  },
-  {
-   "at": "2026-11-01T02:14:57Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”"
-  },
-  {
-   "at": "2026-11-01T02:13:52Z",
-   "kind": "built",
-   "text": "Claude finished building “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”"
-  },
-  {
-   "at": "2026-11-01T02:13:52Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”"
-  },
-  {
-   "at": "2026-11-01T02:03:26Z",
-   "kind": "asked",
-   "text": "You asked for “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”"
-  },
-  {
-   "at": "2026-10-31T02:31:43Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
   }
  ],
  "otherPulls": [
