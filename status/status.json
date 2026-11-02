@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T03:42:55.361Z",
+ "generatedAt": "2026-11-02T03:45:20.372Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -41,9 +41,38 @@
    "by": "Joshua",
    "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
    "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Caravans pay main LOREBOUND Gold, which is an economy change. Suggestion: OK it for the test site only, with the first shipment paying about the Gold of 5 ordinary enemies at the player's current floor, at most one caravan at a time, and a 10-minute trip that only counts down…"
+    },
+    {
+     "who": "noah",
+     "text": "Haven's save has to move into the main game save so the goods spent and the Gold paid are saved together, all at once. That's a save change and a new save update. Suggestion: OK it for the test site only, done through the existing single \"update your save\" popup with its…"
+    },
+    {
+     "who": "noah",
+     "text": "Haven (#92, with #91 and #90) has to be in main first, or at least settled, before caravans can build on it. Suggestion: merge or finish #92 first, then comment \"@claude build this now\" here."
+    },
+    {
+     "who": "noah",
+     "text": "Spending main Gold on optional Trade upgrades is a new Gold cost. Suggestion: leave it out of the first version and add it later as a separate step."
+    },
+    {
+     "who": "joshua",
+     "text": "Which Haven buildings should unlock the first caravan? Suggestion: Workshop plus Survey Post, as the request says."
+    },
+    {
+     "who": "joshua",
+     "text": "How many contracts should there be at first? Suggestion: two, a Timber Order (Wood only) and a Mason's Order (Wood and Stone). Ore Supply would come after the first boss."
+    },
+    {
+     "who": "joshua",
+     "text": "Should the trip only count down while Haven is open? Suggestion: yes for now. It's simpler and safer, and it stops anyone from getting Gold by changing the phone's clock."
+    }
+   ],
    "openedAt": "2026-11-02T03:42:27Z",
    "mergedAt": null,
    "closedAt": null,
@@ -52,12 +81,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-02T03:42:27Z",
-   "headSha": "4ad792dfdb1a2ed217f8a6c0944dd0a4422412da",
+   "updatedAt": "2026-11-02T03:44:36Z",
+   "headSha": "8386285c6677c0ea826f6dfd59fe0c96d638e167",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "",
-   "botAt": null
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-11-02T03:44:36Z"
   },
   {
    "number": 89,
@@ -1178,6 +1207,16 @@
  ],
  "activity": [
   {
+   "at": "2026-11-02T03:44:36Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Connect Haven to LOREBOUND economy through resource-backed Gold caravans”"
+  },
+  {
+   "at": "2026-11-02T03:44:36Z",
+   "kind": "question",
+   "text": "Part of “Connect Haven to LOREBOUND economy through resource-backed Gold caravans” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-02T03:42:27Z",
    "kind": "asked",
    "text": "You asked for “Connect Haven to LOREBOUND economy through resource-backed Gold caravans”"
@@ -1364,16 +1403,6 @@
   },
   {
    "at": "2026-11-01T12:21:33Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”"
-  },
-  {
-   "at": "2026-11-01T12:05:15Z",
-   "kind": "asked",
-   "text": "You asked for “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”"
-  },
-  {
-   "at": "2026-11-01T03:52:51Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”"
   }
