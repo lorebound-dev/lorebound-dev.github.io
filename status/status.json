@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T02:22:55.465Z",
+ "generatedAt": "2026-11-02T02:39:20.465Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -32,6 +32,30 @@
  },
  "items": [
   {
+   "number": 92,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "quote": "\"Can we plan further/infinite progression for this?\" \"Let's do it\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T02:38:48Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-02T02:38:48Z",
+   "headSha": "1f4e42b7d410e49f5fa5d04e89ce963b45c796e4",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
+  {
    "number": 91,
    "kind": "request",
    "by": "Joshua",
@@ -48,12 +72,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:22:55Z",
+   "updatedAt": "2026-11-02T02:33:21Z",
    "headSha": "2216273020139218ff6e2da5202a520a3abccdd2",
    "touchesGame": false,
    "requestStatus": "Waiting to be built",
    "botState": "finished",
-   "botAt": "2026-11-02T02:22:55Z"
+   "botAt": "2026-11-02T02:33:21Z"
   },
   {
    "number": 90,
@@ -1062,33 +1086,14 @@
    "requestStatus": "Partly built, waiting for answers (transfer not verified)",
    "botState": "questions",
    "botAt": "2026-10-28T00:58:42Z"
-  },
-  {
-   "number": 54,
-   "kind": "fix",
-   "by": "Noah",
-   "title": "Replace nine companion sprites with Joshua's approved art",
-   "quote": "",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T01:32:32Z",
-   "mergedAt": "2026-10-28T02:18:35Z",
-   "closedAt": "2026-10-28T02:18:35Z",
-   "liveAt": "2026-10-28T02:18:38Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T02:18:38Z",
-   "headSha": "cf0115fe9caaa4729ad865f0b3be85179de11f03",
-   "touchesGame": true,
-   "requestStatus": "",
-   "botState": "",
-   "botAt": null
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-02T02:38:48Z",
+   "kind": "asked",
+   "text": "You asked for “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
   {
    "at": "2026-11-02T02:21:05Z",
    "kind": "asked",
@@ -1283,11 +1288,6 @@
    "at": "2026-10-31T02:22:44Z",
    "kind": "approved",
    "text": "Noah approved “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
-  },
-  {
-   "at": "2026-10-31T01:46:48Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
   }
  ],
  "otherPulls": [
