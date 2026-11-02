@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T04:24:26.919Z",
+ "generatedAt": "2026-11-02T04:35:56.821Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -41,9 +41,42 @@
    "by": "Joshua",
    "title": "Design guided progression companion power and achievements from owner references",
    "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Portal Levels 2–5: 90/10, then 86/11/3, then 83.5/12/4.5, then 81/13/5/1, costing 100 / 250 / 500 / 750 Gold. Suggestion: approve, since Joshua chose this direction."
+    },
+    {
+     "who": "noah",
+     "text": "Epic's first 1% at Portal Level 5 comes out of Common, and Level 5 uses 82/13/5/0 until Epic companions are installed. Suggestion: yes."
+    },
+    {
+     "who": "noah",
+     "text": "Give +3 Essence with the first-summon reward, enough for one level-up, but only for claims made after the change. Suggestion: yes, so the level lesson never needs releasing a keeper."
+    },
+    {
+     "who": "noah",
+     "text": "Add a one-time safety net at the first boss floor: +1 Shard at 5, 10 and 15 kills there, and a chosen Common at 15 kills for anyone with fewer than three companions. Suggestion: yes. It raises opening Shards from 23 to at most 27, so the old 20–25 target would change too."
+    },
+    {
+     "who": "noah",
+     "text": "New opening goals: \"Portal Level 2\" pays 100 Gold + 1 Shard, and the other new goals pay 25–100 Gold only. Suggestion: approve as illustrative."
+    },
+    {
+     "who": "noah",
+     "text": "The ten-slot party needs a save update through the normal update step. Old saves keep every companion and get five empty slots, and an older game version must never cut a ten-companion save down to five. Suggestion: approve the shape, and build it first, before any visual work."
+    },
+    {
+     "who": "noah",
+     "text": "New saved markers for goals: \"Auto started\", highest party size, highest damage per second and Portal level. Suggestion: yes, saved once and never paid again for old history."
+    },
+    {
+     "who": "noah",
+     "text": "Keep today's enemy HP until something gives summons over and over before Floor 60. Suggestion: yes, and plan pacing as its own step."
+    }
+   ],
    "openedAt": "2026-11-02T03:47:29Z",
    "mergedAt": null,
    "closedAt": null,
@@ -52,12 +85,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-02T04:24:23Z",
-   "headSha": "b440a8c8da552e1067fea6653a43e006bdd47709",
+   "updatedAt": "2026-11-02T04:35:31Z",
+   "headSha": "7fbec901308a145bdb61e0c2dcba515c62028935",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-02T04:24:23Z"
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-02T04:35:31Z"
   },
   {
    "number": 89,
@@ -1284,6 +1317,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-02T04:35:31Z",
+   "kind": "question",
+   "text": "Part of “Design guided progression companion power and achievements from owner references” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-02T04:24:02Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1475,11 +1513,6 @@
   },
   {
    "at": "2026-11-02T02:59:10Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
-  },
-  {
-   "at": "2026-11-02T02:55:30Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
   }
