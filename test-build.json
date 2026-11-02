@@ -75,6 +75,11 @@
       "number": 91,
       "title": "Haven: persistent settlement with mining, building and expansion",
       "head": "f306e3cd9a1bd35c4f42bdeecfaf6b83b8a1b4e2"
+    },
+    {
+      "number": 92,
+      "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+      "head": "99504cd53c0539a59a655fa5de4e19acfc68da43"
     }
   ],
   "skipped": [
@@ -106,6 +111,6 @@
       "with": "others"
     }
   ],
-  "commit": "5edd5abcffc572ba54f3c2bcd63346c88b5cc1a8",
-  "at": "2026-11-02T03:11:33Z"
+  "commit": "bf0bc97c905e1e9d6f0ee0cc8ac6a0624d283e27",
+  "at": "2026-11-02T03:17:30Z"
 }

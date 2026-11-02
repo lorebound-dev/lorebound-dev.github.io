@@ -1,4 +1,4 @@
-/* Ruins Reclaimed test prototype (ruins-reclaimed.js). Haven tab, test site only. Scoped to .ruins-shell / .ruins-proto. */
+/* Ruins Reclaimed test prototype (ruins-reclaimed.js), Haven 3.0. Haven tab, test site only. Scoped to .ruins-shell / .ruins-proto. */
 .ruins-shell{display:flex;flex-direction:column;height:100%;min-height:0}
 .ruins-slot{flex:1;min-height:0;display:flex;flex-direction:column}
 
@@ -31,8 +31,28 @@
 .ruins-confirm,.ruins-cancel,.ruins-build-toggle{min-height:44px;padding:8px 12px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;font:bold 14px Georgia,serif!important;cursor:pointer}
 .ruins-confirm{border-color:#dac17c;background:#2b3837;color:#ffe8af;box-shadow:inset 0 -2px #d6bd81}
 .ruins-confirm:disabled{opacity:.55;box-shadow:none;cursor:default}
-.ruins-actions{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px}
+/* Haven 3.0: Settlement Level strip (one next milestone), under the counters */
+.ruins-level{display:grid;gap:4px;padding:6px 8px;border:1px solid #927b4566;border-radius:4px;background:#0b1a22}
+.ruins-level-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;min-width:0}
+.ruins-level strong{font:bold 13px Georgia,serif!important;color:#ffe8af;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ruins-level-row span{flex-shrink:0;font:12px Georgia,serif!important;color:#b8c3bd}
+.ruins-level-bar{height:6px;border:1px solid #a68c56;border-radius:2px;background:#152c36;overflow:hidden}
+.ruins-level-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#a68c56,#f8dc88)}
+.ruins-level small{font:12px/1.35 Georgia,serif!important;color:#9fc2b4}
+/* Build and Workers share the first row; Expand has the full width under them */
+.ruins-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px}
+.ruins-actions .ruins-expand{grid-column:1/-1}
 .ruins-build-toggle{min-width:76px;min-height:56px;border-color:#dac17c;box-shadow:inset 0 -2px #d6bd81}
+.ruins-build-head{margin:4px 2px 0;font:12px Georgia,serif!important;letter-spacing:.06em;text-transform:uppercase;color:#9fc2b4}
+.ruins-jobs{display:grid;gap:6px;padding:6px;border:1px solid #927b4566;border-radius:5px;background:#0b1a22}
+.ruins-jobs>p{margin:0;padding:2px 4px;font:13px/1.4 Georgia,serif!important;color:#c9d2cc}
+.ruins-job{display:grid;grid-template-columns:minmax(0,1fr) 44px 26px 44px;align-items:center;gap:6px;padding:6px 8px;border:1px solid #7e744e;border-radius:5px;background:#152c36}
+.ruins-job span{display:grid;gap:2px;min-width:0}
+.ruins-job strong{font:bold 14px Georgia,serif!important;color:#f4e3b9}
+.ruins-job small{font:12px/1.35 Georgia,serif!important;color:#b8c3bd}
+.ruins-job b{font:bold 15px Georgia,serif!important;color:#ffe8af;text-align:center}
+.ruins-job button{width:44px;height:44px;padding:0;border:1px solid #dac17c;border-radius:5px;background:#2b3837;color:#ffe8af;font:bold 18px Georgia,serif!important;cursor:pointer}
+.ruins-job button:disabled{opacity:.45;cursor:default}
 .ruins-build-toggle[aria-expanded="true"]{background:#2b3837}
 .ruins-build,.ruins-upgrades{display:grid;gap:6px}
 .ruins-build{padding:6px;border:1px solid #927b4566;border-radius:5px;background:#0b1a22}
@@ -42,6 +62,6 @@
 .ruins-upgrade small{font:12px/1.35 Georgia,serif!important;color:#b8c3bd}
 .ruins-upgrade b{flex-shrink:1;max-width:46%;padding:4px 8px;border:1px solid #a68c56;border-radius:3px;background:#0b1a22;font:bold 12px/1.3 Georgia,serif!important;color:#ffe8af;text-align:right}
 .ruins-upgrade:disabled{opacity:.62;cursor:default}
-.ruins-upgrade:not(:disabled):active,.ruins-confirm:not(:disabled):active,.ruins-cancel:active,.ruins-build-toggle:active{transform:translateY(1px)}
+.ruins-upgrade:not(:disabled):active,.ruins-confirm:not(:disabled):active,.ruins-cancel:active,.ruins-build-toggle:active,.ruins-job button:not(:disabled):active{transform:translateY(1px)}
 .ruins-proto button:focus-visible{outline:2px solid #f8dc88;outline-offset:2px}
-@media (max-width:340px){.ruins-head h3{font-size:17px}.ruins-upgrade{padding:8px 10px;gap:8px}.ruins-build-toggle{min-width:64px}}
+@media (max-width:340px){.ruins-head h3{font-size:17px}.ruins-upgrade{padding:8px 10px;gap:8px}.ruins-build-toggle{min-width:64px}.ruins-job{grid-template-columns:minmax(0,1fr) 44px 22px 44px;gap:4px;padding:6px}}
