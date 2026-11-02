@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T02:47:49.759Z",
+ "generatedAt": "2026-11-02T02:49:02.604Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -32,6 +32,30 @@
   ]
  },
  "items": [
+  {
+   "number": 92,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "quote": "\"Can we plan further/infinite progression for this?\" \"Let's do it\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T02:38:48Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-02T02:48:35Z",
+   "headSha": "083e6ea7007e895bdd457c80bb4b66c9e7901a4d",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "working",
+   "botAt": "2026-11-02T02:48:35Z"
+  },
   {
    "number": 91,
    "kind": "request",
@@ -523,30 +547,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-31T01:45:36Z"
-  },
-  {
-   "number": 92,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-   "quote": "\"Can we plan further/infinite progression for this?\" \"Let's do it\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T02:38:48Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-02T02:41:00Z",
-   "headSha": "083e6ea7007e895bdd457c80bb4b66c9e7901a4d",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "questions",
-   "botAt": "2026-11-02T02:41:00Z"
   },
   {
    "number": 88,
