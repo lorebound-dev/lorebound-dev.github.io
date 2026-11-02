@@ -10,9 +10,14 @@
    PROVISIONAL, UNBALANCED: attack intervals and crit chances below are the Realm 1 averages for the
    same rarity and category, as Joshua approved on 2026-11-02. Where Realm 1 has no companion of that
    rarity and category, the Realm 1 average for the whole rarity is used and marked 'rarity-average'.
-   Epic has no Realm 1 equivalent: its stats are a separate PROPOSAL (approved:false) and stay null
-   here until Joshua approves them. Epic mastery thresholds are owner-approved PROVISIONAL values.
-   Damage needs no new value: the engine derives it from rarity (baseDps x rarityGrowth^rank). */
+   Epic has no Realm 1 equivalent: Joshua approved (2026-11-02, provisional) the Realm 1 Rare average
+   for the category plus one crit point. Epic mastery thresholds are owner-approved PROVISIONAL values.
+   Damage needs no new value: the engine derives it from rarity (baseDps x rarityGrowth^rank), and
+   category 'Aberrations' already gets aberrationMultiplier (x4) and the aberration mastery table.
+
+   Summon odds (summon below) are NOT live. Ordinary species share their rarity's ordinary budget
+   evenly; Aberrations are exceptional with their own rate, which is still undecided (null).
+   Epic: 1% total at the permanent Portal level where Rare reaches 5%, 0.5% each, 0% below it. */
 (function(root){'use strict';
 const C=root.LoreConfig||(typeof require==='function'?require('./realm1-config.js'):null);
 const categoryMap={Beast:'Beasts',Mortal:'Mortals',Spirit:'Spirits',Construct:'Constructs',Wildgrowth:'Wildgrowth',Aberration:'Aberrations'};
@@ -52,16 +57,22 @@ const round=(n,d)=>Math.round(n*10**d)/10**d,mean=a=>a.reduce((n,x)=>n+x,0)/a.le
 // Realm 1 averages by rarity (and category). Crit is kept as a fraction, like LoreConfig.baseCrit.
 function realm1Average(rarity,category){const pick=C.companions.filter(h=>h.rarity===rarity&&(!category||h.category===category));return pick.length?{interval:round(mean(pick.map(h=>h.interval)),2),baseCrit:round(mean(pick.map(h=>h.baseCrit)),4),from:pick.map(h=>h.id)}:null;}
 // Owner-approved PROVISIONAL Epic mastery (2026-11-02): cumulative lifetime summons incl. the first discovery.
+// Aberration Epic does not exist, so no aberration Epic table is needed.
 const masteryThresholds={ordinary:{Epic:[2,3,4,6,8,10]}};
-// PROPOSAL ONLY, approved:false. Rare average for the category (or whole Rare) plus one crit point.
-function epicProposal(category){const base=realm1Average('Rare',category)||realm1Average('Rare');return {approved:false,interval:base.interval,baseCrit:round(base.baseCrit+.01,4),rule:'Realm 1 Rare average'+(realm1Average('Rare',category)?' ('+category+')':' (all categories)')+' plus 1% crit'};}
+// Owner-approved PROVISIONAL (2026-11-02): Rare average for the category (or whole Rare) plus one crit point.
+function epicStats(category){const exact=realm1Average('Rare',category),base=exact||realm1Average('Rare');return {interval:base.interval,baseCrit:round(base.baseCrit+.01,4),from:base.from,rule:'Realm 1 Rare average'+(exact?' ('+category+')':' (all categories)')+' plus 1% crit'};}
+// Owner-approved PROVISIONAL Epic unlock (2026-11-02). The Portal level is the one where Rare reaches 5%
+// (#78); which other rarity gives up the 1 percentage point is still Noah's decision (null).
+const epicUnlock={atRarePercent:5,totalPercent:1,perSpeciesPercent:.5,takenFrom:null,approved:'provisional'};
 const slug=name=>name.toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const companions=sources.map(([assetId,name,sourceCategory,rarity,file,sha256,width,height],i)=>{
   const category=categoryMap[sourceCategory],rank=C.rarities.indexOf(rarity),epic=rarity==='Epic';
-  const exact=epic?null:realm1Average(rarity,category),stats=epic?null:(exact||realm1Average(rarity));
+  const exact=epic?null:realm1Average(rarity,category),stats=epic?epicStats(category):(exact||realm1Average(rarity)),aberration=category==='Aberrations';
   return {id:slug(name),assetId,name,category,sourceCategory,realm:2,rarity,rank,
-    interval:stats?stats.interval:null,baseCrit:stats?stats.baseCrit:null,
-    stats:epic?{provisional:true,source:'awaiting-approval',proposal:epicProposal(category)}:{provisional:true,source:exact?'rarity-category-average':'rarity-average',from:stats.from},
+    interval:stats.interval,baseCrit:stats.baseCrit,
+    stats:{provisional:true,source:epic?'epic-rare-average-plus-crit':exact?'rarity-category-average':'rarity-average',from:stats.from},
+    mastery:aberration?'aberration':'ordinary',
+    summon:epic?{kind:'epic',percent:epicUnlock.perSpeciesPercent,live:false}:aberration?{kind:'exceptional',percent:null,live:false}:{kind:'even-share',percent:null,live:false},
     art:{file,sha256,width,height,delivered:false}};});
 function validate(){const errors=[],ids=new Set(C.companions.map(h=>h.id)),names=new Set(C.companions.map(h=>h.name.toLowerCase()));
   if(companions.length!==30)errors.push('Realm 2 companion count');
@@ -69,11 +80,12 @@ function validate(){const errors=[],ids=new Set(C.companions.map(h=>h.id)),names
   for(const h of companions){if(ids.has(h.id)||names.has(h.name.toLowerCase()))errors.push('Collides with an existing species '+h.id);ids.add(h.id);names.add(h.name.toLowerCase());
     if(!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(h.id))errors.push('ID format '+h.id);
     if(!C.categories.includes(h.category))errors.push('Category '+h.id);if(h.rank<0)errors.push('Rarity '+h.id);
-    if(h.rarity==='Epic'){if(h.interval!==null||h.baseCrit!==null||h.stats.proposal.approved!==false)errors.push('Epic stats must stay unapproved '+h.id);}
-    else if(!(h.interval>0)||!(h.baseCrit>=0&&h.baseCrit<=C.economy.critCap)||!h.stats.provisional)errors.push('Provisional combat '+h.id);
+    if(h.summon.live!==false)errors.push('Summon odds must stay off until approved '+h.id);
+    if(h.category==='Aberrations'&&(h.summon.kind!=='exceptional'||h.mastery!=='aberration'||!C.masteryThresholds.aberration[h.rarity]))errors.push('Aberration rules '+h.id);
+    if(!(h.interval>0)||!(h.baseCrit>=0&&h.baseCrit<=C.economy.critCap)||!h.stats.provisional)errors.push('Provisional combat '+h.id);
     if(!/^[0-9a-f]{64}$/.test(h.art.sha256))errors.push('Source hash '+h.id);}
   for(const group of Object.values(masteryThresholds))for(const [rarity,t]of Object.entries(group))if(t.length!==C.economy.masteryMax||t.some((n,i)=>!Number.isInteger(n)||n<1||(i>0&&n<=t[i-1])))errors.push('Mastery thresholds '+rarity);
   return errors;}
-const api={version:1,status:'staged-not-loaded',provisional:true,categoryMap,companions,masteryThresholds,realm1Average,validate};
+const api={version:2,status:'staged-not-loaded',provisional:true,categoryMap,companions,masteryThresholds,epicUnlock,realm1Average,validate};
 root.LoreUniversalRoster=api;if(typeof module!=='undefined')module.exports=api;
 })(globalThis);
