@@ -10,31 +10,35 @@
  * All numbers in CONFIG and BLUEPRINTS are trial values for play-testing, not approved balance. */
 (function(root){'use strict';
 
-const KEY='lorebound-haven-settlement-v2',V1_KEY='lorebound-ruins-prototype-v01',BAD_KEY=KEY+'-unreadable';
-// Work is counted in quarters: one hit at the starting hit power of 1 does 4 work.
+const KEY='lorebound-haven-settlement-v2',V1_KEY='lorebound-ruins-prototype-v01',BAD_KEY=KEY+'-unreadable',V2_BACKUP_KEY=KEY+'-before-v3';
+// Work: your hit at the starting hit power of 1 does 4 work. Since version 3 a node holds twice the work it did in
+// version 2, so it takes twice your hits; a worker's swing was doubled with it, so workers take as many swings as before.
 const CONFIG=Object.freeze({
-  version:2,
+  version:3,
   world:16,
   lands:[[4,12],[2,14],[0,16]],      // territory 1 is the old 8×8 in the middle; each expansion adds two tiles all round
   kinds:{
-    bush:{hp:8,give:{wood:1},name:'Bush'},      // 2 hits at hit power 1
-    pine:{hp:16,give:{wood:2},name:'Pine'},     // 4 hits
-    oak:{hp:20,give:{wood:3},name:'Oak'},       // 5 hits
-    stone:{hp:28,give:{stone:2},name:'Stone'},  // 7 hits
-    ore:{hp:48,give:{ore:2},name:'Ore vein'},   // 12 hits
+    bush:{hp:16,give:{wood:1},name:'Bush'},     // 4 hits by hand at hit power 1
+    pine:{hp:32,give:{wood:2},name:'Pine'},     // 8 hits
+    oak:{hp:40,give:{wood:3},name:'Oak'},       // 10 hits
+    stone:{hp:56,give:{stone:2},name:'Stone'},  // 14 hits
+    ore:{hp:96,give:{ore:2},name:'Ore vein'},   // 24 hits
   },
   manualPower:4,          // your hit: 4 work (hit power 1)
+  manualHitMs:480,        // at most one hit by hand every 0.48 s; taps in between do nothing
   toolsStep:1,            // +1 work (+¼ hit power) per Better Tools level
   toolsMax:10,toolsWood:10,toolsStone:3,toolsGrowth:1.6,
-  workshopManual:2,workshopWorker:1,
-  workerPower:2,          // a worker's swing: 2 work (half a hit)
+  workshopManual:2,workshopWorker:2,
+  workerPower:4,          // a worker's swing: 4 work (the same number of swings per node as version 2)
+  workerToolsStep:2,      // +2 work per two Better Tools levels
   workerBase:25,workerGrowth:1.8,workerMax:5,
-  workerHitMs:1400,       // a worker swings once every 1.4 s while working, only while Haven is open
+  workerHitMs:1750,       // a worker swings once every 1.75 s while working, only while Haven is open
   stepMs:380,             // and walks one tile in 0.38 s
   retryMs:1000,           // a worker with nothing it can reach looks again after 1 s, not every frame
   extraCoreStones:5,      // stone deposits added to the old 8×8 on open ground (the old prototype had 3 unmineable rocks)
   ringNodes:[null,{tree:18,stone:7,ore:4},{tree:24,stone:8,ore:7}],
-  regrowEvery:6,          // every 6th node you finish lets the oldest felled tree or mined deposit grow back
+  regrowEvery:3,          // every 3rd node you finish lets the oldest felled tree or mined deposit grow back
+  regrowMs:20000,         // and so does every 20 s of play with Haven open, if nothing has grown back in that time
   expand:[{wood:24,stone:16},{wood:40,stone:24,ore:8}],
   v1:{size:8,treeCounts:[14,16,18]},
 });
@@ -113,16 +117,17 @@ function fresh(origin=0){return{v:CONFIG.version,wood:0,stone:0,ore:0,tools:0,wo
 const int=(x,lo,hi)=>Number.isSafeInteger(x)&&x>=lo&&x<=hi;
 const plain=o=>!!o&&typeof o==='object'&&!Array.isArray(o);
 // Strict check of stored data. Returns a clean copy, or null for anything unexpected.
-function validate(o){
-  if(!plain(o))return null;
+// ver 2 checks a save from before nodes held twice the work (its part-worked nodes hold half as much).
+function validate(o,ver=CONFIG.version){
+  if(!plain(o)||(ver!==CONFIG.version&&ver!==2))return null;const scale=ver===2?2:1;
   if(Object.keys(o).sort().join()!=='built,gone,hp,land,ore,origin,stone,tally,tools,v,wood,workers')return null;
-  if(o.v!==CONFIG.version||!int(o.wood,0,1e9)||!int(o.stone,0,1e9)||!int(o.ore,0,1e9)||!int(o.tools,0,CONFIG.toolsMax)||!int(o.workers,0,CONFIG.workerMax)
+  if(o.v!==ver||!int(o.wood,0,1e9)||!int(o.stone,0,1e9)||!int(o.ore,0,1e9)||!int(o.tools,0,CONFIG.toolsMax)||!int(o.workers,0,CONFIG.workerMax)
     ||!int(o.origin,0,9999)||!int(o.land,0,CONFIG.lands.length-1)||!int(o.tally,0,1e9)||!Array.isArray(o.gone)||!plain(o.hp)||!Array.isArray(o.built))return null;
   const wd=world(o.origin),seen=new Set();
   for(const id of o.gone){const n=wd.nodes.get(id);if(!int(id,0,W*W-1)||!n||n.land>o.land||seen.has(id))return null;seen.add(id);}
   const hp={};
   for(const [k,v] of Object.entries(o.hp)){if(!/^\d{1,3}$/.test(k))return null;const id=Number(k),n=wd.nodes.get(id);
-    if(!n||n.land>o.land||seen.has(id)||!int(v,1,CONFIG.kinds[n.kind].hp-1))return null;hp[id]=v;}
+    if(!n||n.land>o.land||seen.has(id)||!int(v,1,CONFIG.kinds[n.kind].hp/scale-1))return null;hp[id]=v;}
   if(o.built.length>BLUEPRINTS.length)return null;
   const [lo,hi]=CONFIG.lands[o.land],types=new Set(),tiles=new Set(),built=[];
   for(const b of o.built){
@@ -134,6 +139,9 @@ function validate(o){
 /* Moving the first prototype over: its Wood, Better Tools and workers carry over as they are, and the patch it was on
  * becomes the middle of the settlement with the same trees already cleared (so they are not paid again). Patches
  * finished before that can't become land (their Wood was already paid), and no building is invented for them. */
+/* Version 2 to 3: everything carries over as it is. Work left on a part-worked node doubles with the node, so it keeps
+ * the same share of its work done. */
+function fromV2(o2){const s=validate(o2,2);if(!s)return null;s.v=CONFIG.version;for(const k of Object.keys(s.hp))s.hp[k]*=2;return s;}
 function migrate(o1){
   const s=fresh(o1.patch);s.wood=o1.wood;s.tools=Math.min(o1.tools,CONFIG.toolsMax);s.workers=Math.min(o1.workers,CONFIG.workerMax);
   const off=CONFIG.lands[0][0];s.gone=o1.cleared.map(t=>wid(t%8+off,Math.floor(t/8)+off));return s;
@@ -142,7 +150,11 @@ function migrate(o1){
  * copied to its own key before a fresh or moved-over one replaces it, and the first prototype's key is only read. */
 function loadFrom(store){
   const raw2=store.get(KEY);let note='';
-  if(raw2!==null&&raw2!==undefined){let s=null;try{s=validate(JSON.parse(raw2));}catch{}if(s)return{state:s,note:''};store.set(BAD_KEY,raw2);note='unreadable';}
+  if(raw2!==null&&raw2!==undefined){let o=null,s=null;try{o=JSON.parse(raw2);s=validate(o);}catch{}if(s)return{state:s,note:''};
+    // A version 2 save is copied to its own backup key once, then moved up.
+    const up=plain(o)&&o.v===2?fromV2(o):null;
+    if(up){if(store.get(V2_BACKUP_KEY)==null)store.set(V2_BACKUP_KEY,raw2);return{state:up,note:'tuned'};}
+    store.set(BAD_KEY,raw2);note='unreadable';}
   const raw1=store.get(V1_KEY);
   if(raw1!==null&&raw1!==undefined){let o=null;try{o=validateV1(JSON.parse(raw1));}catch{}if(o)return{state:migrate(o),note:note||'moved',old:o};}
   return{state:fresh(),note};
@@ -160,7 +172,7 @@ function cost(s,kind){
 }
 const manualPower=(s,tools=s.tools)=>CONFIG.manualPower+tools*CONFIG.toolsStep+(has(s,'workshop')?CONFIG.workshopManual:0);
 function workerPower(s,kind,tools=s.tools){
-  const base=CONFIG.workerPower+Math.floor(tools/2)+(has(s,'workshop')?CONFIG.workshopWorker:0);
+  const base=CONFIG.workerPower+CONFIG.workerToolsStep*Math.floor(tools/2)+(has(s,'workshop')?CONFIG.workshopWorker:0);
   return base*((isWood(kind)&&has(s,'lumber'))||(!isWood(kind)&&has(s,'stoneyard'))?2:1);
 }
 const hitsFor=(kind,power)=>Math.ceil(CONFIG.kinds[kind].hp/power);
@@ -178,17 +190,33 @@ function hitNode(s,id,power){
   s.tally++;const regrown=regrow(s);
   return{done:true,left:0,max,kind:n.kind,gain,regrown};
 }
-/* Regrowth, so the settlement can't run dry: every 6th node finished (or straight away when nothing is left standing),
+/* Regrowth, so the settlement can't run dry: every 3rd node finished (or straight away when nothing is left standing),
  * the oldest felled tree or mined deposit grows back at full strength, on a tile with no building on it and only where
- * it wouldn't wall off open ground. It always needs the full work again, so it can't be farmed for instant resources. */
+ * it wouldn't wall off open ground. It always needs the full work again, so it can't be farmed for instant resources.
+ * timedRegrow() below adds the same thing after 20 s of play. */
 function regrow(s){
   if(s.tally%CONFIG.regrowEvery!==0&&standingIds(s).length>0)return null;
+  return regrowOldest(s);
+}
+function regrowOldest(s){
   const b=blocked(s),before=reach(s,b);
   for(let i=0;i<s.gone.length;i++){const id=s.gone[i];if(buildingAt(s,id))continue;
     b.add(id);const after=reach(s,b);b.delete(id);if(after.size<before.size-(before.has(id)?1:0))continue;
     s.gone.splice(i,1);return id;}
   return null;
 }
+
+/* The play-time fallback: one count-down, clock.left, moved on only by Haven's own frames while it's open and visible
+ * (each at most 100 ms), so time away never counts. When it runs out the oldest node grows back and it starts again.
+ * It waits at full while nothing is felled; the caller resets it whenever something grows back the other way. */
+function timedRegrow(s,clock,dt){
+  if(!s.gone.length){clock.left=CONFIG.regrowMs;return null;}
+  if(!(dt>0))return null;
+  clock.left-=Math.min(dt,CONFIG.regrowMs);if(clock.left>0)return null;
+  clock.left=CONFIG.regrowMs;return regrowOldest(s);
+}
+// The pace of hits by hand: a hit counts only 0.48 s or more after the last one that counted.
+const canSwing=(last,now)=>last===null||now<last||now-last>=CONFIG.manualHitMs;
 
 /* Walking: inside the territory only on open ground (not standing nodes, buildings or rubble), plus a one-tile ring
  * of forest edge just outside it, which is always open. Four straight directions only. */
@@ -269,11 +297,12 @@ function resetCrew(crew){crew.length=0;}
 function crewPosition(w,smooth){if(w.phase!=='walk'||!w.steps.length)return[w.c,w.r];const k=w.t/CONFIG.stepMs,e=smooth?easeInOut(k):k<.5?0:1,[nc,nr]=w.steps[0];return[w.c+(nc-w.c)*e,w.r+(nr-w.r)*e];}
 const easeInOut=k=>.5-Math.cos(Math.PI*k)/2,easeOut=k=>1-(1-k)**3;
 
-const logic={KEY,V1_KEY,BAD_KEY,CONFIG,BLUEPRINTS,v1Patch,validateV1,world,land,inLand,standing,standingIds,buildingAt,has,fresh,validate,migrate,loadFrom,
+const logic={KEY,V1_KEY,BAD_KEY,V2_BACKUP_KEY,fromV2,timedRegrow,canSwing,regrowOldest,CONFIG,BLUEPRINTS,v1Patch,validateV1,world,land,inLand,standing,standingIds,buildingAt,has,fresh,validate,migrate,loadFrom,
   cost,afford,manualPower,workerPower,hitsFor,buy,hitNode,regrow,blocked,walkable,reach,route,canPlace,validSites,build,expandCost,canExpand,expand,simulate,syncCrew,crewPosition};
 
 /* ---------- Everything below needs a browser. ---------- */
-let state=null,view=null,raf=0,lastFrame=0,anims=[],resetArmed=0,importArmed=0,lastBig=0,loadNote='',loadOld=null;const crew=[];
+let state=null,view=null,raf=0,lastFrame=0,anims=[],resetArmed=0,importArmed=0,lastBig=0,loadNote='',loadOld=null,lastSwing=null,drawnAnims=false;const crew=[];
+const regrowClock={left:CONFIG.regrowMs};
 const host=root.location?.hostname||'';
 const TEST=host==='lorebound-dev.github.io'||host==='localhost'||host==='127.0.0.1';
 root.LoreRuinsReclaimed={...logic,TEST,mount,unmount,crew,get state(){return state;},get mounted(){return !!view;},get running(){return !!raf;}};
@@ -289,7 +318,7 @@ const power=q=>{const v=q/4;return Number.isInteger(v)?String(v):v.toFixed(2).re
 
 const SKETCH=`<section class="ruins-proto" aria-labelledby="ruinsTitle">
 <header class="ruins-head"><div><small>Test prototype · trial numbers</small><h3 id="ruinsTitle">Ruins Reclaimed</h3></div><span class="ruins-head-actions"><button type="button" class="ruins-help-toggle" aria-expanded="false" aria-controls="ruinsHelp" aria-label="How Ruins Reclaimed works">?</button></span></header>
-<div class="ruins-help" id="ruinsHelp" hidden><p>Tap a tree, stone or ore vein again and again to work it. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. A Survey Post lets you Expand: the mist clears and the same map grows, with everything kept in place.</p><p>Every ${CONFIG.regrowEvery}th tree or deposit you finish, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers walk to the nearest tree or deposit they can reach and swing at it every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone and Ore never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from old demo</button></div></div>
+<div class="ruins-help" id="ruinsHelp" hidden><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. A Survey Post lets you Expand: the mist clears and the same map grows, with everything kept in place.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers walk to the nearest tree or deposit they can reach and swing at it every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone and Ore never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from old demo</button></div></div>
 <dl class="ruins-stats"><div><dt>Wood</dt><dd id="ruinsWood">0</dd></div><div><dt>Stone</dt><dd id="ruinsStone">0</dd></div><div><dt>Ore</dt><dd id="ruinsOre">0</dd></div><div><dt>Territory</dt><dd id="ruinsLand">1 / 3</dd></div></dl>
 <div class="ruins-scene" id="ruinsScene"><canvas id="ruinsCanvas" tabindex="0" role="img"></canvas></div><p class="ruins-work" id="ruinsWorkText" hidden></p>
 <p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p>
@@ -319,6 +348,7 @@ function mount(slot){
   syncCrew(state,crew);
   layout(true);
   if(loadNote==='moved'&&loadOld){say(`Your earlier demo moved over: ${loadOld.wood} Wood, Better Tools Lv ${state.tools}, ${state.workers} worker${state.workers===1?'':'s'}, and ${state.gone.length} trees already cleared in the middle. Patches finished before that don't become land.`);}
+  else if(loadNote==='tuned')say('Haven was retuned: trees, stone and ore take twice as many of your hits now, and grow back sooner. Everything you had is kept.');
   else if(loadNote==='unreadable')say('The saved settlement could not be read. A copy is kept, and a new one has started.');
   loadNote='';update();wake();
 }
@@ -330,18 +360,21 @@ function unmount(){
 
 /* One clock: a single requestAnimationFrame loop, only while Haven is open and the page is visible, and only while
  * workers have something to do or an effect is playing. Each frame moves time on by at most 100 ms: no catch-up. */
-const busy=()=>(state.workers>0&&standingIds(state).length>0)||anims.length>0;
+const busy=()=>(state.workers>0&&standingIds(state).length>0)||anims.length>0||state.gone.length>0;
 function wake(){if(!view||raf||document.hidden||!busy())return;lastFrame=0;raf=root.requestAnimationFrame(frame);}
 function sleep(){if(raf)root.cancelAnimationFrame(raf);raf=0;lastFrame=0;}
 function frame(now){
   raf=0;if(!view||document.hidden)return;
   const dt=lastFrame?Math.min(100,Math.max(0,now-lastFrame)):0;lastFrame=now;
+  let changed=false;
   if(state.workers>0&&dt>0){
-    const events=simulate(state,crew,dt);let changed=false;
-    for(const e of events)if(e.type==='hit'){changed=true;struck(e.node,e.res,true);}
-    if(changed){store();update();}else workLine();
+    for(const e of simulate(state,crew,dt))if(e.type==='hit'){changed=true;struck(e.node,e.res,true);}
   }
-  draw(now);
+  // Play-time regrowth runs on this same clock, so it stops whenever Haven is closed or hidden.
+  const back=timedRegrow(state,regrowClock,dt);if(back!==null){changed=true;regrown(back,now);}
+  if(changed){store();update();}else if(state.workers>0)workLine();
+  // Only redraw when something moves; the last frame of an effect is drawn once more to clear it.
+  if(changed||state.workers>0||anims.length||drawnAnims){drawnAnims=anims.length>0;draw(now);}
   if(busy()){raf=root.requestAnimationFrame(frame);}else lastFrame=0;
 }
 function onVisible(){if(!view)return;if(document.hidden){sleep();store();}else{wake();}}
@@ -361,8 +394,12 @@ function tapAt(x,y){
   if(t.node!==undefined){work(t.node);return;}
   if(t.building){const bp=BP[t.building.t];say(`${bp.name}: ${bp.effect}.`);return;}
 }
-// One hit by the player. A worker heading for the same node simply carries on, or picks another once it's done.
-function work(id){const n=world(state.origin).nodes.get(id),res=hitNode(state,id,manualPower(state));if(!res)return;view.selected=res.done?null:id;store();struck(id,res,false);
+/* One hit by the player. A worker heading for the same node simply carries on, or picks another once it's done.
+ * Taps, clicks, Enter and held-down keys all come through here, so nothing gets round the pace: a tap mid-swing only
+ * selects the node and does no work. */
+function work(id){const n=world(state.origin).nodes.get(id),now=performance.now();if(!n||!standing(state,id))return;
+  if(!canSwing(lastSwing,now)){view.selected=id;draw();return;}
+  const res=hitNode(state,id,manualPower(state));if(!res)return;lastSwing=now;anims.push({type:'swing',id,t0:now,life:CONFIG.manualHitMs});view.selected=res.done?null:id;store();struck(id,res,false);
   if(!res.done)say(`${CONFIG.kinds[n.kind].name}: ${Math.ceil(res.left/manualPower(state))} more hit${Math.ceil(res.left/manualPower(state))===1?'':'s'}.`);update();wake();}
 function onClick(e){
   const b=e.target.closest?.('button');if(!b||!view)return;
@@ -379,7 +416,7 @@ function onClick(e){
     lastBig=Date.now();store();endPlacing();if(!reduced())anims.push({type:'land',t0:performance.now(),life:900});
     say(`Haven grows. Territory ${state.land+1} / ${CONFIG.lands.length}. New trees, stone${state.land>=1?' and ore':''} wait at the edges.`);layout(true);update();wake();return;}
   if(what==='reset'){if(Date.now()-resetArmed>3000){resetArmed=Date.now();b.textContent='Tap again to reset the demo';return;}
-    resetArmed=0;b.textContent='Reset demo';state=fresh();resetCrew(crew);anims=[];endPlacing();store();say('Demo reset. Only Haven’s test settlement was cleared.');layout(true);update();return;}
+    resetArmed=0;b.textContent='Reset demo';state=fresh();regrowClock.left=CONFIG.regrowMs;lastSwing=null;resetCrew(crew);anims=[];endPlacing();store();say('Demo reset. Only Haven’s test settlement was cleared.');layout(true);update();return;}
   if(what==='reimport'){const r=loadFrom({get:k=>k===KEY?null:storeApi.get(k),set:()=>{}});if(!r.old)return;
     if(Date.now()-importArmed>3000){importArmed=Date.now();b.textContent='Tap again to replace this settlement';return;}
     importArmed=0;b.textContent='Restart from old demo';state=r.state;resetCrew(crew);anims=[];endPlacing();store();say(`Restarted from the old demo: ${state.wood} Wood, Better Tools Lv ${state.tools}, ${state.workers} worker${state.workers===1?'':'s'}.`);layout(true);update();return;}
@@ -494,7 +531,9 @@ function draw(now){
   objs.sort((a,b)=>a[0]-b[0]).forEach(o=>o[1]());
   // Work bars over nodes that have been started
   for(const [k,left] of Object.entries(state.hp)){const n=wd.nodes.get(Number(k));if(!n)continue;const max=CONFIG.kinds[n.kind].hp,[x,y]=iso(g,n.c+.5,n.r+.5),bw=Math.round(g.w*.6),bx=Math.round(x-bw/2),by=Math.round(y-g.w*(n.kind==='stone'||n.kind==='ore'||n.kind==='bush'?.62:1.35));
-    ctx.fillStyle='#000c';ctx.fillRect(bx-1,by-1,bw+2,6);ctx.fillStyle='#3a2f20';ctx.fillRect(bx,by,bw,4);ctx.fillStyle=Number(k)===view.selected?'#ffe8af':C.brass;ctx.fillRect(bx,by,Math.max(1,Math.round(bw*left/max)),4);}
+    ctx.fillStyle='#000c';ctx.fillRect(bx-1,by-1,bw+2,6);ctx.fillStyle='#3a2f20';ctx.fillRect(bx,by,bw,4);ctx.fillStyle=Number(k)===view.selected?'#ffe8af':C.brass;ctx.fillRect(bx,by,Math.max(1,Math.round(bw*left/max)),4);
+    // Your swing: a thin line under the bar that fills until you can hit again.
+    const sw=anims.find(a=>a.type==='swing'&&a.id===Number(k));if(sw){ctx.fillStyle='#000c';ctx.fillRect(bx-1,by+5,bw+2,3);ctx.fillStyle='#9fd8c0';ctx.fillRect(bx,by+6,Math.max(1,Math.round(bw*Math.min(1,(now-sw.t0)/sw.life))),1);}}
   // Chips and floating rewards
   for(const a of anims){if(now<a.t0)continue;const k=Math.min(1,(now-a.t0)/a.life),[x,y]=iso(g,a.c+.5,a.r+.5);
     if(a.type==='chips'){ctx.fillStyle=a.color;ctx.globalAlpha=1-k;for(let j=0;j<5;j++){const ang=-Math.PI*(.15+j*.17),d=3+k*g.w*.4;ctx.fillRect(Math.round(x+Math.cos(ang)*d)-1,Math.round(y-g.w*.35+Math.sin(ang)*d+k*k*8)-1,3,3);}ctx.globalAlpha=1;}
@@ -506,7 +545,9 @@ function struck(id,res,byWorker){const now=performance.now(),c=id%W,r=Math.floor
   if(!res.done)return;
   if(smooth&&wood){const w=byWorker?crew.find(x=>Math.abs(x.c-c)<=1&&Math.abs(x.r-r)<=1):null;anims.push({type:'fall',id,t0:now,life:420,dir:w&&w.c-w.r>c-r?-1:1});}
   anims.push({type:'pop',c,r,text:'+'+RES.filter(k=>res.gain[k]).map(k=>`${res.gain[k]} ${RES_NAME[k]}`).join(' +'),worker:byWorker,t0:smooth&&wood?now+300:now,life:smooth?850:1100});
-  if(res.regrown!==null&&res.regrown!==undefined){const g2=res.regrown;anims.push({type:'pop',c:g2%W,r:Math.floor(g2/W),text:'Regrown',worker:true,t0:now+400,life:1100});}}
+  if(res.regrown!==null&&res.regrown!==undefined)regrown(res.regrown,now+400);}
+// Something grew back: show it, and start the play-time count-down again so two don't come back close together.
+function regrown(id,t0){regrowClock.left=CONFIG.regrowMs;anims.push({type:'pop',c:id%W,r:Math.floor(id/W),text:'Regrown',worker:true,t0,life:1100});}
 
 function node(ctx,g,n,v,dx){if(isWood(n.kind)){tree(ctx,g,n.c,n.r,n.kind,v,dx);return;}
   const [x0,y0]=iso(g,n.c+.5,n.r+.5),x=Math.round(x0+(v-.5)*4)+dx,y=Math.round(y0),w=g.w;ctx.fillStyle='#0005';ctx.fillRect(x-w*.3,y-2,w*.6,4);
