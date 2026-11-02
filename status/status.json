@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T21:54:40.235Z",
+ "generatedAt": "2026-11-02T21:56:37.381Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -42,9 +42,38 @@
    "by": "Joshua",
    "title": "Design guided progression companion power and achievements from owner references",
    "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "built",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The front-screen pass needs someone to look at the game in a browser at phone sizes, and this automatic build has no browser. Suggestion: Noah starts a local Claude Code session on branch review/guided-progression-reference-request and asks it to do section 19 of…"
+    },
+    {
+     "who": "noah",
+     "text": "The split names come from the rarity-frames request, not this one. Suggestion: Noah asks Claude in that pull request to make names break only between words (the exact rule is in section 19), then check the longest names on a 320px phone."
+    },
+    {
+     "who": "noah",
+     "text": "Ten party slots change the save format. Today a save with more than five companions is rejected, so it needs a new save update, and older versions of the game must not lose companions. Suggestion: approve it as the next step. The ten-card party and ten fighters are built on it."
+    },
+    {
+     "who": "noah",
+     "text": "Portal Levels 2–5, as Joshua approved them: 90/10, then 86/11/3, then 83.5/12/4.5, then 81/13/5/1 (82/13/5/0 until Epic companions exist), for 100 / 250 / 500 / 750 Gold. This also depends on the permanent Portal request, #78. Suggestion: approve, and build it after #78."
+    },
+    {
+     "who": "noah",
+     "text": "The new rewards Joshua approved: +3 Essence on the first-summon reward for new claims only, plus the first-boss help (+1 Shard at 5, 10 and 15 farming kills, and a free Common at 15 kills for anyone with fewer than three companions). Suggestion: approve. The early Shard total…"
+    },
+    {
+     "who": "noah",
+     "text": "New goals need new saved markers: \"Auto started\", most companions ever, and Portal level. Suggestion: 25 Gold for \"Clear Floor 1\", 50 for \"Place a second companion\", 100 Gold + 1 Shard for \"Portal Level 2\", and 75 Gold each for \"Portal Level 3\" and \"Start Auto\"."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-11-02T03:47:29Z",
    "mergedAt": null,
    "closedAt": null,
@@ -53,12 +82,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-11-02T21:53:47Z",
-   "headSha": "2315eee75baf16ff8eb7b10ada0759a1d9fcc4b9",
+   "updatedAt": "2026-11-02T21:56:04Z",
+   "headSha": "ce095081cb63ded9578c18f971610758cb498772",
    "touchesGame": true,
    "requestStatus": "Partly built, waiting for answers",
-   "botState": "finished",
-   "botAt": "2026-11-02T21:53:47Z"
+   "botState": "questions",
+   "botAt": "2026-11-02T21:56:04Z"
   },
   {
    "number": 89,
@@ -1298,9 +1327,14 @@
  ],
  "activity": [
   {
-   "at": "2026-11-02T21:53:47Z",
+   "at": "2026-11-02T21:56:04Z",
    "kind": "built",
    "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
+  },
+  {
+   "at": "2026-11-02T21:56:04Z",
+   "kind": "question",
+   "text": "Part of “Design guided progression companion power and achievements from owner references” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-02T21:52:48Z",
@@ -1491,11 +1525,6 @@
    "at": "2026-11-02T03:10:02Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”"
-  },
-  {
-   "at": "2026-11-02T03:08:01Z",
-   "kind": "asked",
-   "text": "You asked for “Owner approves naming habitats frame fitting and compact menus”"
   }
  ],
  "otherPulls": [
