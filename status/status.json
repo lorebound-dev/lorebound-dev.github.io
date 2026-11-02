@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T21:08:09.209Z",
+ "generatedAt": "2026-11-02T02:21:40.792Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -31,6 +31,30 @@
   ]
  },
  "items": [
+  {
+   "number": 91,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven: persistent settlement with mining, building and expansion",
+   "quote": "\"Ok haven has a lot of potential but it needs to be harder to mine materials, and there needs to be a real building and expanding rather than just a brand new area\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T02:21:05Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-02T02:21:05Z",
+   "headSha": "2216273020139218ff6e2da5202a520a3abccdd2",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 90,
    "kind": "request",
@@ -1066,6 +1090,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-02T02:21:05Z",
+   "kind": "asked",
+   "text": "You asked for “Haven: persistent settlement with mining, building and expansion”"
+  },
+  {
    "at": "2026-11-01T19:20:53Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”"
@@ -1259,11 +1288,6 @@
    "at": "2026-10-31T01:46:48Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
-  },
-  {
-   "at": "2026-10-31T01:45:36Z",
-   "kind": "built",
-   "text": "Claude finished building “Integrate approved 10 unique Auto Summon rarity rows”"
   }
  ],
  "otherPulls": [
@@ -1306,15 +1330,6 @@
   {
    "number": 61,
    "headSha": "4dc33aabba6661e032177f5a62e93a14b7dbbd8b",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 57,
-   "headSha": "a40a14f965717b412b4726d64f26af5b1e95e73e",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
