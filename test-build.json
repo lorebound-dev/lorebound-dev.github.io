@@ -109,8 +109,17 @@
         "pocket-fortune/dist/realm1-art.js"
       ],
       "with": "others"
+    },
+    {
+      "number": 97,
+      "title": "Design guided progression companion power and achievements from owner references",
+      "head": "51adf93f92ac4be31fdb0e58d0a09bbae85d34ab",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "80945de6369afe9a707e0496c8ca6a20f263a138",
-  "at": "2026-11-02T12:42:03Z"
+  "commit": "7eefc21b8d45443f0734ffae4ef2d5499f51d6cd",
+  "at": "2026-11-02T12:54:06Z"
 }
