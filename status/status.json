@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T02:40:23.137Z",
+ "generatedAt": "2026-11-02T02:42:29.326Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -32,38 +32,31 @@
  },
  "items": [
   {
-   "number": 92,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-   "quote": "\"Can we plan further/infinite progression for this?\" \"Let's do it\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T02:38:48Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-02T02:40:05Z",
-   "headSha": "1f4e42b7d410e49f5fa5d04e89ce963b45c796e4",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "working",
-   "botAt": "2026-11-02T02:40:05Z"
-  },
-  {
    "number": 91,
    "kind": "request",
    "by": "Joshua",
    "title": "Haven: persistent settlement with mining, building and expansion",
-   "quote": "\"Ok haven has a lot of potential but it needs to be harder to mine materials, and there needs to be a real building and expanding rather than just a brand new area\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Haven now saves under its own test key, lorebound-haven-settlement-v2. It reads the old lorebound-ruins-prototype-v01 key once to carry the demo over and never changes it. This is a new save layout, but only for the test Haven, not the game's real save. I built it because the…"
+    },
+    {
+     "who": "noah",
+     "text": "This pull request contains all of #90. My suggestion: merge #90 first, then this one, after Joshua has played both."
+    },
+    {
+     "who": "joshua",
+     "text": "Do the hit counts feel right: bush 2, tree 4 to 5, stone 7, ore 12? My suggestion: try them on the test site first, then tell ChatGPT \"harder\" or \"easier\"."
+    },
+    {
+     "who": "joshua",
+     "text": "Buildings are simple drawn stand-ins for now. Should I make an art request for proper building pictures once you're happy with how Haven plays? My suggestion: yes, after you've played it."
+    }
+   ],
    "openedAt": "2026-11-02T02:21:05Z",
    "mergedAt": null,
    "closedAt": null,
@@ -72,12 +65,41 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-02T02:33:21Z",
-   "headSha": "2216273020139218ff6e2da5202a520a3abccdd2",
+   "updatedAt": "2026-11-02T02:41:55Z",
+   "headSha": "0fadc7e933c7a70e69515de4d270f02f42987463",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-02T02:41:55Z"
+  },
+  {
+   "number": 92,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "quote": "\"Can we plan further/infinite progression for this?\" \"Let's do it\"",
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "This request can't be built until PR #91 (Haven 2.0) is built. When PR #91 is built, comment \"@claude please build this now that #91 is built\" on this pull request and I'll start. I suggest checking PR #91 on the test site first, so the new buildings and districts sit on top…"
+    }
+   ],
+   "openedAt": "2026-11-02T02:38:48Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-02T02:41:00Z",
+   "headSha": "1941d9b531453c40774d3b691bb1d14c4e373766",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-02T02:33:21Z"
+   "requestStatus": "Waiting for answers (blocked: PR #91's Haven 2.0 isn't built yet. On 2026-11-02 its branch `review/2026-11-01-haven-build-expand` was at `2216273`, holding only its request file; `main` was at `c235fd2`.)",
+   "botState": "questions",
+   "botAt": "2026-11-02T02:41:00Z"
   },
   {
    "number": 90,
@@ -1090,6 +1112,26 @@
  ],
  "activity": [
   {
+   "at": "2026-11-02T02:41:55Z",
+   "kind": "built",
+   "text": "Claude finished building “Haven: persistent settlement with mining, building and expansion”"
+  },
+  {
+   "at": "2026-11-02T02:41:55Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Haven: persistent settlement with mining, building and expansion”"
+  },
+  {
+   "at": "2026-11-02T02:41:55Z",
+   "kind": "question",
+   "text": "Part of “Haven: persistent settlement with mining, building and expansion” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-02T02:41:00Z",
+   "kind": "question",
+   "text": "Part of “Haven 3.0–4.0: upgradeable town and endless connected frontier” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-02T02:38:48Z",
    "kind": "asked",
    "text": "You asked for “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1268,26 +1310,6 @@
    "at": "2026-10-31T02:24:26Z",
    "kind": "closed",
    "text": "“Animated compact Summoning Rift — replace rail Tome after color/art approval” was closed"
-  },
-  {
-   "at": "2026-10-31T02:24:16Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
-  },
-  {
-   "at": "2026-10-31T02:23:12Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Animated compact Summoning Rift — replace rail Tome after color/art approval”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”"
-  },
-  {
-   "at": "2026-10-31T02:22:48Z",
-   "kind": "live",
-   "text": "“Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions” is live in the game"
-  },
-  {
-   "at": "2026-10-31T02:22:44Z",
-   "kind": "approved",
-   "text": "Noah approved “Adventure Summoning Station vNext — compact Party, raised Rift, integrated actions”"
   }
  ],
  "otherPulls": [
