@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T22:21:20.881Z",
+ "generatedAt": "2026-11-02T22:25:55.202Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -37,6 +37,63 @@
  },
  "items": [
   {
+   "number": 98,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
+   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Summon chances for every rarity at every Portal level. Only Uncommon, Rare and Epic can be rolled under the new plan, and the Legendary to Eternal chances aren't set yet (#78). I suggest deciding them in #78 first. Then this request can use them."
+    },
+    {
+     "who": "noah",
+     "text": "Power. Under today's damage rule, moving up one rarity doubles a companion's base damage. So 38 companions would hit 4 times as hard and 3 would hit 8 times as hard, which would make story bosses much easier. I suggest one of two fixes: keep each companion's current damage…"
+    },
+    {
+     "who": "noah",
+     "text": "A save update that keeps everyone's owned companions, mastery, Essence, claims and waiting summons exactly as they are. I suggest building it last, once the new Commons, chances and power are settled, and testing it on a made-up save first."
+    },
+    {
+     "who": "noah",
+     "text": "Mastery (how many copies each mastery level needs) for the new rarities. Today's tables stop at Rare. Epic is a draft in #89, and Epic Aberration, Legendary and Mythic have none. I suggest using the Rare table for all of them until balance numbers are approved."
+    },
+    {
+     "who": "joshua",
+     "text": "What should the masked dagger fighter be called? The ideas so far are Redveil, Duskrunner, Ragblade and Ashknife. I suggest Redveil, because it matches the red scarf and the hidden face. Its game ID is made from the name, so it waits for your choice."
+    },
+    {
+     "who": "joshua",
+     "text": "The see-through pictures for the masked dagger fighter and Brackenfox are 1312×1199 pixels, but the game's companion pictures are 512×512. Is it OK to make a smaller copy of each for the game, without changing anything else in it? I suggest yes. The approved originals would…"
+    },
+    {
+     "who": "joshua",
+     "text": "Eight approved Commons still need pictures drawn on a see-through background from the start: Reedwatch Tinker, Millward Bellkeeper, Slatewing Swift, Mirestripe Newt, Puddle Gleam, Ashfold, Frostmote and Tackbolt. I suggest making each one the way you made Brackenfox, one…"
+    },
+    {
+     "who": "joshua",
+     "text": "Five Commons haven't been shown yet: Brickwarden, Burrbloom, Dewfern, Coppice Cricket and Unstitch. I suggest making them the same way, on a see-through background from the start, and approving them before they go in the inbox."
+    }
+   ],
+   "openedAt": "2026-11-02T04:06:28Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-02T22:25:28Z",
+   "headSha": "a869a9b8af1867fcc992266e7958ec5065f2bb2f",
+   "touchesGame": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-02T22:25:28Z"
+  },
+  {
    "number": 97,
    "kind": "request",
    "by": "Joshua",
@@ -53,36 +110,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-11-02T22:21:14Z",
+   "updatedAt": "2026-11-02T22:24:58Z",
    "headSha": "5484acf8005ea9e8f5b0dc24c8828d677df62ae6",
    "touchesGame": true,
    "requestStatus": "Waiting to be built",
    "botState": "finished",
-   "botAt": "2026-11-02T22:21:14Z"
-  },
-  {
-   "number": 98,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
-   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T04:06:28Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-02T22:20:55Z",
-   "headSha": "94a864c2b8b5deb36efa627081306da9152eef6d",
-   "touchesGame": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-02T22:20:55Z"
+   "botAt": "2026-11-02T22:24:58Z"
   },
   {
    "number": 89,
@@ -1269,7 +1302,17 @@
  ],
  "activity": [
   {
-   "at": "2026-11-02T22:21:14Z",
+   "at": "2026-11-02T22:25:28Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
+  },
+  {
+   "at": "2026-11-02T22:25:28Z",
+   "kind": "question",
+   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-02T22:24:58Z",
    "kind": "built",
    "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
   },
@@ -1457,16 +1500,6 @@
    "at": "2026-11-02T03:22:55Z",
    "kind": "asked",
    "text": "You asked for “Owner approves Haven timing and accessible Party collapse target”"
-  },
-  {
-   "at": "2026-11-02T03:18:37Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-02T03:17:40Z",
-   "kind": "built",
-   "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
  ],
  "otherPulls": [
