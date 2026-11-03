@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T21:56:13.534Z",
+ "generatedAt": "2026-11-03T22:00:13.177Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -37,7 +37,7 @@
    "by": "Joshua",
    "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
    "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
-   "stage": "building",
+   "stage": "testing",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-11-03T21:24:18Z",
@@ -48,12 +48,12 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T21:55:52Z",
+   "updatedAt": "2026-11-03T21:59:52Z",
    "headSha": "f4c9ebf6736b3aade86a3652f75bb01c3a70ece2",
    "touchesGame": true,
    "requestStatus": "Built, ready to check (first part; the always-ten tray waits on Noah because it lives in #97, and the helper art from the newest Changes comes in the next build)",
-   "botState": "questions",
-   "botAt": "2026-11-03T21:47:54Z"
+   "botState": "finished",
+   "botAt": "2026-11-03T21:59:52Z"
   },
   {
    "number": 89,
@@ -1050,14 +1050,14 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T21:59:52Z",
+   "kind": "built",
+   "text": "Claude finished building “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
+  },
+  {
    "at": "2026-11-03T21:55:52Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
-  },
-  {
-   "at": "2026-11-03T21:47:54Z",
-   "kind": "built",
-   "text": "Claude finished building “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
   },
   {
    "at": "2026-11-03T21:43:23Z",
