@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T05:16:52.403Z",
+ "generatedAt": "2026-11-03T05:20:54.201Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -36,9 +36,42 @@
    "by": "Joshua",
    "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
    "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Summon chances for every rarity at every Portal level. Under the new plan, only Uncommon, Rare and Epic can be rolled, and the Legendary to Eternal chances aren't set yet (#78). I suggest deciding them in #78 first, so this request can use them."
+    },
+    {
+     "who": "noah",
+     "text": "Power. Under today's damage rule, moving up one rarity doubles a companion's base damage. So 38 companions would hit 4 times as hard and 3 would hit 8 times as hard, which would make story bosses much easier. I suggest one of two fixes: keep each companion's current damage…"
+    },
+    {
+     "who": "noah",
+     "text": "A save update that keeps everyone's owned companions, mastery, Essence, claims and waiting summons exactly as they are. I suggest building it last, once the new Commons, chances and power are settled, and testing it on a made-up save first."
+    },
+    {
+     "who": "noah",
+     "text": "Mastery (how many copies each mastery level needs) for the new rarities. Today's tables stop at Rare. Epic is a draft in #89, and Epic Aberration, Legendary and Mythic have none. I suggest using the Rare table for all of them until balance numbers are approved."
+    },
+    {
+     "who": "noah",
+     "text": "The art fetch couldn't bring the folder Approved/Companion-Theme-Backdrops-P1-Complete12-v04 (https://drive.google.com/drive/folders/14IhQiRJSyVKuoE3Ji2Rvo1Xi3i8GzAz-), because it's 66 MB and went over the 100 MB limit with the rest. So its 12 pictures haven't been checked. I…"
+    },
+    {
+     "who": "joshua",
+     "text": "Do you approve the ten plain dock card backgrounds (Dock-Card-Rarity-Skins-v01)? I suggest approving the colors and the plain middle, and letting the game draw the thin frame and edge marks itself, using your pictures as the guide. That keeps them sharp on a phone."
+    },
+    {
+     "who": "joshua",
+     "text": "For the big companion screen, which companion gets which of the 12 scenes? I suggest matching each one by its home, for example wetlands for water beasts, and deciding that when the big screen is built."
+    },
+    {
+     "who": "joshua",
+     "text": "Fungal Hollow's background has lettering in the lower left. I suggest making a clean new version without the lettering and putting it in its own new folder in your Artwork Inbox's Approved folder."
+    }
+   ],
    "openedAt": "2026-11-02T04:06:28Z",
    "mergedAt": null,
    "closedAt": null,
@@ -47,12 +80,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T05:16:51Z",
-   "headSha": "560b6bc18b270396032a63446a2348a6eb8d393c",
+   "updatedAt": "2026-11-03T05:20:26Z",
+   "headSha": "30c8339b6369d831b32d2823bfced7c6d27ff7d8",
    "touchesGame": false,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-03T05:16:51Z"
+   "botState": "questions",
+   "botAt": "2026-11-03T05:20:26Z"
   },
   {
    "number": 66,
@@ -1106,6 +1139,16 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T05:20:26Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
+  },
+  {
+   "at": "2026-11-03T05:20:26Z",
+   "kind": "question",
+   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-03T05:15:09Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1292,16 +1335,6 @@
   },
   {
    "at": "2026-11-02T22:16:37Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-02T22:11:47Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-02T22:09:04Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
