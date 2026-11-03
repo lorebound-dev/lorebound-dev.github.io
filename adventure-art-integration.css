@@ -15,14 +15,26 @@
 .adventure-dock-preview.art-rebuild-preview #game #bossButton:focus-visible{outline:2px solid #fff0b8;outline-offset:3px}
 .adventure-dock-preview.art-rebuild-preview #game #bossButton.ready:active:not(:disabled){filter:brightness(1.2)}
 
-/* Remove the visible title without removing the named panel or its controls. */
-.adventure-dock-preview.art-rebuild-preview #game:not(.dock-is-collapsed) .adventure-deck{height:calc(22px + var(--dock-panel-height));overflow:visible}
-.adventure-dock-preview.art-rebuild-preview #game .dock-heading{height:22px;padding:0;border:0;background:none;position:relative}
-/* A centred chevron inside the tray's top strip, clear of the corner ornaments and the Challenge Boss button */
-.adventure-dock-preview.art-rebuild-preview #game #dockToggle{position:absolute;left:calc(50% - 30px);right:auto;top:0;width:60px;height:22px;min-height:22px;border:0;border-radius:0;background:none;z-index:9}
+/* Remove the visible title without removing the named panel or its controls. The strip above the cards only holds the
+   chevron, so it stays thin and the panel is that much shorter. With the page's top padding (9px, or 7px on short screens) the
+   cards sit 21px below the panel's top edge, just clear of the ink in the corner ornaments (shell-corner.svg). */
+.adventure-dock-preview.art-rebuild-preview #game{--dock-heading-height:12px}
+@media(max-height:700px){.adventure-dock-preview.art-rebuild-preview #game{--dock-heading-height:14px}}
+.adventure-dock-preview.art-rebuild-preview #game:not(.dock-is-collapsed) .adventure-deck{height:calc(var(--dock-heading-height) + var(--dock-panel-height));overflow:visible}
+.adventure-dock-preview.art-rebuild-preview #game .dock-heading{height:var(--dock-heading-height);padding:0;border:0;background:none;position:relative}
+/* realm1-art.js keeps the fighters still when the panel opens or closes by adding a fixed 22px strip to its hidden
+   #artPanelMeasure probe. Shorten the probe by the difference so the sum is the real open panel, and the fighters don't
+   move. Done here so realm1-art.js stays as it is: another open request rewrites that measurement. */
+.adventure-dock-preview.art-rebuild-preview #game #artPanelMeasure{height:calc(var(--dock-heading-height) - 22px + var(--dock-panel-height))!important}
+/* The chevron sits in the tray's top strip with a 44px-tall tap area: 24px above the panel's edge and 20px into it,
+   stopping 1px short of the cards (21px down). Challenge Boss is 180px wide, 12px from the right edge, and its bottom
+   row overlaps that band, so the toggle's right edge stays 196px from the tray's right edge (8px clear of the button).
+   On phones that puts the chevron a little left of centre; on a tray 480px or wider it is centred. The band above the
+   panel is the empty button row realm1-art.js keeps below the fighters, and the tray stacks above it (z-index 6 vs 1). */
+.adventure-dock-preview.art-rebuild-preview #game #dockToggle{position:absolute;left:auto;right:max(calc(50% - 44px),196px);top:0;width:88px;height:var(--dock-heading-height);min-height:0;border:0;border-radius:0;background:none;z-index:9}
 .adventure-dock-preview.art-rebuild-preview #game #dockToggle span{display:none}
 .adventure-dock-preview.art-rebuild-preview #game #dockToggle:before{content:'';width:20px;height:10px;background:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 12%27%3E%3Cpath d=%27M5 3l7 6 7-6%27 fill=%27none%27 stroke=%27%23f1d89e%27 stroke-width=%272.4%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E") center/20px 10px no-repeat}
-.adventure-dock-preview.art-rebuild-preview #game #dockToggle:after{content:'';position:absolute;inset:0 -6px -8px}
+.adventure-dock-preview.art-rebuild-preview #game #dockToggle:after{content:'';position:absolute;left:0;right:0;top:-24px;bottom:auto;height:44px}
 .adventure-dock-preview.art-rebuild-preview #game .art-crest{display:none}
 /* Challenge Boss sits just above the Party tray, on the right, clear of the enemy in both tray states. */
 .adventure-refined #game:not(.boss-room) .battle-panel{top:auto;bottom:6px;height:44px;align-items:flex-end}

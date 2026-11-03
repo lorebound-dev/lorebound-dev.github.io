@@ -50,6 +50,11 @@
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
       "head": "d06cacf4736a25ed8e64bc6796daca1591ba9c9c"
+    },
+    {
+      "number": 93,
+      "title": "Reduce empty space above expanded Party cards",
+      "head": "db10fb734819e24d0225152b3ce92e4055309cca"
     }
   ],
   "skipped": [
@@ -59,15 +64,6 @@
       "head": "0ecbd148d95341ce6128c99fbeb76b7b5a865f94",
       "files": [
         "pocket-fortune/dist/grand-archive.js"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 93,
-      "title": "Reduce empty space above expanded Party cards",
-      "head": "21f8b1543919b1dea65f491b51347f197687177e",
-      "files": [
-        "pocket-fortune/dist/realm1-art.js"
       ],
       "with": "others"
     },
@@ -83,6 +79,6 @@
       "with": "others"
     }
   ],
-  "commit": "96b17d092a4f36f0f9e16fe164fb13baf08c72cf",
-  "at": "2026-11-03T15:45:10Z"
+  "commit": "0ba19bbc21f5e1bdcc998f0bb966c3c4c0a0e300",
+  "at": "2026-11-03T20:01:13Z"
 }
