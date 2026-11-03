@@ -44,7 +44,7 @@
     {
       "number": 89,
       "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-      "head": "ca2d5a62d28eb008153edfc30977b0d89d9ade1a"
+      "head": "6a58d0221b23cdc39797d2c0a2f9f50c0dc2a092"
     },
     {
       "number": 92,
@@ -75,7 +75,7 @@
     {
       "number": 102,
       "title": "Integrate approved 10-tier companion dock backgrounds",
-      "head": "658bd2965b0bd8ced64cc31ff69f542a69ee396d",
+      "head": "c3f625cc15a0eaa90b710f2a3639b4008a391f97",
       "files": [
         "pocket-fortune/dist/adventure-art-cards.css",
         "pocket-fortune/dist/adventure-art-cards.js"
@@ -83,6 +83,6 @@
       "with": "others"
     }
   ],
-  "commit": "df32382db533a6d224c9e0fbd22c19da36a9c00f",
-  "at": "2026-11-03T21:04:58Z"
+  "commit": "e193a7dec7b347b915f46cebdedb8ff1b99c6b5e",
+  "at": "2026-11-03T21:13:08Z"
 }
