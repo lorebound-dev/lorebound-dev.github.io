@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T00:54:29.086Z",
+ "generatedAt": "2026-11-03T00:58:02.345Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -42,9 +42,42 @@
    "by": "Joshua",
    "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
    "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Summon chances for every rarity at every Portal level. Under the new plan only Uncommon, Rare and Epic can be rolled, and the Legendary to Eternal chances aren't set yet (#78). I suggest deciding them in #78 first, so this request can use them."
+    },
+    {
+     "who": "noah",
+     "text": "Power. Under today's damage rule, moving up one rarity doubles a companion's base damage. So 38 companions would hit 4 times as hard and 3 would hit 8 times as hard, which would make story bosses much easier. I suggest one of two fixes: keep each companion's current damage…"
+    },
+    {
+     "who": "noah",
+     "text": "A save update that keeps everyone's owned companions, mastery, Essence, claims and waiting summons exactly as they are. I suggest building it last, once the new Commons, chances and power are settled, and testing it on a made-up save first."
+    },
+    {
+     "who": "noah",
+     "text": "Mastery (how many copies each mastery level needs) for the new rarities. Today's tables stop at Rare. Epic is a draft in #89, and Epic Aberration, Legendary and Mythic have none. I suggest using the Rare table for all of them until balance numbers are approved."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you approve the see-through pictures of Ashfold, Frostmote, Tackbolt and Brickwarden? They all pass the art check and look clean at small sizes. I suggest approving them if they look right to you. If you'd like, Frostmote could be drawn a little bigger in its picture, so…"
+    },
+    {
+     "who": "joshua",
+     "text": "What should the masked dagger fighter be called? The ideas so far are Redveil, Duskrunner, Ragblade and Ashknife. I suggest Redveil, because it matches the red scarf and the hidden face. Its game ID is made from the name, so it waits for your choice."
+    },
+    {
+     "who": "joshua",
+     "text": "The game's companion pictures are 512×512, but the approved see-through pictures are bigger (1312×1199 or 1254×1254). Is it OK to make a smaller copy of each for the game, without changing anything else in it? I suggest yes. The approved originals would stay untouched in your…"
+    },
+    {
+     "who": "joshua",
+     "text": "Five Commons still need see-through pictures: Reedwatch Tinker, Millward Bellkeeper, Dewfern, Coppice Cricket and Unstitch. I suggest making each one the way you made Burrbloom, one character per picture, and approving each one before it goes in the inbox's Approved folder."
+    }
+   ],
    "openedAt": "2026-11-02T04:06:28Z",
    "mergedAt": null,
    "closedAt": null,
@@ -53,12 +86,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T00:54:23Z",
-   "headSha": "ee8d54d009276e96a8880c15b9f53049a7c93ccb",
+   "updatedAt": "2026-11-03T00:57:35Z",
+   "headSha": "80b96af023cfa4f7a87377976692e271be6c3109",
    "touchesGame": false,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-03T00:54:23Z"
+   "botState": "questions",
+   "botAt": "2026-11-03T00:57:35Z"
   },
   {
    "number": 89,
@@ -1269,6 +1302,16 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T00:57:35Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
+  },
+  {
+   "at": "2026-11-03T00:57:35Z",
+   "kind": "question",
+   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-03T00:53:12Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1457,16 +1500,6 @@
    "at": "2026-11-02T03:44:36Z",
    "kind": "question",
    "text": "Part of “Connect Haven to LOREBOUND economy through resource-backed Gold caravans” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-02T03:42:27Z",
-   "kind": "asked",
-   "text": "You asked for “Connect Haven to LOREBOUND economy through resource-backed Gold caravans”"
-  },
-  {
-   "at": "2026-11-02T03:27:43Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
  ],
  "otherPulls": [
