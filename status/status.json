@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T05:04:55.909Z",
+ "generatedAt": "2026-11-03T05:09:18.018Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -37,6 +37,54 @@
  },
  "items": [
   {
+   "number": 94,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves naming habitats frame fitting and compact menus",
+   "quote": "Approve all",
+   "stage": "closed",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T03:08:01Z",
+   "mergedAt": null,
+   "closedAt": "2026-11-03T05:09:15Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T05:09:15Z",
+   "headSha": "b63a8addbaab625a9b391c3608b8fc73aa6e147d",
+   "touchesGame": false,
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-11-02T03:10:02Z"
+  },
+  {
+   "number": 63,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner approves all three Journal choices from #60",
+   "quote": "send it. and yes make sure everything is updated",
+   "stage": "closed",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-28T18:46:53Z",
+   "mergedAt": null,
+   "closedAt": "2026-11-03T05:09:11Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T05:09:11Z",
+   "headSha": "8647f4a556730452282b7c2f6c35d47238591377",
+   "touchesGame": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T18:49:36Z"
+  },
+  {
    "number": 81,
    "kind": "request",
    "by": "Joshua",
@@ -51,14 +99,211 @@
    "liveAt": null,
    "testAt": "2026-11-03T04:46:15Z",
    "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T05:09:06Z",
+   "headSha": "a4529644783c29449fdba5c7b3698f76242432ae",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-03T05:09:06Z"
+  },
+  {
+   "number": 92,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T02:38:48Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T04:46:15Z",
+   "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T05:03:55Z",
-   "headSha": "3b942a83044c23344715580c3d5696a73525184d",
+   "updatedAt": "2026-11-03T04:46:15Z",
+   "headSha": "99504cd53c0539a59a655fa5de4e19acfc68da43",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-03T05:03:55Z"
+   "botAt": "2026-11-02T03:17:40Z"
+  },
+  {
+   "number": 85,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
+   "quote": "\"I want it to look like this. And some of the higher ones being gifs.\"  \"No I want you to render and provide resources for it to use\"  \"That's good but I need individual, approved\"  \"Send it\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The gargoyle menu frame (rift_upgrades_menu_frame_v04) isn't in yet. It is made for one fixed shape and has its own Rift emblem at the top, which would repeat the one already in the header. On small phones it would also take about 60px from the list. My suggestion is to keep…"
+    },
+    {
+     "who": "joshua",
+     "text": "The row names are now cream on every row (dark on Exalted) instead of each rarity's own colour, like in your sample picture. Is that what you want? My suggestion is to keep cream, because the art already shows the rarity colour."
+    }
+   ],
+   "openedAt": "2026-11-01T02:03:26Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T04:46:15Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T04:46:15Z",
+   "headSha": "53182398563a75453669d1f29c304f121676a590",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-01T02:13:52Z"
+  },
+  {
+   "number": 84,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved 10 unique Auto Summon rarity rows",
+   "quote": "\"I want each line to have its own pattern and color for each rarity\" \"Approved\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "With rows this close, the tall diamonds on the left overlap a little at their tips, like a chain. Is that OK? My suggestion: keep it. The other choices are bigger gaps (about 20px, like before) or rows shorter than the 44px a finger needs."
+    }
+   ],
+   "openedAt": "2026-10-31T01:06:23Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T04:46:15Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T04:46:15Z",
+   "headSha": "5dd27bedd568246d870da161cb61f2af57edfa5b",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-31T01:45:36Z"
+  },
+  {
+   "number": 83,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Stage approved companion habitats on dev for mobile QA",
+   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Before this goes live: the two comparison pictures (Forgotten Courtyard v02 and Wildstone Grotto, about 6 MB together) and the review page would also be published, because everything in the game folder goes live. My suggestion: once Joshua picks, keep only the pictures the…"
+    },
+    {
+     "who": "joshua",
+     "text": "For Mortals, do you want Ruined Fortress v03 (in the test game now) or Forgotten Courtyard v02? Compare them on the habitat review page. My suggestion: keep v03 if the name and stats are easy to read over it on your phone."
+    },
+    {
+     "who": "joshua",
+     "text": "For Beasts, should the volcano stay for every Beast, or should Wildstone Grotto replace it? My suggestion: keep the volcano, which you asked for. Grotto stays on the review page only."
+    }
+   ],
+   "openedAt": "2026-10-31T00:30:55Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T04:46:15Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T04:46:15Z",
+   "headSha": "f248c227b154721837c6f1bcd4183977b668ac74",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-31T00:38:04Z"
+  },
+  {
+   "number": 65,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
+   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merging this puts two new pictures, which Joshua hasn't approved yet, into the real game (they're in his Proposed folder). My suggestion: merge only after Joshua says yes on the test site."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new frame around the enemy's name? My suggestion: yes, the name and health bar are easier to read now."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you want to keep the new party tray frame? With it, the closed tray shows the frame's corners and the background's own curls together. My suggestion: keep it, but only if the two sets of ornaments don't bother you. If they do, I can go back to the old tray edge."
+    }
+   ],
+   "openedAt": "2026-10-28T22:17:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T04:46:15Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T04:46:15Z",
+   "headSha": "86b71c57eaf2c6671d290d6bedc08fbe00082f63",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-29T02:32:55Z"
+  },
+  {
+   "number": 60,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
+    },
+    {
+     "who": "joshua",
+     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
+    },
+    {
+     "who": "joshua",
+     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
+    }
+   ],
+   "openedAt": "2026-10-28T04:18:38Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T04:46:15Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T04:46:15Z",
+   "headSha": "f331038e2d198ea20f4d6ef2d9cd3e98ed57a543",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-10-28T17:24:37Z"
   },
   {
    "number": 89,
@@ -108,30 +353,6 @@
    "requestStatus": "Waiting for answers",
    "botState": "questions",
    "botAt": "2026-11-02T03:26:23Z"
-  },
-  {
-   "number": 92,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T02:38:48Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T04:46:15Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T04:46:15Z",
-   "headSha": "99504cd53c0539a59a655fa5de4e19acfc68da43",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-02T03:17:40Z"
   },
   {
    "number": 91,
@@ -261,39 +482,6 @@
    "botAt": "2026-11-01T02:30:51Z"
   },
   {
-   "number": 85,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
-   "quote": "\"I want it to look like this. And some of the higher ones being gifs.\"  \"No I want you to render and provide resources for it to use\"  \"That's good but I need individual, approved\"  \"Send it\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The gargoyle menu frame (rift_upgrades_menu_frame_v04) isn't in yet. It is made for one fixed shape and has its own Rift emblem at the top, which would repeat the one already in the header. On small phones it would also take about 60px from the list. My suggestion is to keep…"
-    },
-    {
-     "who": "joshua",
-     "text": "The row names are now cream on every row (dark on Exalted) instead of each rarity's own colour, like in your sample picture. Is that what you want? My suggestion is to keep cream, because the art already shows the rarity colour."
-    }
-   ],
-   "openedAt": "2026-11-01T02:03:26Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T04:46:15Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T04:46:15Z",
-   "headSha": "53182398563a75453669d1f29c304f121676a590",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-01T02:13:52Z"
-  },
-  {
    "number": 80,
    "kind": "request",
    "by": "Joshua",
@@ -340,80 +528,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-28T03:15:36Z"
-  },
-  {
-   "number": 60,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Should the Journal always open on Journey, or on whichever tab you used last? My suggestion: keep it on the last tab you used, as it is now. A red diamond on the other tab still shows when something there is ready."
-    },
-    {
-     "who": "joshua",
-     "text": "Under \"The First Chronicle\" the summary now says \"Your Journey\", or \"Your Achievements\" on the other tab, like in your mockup. My suggestion: keep these words. Or tell me what you'd like it to say instead."
-    },
-    {
-     "who": "joshua",
-     "text": "Your mockup shows claimed quests with green checks in the main list. The Journal moves them into a closed \"Completed\" section at the bottom, as your request asked. My suggestion: keep the Completed section, so the list shows only what's left. Or should claimed quests stay in…"
-    }
-   ],
-   "openedAt": "2026-10-28T04:18:38Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T04:46:15Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T04:46:15Z",
-   "headSha": "f331038e2d198ea20f4d6ef2d9cd3e98ed57a543",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T17:24:37Z"
-  },
-  {
-   "number": 65,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Merging this puts two new pictures, which Joshua hasn't approved yet, into the real game (they're in his Proposed folder). My suggestion: merge only after Joshua says yes on the test site."
-    },
-    {
-     "who": "joshua",
-     "text": "Do you want to keep the new frame around the enemy's name? My suggestion: yes, the name and health bar are easier to read now."
-    },
-    {
-     "who": "joshua",
-     "text": "Do you want to keep the new party tray frame? With it, the closed tray shows the frame's corners and the background's own curls together. My suggestion: keep it, but only if the two sets of ornaments don't bother you. If they do, I can go back to the old tray edge."
-    }
-   ],
-   "openedAt": "2026-10-28T22:17:13Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T04:46:15Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T04:46:15Z",
-   "headSha": "86b71c57eaf2c6671d290d6bedc08fbe00082f63",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T02:32:55Z"
   },
   {
    "number": 66,
@@ -513,72 +627,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-29T14:01:26Z"
-  },
-  {
-   "number": 83,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Stage approved companion habitats on dev for mobile QA",
-   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Before this goes live: the two comparison pictures (Forgotten Courtyard v02 and Wildstone Grotto, about 6 MB together) and the review page would also be published, because everything in the game folder goes live. My suggestion: once Joshua picks, keep only the pictures the…"
-    },
-    {
-     "who": "joshua",
-     "text": "For Mortals, do you want Ruined Fortress v03 (in the test game now) or Forgotten Courtyard v02? Compare them on the habitat review page. My suggestion: keep v03 if the name and stats are easy to read over it on your phone."
-    },
-    {
-     "who": "joshua",
-     "text": "For Beasts, should the volcano stay for every Beast, or should Wildstone Grotto replace it? My suggestion: keep the volcano, which you asked for. Grotto stays on the review page only."
-    }
-   ],
-   "openedAt": "2026-10-31T00:30:55Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T04:46:15Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T04:46:15Z",
-   "headSha": "f248c227b154721837c6f1bcd4183977b668ac74",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-31T00:38:04Z"
-  },
-  {
-   "number": 84,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved 10 unique Auto Summon rarity rows",
-   "quote": "\"I want each line to have its own pattern and color for each rarity\" \"Approved\"",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "With rows this close, the tall diamonds on the left overlap a little at their tips, like a chain. Is that OK? My suggestion: keep it. The other choices are bigger gaps (about 20px, like before) or rows shorter than the 44px a finger needs."
-    }
-   ],
-   "openedAt": "2026-10-31T01:06:23Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T04:46:15Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T04:46:15Z",
-   "headSha": "5dd27bedd568246d870da161cb61f2af57edfa5b",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-31T01:45:36Z"
   },
   {
    "number": 98,
@@ -832,43 +880,6 @@
    "requestStatus": "Waiting for answers",
    "botState": "questions",
    "botAt": "2026-11-02T03:25:09Z"
-  },
-  {
-   "number": 94,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner approves naming habitats frame fitting and compact menus",
-   "quote": "Approve all",
-   "stage": "questions",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "I can only write on this pull request, so please pass each answer on with an @claude comment on its own pull request: #90 (keep Ascension and Shardworks names), #83 (keep Fortress v03 and the current volcano), #81 (fix name and level fit on the frames), #85 (remove the…"
-    },
-    {
-     "who": "noah",
-     "text": "Moving the spare habitat art and comparison pages from #83 out of the published game folder (with its originals and checksums kept) is a cleanup that needs your OK. I suggest doing it in #83 before that one is merged."
-    },
-    {
-     "who": "noah",
-     "text": "Once the answers are on the six pull requests, you can close this one. It holds only the request file."
-    }
-   ],
-   "openedAt": "2026-11-02T03:08:01Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-02T03:10:02Z",
-   "headSha": "b63a8addbaab625a9b391c3608b8fc73aa6e147d",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-11-02T03:10:02Z"
   },
   {
    "number": 93,
@@ -1253,40 +1264,21 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-29T01:14:40Z"
-  },
-  {
-   "number": 63,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner approves all three Journal choices from #60",
-   "quote": "send it. and yes make sure everything is updated",
-   "stage": "questions",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Claude's report on #60 still lists these three questions for Joshua. Joshua said yes to all three, and they already work as built. Noah, please comment \"@claude Joshua approved all three Journal choices (see #63); please clear the questions\" on #60, then close this pull…"
-    }
-   ],
-   "openedAt": "2026-10-28T18:46:53Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T18:49:36Z",
-   "headSha": "8647f4a556730452282b7c2f6c35d47238591377",
-   "touchesGame": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T18:49:36Z"
   }
  ],
  "activity": [
   {
-   "at": "2026-11-03T05:03:55Z",
+   "at": "2026-11-03T05:09:15Z",
+   "kind": "closed",
+   "text": "“Owner approves naming habitats frame fitting and compact menus” was closed"
+  },
+  {
+   "at": "2026-11-03T05:09:11Z",
+   "kind": "closed",
+   "text": "“Owner approves all three Journal choices from #60” was closed"
+  },
+  {
+   "at": "2026-11-03T05:09:06Z",
    "kind": "built",
    "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
   },
@@ -1472,16 +1464,6 @@
   },
   {
    "at": "2026-11-02T12:42:05Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-02T04:36:33Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-02T04:24:02Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
