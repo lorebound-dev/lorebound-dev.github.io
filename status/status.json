@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T20:55:09.369Z",
+ "generatedAt": "2026-11-03T20:56:21.925Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -30,6 +30,30 @@
   ]
  },
  "items": [
+  {
+   "number": 98,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
+   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T04:06:28Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T20:55:23Z",
+   "headSha": "f0de4648aecf2fe65a7bffe096bade5af13be91e",
+   "touchesGame": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-03T20:55:23Z"
+  },
   {
    "number": 97,
    "kind": "request",
@@ -336,30 +360,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-28T03:15:36Z"
-  },
-  {
-   "number": 98,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
-   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T04:06:28Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T20:54:25Z",
-   "headSha": "f0de4648aecf2fe65a7bffe096bade5af13be91e",
-   "touchesGame": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-03T20:54:25Z"
   },
   {
    "number": 102,
