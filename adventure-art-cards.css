@@ -2,7 +2,7 @@
 /* Each card is Joshua's approved rarity frame at its own 3:4 shape, as large as the card allows, with one DPS plate attached
    under it. The portrait shows through the frame's window and the level sits on the frame's top plate. The companion's
    name isn't shown on the card (Joshua, 2026-11-03); it stays in the card's title and accessible label. */
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card {--habitat-light:#b7a84b;position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:0;min-width:0;min-height:88px;width:100%;height:100%;padding:0;border:0;background:none;box-shadow:none;border-radius:5px;color:#f5e6c2;overflow:visible;cursor:pointer;touch-action:manipulation;container-type:size}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card {position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:0;min-width:0;min-height:88px;width:100%;height:100%;padding:0;border:0;background:none;box-shadow:none;border-radius:5px;color:#f5e6c2;overflow:visible;cursor:pointer;touch-action:manipulation;container-type:size}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card>*{pointer-events:none}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-face {position:relative;flex:none;display:block;width:100%;width:var(--face-w);aspect-ratio:3/4;filter:drop-shadow(0 3px 4px #0009)}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-frame {position:absolute;inset:0;width:100%;height:100%;margin:0;object-fit:fill;image-rendering:auto;z-index:6}
@@ -18,19 +18,20 @@
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=exalted] {--window:16.2% 18.4% 23.5% 18.3%;--level-x:19.1%;--level-y:21.6%}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=transcendent] {--window:19.8% 18.5% 23.4% 18.4%;--level-x:21%;--level-y:24.5%}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=eternal] {--window:15.6% 14.7% 25.8% 14.6%;--level-x:14%;--level-y:20.5%}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-window {position:absolute;inset:var(--window);z-index:0;overflow:hidden;background:#0b1a1f}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-backplate,:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-ambient {position:absolute;inset:0;width:100%;height:100%;margin:0;object-fit:cover;image-rendering:auto}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-backplate {z-index:0;filter:saturate(1.15) brightness(1.16)}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-backplate[src*=common] {filter:saturate(1.28) brightness(1.32)}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-habitat-light {position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 50% 58%,var(--habitat-light) 0%,var(--habitat-light) 14%,transparent 76%);mix-blend-mode:screen;opacity:.62}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=wildgrowth] {--habitat-light:#75d64c}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=beasts] {--habitat-light:#ff8a35}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=constructs] {--habitat-light:#36c8ee}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=mortals] {--habitat-light:#edbd69}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=spirits] {--habitat-light:#ad84e8}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-habitat=aberrations] {--habitat-light:#d79fca}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-habitat {position:absolute;inset:0;width:100%;height:100%;stroke:var(--habitat-light);stroke-width:1;fill:none;opacity:.18;z-index:1}
-:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-ambient{z-index:2}
+/* Behind the companion, one opaque matte colour for the frame's rarity (Joshua, 2026-11-03): the game's own --rarity-dark
+   shades from adventure.css, plain grey for Common. No backdrop, pattern, gradient, glow or animation on the small card.
+   The fill stays inside the window box above, which sits under the frame's inner edge and never reaches its outer corners. */
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .card-window {position:absolute;inset:var(--window);z-index:0;overflow:hidden;background:var(--window-fill,#666d75)}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=common] {--window-fill:#666d75}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=uncommon] {--window-fill:#315c46}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=rare] {--window-fill:#324e78}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=epic] {--window-fill:#61437e}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=legendary] {--window-fill:#805328}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=mythic] {--window-fill:#7a343e}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=ancient] {--window-fill:#635242}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=exalted] {--window-fill:#8a8268}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=transcendent] {--window-fill:#3f6b81}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card[data-rarity=eternal] {--window-fill:#5e4f83}
 /* The portrait is square and as large as the stage allows, so on short cards it shrinks whole instead of spilling under the Lv. and DPS labels. */
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-art-stage {position:absolute;inset:0;display:grid;place-items:center;padding:0;overflow:visible;z-index:3;container-type:size}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-portrait {display:block;position:relative;width:100%;width:min(100cqw,100cqh);height:auto;aspect-ratio:1;margin:0;image-rendering:pixelated;transform:scale(var(--portrait-scale,1)) translate(var(--portrait-x,0%),var(--portrait-y,0%));filter:brightness(1.13) saturate(1.12) drop-shadow(0 1px 1px #000d) drop-shadow(0 0 2px #fff1)}
