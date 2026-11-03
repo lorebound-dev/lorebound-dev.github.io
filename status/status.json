@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T21:18:28.916Z",
+ "generatedAt": "2026-11-03T21:22:39.070Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -36,9 +36,30 @@
    "by": "Joshua",
    "title": "Integrate approved 10-tier companion dock backgrounds",
    "quote": "\"I want that to be the full frame with no other frame.\" The dock-card background should have an open middle for the companion; the background's own border changes with rarity, rather than repeating the same flowers or making every tier a full scene. All ten final images have now been approved individually.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The art's rarity names don't match the game's. The art goes 07 Ascendant, 08 Transcendent, 09 Exalted. The game goes 7 Ancient, 8 Exalted, 9 Transcendent. Right now the build matches Transcendent and Exalted by name, so the Transcendent art goes on Transcendent cards and the…"
+    },
+    {
+     "who": "joshua",
+     "text": "Which art should go with which rarity? The art says 07 Ascendant, 08 Transcendent, 09 Exalted. The game says 7 Ancient, 8 Exalted, 9 Transcendent. Suggestion: Ascendant art for Ancient, Transcendent art for Transcendent, Exalted art for Exalted. Nobody sees these rarities in…"
+    },
+    {
+     "who": "joshua",
+     "text": "The Party cards are taller and thinner than the new backgrounds. To keep every ornament, each card shows the whole picture with a thin dark band above and below it. Is that OK? The other options are to trim a little off the left and right sides so the picture fills the card…"
+    },
+    {
+     "who": "joshua",
+     "text": "The old cards had a soft glow and faint line pattern in the companion's habitat colour (green for Wildgrowth, orange for Beasts and so on). These were removed so the new background is the only decoration. Suggestion: leave them out."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in adventure-art-cards.css and adventure-art-cards.js, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-11-03T20:41:36Z",
    "mergedAt": null,
    "closedAt": null,
@@ -47,12 +68,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-11-03T21:17:47Z",
-   "headSha": "c3f625cc15a0eaa90b710f2a3639b4008a391f97",
+   "updatedAt": "2026-11-03T21:21:56Z",
+   "headSha": "c314f30ecf097214fcedbbf4c78170971f7622f1",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-03T21:17:47Z"
+   "botState": "questions",
+   "botAt": "2026-11-03T21:21:56Z"
   },
   {
    "number": 89,
@@ -1028,6 +1049,21 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T21:21:56Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved 10-tier companion dock backgrounds”"
+  },
+  {
+   "at": "2026-11-03T21:21:56Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Integrate approved 10-tier companion dock backgrounds”"
+  },
+  {
+   "at": "2026-11-03T21:21:56Z",
+   "kind": "question",
+   "text": "Part of “Integrate approved 10-tier companion dock backgrounds” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-03T21:13:11Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
@@ -1211,21 +1247,6 @@
    "at": "2026-11-03T07:12:34Z",
    "kind": "question",
    "text": "Claude has a question for you about “Connect Haven to LOREBOUND economy through resource-backed Gold caravans”"
-  },
-  {
-   "at": "2026-11-03T07:12:34Z",
-   "kind": "question",
-   "text": "Part of “Connect Haven to LOREBOUND economy through resource-backed Gold caravans” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-03T07:12:23Z",
-   "kind": "built",
-   "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
-  },
-  {
-   "at": "2026-11-03T07:12:23Z",
-   "kind": "question",
-   "text": "Part of “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data” is waiting for Noah’s OK"
   }
  ],
  "otherPulls": [
