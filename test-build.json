@@ -60,6 +60,11 @@
       "number": 97,
       "title": "Design guided progression companion power and achievements from owner references",
       "head": "ab1e7fb59797258f2ea9399491feb2e4e17636f0"
+    },
+    {
+      "number": 103,
+      "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
+      "head": "f4c9ebf6736b3aade86a3652f75bb01c3a70ece2"
     }
   ],
   "skipped": [
@@ -83,6 +88,6 @@
       "with": "others"
     }
   ],
-  "commit": "1949589a00c807179b9ae377ab12d71e10e8c576",
-  "at": "2026-11-03T21:43:22Z"
+  "commit": "828410d187978eae4fb1f014eab459e31fce9e51",
+  "at": "2026-11-03T21:55:51Z"
 }

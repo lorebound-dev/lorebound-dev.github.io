@@ -1,0 +1,49 @@
+/* Battle-first Adventure (request 2026-11-03-adventure-screen-efficiency). Layout only: the same cards, Rift, art and
+   controls, packed tighter so the fight keeps more of the screen. The fight's courtyard follows the tray's height by
+   itself (realm1-art.js measures #combatLayout), so the room taken from the tray and the Rift goes to the fight.
+
+   This sheet loads after every other Adventure sheet. Several open requests edit the rules it adjusts (#93 the tray's
+   top strip, #97 the ten-place tray, #102 the card backgrounds), so it changes sizes here instead of in their lines. */
+
+/* Party cards: as tall as a square portrait plus the DPS strip, instead of a tall portrait card.
+   Card width is (tray width − page padding − four gaps) / 5; the card is that plus 22px for the DPS strip. */
+.adventure-dock-preview.art-rebuild-preview #game{--compact-card-h:calc((min(100vw,550px) - 48px) / 5 + 22px);--dock-panel-height:calc(var(--compact-card-h) + 13px)}
+.adventure-dock-preview.art-rebuild-preview #game .dock-page{padding:6px 8px 7px}
+.adventure-dock-preview.art-rebuild-preview #game .dock-companions{gap:6px;grid-auto-rows:var(--compact-card-h)}
+.adventure-dock-preview.art-rebuild-preview #game .dock-companion{min-height:0}
+.adventure-dock-preview.art-rebuild-preview #game .lore-card{min-height:0}
+/* The portrait fills the card above the DPS strip; the Lv. badge sits on its top-left corner. */
+.adventure-dock-preview.art-rebuild-preview #game .lore-card .dock-art-stage{inset:3px 3px 23px}
+.adventure-dock-preview.art-rebuild-preview #game .dock-level{left:4px;top:4px;padding:1px 3px;line-height:14px}
+.adventure-dock-preview.art-rebuild-preview #game .lore-card .dock-dps{left:3px;right:3px;bottom:3px;height:20px;gap:3px}
+.adventure-dock-preview.art-rebuild-preview #game .lore-card .dock-dps b{font:bold 13px/1 Georgia,serif!important}
+.adventure-dock-preview.art-rebuild-preview #game .lore-card .dock-dps small{font:12px/1 Georgia,serif!important;color:#c9c3ad}
+/* While choosing a place for a new companion, the DPS change covers the DPS strip exactly (ownership-adventure.css). */
+.adventure-dock-preview.art-rebuild-preview #game .dock-choice-delta{left:3px;right:3px;bottom:3px;height:20px;font-size:13px!important}
+/* Empty places keep the card's footprint, but quietly: a thin line and a small +, no EMPTY label
+   (the button still says "Empty slot n. Choose companion" to screen readers). */
+.adventure-dock-preview.art-rebuild-preview #game .dock-companion.is-empty{display:grid;place-items:center;padding:0;border:1px solid #8173467a;border-image:none;border-radius:4px;background:#07141dad;box-shadow:inset 0 0 10px #0005}
+.adventure-dock-preview.art-rebuild-preview #game .dock-companion.is-empty>span:not(.dock-empty){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.adventure-dock-preview.art-rebuild-preview #game .dock-companion.is-empty .dock-empty{font:24px/1 Georgia,serif!important;color:#a7956bb3}
+
+/* Rift rail: tall phones use the short-phone rail that is already approved and aligned (82px rail, shrine 90px tall,
+   Rift 88px on the rune circle), 12px shorter than before. Upgrade Rift, the Rift and Auto keep their places. */
+@media(min-height:701px){
+  .adventure-refined.art-rebuild-preview #game,.adventure-refined.art-rebuild-preview #game.dock-is-collapsed{--dock-rail-height:82px}
+  .art-rebuild-preview.adventure-refined #game #summonDock{--rail-slab:66px;grid-template-columns:minmax(0,1fr) 94px minmax(0,1fr);padding-inline:4px;gap:2px;background-position:50% 3px;background-size:auto 90px}
+  .art-rebuild-preview.adventure-refined #game #summonPortal,.art-rebuild-preview.adventure-refined #game #autoSummon.dock-auto-button{height:72px}
+  .art-rebuild-preview.adventure-refined #game.dock-is-collapsed #summonPortal,.art-rebuild-preview.adventure-refined #game.dock-is-collapsed #autoSummon.dock-auto-button{height:68px}
+  .art-rebuild-preview.adventure-refined #game .dock-summon-copy{top:53px}
+  .art-rebuild-preview.adventure-refined #game #summonPortal:before{left:calc(50% - 54px);top:-15px;width:108px;height:94px}
+  .art-rebuild-preview.adventure-refined #game .summon-book{width:88px;height:88px;left:3px;top:-14px}
+  .art-rebuild-preview.adventure-refined #game.dock-is-collapsed .summon-book{width:88px;height:88px;left:3px;top:-9px}
+}
+
+/* At 350px wide and under a card is about 55px, too narrow for a long number and the word DPS at 12px. The number
+   stays; the word DPS is left to the screen reader label and the Party DPS total at the top. */
+@media(max-width:350px){
+  .adventure-dock-preview.art-rebuild-preview #game .dock-companions{gap:4px}
+  .adventure-dock-preview.art-rebuild-preview #game{--compact-card-h:calc((min(100vw,550px) - 38px) / 5 + 22px)}
+  .adventure-dock-preview.art-rebuild-preview #game .dock-page{padding-inline:5px}
+  .adventure-dock-preview.art-rebuild-preview #game .lore-card .dock-dps small{display:none}
+}
