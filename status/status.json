@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T20:42:09.912Z",
+ "generatedAt": "2026-11-03T20:46:23.027Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -411,42 +411,9 @@
    "by": "Joshua",
    "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
    "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "questions",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The art fetch couldn't bring the folder Approved/Companion-Theme-Backdrops-P1-Complete12-v04 (https://drive.google.com/drive/folders/14IhQiRJSyVKuoE3Ji2Rvo1Xi3i8GzAz-). It's 66 MB, and together with the other art it went over the 100 MB limit, so its 12 pictures haven't been…"
-    },
-    {
-     "who": "joshua",
-     "text": "Do you approve the ten plain dock card backgrounds (Dock-Card-Rarity-Skins-v01)? I suggest approving the colors and the plain middle, and letting the game draw the thin frame and edge marks itself, using your pictures as the guide. That keeps them sharp on a phone."
-    },
-    {
-     "who": "joshua",
-     "text": "For the big companion screen, which companion gets which of the 12 scenes? I suggest matching each one by its home, for example wetlands for water beasts, and deciding that when the big screen is built."
-    },
-    {
-     "who": "joshua",
-     "text": "Fungal Hollow's background has lettering in the lower left. I suggest making a clean new version without the lettering and putting it in its own new folder in your Artwork Inbox's Approved folder."
-    },
-    {
-     "who": "joshua",
-     "text": "Moonlit Grove's background has dark bands across the top and bottom, and Lantern Gloom's has fainter ones. Should they be drawn again without the bands? I suggest yes for Moonlit Grove, and keeping Lantern Gloom until it's seen on the big screen."
-    },
-    {
-     "who": "joshua",
-     "text": "Do you approve the see-through pictures of Ashfold, Frostmote, Tackbolt and Brickwarden? They all pass the art check and look clean at small sizes. I suggest approving them if they look right to you. If you'd like, Frostmote could be drawn a little bigger in its picture, so…"
-    },
-    {
-     "who": "joshua",
-     "text": "What should the masked dagger fighter be called? The ideas so far are Redveil, Duskrunner, Ragblade and Ashknife. I suggest Redveil, because it matches the red scarf and the hidden face. Its game ID is made from the name, so it waits for your choice."
-    },
-    {
-     "who": "joshua",
-     "text": "The game's companion pictures are 512×512, but the approved see-through pictures are bigger (1312×1199 or 1254×1254). Is it OK to make a smaller copy of each for the game, without changing anything else in it? I suggest yes. The approved originals would stay untouched in your…"
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-11-02T04:06:28Z",
    "mergedAt": null,
    "closedAt": null,
@@ -1146,16 +1113,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
   },
   {
-   "at": "2026-11-03T07:13:36Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
-  },
-  {
-   "at": "2026-11-03T07:13:36Z",
-   "kind": "question",
-   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-11-03T07:13:24Z",
    "kind": "built",
    "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
@@ -1224,6 +1181,16 @@
    "at": "2026-11-03T07:03:53Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-03T07:01:19Z",
+   "kind": "live",
+   "text": "“Place Challenge Boss above the Party tray on the right” is live in the game"
+  },
+  {
+   "at": "2026-11-03T07:01:16Z",
+   "kind": "approved",
+   "text": "Noah approved “Place Challenge Boss above the Party tray on the right”"
   }
  ],
  "otherPulls": [
