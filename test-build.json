@@ -1,5 +1,5 @@
 {
-  "base": "f93f6e47129e7194949c8b6180eb78b6f98bc340",
+  "base": "daa281b1d1f0e0cd67939986b0f71a719443034f",
   "included": [
     {
       "number": 38,
@@ -59,6 +59,15 @@
   ],
   "skipped": [
     {
+      "number": 78,
+      "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
+      "head": "0ecbd148d95341ce6128c99fbeb76b7b5a865f94",
+      "files": [
+        "pocket-fortune/dist/grand-archive.js"
+      ],
+      "with": "others"
+    },
+    {
       "number": 93,
       "title": "Reduce empty space above expanded Party cards",
       "head": "21f8b1543919b1dea65f491b51347f197687177e",
@@ -68,6 +77,6 @@
       "with": "others"
     }
   ],
-  "commit": "65ddc119206a0d96c5f0d3d25146b60aeaf804cb",
-  "at": "2026-11-03T07:28:03Z"
+  "commit": "b890c9898c50ce4e0380db2e8160944ff84d0294",
+  "at": "2026-11-03T07:29:07Z"
 }
