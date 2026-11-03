@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T19:44:46.448Z",
+ "generatedAt": "2026-11-03T19:49:55.175Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -29,6 +29,30 @@
   ]
  },
  "items": [
+  {
+   "number": 97,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Design guided progression companion power and achievements from owner references",
+   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T03:47:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T07:29:10Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-03T19:49:18Z",
+   "headSha": "861d56921d1d2f63b24b4a38685b43c532806ec3",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "working",
+   "botAt": "2026-11-03T19:49:18Z"
+  },
   {
    "number": 93,
    "kind": "request",
@@ -306,30 +330,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-28T03:15:36Z"
-  },
-  {
-   "number": 97,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Design guided progression companion power and achievements from owner references",
-   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T03:47:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T07:29:10Z",
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-03T07:29:24Z",
-   "headSha": "861d56921d1d2f63b24b4a38685b43c532806ec3",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:29:24Z"
   },
   {
    "number": 78,
@@ -1022,11 +1022,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   },
   {
-   "at": "2026-11-03T07:29:24Z",
-   "kind": "built",
-   "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
-  },
-  {
    "at": "2026-11-03T07:29:10Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
@@ -1195,6 +1190,11 @@
    "at": "2026-11-03T07:00:01Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-03T06:59:02Z",
+   "kind": "live",
+   "text": "“Integrate approved idle vortex animation in Adventure Rift” is live in the game"
   }
  ],
  "otherPulls": [
