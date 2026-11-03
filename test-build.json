@@ -71,8 +71,18 @@
         "pocket-fortune/dist/grand-archive.js"
       ],
       "with": "others"
+    },
+    {
+      "number": 102,
+      "title": "Integrate approved 10-tier companion dock backgrounds",
+      "head": "658bd2965b0bd8ced64cc31ff69f542a69ee396d",
+      "files": [
+        "pocket-fortune/dist/adventure-art-cards.css",
+        "pocket-fortune/dist/adventure-art-cards.js"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "2635e42df98bd4384f5178c53b2a9c560ca0a244",
-  "at": "2026-11-03T20:17:42Z"
+  "commit": "834b06d54aa940dbb2eddc62f948e41c24f5cade",
+  "at": "2026-11-03T20:54:46Z"
 }
