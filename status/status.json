@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T07:13:07.988Z",
+ "generatedAt": "2026-11-03T07:14:00.799Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-03T07:07:29Z",
+  "updatedAt": "2026-11-03T07:13:15Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -29,28 +29,102 @@
  },
  "items": [
   {
+   "number": 98,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
+   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The art fetch couldn't bring the folder Approved/Companion-Theme-Backdrops-P1-Complete12-v04 (https://drive.google.com/drive/folders/14IhQiRJSyVKuoE3Ji2Rvo1Xi3i8GzAz-). It's 66 MB, and together with the other art it went over the 100 MB limit, so its 12 pictures haven't been…"
+    },
+    {
+     "who": "joshua",
+     "text": "Do you approve the ten plain dock card backgrounds (Dock-Card-Rarity-Skins-v01)? I suggest approving the colors and the plain middle, and letting the game draw the thin frame and edge marks itself, using your pictures as the guide. That keeps them sharp on a phone."
+    },
+    {
+     "who": "joshua",
+     "text": "For the big companion screen, which companion gets which of the 12 scenes? I suggest matching each one by its home, for example wetlands for water beasts, and deciding that when the big screen is built."
+    },
+    {
+     "who": "joshua",
+     "text": "Fungal Hollow's background has lettering in the lower left. I suggest making a clean new version without the lettering and putting it in its own new folder in your Artwork Inbox's Approved folder."
+    },
+    {
+     "who": "joshua",
+     "text": "Moonlit Grove's background has dark bands across the top and bottom, and Lantern Gloom's has fainter ones. Should they be drawn again without the bands? I suggest yes for Moonlit Grove, and keeping Lantern Gloom until it's seen on the big screen."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you approve the see-through pictures of Ashfold, Frostmote, Tackbolt and Brickwarden? They all pass the art check and look clean at small sizes. I suggest approving them if they look right to you. If you'd like, Frostmote could be drawn a little bigger in its picture, so…"
+    },
+    {
+     "who": "joshua",
+     "text": "What should the masked dagger fighter be called? The ideas so far are Redveil, Duskrunner, Ragblade and Ashknife. I suggest Redveil, because it matches the red scarf and the hidden face. Its game ID is made from the name, so it waits for your choice."
+    },
+    {
+     "who": "joshua",
+     "text": "The game's companion pictures are 512×512, but the approved see-through pictures are bigger (1312×1199 or 1254×1254). Is it OK to make a smaller copy of each for the game, without changing anything else in it? I suggest yes. The approved originals would stay untouched in your…"
+    }
+   ],
+   "openedAt": "2026-11-02T04:06:28Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:13:36Z",
+   "headSha": "f0de4648aecf2fe65a7bffe096bade5af13be91e",
+   "touchesGame": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-03T07:13:36Z"
+  },
+  {
    "number": 81,
    "kind": "request",
    "by": "Joshua",
    "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
    "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "#77 and this request: I dropped that question. #77, #80 and #66 are already in main, and main is already merged into this branch, so nothing is left to sort out. The shrine cleanup (part B) is the one #77 put in the game."
+    },
+    {
+     "who": "noah",
+     "text": "Old backdrop pictures and patterns: they stay in assets/adventure-rebuild/ for now. They get deleted only after Joshua is happy with the plain colours, and only after a check that nothing else uses them."
+    },
+    {
+     "who": "noah",
+     "text": "When Joshua is happy with the plain rarity colours, the old card backdrop files in assets/adventure-rebuild/ (*-backplate.webp, common-*.webp, *-ambient.svg, habitat-motifs.svg) can be deleted. My suggestion: write \"@claude remove the old backdrops\" here then, and I'll check…"
+    },
+    {
+     "who": "joshua",
+     "text": "On phones, each DPS plate shows only the number, without the word \"DPS\", because the cards are too narrow for both at a readable size. My suggestion: try it on the test site first. If the bare numbers feel unclear, I can add one small \"Companion DPS\" label in the Party tray's…"
+    }
+   ],
    "openedAt": "2026-10-30T01:27:11Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
+   "testAt": "2026-11-03T07:13:16Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:13:17Z",
-   "headSha": "4063e3ee647e45b694933e7f0fa0140694dde055",
+   "updatedAt": "2026-11-03T07:13:24Z",
+   "headSha": "4a18bf4fd5b6e6a2b8a3dd220c4ab9ab309c0b4e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-03T07:13:17Z"
+   "botAt": "2026-11-03T07:13:24Z"
   },
   {
    "number": 85,
@@ -58,18 +132,27 @@
    "by": "Joshua",
    "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
    "quote": "\"I want it to look like this. And some of the higher ones being gifs.\"  \"No I want you to render and provide resources for it to use\"  \"That's good but I need individual, approved\"  \"Send it\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The gargoyle menu frame stays out. The menu keeps its thin bronze border. The frame's master file is kept but not used. It was never copied into the game."
+    },
+    {
+     "who": "joshua",
+     "text": "The row names stay cream on every row, and dark on Exalted."
+    }
+   ],
    "openedAt": "2026-11-01T02:03:26Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
+   "testAt": "2026-11-03T07:13:16Z",
    "onTest": true,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:13:07Z",
+   "updatedAt": "2026-11-03T07:13:16Z",
    "headSha": "a982dc1554ba37af34d5550ceb395c21cd904f01",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -89,97 +172,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
+   "testAt": "2026-11-03T07:13:16Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:13:00Z",
+   "updatedAt": "2026-11-03T07:13:16Z",
    "headSha": "bf06ca74c70a3d8b11734571b1aa6eca8954dfbc",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-11-03T07:13:00Z"
-  },
-  {
-   "number": 78,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
-   "quote": "LOREBOUND — Summoning System UI Refactor. Replace Tome-tier presentation with one permanent Portal progression. This request supersedes earlier Tome-tier UI direction. one permanent Summoning Portal / Rift ... one portal level progression ... Level 1, Level 2, Level 3 ... no Tome I / II / III / IV / V presentation ... no “Library > Tome III” style labeling. This request is primarily a UI / presentation refactor ... preserve current real functionality where possible ... all values displayed are real, live game values.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T23:17:42Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:12:51Z",
-   "headSha": "879159d32c548c1f5c85b7a84071adb54ee22b2a",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "finished",
-   "botAt": "2026-11-03T07:12:51Z"
-  },
-  {
-   "number": 98,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
-   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T04:06:28Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:12:40Z",
-   "headSha": "30c8339b6369d831b32d2823bfced7c6d27ff7d8",
-   "touchesGame": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-03T07:12:40Z"
-  },
-  {
-   "number": 96,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
-   "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
-   "stage": "questions",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "This request is waiting until Haven (#92) is settled. Suggestion: when #92 is ready, comment \"@claude build this now\" on this pull request and I'll build the first version for the test site only."
-    },
-    {
-     "who": "joshua",
-     "text": "How much Wood and Stone should each order cost? Suggestion: I start with small test amounts, about what one early Haven building costs, and you change them after trying it on the test site."
-    }
-   ],
-   "openedAt": "2026-11-02T03:42:27Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:12:34Z",
-   "headSha": "dbaaba273fc8bdee4c17e24f798b2bd977f93c5c",
-   "touchesGame": false,
-   "requestStatus": "Answered, waiting for Haven (#92) before building",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:12:34Z"
   },
   {
    "number": 69,
@@ -194,11 +196,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
+   "testAt": "2026-11-03T07:13:16Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:12:32Z",
+   "updatedAt": "2026-11-03T07:13:16Z",
    "headSha": "38625fa501e6bb24fb1da6efa0096e67d36150be",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -218,11 +220,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
+   "testAt": "2026-11-03T07:13:16Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:12:28Z",
+   "updatedAt": "2026-11-03T07:13:16Z",
    "headSha": "1315a6f83e57e88e70982b6bc858650b165763c8",
    "touchesGame": true,
    "requestStatus": "Partly built, waiting for answers",
@@ -242,11 +244,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
+   "testAt": "2026-11-03T07:13:16Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:12:24Z",
+   "updatedAt": "2026-11-03T07:13:16Z",
    "headSha": "38f6fbb19834ac4ad26617a0f75055ee49964330",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -291,11 +293,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
+   "testAt": "2026-11-03T07:13:16Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:12:23Z",
+   "updatedAt": "2026-11-03T07:13:16Z",
    "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -315,11 +317,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
+   "testAt": "2026-11-03T07:13:16Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:12:12Z",
+   "updatedAt": "2026-11-03T07:13:16Z",
    "headSha": "ca2d5a62d28eb008153edfc30977b0d89d9ade1a",
    "touchesGame": true,
    "requestStatus": "Waiting for answers",
@@ -356,16 +358,121 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
+   "testAt": "2026-11-03T07:13:16Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:11:59Z",
+   "updatedAt": "2026-11-03T07:13:16Z",
    "headSha": "8a788f8d4d6a73413a00449f1f5727efb94ac698",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-03T07:11:59Z"
+  },
+  {
+   "number": 92,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T02:38:48Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T07:13:16Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:13:16Z",
+   "headSha": "d06cacf4736a25ed8e64bc6796daca1591ba9c9c",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-02T03:17:40Z"
+  },
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T07:13:16Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:13:16Z",
+   "headSha": "a01861bff30171fd9633a066b2d178a18285bdb0",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-10-28T03:15:36Z"
+  },
+  {
+   "number": 78,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
+   "quote": "LOREBOUND — Summoning System UI Refactor. Replace Tome-tier presentation with one permanent Portal progression. This request supersedes earlier Tome-tier UI direction. one permanent Summoning Portal / Rift ... one portal level progression ... Level 1, Level 2, Level 3 ... no Tome I / II / III / IV / V presentation ... no “Library > Tome III” style labeling. This request is primarily a UI / presentation refactor ... preserve current real functionality where possible ... all values displayed are real, live game values.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T23:17:42Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:12:51Z",
+   "headSha": "879159d32c548c1f5c85b7a84071adb54ee22b2a",
+   "touchesGame": false,
+   "requestStatus": "Waiting for answers",
+   "botState": "finished",
+   "botAt": "2026-11-03T07:12:51Z"
+  },
+  {
+   "number": 96,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
+   "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "This request is waiting until Haven (#92) is settled. Suggestion: when #92 is ready, comment \"@claude build this now\" on this pull request and I'll build the first version for the test site only."
+    },
+    {
+     "who": "joshua",
+     "text": "How much Wood and Stone should each order cost? Suggestion: I start with small test amounts, about what one early Haven building costs, and you change them after trying it on the test site."
+    }
+   ],
+   "openedAt": "2026-11-02T03:42:27Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:12:34Z",
+   "headSha": "dbaaba273fc8bdee4c17e24f798b2bd977f93c5c",
+   "touchesGame": false,
+   "requestStatus": "Answered, waiting for Haven (#92) before building",
+   "botState": "questions",
+   "botAt": "2026-11-03T07:12:34Z"
   },
   {
    "number": 93,
@@ -390,54 +497,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-11-03T07:11:19Z"
-  },
-  {
-   "number": 92,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T02:38:48Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:07:29Z",
-   "headSha": "d06cacf4736a25ed8e64bc6796daca1591ba9c9c",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-02T03:17:40Z"
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:07:29Z",
-   "headSha": "a01861bff30171fd9633a066b2d178a18285bdb0",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-28T03:15:36Z"
   },
   {
    "number": 66,
@@ -970,14 +1029,44 @@
  ],
  "activity": [
   {
-   "at": "2026-11-03T07:13:17Z",
+   "at": "2026-11-03T07:13:36Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
+  },
+  {
+   "at": "2026-11-03T07:13:36Z",
+   "kind": "question",
+   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-03T07:13:24Z",
    "kind": "built",
    "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
+  },
+  {
+   "at": "2026-11-03T07:13:24Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Use approved rarity-frame design and simplify Adventure Rift rail”"
+  },
+  {
+   "at": "2026-11-03T07:13:24Z",
+   "kind": "question",
+   "text": "Part of “Use approved rarity-frame design and simplify Adventure Rift rail” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-03T07:13:16Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
   },
   {
    "at": "2026-11-03T07:13:07Z",
    "kind": "built",
    "text": "Claude finished building “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”"
+  },
+  {
+   "at": "2026-11-03T07:13:07Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”"
   },
   {
    "at": "2026-11-03T07:13:00Z",
@@ -1138,36 +1227,6 @@
    "at": "2026-11-03T05:09:32Z",
    "kind": "closed",
    "text": "“Retire Trophy Room showcase and preserve Treasures records” was closed"
-  },
-  {
-   "at": "2026-11-03T05:09:27Z",
-   "kind": "closed",
-   "text": "“Owner approves Recruits label and both battlefield frames” was closed"
-  },
-  {
-   "at": "2026-11-03T05:09:24Z",
-   "kind": "closed",
-   "text": "“Owner approves caravan defaults and provisional roster placements” was closed"
-  },
-  {
-   "at": "2026-11-03T05:09:20Z",
-   "kind": "closed",
-   "text": "“Owner approves Haven timing and accessible Party collapse target” was closed"
-  },
-  {
-   "at": "2026-11-03T05:09:15Z",
-   "kind": "closed",
-   "text": "“Owner approves naming habitats frame fitting and compact menus” was closed"
-  },
-  {
-   "at": "2026-11-03T05:09:11Z",
-   "kind": "closed",
-   "text": "“Owner approves all three Journal choices from #60” was closed"
-  },
-  {
-   "at": "2026-11-03T04:46:15Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
  ],
  "otherPulls": [
