@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T20:56:21.925Z",
+ "generatedAt": "2026-11-03T21:00:05.184Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -36,9 +36,34 @@
    "by": "Joshua",
    "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
    "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Let me read the fresh inventory. Either allow gh run download in the Claude build, or download artifact 13270176731 from run 41715224791 and paste the paths of the 25 files added to Approved after 07:13 UTC into an @claude comment. Then I can match them to the 5 missing…"
+    },
+    {
+     "who": "noah",
+     "text": "Check the Realm 2 pictures. If Approved/Realm2-Companions-v63 is finished, run Fetch art in download mode with only Realm2-Companions-v63. The 3 ZIPs come to 51 MB, so the folder should be about the same and fit under 100 MB without the backgrounds. Then write \"@claude build…"
+    },
+    {
+     "who": "noah",
+     "text": "The art download couldn't bring the backgrounds folder Approved/Companion-Theme-Backdrops-P1-Complete12-v04 (66 MB), so its 12 pictures haven't been checked. I suggest fetching that folder by itself before anyone builds the big companion screen. It doesn't block any companion…"
+    },
+    {
+     "who": "joshua",
+     "text": "Did you upload new pictures for Reedwatch Tinker, Millward Bellkeeper, Dewfern, Coppice Cricket or Unstitch after this morning? If so, tell me the folder name in your Artwork Inbox and I'll check them. You don't need to make them again."
+    },
+    {
+     "who": "joshua",
+     "text": "Do you approve the see-through pictures of Ashfold, Frostmote, Tackbolt and Brickwarden? They're uploaded and pass every check. Today they're marked \"ok next\", not \"approved\". I suggest approving them if they look right to you."
+    },
+    {
+     "who": "joshua",
+     "text": "What should the masked dagger fighter be called? Its records still say the name isn't chosen (Redveil, Duskrunner, Ragblade or Ashknife). I suggest Redveil, because it matches the red scarf and the hidden face."
+    }
+   ],
    "openedAt": "2026-11-02T04:06:28Z",
    "mergedAt": null,
    "closedAt": null,
@@ -47,12 +72,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T20:55:23Z",
+   "updatedAt": "2026-11-03T20:59:30Z",
    "headSha": "f0de4648aecf2fe65a7bffe096bade5af13be91e",
    "touchesGame": false,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-03T20:55:23Z"
+   "botState": "questions",
+   "botAt": "2026-11-03T20:59:30Z"
   },
   {
    "number": 97,
@@ -1011,6 +1036,16 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T20:59:30Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
+  },
+  {
+   "at": "2026-11-03T20:59:30Z",
+   "kind": "question",
+   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-03T20:54:49Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
@@ -1199,16 +1234,6 @@
    "at": "2026-11-03T07:12:12Z",
    "kind": "built",
    "text": "Claude finished building “Add approved Realm 2 companions to universal summoning and Omnidex”"
-  },
-  {
-   "at": "2026-11-03T07:11:59Z",
-   "kind": "built",
-   "text": "Claude finished building “Improve Adventure battlefield layout with shared nameplate and party frame”"
-  },
-  {
-   "at": "2026-11-03T07:07:29Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
   }
  ],
  "otherPulls": [
