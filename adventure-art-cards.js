@@ -19,7 +19,7 @@
           <svg class="card-habitat" viewBox="0 0 100 140" aria-hidden="true"><use href="${base}habitat-motifs.svg#${habitat}"/></svg>${backplate?`<img class="card-ambient" src="${base+own}-ambient.svg" alt="" width="100" height="180">`:''}
           <span class="dock-art-stage">${root.LoreArt.portrait(h,'dock-portrait')}</span></span>
         <img class="card-frame" src="${frame(tier)}" alt="" width="264" height="352" decoding="async">
-        ${level?`<span class="dock-level">Lv. ${level}</span>`:''}<span class="card-name">${escape(h.name)}</span>
+        ${level?`<span class="dock-level">Lv. ${level}</span>`:''}<span class="card-name"><span class="card-name-line">${escape(h.name)}</span></span>
       </span>
       <span class="dock-dps"><b>${escape(power)}</b><small>DPS</small></span>
     </button>`;
