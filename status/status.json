@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T04:41:57.755Z",
+ "generatedAt": "2026-11-03T04:43:09.074Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -51,14 +51,14 @@
    "liveAt": null,
    "testAt": "2026-11-03T03:56:54Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T04:39:42Z",
-   "headSha": "92c911115d7cdce28eb397ebcdba2bd67a34b498",
+   "updatedAt": "2026-11-03T04:42:40Z",
+   "headSha": "3b942a83044c23344715580c3d5696a73525184d",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-03T04:39:42Z"
+   "botState": "questions",
+   "botAt": "2026-11-03T04:42:40Z"
   },
   {
    "number": 89,
@@ -1286,7 +1286,7 @@
  ],
  "activity": [
   {
-   "at": "2026-11-03T04:39:42Z",
+   "at": "2026-11-03T04:42:40Z",
    "kind": "built",
    "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
   },
