@@ -4,42 +4,42 @@
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "9ae161d173b7b9e0d431bdee799900ea0d9408fd"
+      "head": "49f221bd3da4d6ff841e75c1181fa42d20039cb9"
     },
     {
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-      "head": "f331038e2d198ea20f4d6ef2d9cd3e98ed57a543"
+      "head": "4cb8d54bc5f031ca0bd4c43e9affdc760963fe67"
     },
     {
       "number": 65,
       "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-      "head": "86b71c57eaf2c6671d290d6bedc08fbe00082f63"
+      "head": "fbf2fa7fa91113ce82f1d7f5b48bc0e4475cd9d0"
     },
     {
       "number": 66,
       "title": "Place Challenge Boss above the Party tray on the right",
-      "head": "dab9e4d64ff232d4805541c0a1774aba6766ef00"
+      "head": "03acfe8228131443997d6916f48f68eea0a9eb57"
     },
     {
       "number": 69,
       "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-      "head": "b520d1052349bbac4791ca3294acec68fe51fa33"
+      "head": "d4745921e270184f2b73e916382c193313d328bb"
     },
     {
       "number": 81,
       "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-      "head": "a4529644783c29449fdba5c7b3698f76242432ae"
+      "head": "4c428ff6e7dded7bc7f4434d694c71533d4b57b4"
     },
     {
       "number": 83,
       "title": "Stage approved companion habitats on dev for mobile QA",
-      "head": "f248c227b154721837c6f1bcd4183977b668ac74"
+      "head": "e73740e5f513a94e7d137ae413e6ffab6bfc8336"
     },
     {
       "number": 84,
       "title": "Integrate approved 10 unique Auto Summon rarity rows",
-      "head": "5dd27bedd568246d870da161cb61f2af57edfa5b"
+      "head": "eef5a09914138b87e191a743263e2015114eb6ea"
     },
     {
       "number": 85,
@@ -77,6 +77,6 @@
       "with": "main"
     }
   ],
-  "commit": "c08b6e508271803d1afd3e93adb06d1ce60974f9",
-  "at": "2026-11-03T07:00:01Z"
+  "commit": "8fe66182d0280ccf797f58522702f0efd8fc9eed",
+  "at": "2026-11-03T07:01:01Z"
 }
