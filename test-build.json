@@ -24,7 +24,7 @@
     {
       "number": 81,
       "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-      "head": "4063e3ee647e45b694933e7f0fa0140694dde055"
+      "head": "4a18bf4fd5b6e6a2b8a3dd220c4ab9ab309c0b4e"
     },
     {
       "number": 83,
@@ -39,7 +39,7 @@
     {
       "number": 85,
       "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
-      "head": "91c00016075a2b4c568d57d032f35124eb510629"
+      "head": "a982dc1554ba37af34d5550ceb395c21cd904f01"
     },
     {
       "number": 89,
@@ -68,6 +68,6 @@
       "with": "others"
     }
   ],
-  "commit": "a3e385b555b5c46af6ca10dfaa89803a0c02608b",
-  "at": "2026-11-03T07:13:15Z"
+  "commit": "e4f903188685b9230293ae677fd8c19fa7df68b0",
+  "at": "2026-11-03T07:14:13Z"
 }
