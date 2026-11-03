@@ -19,7 +19,7 @@
     {
       "number": 69,
       "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-      "head": "38625fa501e6bb24fb1da6efa0096e67d36150be"
+      "head": "b5751ae65d053601b3eb7eb66dab9a897afad84b"
     },
     {
       "number": 81,
@@ -34,7 +34,7 @@
     {
       "number": 84,
       "title": "Integrate approved 10 unique Auto Summon rarity rows",
-      "head": "38f6fbb19834ac4ad26617a0f75055ee49964330"
+      "head": "ff367f98b060951cbc902ba7670c6780fe9a3839"
     },
     {
       "number": 85,
@@ -68,6 +68,6 @@
       "with": "others"
     }
   ],
-  "commit": "e4f903188685b9230293ae677fd8c19fa7df68b0",
-  "at": "2026-11-03T07:14:13Z"
+  "commit": "6de10b77351e9383fabc23d52797c5f8deb90446",
+  "at": "2026-11-03T07:14:56Z"
 }
