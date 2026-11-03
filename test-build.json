@@ -1,50 +1,45 @@
 {
-  "base": "9ee732cf65197b1c667f15e09359932c12574855",
+  "base": "f93f6e47129e7194949c8b6180eb78b6f98bc340",
   "included": [
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "49f221bd3da4d6ff841e75c1181fa42d20039cb9"
+      "head": "a01861bff30171fd9633a066b2d178a18285bdb0"
     },
     {
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-      "head": "4cb8d54bc5f031ca0bd4c43e9affdc760963fe67"
+      "head": "e69ea21a95391c547410027eae79e46b9ff05318"
     },
     {
       "number": 65,
       "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-      "head": "fbf2fa7fa91113ce82f1d7f5b48bc0e4475cd9d0"
-    },
-    {
-      "number": 66,
-      "title": "Place Challenge Boss above the Party tray on the right",
-      "head": "03acfe8228131443997d6916f48f68eea0a9eb57"
+      "head": "092a677f67b4b7740841d98b9697b8cf138e78c8"
     },
     {
       "number": 69,
       "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-      "head": "d4745921e270184f2b73e916382c193313d328bb"
+      "head": "38625fa501e6bb24fb1da6efa0096e67d36150be"
     },
     {
       "number": 81,
       "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-      "head": "4c428ff6e7dded7bc7f4434d694c71533d4b57b4"
+      "head": "4063e3ee647e45b694933e7f0fa0140694dde055"
     },
     {
       "number": 83,
       "title": "Stage approved companion habitats on dev for mobile QA",
-      "head": "e73740e5f513a94e7d137ae413e6ffab6bfc8336"
+      "head": "bf06ca74c70a3d8b11734571b1aa6eca8954dfbc"
     },
     {
       "number": 84,
       "title": "Integrate approved 10 unique Auto Summon rarity rows",
-      "head": "eef5a09914138b87e191a743263e2015114eb6ea"
+      "head": "38f6fbb19834ac4ad26617a0f75055ee49964330"
     },
     {
       "number": 85,
       "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
-      "head": "accb7e533275d0b240f25d891fe38246ec365761"
+      "head": "91c00016075a2b4c568d57d032f35124eb510629"
     },
     {
       "number": 89,
@@ -54,14 +49,14 @@
     {
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-      "head": "0606c113f5a7d21324636d5b4ffbbc91da87d842"
+      "head": "d06cacf4736a25ed8e64bc6796daca1591ba9c9c"
     }
   ],
   "skipped": [
     {
       "number": 93,
       "title": "Reduce empty space above expanded Party cards",
-      "head": "7b2219eb65bad8397eead3b40857059efdfe98f7",
+      "head": "3e90ed07af176d94cb3f76a351d43f1b4e1981c8",
       "files": [
         "pocket-fortune/dist/realm1-art.js"
       ],
@@ -77,6 +72,6 @@
       "with": "main"
     }
   ],
-  "commit": "8fe66182d0280ccf797f58522702f0efd8fc9eed",
-  "at": "2026-11-03T07:01:01Z"
+  "commit": "2752abe88568250b1f587324e2e7cf89994f2263",
+  "at": "2026-11-03T07:03:52Z"
 }
