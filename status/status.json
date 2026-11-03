@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T21:11:01.711Z",
+ "generatedAt": "2026-11-03T21:12:18.777Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -36,9 +36,18 @@
    "by": "Joshua",
    "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
    "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The art robot can't reach the companion pictures, because it only fetches whole folders and Approved/Realm 2 is over its 100 MB limit. I suggest the easiest fix: copy just the three ZIPs (R2_Companions_01-10, 11-20 and 21-30_APPROVED_v63.zip) into a new folder,…"
+    },
+    {
+     "who": "noah",
+     "text": "If you'd rather leave Drive alone, the other fix is to change tools/artwork-intake/request-art.cjs on main so that when a request names a file inside a big folder, the robot fetches only that file. The build always uses main's copy of the tool, so I can't do this from this…"
+    }
+   ],
    "openedAt": "2026-11-01T03:47:10Z",
    "mergedAt": null,
    "closedAt": null,
@@ -1024,6 +1033,11 @@
    "text": "Claude finished building “Add approved Realm 2 companions to universal summoning and Omnidex”"
   },
   {
+   "at": "2026-11-03T21:10:53Z",
+   "kind": "question",
+   "text": "Part of “Add approved Realm 2 companions to universal summoning and Omnidex” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-03T21:04:58Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
@@ -1212,11 +1226,6 @@
    "at": "2026-11-03T07:12:23Z",
    "kind": "question",
    "text": "Part of “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-03T07:11:59Z",
-   "kind": "built",
-   "text": "Claude finished building “Improve Adventure battlefield layout with shared nameplate and party frame”"
   }
  ],
  "otherPulls": [
