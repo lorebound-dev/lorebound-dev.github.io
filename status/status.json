@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T01:50:04.708Z",
+ "generatedAt": "2026-11-03T01:51:19.617Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -53,12 +53,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-11-03T01:50:07Z",
+   "updatedAt": "2026-11-03T01:50:35Z",
    "headSha": "0756c105a71fe5474a18fb69820f24122b2ffbb1",
    "touchesGame": true,
    "requestStatus": "Waiting to be built",
-   "botState": "working",
-   "botAt": "2026-11-03T01:50:07Z"
+   "botState": "finished",
+   "botAt": "2026-11-03T01:50:35Z"
   },
   {
    "number": 89,
@@ -1278,6 +1278,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T01:50:35Z",
+   "kind": "built",
+   "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
+  },
+  {
    "at": "2026-11-03T01:49:41Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1471,11 +1476,6 @@
    "at": "2026-11-02T03:47:29Z",
    "kind": "asked",
    "text": "You asked for “Design guided progression companion power and achievements from owner references”"
-  },
-  {
-   "at": "2026-11-02T03:45:46Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
  ],
  "otherPulls": [
