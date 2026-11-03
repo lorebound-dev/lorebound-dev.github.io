@@ -9,12 +9,12 @@
     {
       "number": 60,
       "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-      "head": "e69ea21a95391c547410027eae79e46b9ff05318"
+      "head": "b3158071877811fe4f0bee45ecef5edf3f2d1d06"
     },
     {
       "number": 65,
       "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-      "head": "092a677f67b4b7740841d98b9697b8cf138e78c8"
+      "head": "8a788f8d4d6a73413a00449f1f5727efb94ac698"
     },
     {
       "number": 69,
@@ -44,7 +44,7 @@
     {
       "number": 89,
       "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-      "head": "9b0ed46d3b137ed01b8c74d2d716f854efe20eea"
+      "head": "ca2d5a62d28eb008153edfc30977b0d89d9ade1a"
     },
     {
       "number": 92,
@@ -68,6 +68,6 @@
       "with": "others"
     }
   ],
-  "commit": "ec5619f58fb3105461af368d13b5baa1ae2b684b",
-  "at": "2026-11-03T07:07:29Z"
+  "commit": "a3e385b555b5c46af6ca10dfaa89803a0c02608b",
+  "at": "2026-11-03T07:13:15Z"
 }
