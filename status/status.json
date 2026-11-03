@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T01:13:31.450Z",
+ "generatedAt": "2026-11-03T01:48:35.266Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-10-31T02:22:48Z",
@@ -607,34 +607,9 @@
    "by": "Joshua",
    "title": "Design guided progression companion power and achievements from owner references",
    "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "built",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Ten party slots need a save update. Old saves keep every companion, and an older game version must never cut a ten-companion save down to five. Suggestion: approve it and build it next."
-    },
-    {
-     "who": "noah",
-     "text": "Saving the first-boss help: a counter for kills at Floor 10 (including kills while away), a record of the largest party ever (so releasing companions never qualifies anyone), and a record for the free Common that isn't treated as a paid summon. No help for players already…"
-    },
-    {
-     "who": "noah",
-     "text": "Joshua's +3 Essence on the first-summon reward: pay it only on claims made after the update, and record it so it's never paid twice. Suggestion: yes."
-    },
-    {
-     "who": "noah",
-     "text": "New goal rewards, which Joshua hasn't set: 25 Gold for Clear Floor 1, 50 Gold for a second companion, 100 Gold + 1 Shard for Portal Level 2, 75 Gold for Portal Level 3 and 75 Gold for Start Auto. They also need saved markers for \"Auto started\" and Portal level. Suggestion:…"
-    },
-    {
-     "who": "noah",
-     "text": "Old Tomes under the new Portal levels, decided with #78: each old Tome becomes the lowest Portal level with odds at least as good, and Portal goals already passed can be claimed once (at most 175 Gold + 1 Shard). Suggestion: yes."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-11-02T03:47:29Z",
    "mergedAt": null,
    "closedAt": null,
@@ -644,9 +619,9 @@
    "testIsCurrent": false,
    "clashes": true,
    "updatedAt": "2026-11-03T01:01:45Z",
-   "headSha": "31ab8b33ff7a9d1de60df433bc7d2fa162cf9b6e",
+   "headSha": "0756c105a71fe5474a18fb69820f24122b2ffbb1",
    "touchesGame": true,
-   "requestStatus": "Partly built, waiting for answers",
+   "requestStatus": "Waiting to be built",
    "botState": "questions",
    "botAt": "2026-11-03T01:01:45Z"
   },
@@ -1313,11 +1288,6 @@
    "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
   },
   {
-   "at": "2026-11-03T01:01:45Z",
-   "kind": "question",
-   "text": "Part of “Design guided progression companion power and achievements from owner references” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-11-03T00:58:56Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1501,6 +1471,11 @@
    "at": "2026-11-02T03:47:29Z",
    "kind": "asked",
    "text": "You asked for “Design guided progression companion power and achievements from owner references”"
+  },
+  {
+   "at": "2026-11-02T03:45:46Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Owner approves immediate Challenge Boss placement fix from #65”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
  ],
  "otherPulls": [
