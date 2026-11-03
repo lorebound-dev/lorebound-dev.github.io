@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T07:18:00.348Z",
+ "generatedAt": "2026-11-03T07:27:19.002Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -28,6 +28,54 @@
   ]
  },
  "items": [
+  {
+   "number": 97,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Design guided progression companion power and achievements from owner references",
+   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T03:47:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T07:17:58Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:20:54Z",
+   "headSha": "1315a6f83e57e88e70982b6bc858650b165763c8",
+   "touchesGame": true,
+   "requestStatus": "Partly built, waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-11-03T07:20:54Z"
+  },
+  {
+   "number": 78,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
+   "quote": "LOREBOUND — Summoning System UI Refactor. Replace Tome-tier presentation with one permanent Portal progression. This request supersedes earlier Tome-tier UI direction. one permanent Summoning Portal / Rift ... one portal level progression ... Level 1, Level 2, Level 3 ... no Tome I / II / III / IV / V presentation ... no “Library > Tome III” style labeling. This request is primarily a UI / presentation refactor ... preserve current real functionality where possible ... all values displayed are real, live game values.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T23:17:42Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:20:16Z",
+   "headSha": "879159d32c548c1f5c85b7a84071adb54ee22b2a",
+   "touchesGame": false,
+   "requestStatus": "Waiting for answers",
+   "botState": "finished",
+   "botAt": "2026-11-03T07:20:16Z"
+  },
   {
    "number": 83,
    "kind": "request",
@@ -190,30 +238,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-03T07:13:07Z"
-  },
-  {
-   "number": 97,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Design guided progression companion power and achievements from owner references",
-   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T03:47:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T07:17:58Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:17:58Z",
-   "headSha": "1315a6f83e57e88e70982b6bc858650b165763c8",
-   "touchesGame": true,
-   "requestStatus": "Partly built, waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:12:28Z"
   },
   {
    "number": 60,
@@ -466,30 +490,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-03T07:13:36Z"
-  },
-  {
-   "number": 78,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
-   "quote": "LOREBOUND — Summoning System UI Refactor. Replace Tome-tier presentation with one permanent Portal progression. This request supersedes earlier Tome-tier UI direction. one permanent Summoning Portal / Rift ... one portal level progression ... Level 1, Level 2, Level 3 ... no Tome I / II / III / IV / V presentation ... no “Library > Tome III” style labeling. This request is primarily a UI / presentation refactor ... preserve current real functionality where possible ... all values displayed are real, live game values.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T23:17:42Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:12:51Z",
-   "headSha": "879159d32c548c1f5c85b7a84071adb54ee22b2a",
-   "touchesGame": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "finished",
-   "botAt": "2026-11-03T07:12:51Z"
   },
   {
    "number": 96,
@@ -1055,6 +1055,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T07:20:54Z",
+   "kind": "built",
+   "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
+  },
+  {
    "at": "2026-11-03T07:17:58Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
@@ -1165,11 +1170,6 @@
    "text": "Part of “Connect Haven to LOREBOUND economy through resource-backed Gold caravans” is waiting for Noah’s OK"
   },
   {
-   "at": "2026-11-03T07:12:28Z",
-   "kind": "built",
-   "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
-  },
-  {
    "at": "2026-11-03T07:12:23Z",
    "kind": "built",
    "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
@@ -1258,7 +1258,7 @@
  "otherPulls": [
   {
    "number": 100,
-   "headSha": "76540a8abbcf3f437fc0f4ae8ae7b81a46607585",
+   "headSha": "7b5ee8c11935c80b5a25ad5b8006b6ae9d6f0b14",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
