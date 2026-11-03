@@ -1,7 +1,7 @@
 /* Cosmetic companion lore: one habitat per category and fixed display measurements. No combat, odds or save data. */
 (function(root){'use strict';
-// One full-screen habitat per category; the starry void stays as the fallback. Mortals uses the Ruined Fortress v03
-// for testing; the approved Forgotten Courtyard v02 and the Wildstone Grotto (Beasts) are only on habitat-review.html.
+// One full-screen habitat per category; the starry void stays as the fallback. Joshua chose Ruined Fortress v03 for
+// Mortals and kept the volcano for Beasts; the alternatives he didn't pick are kept in reviews/companion-habitats/.
 const habitats=Object.freeze({Wildgrowth:'habitat-woodland',Beasts:'habitat-volcanic',Constructs:'habitat-moonlit',Mortals:'habitat-ruined-fortress',Spirits:'habitat-veiled-sanctuary',Aberrations:'habitat-fractured-observatory'});
 const fallback='void';
 // Species id (owned copy ids like 'bramblebud~3' resolve too): [size label, metres, weight in kg or a word for bodiless species]
