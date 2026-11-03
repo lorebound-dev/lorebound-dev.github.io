@@ -1,5 +1,5 @@
 {
-  "base": "c235fd25d5f2eee5272aac93aeb9aad848cc2816",
+  "base": "9ee732cf65197b1c667f15e09359932c12574855",
   "included": [
     {
       "number": 38,
@@ -27,11 +27,6 @@
       "head": "b520d1052349bbac4791ca3294acec68fe51fa33"
     },
     {
-      "number": 80,
-      "title": "Integrate approved idle vortex animation in Adventure Rift",
-      "head": "b1e0ddc060db099c09debd689ba279356c57e0ec"
-    },
-    {
       "number": 81,
       "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
       "head": "a4529644783c29449fdba5c7b3698f76242432ae"
@@ -49,7 +44,7 @@
     {
       "number": 85,
       "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
-      "head": "53182398563a75453669d1f29c304f121676a590"
+      "head": "accb7e533275d0b240f25d891fe38246ec365761"
     },
     {
       "number": 89,
@@ -59,14 +54,14 @@
     {
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-      "head": "99504cd53c0539a59a655fa5de4e19acfc68da43"
+      "head": "0606c113f5a7d21324636d5b4ffbbc91da87d842"
     }
   ],
   "skipped": [
     {
       "number": 93,
       "title": "Reduce empty space above expanded Party cards",
-      "head": "c14c3e61264e2e4ec745277cda6ea1a31dd8f9f2",
+      "head": "7b2219eb65bad8397eead3b40857059efdfe98f7",
       "files": [
         "pocket-fortune/dist/realm1-art.js"
       ],
@@ -79,9 +74,9 @@
       "files": [
         "pocket-fortune/dist/home.html"
       ],
-      "with": "others"
+      "with": "main"
     }
   ],
-  "commit": "87d768b262a11a6714467cfe7b4be8780bfd860e",
-  "at": "2026-11-03T05:21:24Z"
+  "commit": "c08b6e508271803d1afd3e93adb06d1ce60974f9",
+  "at": "2026-11-03T07:00:01Z"
 }
