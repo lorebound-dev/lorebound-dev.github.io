@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T21:22:39.070Z",
+ "generatedAt": "2026-11-03T21:24:50.380Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -1021,30 +1021,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-29T01:17:07Z"
-  },
-  {
-   "number": 67,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build explorable vertical Town from approved Mossbound Ruins terrain",
-   "quote": "\"I think we need to render a new draggable background so it looks legit. Also I want to suggest orienting the area to be more vertical as well as more space between them so it feels like a real town. Maybe have different decor and stuff to make it feel real.\"  Joshua confirmed that the Town should be a living village gradually restored over time, and **approved the final terrain-only vertical illustration** on October 28, 2026.",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T23:29:11Z",
-   "mergedAt": "2026-10-29T02:12:50Z",
-   "closedAt": "2026-10-29T02:12:50Z",
-   "liveAt": "2026-10-29T02:12:53Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-29T02:12:53Z",
-   "headSha": "31086aff13715089b8cf56359dee26ffc3a074ef",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T01:14:40Z"
   }
  ],
  "activity": [
@@ -1250,6 +1226,15 @@
   }
  ],
  "otherPulls": [
+  {
+   "number": 103,
+   "headSha": "fba90397b11545d5dd620e7c0aa300a8324162a1",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 101,
    "headSha": "6b74e94bbd4054176c972e2605d69c5bd7a5ec7a",
