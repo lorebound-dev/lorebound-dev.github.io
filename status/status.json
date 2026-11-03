@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T19:52:06.014Z",
+ "generatedAt": "2026-11-03T20:06:50.753Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-03T15:45:10Z",
+  "updatedAt": "2026-11-03T20:01:13Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -20,53 +20,33 @@
    "Integrate approved 10 unique Auto Summon rarity rows",
    "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
    "Add approved Realm 2 companions to universal summoning and Omnidex",
-   "Haven 3.0–4.0: upgradeable town and endless connected frontier"
+   "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "Reduce empty space above expanded Party cards"
   ],
   "skipped": [
    "Replace Tome-tier UI with one permanent numeric Portal progression",
-   "Reduce empty space above expanded Party cards",
    "Design guided progression companion power and achievements from owner references"
   ]
  },
  "items": [
-  {
-   "number": 93,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Reduce empty space above expanded Party cards",
-   "quote": "Also the distance between the top of the menus and the companions is too big",
-   "stage": "built",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "It clashes with another change in progress, in realm1-art.js, so it isn't on the test site yet."
-    }
-   ],
-   "openedAt": "2026-11-02T02:55:24Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-03T19:51:15Z",
-   "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-03T19:51:15Z"
-  },
   {
    "number": 97,
    "kind": "request",
    "by": "Joshua",
    "title": "Design guided progression companion power and achievements from owner references",
    "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "built",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Look at the combined test site at phone sizes, now that this request is back with #60, #81, #83, #92 and #93. Check especially whether the ten-place tray's button row should replace #93's collapse arrow. Suggestion: do it in your next local browser session, starting with…"
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in home.html and journal.js and ownership-adventure.js, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-11-02T03:47:29Z",
    "mergedAt": null,
    "closedAt": null,
@@ -75,12 +55,36 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-11-03T19:50:29Z",
-   "headSha": "861d56921d1d2f63b24b4a38685b43c532806ec3",
+   "updatedAt": "2026-11-03T20:05:41Z",
+   "headSha": "ab1e7fb59797258f2ea9399491feb2e4e17636f0",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-03T20:05:41Z"
+  },
+  {
+   "number": 93,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Reduce empty space above expanded Party cards",
+   "quote": "Also the distance between the top of the menus and the companions is too big",
+   "stage": "testing",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T02:55:24Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T20:01:14Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T20:01:14Z",
+   "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-03T19:50:29Z"
+   "botAt": "2026-11-03T19:51:15Z"
   },
   {
    "number": 83,
@@ -95,11 +99,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -119,11 +123,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -143,11 +147,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "b5751ae65d053601b3eb7eb66dab9a897afad84b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -176,11 +180,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "4a18bf4fd5b6e6a2b8a3dd220c4ab9ab309c0b4e",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -200,11 +204,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "a982dc1554ba37af34d5550ceb395c21cd904f01",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -229,11 +233,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -253,11 +257,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "ca2d5a62d28eb008153edfc30977b0d89d9ade1a",
    "touchesGame": true,
    "requestStatus": "Waiting for answers",
@@ -277,11 +281,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "8a788f8d4d6a73413a00449f1f5727efb94ac698",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -301,11 +305,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "d06cacf4736a25ed8e64bc6796daca1591ba9c9c",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -325,11 +329,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-03T15:45:10Z",
+   "testAt": "2026-11-03T20:01:14Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T15:45:10Z",
+   "updatedAt": "2026-11-03T20:01:14Z",
    "headSha": "a01861bff30171fd9633a066b2d178a18285bdb0",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -1002,19 +1006,24 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T20:05:41Z",
+   "kind": "built",
+   "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
+  },
+  {
+   "at": "2026-11-03T20:05:41Z",
+   "kind": "question",
+   "text": "Part of “Design guided progression companion power and achievements from owner references” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-03T20:01:14Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”"
+  },
+  {
    "at": "2026-11-03T19:51:15Z",
    "kind": "built",
    "text": "Claude finished building “Reduce empty space above expanded Party cards”"
-  },
-  {
-   "at": "2026-11-03T19:51:15Z",
-   "kind": "question",
-   "text": "Part of “Reduce empty space above expanded Party cards” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-03T19:50:29Z",
-   "kind": "built",
-   "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
   },
   {
    "at": "2026-11-03T15:45:10Z",
@@ -1195,11 +1204,6 @@
    "at": "2026-11-03T07:01:16Z",
    "kind": "approved",
    "text": "Noah approved “Place Challenge Boss above the Party tray on the right”"
-  },
-  {
-   "at": "2026-11-03T07:01:02Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
  ],
  "otherPulls": [
