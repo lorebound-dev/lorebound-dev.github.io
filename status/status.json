@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T19:38:01.428Z",
+ "generatedAt": "2026-11-03T19:44:46.448Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -29,6 +29,30 @@
   ]
  },
  "items": [
+  {
+   "number": 93,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Reduce empty space above expanded Party cards",
+   "quote": "Also the distance between the top of the menus and the companions is too big",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T02:55:24Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-03T19:44:28Z",
+   "headSha": "21f8b1543919b1dea65f491b51347f197687177e",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-03T19:44:28Z"
+  },
   {
    "number": 83,
    "kind": "request",
@@ -351,30 +375,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-03T07:28:57Z"
-  },
-  {
-   "number": 93,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Reduce empty space above expanded Party cards",
-   "quote": "Also the distance between the top of the menus and the companions is too big",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T02:55:24Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-03T07:15:39Z",
-   "headSha": "21f8b1543919b1dea65f491b51347f197687177e",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:15:39Z"
   },
   {
    "number": 98,
@@ -997,6 +997,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T19:44:28Z",
+   "kind": "built",
+   "text": "Claude finished building “Reduce empty space above expanded Party cards”"
+  },
+  {
    "at": "2026-11-03T15:45:10Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1070,11 +1075,6 @@
    "at": "2026-11-03T07:15:49Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
-  },
-  {
-   "at": "2026-11-03T07:15:39Z",
-   "kind": "built",
-   "text": "Claude finished building “Reduce empty space above expanded Party cards”"
   },
   {
    "at": "2026-11-03T07:14:56Z",
