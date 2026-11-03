@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T07:12:08.038Z",
+ "generatedAt": "2026-11-03T07:13:07.988Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -29,6 +29,30 @@
  },
  "items": [
   {
+   "number": 81,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
+   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-30T01:27:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T07:07:29Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:13:17Z",
+   "headSha": "4063e3ee647e45b694933e7f0fa0140694dde055",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-03T07:13:17Z"
+  },
+  {
    "number": 85,
    "kind": "request",
    "by": "Joshua",
@@ -43,73 +67,25 @@
    "liveAt": null,
    "testAt": "2026-11-03T07:07:29Z",
    "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:12:25Z",
-   "headSha": "91c00016075a2b4c568d57d032f35124eb510629",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-03T07:12:25Z"
-  },
-  {
-   "number": 60,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T04:18:38Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:12:23Z",
-   "headSha": "e69ea21a95391c547410027eae79e46b9ff05318",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:12:23Z"
-  },
-  {
-   "number": 89,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-01T03:47:10Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
-   "onTest": true,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:12:12Z",
-   "headSha": "ca2d5a62d28eb008153edfc30977b0d89d9ade1a",
+   "updatedAt": "2026-11-03T07:13:07Z",
+   "headSha": "a982dc1554ba37af34d5550ceb395c21cd904f01",
    "touchesGame": true,
-   "requestStatus": "Waiting for answers",
+   "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-03T07:12:12Z"
+   "botAt": "2026-11-03T07:13:07Z"
   },
   {
-   "number": 69,
+   "number": 83,
    "kind": "request",
    "by": "Joshua",
-   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
-   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
+   "title": "Stage approved companion habitats on dev for mobile QA",
+   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
    "stage": "building",
    "waitingOn": null,
    "asks": [],
-   "openedAt": "2026-10-29T01:01:40Z",
+   "openedAt": "2026-10-31T00:30:55Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
@@ -117,36 +93,12 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:12:04Z",
-   "headSha": "38625fa501e6bb24fb1da6efa0096e67d36150be",
+   "updatedAt": "2026-11-03T07:13:00Z",
+   "headSha": "bf06ca74c70a3d8b11734571b1aa6eca8954dfbc",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-03T07:12:04Z"
-  },
-  {
-   "number": 65,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
-   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T22:17:13Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
-   "onTest": true,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:11:59Z",
-   "headSha": "8a788f8d4d6a73413a00449f1f5727efb94ac698",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:11:59Z"
+   "botState": "finished",
+   "botAt": "2026-11-03T07:13:00Z"
   },
   {
    "number": 78,
@@ -165,12 +117,93 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:11:56Z",
+   "updatedAt": "2026-11-03T07:12:51Z",
    "headSha": "879159d32c548c1f5c85b7a84071adb54ee22b2a",
    "touchesGame": false,
    "requestStatus": "Waiting for answers",
    "botState": "finished",
-   "botAt": "2026-11-03T07:11:56Z"
+   "botAt": "2026-11-03T07:12:51Z"
+  },
+  {
+   "number": 98,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
+   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T04:06:28Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:12:40Z",
+   "headSha": "30c8339b6369d831b32d2823bfced7c6d27ff7d8",
+   "touchesGame": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "working",
+   "botAt": "2026-11-03T07:12:40Z"
+  },
+  {
+   "number": 96,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
+   "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
+   "stage": "questions",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "This request is waiting until Haven (#92) is settled. Suggestion: when #92 is ready, comment \"@claude build this now\" on this pull request and I'll build the first version for the test site only."
+    },
+    {
+     "who": "joshua",
+     "text": "How much Wood and Stone should each order cost? Suggestion: I start with small test amounts, about what one early Haven building costs, and you change them after trying it on the test site."
+    }
+   ],
+   "openedAt": "2026-11-02T03:42:27Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:12:34Z",
+   "headSha": "dbaaba273fc8bdee4c17e24f798b2bd977f93c5c",
+   "touchesGame": false,
+   "requestStatus": "Answered, waiting for Haven (#92) before building",
+   "botState": "questions",
+   "botAt": "2026-11-03T07:12:34Z"
+  },
+  {
+   "number": 69,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify team and Omnidex companion pages; approve Locations provisionally",
+   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T01:01:40Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T07:07:29Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:12:32Z",
+   "headSha": "38625fa501e6bb24fb1da6efa0096e67d36150be",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-03T07:12:32Z"
   },
   {
    "number": 97,
@@ -189,12 +222,12 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:11:54Z",
+   "updatedAt": "2026-11-03T07:12:28Z",
    "headSha": "1315a6f83e57e88e70982b6bc858650b165763c8",
    "touchesGame": true,
    "requestStatus": "Partly built, waiting for answers",
-   "botState": "working",
-   "botAt": "2026-11-03T07:11:54Z"
+   "botState": "questions",
+   "botAt": "2026-11-03T07:12:28Z"
   },
   {
    "number": 84,
@@ -213,36 +246,126 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:11:45Z",
+   "updatedAt": "2026-11-03T07:12:24Z",
    "headSha": "38f6fbb19834ac4ad26617a0f75055ee49964330",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-03T07:11:45Z"
+   "botState": "questions",
+   "botAt": "2026-11-03T07:12:24Z"
   },
   {
-   "number": 96,
+   "number": 60,
    "kind": "request",
    "by": "Joshua",
-   "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
-   "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T03:42:27Z",
+   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "[x] Add Joshua's three answers to the request file"
+    },
+    {
+     "who": "joshua",
+     "text": "[x] Push and report"
+    },
+    {
+     "who": "joshua",
+     "text": "The Journal keeps opening on the last tab used."
+    },
+    {
+     "who": "joshua",
+     "text": "\"Your Journey\" and \"Your Achievements\" stay under The First Chronicle."
+    },
+    {
+     "who": "joshua",
+     "text": "Claimed quests stay in the closed Completed section, with claims and readiness diamonds as they are."
+    },
+    {
+     "who": "noah",
+     "text": "The Journal redesign is ready for your last look on a real iPhone. Merging it puts it in the real game, so please merge only when you're happy with it."
+    }
+   ],
+   "openedAt": "2026-10-28T04:18:38Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": null,
-   "onTest": false,
+   "testAt": "2026-11-03T07:07:29Z",
+   "onTest": true,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T07:11:38Z",
-   "headSha": "8386285c6677c0ea826f6dfd59fe0c96d638e167",
-   "touchesGame": false,
+   "updatedAt": "2026-11-03T07:12:23Z",
+   "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-03T07:12:23Z"
+  },
+  {
+   "number": 89,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
+   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [],
+   "openedAt": "2026-11-01T03:47:10Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T07:07:29Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:12:12Z",
+   "headSha": "ca2d5a62d28eb008153edfc30977b0d89d9ade1a",
+   "touchesGame": true,
    "requestStatus": "Waiting for answers",
-   "botState": "working",
-   "botAt": "2026-11-03T07:11:38Z"
+   "botState": "questions",
+   "botAt": "2026-11-03T07:12:12Z"
+  },
+  {
+   "number": 65,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Improve Adventure battlefield layout with shared nameplate and party frame",
+   "quote": "Reviewed screenshots of LOREBOUND Adventure at Floor 90 with the party both collapsed and expanded. \"Can you review this front page and compile recommended assets that could improve the layout?\" Then, for two recommended reusable assets (combat nameplate and party/dock panel): \"Lead the way and make it happen.\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "[x] Added Joshua's two answers and the approval to the request file, under ### Changes"
+    },
+    {
+     "who": "joshua",
+     "text": "[x] Checked both pictures on this branch again. They match the hashes from #72 exactly"
+    },
+    {
+     "who": "joshua",
+     "text": "[x] Changed nothing in the game. The only change is the request file"
+    },
+    {
+     "who": "joshua",
+     "text": "[x] Pushed"
+    }
+   ],
+   "openedAt": "2026-10-28T22:17:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T07:07:29Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-03T07:11:59Z",
+   "headSha": "8a788f8d4d6a73413a00449f1f5727efb94ac698",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-03T07:11:59Z"
   },
   {
    "number": 93,
@@ -291,54 +414,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-11-02T03:17:40Z"
-  },
-  {
-   "number": 81,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-30T01:27:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:07:29Z",
-   "headSha": "4063e3ee647e45b694933e7f0fa0140694dde055",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T05:09:06Z"
-  },
-  {
-   "number": 83,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Stage approved companion habitats on dev for mobile QA",
-   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-31T00:30:55Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T07:07:29Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:07:29Z",
-   "headSha": "bf06ca74c70a3d8b11734571b1aa6eca8954dfbc",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-31T00:38:04Z"
   },
   {
    "number": 38,
@@ -411,30 +486,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-30T02:09:02Z"
-  },
-  {
-   "number": 98,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
-   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T04:06:28Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T05:20:26Z",
-   "headSha": "30c8339b6369d831b32d2823bfced7c6d27ff7d8",
-   "touchesGame": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T05:20:26Z"
   },
   {
    "number": 91,
@@ -919,9 +970,59 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T07:13:17Z",
+   "kind": "built",
+   "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
+  },
+  {
+   "at": "2026-11-03T07:13:07Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”"
+  },
+  {
+   "at": "2026-11-03T07:13:00Z",
+   "kind": "built",
+   "text": "Claude finished building “Stage approved companion habitats on dev for mobile QA”"
+  },
+  {
+   "at": "2026-11-03T07:12:34Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Connect Haven to LOREBOUND economy through resource-backed Gold caravans”"
+  },
+  {
+   "at": "2026-11-03T07:12:34Z",
+   "kind": "question",
+   "text": "Part of “Connect Haven to LOREBOUND economy through resource-backed Gold caravans” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-03T07:12:32Z",
+   "kind": "built",
+   "text": "Claude finished building “Unify team and Omnidex companion pages; approve Locations provisionally”"
+  },
+  {
+   "at": "2026-11-03T07:12:28Z",
+   "kind": "built",
+   "text": "Claude finished building “Design guided progression companion power and achievements from owner references”"
+  },
+  {
+   "at": "2026-11-03T07:12:24Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved 10 unique Auto Summon rarity rows”"
+  },
+  {
    "at": "2026-11-03T07:12:23Z",
    "kind": "built",
    "text": "Claude finished building “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-11-03T07:12:23Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”"
+  },
+  {
+   "at": "2026-11-03T07:12:23Z",
+   "kind": "question",
+   "text": "Part of “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-03T07:12:12Z",
@@ -929,9 +1030,19 @@
    "text": "Claude finished building “Add approved Realm 2 companions to universal summoning and Omnidex”"
   },
   {
+   "at": "2026-11-03T07:12:12Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Add approved Realm 2 companions to universal summoning and Omnidex”"
+  },
+  {
    "at": "2026-11-03T07:11:59Z",
    "kind": "built",
    "text": "Claude finished building “Improve Adventure battlefield layout with shared nameplate and party frame”"
+  },
+  {
+   "at": "2026-11-03T07:11:59Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Improve Adventure battlefield layout with shared nameplate and party frame”"
   },
   {
    "at": "2026-11-03T07:11:19Z",
@@ -1054,67 +1165,7 @@
    "text": "“Owner approves all three Journal choices from #60” was closed"
   },
   {
-   "at": "2026-11-03T05:09:06Z",
-   "kind": "built",
-   "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
-  },
-  {
    "at": "2026-11-03T04:46:15Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T04:43:55Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T03:56:54Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T02:22:36Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T02:18:15Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T01:58:23Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T01:49:41Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T01:03:14Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T00:58:56Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T00:53:12Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-02T22:56:41Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-02T22:55:32Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Owner approves Recruits label and both battlefield frames”, “Integrate approved idle vortex animation in Adventure Rift”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Retire Trophy Room showcase and preserve Treasures records”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Rebrand bottom tabs and retire all Treasure Hall UI in favor of Haven”, “Haven: persistent settlement with mining, building and expansion”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
