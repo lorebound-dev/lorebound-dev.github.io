@@ -14,7 +14,7 @@
 .party-services #game :is(#tomeQuickAccess,#autoAccess):focus-visible{outline:2px solid #f3d38c;outline-offset:2px}
 .party-services #game :is(#tomeQuickAccess,#autoAccess):active{filter:brightness(1.15) drop-shadow(0 2px 3px #000c);transform:translateY(1px)}
 @media(max-height:700px),(max-width:350px){.party-services #game #tomeQuickAccess .dock-tome-options,.party-services #game #autoAccess span{font-size:12px!important}.party-services #game :is(#tomeQuickAccess,#autoAccess){margin-bottom:0}}
-/* Auto keeps Joshua's later look from #82: no words while it's off, only the small antique-gold icon, and a compact red
+/* Auto keeps Joshua's look from #82 (no plaque frame), now with the word Auto under the icon while it's off (2026-11-02), and a compact red
    "Stop Auto" while it runs or waits on a paused decision, so it has no plaque frame. Its whole spot stays the tap target. */
 .party-services #game #autoAccess{border:0;border-image:none;background:transparent;filter:none}
 .party-services .training-intro{padding:8px 0 12px;border-bottom:1px solid #a88c514d}
@@ -85,10 +85,12 @@
 .party-services #tomeTierCards [aria-pressed=true] small{color:#ffe8b4}
 #trainingSheet::backdrop{background:#020b17a8;backdrop-filter:blur(3px)}
 
-/* One Auto button: a small antique-gold icon when off, a compact red "Stop Auto" while running. The whole rail cell
+/* One Auto button: a small antique-gold icon with the word Auto when off, a compact red "Stop Auto" while running. The whole rail cell
    stays the tap target (at least 44px) even though the visible button is small. */
 .party-services #game #autoAccess .auto-access-icon{width:24px;height:24px;fill:none;stroke:#d8bd7e;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 2px #000)}
-.party-services #game #autoAccess.is-running .auto-access-icon{display:none}
+.party-services #game #autoAccess.is-running :is(.auto-access-icon,.auto-access-word){display:none}
+/* Joshua 2026-11-02: the idle control says Auto in words, not only the icon. */
+.party-services #game #autoAccess .auto-access-word{font:13px/1.15 Georgia,serif!important;color:#f0dcab;text-shadow:0 1px 2px #000}
 .party-services #game #autoAccess .auto-access-stop{max-width:100%;padding:4px 5px;background:linear-gradient(#a3333b,#6f1d25);border:1px solid #e3a0a0;border-radius:3px;color:#fff3ea;font:13px/1.15 Georgia,serif!important;text-align:center;text-shadow:0 1px 1px #0009}
 .party-services #game #autoAccess .auto-access-stop[hidden]{display:none}
 .dock-sr-only{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}

@@ -36,7 +36,7 @@ function spawn(s,rng){const t=record(s);if(t.status==='complete'){t.enemyFloor=n
 function completion(){return {title:'realm1-conqueror',trophy:'realm1-conquered',rewardReceipt:100};}
 function convert(input,sourceHash='0'.repeat(64)){
  demand(root.LoreOwnership.validate(input),'Invalid ownership save; reconciliation required');
- if(active(input)){demand([SCHEMA,'lorebound-ownership-6','lorebound-ownership-7','lorebound-ownership-8','lorebound-ownership-9','lorebound-ownership-10'].includes(input.schema)&&valid(input.progress),'Invalid story ledger');return root.LoreOwnership.hydrate(JSON.parse(JSON.stringify(input)));}
+ if(active(input)){demand([SCHEMA,'lorebound-ownership-6','lorebound-ownership-7','lorebound-ownership-8','lorebound-ownership-9','lorebound-ownership-10','lorebound-ownership-11'].includes(input.schema)&&valid(input.progress),'Invalid story ledger');return root.LoreOwnership.hydrate(JSON.parse(JSON.stringify(input)));}
  const s=root.LoreOwnership.hydrate(JSON.parse(JSON.stringify(input))),p=s.progress;
  demand(/^[a-f0-9]{64}$/.test(sourceHash),'Verified source fingerprint required');
  const n=p.realmComplete?100:p.floor-1,expected=Array.from({length:n},(_,i)=>i+1);
@@ -62,7 +62,7 @@ function firstClear(s,f){const t=record(s);if(t.receipts[f])return {gold:0,shard
 function finish(s,rng,offline=false){const t=record(s);if(t.status==='complete')return null;
  const boss=s.mode==='boss',floor=s.floor,farm=!boss&&isBoss(floor);
  let gold=0,xp=0,shards=0,first=false;
- if(!boss){gold=R.goldReward(s);if(farm&&root.LoreArmory?.active(s))gold=root.LoreArmory.farmingGold(s,gold);if(farm&&root.LoreRecruitment?.enabled(s))gold=root.LoreRecruitment.applyGold(s,gold,'farmingGold');xp=R.E.regularXp;s.gold+=gold;s.playerXp+=xp;s.regularKills++;if(!offline&&root.LoreRealmSystems.active(s))s.progress.realmSystems.activeKills++;}
+ if(!boss){gold=R.goldReward(s);if(farm&&root.LoreArmory?.active(s))gold=root.LoreArmory.farmingGold(s,gold);if(farm&&root.LoreRecruitment?.enabled(s))gold=root.LoreRecruitment.applyGold(s,gold,'farmingGold');xp=R.E.regularXp;s.gold+=gold;s.playerXp+=xp;s.regularKills++;if(!offline&&root.LoreRealmSystems.active(s))s.progress.realmSystems.activeKills++;if(farm)root.LoreGuide?.aidKill(s);}
  if(!farm){const r=firstClear(s,floor);gold+=r.gold;xp+=r.xp;shards=r.shards;first=r.first;
   if(floor===100){s.realmComplete=true;t.status='complete';t.completion=completion();}else{s.floor++;t.floor=s.floor;}
  }

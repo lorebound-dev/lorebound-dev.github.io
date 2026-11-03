@@ -1,0 +1,23 @@
+/* Next goal plaque on Adventure (journal.js goal()). A squared antique-gold plaque in the strip at the bottom of the
+   battle scene (.battle-panel, 44px high, just above the party tray), so it never covers the enemy, its HP plaque or
+   the Omnidex and Journal shortcuts. When Challenge Boss shows, the boss button stays the main action on the right and
+   the goal shrinks to its name and progress on the left. */
+.game .next-goal{order:-1;flex:1 1 auto;position:relative;z-index:4;display:flex;align-items:stretch;gap:6px;width:auto;max-width:340px;min-width:0;height:44px;min-height:44px;margin:0;padding:2px 2px 2px 9px;box-sizing:border-box;background:linear-gradient(#0f2230e6,#0a1823f0);border:1px solid #8b785699;border-radius:2px;box-shadow:var(--ui-frame-shadow,inset 0 0 0 1px #07131f),0 2px 4px #0007}
+.game .next-goal[hidden]{display:none!important}
+.game .next-goal.claimable{border-color:#c0a16a;box-shadow:inset 0 0 0 1px #07131f,0 0 6px #e9c57b33}
+.game .next-goal-open{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:1px;padding:0;margin:0;background:none;border:0;box-shadow:none;text-align:left;color:#f1e4c4;cursor:pointer}
+.game .next-goal-open small{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:12px/1.2 Georgia,serif!important;color:#c0a16a;letter-spacing:0;text-transform:none}
+.game .next-goal-open b{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:13px/1.25 Georgia,serif!important;font-weight:400!important;color:#f1e4c4;text-shadow:0 1px 2px #000}
+.game .next-goal-count{align-self:center;flex:none;padding:0 6px;font:12px/1 Georgia,serif!important;color:#bec8cb;white-space:nowrap}
+.game .next-goal-claim{flex:none;min-width:64px;min-height:38px;margin:0;padding:0 10px;background:linear-gradient(#e9c57b,#a9844c);color:#07131f;border:1px solid #f4dca0;border-radius:2px;font:bold 13px/1 Georgia,serif!important;letter-spacing:0;text-transform:none;cursor:pointer}
+.game .next-goal-open:focus-visible,.game .next-goal-claim:focus-visible{outline:2px solid #e9c57b;outline-offset:1px}
+/* Boss floor: Challenge Boss (180px, adventure-refinement.css) is the main action; the goal is the smaller entry beside it. */
+.adventure-refined #game.floor-ready:not(.encounter-boss) .battle-panel{gap:6px}
+.adventure-refined #game.floor-ready:not(.encounter-boss) #bossButton{flex:none}
+.adventure-refined #game.floor-ready:not(.encounter-boss) .next-goal{flex:1 1 0;max-width:none}
+.adventure-refined #game.floor-ready:not(.encounter-boss) .next-goal-open b{display:none}
+.adventure-refined #game.floor-ready:not(.encounter-boss) .next-goal-open small{font-size:13px!important;color:#f1e4c4}
+.adventure-refined #game.floor-ready:not(.encounter-boss) .next-goal.claimable .next-goal-open{display:none}
+.adventure-refined #game.floor-ready:not(.encounter-boss) .next-goal.claimable{padding-left:2px}
+.adventure-refined #game.floor-ready:not(.encounter-boss) .next-goal-claim{flex:1;min-width:0}
+@media(max-width:350px){.adventure-refined #game.floor-ready:not(.encounter-boss) #bossButton{width:160px}}

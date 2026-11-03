@@ -25,8 +25,8 @@ function refresh(){
  const count=9,done=s.realmComplete?9:(s.floor-1)%10,timeline=$('floorTimeline');
  timeline.setAttribute('aria-label',`${done} of ${count} ordinary story floors cleared in this chapter. ${s.realmComplete?'Realm conquered':R.ready(s)?'Boss ready to challenge':'Next boss on Floor '+(Math.floor(s.floor/10)*10+10)}.`);
  timeline.innerHTML=Array.from({length:count},(_,i)=>`<i class="${i<done?'complete':''}"></i>`).join('')+'<b aria-hidden="true"><svg viewBox="0 0 64 64"><use href="assets/navigation-emblems.svg#arena"/></svg></b>';
- const actors=[$('boundSprite'),...document.querySelectorAll('.battle-follower')],n=actors.length;
- actors.forEach((actor,i)=>{const p=n===1?0:(i/(n-1)*2-1);actor.style.left=(50+p*33)+'%';actor.style.setProperty('--court-depth',(Math.abs(p)*17)+'px');});
+ // Fighters keep their party place's anchor (party-formation.js); a new floor or encounter only re-checks the scene.
+ root.LoreFormation?.place();
 }
 setInterval(refresh,100);refresh();
 })(globalThis);

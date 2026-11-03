@@ -20,8 +20,8 @@ function mount(){
  $('libraryProgressionOpen').onclick=()=>{$('summonSettings').close();root.LoreSummoning.openSettings('upgrade');};
  // Preserve the original Auto control and handler for the engine; the new entry opens its existing settings.
  const old=document.createElement('div');old.hidden=true;old.id='autoLegacyControl';$('game').append(old);old.append($('autoSummon'));
- const auto=document.createElement('button');auto.id='autoAccess';auto.type='button';auto.innerHTML='<svg class="auto-access-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.5 8.5A7.5 7.5 0 0 0 5 9.5M5.5 15.5A7.5 7.5 0 0 0 19 14.5"/><path d="M19 3.5v5h-5M5 20.5v-5h5"/></svg><span id="autoAccessLabel" class="auto-access-stop" hidden>Stop Auto</span><span id="autoAccessStatus" class="dock-sr-only" role="status" aria-live="polite"></span>';
- // One Auto button: a quiet icon that opens the setup sheet when Auto is off, and a small red "Stop Auto" while Auto
+ const auto=document.createElement('button');auto.id='autoAccess';auto.type='button';auto.innerHTML='<svg class="auto-access-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.5 8.5A7.5 7.5 0 0 0 5 9.5M5.5 15.5A7.5 7.5 0 0 0 19 14.5"/><path d="M19 3.5v5h-5M5 20.5v-5h5"/></svg><span class="auto-access-word" aria-hidden="true">Auto</span><span id="autoAccessLabel" class="auto-access-stop" hidden>Stop Auto</span><span id="autoAccessStatus" class="dock-sr-only" role="status" aria-live="polite"></span>';
+ // One Auto button: an icon with the word Auto that opens the setup sheet when Auto is off, and a small red "Stop Auto" while Auto
  // runs or waits on a paused decision. One press stops it at once.
  $('summonDock').append(auto);auto.onclick=()=>{if(root.LoreSummoning.auto)root.LoreSummoning.stop('Stopped by you');else root.LoreSummoning.openSettings('auto');refresh();};
 }

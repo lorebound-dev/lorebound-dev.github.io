@@ -6,7 +6,58 @@
   const $ = id => document.getElementById(id);
   const names = ['party'], roman = ['I', 'II', 'III', 'IV', 'V'];
   const icon = name => `<svg viewBox="0 0 64 64" aria-hidden="true"><use href="assets/navigation-emblems.svg#${name}"/></svg>`;
-  let mounted = false, selected = 0, collapsed = false, last = '', partyKey = '';
+  let mounted = false, selected = 0, collapsed = false, last = '', partyKey = '', page = 0;
+  // Ten places (request #97, Joshua's ten-companion layout §2–5). The tray shows all ten in two rows of five when the
+  // fight still keeps 240px of scene; otherwise one row of five with a 1–5 / 6–10 switch, and the two rows open as a
+  // sheet over the lower scene. The mode comes from the measured screen, never the phone model. When even one row and
+  // a 44px control band would leave under 240px, the band goes and one control sits beside the goal and Challenge
+  // band (party-layout.css). Five-place saves keep one row.
+  const PAGE = 5, TARGET = 240, BAND = 44, ACTION = 52, EDGE = 1, CARD_EXTRA = 37;
+  let view = 'expanded', sheet = false, fit = null, measured = '';
+  function setPage(n) { page = n; last = ''; partyKey = ''; refresh(); }
+  // Room the fight keeps with each tray layout. The combat area and the tray share one fixed height (the summon rail's
+  // top minus the combat area's top), so the choice never feeds back into the measurement.
+  function measure() {
+    const combat = $('combatLayout'), deck = $('adventureDeck'), rail = $('summonDock'), game = $('game');
+    if (!combat?.getBoundingClientRect || !deck || !rail || deck.hidden || rail.hidden || game.classList.contains('boss-room') || game.classList.contains('party-sheet-tall')) return null;
+    const shared = rail.getBoundingClientRect().top - combat.getBoundingClientRect().top;
+    const width = Math.min(430, deck.clientWidth), floor = combat.querySelector('.location')?.offsetHeight || 36;
+    if (!(shared > 0) || !(width > 0)) return null;
+    // Card width is (W − 24 − 4×4) / 5; its height keeps the portrait square between the Lv. badge and the DPS plate.
+    const cardW = (width - 24 - 16) / 5, cardH = Math.round(cardW + CARD_EXTRA);
+    const body = rows => 8 + rows * cardH + (rows - 1) * 8 + 10, scene = (band, rows) => Math.round(shared - floor - ACTION - band - body(rows) - EDGE);
+    return {cardW, cardH, body, rail: rail.offsetHeight, two: scene(BAND, 2), band: scene(BAND, 1), corner: scene(0, 1)};
+  }
+  // Picks the layout and sets the sizes party-layout.css reads. --dock-panel-height keeps meaning "tray height minus
+  // the old 22px heading", which realm1-art.js reads when the tray is folded.
+  function arrange(s) {
+    const game = $('game'), many = s.party.slots.length > PAGE, choosing = !!root.LoreOwnershipAdventure?.choosing;
+    const m = measure(); if (m) fit = m; if (!fit) return '';
+    const mode = many && fit.two >= TARGET && (choosing || view === 'expanded') ? 'expanded' : 'compact';
+    const controls = mode === 'expanded' || fit.band >= TARGET ? 'band' : 'corner';
+    if (!many || mode === 'expanded') sheet = false;
+    const over = many && mode === 'compact' && (sheet || choosing), band = controls === 'band' ? BAND : 0, body = fit.body(mode === 'expanded' ? 2 : 1);
+    // A waiting summon's panel sits above the sheet. When both don't fit under the top bar, the summon rail steps aside
+    // until the decision is made (it can't summon while one waits anyway).
+    const hud = game.querySelector('.hud')?.getBoundingClientRect?.().bottom || 0, nav = game.querySelector('.realm-navigation')?.getBoundingClientRect?.().top || 0;
+    const tall = over && choosing && nav > 0 && ($('dockChoice')?.scrollHeight || 0) + 6 + BAND + fit.body(2) + EDGE > nav - hud - fit.rail;
+    game.dataset.partyView = mode; game.dataset.partyControls = controls; game.classList.toggle('party-sheet', over); game.classList.toggle('party-sheet-tall', tall);
+    const vars = {'--party-card-h': fit.cardH, '--party-band': band, '--party-body': body, '--dock-panel-height': band + body + EDGE - 22,
+      '--party-sheet-body': fit.body(2), '--party-sheet-h': BAND + fit.body(2) + EDGE, '--party-sheet-lift': over ? BAND + fit.body(2) - band - body : 0};
+    for (const [k, v] of Object.entries(vars)) game.style.setProperty(k, v + 'px');
+    return [mode, controls, over].join(':');
+  }
+  // The Party button: two rows ↔ one row where two rows fit, otherwise it opens and closes the two-row sheet. While a
+  // summon waits for its place, all ten stay in view.
+  function toggleView() {
+    if (!state || root.LoreOwnershipAdventure?.choosing || state.party.slots.length <= PAGE) return;
+    if (sheet) sheet = false;
+    else if ($('game').dataset.partyView === 'expanded') view = 'compact';
+    else if (fit && fit.two >= TARGET) view = 'expanded';
+    else sheet = true;
+    last = ''; partyKey = ''; refresh();
+    $('dockPartyView').focus({preventScroll:true});
+  }
   function make(tag, className, html = '') { const n = document.createElement(tag); n.className = className; n.innerHTML = html; return n; }
 
   function choose(index, behavior = 'smooth') {
@@ -31,15 +82,30 @@
     $('dockHandle').setAttribute('aria-expanded', String(!value));
     $('dockToggle').querySelector('span').textContent = value ? '⌃' : '⌄';
     choose(selected, 'instant');
+    if (value && sheet) { sheet = false; last = ''; partyKey = ''; refresh(); }
     if (value && !wasCollapsed && $('adventureDeck').contains(document.activeElement)) $('dockHandle').focus({preventScroll:true});
     else if (!value && wasCollapsed && document.activeElement === $('dockHandle')) $('dockToggle').focus({preventScroll:true});
   }
   function refresh() {
     if (!mounted || !state) return;
     const s = state, R = root.LoreRealm, key = JSON.stringify([s.party.slots, s.masteryCopies, s.progress?.armory, s.upgrades, s.owned, s.gold, s.shards, s.summoning.selected, s.summoning.unlocked, s.essence, !!s.pending]);
-    if (key === last || drag) return; last = key;
-    const nextPartyKey = JSON.stringify([s.party.slots, s.masteryCopies, s.progress?.armory, s.upgrades, s.owned]);
-    if (nextPartyKey !== partyKey) { partyKey = nextPartyKey; $('dockCompanions').innerHTML = s.party.slots.map((id, i) => {
+    const layout = arrange(s);
+    if ((key === last && layout === measured) || drag) return; last = key; measured = layout;
+    const many = s.party.slots.length > PAGE, filled = s.party.slots.filter(Boolean).length, [mode, controls, over] = layout.split(':'), all = mode === 'expanded' || over === 'true';
+    if (!many || filled <= PAGE) page = 0;
+    const nextPartyKey = JSON.stringify([s.party.slots, s.masteryCopies, s.progress?.armory, s.upgrades, s.owned, page, layout]);
+    if (nextPartyKey !== partyKey) { partyKey = nextPartyKey;
+    $('game').classList.toggle('party-ten', many);
+    // Party n/10 on the left, the page switch in the middle (one row with more than five companions), collapse on the right.
+    const count = filled + '/' + s.party.slots.length, viewButton = $('dockPartyView');
+    $('dockPartyCount').textContent = count;
+    viewButton.setAttribute('aria-disabled', String(!many || !!root.LoreOwnershipAdventure?.choosing));
+    viewButton.setAttribute('aria-expanded', String(all));
+    viewButton.setAttribute('aria-label', 'Party, ' + filled + ' of ' + s.party.slots.length + ' places filled.' + (!many ? '' : all ? (over === 'true' ? ' Close the party sheet.' : ' Show one row.') : ' Show all ten places.'));
+    const pages = $('dockPartyPages'); pages.hidden = !(many && filled > PAGE && mode === 'compact' && controls === 'band' && over !== 'true');
+    for (const b of pages.querySelectorAll('[data-party-page]')) b.setAttribute('aria-pressed', String(Number(b.dataset.partyPage) === page));
+    $('dockCompanions').innerHTML = s.party.slots.map((id, i) => {
+      if (many && !all && Math.floor(i / PAGE) !== page) return '';
       const h = id && R.species(id);
       return h ? root.LoreAdventureCard.render(h,statFmt(root.LoreParty.power(s,id)),i,null,s.version===5?root.LoreOwnership.leveling(s,id).level:null) : `<button type="button" class="dock-companion is-empty" data-dock-slot="${i}" aria-label="Empty slot ${i+1}. Choose companion"><span class="dock-empty">+</span><span>Empty</span></button>`;
     }).join('');
@@ -73,6 +139,7 @@
     const id = state?.party.slots[from]; if (!id) return false;
     const placed = root.LoreTeam.move(id, to); if (placed === false) return false;
     root.LoreUI?.feedback?.('equip');
+    if (state.party.slots.length > PAGE) page = Math.floor(placed / PAGE);
     last = ''; partyKey = ''; refresh();
     announce(R().species(id).name + ' moved to slot ' + (placed + 1) + '.');
     if (focus) $('dockCompanions').querySelector(`[data-dock-slot="${placed}"]`)?.focus({preventScroll:true});
@@ -139,7 +206,7 @@
     combat.querySelector('.progress-row').append($('timer'));
     game.append($('toast'));
     const deck = make('section', 'adventure-deck'); deck.id = 'adventureDeck'; deck.setAttribute('aria-label', 'Adventure gameplay dock');
-    deck.innerHTML = `<button id="dockHandle" type="button" aria-controls="dockBody" aria-expanded="false"><span class="handle-notch" aria-hidden="true"><svg viewBox="0 0 24 12"><path d="m5 9 7-6 7 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b id="dockHandleLabel" hidden>Party</b><span id="dockHandleRoster" aria-hidden="true"></span></button><header class="dock-heading"><button id="partyTraining" type="button">Training <span aria-hidden="true">›</span></button><button id="dockToggle" type="button" aria-controls="dockBody" aria-expanded="true" aria-label="Collapse party dock"><i aria-hidden="true"></i><span aria-hidden="true">⌄</span></button></header><div id="dockBody" class="dock-body"><div id="dockPages" class="dock-pages">${names.map(name => `<section id="dockPanel-${name}" class="dock-page" aria-label="Equipped companions"></section>`).join('')}</div></div>`;
+    deck.innerHTML = `<button id="dockHandle" type="button" aria-controls="dockBody" aria-expanded="false"><span class="handle-notch" aria-hidden="true"><svg viewBox="0 0 24 12"><path d="m5 9 7-6 7 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b id="dockHandleLabel" hidden>Party</b><span id="dockHandleRoster" aria-hidden="true"></span></button><header class="dock-heading"><button id="dockPartyView" class="dock-party-view" type="button" aria-controls="dockBody"><i class="party-view-icon" aria-hidden="true"></i><span class="party-view-label">Party</span> <b id="dockPartyCount"></b></button><div id="dockPartyPages" class="dock-party-pages" role="group" aria-label="Party places shown" hidden><button type="button" data-party-page="0" aria-pressed="true" aria-label="Show party places 1 to 5">1–5</button><button type="button" data-party-page="1" aria-pressed="false" aria-label="Show party places 6 to 10">6–10</button></div><button id="dockToggle" type="button" aria-controls="dockBody" aria-expanded="true" aria-label="Collapse party dock"><i aria-hidden="true"></i><span aria-hidden="true">⌄</span></button></header><div id="dockBody" class="dock-body"><div id="dockPages" class="dock-pages">${names.map(name => `<section id="dockPanel-${name}" class="dock-page" aria-label="Equipped companions"></section>`).join('')}</div></div>`;
     game.append(deck, $('summonDock'), nav);
     const foundation=make('div','art-foundation'); foundation.id='artFoundation'; foundation.setAttribute('aria-hidden','true'); game.append(foundation);
     for(const node of [deck, $('summonDock')]){const corners=make('span','art-corners');corners.setAttribute('aria-hidden','true');node.append(corners);}
@@ -161,8 +228,10 @@
       root.LoreTeam.open(Number(b.dataset.dockSlot));
     };
     wireReorder();
-    $('partyTraining').remove();
     $('dockToggle').onclick = () => collapse(!collapsed);
+    $('dockPartyView').onclick = toggleView;
+    $('dockPartyPages').onclick = event => { const b = event.target.closest('[data-party-page]'); if (b) setPage(Number(b.dataset.partyPage)); };
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && sheet && !document.querySelector('dialog[open]')) { sheet = false; last = ''; partyKey = ''; refresh(); } });
     $('dockHandle').onclick = () => collapse(false);
     // The unchanged global navigation owns the other four destinations.
     new MutationObserver(() => { const otherArea = game.classList.contains('area-open'); const returning = deck.hidden && !otherArea; deck.hidden = otherArea; $('summonDock').hidden = otherArea; if (returning) choose(selected, 'instant'); }).observe(game, {attributes: true, attributeFilter: ['class']});
@@ -170,7 +239,7 @@
     setInterval(refresh, 200);
     root.__ADVENTURE_DOCK_READY__ = true;
   }
-  root.LoreAdventureDock = {activate, choose, collapse, refresh, get panel() {return names[selected];}, get collapsed() {return collapsed;}};
+  root.LoreAdventureDock = {activate, choose, collapse, refresh, setPage, toggleView, get page() {return page;}, get view() {return $('game')?.dataset.partyView;}, get sheet() {return sheet;}, get fit() {return fit;}, get panel() {return names[selected];}, get collapsed() {return collapsed;}};
   // Observe the real entry lifecycle, including asynchronous save loading and first egg selection.
   // Invalid saves never reveal #game and therefore never mount the dock.
   const startup = new MutationObserver(() => { if (!$('game').hidden) { activate(); if (mounted) startup.disconnect(); } });

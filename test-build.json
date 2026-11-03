@@ -55,6 +55,11 @@
       "number": 93,
       "title": "Reduce empty space above expanded Party cards",
       "head": "db10fb734819e24d0225152b3ce92e4055309cca"
+    },
+    {
+      "number": 97,
+      "title": "Design guided progression companion power and achievements from owner references",
+      "head": "ab1e7fb59797258f2ea9399491feb2e4e17636f0"
     }
   ],
   "skipped": [
@@ -66,19 +71,8 @@
         "pocket-fortune/dist/grand-archive.js"
       ],
       "with": "others"
-    },
-    {
-      "number": 97,
-      "title": "Design guided progression companion power and achievements from owner references",
-      "head": "861d56921d1d2f63b24b4a38685b43c532806ec3",
-      "files": [
-        "pocket-fortune/dist/home.html",
-        "pocket-fortune/dist/journal.js",
-        "pocket-fortune/dist/ownership-adventure.js"
-      ],
-      "with": "others"
     }
   ],
-  "commit": "0ba19bbc21f5e1bdcc998f0bb966c3c4c0a0e300",
-  "at": "2026-11-03T20:01:13Z"
+  "commit": "2635e42df98bd4384f5178c53b2a9c560ca0a244",
+  "at": "2026-11-03T20:17:42Z"
 }

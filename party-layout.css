@@ -1,0 +1,71 @@
+/* Ten-place tray and fight formation (request #97, Joshua's ten-companion layout). adventure-dock.js picks the tray
+   layout from the measured screen and sets --party-band, --party-body and --party-card-h on #game; party-formation.js
+   puts each fighter on its party place's anchor. Measured in a browser at 320×610 to 430×932
+   (docs/ten-layout/browser-pass-2026-11-03.md). */
+
+/* Control band: Party n/10 on the left, the 1–5 / 6–10 switch in the middle, collapse on the right. Every control is
+   a real 44px target; nothing reaches into a card. */
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-heading{position:relative;height:var(--party-band);display:flex;align-items:center;gap:6px;padding:0 4px 0 6px;border:0;background:none;box-shadow:inset 0 -1px #ab955d33}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockPartyView{display:flex;align-items:center;gap:7px;height:44px;min-width:44px;margin:0;padding:0 10px 0 6px;border:0;border-radius:2px;background:none;color:#e6cc8e;font:13px/1 Georgia,serif!important;letter-spacing:0;text-transform:none;cursor:pointer}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockPartyView span{font:13px/1 Georgia,serif!important;letter-spacing:0;text-transform:none}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockPartyView b{font:bold 13px/1 Georgia,serif!important;letter-spacing:0;color:#f1e4c4}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockPartyView[aria-disabled=true]{cursor:default}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockPartyView:focus-visible,.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-party-pages button:focus-visible,.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockToggle:focus-visible{outline:2px solid #e9c57b;outline-offset:-2px}
+/* Two short rows when the tray shows one row; one row when it shows two. */
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .party-view-icon{flex:none;width:17px;height:13px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 13'%3E%3Cg fill='%23e6cc8e'%3E%3Crect width='3' height='5'/%3E%3Crect x='3.5' width='3' height='5'/%3E%3Crect x='7' width='3' height='5'/%3E%3Crect x='10.5' width='3' height='5'/%3E%3Crect x='14' width='3' height='5'/%3E%3Crect y='8' width='3' height='5'/%3E%3Crect x='3.5' y='8' width='3' height='5'/%3E%3Crect x='7' y='8' width='3' height='5'/%3E%3Crect x='10.5' y='8' width='3' height='5'/%3E%3Crect x='14' y='8' width='3' height='5'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockPartyView[aria-expanded=true] .party-view-icon{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 13'%3E%3Cg fill='%23e6cc8e'%3E%3Crect y='4' width='3' height='5'/%3E%3Crect x='3.5' y='4' width='3' height='5'/%3E%3Crect x='7' y='4' width='3' height='5'/%3E%3Crect x='10.5' y='4' width='3' height='5'/%3E%3Crect x='14' y='4' width='3' height='5'/%3E%3C/g%3E%3C/svg%3E")}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockPartyView[aria-disabled=true] .party-view-icon{display:none}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-party-pages{display:flex;margin:0 auto;border-radius:2px;background:linear-gradient(#0f2230e6,#0a1823f0);box-shadow:inset 0 0 0 1px #8b785699}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-party-pages[hidden]{display:none!important}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-party-pages button{min-width:56px;height:44px;margin:0;padding:0 8px;border:0;border-radius:0;background:none;color:#bec8cb;font:13px/1 Georgia,serif!important;letter-spacing:0;text-transform:none;cursor:pointer}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-party-pages button+button{box-shadow:inset 1px 0 #8b785666}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-party-pages button[aria-pressed=true]{background:linear-gradient(#5a4520,#2a1f0d);color:#ffe8b4}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockToggle{position:relative;left:auto;right:auto;top:auto;flex:0 0 44px;width:44px;height:44px;min-height:44px;margin:0 0 0 auto;display:grid;place-items:center}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-party-pages:not([hidden])+#dockToggle{margin-left:0}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockToggle:after{content:none}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view].dock-is-collapsed .dock-heading{display:none}
+
+/* The cards: five equal columns, two rows when the tray shows all ten. Card width (W − 24 − 4×4) / 5, shared row height. */
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-body{height:var(--party-body)}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-page{padding:8px 12px 10px;overflow:hidden}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-companions{height:auto;max-width:406px;margin:0 auto;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:var(--party-card-h);column-gap:4px;row-gap:8px}
+
+/* Short screens: no band. One 44px control sits in a reserved gutter at the left end of the goal and Challenge band
+   (Party, which opens the two rows as a sheet; collapse when there are only five places). */
+.adventure-dock-preview.art-rebuild-preview #game[data-party-controls=corner]:not(.party-sheet) .dock-heading{position:absolute;left:8px;bottom:calc(100% + 8px);width:44px;height:44px;padding:0;gap:0;z-index:9;box-shadow:none}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-controls=corner]:not(.party-sheet) .dock-party-pages,.adventure-dock-preview.art-rebuild-preview #game[data-party-controls=corner].party-ten:not(.party-sheet) #dockToggle,.adventure-dock-preview.art-rebuild-preview #game[data-party-controls=corner]:not(.party-ten):not(.party-sheet) #dockPartyView{display:none!important}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-controls=corner]:not(.party-sheet) :is(#dockPartyView,#dockToggle){width:44px;height:44px;flex-direction:column;justify-content:center;gap:4px;padding:0;margin:0;border:1px solid #8b785699;border-radius:2px;background:linear-gradient(#0f2230e6,#0a1823f0);box-shadow:inset 0 0 0 1px #07131f}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-controls=corner]:not(.party-sheet) #dockPartyView .party-view-label{display:none}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-controls=corner]:not(.party-sheet) #dockPartyView b{font-size:12px!important}
+.adventure-refined #game[data-party-controls=corner]:not(.boss-room):not(.dock-is-collapsed):not(.party-sheet) .battle-panel{padding-left:52px}
+.adventure-refined #game[data-party-controls=corner] #floorTimeline{gap:2px;padding:8px 4px}
+.adventure-refined #game[data-party-controls=corner] #floorTimeline b{display:none}
+.adventure-refined #game[data-party-controls=corner] .battle-panel:has(.next-goal:not([hidden])) #floorTimeline{display:none}
+
+/* The two rows as a sheet over the lower scene, when they don't fit beside the fight. The tray keeps its one-row
+   place in the page, so the fight doesn't move; the sheet rises over it and brings its own control band. */
+.adventure-dock-preview.art-rebuild-preview #game.party-sheet:not(.dock-is-collapsed) .adventure-deck{height:var(--party-sheet-h);margin-top:calc(-1 * var(--party-sheet-lift));box-shadow:0 -10px 18px #000b}
+.adventure-dock-preview.art-rebuild-preview #game.party-sheet .dock-heading{height:44px}
+.adventure-dock-preview.art-rebuild-preview #game.party-sheet .dock-body{height:var(--party-sheet-body)}
+.adventure-dock-preview.art-rebuild-preview #game.party-sheet-tall{--dock-rail-height:0px}
+.adventure-dock-preview.art-rebuild-preview #game.party-sheet-tall>#summonDock{display:none}
+
+/* The goal and Challenge band: one 44px row above the tray, the goal on the left and Challenge Boss on the right,
+   8px clear of the tray's controls. */
+.adventure-refined #game:not(.boss-room) .battle-panel{bottom:8px;flex-direction:row;align-items:center;justify-content:flex-end;gap:6px}
+
+/* The fight's scene rectangle, from the floor strip down to the top of the goal and Challenge band. */
+.adventure-refined #game:not(.boss-room) #partyStage{top:36px;bottom:52px;height:auto;left:0;right:0;margin:0 8px;z-index:2;transform:none}
+@media(max-height:700px){.adventure-refined #game:not(.boss-room) #partyStage{top:30px}}
+/* The boss room keeps the same horseshoe around its larger boss: flanks beside it, the front row on the strip below. */
+.adventure-refined #game.boss-room #partyStage{top:calc(var(--boss-court) * .45);height:calc(var(--boss-court) * .55 + 115px);bottom:auto;margin:0 8px;z-index:2}
+.adventure-refined #game #partyStage :is(#boundSprite,.battle-follower){width:var(--fighter-size,52px);height:var(--fighter-size,52px);bottom:auto;translate:-50% -94.3%;scale:none;animation-delay:var(--idle-delay,0s)}
+.adventure-refined #game #partyStage.formation-ready :is(#boundSprite,.battle-follower){transition:left .22s ease-out,top .22s ease-out,width .22s ease-out,height .22s ease-out}
+/* A short lunge toward the enemy's near edge, then exactly back to the anchor. */
+@keyframes formationLunge{0%,100%{transform:none}35%{transform:translate(var(--lunge-x,0px),var(--lunge-y,0px)) scale(1.04,.96)}70%{transform:translate(calc(var(--lunge-x,0px) * .3),calc(var(--lunge-y,0px) * .3))}}
+.adventure-refined #game #partyStage :is(.bound-unit,.battle-follower).auto-attack{animation:formationLunge var(--turn-duration,.45s) ease-out}
+/* The bolt flies from the fighter to the enemy's middle (party-formation.js aim()). */
+@keyframes formationBolt{0%,20%{opacity:0;transform:translate(0,0) rotate(var(--bolt-angle,0deg)) scale(.3)}30%{opacity:1}70%{opacity:1;transform:translate(calc(var(--bolt-dx,0px) * .85),calc(var(--bolt-dy,0px) * .85)) rotate(var(--bolt-angle,0deg)) scale(.8)}88%,100%{opacity:0;transform:translate(var(--bolt-dx,0px),var(--bolt-dy,-75px)) rotate(var(--bolt-angle,0deg)) scale(.2)}}
+.adventure-refined #game #partyStage .battle-bolt{z-index:500}
+.adventure-refined #game #partyStage .battle-bolt.auto-attack{animation-name:formationBolt}
+@media(prefers-reduced-motion:reduce){.adventure-refined #game #partyStage.formation-ready :is(#boundSprite,.battle-follower){transition:none}.adventure-dock-preview.art-rebuild-preview #game.party-sheet .adventure-deck{box-shadow:none}}
