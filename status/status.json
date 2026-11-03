@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T22:10:45.086Z",
+ "generatedAt": "2026-11-03T22:11:39.936Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -37,9 +37,22 @@
    "by": "Joshua",
    "title": "Owner answers: PRs #81, #102, #98, #78 and #96",
    "quote": "\"All five PRs are now answered. Create the single consolidated owner-answers request in lorebound-game/LOREBOUND with numbered answers under PR #81, #102, #98, #78, and #96, following AGENTS.md, and open the PR for Noah to relay to Claude. Do not merge or deploy.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Please pass each section of requests/2026-11-03-owner-answers.md to its pull request (#81, #102, #98, #78, #96) with an @claude comment, so Claude rebuilds each one. Claude doesn't post on other pull requests unless Noah asks."
+    },
+    {
+     "who": "noah",
+     "text": "#96: Joshua approved small trial Wood and Stone costs for Gold caravans. This changes the economy, so it also needs Noah's OK. My suggestion: say yes for the test site only, and settle the final numbers later."
+    },
+    {
+     "who": "noah",
+     "text": "Once the answers are passed on, this pull request can be closed without merging. It only holds Joshua's answers."
+    }
+   ],
    "openedAt": "2026-11-03T22:01:01Z",
    "mergedAt": null,
    "closedAt": null,
@@ -48,12 +61,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-03T22:10:13Z",
+   "updatedAt": "2026-11-03T22:11:03Z",
    "headSha": "c4aff2df1dc29a9be825ac2973531d6015ec9f67",
    "touchesGame": false,
    "requestStatus": "Waiting to be relayed",
-   "botState": "working",
-   "botAt": "2026-11-03T22:10:13Z"
+   "botState": "questions",
+   "botAt": "2026-11-03T22:11:03Z"
   },
   {
    "number": 103,
@@ -1050,6 +1063,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-03T22:11:03Z",
+   "kind": "question",
+   "text": "Part of “Owner answers: PRs #81, #102, #98, #78 and #96” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-03T22:01:01Z",
    "kind": "asked",
    "text": "You asked for “Owner answers: PRs #81, #102, #98, #78 and #96”"
@@ -1243,11 +1261,6 @@
    "at": "2026-11-03T07:14:24Z",
    "kind": "built",
    "text": "Claude finished building “Unify team and Omnidex companion pages; approve Locations provisionally”"
-  },
-  {
-   "at": "2026-11-03T07:14:13Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
   }
  ],
  "otherPulls": [
