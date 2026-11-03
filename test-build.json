@@ -50,11 +50,6 @@
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
       "head": "d06cacf4736a25ed8e64bc6796daca1591ba9c9c"
-    },
-    {
-      "number": 97,
-      "title": "Design guided progression companion power and achievements from owner references",
-      "head": "1315a6f83e57e88e70982b6bc858650b165763c8"
     }
   ],
   "skipped": [
@@ -75,8 +70,19 @@
         "pocket-fortune/dist/realm1-art.js"
       ],
       "with": "others"
+    },
+    {
+      "number": 97,
+      "title": "Design guided progression companion power and achievements from owner references",
+      "head": "4cc9189e055b5fdd0eedd92adc76d65b2d6e7879",
+      "files": [
+        "pocket-fortune/dist/home.html",
+        "pocket-fortune/dist/journal.js",
+        "pocket-fortune/dist/ownership-adventure.js"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "b890c9898c50ce4e0380db2e8160944ff84d0294",
-  "at": "2026-11-03T07:29:07Z"
+  "commit": "1edddc2fd1f3d9faa30b2db8457459a8e02dc276",
+  "at": "2026-11-03T07:30:20Z"
 }
