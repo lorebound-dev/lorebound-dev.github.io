@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T19:51:07.640Z",
+ "generatedAt": "2026-11-03T19:52:06.014Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -35,9 +35,14 @@
    "by": "Joshua",
    "title": "Reduce empty space above expanded Party cards",
    "quote": "Also the distance between the top of the menus and the companions is too big",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "built",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in realm1-art.js, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-11-02T02:55:24Z",
    "mergedAt": null,
    "closedAt": null,
@@ -46,12 +51,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-11-03T19:51:06Z",
+   "updatedAt": "2026-11-03T19:51:15Z",
    "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-03T19:51:06Z"
+   "botAt": "2026-11-03T19:51:15Z"
   },
   {
    "number": 97,
@@ -997,9 +1002,14 @@
  ],
  "activity": [
   {
-   "at": "2026-11-03T19:51:06Z",
+   "at": "2026-11-03T19:51:15Z",
    "kind": "built",
    "text": "Claude finished building “Reduce empty space above expanded Party cards”"
+  },
+  {
+   "at": "2026-11-03T19:51:15Z",
+   "kind": "question",
+   "text": "Part of “Reduce empty space above expanded Party cards” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-03T19:50:29Z",
@@ -1188,11 +1198,6 @@
   },
   {
    "at": "2026-11-03T07:01:02Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T07:00:01Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Place Challenge Boss above the Party tray on the right”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
