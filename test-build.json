@@ -61,13 +61,13 @@
     {
       "number": 93,
       "title": "Reduce empty space above expanded Party cards",
-      "head": "3e90ed07af176d94cb3f76a351d43f1b4e1981c8",
+      "head": "21f8b1543919b1dea65f491b51347f197687177e",
       "files": [
         "pocket-fortune/dist/realm1-art.js"
       ],
       "with": "others"
     }
   ],
-  "commit": "6de10b77351e9383fabc23d52797c5f8deb90446",
-  "at": "2026-11-03T07:14:56Z"
+  "commit": "3843f98f062224f9141801d22677556cd705a768",
+  "at": "2026-11-03T07:15:49Z"
 }
