@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T21:00:05.184Z",
+ "generatedAt": "2026-11-03T21:03:02.390Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -296,7 +296,7 @@
    "by": "Joshua",
    "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
    "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "testing",
+   "stage": "building",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-11-01T03:47:10Z",
