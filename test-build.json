@@ -74,7 +74,7 @@
     {
       "number": 97,
       "title": "Design guided progression companion power and achievements from owner references",
-      "head": "85cdfa755b59c14cb1d239e5c10ac1d14f25277e",
+      "head": "861d56921d1d2f63b24b4a38685b43c532806ec3",
       "files": [
         "pocket-fortune/dist/home.html",
         "pocket-fortune/dist/journal.js",
@@ -83,6 +83,6 @@
       "with": "others"
     }
   ],
-  "commit": "8ba658d66c204feb13998acae7e94f2f8e9e3b35",
-  "at": "2026-11-03T14:59:21Z"
+  "commit": "96b17d092a4f36f0f9e16fe164fb13baf08c72cf",
+  "at": "2026-11-03T15:45:10Z"
 }
