@@ -64,7 +64,7 @@
     {
       "number": 103,
       "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
-      "head": "f4c9ebf6736b3aade86a3652f75bb01c3a70ece2"
+      "head": "b97efe3e3e767d7703cba73ed78c400663c553f8"
     }
   ],
   "skipped": [
@@ -88,12 +88,12 @@
       "with": "others"
     }
   ],
-  "commit": "14dcbfabcbb7bf3ddcc4bc96db7760cd706510c3",
+  "commit": "dfd4136108c7d40fefd0ff366b2c61a821c47d0c",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-04T06:26:18Z"
+  "at": "2026-11-04T06:27:14Z"
 }
