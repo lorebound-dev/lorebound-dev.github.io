@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T16:29:23.987Z",
+ "generatedAt": "2026-11-04T16:35:58.191Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -62,9 +62,18 @@
    "by": "Joshua",
    "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
    "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The art robot can't reach the companion pictures, because it only fetches whole folders and Approved/Realm 2 is over its 100 MB limit. I suggest the easiest fix: copy just the three ZIPs (R2_Companions_01-10, 11-20 and 21-30_APPROVED_v63.zip) into a new folder,…"
+    },
+    {
+     "who": "noah",
+     "text": "If you'd rather leave Drive alone, the other fix is to change tools/artwork-intake/request-art.cjs on main so that when a request names a file inside a big folder, the robot fetches only that file. The build always uses main's copy of the tool, so I can't do this from this…"
+    }
+   ],
    "openedAt": "2026-11-01T03:47:10Z",
    "mergedAt": null,
    "closedAt": null,
