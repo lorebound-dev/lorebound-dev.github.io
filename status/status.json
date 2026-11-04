@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T16:26:38.120Z",
+ "generatedAt": "2026-11-04T16:29:23.987Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -49,12 +49,12 @@
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T16:26:14Z",
+   "updatedAt": "2026-11-04T16:26:46Z",
    "headSha": "d06cacf4736a25ed8e64bc6796daca1591ba9c9c",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-04T16:26:14Z"
+   "botState": "finished",
+   "botAt": "2026-11-04T16:26:46Z"
   },
   {
    "number": 89,
@@ -1020,6 +1020,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-04T16:26:46Z",
+   "kind": "built",
+   "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
    "at": "2026-11-04T16:00:11Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”"
@@ -1213,11 +1218,6 @@
    "at": "2026-11-03T21:10:53Z",
    "kind": "built",
    "text": "Claude finished building “Add approved Realm 2 companions to universal summoning and Omnidex”"
-  },
-  {
-   "at": "2026-11-03T21:04:58Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
   }
  ],
  "otherPulls": [
