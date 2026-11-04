@@ -41,12 +41,19 @@
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-level {left:var(--level-x);top:var(--level-y);z-index:8;transform:translateY(-50%);padding:1px 3px;border-radius:2px;background:#081923e6;line-height:1.05;white-space:nowrap;letter-spacing:0!important}
 /* One DPS plate attached under the frame: the same width as the frames' outer edge (they sit 5% in from each side), dark
    navy with a thin antique-gold rim and a slight bevel, in the card's own flow so it never covers the portrait. The value
-   is centred with lining, even-width digits, so it doesn't jump as it grows. The "DPS" unit shows only on cards wide enough
-   to keep it beside the value; the accessible label always says DPS. */
+   is centred with lining, even-width digits, so it doesn't jump as it grows. Every card shows the word "DPS" (Joshua,
+   2026-11-04): beside the value on cards 80px and wider, and on a second line of the same plate on narrower cards, never
+   below 12px. */
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps{position:relative;flex:none;box-sizing:border-box;width:calc(var(--face-w) * .9);min-width:0;height:var(--plate-h);padding:0 3px;display:flex;align-items:center;justify-content:center;gap:3px;overflow:hidden;background:linear-gradient(#162a36,#0a1720 55%,#07121a);border:1px solid #a88b52cc;border-top-color:#c2a4669e;border-radius:2px 2px 4px 4px;box-shadow:inset 0 1px 0 #ffffff12,inset 0 -1px 0 #0009,0 2px 3px #0009;z-index:7;white-space:nowrap;font:13px/1 Georgia,serif;color:#fff0c9;text-shadow:0 1px 1px #000}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps b{font:bold 14px/1 Georgia,serif!important;font-variant-numeric:lining-nums tabular-nums!important;letter-spacing:0!important}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps small{font:12px/1 Georgia,serif!important;letter-spacing:0!important;color:#c9bf9f}
-@container (max-width:79px){:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps small{display:none}}
+/* Narrow cards: the plate grows 4px so the value and "DPS" stack. --face-w is redeclared on the card's children, because a
+   container query can't restyle the container itself; the frame gives up those 4px, so the Party stays the same height. */
+@container (max-width:79px){
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card>:is(.card-face,.dock-dps,.dock-choice-delta){--plate-h:30px;--face-w:min(100cqw,calc((100cqh - var(--plate-h)) * .75))}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps{flex-direction:column;gap:1px;padding:1px 2px}
+:is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-dps small{display:block}
+}
 /* While choosing a slot for a new companion, the signed party DPS change takes the plate's exact place, in its colour. */
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card .dock-choice-delta{left:50%;right:auto;bottom:0;box-sizing:border-box;width:calc(var(--face-w) * .9);height:var(--plate-h);transform:translateX(-50%);border-radius:2px 2px 4px 4px;font-variant-numeric:lining-nums tabular-nums}
 :is(.art-rebuild-preview #game, .art-lookdev) .lore-card:focus-visible{outline:2px solid #ffefbe;outline-offset:2px}

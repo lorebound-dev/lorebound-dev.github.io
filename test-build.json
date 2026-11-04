@@ -24,7 +24,7 @@
     {
       "number": 81,
       "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-      "head": "4a18bf4fd5b6e6a2b8a3dd220c4ab9ab309c0b4e"
+      "head": "7d2b36f8553737fc817e633f8620c267f85a5fb3"
     },
     {
       "number": 83,
@@ -71,7 +71,7 @@
     {
       "number": 78,
       "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
-      "head": "0ecbd148d95341ce6128c99fbeb76b7b5a865f94",
+      "head": "904a7d19b99dde357f35cf6618881a4f46498cd8",
       "files": [
         "pocket-fortune/dist/grand-archive.js"
       ],
@@ -88,12 +88,12 @@
       "with": "others"
     }
   ],
-  "commit": "3d9ac55c1e9f230fdf720718b39b3fce5dac0938",
+  "commit": "14dcbfabcbb7bf3ddcc4bc96db7760cd706510c3",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-04T06:21:57Z"
+  "at": "2026-11-04T06:26:18Z"
 }
