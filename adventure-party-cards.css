@@ -1,0 +1,92 @@
+/* Party cards that match the empty places, and a grounded fight (request 2026-11-04-party-card-footprint-refinement).
+   Presentation only: no data, combat or timing changes.
+
+   This builds on three open requests and only restyles what they draw, so it changes nothing until they are in:
+   #102's rarity card (.lore-card with .card-face), #103's compact tray and approved empty plate, and #97's fight
+   formation (data-anchor on each fighter). Its selectors carry #dockCompanions or #partyStage so they win over those
+   sheets wherever this one loads, without changing their lines. */
+
+/* 1. Every occupied card fills its whole place and wears the same approved navy and antique-gold plate as an empty
+   place (Compact-Party-UI-Helpers-v01), stretched the same way, so the ten places share one outline, size and corner
+   shape. Everything on the card stays inside the plate's gold border. */
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card:has(>.card-face){--inset-x:5px;--inset-y:4px;--strip-h:19px;display:block;width:100%;height:100%;padding:0;overflow:hidden;background:url("assets/compact-party/LOREBOUND_Empty_Party_Slot.webp") center/100% 100% no-repeat;border-radius:0}
+/* The rarity background, whole and unstretched (contain), above the value strip. Where the place is wider than the
+   art's own 2:3 shape, the plate's navy shows at its sides; the art covers the plate's + in the middle. */
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card>.card-face{position:absolute;left:var(--inset-x);right:var(--inset-x);top:var(--inset-y);bottom:calc(var(--inset-y) + var(--strip-h) + 2px);width:auto;height:auto;flex:none;background:none;border-radius:0;filter:none;overflow:hidden}
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .card-dock-bg{object-fit:contain;object-position:50% 50%}
+/* The companion, about a third larger than before (44px instead of 33px on a 390px phone): a square of two thirds of
+   the card's width, but no wider than about the art itself, centred on the art a little below its middle, clear of
+   the level tag. The companion's picture fits inside that square whole (companion-phase1.css), so nothing is cut
+   off. cqw and cqh are the card's (#102 makes the card a size container); 100cqh − 29px is the art's height. */
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-art-stage{--portrait:min(68cqw,calc((100cqh - 29px) * .72));inset:auto;left:50%;top:56%;width:var(--portrait);height:var(--portrait);padding:0;transform:translate(-50%,-50%)}
+/* A smaller level tag in the top-left corner, inside the gold border and above the companion's head. The green
+   ready-to-level cue (ownership-adventure.css) stays. */
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level{left:1px;top:1px;padding:0 2px;line-height:13px;border-radius:1px}
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level.can-level{gap:2px}
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level.can-level::before{width:7px;height:7px}
+
+/* 2. The companion's real damage per second on one line inside the plate, as "40/s" (Joshua, 2026-11-04; the word
+   DPS stays in the card's spoken label and in the Party DPS at the top). The value is the game's own live text; only
+   its label changes. */
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-dps{position:absolute;left:var(--inset-x);right:var(--inset-x);bottom:var(--inset-y);width:auto;height:var(--strip-h);padding:0 2px;flex-direction:row;gap:0;border-radius:1px}
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-dps small{display:none}
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-dps b{font:bold 13px/1 Georgia,serif!important}
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-dps b::after{content:"/s";font-weight:normal;color:#d8cba6}
+/* While choosing a place for a new companion, the DPS change covers the strip exactly. */
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card:has(>.card-face) .dock-choice-delta{left:var(--inset-x);right:var(--inset-x);bottom:var(--inset-y);width:auto;height:var(--strip-h);transform:none;border-radius:1px}
+/* Narrow places (small phones): the border is a little thinner, so the strip gets the room for long values. */
+@media(max-width:359px){
+  .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card:has(>.card-face){--inset-x:4px;--inset-y:3px;--strip-h:18px}
+  .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-dps{padding:0 1px}
+  .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-dps b{font-size:12px!important}
+  /* A three-figure level with the green arrow ("↑ Lv. 125") is wider than the art here, so the tag may start on the
+     plate's left border; it still ends inside the card. */
+  .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card>.card-face{overflow:visible}
+  .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level{left:-2px;padding:0 1px}
+  .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level.can-level{gap:1px}
+  .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level.can-level::before{width:6px}
+}
+
+/* Card height: with the value on one line, a card needs 22px under its width instead of #103's 29px, so each row is
+   7px shorter and the fight gets the room (adventure-dock.js reads --compact-card-h to size the tray and the fight).
+   The rows also start 4px higher with a 3px gap, so the second row ends inside the tray's frame instead of running
+   11px under the Rift rail, as it did with #97's and #103's sizes together. */
+html.adventure-dock-preview.art-rebuild-preview #game{--compact-card-h:calc((min(100vw,550px) - 48px) / 5 + 22px)}
+@media(max-width:350px){html.adventure-dock-preview.art-rebuild-preview #game{--compact-card-h:calc((min(100vw,550px) - 38px) / 5 + 22px)}}
+html.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-page{padding-top:2px}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockCompanions{row-gap:3px}
+
+/* 3. The fight: everyone stands on the courtyard floor. #97's party-formation.js still sizes the fighters and tags
+   each with its place's anchor (place 1 = A … place 10 = J); this only says where on the floor each anchor stands,
+   as fractions of the fight's scene rectangle (#partyStage), feet first. The leader stands front and centre, the next
+   two beside them, the next two a step back on the outside; places 6–10 make a second rank behind. Bolts still fly
+   from where each fighter really is (party-formation.js aim() measures them), fighters never take taps, and combat
+   timing is unchanged. Not in the boss room, which keeps its own horseshoe. */
+.adventure-refined #game:not(.boss-room) #partyStage :is(#boundSprite,.battle-follower)[data-anchor]{left:var(--floor-x)!important;top:var(--floor-y)!important;z-index:var(--floor-z)!important}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=A]{--floor-x:50%;--floor-y:98.5%;--floor-z:60}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=B]{--floor-x:29%;--floor-y:98.5%;--floor-z:58}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=C]{--floor-x:71%;--floor-y:98.5%;--floor-z:58}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=D]{--floor-x:10%;--floor-y:92%;--floor-z:54}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=E]{--floor-x:90%;--floor-y:92%;--floor-z:54}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=F]{--floor-x:22%;--floor-y:86%;--floor-z:50}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=G]{--floor-x:78%;--floor-y:86%;--floor-z:50}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=H]{--floor-x:6%;--floor-y:83%;--floor-z:48}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=I]{--floor-x:94%;--floor-y:83%;--floor-z:48}
+/* All ten: the back rank stays out to the sides, clear of the enemy, so the tenth joins the front rank, which spreads
+   to six and leaves the middle of the front for the leader and place 3. */
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=A]{--floor-x:41%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=B]{--floor-x:24.5%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=C]{--floor-x:59%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) :is([data-anchor=D],[data-anchor=E]){--floor-y:98.5%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=D]{--floor-x:8%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=E]{--floor-x:92%}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=J]{--floor-x:75.5%;--floor-y:98.5%;--floor-z:58}
+/* The enemy steps down onto the floor, right behind the front rank, so its feet meet the floor shadow under it
+   instead of hanging above it. Its size, name and health bar move with it unchanged. (#38's adventure-refinement.css
+   keeps it --foe-base above the bottom of the fight; this drops it to 10px above, less the art's own 11% low offset.)
+   Endless guardians keep their place. */
+.adventure-refined #game[data-party-view]:not(.boss-room):not(.endless-active){--foe-drop:max(0px,calc(var(--foe-base) - 10px - var(--foe-size) * .11))}
+.adventure-refined #game[data-party-view]:not(.boss-room):not(.endless-active) #battlefield :is(#enemySprite,#enemyGhost){bottom:calc(var(--foe-base) + var(--foe-lift) - var(--foe-drop))}
+.adventure-refined #game[data-party-view]:not(.boss-room):not(.endless-active) #battlefield .enemy-info{top:calc(var(--court-y) - var(--foe-field) - var(--foe-base) - var(--foe-lift) - var(--foe-size) * .92 - 6px + var(--foe-drop))}
+/* The floor shadow sits right under the enemy's feet. */
+.adventure-refined #game[data-party-view]:not(.boss-room):not(.endless-active) #battlefield .enemy-shadow{bottom:4px}

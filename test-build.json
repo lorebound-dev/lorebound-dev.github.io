@@ -70,6 +70,11 @@
       "number": 103,
       "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
       "head": "b97efe3e3e767d7703cba73ed78c400663c553f8"
+    },
+    {
+      "number": 106,
+      "title": "Refine Adventure: full-width companion cards and grounded battlefield",
+      "head": "53e3f947a8958f4bca3cea9f86d5e90912d9c72f"
     }
   ],
   "skipped": [
@@ -83,12 +88,12 @@
       "with": "others"
     }
   ],
-  "commit": "5901aeef1b34b726083e04d2712c546fc0d72f0b",
+  "commit": "8d42266d8787c1936d76a4d3585019c5ca1a0d19",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-04T15:30:47Z"
+  "at": "2026-11-04T16:00:11Z"
 }
