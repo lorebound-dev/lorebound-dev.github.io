@@ -59,7 +59,7 @@
     {
       "number": 97,
       "title": "Design guided progression companion power and achievements from owner references",
-      "head": "ab1e7fb59797258f2ea9399491feb2e4e17636f0"
+      "head": "fbf6ff9193661fd361807e00557b242a32735ad4"
     },
     {
       "number": 102,
@@ -83,12 +83,12 @@
       "with": "others"
     }
   ],
-  "commit": "48b97265e31c231008c260fdb8c492b729c08c91",
+  "commit": "5a23bcc4b61d235e83c5c13e227141beea86647c",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-04T06:35:17Z"
+  "at": "2026-11-04T06:44:13Z"
 }

@@ -7,12 +7,12 @@
   const names = ['party'], roman = ['I', 'II', 'III', 'IV', 'V'];
   const icon = name => `<svg viewBox="0 0 64 64" aria-hidden="true"><use href="assets/navigation-emblems.svg#${name}"/></svg>`;
   let mounted = false, selected = 0, collapsed = false, last = '', partyKey = '', page = 0;
-  // Ten places (request #97, Joshua's ten-companion layout §2–5). The tray shows all ten in two rows of five when the
-  // fight still keeps 240px of scene; otherwise one row of five with a 1–5 / 6–10 switch, and the two rows open as a
-  // sheet over the lower scene. The mode comes from the measured screen, never the phone model. When even one row and
-  // a 44px control band would leave under 240px, the band goes and one control sits beside the goal and Challenge
-  // band (party-layout.css). Five-place saves keep one row.
-  const PAGE = 5, TARGET = 240, BAND = 44, ACTION = 52, EDGE = 1, CARD_EXTRA = 37;
+  // Ten places (request #97, Joshua's ten-companion layout §2–5, and #103's "all ten like the reference"). The tray
+  // shows all ten in two rows of five whenever the fight still keeps TWO_ROWS px of scene; otherwise one row of five
+  // with a 1–5 / 6–10 switch, and the two rows open as a sheet over the lower scene. The mode comes from the measured
+  // screen, never the phone model. When even one row and a 44px control band would leave under 240px, the band goes
+  // and one control sits beside the goal and Challenge band (party-layout.css). Five-place saves keep one row.
+  const PAGE = 5, TARGET = 240, TWO_ROWS = 180, BAND = 44, ACTION = 52, EDGE = 1, CARD_EXTRA = 37;
   let view = 'expanded', sheet = false, fit = null, measured = '';
   function setPage(n) { page = n; last = ''; partyKey = ''; refresh(); }
   // Room the fight keeps with each tray layout. The combat area and the tray share one fixed height (the summon rail's
@@ -23,9 +23,13 @@
     const shared = rail.getBoundingClientRect().top - combat.getBoundingClientRect().top;
     const width = Math.min(430, deck.clientWidth), floor = combat.querySelector('.location')?.offsetHeight || 36;
     if (!(shared > 0) || !(width > 0)) return null;
-    // Card width is (W − 24 − 4×4) / 5; its height keeps the portrait square between the Lv. badge and the DPS plate.
-    const cardW = (width - 24 - 16) / 5, cardH = Math.round(cardW + CARD_EXTRA);
-    const body = rows => 8 + rows * cardH + (rows - 1) * 8 + 10, scene = (band, rows) => Math.round(shared - floor - ACTION - band - body(rows) - EDGE);
+    // Card width is (W − 24 − 4×4) / 5. Its height is #103's compact card (a square portrait with the DPS strip inside,
+    // --compact-card-h) when that sheet is loaded, read through a hidden probe; otherwise the portrait stays square
+    // between the Lv. badge and the DPS plate.
+    let probe = $('partyCardMeasure');
+    if (!probe) { probe = document.createElement('span'); probe.id = 'partyCardMeasure'; probe.setAttribute('aria-hidden', 'true'); probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;width:0;height:var(--compact-card-h,0px)'; game.append(probe); }
+    const cardW = (width - 24 - 16) / 5, cardH = Math.round(probe.getBoundingClientRect().height || cardW + CARD_EXTRA);
+    const body = rows => 6 + rows * cardH + (rows - 1) * 6 + 8, scene = (band, rows) => Math.round(shared - floor - ACTION - band - body(rows) - EDGE);
     return {cardW, cardH, body, rail: rail.offsetHeight, two: scene(BAND, 2), band: scene(BAND, 1), corner: scene(0, 1)};
   }
   // Picks the layout and sets the sizes party-layout.css reads. --dock-panel-height keeps meaning "tray height minus
@@ -33,7 +37,7 @@
   function arrange(s) {
     const game = $('game'), many = s.party.slots.length > PAGE, choosing = !!root.LoreOwnershipAdventure?.choosing;
     const m = measure(); if (m) fit = m; if (!fit) return '';
-    const mode = many && fit.two >= TARGET && (choosing || view === 'expanded') ? 'expanded' : 'compact';
+    const mode = many && fit.two >= TWO_ROWS && (choosing || view === 'expanded') ? 'expanded' : 'compact';
     const controls = mode === 'expanded' || fit.band >= TARGET ? 'band' : 'corner';
     if (!many || mode === 'expanded') sheet = false;
     const over = many && mode === 'compact' && (sheet || choosing), band = controls === 'band' ? BAND : 0, body = fit.body(mode === 'expanded' ? 2 : 1);
@@ -45,6 +49,10 @@
     const vars = {'--party-card-h': fit.cardH, '--party-band': band, '--party-body': body, '--dock-panel-height': band + body + EDGE - 22,
       '--party-sheet-body': fit.body(2), '--party-sheet-h': BAND + fit.body(2) + EDGE, '--party-sheet-lift': over ? BAND + fit.body(2) - band - body : 0};
     for (const [k, v] of Object.entries(vars)) game.style.setProperty(k, v + 'px');
+    // The enemy stands on the space left above the tray: the same ground line realm1-art.js draws with the tray open,
+    // measured after the sizes above apply, so open cards never cover it whatever another request does with that line.
+    const court = Math.max(90, $('combatLayout').clientHeight - 76);
+    game.style.setProperty('--party-court-y', court + 'px'); game.classList.toggle('party-short-court', court < 160);
     return [mode, controls, over].join(':');
   }
   // The Party button: two rows ↔ one row where two rows fit, otherwise it opens and closes the two-row sheet. While a
@@ -53,7 +61,7 @@
     if (!state || root.LoreOwnershipAdventure?.choosing || state.party.slots.length <= PAGE) return;
     if (sheet) sheet = false;
     else if ($('game').dataset.partyView === 'expanded') view = 'compact';
-    else if (fit && fit.two >= TARGET) view = 'expanded';
+    else if (fit && fit.two >= TWO_ROWS) view = 'expanded';
     else sheet = true;
     last = ''; partyKey = ''; refresh();
     $('dockPartyView').focus({preventScroll:true});

@@ -25,10 +25,18 @@
 .adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockToggle:after{content:none}
 .adventure-dock-preview.art-rebuild-preview #game[data-party-view].dock-is-collapsed .dock-heading{display:none}
 
-/* The cards: five equal columns, two rows when the tray shows all ten. Card width (W − 24 − 4×4) / 5, shared row height. */
+/* The cards: five equal columns, two rows when the tray shows all ten. Card width (W − 24 − 4×4) / 5, shared row height
+   (#103's compact card when its sheet is loaded). */
 .adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-body{height:var(--party-body)}
-.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-page{padding:8px 12px 10px;overflow:hidden}
-.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-companions{height:auto;max-width:406px;margin:0 auto;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:var(--party-card-h);column-gap:4px;row-gap:8px}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-page{padding:6px 12px 8px;overflow:hidden}
+.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-companions{height:auto;max-width:406px;margin:0 auto;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:var(--party-card-h);column-gap:4px;row-gap:6px}
+
+/* The enemy's ground line follows the fight's measured height above the tray (adventure-dock.js), the line
+   realm1-art.js draws with the tray open, so the two rows never cover the enemy. */
+.adventure-refined #game[data-party-view]:not(.boss-room){--court-y:var(--party-court-y,var(--art-court-y,clamp(110px,calc(100dvh - 448px),600px)))}
+/* Short courts keep the short-court enemy when another request sizes it from --foe-* (#38 draws the line lower). */
+.adventure-refined #game[data-party-view].party-short-court:not(.boss-room){--foe-base:4px}
+.adventure-refined #game[data-party-view].party-short-court:not(.boss-room):not(.endless-active){--foe-want:98px}
 
 /* Short screens: no band. One 44px control sits in a reserved gutter at the left end of the goal and Challenge band
    (Party, which opens the two rows as a sheet; collapse when there are only five places). */
