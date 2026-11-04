@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T06:46:11.367Z",
+ "generatedAt": "2026-11-04T13:42:21.112Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -31,6 +31,30 @@
   ]
  },
  "items": [
+  {
+   "number": 106,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
+   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-04T13:41:58Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-04T13:41:58Z",
+   "headSha": "fc1620afec714e911dd76d76ef0d260183fd0788",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 97,
    "kind": "request",
@@ -974,33 +998,14 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-30T03:55:25Z"
-  },
-  {
-   "number": 73,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Shardworks mine-hub visual overhaul — approved art, economy unchanged",
-   "quote": "\"I want a whole scene inside of the shard works where you are inside a mine almost and have different arenas to upgrade and do. Almost emulating a mini tycoon Roblox game. Nothing crazy just a little page inside a mine.\"",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T15:19:54Z",
-   "mergedAt": "2026-10-30T03:04:10Z",
-   "closedAt": "2026-10-30T03:04:10Z",
-   "liveAt": "2026-10-30T03:04:13Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-30T03:04:13Z",
-   "headSha": "d0ea9ba52ed329bdeb3be35cb613fc64a0ad8665",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-30T00:03:51Z"
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-04T13:41:58Z",
+   "kind": "asked",
+   "text": "You asked for “Refine Adventure: full-width companion cards and grounded battlefield”"
+  },
   {
    "at": "2026-11-04T06:44:13Z",
    "kind": "test",
@@ -1193,11 +1198,6 @@
   },
   {
    "at": "2026-11-03T14:59:21Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T07:31:36Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
