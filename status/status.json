@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T06:19:14.886Z",
+ "generatedAt": "2026-11-04T06:20:21.451Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -32,6 +32,30 @@
  },
  "items": [
   {
+   "number": 96,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
+   "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T03:42:27Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-04T06:20:21Z",
+   "headSha": "dbaaba273fc8bdee4c17e24f798b2bd977f93c5c",
+   "touchesGame": false,
+   "requestStatus": "Answered, waiting for Haven (#92) before building",
+   "botState": "working",
+   "botAt": "2026-11-04T06:20:21Z"
+  },
+  {
    "number": 78,
    "kind": "request",
    "by": "Joshua",
@@ -48,12 +72,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-11-04T06:19:32Z",
+   "updatedAt": "2026-11-04T06:19:58Z",
    "headSha": "0ecbd148d95341ce6128c99fbeb76b7b5a865f94",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-04T06:19:32Z"
+   "botState": "finished",
+   "botAt": "2026-11-04T06:19:58Z"
   },
   {
    "number": 103,
@@ -491,30 +515,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-03T20:59:30Z"
-  },
-  {
-   "number": 96,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
-   "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T03:42:27Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T07:12:34Z",
-   "headSha": "dbaaba273fc8bdee4c17e24f798b2bd977f93c5c",
-   "touchesGame": false,
-   "requestStatus": "Answered, waiting for Haven (#92) before building",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:12:34Z"
   },
   {
    "number": 66,
@@ -999,6 +999,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-04T06:19:58Z",
+   "kind": "built",
+   "text": "Claude finished building “Replace Tome-tier UI with one permanent numeric Portal progression”"
+  },
+  {
    "at": "2026-11-03T22:44:35Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
@@ -1192,11 +1197,6 @@
    "at": "2026-11-03T07:14:13Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
-  },
-  {
-   "at": "2026-11-03T07:13:24Z",
-   "kind": "built",
-   "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
   }
  ],
  "otherPulls": [
