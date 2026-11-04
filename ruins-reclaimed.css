@@ -39,12 +39,23 @@
 .ruins-level-bar{height:6px;border:1px solid #a68c56;border-radius:2px;background:#152c36;overflow:hidden}
 .ruins-level-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#a68c56,#f8dc88)}
 .ruins-level small{font:12px/1.35 Georgia,serif!important;color:#9fc2b4}
-/* Build and Workers share the first row; Expand has the full width under them */
-.ruins-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px}
-.ruins-actions .ruins-expand{grid-column:1/-1}
+/* Haven Management: one drawer under the map. A row of four squared section plaques, one section open at a time. */
+.ruins-manage{display:grid;gap:6px;padding:6px;border:1px solid #a68c56;border-radius:5px;background:#0b1a22}
+.ruins-manage-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+.ruins-goal{flex:1;min-width:0;margin:0;padding:0 4px;font:13px/1.35 Georgia,serif!important;color:#ffe8af}
+.ruins-manage-head:has(.ruins-goal[hidden]){justify-content:flex-end}
+.ruins-manage-toggle{flex-shrink:0;min-width:64px;min-height:44px;padding:6px 10px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;font:bold 13px Georgia,serif!important;cursor:pointer}
+.ruins-manage-toggle[aria-expanded="false"]{flex:1;border-color:#dac17c;box-shadow:inset 0 -2px #d6bd81;font-size:14px!important}
+.ruins-manage-body{display:grid;gap:6px}
+.ruins-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.ruins-tab{min-width:0;min-height:44px;padding:6px 2px;border:1px solid #7e744e;border-radius:4px;background:#152c36;color:#c9d2cc;font:bold 13px Georgia,serif!important;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ruins-tab[aria-selected="true"]{border-color:#dac17c;background:#2b3837;color:#ffe8af;box-shadow:inset 0 -2px #d6bd81}
+.ruins-pane{display:grid;gap:6px}
+.ruins-bp-list{display:grid;gap:6px}
+.ruins-note{margin:0;padding:2px 4px;font:13px/1.45 Georgia,serif!important;color:#c9d2cc}
 .ruins-build-toggle{min-width:76px;min-height:56px;border-color:#dac17c;box-shadow:inset 0 -2px #d6bd81}
 .ruins-build-head{margin:4px 2px 0;font:12px Georgia,serif!important;letter-spacing:.06em;text-transform:uppercase;color:#9fc2b4}
-.ruins-jobs{display:grid;gap:6px;padding:6px;border:1px solid #927b4566;border-radius:5px;background:#0b1a22}
+.ruins-auto{width:100%}
 .ruins-jobs>p{margin:0;padding:2px 4px;font:13px/1.4 Georgia,serif!important;color:#c9d2cc}
 .ruins-job{display:grid;grid-template-columns:minmax(0,1fr) 44px 26px 44px;align-items:center;gap:6px;padding:6px 8px;border:1px solid #7e744e;border-radius:5px;background:#152c36}
 .ruins-job span{display:grid;gap:2px;min-width:0}
@@ -55,7 +66,6 @@
 .ruins-job button:disabled{opacity:.45;cursor:default}
 .ruins-build-toggle[aria-expanded="true"]{background:#2b3837}
 .ruins-build,.ruins-upgrades{display:grid;gap:6px}
-.ruins-build{padding:6px;border:1px solid #927b4566;border-radius:5px;background:#0b1a22}
 .ruins-upgrade{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:56px;padding:8px 12px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;text-align:left;cursor:pointer}
 .ruins-upgrade span{display:grid;gap:2px;min-width:0}
 .ruins-upgrade strong{font:bold 14px Georgia,serif!important}

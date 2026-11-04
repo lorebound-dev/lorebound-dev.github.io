@@ -91,6 +91,9 @@ const BP=Object.fromEntries(BLUEPRINTS.map(b=>[b.id,b]));
 const V2_TYPES=new Set(['workshop','lumber','stoneyard','survey']);
 const RES=['wood','stone','ore'],RES_NAME={wood:'Wood',stone:'Stone',ore:'Ore'};
 const JOBS=['wood','stone','ore'],JOB_NAME={wood:'Woodcutters',stone:'Stone miners',ore:'Ore miners'},JOB_KIND={wood:'pine',stone:'stone',ore:'ore'};
+/* Haven Management: one drawer under the map with four sections, one open at a time. "jobs" is People. Defense shows
+ * only what Haven really has (raids, guards and walls are Haven 3.5, not built yet); Land holds expansion. */
+const TABS=Object.freeze([{id:'build',name:'Build',pane:'ruinsBuild'},{id:'jobs',name:'People',pane:'ruinsJobs'},{id:'defense',name:'Defense',pane:'ruinsDefensePane'},{id:'land',name:'Land',pane:'ruinsLandPane'}]);
 const MILESTONES=Object.freeze([
   {lv:2,text:'Roads unlocked'},
   {lv:8,text:'Town Hall can grow to Lv 2 (timber)'},
@@ -266,9 +269,7 @@ function hitNode(s,id,power){
   const n=world(s.origin).nodes.get(id),max=CONFIG.kinds[n.kind].hp,left=(s.hp[id]??max)-power;
   if(left>0){s.hp[id]=left;return{done:false,left,max,kind:n.kind};}
   delete s.hp[id];s.gone.push(id);
-  const gain={...CONFIG.kinds[n.kind].give};
-  if(n.kind==='stone')gain.stone+=FX.stoneyardStone[lvOf(s,'stoneyard')];
-  if(isWood(n.kind))gain.wood+=FX.sawmill[lvOf(s,'sawmill')];
+  const gain=yieldOf(s,n.kind);
   for(const k of RES)if(gain[k])s[k]+=gain[k];
   s.tally++;const regrown=regrow(s);
   return{done:true,left:0,max,kind:n.kind,gain,regrown};
@@ -379,6 +380,28 @@ function roadSites(s){if(settlement(s).level<CONFIG.roadsAt||s.roads.length>=CON
 function setJob(s,job,d){if(!JOBS.includes(job)||(d!==1&&d!==-1))return{ok:false,reason:'job'};const n=s.jobs[job]+d,sum=JOBS.reduce((a,k)=>a+s.jobs[k],0)+d;
   if(n<0)return{ok:false,reason:'none'};if(sum>s.workers)return{ok:false,reason:'full'};s.jobs[job]=n;return{ok:true};}
 function roleOf(s,k){let n=0;for(const j of JOBS){n+=s.jobs[j];if(k<n)return j;}return'auto';}
+// Every worker back on Auto in one go. Like setJob, it pays nothing and restarts no swing.
+function allAuto(s){if(!JOBS.some(j=>s.jobs[j]>0))return{ok:false,reason:'none'};for(const j of JOBS)s.jobs[j]=0;return{ok:true};}
+
+/* ---------- Haven Management: ordering, one next goal, what a node gives ----------
+ * All worked out from the state as it is; nothing here is stored. */
+// What finishing a node of this kind pays right now (the Sawmill and Stone Yard add to it).
+function yieldOf(s,kind){const g={...CONFIG.kinds[kind].give};if(kind==='stone')g.stone+=FX.stoneyardStone[lvOf(s,'stoneyard')];if(isWood(kind))g.wood+=FX.sawmill[lvOf(s,'sawmill')];return g;}
+// Build list order: 0 can be built or upgraded now, 1 short of Wood, Stone or Ore only, 2 waiting on something else or at its highest level.
+function buildRank(s,type){if(!has(s,type)){if(lockReason(s,type))return 2;return afford(s,buildCost(s,type))?0:1;}
+  const u=canUpgrade(s,type);return u.ok?0:u.reason==='short'?1:2;}
+// Blueprints in list order: ready first, then short, then the rest, each keeping the blueprint order.
+const buildOrder=(s,group)=>BLUEPRINTS.filter(b=>b.group===group).map((b,i)=>({id:b.id,k:buildRank(s,b.id)*100+i})).sort((a,b)=>a.k-b.k).map(x=>x.id);
+/* At most one next goal, from real unmet needs only, or '' when nothing stands out. It never names anything Haven
+ * doesn't have yet (no Food, raids or new districts until those are built). */
+function goal(s){
+  const xc=expandCost(s);
+  if(xc&&!has(s,'survey'))return lockReason(s,'survey')?'':'Build a Survey Post to expand into the mist.';
+  if(xc&&canExpand(s).ok)return`You can expand Haven to territory ${s.land+2} (Land).`;
+  if(!has(s,'townhall')&&!lockReason(s,'townhall'))return'Build the Town Hall so your buildings can grow.';
+  if(has(s,'townhall')){const th=lvOf(s,'townhall');if(th<CONFIG.maxLevel&&th<maxLevel(s,'townhall'))return`Raise the Town Hall to Lv ${th+1} so your buildings can grow.`;}
+  if(s.workers<workerCap(s)&&afford(s,cost(s,'worker')))return'You can hire another worker (People).';
+  return'';}
 
 // Expanding grows the same map by two tiles on every side. Nothing already there moves.
 const expandCost=s=>{const c=CONFIG.expand[s.land];return c?scaled(c,1-FX.survey[lvOf(s,'survey')]):null;};
@@ -435,9 +458,11 @@ const easeInOut=k=>.5-Math.cos(Math.PI*k)/2,easeOut=k=>1-(1-k)**3;
 
 const logic={KEY,V2_KEY,V1_KEY,BAD_KEY,CONFIG,FX,BLUEPRINTS,MILESTONES,JOBS,v1Patch,validateV1,validateV2,fromV2,world,land,inLand,standing,standingIds,buildingAt,has,lvOf,fresh,validate,migrate,loadFrom,
   cost,afford,manualPower,workerPower,hitsFor,buy,hitNode,regrow,regrowOldest,timedRegrow,canSwing,blocked,walkable,reach,route,stepTime,lockReason,buildCost,canPlace,validSites,build,
-  maxLevel,upgradeCost,canUpgrade,upgrade,canRoad,layRoad,roadSites,setJob,roleOf,toolsCap,workerCap,expandCost,canExpand,expand,points,levelAt,settlement,simulate,syncCrew,crewPosition};
+  maxLevel,upgradeCost,canUpgrade,upgrade,canRoad,layRoad,roadSites,setJob,roleOf,allAuto,yieldOf,buildRank,buildOrder,goal,TABS,toolsCap,workerCap,expandCost,canExpand,expand,points,levelAt,settlement,simulate,syncCrew,crewPosition};
 
 /* ---------- Everything below needs a browser. ---------- */
+// The drawer's open section is kept only while the page is open (never saved), so leaving Haven and coming back keeps it.
+let drawerMemory=null;
 let state=null,view=null,raf=0,lastFrame=0,anims=[],resetArmed=0,importArmed=0,lastBig=0,loadNote='',loadOld=null,lastSwing=null,drawnAnims=false;const crew=[];
 const regrowClock={left:CONFIG.regrowMs};
 const host=root.location?.hostname||'';
@@ -457,21 +482,30 @@ const bpButton=b=>`<button type="button" class="ruins-upgrade" data-ruins="bp" d
 
 const SKETCH=`<section class="ruins-proto" aria-labelledby="ruinsTitle">
 <header class="ruins-head"><div><small>Test prototype · trial numbers</small><h3 id="ruinsTitle">Ruins Reclaimed</h3></div><span class="ruins-head-actions"><button type="button" class="ruins-help-toggle" aria-expanded="false" aria-controls="ruinsHelp" aria-label="How Ruins Reclaimed works">?</button></span></header>
-<div class="ruins-help" id="ruinsHelp" hidden><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>Workers: give them a job (wood, stone or ore) and they do more work on it. Workers on Auto work anything.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone and Ore never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div>
+<div class="ruins-help" id="ruinsHelp" hidden><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do sits under the map in four sections: Build, People, Defense and Land. Next shows one thing worth doing.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: hire workers and give them a job (wood, stone or ore); they do more work on it. Workers on Auto work anything.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone and Ore never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div>
 <dl class="ruins-stats"><div><dt>Wood</dt><dd id="ruinsWood">0</dd></div><div><dt>Stone</dt><dd id="ruinsStone">0</dd></div><div><dt>Ore</dt><dd id="ruinsOre">0</dd></div><div><dt>Territory</dt><dd id="ruinsLand">1 / 3</dd></div></dl>
 <div class="ruins-level"><div class="ruins-level-row"><strong id="ruinsLevelName">Settlement Lv 1 · Camp</strong><span id="ruinsLevelPts">0 / 4</span></div><div class="ruins-level-bar" aria-hidden="true"><i id="ruinsLevelBar"></i></div><small id="ruinsNext"></small></div>
 <div class="ruins-scene" id="ruinsScene"><canvas id="ruinsCanvas" tabindex="0" role="img"></canvas></div><p class="ruins-work" id="ruinsWorkText" hidden></p>
 <p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p>
 <div class="ruins-place" id="ruinsPlace" hidden><p id="ruinsPlaceText"></p><div><button type="button" class="ruins-confirm" data-ruins="confirm">Build here</button><button type="button" class="ruins-cancel" data-ruins="cancel">Cancel</button></div></div>
-<div class="ruins-actions"><button type="button" class="ruins-build-toggle" data-ruins="build" aria-expanded="false" aria-controls="ruinsBuild">Build</button><button type="button" class="ruins-build-toggle" data-ruins="jobs" aria-expanded="false" aria-controls="ruinsJobs">Workers</button><button type="button" class="ruins-upgrade ruins-expand" data-ruins="expand"><span><strong></strong><small></small></span><b></b></button></div>
-<div class="ruins-build" id="ruinsBuild" hidden><button type="button" class="ruins-upgrade" data-ruins="roads"><span><strong></strong><small></small></span><b></b></button>
-<p class="ruins-build-head">Foundations</p>${BLUEPRINTS.filter(b=>b.group==='found').map(bpButton).join('')}
-<p class="ruins-build-head">Town</p>${BLUEPRINTS.filter(b=>b.group==='town').map(bpButton).join('')}</div>
-<div class="ruins-jobs" id="ruinsJobs" hidden><p id="ruinsJobsText"></p>${JOBS.map(j=>`<div class="ruins-job"><span><strong id="ruinsJobName-${j}"></strong><small id="ruinsJobInfo-${j}"></small></span><button type="button" data-ruins="job" data-job="${j}" data-d="less">−</button><b id="ruinsJobN-${j}">0</b><button type="button" data-ruins="job" data-job="${j}" data-d="add">+</button></div>`).join('')}</div>
-<div class="ruins-upgrades">
+<div class="ruins-manage" id="ruinsManage">
+<div class="ruins-manage-head"><p class="ruins-goal" id="ruinsGoal" hidden></p><button type="button" class="ruins-manage-toggle" data-ruins="manage" aria-expanded="true" aria-controls="ruinsManageBody">Hide</button></div>
+<div class="ruins-manage-body" id="ruinsManageBody">
+<div class="ruins-tabs" role="tablist" aria-label="Manage Haven">${TABS.map(t=>`<button type="button" role="tab" class="ruins-tab" id="ruinsTab-${t.id}" data-ruins="${t.id}" aria-controls="${t.pane}" aria-selected="false" tabindex="-1">${t.name}</button>`).join('')}</div>
+<div class="ruins-pane ruins-build" id="ruinsBuild" role="tabpanel" aria-labelledby="ruinsTab-build" hidden>
 <button type="button" class="ruins-upgrade" data-ruins="tools"><span><strong></strong><small></small></span><b></b></button>
+<button type="button" class="ruins-upgrade" data-ruins="roads"><span><strong></strong><small></small></span><b></b></button>
+<p class="ruins-build-head">Foundations</p><div class="ruins-bp-list" id="ruinsList-found">${BLUEPRINTS.filter(b=>b.group==='found').map(bpButton).join('')}</div>
+<p class="ruins-build-head">Town</p><div class="ruins-bp-list" id="ruinsList-town">${BLUEPRINTS.filter(b=>b.group==='town').map(bpButton).join('')}</div></div>
+<div class="ruins-pane ruins-jobs" id="ruinsJobs" role="tabpanel" aria-labelledby="ruinsTab-jobs" hidden>
 <button type="button" class="ruins-upgrade" data-ruins="worker"><span><strong></strong><small></small></span><b></b></button>
-</div>
+<p id="ruinsJobsText"></p>${JOBS.map(j=>`<div class="ruins-job"><span><strong id="ruinsJobName-${j}"></strong><small id="ruinsJobInfo-${j}"></small></span><button type="button" data-ruins="job" data-job="${j}" data-d="less">−</button><b id="ruinsJobN-${j}">0</b><button type="button" data-ruins="job" data-job="${j}" data-d="add">+</button></div>`).join('')}
+<button type="button" class="ruins-cancel ruins-auto" data-ruins="auto">Put every worker on Auto</button></div>
+<div class="ruins-pane" id="ruinsDefensePane" role="tabpanel" aria-labelledby="ruinsTab-defense" hidden><p class="ruins-note" id="ruinsDefenseText"></p><p class="ruins-note" id="ruinsWatchText"></p></div>
+<div class="ruins-pane" id="ruinsLandPane" role="tabpanel" aria-labelledby="ruinsTab-land" hidden><p class="ruins-note" id="ruinsLandText"></p>
+<button type="button" class="ruins-upgrade ruins-expand" data-ruins="expand"><span><strong></strong><small></small></span><b></b></button>
+<button type="button" class="ruins-cancel" data-ruins="centre">Show the middle of Haven</button></div>
+</div></div>
 </section>`;
 
 function mount(slot){
@@ -481,14 +515,17 @@ function mount(slot){
   const q=s=>el.querySelector(s);
   view={root:el,canvas:q('#ruinsCanvas'),scene:q('#ruinsScene'),wood:q('#ruinsWood'),stone:q('#ruinsStone'),ore:q('#ruinsOre'),land:q('#ruinsLand'),stage:q('#ruinsStage'),
     levelName:q('#ruinsLevelName'),levelPts:q('#ruinsLevelPts'),levelBar:q('#ruinsLevelBar'),next:q('#ruinsNext'),
-    place:q('#ruinsPlace'),placeText:q('#ruinsPlaceText'),confirm:q('[data-ruins=confirm]'),cancel:q('[data-ruins=cancel]'),buildToggle:q('[data-ruins=build]'),buildPanel:q('#ruinsBuild'),expand:q('[data-ruins=expand]'),
-    jobsToggle:q('[data-ruins=jobs]'),jobsPanel:q('#ruinsJobs'),jobsText:q('#ruinsJobsText'),
+    place:q('#ruinsPlace'),placeText:q('#ruinsPlaceText'),confirm:q('[data-ruins=confirm]'),cancel:q('[data-ruins=cancel]'),buildPanel:q('#ruinsBuild'),expand:q('[data-ruins=expand]'),
+    jobsPanel:q('#ruinsJobs'),jobsText:q('#ruinsJobsText'),auto:q('[data-ruins=auto]'),
+    manage:q('[data-ruins=manage]'),manageBody:q('#ruinsManageBody'),goal:q('#ruinsGoal'),defenseText:q('#ruinsDefenseText'),watchText:q('#ruinsWatchText'),landText:q('#ruinsLandText'),
+    tabs:Object.fromEntries(TABS.map(t=>[t.id,{btn:q(`[data-ruins=${t.id}]`),pane:q('#'+t.pane)}])),lists:{found:q('#ruinsList-found'),town:q('#ruinsList-town')},tab:'build',open:true,
     jobs:Object.fromEntries(JOBS.map(j=>[j,{name:q(`#ruinsJobName-${j}`),info:q(`#ruinsJobInfo-${j}`),n:q(`#ruinsJobN-${j}`),less:q(`[data-ruins=job][data-job=${j}][data-d=less]`),add:q(`[data-ruins=job][data-job=${j}][data-d=add]`)}])),
     roads:q('[data-ruins=roads]'),
     bps:Object.fromEntries(BLUEPRINTS.map(b=>[b.id,q(`[data-type=${b.id}]`)])),tools:q('[data-ruins=tools]'),worker:q('[data-ruins=worker]'),workText:q('#ruinsWorkText'),
     help:q('#ruinsHelp'),helpToggle:q('.ruins-help-toggle'),reset:q('[data-ruins=reset]'),reimport:q('[data-ruins=reimport]'),geo:null,down:null,placing:null,roading:false,upgrading:null,site:null,sites:[],selected:null,level:0};
-  view.buildPanel.hidden=true;view.jobsPanel.hidden=true;view.place.hidden=true;view.help.hidden=true;
-  el.addEventListener('click',onClick);
+  if(drawerMemory)Object.assign(view,drawerMemory);
+  view.place.hidden=true;view.help.hidden=true;
+  el.addEventListener('click',onClick);el.addEventListener('keydown',onPanelKey);
   view.canvas.addEventListener('pointerdown',onDown);view.canvas.addEventListener('pointerup',onUp);view.canvas.addEventListener('pointercancel',()=>{if(view)view.down=null;});
   view.canvas.addEventListener('keydown',onKey);
   root.addEventListener('resize',onResize);document.addEventListener('visibilitychange',onVisible);
@@ -497,10 +534,10 @@ function mount(slot){
   if(loadNote==='moved'&&loadOld){say(`Your earlier demo moved over: ${loadOld.wood} Wood, Better Tools Lv ${state.tools}, ${plural(state.workers,'worker')}, and ${state.gone.length} trees already cleared in the middle. Patches finished before that don't become land.`);}
   else if(loadNote==='upgraded')say(`Haven 3.0: your settlement moved over with everything where it was (${plural(state.built.length,'building')}, territory ${state.land+1}). Tap a building to upgrade it. The 2.0 save is kept as a backup.`);
   else if(loadNote==='unreadable')say('The saved settlement could not be read. A copy is kept, and a new one has started.');
-  loadNote='';view.level=settlement(state).level;update();wake();
+  loadNote='';view.level=settlement(state).level;sortBuild();update();wake();
 }
 function unmount(){
-  if(!view)return;sleep();anims=[];
+  if(!view)return;sleep();anims=[];drawerMemory={tab:view.tab,open:view.open};
   root.removeEventListener('resize',onResize);document.removeEventListener('visibilitychange',onVisible);
   view.root.remove();view=null;
 }
@@ -551,16 +588,35 @@ function tapAt(x,y){
 function work(id){const n=world(state.origin).nodes.get(id),now=performance.now();if(!n||!standing(state,id))return;
   if(!canSwing(lastSwing,now)){view.selected=id;draw();return;}
   const res=hitNode(state,id,manualPower(state));if(!res)return;lastSwing=now;anims.push({type:'swing',id,t0:now,life:CONFIG.manualHitMs});view.selected=res.done?null:id;store();struck(id,res,false);
-  if(!res.done){const h=Math.ceil(res.left/manualPower(state));say(`${CONFIG.kinds[n.kind].name}: ${plural(h,'more hit','more hits')}.`);}update();wake();}
-function closePanels(){view.buildPanel.hidden=true;view.buildToggle.setAttribute('aria-expanded','false');view.jobsPanel.hidden=true;view.jobsToggle.setAttribute('aria-expanded','false');}
+  if(!res.done){const h=Math.ceil(res.left/manualPower(state)),on=crew.some(w=>w.node===id&&w.phase==='work');
+    say(`${CONFIG.kinds[n.kind].name}: ${plural(h,'more hit','more hits')} · gives ${fmt(yieldOf(state,n.kind))}${on?' · a worker is on it':''}.`);}update();wake();}
+/* The drawer. While a building is being placed, a road laid or an upgrade confirmed, the bar above takes its place,
+ * so only one set of choices is open at a time; it comes back on the same section afterwards. */
+function showDrawer(){
+  const busy=!!(view.placing||view.roading||view.upgrading);view.manageBody.hidden=!view.open||busy;
+  view.manage.hidden=busy;view.manage.textContent=view.open?'Hide':'Manage Haven';view.manage.setAttribute('aria-expanded',String(view.open));
+  view.manage.setAttribute('aria-label',view.open?'Hide Haven Management':'Open Haven Management');
+  for(const t of TABS){const v=view.tabs[t.id],on=t.id===view.tab;v.pane.hidden=!on;v.btn.setAttribute('aria-selected',String(on));v.btn.setAttribute('tabindex',on?'0':'-1');}}
+// Ready choices first. Only reordered when a section opens or after something is built, never while you're choosing.
+function sortBuild(){if(!view)return;for(const g of ['found','town']){const list=view.lists[g];if(typeof list?.append!=='function')continue;
+  const order=buildOrder(state,g);if(order.every((id,i)=>list.children[i]===view.bps[id]))continue;list.append(...order.map(id=>view.bps[id]));}}
+function openTab(id,focus){if(!view.tabs[id])return;endPlacing();view.tab=id;view.open=true;if(id==='build')sortBuild();say('');update();if(focus)view.tabs[id].btn.focus?.();}
+// Arrow keys move between the four sections; Escape closes a bar first, then the drawer.
+function onPanelKey(e){
+  if(e.key==='Escape'){if(view.placing||view.roading||view.upgrading){e.preventDefault();endPlacing();say('');update();view.canvas.focus?.();return;}
+    if(view.open){e.preventDefault();view.open=false;update();view.manage.focus?.();}return;}
+  const tab=e.target?.closest?.('[role=tab]');if(!tab||(e.key!=='ArrowLeft'&&e.key!=='ArrowRight'&&e.key!=='Home'&&e.key!=='End'))return;
+  e.preventDefault();const i=TABS.findIndex(t=>t.id===view.tab),n=TABS.length,j=e.key==='Home'?0:e.key==='End'?n-1:(i+(e.key==='ArrowRight'?1:n-1))%n;openTab(TABS[j].id,true);}
 function onClick(e){
   const b=e.target.closest?.('button');if(!b||!view)return;
   if(b===view.helpToggle){const open=view.help.hidden;view.help.hidden=!open;b.setAttribute('aria-expanded',String(open));return;}
   const what=b.dataset.ruins;
   if(what==='tools'||what==='worker'){const r=buy(state,what);if(r.ok){store();if(what==='worker')syncCrew(state,crew);
     say(what==='tools'?`Better Tools level ${state.tools}. Hit power is now ${power(manualPower(state))}.`:`Worker hired. ${state.workers} worker${state.workers>1?'s are':' is'} on the way.`);update();wake();}return;}
-  if(what==='build'){const open=view.buildPanel.hidden;endPlacing();closePanels();view.buildPanel.hidden=!open;b.setAttribute('aria-expanded',String(open));update();return;}
-  if(what==='jobs'){const open=view.jobsPanel.hidden;endPlacing();closePanels();view.jobsPanel.hidden=!open;b.setAttribute('aria-expanded',String(open));update();return;}
+  if(TABS.some(t=>t.id===what)){openTab(what,false);return;}
+  if(what==='manage'){endPlacing();view.open=!view.open;if(view.open&&view.tab==='build')sortBuild();update();return;}
+  if(what==='centre'){layout(true);draw();view.scene.scrollIntoView?.({block:'nearest'});view.canvas.focus?.();return;}
+  if(what==='auto'){if(allAuto(state).ok){store();say(`Every worker is on Auto and works anything.`);update();}return;}
   if(what==='job'){const r=setJob(state,b.dataset.job,b.dataset.d==='add'?1:-1);if(r.ok){store();update();}return;}
   if(what==='bp'){if(has(state,b.dataset.type))openUpgrade(b.dataset.type);else startPlacing(b.dataset.type);return;}
   if(what==='roads'){startRoads();return;}
@@ -581,11 +637,11 @@ function startPlacing(type){const bp=BP[type];if(!bp||has(state,type))return;
   const lock=lockReason(state,type);if(lock){say(`${bp.name}: ${lock}.`);return;}
   const c=buildCost(state,type);if(!afford(state,c)){say(`You need ${fmt(shortOf(state,c))} more for the ${bp.name}.`);return;}
   const sites=validSites(state,type);if(!sites.length){say('No free tile to build on. Clear a tree or deposit first.');return;}
-  endPlacing();closePanels();view.placing=type;view.site=null;view.sites=sites;placeLine();update();}
+  endPlacing();view.placing=type;view.site=null;view.sites=sites;placeLine();update();}
 function startRoads(){const st=settlement(state);if(st.level<CONFIG.roadsAt){say(`Roads open at Settlement Lv ${CONFIG.roadsAt}.`);return;}
   const sites=roadSites(state);if(!sites.length){say(state.roads.length>=CONFIG.roadMax?`Haven has its full ${CONFIG.roadMax} road tiles.`:'No open ground for a road. Clear a tree or deposit first.');return;}
-  endPlacing();closePanels();view.roading=true;view.sites=sites;placeLine();update();}
-function openUpgrade(type){if(!has(state,type))return;endPlacing();closePanels();view.upgrading=type;placeLine();update();}
+  endPlacing();view.roading=true;view.sites=sites;placeLine();update();}
+function openUpgrade(type){if(!has(state,type))return;endPlacing();view.upgrading=type;placeLine();update();}
 function endPlacing(){if(!view)return;view.placing=null;view.roading=false;view.upgrading=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';}
 function placeLine(){view.place.hidden=false;
   if(view.roading){view.confirm.hidden=true;view.cancel.textContent='Done';
@@ -603,12 +659,12 @@ function placeLine(){view.place.hidden=false;
 // A second tap on Build here finds placing already ended, so a double tap can never build or charge twice.
 function confirmBuild(){if(!view.placing||view.site===null)return;const type=view.placing,c=view.site%W,r=Math.floor(view.site/W),res=build(state,type,c,r);
   if(!res.ok){say(res.reason==='short'?`You need ${fmt(res.need)} more.`:'That spot is no longer free. Pick another lit tile.');if(res.reason!=='short'){view.sites=validSites(state,type);view.site=null;placeLine();draw();}return;}
-  store();endPlacing();if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
+  store();endPlacing();sortBuild();if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
   say(`${BP[type].name} built. ${BP[type].effects[0]}.`);update();wake();}
 // The same for upgrades: the bar closes on success, so a second tap finds nothing to upgrade.
 function confirmUpgrade(){const type=view.upgrading;if(!type)return;const res=upgrade(state,type);
   if(!res.ok){placeLine();return;}
-  store();endPlacing();if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
+  store();endPlacing();sortBuild();if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
   say(`${BP[type].name} upgraded to Lv ${res.to} (${STAGES[res.to-1]}). ${BP[type].effects[res.to-1]}.`);update();wake();}
 function say(text){if(view)view.stage.textContent=text;}
 
@@ -649,7 +705,8 @@ function update(){
   view.expand.querySelector('strong').textContent=xc?`Expand · Territory ${state.land+2}`:'Haven at full size';
   view.expand.querySelector('small').textContent=!xc?`All ${CONFIG.lands.length} territories open`:ex.reason==='survey'?'Needs a Survey Post':ex.reason==='short'?`Need ${fmt(ex.need)} more${seen?' · '+seen:''}`:seen||'The mist clears; the map grows';
   view.expand.querySelector('b').textContent=xc?fmt(xc):'Max';view.expand.disabled=!ex.ok;view.expand.setAttribute('aria-label',`${view.expand.querySelector('strong').textContent}. ${view.expand.querySelector('small').textContent}.`);
-  view.buildToggle.textContent=view.buildPanel.hidden?'Build':'Close';view.jobsToggle.textContent=view.jobsPanel.hidden?'Workers':'Close';
+  view.auto.disabled=auto===state.workers;view.auto.setAttribute('aria-label',auto===state.workers?'Every worker is already on Auto':'Put every worker on Auto');
+  manageText(st,xc);showDrawer();
   if(view.placing||view.roading||view.upgrading)placeLine();
   view.reimport.hidden=storeApi.get(V2_KEY)===null&&storeApi.get(V1_KEY)===null;
   const sids=standingIds(state),wd=world(state.origin),count=k=>sids.filter(id=>{const n=wd.nodes.get(id).kind;return k==='wood'?isWood(n):n===k;}).length;
@@ -657,6 +714,14 @@ function update(){
   workLine();draw();
 }
 function ringCount(k){const n=[...world(state.origin).nodes.values()].filter(x=>x.land===k);return`Watchtower sees ${n.filter(x=>isWood(x.kind)).length} trees, ${n.filter(x=>x.kind==='stone').length} stone, ${n.filter(x=>x.kind==='ore').length} ore`;}
+// The drawer's words: the one next goal, Defense (only what Haven really has) and Land.
+function manageText(st,xc){
+  const g=goal(state);view.goal.textContent=g?`Next: ${g}`:'';view.goal.hidden=!g;
+  view.defenseText.textContent='Nothing threatens Haven yet. There are no raids, guards or walls in this test build, so there is nothing to defend.';
+  const wl=lvOf(state,'watchtower');
+  view.watchText.textContent=wl?`Watchtower · Lv ${wl} (${STAGES[wl-1]}): ${BP.watchtower.effects[wl-1]}.`:'No Watchtower yet. Build one (Build → Town) to see the next land through the mist.';
+  const [lo,hi]=land(state),size=`${hi-lo}×${hi-lo}`;
+  view.landText.textContent=`Territory ${state.land+1} of ${CONFIG.lands.length} · ${size} tiles.`+(xc?(wl?` ${ringCount(state.land+1)} in the next land.`:''):' Haven is at its full size for now.');}
 let workText='';
 function workLine(){
   if(!view)return;const n=state.workers;let t='';
