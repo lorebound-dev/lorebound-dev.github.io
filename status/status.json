@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T15:31:08.341Z",
+ "generatedAt": "2026-11-04T15:32:04.455Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -31,6 +31,30 @@
   ]
  },
  "items": [
+  {
+   "number": 106,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
+   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-04T13:41:58Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-04T15:31:52Z",
+   "headSha": "2198ae00d8d3649b6c8e9849af37f83cdf452711",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "finished",
+   "botAt": "2026-11-04T15:31:52Z"
+  },
   {
    "number": 89,
    "kind": "request",
@@ -399,30 +423,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-28T03:15:36Z"
-  },
-  {
-   "number": 106,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
-   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-04T13:41:58Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-04T14:12:38Z",
-   "headSha": "2198ae00d8d3649b6c8e9849af37f83cdf452711",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-04T14:12:38Z"
   },
   {
    "number": 98,
