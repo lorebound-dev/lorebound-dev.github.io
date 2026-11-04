@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T06:29:32.734Z",
+ "generatedAt": "2026-11-04T06:34:21.455Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -36,10 +36,23 @@
    "kind": "request",
    "by": "Joshua",
    "title": "Integrate approved 10-tier companion dock backgrounds",
-   "quote": "\"I want that to be the full frame with no other frame.\" The dock-card background should have an open middle for the companion; the background's own border changes with rarity, rather than repeating the same flowers or making every tier a full scene. All ten final images have now been approved individually.",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "#81's ten gold frame images (assets/rarity-frames/) are still in the game files, but no screen uses them any more. They'd be published with the game. Suggestion: delete them, along with their manifest, #81's tools/build-rarity-frames.cjs and the test that checks them. I…"
+    },
+    {
+     "who": "joshua",
+     "text": "The word \"DPS\" on the plate uses #81's warm parchment colour (#C9BF9F). Your colour guide says a slightly greyer parchment (#BCB7A4). Noah asked me to keep #81's plate as it is. Suggestion: keep #81's colour, which is a little easier to read."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in adventure-art-cards.css and adventure-art-cards.js, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-11-03T20:41:36Z",
    "mergedAt": null,
    "closedAt": null,
@@ -48,12 +61,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": true,
-   "updatedAt": "2026-11-04T06:29:19Z",
-   "headSha": "c314f30ecf097214fcedbbf4c78170971f7622f1",
+   "updatedAt": "2026-11-04T06:33:57Z",
+   "headSha": "7625ac41f96ecf560ed517504d9cf124c7e02b4a",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-04T06:29:19Z"
+   "botState": "questions",
+   "botAt": "2026-11-04T06:33:57Z"
   },
   {
    "number": 103,
@@ -1017,9 +1030,19 @@
  ],
  "activity": [
   {
-   "at": "2026-11-04T06:29:19Z",
+   "at": "2026-11-04T06:33:57Z",
    "kind": "built",
    "text": "Claude finished building “Integrate approved 10-tier companion dock backgrounds”"
+  },
+  {
+   "at": "2026-11-04T06:33:57Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Integrate approved 10-tier companion dock backgrounds”"
+  },
+  {
+   "at": "2026-11-04T06:33:57Z",
+   "kind": "question",
+   "text": "Part of “Integrate approved 10-tier companion dock backgrounds” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-04T06:28:34Z",
@@ -1203,16 +1226,6 @@
   },
   {
    "at": "2026-11-03T07:29:10Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
-  },
-  {
-   "at": "2026-11-03T07:28:09Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Status page: one Copy for Codex for every question waiting on Joshua”"
-  },
-  {
-   "at": "2026-11-03T07:28:05Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
   }
