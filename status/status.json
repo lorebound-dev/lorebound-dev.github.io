@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T13:44:40.378Z",
+ "generatedAt": "2026-11-04T13:46:21.431Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -31,6 +31,30 @@
   ]
  },
  "items": [
+  {
+   "number": 107,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unblock companion art intake with exact-file downloads",
+   "quote": "Can you do those things for me?",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-04T13:45:59Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-04T13:45:59Z",
+   "headSha": "d18b116314530b5f281902eb9f2d43013070feaf",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 106,
    "kind": "request",
@@ -974,33 +998,14 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-30T04:38:06Z"
-  },
-  {
-   "number": 79,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use floating team card in swaps and highlight improving slots",
-   "quote": "when you are in the swapping menu ... just has the floating card that it will have once it’s in the team ... if there is a card where it would be an improvement ... thin glowing green outline",
-   "stage": "live",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T23:48:17Z",
-   "mergedAt": "2026-10-30T04:00:02Z",
-   "closedAt": "2026-10-30T04:00:02Z",
-   "liveAt": "2026-10-30T04:00:04Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-30T04:00:04Z",
-   "headSha": "ddd2137657e0a8455b73e225f111dee0a55999f4",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-30T03:55:25Z"
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-04T13:45:59Z",
+   "kind": "asked",
+   "text": "You asked for “Unblock companion art intake with exact-file downloads”"
+  },
   {
    "at": "2026-11-04T13:41:58Z",
    "kind": "asked",
@@ -1193,11 +1198,6 @@
   },
   {
    "at": "2026-11-03T15:45:10Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T14:59:21Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
