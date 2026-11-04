@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T16:14:39.601Z",
+ "generatedAt": "2026-11-04T16:22:27.029Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -86,9 +86,26 @@
    "by": "Joshua",
    "title": "Refine Adventure: full-width companion cards and grounded battlefield",
    "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merge this only after #97, #102 and #103. On its own it changes nothing useful, and the frame picture it uses comes from #103."
+    },
+    {
+     "who": "noah",
+     "text": "The art fetch for this request failed (https://github.com/lorebound-game/LOREBOUND/actions/runs/41858397988). This build didn't need new art, but the fetch may need a look."
+    },
+    {
+     "who": "joshua",
+     "text": "With all ten in the fight, the tenth companion joins the front row, which spreads to six, and the other four stand behind on the sides. Is that OK? My suggestion is yes, keep it."
+    },
+    {
+     "who": "joshua",
+     "text": "Should the next pass shrink the goal strip next to Challenge Boss (\"Let it run / Start Auto Summon\") into a short plaque the size of the 5/10 button, with the goal shown when tapped? My suggestion is yes, because it gives the fight more room without hiding anything."
+    }
+   ],
    "openedAt": "2026-11-04T13:41:58Z",
    "mergedAt": null,
    "closedAt": null,
@@ -1000,6 +1017,16 @@
    "text": "Claude finished building “Refine Adventure: full-width companion cards and grounded battlefield”"
   },
   {
+   "at": "2026-11-04T15:59:05Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Refine Adventure: full-width companion cards and grounded battlefield”"
+  },
+  {
+   "at": "2026-11-04T15:59:05Z",
+   "kind": "question",
+   "text": "Part of “Refine Adventure: full-width companion cards and grounded battlefield” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-04T15:30:48Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
@@ -1176,16 +1203,6 @@
   },
   {
    "at": "2026-11-03T20:54:49Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
-  },
-  {
-   "at": "2026-11-03T20:41:36Z",
-   "kind": "asked",
-   "text": "You asked for “Integrate approved 10-tier companion dock backgrounds”"
-  },
-  {
-   "at": "2026-11-03T20:17:42Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
   }
