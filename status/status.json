@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T22:44:59.193Z",
+ "generatedAt": "2026-11-04T06:19:14.886Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -32,12 +32,36 @@
  },
  "items": [
   {
+   "number": 78,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
+   "quote": "LOREBOUND — Summoning System UI Refactor. Replace Tome-tier presentation with one permanent Portal progression. This request supersedes earlier Tome-tier UI direction. one permanent Summoning Portal / Rift ... one portal level progression ... Level 1, Level 2, Level 3 ... no Tome I / II / III / IV / V presentation ... no “Library > Tome III” style labeling. This request is primarily a UI / presentation refactor ... preserve current real functionality where possible ... all values displayed are real, live game values.",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-29T23:17:42Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-04T06:19:32Z",
+   "headSha": "0ecbd148d95341ce6128c99fbeb76b7b5a865f94",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "working",
+   "botAt": "2026-11-04T06:19:32Z"
+  },
+  {
    "number": 103,
    "kind": "fix",
    "by": "Joshua",
    "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
    "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
-   "stage": "testing",
+   "stage": "building",
    "waitingOn": null,
    "asks": [],
    "openedAt": "2026-11-03T21:24:18Z",
@@ -54,6 +78,30 @@
    "requestStatus": "Built, ready to check (first part; the always-ten tray waits on Noah because it lives in #97, and the helper art from the newest Changes comes in the next build)",
    "botState": "finished",
    "botAt": "2026-11-03T21:59:52Z"
+  },
+  {
+   "number": 81,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
+   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-30T01:27:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T22:44:35Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-03T22:44:35Z",
+   "headSha": "4a18bf4fd5b6e6a2b8a3dd220c4ab9ab309c0b4e",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-03T07:13:24Z"
   },
   {
    "number": 89,
@@ -212,39 +260,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-11-03T07:14:24Z"
-  },
-  {
-   "number": 81,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "When Joshua is happy with the plain rarity colours, the old card backdrop files in assets/adventure-rebuild/ (*-backplate.webp, common-*.webp, *-ambient.svg, habitat-motifs.svg) can be deleted. My suggestion: write \"@claude remove the old backdrops\" here then, and I'll check…"
-    },
-    {
-     "who": "joshua",
-     "text": "On phones, each DPS plate shows only the number, without the word \"DPS\", because the cards are too narrow for both at a readable size. My suggestion: try it on the test site first. If the bare numbers feel unclear, I can add one small \"Companion DPS\" label in the Party tray's…"
-    }
-   ],
-   "openedAt": "2026-10-30T01:27:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T22:44:35Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T22:44:35Z",
-   "headSha": "4a18bf4fd5b6e6a2b8a3dd220c4ab9ab309c0b4e",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:13:24Z"
   },
   {
    "number": 85,
@@ -459,34 +474,9 @@
    "by": "Joshua",
    "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
    "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "questions",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Let me read the fresh inventory. Either allow gh run download in the Claude build, or download artifact 13270176731 from run 41715224791 and paste the paths of the 25 files added to Approved after 07:13 UTC into an @claude comment. Then I can match them to the 5 missing…"
-    },
-    {
-     "who": "noah",
-     "text": "Check the Realm 2 pictures. If Approved/Realm2-Companions-v63 is finished, run Fetch art in download mode with only Realm2-Companions-v63. The 3 ZIPs come to 51 MB, so the folder should be about the same and fit under 100 MB without the backgrounds. Then write \"@claude build…"
-    },
-    {
-     "who": "noah",
-     "text": "The art download couldn't bring the backgrounds folder Approved/Companion-Theme-Backdrops-P1-Complete12-v04 (66 MB), so its 12 pictures haven't been checked. I suggest fetching that folder by itself before anyone builds the big companion screen. It doesn't block any companion…"
-    },
-    {
-     "who": "joshua",
-     "text": "Did you upload new pictures for Reedwatch Tinker, Millward Bellkeeper, Dewfern, Coppice Cricket or Unstitch after this morning? If so, tell me the folder name in your Artwork Inbox and I'll check them. You don't need to make them again."
-    },
-    {
-     "who": "joshua",
-     "text": "Do you approve the see-through pictures of Ashfold, Frostmote, Tackbolt and Brickwarden? They're uploaded and pass every check. Today they're marked \"ok next\", not \"approved\". I suggest approving them if they look right to you."
-    },
-    {
-     "who": "joshua",
-     "text": "What should the masked dagger fighter be called? Its records still say the name isn't chosen (Redveil, Duskrunner, Ragblade or Ashknife). I suggest Redveil, because it matches the red scarf and the hidden face."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-11-02T04:06:28Z",
    "mergedAt": null,
    "closedAt": null,
@@ -503,68 +493,14 @@
    "botAt": "2026-11-03T20:59:30Z"
   },
   {
-   "number": 78,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
-   "quote": "LOREBOUND — Summoning System UI Refactor. Replace Tome-tier presentation with one permanent Portal progression. This request supersedes earlier Tome-tier UI direction. one permanent Summoning Portal / Rift ... one portal level progression ... Level 1, Level 2, Level 3 ... no Tome I / II / III / IV / V presentation ... no “Library > Tome III” style labeling. This request is primarily a UI / presentation refactor ... preserve current real functionality where possible ... all values displayed are real, live game values.",
-   "stage": "built",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Saves still on the old Gold summons (before the Lore Shard economy) now also pay the Gold price of the highest Tome, because price goes with the level. Players on Lore Shards still pay 1 Shard. Suggestion: keep it. Every live save should already be on Lore Shards, and the old…"
-    },
-    {
-     "who": "joshua",
-     "text": "When a summon opens, the reveal still shows the old Tome book picture for your Rift level. Suggestion: show the teal Rift picture you already approved there instead, so no Tome books are left. I didn't change it because it's approved art."
-    },
-    {
-     "who": "joshua",
-     "text": "The game says \"Rift\", for example \"Upgrade Rift\" and \"RIFT UPGRADES\". Your request allows \"Rift\" or \"Portal\", so I kept \"Rift\" everywhere. Suggestion: keep \"Rift\". Say if you'd rather have \"Portal\"."
-    },
-    {
-     "who": "joshua",
-     "text": "The one-time save update popup still says \"Your companions, Tomes and everything else stay as they are\". Suggestion: change \"Tomes\" to \"Rift level\" there too."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with another change in progress, in grand-archive.js, so it isn't on the test site yet."
-    }
-   ],
-   "openedAt": "2026-10-29T23:17:42Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-03T07:28:57Z",
-   "headSha": "0ecbd148d95341ce6128c99fbeb76b7b5a865f94",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:28:57Z"
-  },
-  {
    "number": 96,
    "kind": "request",
    "by": "Joshua",
    "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
    "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
-   "stage": "questions",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "This request is waiting until Haven (#92) is settled. Suggestion: when #92 is ready, comment \"@claude build this now\" on this pull request and I'll build the first version for the test site only."
-    },
-    {
-     "who": "joshua",
-     "text": "How much Wood and Stone should each order cost? Suggestion: I start with small test amounts, about what one early Haven building costs, and you change them after trying it on the test site."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-11-02T03:42:27Z",
    "mergedAt": null,
    "closedAt": null,
@@ -1148,16 +1084,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
   },
   {
-   "at": "2026-11-03T20:59:30Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
-  },
-  {
-   "at": "2026-11-03T20:59:30Z",
-   "kind": "question",
-   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-11-03T20:54:49Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
@@ -1218,21 +1144,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
   },
   {
-   "at": "2026-11-03T07:28:57Z",
-   "kind": "built",
-   "text": "Claude finished building “Replace Tome-tier UI with one permanent numeric Portal progression”"
-  },
-  {
-   "at": "2026-11-03T07:28:57Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Replace Tome-tier UI with one permanent numeric Portal progression”"
-  },
-  {
-   "at": "2026-11-03T07:28:57Z",
-   "kind": "question",
-   "text": "Part of “Replace Tome-tier UI with one permanent numeric Portal progression” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-11-03T07:28:09Z",
    "kind": "behind",
    "text": "Behind the scenes: “Status page: one Copy for Codex for every question waiting on Joshua”"
@@ -1261,6 +1172,31 @@
    "at": "2026-11-03T07:15:49Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
+  },
+  {
+   "at": "2026-11-03T07:14:56Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
+  },
+  {
+   "at": "2026-11-03T07:14:35Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved 10 unique Auto Summon rarity rows”"
+  },
+  {
+   "at": "2026-11-03T07:14:24Z",
+   "kind": "built",
+   "text": "Claude finished building “Unify team and Omnidex companion pages; approve Locations provisionally”"
+  },
+  {
+   "at": "2026-11-03T07:14:13Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
+  },
+  {
+   "at": "2026-11-03T07:13:24Z",
+   "kind": "built",
+   "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
   }
  ],
  "otherPulls": [
