@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T06:20:21.451Z",
+ "generatedAt": "2026-11-04T06:21:25.412Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -32,14 +32,91 @@
  },
  "items": [
   {
+   "number": 103,
+   "kind": "fix",
+   "by": "Joshua",
+   "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
+   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-03T21:24:18Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T22:44:35Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-04T06:21:27Z",
+   "headSha": "f4c9ebf6736b3aade86a3652f75bb01c3a70ece2",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check (first part; the always-ten tray waits on Noah because it lives in #97, and the helper art from the newest Changes comes in the next build)",
+   "botState": "finished",
+   "botAt": "2026-11-04T06:21:27Z"
+  },
+  {
+   "number": 81,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
+   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-10-30T01:27:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-03T22:44:35Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-04T06:21:10Z",
+   "headSha": "4a18bf4fd5b6e6a2b8a3dd220c4ab9ab309c0b4e",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-04T06:21:10Z"
+  },
+  {
+   "number": 98,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
+   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-02T04:06:28Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-04T06:21:02Z",
+   "headSha": "f0de4648aecf2fe65a7bffe096bade5af13be91e",
+   "touchesGame": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "working",
+   "botAt": "2026-11-04T06:21:02Z"
+  },
+  {
    "number": 96,
    "kind": "request",
    "by": "Joshua",
    "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
    "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "This request is still waiting for Haven (#92) to be settled. Suggestion: when #92 is ready, comment \"@claude build this now\" on this pull request, and I'll build the first version for the test site only."
+    }
+   ],
    "openedAt": "2026-11-02T03:42:27Z",
    "mergedAt": null,
    "closedAt": null,
@@ -48,12 +125,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:20:21Z",
-   "headSha": "dbaaba273fc8bdee4c17e24f798b2bd977f93c5c",
+   "updatedAt": "2026-11-04T06:20:57Z",
+   "headSha": "64272be0b112abe472d635aaca4ee6c959d29233",
    "touchesGame": false,
    "requestStatus": "Answered, waiting for Haven (#92) before building",
-   "botState": "working",
-   "botAt": "2026-11-04T06:20:21Z"
+   "botState": "questions",
+   "botAt": "2026-11-04T06:20:57Z"
   },
   {
    "number": 78,
@@ -78,54 +155,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-11-04T06:19:58Z"
-  },
-  {
-   "number": 103,
-   "kind": "fix",
-   "by": "Joshua",
-   "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
-   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-03T21:24:18Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T22:44:35Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T22:44:35Z",
-   "headSha": "f4c9ebf6736b3aade86a3652f75bb01c3a70ece2",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check (first part; the always-ten tray waits on Noah because it lives in #97, and the helper art from the newest Changes comes in the next build)",
-   "botState": "finished",
-   "botAt": "2026-11-03T21:59:52Z"
-  },
-  {
-   "number": 81,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-30T01:27:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-03T22:44:35Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-03T22:44:35Z",
-   "headSha": "4a18bf4fd5b6e6a2b8a3dd220c4ab9ab309c0b4e",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:13:24Z"
   },
   {
    "number": 89,
@@ -491,30 +520,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-03T21:21:56Z"
-  },
-  {
-   "number": 98,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
-   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-02T04:06:28Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T20:59:30Z",
-   "headSha": "f0de4648aecf2fe65a7bffe096bade5af13be91e",
-   "touchesGame": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T20:59:30Z"
   },
   {
    "number": 66,
@@ -999,6 +1004,21 @@
  ],
  "activity": [
   {
+   "at": "2026-11-04T06:21:27Z",
+   "kind": "built",
+   "text": "Claude finished building “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
+  },
+  {
+   "at": "2026-11-04T06:21:10Z",
+   "kind": "built",
+   "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
+  },
+  {
+   "at": "2026-11-04T06:20:57Z",
+   "kind": "question",
+   "text": "Part of “Connect Haven to LOREBOUND economy through resource-backed Gold caravans” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-04T06:19:58Z",
    "kind": "built",
    "text": "Claude finished building “Replace Tome-tier UI with one permanent numeric Portal progression”"
@@ -1027,11 +1047,6 @@
    "at": "2026-11-03T22:01:01Z",
    "kind": "asked",
    "text": "You asked for “Owner answers: PRs #81, #102, #98, #78 and #96”"
-  },
-  {
-   "at": "2026-11-03T21:59:52Z",
-   "kind": "built",
-   "text": "Claude finished building “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
   },
   {
    "at": "2026-11-03T21:55:52Z",
@@ -1187,16 +1202,6 @@
    "at": "2026-11-03T07:14:35Z",
    "kind": "built",
    "text": "Claude finished building “Integrate approved 10 unique Auto Summon rarity rows”"
-  },
-  {
-   "at": "2026-11-03T07:14:24Z",
-   "kind": "built",
-   "text": "Claude finished building “Unify team and Omnidex companion pages; approve Locations provisionally”"
-  },
-  {
-   "at": "2026-11-03T07:14:13Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
   }
  ],
  "otherPulls": [
