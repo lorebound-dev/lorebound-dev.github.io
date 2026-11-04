@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T13:50:33.044Z",
+ "generatedAt": "2026-11-04T13:53:47.777Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -32,6 +32,43 @@
  },
  "items": [
   {
+   "number": 107,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unblock companion art intake with exact-file downloads",
+   "quote": "Can you do those things for me?",
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Merge this pull request into main so builds can use exact art lists. It changes only the art-fetching tool in tools/artwork-intake and the request file, with no game, workflow or permission changes. After merging, add the \"Exact art files\" section above to #89's request (or…"
+    },
+    {
+     "who": "noah",
+     "text": "The art-staging check (stage.cjs) stops on the companion ZIPs because each one has its own BATCH_MANIFEST.json. I suggest it should only refuse a repeated path when the asset mapping actually uses that path, and list other repeats as extra files from each ZIP. I didn't change…"
+    },
+    {
+     "who": "noah",
+     "text": "To test one fetch by hand before merging, run gh workflow run fetch-art.yml --repo lorebound-game/LOREBOUND --ref review/companion-art-delivery-unblock -f mode=request -f only=<PR number of a request with the section above>. The Google sign-in may be limited to main; if it's…"
+    }
+   ],
+   "openedAt": "2026-11-04T13:45:59Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-04T13:53:16Z",
+   "headSha": "8f1ec2077d968de618875e385c3f58ecd6e6dd8f",
+   "touchesGame": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-04T13:53:16Z"
+  },
+  {
    "number": 98,
    "kind": "request",
    "by": "Joshua",
@@ -54,30 +91,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-11-04T13:50:33Z"
-  },
-  {
-   "number": 107,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unblock companion art intake with exact-file downloads",
-   "quote": "Can you do those things for me?",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-04T13:45:59Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-04T13:47:18Z",
-   "headSha": "d18b116314530b5f281902eb9f2d43013070feaf",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-04T13:47:18Z"
   },
   {
    "number": 106,
@@ -969,6 +982,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-04T13:53:16Z",
+   "kind": "question",
+   "text": "Part of “Unblock companion art intake with exact-file downloads” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-04T13:45:59Z",
    "kind": "asked",
    "text": "You asked for “Unblock companion art intake with exact-file downloads”"
@@ -1160,11 +1178,6 @@
   },
   {
    "at": "2026-11-03T14:59:21Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-03T07:31:36Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
