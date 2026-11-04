@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T13:47:30.189Z",
+ "generatedAt": "2026-11-04T13:48:32.460Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -78,6 +78,39 @@
    "requestStatus": "Waiting to be built",
    "botState": "finished",
    "botAt": "2026-11-04T13:44:33Z"
+  },
+  {
+   "number": 89,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
+   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The art robot can't reach the companion pictures, because it only fetches whole folders and Approved/Realm 2 is over its 100 MB limit. I suggest the easiest fix: copy just the three ZIPs (R2_Companions_01-10, 11-20 and 21-30_APPROVED_v63.zip) into a new folder,…"
+    },
+    {
+     "who": "noah",
+     "text": "If you'd rather leave Drive alone, the other fix is to change tools/artwork-intake/request-art.cjs on main so that when a request names a file inside a big folder, the robot fetches only that file. The build always uses main's copy of the tool, so I can't do this from this…"
+    }
+   ],
+   "openedAt": "2026-11-01T03:47:10Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-04T06:44:13Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-04T06:44:13Z",
+   "headSha": "6a58d0221b23cdc39797d2c0a2f9f50c0dc2a092",
+   "touchesGame": true,
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-11-03T21:10:53Z"
   },
   {
    "number": 97,
@@ -193,30 +226,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-11-04T06:24:58Z"
-  },
-  {
-   "number": 89,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-01T03:47:10Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-04T06:44:13Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-04T06:44:13Z",
-   "headSha": "6a58d0221b23cdc39797d2c0a2f9f50c0dc2a092",
-   "touchesGame": true,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-11-03T21:10:53Z"
   },
   {
    "number": 93,
@@ -469,42 +478,9 @@
    "by": "Joshua",
    "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
    "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "questions",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The art fetch couldn't bring the backgrounds folder Approved/Companion-Theme-Backdrops-P1-Complete12-v04 (https://drive.google.com/drive/folders/14IhQiRJSyVKuoE3Ji2Rvo1Xi3i8GzAz-), because at 66 MB it went over the 100 MB limit together with the other art. So its 12 pictures…"
-    },
-    {
-     "who": "joshua",
-     "text": "Five Commons still need see-through pictures: Reedwatch Tinker, Millward Bellkeeper, Dewfern, Coppice Cricket and Unstitch. I suggest making each one the way you made Brickwarden, one character per picture on a see-through background, and approving each one before it goes in…"
-    },
-    {
-     "who": "joshua",
-     "text": "The game's companion pictures are 512×512, but the ten approved see-through pictures are bigger (1312×1199 or 1254×1254). Is it OK to make a smaller copy of each for the game, without changing anything else in it? I suggest yes. The approved originals would stay untouched in…"
-    },
-    {
-     "who": "joshua",
-     "text": "Each new Common needs one of the four summon bands. The Aberration, Unstitch, goes in the rarest band, and the other 14 go in groups of 5, 5 and 4. I suggest the first ten you approved fill the two groups of 5, and the last 4 fill the group of 4. Tell me if you'd rather pick…"
-    },
-    {
-     "who": "joshua",
-     "text": "Do you approve the ten plain dock card backgrounds (Dock-Card-Rarity-Skins-v01)? I suggest approving the colors and the plain middle, and letting the game draw the thin frame and edge marks itself, using your pictures as the guide. That keeps them sharp on a phone."
-    },
-    {
-     "who": "joshua",
-     "text": "For the big companion screen, which companion gets which of the 12 scenes? I suggest matching each one to where it lives, for example wetlands for water beasts, and deciding that when the big screen is built."
-    },
-    {
-     "who": "joshua",
-     "text": "Fungal Hollow's background has lettering in the lower left. I suggest making a clean new version without the lettering and putting it in its own new folder in your Artwork Inbox's Approved folder."
-    },
-    {
-     "who": "joshua",
-     "text": "Moonlit Grove's background has dark bands across the top and bottom, and Lantern Gloom's has fainter ones. Should they be drawn again without the bands? I suggest yes for Moonlit Grove, and keeping Lantern Gloom until it's seen on the big screen."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-11-02T04:06:28Z",
    "mergedAt": null,
    "closedAt": null,
@@ -1058,16 +1034,6 @@
    "text": "Part of “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid” is waiting for Noah’s OK"
   },
   {
-   "at": "2026-11-04T06:25:53Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
-  },
-  {
-   "at": "2026-11-04T06:25:53Z",
-   "kind": "question",
-   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-11-04T06:24:58Z",
    "kind": "built",
    "text": "Claude finished building “Use approved rarity-frame design and simplify Adventure Rift rail”"
@@ -1143,6 +1109,11 @@
    "text": "Claude finished building “Add approved Realm 2 companions to universal summoning and Omnidex”"
   },
   {
+   "at": "2026-11-03T21:10:53Z",
+   "kind": "question",
+   "text": "Part of “Add approved Realm 2 companions to universal summoning and Omnidex” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-03T21:04:58Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
@@ -1189,6 +1160,11 @@
   },
   {
    "at": "2026-11-03T14:59:21Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-03T07:31:36Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   }
