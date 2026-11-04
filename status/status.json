@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-04T06:26:34.138Z",
+ "generatedAt": "2026-11-04T06:27:30.178Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -9,7 +9,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-04T06:26:18Z",
+  "updatedAt": "2026-11-04T06:27:14Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -32,6 +32,30 @@
  },
  "items": [
   {
+   "number": 104,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Owner answers: PRs #81, #102, #98, #78 and #96",
+   "quote": "\"All five PRs are now answered. Create the single consolidated owner-answers request in lorebound-game/LOREBOUND with numbered answers under PR #81, #102, #98, #78, and #96, following AGENTS.md, and open the PR for Noah to relay to Claude. Do not merge or deploy.\"",
+   "stage": "closed",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-03T22:01:01Z",
+   "mergedAt": null,
+   "closedAt": "2026-11-04T06:27:20Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-04T06:27:20Z",
+   "headSha": "c4aff2df1dc29a9be825ac2973531d6015ec9f67",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be relayed",
+   "botState": "questions",
+   "botAt": "2026-11-03T22:11:03Z"
+  },
+  {
    "number": 103,
    "kind": "fix",
    "by": "Joshua",
@@ -49,11 +73,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "b97efe3e3e767d7703cba73ed78c400663c553f8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
@@ -73,11 +97,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -106,11 +130,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "6a58d0221b23cdc39797d2c0a2f9f50c0dc2a092",
    "touchesGame": true,
    "requestStatus": "Waiting for answers",
@@ -135,11 +159,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "ab1e7fb59797258f2ea9399491feb2e4e17636f0",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -159,11 +183,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -183,11 +207,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -207,11 +231,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -231,11 +255,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "b5751ae65d053601b3eb7eb66dab9a897afad84b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -255,11 +279,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "a982dc1554ba37af34d5550ceb395c21cd904f01",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -284,11 +308,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -308,11 +332,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "8a788f8d4d6a73413a00449f1f5727efb94ac698",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -332,11 +356,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "d06cacf4736a25ed8e64bc6796daca1591ba9c9c",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -356,11 +380,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-04T06:26:20Z",
+   "testAt": "2026-11-04T06:27:15Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-04T06:26:20Z",
+   "updatedAt": "2026-11-04T06:27:15Z",
    "headSha": "a01861bff30171fd9633a066b2d178a18285bdb0",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -487,72 +511,14 @@
    "botAt": "2026-11-04T06:20:57Z"
   },
   {
-   "number": 104,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner answers: PRs #81, #102, #98, #78 and #96",
-   "quote": "\"All five PRs are now answered. Create the single consolidated owner-answers request in lorebound-game/LOREBOUND with numbered answers under PR #81, #102, #98, #78, and #96, following AGENTS.md, and open the PR for Noah to relay to Claude. Do not merge or deploy.\"",
-   "stage": "questions",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Please pass each section of requests/2026-11-03-owner-answers.md to its pull request (#81, #102, #98, #78, #96) with an @claude comment, so Claude rebuilds each one. Claude doesn't post on other pull requests unless Noah asks."
-    },
-    {
-     "who": "noah",
-     "text": "#96: Joshua approved small trial Wood and Stone costs for Gold caravans. This changes the economy, so it also needs Noah's OK. My suggestion: say yes for the test site only, and settle the final numbers later."
-    },
-    {
-     "who": "noah",
-     "text": "Once the answers are passed on, this pull request can be closed without merging. It only holds Joshua's answers."
-    }
-   ],
-   "openedAt": "2026-11-03T22:01:01Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T22:11:03Z",
-   "headSha": "c4aff2df1dc29a9be825ac2973531d6015ec9f67",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be relayed",
-   "botState": "questions",
-   "botAt": "2026-11-03T22:11:03Z"
-  },
-  {
    "number": 102,
    "kind": "request",
    "by": "Joshua",
    "title": "Integrate approved 10-tier companion dock backgrounds",
    "quote": "\"I want that to be the full frame with no other frame.\" The dock-card background should have an open middle for the companion; the background's own border changes with rarity, rather than repeating the same flowers or making every tier a full scene. All ten final images have now been approved individually.",
-   "stage": "built",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The art's rarity names don't match the game's. The art goes 07 Ascendant, 08 Transcendent, 09 Exalted. The game goes 7 Ancient, 8 Exalted, 9 Transcendent. Right now the build matches Transcendent and Exalted by name, so the Transcendent art goes on Transcendent cards and the…"
-    },
-    {
-     "who": "joshua",
-     "text": "Which art should go with which rarity? The art says 07 Ascendant, 08 Transcendent, 09 Exalted. The game says 7 Ancient, 8 Exalted, 9 Transcendent. Suggestion: Ascendant art for Ancient, Transcendent art for Transcendent, Exalted art for Exalted. Nobody sees these rarities in…"
-    },
-    {
-     "who": "joshua",
-     "text": "The Party cards are taller and thinner than the new backgrounds. To keep every ornament, each card shows the whole picture with a thin dark band above and below it. Is that OK? The other options are to trim a little off the left and right sides so the picture fills the card…"
-    },
-    {
-     "who": "joshua",
-     "text": "The old cards had a soft glow and faint line pattern in the companion's habitat colour (green for Wildgrowth, orange for Beasts and so on). These were removed so the new background is the only decoration. Suggestion: leave them out."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with another change in progress, in adventure-art-cards.css and adventure-art-cards.js, so it isn't on the test site yet."
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
    "openedAt": "2026-11-03T20:41:36Z",
    "mergedAt": null,
    "closedAt": null,
@@ -1051,6 +1017,16 @@
  ],
  "activity": [
   {
+   "at": "2026-11-04T06:27:20Z",
+   "kind": "closed",
+   "text": "“Owner answers: PRs #81, #102, #98, #78 and #96” was closed"
+  },
+  {
+   "at": "2026-11-04T06:27:15Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
+  },
+  {
    "at": "2026-11-04T06:26:20Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
@@ -1116,11 +1092,6 @@
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
   },
   {
-   "at": "2026-11-03T22:11:03Z",
-   "kind": "question",
-   "text": "Part of “Owner answers: PRs #81, #102, #98, #78 and #96” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-11-03T22:01:01Z",
    "kind": "asked",
    "text": "You asked for “Owner answers: PRs #81, #102, #98, #78 and #96”"
@@ -1149,16 +1120,6 @@
    "at": "2026-11-03T21:21:56Z",
    "kind": "built",
    "text": "Claude finished building “Integrate approved 10-tier companion dock backgrounds”"
-  },
-  {
-   "at": "2026-11-03T21:21:56Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Integrate approved 10-tier companion dock backgrounds”"
-  },
-  {
-   "at": "2026-11-03T21:21:56Z",
-   "kind": "question",
-   "text": "Part of “Integrate approved 10-tier companion dock backgrounds” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-03T21:13:11Z",
@@ -1247,6 +1208,11 @@
   },
   {
    "at": "2026-11-03T07:28:05Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
+  },
+  {
+   "at": "2026-11-03T07:17:58Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”"
   }
