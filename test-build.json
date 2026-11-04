@@ -62,6 +62,11 @@
       "head": "ab1e7fb59797258f2ea9399491feb2e4e17636f0"
     },
     {
+      "number": 102,
+      "title": "Integrate approved 10-tier companion dock backgrounds",
+      "head": "7625ac41f96ecf560ed517504d9cf124c7e02b4a"
+    },
+    {
       "number": 103,
       "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
       "head": "b97efe3e3e767d7703cba73ed78c400663c553f8"
@@ -76,24 +81,14 @@
         "pocket-fortune/dist/grand-archive.js"
       ],
       "with": "others"
-    },
-    {
-      "number": 102,
-      "title": "Integrate approved 10-tier companion dock backgrounds",
-      "head": "c314f30ecf097214fcedbbf4c78170971f7622f1",
-      "files": [
-        "pocket-fortune/dist/adventure-art-cards.css",
-        "pocket-fortune/dist/adventure-art-cards.js"
-      ],
-      "with": "others"
     }
   ],
-  "commit": "40ff07459fb95e17f76e7e3d10c571d508e0cd4d",
+  "commit": "48b97265e31c231008c260fdb8c492b729c08c91",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-04T06:28:33Z"
+  "at": "2026-11-04T06:35:17Z"
 }
