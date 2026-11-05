@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-05T18:41:00.402Z",
+ "generatedAt": "2026-11-05T21:20:31.549Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -1008,30 +1008,6 @@
    "botAt": "2026-10-29T19:54:35Z"
   },
   {
-   "number": 74,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Animated compact Summoning Rift — replace rail Tome after color/art approval",
-   "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T15:47:43Z",
-   "mergedAt": null,
-   "closedAt": "2026-10-31T02:24:26Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-31T02:24:26Z",
-   "headSha": "98079fba9b05e0e131d2f6a5c3312b8f05cb0184",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T16:43:56Z"
-  },
-  {
    "number": 77,
    "kind": "request",
    "by": "Joshua",
@@ -1259,6 +1235,15 @@
   }
  ],
  "otherPulls": [
+  {
+   "number": 110,
+   "headSha": "8afcdc6949870f77ef671fda999fd316d901b0fc",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 105,
    "headSha": "b6c8c181aebe82087bb55d7c8a57df590c238744",
