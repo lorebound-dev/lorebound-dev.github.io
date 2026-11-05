@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-05T21:31:55.407Z",
+ "generatedAt": "2026-11-05T21:33:09.091Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -984,30 +984,6 @@
    "botAt": "2026-10-28T18:49:36Z"
   },
   {
-   "number": 76,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved summoning shrine into Adventure rail — visual-only",
-   "quote": "\"also to replace the tome i want to do the below  A compact Summoning Rift—an ancient carved-stone focus containing luminous violet energy. Companions emerge from it. same size as the current tome roughly. also i wnat to have it be a gif if possible, not sure if it is\"  \"Presentation requirements: - It replaces the existing purple Tome in the lower Adventure summoning rail. - Keep it compact and visually prominent. - Preserve space for the battlefield, five-companion Party dock and bottom navigation. - Keep Summon, Auto and access to summoning upgrades/options clear. - It must work whether the Party dock is expanded or collapsed. - Do not turn it into an enormous portal that occupies the battlefield. - Avoid generic rectangular website buttons or excessive ornament.\"  \"yeah lets do that. although im not sold on the puirple color\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T18:16:04Z",
-   "mergedAt": null,
-   "closedAt": "2026-10-31T02:24:29Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-31T02:24:29Z",
-   "headSha": "dfbd83442a62e6fda6d66fd582c6f414f10dc734",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-10-29T19:54:35Z"
-  },
-  {
    "number": 77,
    "kind": "request",
    "by": "Joshua",
@@ -1033,6 +1009,11 @@
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-05T21:33:03Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Run the workflows on Hearth instead of GitHub's runners”"
+  },
   {
    "at": "2026-11-05T21:31:29Z",
    "kind": "test",
@@ -1227,14 +1208,18 @@
    "at": "2026-11-04T06:35:17Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
-  },
-  {
-   "at": "2026-11-04T06:28:34Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
   }
  ],
  "otherPulls": [
+  {
+   "number": 111,
+   "headSha": "e5be1c4e0c8f3e83ee4ca26ee32a20be675f20ff",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 110,
    "headSha": "8afcdc6949870f77ef671fda999fd316d901b0fc",
