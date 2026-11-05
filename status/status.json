@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-05T04:45:55.578Z",
+ "generatedAt": "2026-11-05T04:55:52.259Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -32,6 +32,30 @@
   ]
  },
  "items": [
+  {
+   "number": 109,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
+   "quote": "\"If nothing is checked in the auto summon it should stop at every single one. Also any mention of tone should be replaced and any image of a tome book should be. I need the achievement bar to look better, open to suggestion. Remove the guardian relics.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-05T04:55:25Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-05T04:55:25Z",
+   "headSha": "3e50e93093844546891784f3e1a804a6ff40c7dc",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 106,
    "kind": "request",
@@ -1009,33 +1033,14 @@
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-29T23:17:06Z"
-  },
-  {
-   "number": 75,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner approves teal color direction for Summoning Rift #74",
-   "quote": "I LIKE TEAL",
-   "stage": "closed",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-29T16:27:15Z",
-   "mergedAt": null,
-   "closedAt": "2026-10-30T04:43:55Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-30T04:43:55Z",
-   "headSha": "383f3a91afc98e808afd9a389e314cce8fc3a664",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-30T00:03:33Z"
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-05T04:55:25Z",
+   "kind": "asked",
+   "text": "You asked for “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
+  },
   {
    "at": "2026-11-05T04:45:13Z",
    "kind": "built",
@@ -1228,11 +1233,6 @@
   },
   {
    "at": "2026-11-03T21:43:23Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
-  },
-  {
-   "at": "2026-11-03T21:30:39Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”"
   }
