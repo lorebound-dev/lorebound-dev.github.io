@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-05T21:55:51.816Z",
+ "generatedAt": "2026-11-05T21:56:49.597Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -38,23 +38,32 @@
    "by": "Joshua",
    "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
    "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Summoning the new companions waits for #78's Portal. Once #78 merges, I'll add their chances there, the way you approved: each rarity keeps its total, ordinary companions share it evenly, Parallax Shard gets Crooked Eye's rate, Riftmourn gets Forgotten Watcher's 0.1%, and…"
+    },
+    {
+     "who": "noah",
+     "text": "Two of Realm 1's achievements count every discovery, not just Realm 1's: \"Discover every Realm 1 species\" (30) and \"Many voices\" (10). Once Realm 2 companions can be summoned, Realm 2 finds would count toward them too. I suggest making both count Realm 1 only, in the same…"
+    }
+   ],
    "openedAt": "2026-11-01T03:47:10Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-05T21:55:31Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-05T21:55:31Z",
-   "headSha": "431b88117852284529421a0b51641242fee4f12e",
+   "updatedAt": "2026-11-05T21:56:27Z",
+   "headSha": "e7597007d6e8cfa11302b60dd2eda342a6b29e40",
    "touchesGame": true,
-   "requestStatus": "Waiting for answers",
-   "botState": "finished",
-   "botAt": "2026-11-05T21:47:59Z"
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-05T21:56:27Z"
   },
   {
    "number": 109,
@@ -986,6 +995,16 @@
  ],
  "activity": [
   {
+   "at": "2026-11-05T21:56:27Z",
+   "kind": "built",
+   "text": "Claude finished building “Add approved Realm 2 companions to universal summoning and Omnidex”"
+  },
+  {
+   "at": "2026-11-05T21:56:27Z",
+   "kind": "question",
+   "text": "Part of “Add approved Realm 2 companions to universal summoning and Omnidex” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-05T21:55:31Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
@@ -994,11 +1013,6 @@
    "at": "2026-11-05T21:54:28Z",
    "kind": "behind",
    "text": "Behind the scenes: “Status page: say when a build didn't run; drop the unused test-site records”"
-  },
-  {
-   "at": "2026-11-05T21:47:59Z",
-   "kind": "built",
-   "text": "Claude finished building “Add approved Realm 2 companions to universal summoning and Omnidex”"
   },
   {
    "at": "2026-11-05T21:45:55Z",
@@ -1179,11 +1193,6 @@
    "at": "2026-11-04T14:00:17Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
-  },
-  {
-   "at": "2026-11-04T13:58:53Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
   }
  ],
  "otherPulls": [
