@@ -86,14 +86,25 @@
         "pocket-fortune/dist/grand-archive.js"
       ],
       "with": "others"
+    },
+    {
+      "number": 108,
+      "title": "Use tutorial egg companion details; keep Omnidex read-only",
+      "head": "515ca0b3693f89f66f1453d921e6418e1cf0c0c5",
+      "files": [
+        "pocket-fortune/dist/home.html",
+        "pocket-fortune/dist/omnidex.js",
+        "pocket-fortune/dist/team.js"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "ce7e1611a4229069e9c2fbe2dad2b05698763e76",
+  "commit": "aecfc7ffdcfebb2812dd2d7a4a54c90891279343",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-05T04:44:13Z"
+  "at": "2026-11-05T05:02:15Z"
 }
