@@ -1,4 +1,4 @@
-/* Realm 1 returning guardians. Identity and cosmetic rewards are separate from story receipts. */
+/* Realm 1 returning guardians. Identity and Gold are separate from story receipts. Guardian Relics are retired; old relic fields stay readable. */
 (function(root){'use strict';const R=root.LoreRealm||(typeof require==='function'?require('./realm1.js'):null),SCHEMA='lorebound-ownership-7';
 const config=Object.freeze({version:1,provisional:true,weights:[10,9,8,7,6,5,4,3,2,1],hp:[750,1000,1250,1500,1750,2000,2200,2400,2600,2800],gold:[100,120,140,160,180,200,220,240,260,280],dropChance:.1,mastery:[1,3,6,10,15,21],maxOfflineEncounters:10000,maxCounterDigits:4096});
 // Story source floor is stable identity. Shared sprites are explicitly placeholders,
@@ -22,13 +22,15 @@ function spawn(s,roll=random(s)){const e=record(s),g=select(roll);e.guardianId=g
 function enter(input){const O=root.LoreOwnership;if(!O.validate(input)||!enabled(input)||!input.realmComplete)throw Error('Defeat Story Guardian 100 first');const s=O.hydrate(JSON.parse(JSON.stringify(input)));if(active(s))return s;record(s).active=true;spawn(s);R.timers(s,true);s.revision++;if(!O.validate(s))throw Error('Invalid Endless entry');return s;}
 function rank(s,id){const n=BigInt(record(s)?.relics[id]||'0');return config.mastery.filter(x=>n>=BigInt(x)).length;}
 function settle(s,expectedFloor,rolls){const e=record(s);if(!active(s)||e.floor!==expectedFloor||e.hp>0||e.receipt!==e.victories)return null;if(rolls){drop(rolls.drop);select(rolls.guardian);}const g=current(s),next=(BigInt(e.victories)+1n).toString(),floor=(BigInt(e.floor)+1n).toString();if(!counter(floor)||!Number.isSafeInteger(s.gold+g.gold))throw Error('Storage/currency limit reached; progress paused');
- const found=drop(rolls?.drop??random(s)),newRelic=found&&!e.relics[g.relicId];if(found)e.relics[g.relicId]=(BigInt(e.relics[g.relicId]||'0')+1n).toString();e.memorial=Object.keys(e.relics).length===10;
- s.gold+=g.gold;e.victories=next;e.receipt=next;e.floor=floor;e.lastReward={floor:expectedFloor,guardianId:g.id,gold:g.gold,relic:found};spawn(s,rolls?.guardian??random(s));
- return {kind:'endless',gold:g.gold,shards:0,xp:0,relic:found,relicId:found?g.relicId:null,newRelic,guardian:g.name,floor:expectedFloor};}
+ // Guardian Relics are retired. The old relic roll is still drawn, so guardians keep exactly the same order, but it awards nothing.
+ // Relics, memorial and titleSelected already in a save stay as they are.
+ drop(rolls?.drop??random(s));
+ s.gold+=g.gold;e.victories=next;e.receipt=next;e.floor=floor;e.lastReward={floor:expectedFloor,guardianId:g.id,gold:g.gold,relic:false};spawn(s,rolls?.guardian??random(s));
+ return {kind:'endless',gold:g.gold,shards:0,xp:0,guardian:g.name,floor:expectedFloor};}
 function hit(s,amount){if(!(amount>0)||!Number.isFinite(amount))return null;const e=record(s),before=amount>=e.hp?JSON.stringify(s):null;e.hp=Math.max(0,e.hp-amount);s.enemyHp=e.hp;if(e.hp>0)return null;try{const event=settle(s,e.floor);return {...event,rollback:before};}catch(error){root.LoreOwnership.replaceState(s,JSON.parse(before));return {kind:'endless-blocked',message:error.message};}}
-function offline(s,now){const delta=(now-s.clock.highWater)/1000,invalid=!Number.isFinite(now)||delta<0,policy=root.LoreStory.policy,out={seconds:invalid?0:Math.min(policy.offlineSeconds,delta),kills:0,gold:0,shards:0,xp:0,floors:[],relicDrops:0,newRelics:[],endless:true,interruptedBoss:false,invalidClock:invalid,capped:delta>policy.offlineSeconds,encounterCap:false};if(invalid||delta===0)return out;
+function offline(s,now){const delta=(now-s.clock.highWater)/1000,invalid=!Number.isFinite(now)||delta<0,policy=root.LoreStory.policy,out={seconds:invalid?0:Math.min(policy.offlineSeconds,delta),kills:0,gold:0,shards:0,xp:0,floors:[],endless:true,interruptedBoss:false,invalidClock:invalid,capped:delta>policy.offlineSeconds,encounterCap:false};if(invalid||delta===0)return out;
  const dps=s.party.slots.reduce((n,id)=>n+(id?R.combat(s,id).damage/R.combat(s,id).interval:0),0)*policy.offlineEfficiency;let budget=dps*out.seconds;const e=record(s);
- while(budget>0&&out.kills<config.maxOfflineEncounters){if(budget<e.hp){e.hp-=budget;s.enemyHp=e.hp;budget=0;break;}budget-=e.hp;e.hp=0;s.enemyHp=0;const r=settle(s,e.floor);out.kills++;out.gold+=r.gold;if(r.relic)out.relicDrops++;if(r.newRelic)out.newRelics.push(r.relicId);}
+ while(budget>0&&out.kills<config.maxOfflineEncounters){if(budget<e.hp){e.hp-=budget;s.enemyHp=e.hp;budget=0;break;}budget-=e.hp;e.hp=0;s.enemyHp=0;const r=settle(s,e.floor);out.kills++;out.gold+=r.gold;}
  out.encounterCap=budget>0;R.saveClock(s,now);R.timers(s,true);return out;}
 root.LoreEndless={SCHEMA,config,guardians,record,enabled,active,guardian,current,valid,convert,select,drop,enter,rank,settle,hit,offline};if(typeof module!=='undefined')module.exports=root.LoreEndless;
 })(globalThis);

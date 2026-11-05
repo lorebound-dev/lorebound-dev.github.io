@@ -79,7 +79,7 @@
     {
       "number": 109,
       "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
-      "head": "5456c3187c23e6247044e0e8faeadd1134f8735f"
+      "head": "dcdc5ec5d28c61459f39b57613e54da62f7d0cec"
     }
   ],
   "skipped": [
@@ -104,12 +104,12 @@
       "with": "others"
     }
   ],
-  "commit": "cfca43b8581c20ca73bb2b0fea456875ff935e57",
+  "commit": "baaab1ae6d4501e9ed04237c61f8a295e24447b5",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-05T14:51:24Z"
+  "at": "2026-11-05T14:54:49Z"
 }
