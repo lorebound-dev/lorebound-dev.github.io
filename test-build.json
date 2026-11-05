@@ -44,7 +44,7 @@
     {
       "number": 89,
       "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-      "head": "431b88117852284529421a0b51641242fee4f12e"
+      "head": "e7597007d6e8cfa11302b60dd2eda342a6b29e40"
     },
     {
       "number": 92,
@@ -104,6 +104,6 @@
       "with": "others"
     }
   ],
-  "commit": "927f5f93c7e9221b58779022b8daac29d7b254e1",
-  "at": "2026-11-05T21:55:29Z"
+  "commit": "e618b9765963458c7a495adeb3331253a2a1d9bf",
+  "at": "2026-11-05T21:56:55Z"
 }

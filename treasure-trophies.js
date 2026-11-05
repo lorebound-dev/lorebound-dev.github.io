@@ -11,7 +11,7 @@ const order=Object.freeze([
  {id:'last-vigil',name:'The Last Vigil',requirement:'All ten guardian relics at Mastery VI',unit:'relics at Mastery VI'}]);
 const awarded=(s,id)=>T().ledger(s)?.awards?.includes(id)===true;
 function families(s){const max=R().C.economy.masteryMax,copies={masteryCopies:s.history};return R().C.categories.filter(c=>R().C.companions.some(h=>h.category===c&&R().mastery(copies,h.id)>=max));}
-function progress(s){const list=T().groups(s),entries=id=>list.find(g=>g.id===id)?.entries||[],companions=entries('companions'),relics=entries('relics'),found=companions.filter(e=>e.known).length,relicsFound=relics.filter(e=>e.known).length,mastered=relics.filter(e=>e.rank===e.maxRank).length,memorial=!!N().record(s).memorial,story=S().record(s),six=families(s).length;
+function progress(s){const list=T().groups(s),entries=id=>list.find(g=>g.id===id)?.entries||[],companions=entries('companions').filter(e=>R().species(e.id)?.realm===1),relics=entries('relics'),found=companions.filter(e=>e.known).length,relicsFound=relics.filter(e=>e.known).length,mastered=relics.filter(e=>e.rank===e.maxRank).length,memorial=!!N().record(s).memorial,story=S().record(s),six=families(s).length;
  return {
   'realm-conqueror':{earned:s.realmComplete===true&&!!story?.completion,found:null,total:null},
   'whole-chronicle':{earned:companions.length===30&&found===30||awarded(s,'realm1-companions'),found,total:companions.length},

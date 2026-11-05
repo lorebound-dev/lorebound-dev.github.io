@@ -1,6 +1,10 @@
-/* Universal companion roster, stage 1: the 30 owner-approved Realm 2 (Ashen Expanse) companions.
-   NOT LOADED BY ANY GAME PAGE YET. Nothing here changes odds, saves, the Omnidex or combat until
-   Noah approves the pool and save-validator changes (request 2026-11-01-universal-approved-companions).
+/* Universal companion roster: the 30 owner-approved Realm 2 (Ashen Expanse) companions.
+   Loaded right after realm1-config.js and before realm1.js. install() appends them to LoreConfig.companions
+   and adds Realm 2 to LoreConfig.realms, so species lookup, save checks, the Omnidex, Party and battle all use
+   the one shared roster (request 2026-11-01-universal-approved-companions). Noah approved (2026-11-03) that
+   saves accept the new IDs with no save update: old saves stay as they are and the new companions start
+   undiscovered. They are NOT summonable yet: every Tome weight is 0, so odds are unchanged. Their summon
+   chances go into the Portal from #78 once it merges. Realm 2 story, floors and enemies are not added.
 
    Source: LOREBOUND_ASSET_MAPPING_149.json (owner-approved art list), assets R2-CMP-001..030.
    Names and rarities are copied from it unchanged. Categories come from each approved file name.
@@ -16,7 +20,9 @@
    category 'Aberrations' already gets aberrationMultiplier (x4) and the aberration mastery table.
 
    Summon odds (summon below) are NOT live. Ordinary species share their rarity's ordinary budget
-   evenly; Aberrations are exceptional with their own rate, which is still undecided (null).
+   evenly; Aberrations are exceptional with their own rate. Noah approved (2026-11-03): Parallax Shard gets Crooked
+   Eye's rate and Riftmourn Forgotten Watcher's 0.1%, both as a share of the whole roll, taken from their rarity's
+   total (sameAs below). The Portal sets the numbers, so percent stays null here.
    Epic: 1% total at the permanent Portal level where Rare reaches 5%, 0.5% each, 0% below it. */
 (function(root){'use strict';
 const C=root.LoreConfig||(typeof require==='function'?require('./realm1-config.js'):null);
@@ -55,15 +61,15 @@ const sources=[
 ['R2-CMP-030','Hushgate','Construct','Epic','R2-CMP-030_Hushgate_Epic_Construct_ORIGINAL.png','d17ec7e9867716b3364668e62085dc7e7c8c88a3e824fc12670ac1ba70e7e16c',1536,1024]];
 const round=(n,d)=>Math.round(n*10**d)/10**d,mean=a=>a.reduce((n,x)=>n+x,0)/a.length;
 // Realm 1 averages by rarity (and category). Crit is kept as a fraction, like LoreConfig.baseCrit.
-function realm1Average(rarity,category){const pick=C.companions.filter(h=>h.rarity===rarity&&(!category||h.category===category));return pick.length?{interval:round(mean(pick.map(h=>h.interval)),2),baseCrit:round(mean(pick.map(h=>h.baseCrit)),4),from:pick.map(h=>h.id)}:null;}
+function realm1Average(rarity,category){const pick=C.companions.filter(h=>h.realm===1&&h.rarity===rarity&&(!category||h.category===category));return pick.length?{interval:round(mean(pick.map(h=>h.interval)),2),baseCrit:round(mean(pick.map(h=>h.baseCrit)),4),from:pick.map(h=>h.id)}:null;}
 // Owner-approved PROVISIONAL Epic mastery (2026-11-02): cumulative lifetime summons incl. the first discovery.
 // Aberration Epic does not exist, so no aberration Epic table is needed.
 const masteryThresholds={ordinary:{Epic:[2,3,4,6,8,10]}};
 // Owner-approved PROVISIONAL (2026-11-02): Rare average for the category (or whole Rare) plus one crit point.
 function epicStats(category){const exact=realm1Average('Rare',category),base=exact||realm1Average('Rare');return {interval:base.interval,baseCrit:round(base.baseCrit+.01,4),from:base.from,rule:'Realm 1 Rare average'+(exact?' ('+category+')':' (all categories)')+' plus 1% crit'};}
 // Owner-approved PROVISIONAL Epic unlock (2026-11-02). The Portal level is the one where Rare reaches 5%
-// (#78); which other rarity gives up the 1 percentage point is still Noah's decision (null).
-const epicUnlock={atRarePercent:5,totalPercent:1,perSpeciesPercent:.5,takenFrom:null,approved:'provisional'};
+// (#78). Noah approved (2026-11-03) that Common gives up the 1 percentage point, so Rare stays exactly 5%.
+const epicUnlock={atRarePercent:5,totalPercent:1,perSpeciesPercent:.5,takenFrom:'Common',approved:'provisional'};
 const slug=name=>name.toLowerCase().replace(/['’]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const companions=sources.map(([assetId,name,sourceCategory,rarity,file,sha256,width,height],i)=>{
   const category=categoryMap[sourceCategory],rank=C.rarities.indexOf(rarity),epic=rarity==='Epic';
@@ -72,9 +78,18 @@ const companions=sources.map(([assetId,name,sourceCategory,rarity,file,sha256,wi
     interval:stats.interval,baseCrit:stats.baseCrit,
     stats:{provisional:true,source:epic?'epic-rare-average-plus-crit':exact?'rarity-category-average':'rarity-average',from:stats.from},
     mastery:aberration?'aberration':'ordinary',
-    summon:epic?{kind:'epic',percent:epicUnlock.perSpeciesPercent,live:false}:aberration?{kind:'exceptional',percent:null,live:false}:{kind:'even-share',percent:null,live:false},
-    art:{file,sha256,width,height,delivered:false}};});
-function validate(){const errors=[],ids=new Set(C.companions.map(h=>h.id)),names=new Set(C.companions.map(h=>h.name.toLowerCase()));
+    summon:epic?{kind:'epic',percent:epicUnlock.perSpeciesPercent,live:false}:aberration?{kind:'exceptional',percent:null,sameAs:rarity==='Common'?'crooked-eye':'forgotten-watcher',live:false}:{kind:'even-share',percent:null,live:false},
+    art:{file,sha256,width,height,delivered:true,variants:{256:'assets/companions-realm2/'+slug(name)+'-256.png',768:'assets/companions-realm2/'+slug(name)+'-768.png'}}};});
+// Runtime species in LoreConfig's shape. weights are all 0 and unlock is Infinity: no Tome can give them, and the
+// Omnidex shows them as locked. index continues Realm 1's, which the Shard economy's weight table relies on.
+function runtime(h,index){const {assetId,name,category,realm,rarity,rank,interval,baseCrit}=h;return {id:h.id,index,name,category,realm,rarity,rank,interval,baseCrit,weights:[0,0,0,0,0],unlock:Infinity,sprite:null,assetId,provisional:true};}
+function install(config=C){if(!config||config.companions.some(h=>h.realm===2))return config;
+  const errors=validate();if(errors.length)throw Error('Universal roster invalid: '+errors.join('; '));
+  const start=config.companions.length;companions.forEach((h,i)=>config.companions.push(runtime(h,start+i)));
+  for(const [group,table] of Object.entries(masteryThresholds))for(const [rarity,t] of Object.entries(table))config.masteryThresholds[group][rarity]??=t.slice();
+  config.realms.push({id:2,name:'Ashen Expanse',speciesIds:companions.map(h=>h.id),companionsOnly:true});
+  return config;}
+function validate(){const errors=[],realm1=C.companions.filter(h=>h.realm===1),ids=new Set(realm1.map(h=>h.id)),names=new Set(realm1.map(h=>h.name.toLowerCase()));
   if(companions.length!==30)errors.push('Realm 2 companion count');
   const counts={Common:12,Uncommon:9,Rare:7,Epic:2};for(const [r,n]of Object.entries(counts))if(companions.filter(h=>h.rarity===r).length!==n)errors.push('Rarity count '+r);
   for(const h of companions){if(ids.has(h.id)||names.has(h.name.toLowerCase()))errors.push('Collides with an existing species '+h.id);ids.add(h.id);names.add(h.name.toLowerCase());
@@ -86,6 +101,6 @@ function validate(){const errors=[],ids=new Set(C.companions.map(h=>h.id)),names
     if(!/^[0-9a-f]{64}$/.test(h.art.sha256))errors.push('Source hash '+h.id);}
   for(const group of Object.values(masteryThresholds))for(const [rarity,t]of Object.entries(group))if(t.length!==C.economy.masteryMax||t.some((n,i)=>!Number.isInteger(n)||n<1||(i>0&&n<=t[i-1])))errors.push('Mastery thresholds '+rarity);
   return errors;}
-const api={version:2,status:'staged-not-loaded',provisional:true,categoryMap,companions,masteryThresholds,epicUnlock,realm1Average,validate};
-root.LoreUniversalRoster=api;if(typeof module!=='undefined')module.exports=api;
+const api={version:3,status:'installed-not-summonable',provisional:true,categoryMap,companions,masteryThresholds,epicUnlock,realm1Average,validate,install,runtime};
+root.LoreUniversalRoster=api;if(typeof module!=='undefined')module.exports=api;else install();
 })(globalThis);

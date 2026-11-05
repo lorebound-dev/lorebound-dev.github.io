@@ -1,0 +1,1394 @@
+{
+ "version": "realm2-v63",
+ "package": "Owner-approved Realm 2 companion masters (R2-CMP-001..030)",
+ "archives": [
+  "Approved/Realm 2/R2_Companions_01-10_APPROVED_v63.zip",
+  "Approved/Realm 2/R2_Companions_11-20_APPROVED_v63.zip",
+  "Approved/Realm 2/R2_Companions_21-30_APPROVED_v63.zip"
+ ],
+ "mapping": "Manifests and Requests/LOREBOUND_ASSET_MAPPING_149.json",
+ "traceAlpha": 2,
+ "note": "visibleBounds are alpha > 2 bounds of the master. Masters are kept outside dist. Copies are PNG because the build had no WebP encoder.",
+ "species": {
+  "embersting-skitter": {
+   "assetId": "R2-CMP-001",
+   "name": "Embersting Skitter",
+   "family": "Beasts",
+   "rarity": "Common",
+   "master": "r2_companion_beast_common_01_scorched_scorpion_v01_ORIGINAL.png",
+   "masterSha256": "f017d1995803b4187b3641447af7f49cba908bfa08d0f8702a351e366e721406",
+   "masterSize": [
+    1619,
+    971
+   ],
+   "visibleBounds": [
+    321,
+    7,
+    1318,
+    960
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/embersting-skitter-256.png",
+     "bytes": 69612,
+     "sha256": "8b72f18fb053ad2ebaaacc524aaed50efcc8fda6f322340814ef472a26819adf",
+     "bounds": [
+      13,
+      23,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/embersting-skitter-768.png",
+     "bytes": 398935,
+     "sha256": "b3161bf217c4721cabeaca58e80bacffe1024255688402c30012fbda2a14f2dc",
+     "bounds": [
+      38,
+      69,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "mosscrest-raptor": {
+   "assetId": "R2-CMP-002",
+   "name": "Mosscrest Raptor",
+   "family": "Beasts",
+   "rarity": "Common",
+   "master": "R2-CMP-002_Mosscrest_Raptor_Common_Beast_ORIGINAL.png",
+   "masterSha256": "0bab31ca1b9af9daa4cbab1464ac8281e26be0ca0264673a61b9025636c5ddd6",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    50,
+    97,
+    1205,
+    1211
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/mosscrest-raptor-256.png",
+     "bytes": 97302,
+     "sha256": "9a9736cef7ab54bb7377ef30ea7c28c42aeab872e81fd2d144b0757edf5a82e3",
+     "bounds": [
+      13,
+      21,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/mosscrest-raptor-768.png",
+     "bytes": 661487,
+     "sha256": "affd40630b2747e66b269f5ce45fbcc4dc50da6368f44a85c4ffabb3a2cf36ce",
+     "bounds": [
+      38,
+      63,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "glowbloom-sprout": {
+   "assetId": "R2-CMP-003",
+   "name": "Glowbloom Sprout",
+   "family": "Wildgrowth",
+   "rarity": "Common",
+   "master": "R2-CMP-003_Glowbloom_Sprout_Common_Wildgrowth_ORIGINAL.png",
+   "masterSha256": "c4ee593a9c41ce0850f96b0f922d742d02bc83514148f476dcdac6f8deb31a4d",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    97,
+    116,
+    1220,
+    1189
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/glowbloom-sprout-256.png",
+     "bytes": 96825,
+     "sha256": "1231768700c7f3e3efe0205b20f6f6237914eddd7cf929c6ea10bcf3d795037a",
+     "bounds": [
+      13,
+      23,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/glowbloom-sprout-768.png",
+     "bytes": 647819,
+     "sha256": "fb82c57a061b161fea8be8e240957e671237823c708f159d5d92b5242c1c1662",
+     "bounds": [
+      38,
+      70,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "kilnpot-tender": {
+   "assetId": "R2-CMP-004",
+   "name": "Kilnpot Tender",
+   "family": "Constructs",
+   "rarity": "Common",
+   "master": "R2-CMP-004_Kilnpot_Tender_Common_Construct_ORIGINAL.png",
+   "masterSha256": "85cbb1b5516beb3bd4959963ba909ab08f3b044bc9d3114fc93a7f7c6200ba68",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    155,
+    146,
+    1135,
+    1154
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/kilnpot-tender-256.png",
+     "bytes": 80250,
+     "sha256": "6c083f6c738474f17f75bbb9ca71db7309513f6a2a23912d5bc2d1c4ca953c18",
+     "bounds": [
+      16,
+      13,
+      240,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/kilnpot-tender-768.png",
+     "bytes": 547842,
+     "sha256": "a00dc32d946e905e3026f4f1366cb1f2d3074ca6da61926ca485143789835d1f",
+     "bounds": [
+      48,
+      39,
+      720,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "wayfarer-pell": {
+   "assetId": "R2-CMP-005",
+   "name": "Wayfarer Pell",
+   "family": "Mortals",
+   "rarity": "Common",
+   "master": "R2-CMP-005_Wayfarer_Pell_Common_Mortal_ORIGINAL.png",
+   "masterSha256": "ab3fe5732cdf185f054330c2da7184d30d04c453ea156e36d236105f49454175",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    61,
+    193,
+    1240,
+    1091
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/wayfarer-pell-256.png",
+     "bytes": 70219,
+     "sha256": "8a3aa8a720f6ca9c910f16174c0ad77121e38da2e4ebcca3bbfd853549b23758",
+     "bounds": [
+      13,
+      68,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/wayfarer-pell-768.png",
+     "bytes": 451450,
+     "sha256": "969a651862f993f7e4e3bd5d2d6a1484d3daeffa52c90a224e8d8e1e8863ebd0",
+     "bounds": [
+      38,
+      204,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "hushveil": {
+   "assetId": "R2-CMP-006",
+   "name": "Hushveil",
+   "family": "Spirits",
+   "rarity": "Common",
+   "master": "R2-CMP-006_Hushveil_Common_Spirit_ORIGINAL.png",
+   "masterSha256": "6bfa008f639c414f83f82eecec77dd0258fb6355693d07cc52eeda9301e71d22",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    125,
+    40,
+    1146,
+    1220
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/hushveil-256.png",
+     "bytes": 77640,
+     "sha256": "8269b05fc55403c24fd7bcdd5423c4f45e55cfd79bcda73834879edcd34621ab",
+     "bounds": [
+      28,
+      13,
+      227,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/hushveil-768.png",
+     "bytes": 490296,
+     "sha256": "7a8a7a1841dc2acf0b1be554a1849d123ab4e7211b66a29ef053c7deb5ba7afb",
+     "bounds": [
+      85,
+      39,
+      683,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "thorncap-nibbler": {
+   "assetId": "R2-CMP-007",
+   "name": "Thorncap Nibbler",
+   "family": "Wildgrowth",
+   "rarity": "Common",
+   "master": "R2-CMP-007_Thorncap_Nibbler_Common_Wildgrowth_ORIGINAL.png",
+   "masterSha256": "7fd442fe70705a2daf449bd42cb1e10271172311fc81df9a2147f70c9459b939",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    54,
+    161,
+    1198,
+    1141
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/thorncap-nibbler-256.png",
+     "bytes": 89921,
+     "sha256": "d994670c88a555393365d72c86aea1c9f092349e2ddae7a59ee4f81447a6c426",
+     "bounds": [
+      13,
+      46,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/thorncap-nibbler-768.png",
+     "bytes": 583152,
+     "sha256": "208b50d9bc8916625de9693e76d8eab464728ee9fd55ea30c25a6725692bd610",
+     "bounds": [
+      38,
+      138,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "ashhook-militiaman": {
+   "assetId": "R2-CMP-008",
+   "name": "Ashhook Militiaman",
+   "family": "Mortals",
+   "rarity": "Common",
+   "master": "R2-CMP-008_Ashhook_Militiaman_Common_Mortal_ORIGINAL.png",
+   "masterSha256": "fa43c7b07fe66e874b03418f15157a1f27c2b1ed28cef4c3c7c6b05d6fb6fbfb",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    20,
+    158,
+    1248,
+    1129
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/ashhook-militiaman-256.png",
+     "bytes": 63807,
+     "sha256": "4bb00f3b61dd1cad80905d4d5f030a24f4e52c8465165c0bbdc3e5ac3a1af150",
+     "bounds": [
+      13,
+      61,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/ashhook-militiaman-768.png",
+     "bytes": 437741,
+     "sha256": "053adb328281bc51481f22788515eca8bd3d67621e59f184a981d95f39d85dd2",
+     "bounds": [
+      38,
+      183,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "duskwhorl": {
+   "assetId": "R2-CMP-009",
+   "name": "Duskwhorl",
+   "family": "Spirits",
+   "rarity": "Common",
+   "master": "R2-CMP-009_Duskwhorl_Common_Spirit_LANTERN_FREE_ORIGINAL.png",
+   "masterSha256": "ec5e20765b4d9e85f4e70c091234d6333bbaa2c1a415715148b312b2b501dad4",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    33,
+    108,
+    1242,
+    1182
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/duskwhorl-256.png",
+     "bytes": 91097,
+     "sha256": "68964c52b77f6b09b16113e4afcbf5c70d038fe6b28c84d1269c3eb73e042e83",
+     "bounds": [
+      13,
+      38,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/duskwhorl-768.png",
+     "bytes": 567885,
+     "sha256": "be92abe4b3bacf3e7d46266e98f14afc7357c64ddba5eaea1c80c7c904f29a2d",
+     "bounds": [
+      38,
+      116,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "sweepjack": {
+   "assetId": "R2-CMP-010",
+   "name": "Sweepjack",
+   "family": "Constructs",
+   "rarity": "Common",
+   "master": "R2-CMP-010_Sweepjack_Common_Construct_ORIGINAL.png",
+   "masterSha256": "61debaf4d3a0f6a75c379f4496882e0731c581c7fcb305881e02c645ca3ec62d",
+   "masterSize": [
+    1459,
+    1078
+   ],
+   "visibleBounds": [
+    80,
+    49,
+    1441,
+    1024
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/sweepjack-256.png",
+     "bytes": 68952,
+     "sha256": "4f40e051e995d42923ee284a383b8ca541f4a1c8b8ee96e1287a01fba67875a4",
+     "bounds": [
+      13,
+      78,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/sweepjack-768.png",
+     "bytes": 462760,
+     "sha256": "a0638cf02cbf12a4b5f728eb7e5c40021a85dbb0c0ad63f600b61b8c21fe723d",
+     "bounds": [
+      38,
+      235,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "reedwhim": {
+   "assetId": "R2-CMP-011",
+   "name": "Reedwhim",
+   "family": "Wildgrowth",
+   "rarity": "Common",
+   "master": "R2-CMP-011_Reedwhim_Common_Wildgrowth_ORIGINAL.png",
+   "masterSha256": "f61a85b54717a4833fc6d93783f4194bce2933f5c19dfe4af1540769d4f4c92c",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    390,
+    0,
+    1239,
+    1024
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/reedwhim-256.png",
+     "bytes": 74642,
+     "sha256": "591546bf81f6fe3efbac013b2ed44641bd050d0b4b05cbed95c72f45d8794331",
+     "bounds": [
+      32,
+      13,
+      223,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/reedwhim-768.png",
+     "bytes": 436054,
+     "sha256": "79eaf6008198935387ec5ba51a62703c9f8f9dfa41bad6b584e0f4b8137b0dcc",
+     "bounds": [
+      97,
+      39,
+      670,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "parallax-shard": {
+   "assetId": "R2-CMP-012",
+   "name": "Parallax Shard",
+   "family": "Aberrations",
+   "rarity": "Common",
+   "master": "R2-CMP-012_Parallax_Shard_Common_Aberration_ORIGINAL.png",
+   "masterSha256": "81a1831724e68e9ac4901614367d0b22c103b15624bb8df9942f50d0fb38efc1",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    285,
+    18,
+    1248,
+    999
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/parallax-shard-256.png",
+     "bytes": 80588,
+     "sha256": "eda07e21eb350e3933ce48d7df9048d2b34b61dd4aae885b2ad5b29d93f24d7e",
+     "bounds": [
+      15,
+      13,
+      241,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/parallax-shard-768.png",
+     "bytes": 497983,
+     "sha256": "abfc0e918ae19922c9bd62ce083a1a94f3e3dee8231ffae7fd914c5b30c56f98",
+     "bounds": [
+      44,
+      39,
+      723,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "mara-vell": {
+   "assetId": "R2-CMP-013",
+   "name": "Mara Vell",
+   "family": "Mortals",
+   "rarity": "Uncommon",
+   "master": "R2-CMP-013_Mara_Vell_Uncommon_Mortal_ORIGINAL.png",
+   "masterSha256": "61b52988439fb82696809053522448575169dc9cee097d22c496abef414ee5bb",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    93,
+    9,
+    1222,
+    1245
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/mara-vell-256.png",
+     "bytes": 91634,
+     "sha256": "5309d0b1a8d5a257d023aeaed67d9c55b21caad579a0a78d437fae416289a46a",
+     "bounds": [
+      23,
+      13,
+      233,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/mara-vell-768.png",
+     "bytes": 596550,
+     "sha256": "728cc4ee929804bf2cf0c75c05976ca075b928c9e737c7a1db763f0fdd4163e4",
+     "bounds": [
+      68,
+      39,
+      699,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "rainchime": {
+   "assetId": "R2-CMP-014",
+   "name": "Rainchime",
+   "family": "Spirits",
+   "rarity": "Uncommon",
+   "master": "R2-CMP-014_Rainchime_Uncommon_Spirit_ORIGINAL.png",
+   "masterSha256": "87eb599093698a65dee26ad0f90e8466264e83c63af9939622d817795c6bf964",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    219,
+    13,
+    1061,
+    1234
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/rainchime-256.png",
+     "bytes": 72668,
+     "sha256": "676238960a3bb0d6137fa24088e79ef679cd4443e6392938c2f3910a49ab10de",
+     "bounds": [
+      48,
+      13,
+      207,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/rainchime-768.png",
+     "bytes": 448072,
+     "sha256": "24fc66a64636315877ff3376a8865026da38e1c1c155144db1a001caec7439f6",
+     "bounds": [
+      145,
+      39,
+      622,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "sporecap-mummer": {
+   "assetId": "R2-CMP-015",
+   "name": "Sporecap Mummer",
+   "family": "Wildgrowth",
+   "rarity": "Uncommon",
+   "master": "R2-CMP-015_Sporecap_Mummer_Uncommon_Wildgrowth_ORIGINAL.png",
+   "masterSha256": "598ccb33d7cda5b853a1efdec34cdfa8a74c7e18189c75c9beb42be9f138c4f4",
+   "masterSize": [
+    1254,
+    1254
+   ],
+   "visibleBounds": [
+    62,
+    70,
+    1224,
+    1209
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/sporecap-mummer-256.png",
+     "bytes": 95077,
+     "sha256": "c759b540ec12ded581f1a2fd3a65aa6656633d911ff73875f6e47c85bde5a8e0",
+     "bounds": [
+      13,
+      17,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/sporecap-mummer-768.png",
+     "bytes": 598745,
+     "sha256": "b343e917c197e7286eb4783cd62396d6ff9e7bea70d1c6a67bb65c107e01b6b6",
+     "bounds": [
+      38,
+      52,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "rilltail": {
+   "assetId": "R2-CMP-016",
+   "name": "Rilltail",
+   "family": "Beasts",
+   "rarity": "Uncommon",
+   "master": "R2-CMP-016_Rilltail_Uncommon_Beast_ORIGINAL.png",
+   "masterSha256": "ceadf7799e7d5860ca2bc75d50eca160723b77405b6ea208958c400b52766d4b",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    192,
+    138,
+    1338,
+    928
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/rilltail-256.png",
+     "bytes": 73366,
+     "sha256": "0c9e4f3b925f63c37e06fc71b77901bd00e481781dc89e530734cf47ed8c4a5b",
+     "bounds": [
+      13,
+      84,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/rilltail-768.png",
+     "bytes": 413059,
+     "sha256": "a451b7c03480c0f5bd3b918514281b0c871df2fc8dabeb1d823d9f829357a623",
+     "bounds": [
+      38,
+      254,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "tallywheel": {
+   "assetId": "R2-CMP-017",
+   "name": "Tallywheel",
+   "family": "Constructs",
+   "rarity": "Uncommon",
+   "master": "R2-CMP-017_Tallywheel_Uncommon_Construct_ORIGINAL.png",
+   "masterSha256": "96f282839a27b09fbe33f6cf616a12689aef20ebc002d22b4ab11d94b0f06092",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    112,
+    6,
+    1401,
+    1004
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/tallywheel-256.png",
+     "bytes": 71220,
+     "sha256": "a7d7aec27d763b7756518fb361b640f72aad3956d89f3907aa013a9f65216543",
+     "bounds": [
+      13,
+      65,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/tallywheel-768.png",
+     "bytes": 474950,
+     "sha256": "6a54db703332df97de6fdff2f17b72b67d4f2a8e9aee0365754d6e36b39ee1c9",
+     "bounds": [
+      38,
+      195,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "neris-thimble": {
+   "assetId": "R2-CMP-018",
+   "name": "Neris Thimble",
+   "family": "Mortals",
+   "rarity": "Uncommon",
+   "master": "R2-CMP-018_Neris_Thimble_Uncommon_Mortal_ORIGINAL.png",
+   "masterSha256": "5dde3d0354b2b04b5d647580ebb506e3483dc48a983871acaebdf028fda5466f",
+   "masterSize": [
+    1448,
+    1086
+   ],
+   "visibleBounds": [
+    242,
+    81,
+    1269,
+    1060
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/neris-thimble-256.png",
+     "bytes": 94063,
+     "sha256": "dc582cc45c74e1d487c2c5774ee5df35747520d18dd8f4f273977b5e9f07301c",
+     "bounds": [
+      13,
+      23,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/neris-thimble-768.png",
+     "bytes": 639802,
+     "sha256": "f8be5b288c1e992d0bd88ae4d01006c88ab997629b37ee2da1c3a6e86519d43d",
+     "bounds": [
+      38,
+      71,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "gloamstep-hare": {
+   "assetId": "R2-CMP-019",
+   "name": "Gloamstep Hare",
+   "family": "Beasts",
+   "rarity": "Uncommon",
+   "master": "R2-CMP-019_Gloamstep_Hare_Uncommon_Beast_ORIGINAL.png",
+   "masterSha256": "4d472a8659812a5ec5308358429a30b986f4a21c5dde42a1fe98154db5b5fa65",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    388,
+    14,
+    1286,
+    1004
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/gloamstep-hare-256.png",
+     "bytes": 72896,
+     "sha256": "44cd5c6f6c6de1bcb15d33d9ea3728a2c6734e2750ca53a4807af7a2aa944e19",
+     "bounds": [
+      23,
+      13,
+      232,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/gloamstep-hare-768.png",
+     "bytes": 476078,
+     "sha256": "0c31ac88fe4f2a95d2084811daf192b57ca9c5a95930a5da11201ccfc8c38b43",
+     "bounds": [
+      70,
+      39,
+      697,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "quietbell": {
+   "assetId": "R2-CMP-020",
+   "name": "Quietbell",
+   "family": "Spirits",
+   "rarity": "Uncommon",
+   "master": "R2-CMP-020_Quietbell_Uncommon_Spirit_ORIGINAL.png",
+   "masterSha256": "32821481bab6d612bd576c793d61513f9286e20bd8167a2b2d63a4c87745ae64",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    341,
+    9,
+    1339,
+    1012
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/quietbell-256.png",
+     "bytes": 88593,
+     "sha256": "62f539555a7bc4359bc0c3bcea47af697d0d258b1397e423ffe958d56c1f1bbf",
+     "bounds": [
+      13,
+      13,
+      242,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/quietbell-768.png",
+     "bytes": 497566,
+     "sha256": "604d61643cb6b42b73b450ff9704260781ab40cc1ae9cf7aa9932b699291bd25",
+     "bounds": [
+      40,
+      39,
+      728,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "keywarden": {
+   "assetId": "R2-CMP-021",
+   "name": "Keywarden",
+   "family": "Constructs",
+   "rarity": "Uncommon",
+   "master": "R2-CMP-021_Keywarden_Uncommon_Construct_ORIGINAL.png",
+   "masterSha256": "13093863773832534919049c8be8627a6f49f5f4040ba932cc58cc12f1b58516",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    398,
+    0,
+    1322,
+    1008
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/keywarden-256.png",
+     "bytes": 82995,
+     "sha256": "b4e0f60bfbb39613510e5a165d17fe8862788df7b2d7577e591e9bfbc45ac51b",
+     "bounds": [
+      22,
+      13,
+      233,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/keywarden-768.png",
+     "bytes": 587076,
+     "sha256": "65496d7ed97faff9e7e7b94001e0c8cf54b4e0fae9a79463444d9bbcd00c2832",
+     "bounds": [
+      67,
+      39,
+      701,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "serin-vale": {
+   "assetId": "R2-CMP-022",
+   "name": "Serin Vale",
+   "family": "Mortals",
+   "rarity": "Rare",
+   "master": "R2-CMP-022_Serin_Vale_Rare_Mortal_ORIGINAL.png",
+   "masterSha256": "748b310bad126cb94a1a87856e1378e170d0f3e2a168243782635933deb4d280",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    84,
+    49,
+    1375,
+    993
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/serin-vale-256.png",
+     "bytes": 66032,
+     "sha256": "3e274eac2a85d57f7e6bef4f92c57e9d85ae5e5c8821976725b7bb6017b06e1d",
+     "bounds": [
+      13,
+      75,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/serin-vale-768.png",
+     "bytes": 468177,
+     "sha256": "6f4184d8a3f1a3904f8ffb66053eebe1e70e8dac5909edf5bfaa3fd8c8a85573",
+     "bounds": [
+      38,
+      225,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "vesperglass-stag": {
+   "assetId": "R2-CMP-023",
+   "name": "Vesperglass Stag",
+   "family": "Beasts",
+   "rarity": "Rare",
+   "master": "R2-CMP-023_Vesperglass_Stag_Rare_Beast_ORIGINAL.png",
+   "masterSha256": "a85f3f3ae984cdfe9fc24aa178da954005c08b79c9a1ffc21feda79f545dec1a",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    234,
+    14,
+    1393,
+    1009
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/vesperglass-stag-256.png",
+     "bytes": 72248,
+     "sha256": "d121d47c4a1397bee572fbe42d85036963d8ebe4931110f1709c03436aa19025",
+     "bounds": [
+      13,
+      45,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/vesperglass-stag-768.png",
+     "bytes": 498918,
+     "sha256": "e13e2a32426581721502128e763c045a0ac6b4f9df509762df23ff28a69be8fe",
+     "bounds": [
+      38,
+      137,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "morrowthread": {
+   "assetId": "R2-CMP-024",
+   "name": "Morrowthread",
+   "family": "Spirits",
+   "rarity": "Rare",
+   "master": "R2-CMP-024_Morrowthread_Rare_Spirit_ORIGINAL.png",
+   "masterSha256": "9232ba7c646b87fd57f337a2080c396ff038ea67cf933024d3bb9b3979d9c910",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    39,
+    0,
+    1536,
+    1024
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/morrowthread-256.png",
+     "bytes": 77384,
+     "sha256": "83c2723ca2831c0f7f2d8b1889e01df66429c12953ef973028a1eedee21b19fb",
+     "bounds": [
+      13,
+      85,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/morrowthread-768.png",
+     "bytes": 542543,
+     "sha256": "eeb4ab28500af8da9aec3ece0d5b579f497cae209737e98d6888ffa1052966de",
+     "bounds": [
+      38,
+      257,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "veyra-shardstring": {
+   "assetId": "R2-CMP-025",
+   "name": "Veyra Shardstring",
+   "family": "Mortals",
+   "rarity": "Rare",
+   "master": "R2-CMP-025_Veyra_Shardstring_Rare_Mortal_ORIGINAL.png",
+   "masterSha256": "e28c844b97257f6663aafa18ec6602d098ce1f0f2eb8bb48b8ffbcb27b393ac4",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    45,
+    0,
+    1536,
+    1024
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/veyra-shardstring-256.png",
+     "bytes": 71167,
+     "sha256": "86bdf105b49e80bd49c0d00bade45ef7c44e567fd61e6a770d0d1248fadcf109",
+     "bounds": [
+      13,
+      85,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/veyra-shardstring-768.png",
+     "bytes": 506939,
+     "sha256": "0f2eb03cc6353b7dbbfda89087ef2ae07eaffde9da7ee237c1e8e43a228afb32",
+     "bounds": [
+      38,
+      255,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "astervane": {
+   "assetId": "R2-CMP-026",
+   "name": "Astervane",
+   "family": "Constructs",
+   "rarity": "Rare",
+   "master": "R2-CMP-026_Astervane_Rare_Construct_ORIGINAL.png",
+   "masterSha256": "811c709d23380895098fb6f521b83ba7d07da08d2d0e7e436b3b3cc0df288ed6",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    48,
+    0,
+    1488,
+    984
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/astervane-256.png",
+     "bytes": 69198,
+     "sha256": "259fb3882b2f5b2c2247c311630139f9f547816cc70fab85eb8bb748d2b6ccc4",
+     "bounds": [
+      13,
+      86,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/astervane-768.png",
+     "bytes": 494073,
+     "sha256": "651150e37de05031d1457dde3439cedb98c7cd6ea9fee436e7f239f195a43a79",
+     "bounds": [
+      38,
+      258,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "inkspore-cantor": {
+   "assetId": "R2-CMP-027",
+   "name": "Inkspore Cantor",
+   "family": "Wildgrowth",
+   "rarity": "Rare",
+   "master": "R2-CMP-027_Inkspore_Cantor_Rare_Wildgrowth_ORIGINAL.png",
+   "masterSha256": "60a3f9ddb0bcf8fb10c5c8ac781ca7ecc12138272f1083e3b98b60082cccfc0a",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    329,
+    89,
+    1297,
+    950
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/inkspore-cantor-256.png",
+     "bytes": 86590,
+     "sha256": "1695539fe7ac42552e2adf9afa07b24ec479ac6d5dba523ccbe5a37627985ad0",
+     "bounds": [
+      13,
+      38,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/inkspore-cantor-768.png",
+     "bytes": 508391,
+     "sha256": "f9f8d10bc2a74d7292133e16836d0b587972ddd4bfa27063fb86d3d17b18590e",
+     "bounds": [
+      38,
+      115,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "riftmourn": {
+   "assetId": "R2-CMP-028",
+   "name": "Riftmourn",
+   "family": "Aberrations",
+   "rarity": "Rare",
+   "master": "R2-CMP-028_Riftmourn_Rare_Aberration_ORIGINAL.png",
+   "masterSha256": "545e3bcfbd8daff73583e1503523fb2fee6e680e386a26c37fa23267bb8ecfb3",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    237,
+    109,
+    1253,
+    915
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/riftmourn-256.png",
+     "bytes": 71161,
+     "sha256": "e3f41d3c85766947c9a971bffcd3976196f05a08a374ba0858bc4598dd193357",
+     "bounds": [
+      13,
+      60,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/riftmourn-768.png",
+     "bytes": 401859,
+     "sha256": "69c6cb81d7735ce8ca5b5ee6df16d66304f08f64506b7edca24003d214a374d6",
+     "bounds": [
+      38,
+      182,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "the-last-waltz": {
+   "assetId": "R2-CMP-029",
+   "name": "The Last Waltz",
+   "family": "Spirits",
+   "rarity": "Epic",
+   "master": "R2-CMP-029_The_Last_Waltz_Epic_Spirit_ORIGINAL.png",
+   "masterSha256": "de90c831729d42ee42d7f0b54a56331a507ab33c08c630a6b75c42c61aa7c0f6",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    130,
+    49,
+    1494,
+    999
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/the-last-waltz-256.png",
+     "bytes": 76134,
+     "sha256": "15902a3bbbb5fed0b3c38a5ea975d0d20499984fd40fb0989f283855c46299c1",
+     "bounds": [
+      13,
+      83,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/the-last-waltz-768.png",
+     "bytes": 483828,
+     "sha256": "95c00d6cdb22d1b6b443993803b13e50be04cabc27f3034b90980092cb670af6",
+     "bounds": [
+      38,
+      249,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  },
+  "hushgate": {
+   "assetId": "R2-CMP-030",
+   "name": "Hushgate",
+   "family": "Constructs",
+   "rarity": "Epic",
+   "master": "R2-CMP-030_Hushgate_Epic_Construct_ORIGINAL.png",
+   "masterSha256": "d17ec7e9867716b3364668e62085dc7e7c8c88a3e824fc12670ac1ba70e7e16c",
+   "masterSize": [
+    1536,
+    1024
+   ],
+   "visibleBounds": [
+    193,
+    0,
+    1377,
+    1012
+   ],
+   "variants": {
+    "256": {
+     "src": "assets/companions-realm2/hushgate-256.png",
+     "bytes": 91409,
+     "sha256": "7a451264ecd7fec5719d6eb3811e46844ea211149d66fec7a3c699aa341cf41e",
+     "bounds": [
+      13,
+      46,
+      243,
+      243
+     ],
+     "width": 256,
+     "height": 256
+    },
+    "768": {
+     "src": "assets/companions-realm2/hushgate-768.png",
+     "bytes": 678202,
+     "sha256": "46da11edd06ff19a84db0d4b15b0345dabb3c651e6e7079bfc30ab8bd5c12534",
+     "bounds": [
+      38,
+      139,
+      729,
+      730
+     ],
+     "width": 768,
+     "height": 768
+    }
+   }
+  }
+ }
+}

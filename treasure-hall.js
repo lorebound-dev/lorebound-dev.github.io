@@ -17,8 +17,8 @@ function groups(s){const companion=R.C.companions.map(h=>{const count=s.history[
 }
 function accomplishments(s,list=groups(s)){const entries=id=>list.find(g=>g.id===id)?.entries||[],out=[],add=(id,name,done,found,total,reward)=>out.push({id,name,done,found,total,reward});
  for(const d of X().destinations){const a=entries('artifacts').filter(e=>e.destination===d.id),found=a.filter(e=>e.known).length;add('destination:'+d.id,d.name,found===a.length&&a.length>0,found,a.length,'Destination completion display · Placeholder');add('destination-mastered:'+d.id,d.name+' · Mastered',a.length>0&&a.every(e=>e.rank===e.maxRank),a.filter(e=>e.rank===e.maxRank).length,a.length,'Mastered destination display');}
- const companions=entries('companions');add('realm1-companions','Realm 1 companion collection',companions.every(e=>e.known),companions.filter(e=>e.known).length,companions.length,'Grand Archive collection celebration');
- for(const family of R.C.categories){const a=R.C.companions.filter(h=>h.category===family),n=a.filter(h=>(s.history[h.id]||0)>0).length;if(a.length)add('family:'+family,family+' collection',n===a.length,n,a.length,'Family completion display');}
+ const companions=entries('companions').filter(e=>R.species(e.id)?.realm===1);add('realm1-companions','Realm 1 companion collection',companions.every(e=>e.known),companions.filter(e=>e.known).length,companions.length,'Grand Archive collection celebration');
+ for(const family of R.C.categories){const a=R.C.companions.filter(h=>h.realm===1&&h.category===family),n=a.filter(h=>(s.history[h.id]||0)>0).length;if(a.length)add('family:'+family,family+' collection',n===a.length,n,a.length,'Family completion display');}
  add('guardian-memorial','Guardian Memorial',N().record(s).memorial,entries('relics').filter(e=>e.known).length,10,'Guardian Memorial · Optional existing title');
  add('relics-mastered','Mastered Guardian Reliquary',entries('relics').every(e=>e.rank===e.maxRank),entries('relics').filter(e=>e.rank===e.maxRank).length,10,'Mastered reliquary display');
  return out;
