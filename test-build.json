@@ -1,5 +1,5 @@
 {
-  "base": "08d411706a2ef6da454d72164bf857fd1414c33e",
+  "base": "a967089b7fb6f32916ecb12885ff023c1e930272",
   "included": [
     {
       "number": 38,
@@ -104,12 +104,12 @@
       "with": "others"
     }
   ],
-  "commit": "baaab1ae6d4501e9ed04237c61f8a295e24447b5",
+  "commit": "f0dc1e6bf9596dddf335814fda4a17597c8fb9ec",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-05T14:54:49Z"
+  "at": "2026-11-05T21:22:42Z"
 }
