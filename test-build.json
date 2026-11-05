@@ -75,6 +75,11 @@
       "number": 106,
       "title": "Refine Adventure: full-width companion cards and grounded battlefield",
       "head": "fa469f0db6068c43664dd72fdb08cb5afbe340e1"
+    },
+    {
+      "number": 109,
+      "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
+      "head": "5456c3187c23e6247044e0e8faeadd1134f8735f"
     }
   ],
   "skipped": [
@@ -99,12 +104,12 @@
       "with": "others"
     }
   ],
-  "commit": "aecfc7ffdcfebb2812dd2d7a4a54c90891279343",
+  "commit": "f6aab2d301be6332ee5888dd7232c083aab14a11",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-05T05:02:15Z"
+  "at": "2026-11-05T05:06:07Z"
 }
