@@ -74,7 +74,7 @@
     {
       "number": 106,
       "title": "Refine Adventure: full-width companion cards and grounded battlefield",
-      "head": "d02010e785edff5faef7bc56c4d07701f17c4e10"
+      "head": "5bb9e03b472e5d1d781b28ce423458c8e8d15e01"
     },
     {
       "number": 109,
@@ -104,6 +104,6 @@
       "with": "others"
     }
   ],
-  "commit": "5ed6795e93810ea6c725087d9eec188bcf535879",
-  "at": "2026-11-05T23:18:49Z"
+  "commit": "ae8f80579559f45fd8d2ec53ad58a49f2b48f31a",
+  "at": "2026-11-05T23:41:37Z"
 }

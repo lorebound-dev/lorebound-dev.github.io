@@ -91,15 +91,26 @@ html.adventure-refined #game[data-party-view]:not(.boss-room) #combatLayout>.bat
 .adventure-refined #game:not(.boss-room) #partyStage [data-anchor=G]{--floor-x:78%;--floor-y:86%;--floor-z:50}
 .adventure-refined #game:not(.boss-room) #partyStage [data-anchor=H]{--floor-x:6%;--floor-y:83%;--floor-z:48}
 .adventure-refined #game:not(.boss-room) #partyStage [data-anchor=I]{--floor-x:94%;--floor-y:83%;--floor-z:48}
-/* All ten: the back rank stays out to the sides, clear of the enemy, so the tenth joins the front rank, which spreads
-   to six and leaves the middle of the front for the leader and place 3. */
-.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=A]{--floor-x:41%}
-.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=B]{--floor-x:24.5%}
-.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=C]{--floor-x:59%}
-.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) :is([data-anchor=D],[data-anchor=E]){--floor-y:98.5%}
-.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=D]{--floor-x:8%}
-.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=E]{--floor-x:92%}
-.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=J]{--floor-x:75.5%;--floor-y:98.5%;--floor-z:58}
+/* All ten (Joshua, 2026-11-05: the six-front, four-back wall looked crowded). A candidate for him to compare: two
+   wings of five on either side of a clear middle for the enemy. Each wing is two at the front, one a step back between
+   them and two behind, so no fighter stands in front of another. Fighters are 24% smaller here than #97 sizes them, and
+   the rows are spaced by that size, so they keep a gap at every phone size. Only the picture moves: bolts still fly
+   from where each fighter is, and attacks, timing and damage are unchanged. The previous wall is in partycards2. */
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]){--wing-s:calc(var(--fighter-size,52px) * .76)}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) :is(#boundSprite,.battle-follower){width:var(--wing-s);height:var(--wing-s)}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) :is([data-anchor=A],[data-anchor=B],[data-anchor=C],[data-anchor=D]){--floor-y:98.5%;--floor-z:60}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) :is([data-anchor=E],[data-anchor=F]){--floor-y:calc(98.5% - var(--wing-s) * .95);--floor-z:55}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) :is([data-anchor=G],[data-anchor=H],[data-anchor=I],[data-anchor=J]){--floor-y:calc(98.5% - var(--wing-s) * 1.9);--floor-z:50}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=A]{--floor-x:25.5%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=B]{--floor-x:74.5%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=C]{--floor-x:9%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=D]{--floor-x:91%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=E]{--floor-x:15%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=F]{--floor-x:85%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=G]{--floor-x:21.5%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=H]{--floor-x:78.5%}
+.adventure-refined #game:not(.boss-room) #partyStage:has([data-anchor=J]) [data-anchor=I]{--floor-x:7%}
+.adventure-refined #game:not(.boss-room) #partyStage [data-anchor=J]{--floor-x:93%}
 /* The enemy steps down onto the floor, right behind the front rank, so its feet meet the floor shadow under it
    instead of hanging above it. Its size, name and health bar move with it unchanged. (#38's adventure-refinement.css
    keeps it --foe-base above the bottom of the fight; this drops it to 10px above, less the art's own 11% low offset.)
