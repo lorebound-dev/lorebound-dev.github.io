@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-05T14:46:30.982Z",
+ "generatedAt": "2026-11-05T14:47:41.479Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-03T07:01:19Z",
@@ -34,6 +34,30 @@
   ]
  },
  "items": [
+  {
+   "number": 102,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved 10-tier companion dock backgrounds",
+   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-03T20:41:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-05T05:18:08Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-05T14:46:41Z",
+   "headSha": "7625ac41f96ecf560ed517504d9cf124c7e02b4a",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-05T14:46:41Z"
+  },
   {
    "number": 109,
    "kind": "request",
@@ -102,30 +126,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-05T14:46:18Z"
-  },
-  {
-   "number": 102,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved 10-tier companion dock backgrounds",
-   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-03T20:41:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-05T05:18:08Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-05T14:46:13Z",
-   "headSha": "7625ac41f96ecf560ed517504d9cf124c7e02b4a",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "working",
-   "botAt": "2026-11-05T14:46:13Z"
   },
   {
    "number": 78,
@@ -1044,6 +1044,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-05T14:46:41Z",
+   "kind": "built",
+   "text": "Claude finished building “Integrate approved 10-tier companion dock backgrounds”"
+  },
+  {
    "at": "2026-11-05T14:46:37Z",
    "kind": "built",
    "text": "Claude finished building “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
@@ -1237,11 +1242,6 @@
    "at": "2026-11-04T06:20:57Z",
    "kind": "question",
    "text": "Part of “Connect Haven to LOREBOUND economy through resource-backed Gold caravans” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-03T22:44:35Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”"
   }
  ],
  "otherPulls": [
