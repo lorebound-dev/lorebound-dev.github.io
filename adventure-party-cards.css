@@ -10,10 +10,11 @@
    place (Compact-Party-UI-Helpers-v01), stretched the same way, so the ten places share one outline, size and corner
    shape. Everything on the card stays inside the plate's gold border. */
 .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card:has(>.card-face){--inset-x:5px;--inset-y:4px;--strip-h:19px;display:block;width:100%;height:100%;padding:0;overflow:hidden;background:url("assets/compact-party/LOREBOUND_Empty_Party_Slot.webp") center/100% 100% no-repeat;border-radius:0}
-/* The rarity background, whole and unstretched (contain), above the value strip. Where the place is wider than the
-   art's own 2:3 shape, the plate's navy shows at its sides; the art covers the plate's + in the middle. */
+/* The rarity background fills the whole window above the value strip, edge to edge, with no navy strips at its sides
+   (Joshua, 2026-11-04 evening). The place is wider than the art's own 2:3 shape, so the art is scaled to the window's
+   width and a little of its top and bottom is trimmed, never stretched. The gold frame around it is never cut. */
 .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card>.card-face{position:absolute;left:var(--inset-x);right:var(--inset-x);top:var(--inset-y);bottom:calc(var(--inset-y) + var(--strip-h) + 2px);width:auto;height:auto;flex:none;background:none;border-radius:0;filter:none;overflow:hidden}
-.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .card-dock-bg{object-fit:contain;object-position:50% 50%}
+.adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .card-dock-bg{object-fit:cover;object-position:50% 50%}
 /* The companion, about a third larger than before (44px instead of 33px on a 390px phone): a square of two thirds of
    the card's width, but no wider than about the art itself, centred on the art a little below its middle, clear of
    the level tag. The companion's picture fits inside that square whole (companion-phase1.css), so nothing is cut
@@ -56,7 +57,25 @@ html.adventure-dock-preview.art-rebuild-preview #game{--compact-card-h:calc((min
 html.adventure-dock-preview.art-rebuild-preview #game[data-party-view] .dock-page{padding-top:2px}
 .adventure-dock-preview.art-rebuild-preview #game[data-party-view] #dockCompanions{row-gap:3px}
 
-/* 3. The fight: everyone stands on the courtyard floor. #97's party-formation.js still sizes the fighters and tags
+/* 3. The fight stays where it is when Party folds (Joshua, 2026-11-04 evening): it always uses the folded layout's
+   ground line, so opening Party only covers the lower part of the scene instead of moving the enemy, its name and the
+   fighters up. #97's adventure-dock.js measures --party-court-y with the Party open; realm1-art.js (main) measures
+   --art-court-y as if folded, 84px above the fight's folded bottom where #97 uses 76px, hence the 8px. The painted
+   background already covers the whole screen and never moved. The Challenge Boss row keeps its place just above the
+   Party (adventure-refinement.css caps it at the fight's own bottom), and the Party sits on top of the scene, so its
+   cards and buttons take every tap they cover. */
+html.adventure-refined #game[data-party-view]:not(.boss-room){--court-y:calc(var(--art-court-y,var(--party-court-y)) + 8px)}
+html.adventure-refined #game[data-party-view].party-short-court:not(.boss-room):not(.art-short-court){--foe-base:78px}
+/* The fighters' scene (#97's party-layout.css) ended 52px above the fight's bottom, so it shrank when Party opened and
+   party-formation.js moved and shrank the fighters to match. It now ends 24px under the same folded ground line, which
+   is exactly where it ended when folded, so the fighters keep their folded size and place either way. */
+html.adventure-refined #game[data-party-view]:not(.boss-room) #partyStage{bottom:auto;height:calc(var(--court-y) - 12px)}
+@media(max-height:700px){html.adventure-refined #game[data-party-view]:not(.boss-room) #partyStage{height:calc(var(--court-y) - 6px)}}
+/* With Party open the goal and Challenge Boss row can sit over the fighters' feet (most on short phones), so the row
+   is drawn above them, like the Party itself. */
+html.adventure-refined #game[data-party-view]:not(.boss-room) #combatLayout>.battle-panel{z-index:3}
+
+/* The fight: everyone stands on the courtyard floor. #97's party-formation.js still sizes the fighters and tags
    each with its place's anchor (place 1 = A … place 10 = J); this only says where on the floor each anchor stands,
    as fractions of the fight's scene rectangle (#partyStage), feet first. The leader stands front and centre, the next
    two beside them, the next two a step back on the outside; places 6–10 make a second rank behind. Bolts still fly
