@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-05T21:44:48.872Z",
+ "generatedAt": "2026-11-05T21:45:51.676Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -32,6 +32,30 @@
   ]
  },
  "items": [
+  {
+   "number": 89,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
+   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-01T03:47:10Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-05T21:43:59Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-05T21:43:59Z",
+   "headSha": "431b88117852284529421a0b51641242fee4f12e",
+   "touchesGame": true,
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-11-03T21:10:53Z"
+  },
   {
    "number": 109,
    "kind": "request",
@@ -179,39 +203,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-05T05:16:56Z"
-  },
-  {
-   "number": 89,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The art robot can't reach the companion pictures, because it only fetches whole folders and Approved/Realm 2 is over its 100 MB limit. I suggest the easiest fix: copy just the three ZIPs (R2_Companions_01-10, 11-20 and 21-30_APPROVED_v63.zip) into a new folder,…"
-    },
-    {
-     "who": "noah",
-     "text": "If you'd rather leave Drive alone, the other fix is to change tools/artwork-intake/request-art.cjs on main so that when a request names a file inside a big folder, the robot fetches only that file. The build always uses main's copy of the tool, so I can't do this from this…"
-    }
-   ],
-   "openedAt": "2026-11-01T03:47:10Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-05T21:43:59Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-05T21:43:59Z",
-   "headSha": "6a58d0221b23cdc39797d2c0a2f9f50c0dc2a092",
-   "touchesGame": true,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-11-03T21:10:53Z"
   },
   {
    "number": 97,
