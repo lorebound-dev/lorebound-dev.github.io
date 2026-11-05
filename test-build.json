@@ -49,7 +49,7 @@
     {
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-      "head": "2689d1050d77741d2bf154c51456da4e35f5f2c7"
+      "head": "f0979610dd5a350a06efe66169816bbd105c9d30"
     },
     {
       "number": 93,
@@ -86,7 +86,7 @@
     {
       "number": 78,
       "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
-      "head": "904a7d19b99dde357f35cf6618881a4f46498cd8",
+      "head": "690d04bbf0a7ebf35544adb05bf20e06d47ff079",
       "files": [
         "pocket-fortune/dist/grand-archive.js"
       ],
@@ -104,12 +104,12 @@
       "with": "others"
     }
   ],
-  "commit": "59cad046bb6974cd130b18756360a2d2239f8a91",
+  "commit": "755e89074acbb1054b7c44f8d15eac242f78c9eb",
   "unusedResolutions": [
     "97-60-journal-refresh",
     "97-60-journal-rewards",
     "97-92-guide-script",
     "97-92-update-text"
   ],
-  "at": "2026-11-05T05:18:08Z"
+  "at": "2026-11-05T14:48:04Z"
 }
