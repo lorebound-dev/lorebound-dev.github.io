@@ -121,7 +121,7 @@
     {
       "number": 116,
       "title": "Rework Omnidex into universal collection and rarity pages",
-      "head": "ef493d2202024d49a81128916aa059af138d56bb",
+      "head": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
       "files": [
         "pocket-fortune/dist/grand-archive.js"
       ],
@@ -150,6 +150,6 @@
       "with": "others"
     }
   ],
-  "commit": "26c85afd7b3614ac312a580ac8c1bf5d119112bd",
-  "at": "2026-11-06T18:36:51Z"
+  "commit": "ffa649f189b901600f19bc527b20c510a9603415",
+  "at": "2026-11-06T18:43:34Z"
 }
