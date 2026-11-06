@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T12:05:45.216Z",
+ "generatedAt": "2026-11-06T12:21:17.359Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-06T12:05:27Z",
+  "updatedAt": "2026-11-06T12:18:07Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -25,7 +25,8 @@
    "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
    "Refine Adventure: full-width companion cards and grounded battlefield",
    "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
-   "Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up"
+   "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
+   "Preview approved Common companions in existing detail screen"
   ],
   "skipped": [
    "Replace Tome-tier UI with one permanent numeric Portal progression",
@@ -37,34 +38,87 @@
    "number": 115,
    "kind": "request",
    "by": "Joshua",
-   "title": "Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up",
+   "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
    "quote": "during auto summons it goes back to .5 seconds per companion. Also the tome animation needs to be removed when opening one at a time. I think it should be replaced with the portal gif spinning up faster than having the screen pop up.",
    "stage": "testing",
    "waitingOn": "joshua",
    "asks": [
     {
      "who": "joshua",
-     "text": "After the Rift spins up, the result screen still plays its short rarity effect: glowing trails, a dark outline of the companion, then a burst. It no longer has a book. It lasts about 1 to 2.5 seconds. Do you want to keep it, or should the companion appear right away? My…"
+     "text": "After the Rift spins up, the result screen still plays its short rarity effect: glowing trails, a dark outline of the companion, then a burst, for about 1 to 2.5 seconds. It no longer has a book. Do you want to keep it, or should the companion appear right away? My…"
     },
     {
      "who": "joshua",
-     "text": "The spin-up lasts 0.5 seconds. Is that the right length, or should it be shorter or longer? My suggestion: keep 0.5 seconds."
+     "text": "A tap on the Rift spins it up for 0.5 seconds. Is that the right length, or should it be shorter or longer? My suggestion: keep 0.5 seconds."
     }
    ],
    "openedAt": "2026-11-06T11:54:10Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
-   "headSha": "5a6b3444a1d791fa4e98214423d0b18de557eb28",
+   "updatedAt": "2026-11-06T12:20:30Z",
+   "headSha": "0d72ab92543be8deca1f250679800d954eae114b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T12:02:28Z"
+   "botAt": "2026-11-06T12:20:30Z"
+  },
+  {
+   "number": 117,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Preview approved Common companions in existing detail screen",
+   "quote": "\"Ok\" [to preparing a test version of companion-detail screens using already approved sprites and habitat backgrounds].  \"Yeah I like all the ones so far that are there.\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "The preview page and the five 768px pictures are in the game folder, so they show on the test site. That means they would also go live if this is merged. My suggestion: before merging, move them to reviews/ like #83 did, or merge only after #98 adds the five Commons to the game."
+    },
+    {
+     "who": "noah",
+     "text": "The tutorial animation is added to the game here, but #108 owns the companion page. My suggestion: keep it here, because it doesn't touch #108's files and combines with it on the test site, and merge this after #108."
+    },
+    {
+     "who": "joshua",
+     "text": "On the tutorial screen the starter repeats its lunge every 4 seconds. Here it lunges once when you open a companion and again each time you tap it, then stays calm. My suggestion: keep it like that, so the page isn't busy."
+    },
+    {
+     "who": "joshua",
+     "text": "Only the three starters have their own sparkles (leaves, embers, flame). Other companions get the matching sway, float or breathing but no sparkles, and Mortals, Spirits and Aberrations get no lunge flash. The tutorial has no flash for those three groups, and new effects…"
+    },
+    {
+     "who": "joshua",
+     "text": "I didn't add the 12 optional background scenes. They're about 35 MB and would go live with the game. My suggestion: name 2 or 3 companion and background pairs you'd like to compare, and I'll add only those as a clearly labelled preview."
+    },
+    {
+     "who": "joshua",
+     "text": "The five new Commons have no size and weight yet, so their pages say \"not set yet\". My suggestion: add sizes and weights once their stats are decided in #98."
+    },
+    {
+     "who": "noah",
+     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Comment “@claude build it” on the pull request."
+    }
+   ],
+   "openedAt": "2026-11-06T12:00:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T12:18:07Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T12:18:07Z",
+   "headSha": "0ae34efeda296fda6f2ef343a69118515e2f71bd",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T12:16:45Z"
   },
   {
    "number": 106,
@@ -96,11 +150,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "5bb9e03b472e5d1d781b28ce423458c8e8d15e01",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -129,11 +183,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "e7597007d6e8cfa11302b60dd2eda342a6b29e40",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -162,11 +216,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "dcdc5ec5d28c61459f39b57613e54da62f7d0cec",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -191,11 +245,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "8515bfc09043d19601438cbad48686581e117881",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -236,11 +290,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "f0979610dd5a350a06efe66169816bbd105c9d30",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -265,11 +319,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "fbf6ff9193661fd361807e00557b242a32735ad4",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -294,11 +348,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "b97efe3e3e767d7703cba73ed78c400663c553f8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
@@ -318,11 +372,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -342,11 +396,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -366,11 +420,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -390,11 +444,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -414,11 +468,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "b5751ae65d053601b3eb7eb66dab9a897afad84b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -438,11 +492,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "a982dc1554ba37af34d5550ceb395c21cd904f01",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -467,11 +521,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -491,11 +545,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "8a788f8d4d6a73413a00449f1f5727efb94ac698",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -515,40 +569,16 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:05:27Z",
+   "testAt": "2026-11-06T12:18:07Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:05:27Z",
+   "updatedAt": "2026-11-06T12:18:07Z",
    "headSha": "a01861bff30171fd9633a066b2d178a18285bdb0",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-10-28T03:15:36Z"
-  },
-  {
-   "number": 117,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Preview approved Common companions in existing detail screen",
-   "quote": "\"Ok\" [to preparing a test version of companion-detail screens using already approved sprites and habitat backgrounds].  \"Yeah I like all the ones so far that are there.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-06T12:00:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T12:03:47Z",
-   "headSha": "bfc1349c2db2627f30670518f026d7fe2936acca",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-06T12:03:47Z"
   },
   {
    "number": 116,
@@ -568,7 +598,7 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-11-06T11:58:20Z",
-   "headSha": "92ff5f67d5886ffde743a7f4b9bbd023fd34f179",
+   "headSha": "2d24e802b7e71661781602d39118c7acf5110481",
    "touchesGame": false,
    "requestStatus": "Waiting to be built",
    "botState": "finished",
@@ -1024,24 +1054,44 @@
  ],
  "activity": [
   {
+   "at": "2026-11-06T12:20:30Z",
+   "kind": "built",
+   "text": "Claude finished building “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”"
+  },
+  {
+   "at": "2026-11-06T12:20:30Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”"
+  },
+  {
+   "at": "2026-11-06T12:18:07Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
+  },
+  {
+   "at": "2026-11-06T12:16:45Z",
+   "kind": "built",
+   "text": "Claude finished building “Preview approved Common companions in existing detail screen”"
+  },
+  {
+   "at": "2026-11-06T12:16:45Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Preview approved Common companions in existing detail screen”"
+  },
+  {
+   "at": "2026-11-06T12:16:45Z",
+   "kind": "question",
+   "text": "Part of “Preview approved Common companions in existing detail screen” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-06T12:05:27Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”"
   },
   {
    "at": "2026-11-06T12:04:18Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up”"
-  },
-  {
-   "at": "2026-11-06T12:02:28Z",
-   "kind": "built",
-   "text": "Claude finished building “Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up”"
-  },
-  {
-   "at": "2026-11-06T12:02:28Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”"
   },
   {
    "at": "2026-11-06T12:00:36Z",
@@ -1056,7 +1106,7 @@
   {
    "at": "2026-11-06T11:54:10Z",
    "kind": "asked",
-   "text": "You asked for “Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up”"
+   "text": "You asked for “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”"
   },
   {
    "at": "2026-11-06T11:11:24Z",
@@ -1202,26 +1252,6 @@
    "at": "2026-11-05T14:54:49Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-05T14:51:27Z",
-   "kind": "built",
-   "text": "Claude finished building “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-05T14:51:27Z",
-   "kind": "question",
-   "text": "Part of “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-05T14:51:27Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-05T14:49:50Z",
-   "kind": "built",
-   "text": "Claude finished building “Integrate approved 10-tier companion dock backgrounds”"
   }
  ],
  "otherPulls": [
