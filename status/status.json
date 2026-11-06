@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T18:13:40.216Z",
+ "generatedAt": "2026-11-06T18:16:09.681Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -44,9 +44,14 @@
    "by": "Joshua",
    "title": "Relay confirmed owner answers for nine LOREBOUND requests",
    "quote": "\"PR #122: Shorten the quantity label to ×10 on small screens; keep the full label on larger screens. Next request.\"  \"Keep my previously approved PR #115 answers unchanged.\"  \"Keep all prs as previously approved\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "This request only holds answers for other requests, so nothing was built here. Please give each request its answers (#122, #115, #117, #106, #102, #92, #118, #116, #98), copied from requests/2026-11-06-owner-answers-nine-prs.md. Then comment \"@claude please build the newest…"
+    }
+   ],
    "openedAt": "2026-11-06T18:13:11Z",
    "mergedAt": null,
    "closedAt": null,
@@ -55,12 +60,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:13:11Z",
-   "headSha": "74bc0a8e0ffa2003039e9274253b9cb5b8ad9e85",
+   "updatedAt": "2026-11-06T18:15:46Z",
+   "headSha": "624edb6c0d6e26088f7b85f4e8a02d2abedaf9ab",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "",
-   "botAt": null
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-11-06T18:15:46Z"
   },
   {
    "number": 122,
@@ -1138,6 +1143,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-06T18:15:46Z",
+   "kind": "question",
+   "text": "Part of “Relay confirmed owner answers for nine LOREBOUND requests” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-06T18:13:11Z",
    "kind": "asked",
    "text": "You asked for “Relay confirmed owner answers for nine LOREBOUND requests”"
@@ -1331,11 +1341,6 @@
    "at": "2026-11-06T12:16:45Z",
    "kind": "question",
    "text": "Claude has a question for you about “Preview approved Common companions in existing detail screen”"
-  },
-  {
-   "at": "2026-11-06T12:16:45Z",
-   "kind": "question",
-   "text": "Part of “Preview approved Common companions in existing detail screen” is waiting for Noah’s OK"
   }
  ],
  "otherPulls": [
