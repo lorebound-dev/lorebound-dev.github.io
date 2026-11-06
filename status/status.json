@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T12:21:17.359Z",
+ "generatedAt": "2026-11-06T12:30:34.498Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-06T12:18:07Z",
+  "updatedAt": "2026-11-06T12:24:41Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -30,10 +30,40 @@
   ],
   "skipped": [
    "Replace Tome-tier UI with one permanent numeric Portal progression",
-   "Use tutorial egg companion details; keep Omnidex read-only"
+   "Use tutorial egg companion details; keep Omnidex read-only",
+   "Rework Omnidex into universal collection and rarity pages"
   ]
  },
  "items": [
+  {
+   "number": 118,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Double-tap Party cards to swap pending companions directly",
+   "quote": "When you pull a companion and are in the swap in party menu, double clicking on a companion in the deck should swap it. Also it should visually swap the cards no confirmation necessary. So there should just be a release button and the floating card no party dps change or anything of that.",
+   "stage": "built",
+   "waitingOn": "joshua",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should the Back button stay on the first choice, so you can return to the reveal without deciding? My suggestion is to keep it, because without it the only way out of the swap screen is to swap or release."
+    }
+   ],
+   "openedAt": "2026-11-06T12:23:49Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-06T12:30:10Z",
+   "headSha": "de1e590b6f4554f51e7f4c70111485e660a291c6",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T12:30:10Z"
+  },
   {
    "number": 115,
    "kind": "request",
@@ -56,11 +86,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:20:30Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "0d72ab92543be8deca1f250679800d954eae114b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -109,11 +139,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "0ae34efeda296fda6f2ef343a69118515e2f71bd",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -150,11 +180,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "5bb9e03b472e5d1d781b28ce423458c8e8d15e01",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -183,11 +213,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "e7597007d6e8cfa11302b60dd2eda342a6b29e40",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -216,11 +246,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "dcdc5ec5d28c61459f39b57613e54da62f7d0cec",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -245,11 +275,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "8515bfc09043d19601438cbad48686581e117881",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -290,11 +320,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "f0979610dd5a350a06efe66169816bbd105c9d30",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -319,11 +349,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "fbf6ff9193661fd361807e00557b242a32735ad4",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -348,11 +378,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "b97efe3e3e767d7703cba73ed78c400663c553f8",
    "touchesGame": true,
    "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
@@ -372,11 +402,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -396,11 +426,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -420,11 +450,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -444,11 +474,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -468,11 +498,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "b5751ae65d053601b3eb7eb66dab9a897afad84b",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -492,11 +522,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "a982dc1554ba37af34d5550ceb395c21cd904f01",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -521,11 +551,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -545,11 +575,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "8a788f8d4d6a73413a00449f1f5727efb94ac698",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -569,11 +599,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T12:18:07Z",
+   "testAt": "2026-11-06T12:24:42Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T12:18:07Z",
+   "updatedAt": "2026-11-06T12:24:42Z",
    "headSha": "a01861bff30171fd9633a066b2d178a18285bdb0",
    "touchesGame": true,
    "requestStatus": "Built, ready to check",
@@ -586,9 +616,34 @@
    "by": "Joshua",
    "title": "Rework Omnidex into universal collection and rarity pages",
    "quote": "Also the codex needs to be reworked as there are no longer realm specific companions. Just have it be total collection at the top that you can click on and have pages sorted by rarity instead of one long scroll page. Also on the front have the collection breakdown (the one with the types) be at a rarity level. So first it will have counting discovered by rarity then when you click it has the collection breakdown",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "built",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "This pull request and the universal companions one (#89) both change the same line in grand-archive.js: the one that draws the type breakdown. #89 makes it follow the realm, and this one makes it follow the rarity. So the test site may leave whichever is newer out. I suggest…"
+    },
+    {
+     "who": "noah",
+     "text": "When #89's Epic companions are discovered, the Omnidex will need Epic card art. The approved v3.1 card kit only has Common, Uncommon and Rare frames. Until then they show as sealed cards on the Epic page. I suggest #89 or a later request adds the Epic frame before any Epic…"
+    },
+    {
+     "who": "joshua",
+     "text": "Each rarity page shows up to 12 companions (four rows of three, or six rows of two on small phones), then Next for the rest. Is 12 a good number? My suggestion: keep 12."
+    },
+    {
+     "who": "joshua",
+     "text": "On small phones the six type boxes fill most of the first screen of a rarity page, so the cards start just below them. My suggestion: keep it as it is for now. If it feels too long, the types could become one short row of smaller buttons."
+    },
+    {
+     "who": "noah",
+     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Comment “@claude build it” on the pull request."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in grand-archive.js, so it isn't on the test site yet."
+    }
+   ],
    "openedAt": "2026-11-06T11:56:55Z",
    "mergedAt": null,
    "closedAt": null,
@@ -596,13 +651,13 @@
    "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T11:58:20Z",
-   "headSha": "2d24e802b7e71661781602d39118c7acf5110481",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-06T11:58:20Z"
+   "clashes": true,
+   "updatedAt": "2026-11-06T12:22:13Z",
+   "headSha": "9b88766d540b76d0737c9a8e14c8e24d5438c0d7",
+   "touchesGame": true,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T12:22:13Z"
   },
   {
    "number": 114,
@@ -1026,33 +1081,49 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-01T03:39:32Z"
-  },
-  {
-   "number": 86,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Retire Trophy Room showcase and preserve Treasures records",
-   "quote": "\"Ok I want you to request to remove the trophy room and make an incremental mini game. Give me ideas\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-01T02:27:34Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-03T05:09:32Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T05:09:32Z",
-   "headSha": "bae6b7edc155098c47531b71040d5b956b1f3b42",
-   "touchesGame": true,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-01T02:30:51Z"
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-06T12:30:10Z",
+   "kind": "built",
+   "text": "Claude finished building “Double-tap Party cards to swap pending companions directly”"
+  },
+  {
+   "at": "2026-11-06T12:30:10Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Double-tap Party cards to swap pending companions directly”"
+  },
+  {
+   "at": "2026-11-06T12:24:42Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
+  },
+  {
+   "at": "2026-11-06T12:23:49Z",
+   "kind": "asked",
+   "text": "You asked for “Double-tap Party cards to swap pending companions directly”"
+  },
+  {
+   "at": "2026-11-06T12:22:13Z",
+   "kind": "built",
+   "text": "Claude finished building “Rework Omnidex into universal collection and rarity pages”"
+  },
+  {
+   "at": "2026-11-06T12:22:13Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Rework Omnidex into universal collection and rarity pages”"
+  },
+  {
+   "at": "2026-11-06T12:22:13Z",
+   "kind": "question",
+   "text": "Part of “Rework Omnidex into universal collection and rarity pages” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-06T12:21:47Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
+  },
   {
    "at": "2026-11-06T12:20:30Z",
    "kind": "built",
@@ -1210,46 +1281,6 @@
   },
   {
    "at": "2026-11-05T21:45:55Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-05T21:43:59Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-05T21:42:03Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-05T21:34:07Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-05T21:33:03Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Run the workflows on Hearth instead of GitHub's runners”"
-  },
-  {
-   "at": "2026-11-05T21:31:29Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-05T21:22:43Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-05T21:21:48Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Spend fewer Actions minutes on the status page and less storage on art”"
-  },
-  {
-   "at": "2026-11-05T14:54:49Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
   }
