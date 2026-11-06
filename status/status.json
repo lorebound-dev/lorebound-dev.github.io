@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T18:57:41.058Z",
+ "generatedAt": "2026-11-06T19:12:16.310Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-06T18:55:40Z",
+  "updatedAt": "2026-11-06T19:05:28Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -45,68 +45,52 @@
    "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
    "stage": "testing",
-   "waitingOn": "both",
+   "waitingOn": "noah",
    "asks": [
     {
-     "who": "joshua",
-     "text": "Should raids hurt more, so guards are worth having? I suggest bandits take from your Wood or Stone, and losses go up from 5–15% to 10–20%. The rule that a raid never takes buildings, levels, land or people would stay."
+     "who": "noah",
+     "text": "The request asks for phone screenshots and a short recording of the title, the static and the framed town. Nobody can take them from the build robot. I suggest Noah takes them on the test site, or asks for a local Claude session to take them."
     },
     {
      "who": "noah",
-     "text": "#96 (Gold caravans) can still be built. Haven 3.5 doesn't change anything it needs. When #96 moves Haven's save into the main save, this v5 save would have to go through the main game's \"update your save\" popup."
-    },
-    {
-     "who": "noah",
-     "text": "Main now has changes to workflow files and status tools that this branch doesn't have. They don't touch the game, and this pull request doesn't clash with main. I didn't merge them in, because I'm not allowed to push workflow-file changes. The hourly update robot or Noah can bring them in."
+     "text": "Main has workflow-file and status-tool changes that this branch doesn't have. They don't touch the game. I'm not allowed to push workflow-file changes, so the hourly update robot or Noah needs to bring them in."
     },
     {
      "who": "note",
-     "text": "A lost raid takes 5% to 15% of one resource. It's 15% with no Defense, and less the closer your Defense is to their Threat. It's capped at 10 + 5 × Settlement Level, and never more than 150. It also damages one building until you repair it. That's what you asked for. I think the cap keeps late losses fair."
+     "text": "The static wipe lasts 0.6 seconds: about 0.15 s of plain static, then a scanline sweeps down over 0.45 s. That's in the middle of the 0.4–0.8 s you asked for, and I think it feels like a screen switching on without slowing you down."
     },
     {
      "who": "note",
-     "text": "Repairs cost 30% of the building's price for each of its levels, in Wood and Stone only. After you pay, a builder needs about 9 seconds to fix it. I'd keep the price but make the fix slower, so a damaged building is felt for longer."
+     "text": "The title shows once each time the game is opened or reloaded. Closing and reopening Haven doesn't show it again. I think that's right: more often would get in the way."
     },
     {
      "who": "note",
-     "text": "Threat is 4 for wolves and 6 for bandits, plus half your Settlement Level, plus 1 for every 4 raids (up to +5). Each guard adds 3, the Watchtower 2, 4 or 6, and the whole palisade 8. I think these are easy to follow."
+     "text": "The HAVEN and PRESS START letters are pixel letters I drew in code, not a copied console font or logo. The shell is purple-grey plastic, like an old handheld, and the top strip says LOREBOUND, not a console name."
     },
     {
      "who": "note",
-     "text": "Honest finding from my test player: a town with no guards finished every building faster (1 h 26 min) than one with 3 guards (2 h 35 min). Raids don't cost enough yet to make guards worth it. I'd try letting bandits take from your Wood or Stone (what you build with) instead of whatever you hold most of, which is usually Food."
+     "text": "I kept the decorations to the top strip and left the sides and bottom at 5px, so the town loses only about 28px of height. If you'd like a chunkier handheld, with a real cross pad and buttons under the screen, it would cost about 60–80px of the town's height on a small phone. I'd keep it thin."
     },
     {
      "who": "note",
-     "text": "Raids start when you have a House, a Farm and your first expansion, then after 5 minutes of play. After a raid there are 4 quiet minutes if you drove it off, or 6 if you lost. In my test the first raid came at 13 minutes. That feels about right to me."
-    },
-    {
-     "who": "note",
-     "text": "Each person eats 1 Food a minute. A farmer grows about 4.6 Food a minute at a level 1 Farm, so one farmer feeds about 4 people. My test player was never hungry, so you could make Food a bit tighter if it feels too easy."
-    },
-    {
-     "who": "note",
-     "text": "Recruits cost the same Wood as Haven 3.0's workers up to the 8th person. After that each costs 15% more instead of 80% more, because the House adds 6 more places. Without that change the 14th person would cost over 50,000 Wood. Each recruit also costs Food: 3, plus 2 for each person already in Haven."
-    },
-    {
-     "who": "note",
-     "text": "There is one House and one Farm, each with three levels, not several of each. I didn't build a separate Guard Post, and the palisade can't be damaged yet. These keep the screen simple; tell Codex if you'd like more Houses or Farms."
+     "text": "Inside the frame, Haven's screen edge is now a dark bezel line instead of the thin gold border, so it reads as a screen inside the shell. The panels inside keep their gold edges."
     }
    ],
    "openedAt": "2026-11-02T02:38:48Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:56:47Z",
-   "headSha": "d1b5853b40fc555a69b1ac9e4b9b1eee3964cb78",
+   "updatedAt": "2026-11-06T19:11:37Z",
+   "headSha": "04a20617ff5c66e8696a8d65f35c1cc497b028f6",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T18:56:47Z"
+   "botAt": "2026-11-06T19:11:37Z"
   },
   {
    "number": 117,
@@ -150,11 +134,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
    "touchesGame": true,
    "answers": false,
@@ -180,11 +164,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "ef79bd583babd8b559927e6e72813394e6a90e11",
    "touchesGame": true,
    "answers": false,
@@ -205,11 +189,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "c1494e8b45f798739afb1e5dbe4101435fd884c0",
    "touchesGame": true,
    "answers": false,
@@ -239,11 +223,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "cb786c4c53a795e2b89347e309d893c51b1d404d",
    "touchesGame": true,
    "answers": false,
@@ -273,11 +257,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "e7597007d6e8cfa11302b60dd2eda342a6b29e40",
    "touchesGame": true,
    "answers": false,
@@ -307,11 +291,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "dcdc5ec5d28c61459f39b57613e54da62f7d0cec",
    "touchesGame": true,
    "answers": false,
@@ -337,11 +321,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "fbf6ff9193661fd361807e00557b242a32735ad4",
    "touchesGame": true,
    "answers": false,
@@ -367,11 +351,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "b97efe3e3e767d7703cba73ed78c400663c553f8",
    "touchesGame": true,
    "answers": false,
@@ -392,11 +376,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
    "touchesGame": true,
    "answers": false,
@@ -417,11 +401,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
    "touchesGame": true,
    "answers": false,
@@ -442,11 +426,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
    "touchesGame": true,
    "answers": false,
@@ -467,11 +451,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
    "touchesGame": true,
    "answers": false,
@@ -492,11 +476,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "b5751ae65d053601b3eb7eb66dab9a897afad84b",
    "touchesGame": true,
    "answers": false,
@@ -517,11 +501,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:55:41Z",
+   "testAt": "2026-11-06T19:05:29Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:55:41Z",
+   "updatedAt": "2026-11-06T19:05:29Z",
    "headSha": "a982dc1554ba37af34d5550ceb395c21cd904f01",
    "touchesGame": true,
    "answers": false,
@@ -1095,24 +1079,29 @@
  ],
  "activity": [
   {
-   "at": "2026-11-06T18:56:47Z",
+   "at": "2026-11-06T19:11:37Z",
    "kind": "built",
    "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   },
   {
-   "at": "2026-11-06T18:56:47Z",
+   "at": "2026-11-06T19:11:37Z",
    "kind": "note",
    "text": "Claude left notes for you on “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   },
   {
-   "at": "2026-11-06T18:56:47Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-06T18:56:47Z",
+   "at": "2026-11-06T19:11:37Z",
    "kind": "question",
    "text": "Part of “Haven 3.0–4.0: upgradeable town and endless connected frontier” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-06T19:05:29Z",
+   "kind": "test",
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
+  },
+  {
+   "at": "2026-11-06T18:58:23Z",
+   "kind": "test",
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
   },
   {
    "at": "2026-11-06T18:55:41Z",
@@ -1286,11 +1275,6 @@
   },
   {
    "at": "2026-11-06T13:49:17Z",
-   "kind": "test",
-   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
-  },
-  {
-   "at": "2026-11-06T13:46:08Z",
    "kind": "test",
    "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   }
