@@ -81,7 +81,7 @@
     {
       "number": 97,
       "title": "Design guided progression companion power and achievements from owner references",
-      "head": "fbf6ff9193661fd361807e00557b242a32735ad4"
+      "head": "7c911b98e4b88508d5edf31e2f1769acc6f0b6dc"
     },
     {
       "number": 102,
@@ -182,7 +182,7 @@
       "with": "others"
     }
   ],
-  "commit": "cc5b79e50bd09b7a265f36967365d74b6b03fab9",
+  "commit": "e29dc35199003e7a182ed151793376ec21dd9396",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -191,5 +191,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-06T22:57:00Z"
+  "at": "2026-11-06T22:59:44Z"
 }
