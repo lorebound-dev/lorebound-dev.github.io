@@ -51,8 +51,10 @@
 .adventure-refined #game[data-party-controls=corner] .battle-panel:has(.next-goal:not([hidden])) #floorTimeline{display:none}
 
 /* The two rows as a sheet over the lower scene, when they don't fit beside the fight. The tray keeps its one-row
-   place in the page, so the fight doesn't move; the sheet rises over it and brings its own control band. */
-.adventure-dock-preview.art-rebuild-preview #game.party-sheet:not(.dock-is-collapsed) .adventure-deck{height:var(--party-sheet-h);margin-top:calc(-1 * var(--party-sheet-lift));box-shadow:0 -10px 18px #000b}
+   place in the page, so the fight doesn't move; the sheet rises over it and brings its own control band. It covers the
+   fight, so it needs a solid backing: the tray itself is see-through (art-rebuild sets background:none), which let the
+   enemy's name and the goal plaque show between the cards. Colour only, so frame art on the tray still draws on top. */
+.adventure-dock-preview.art-rebuild-preview #game.party-sheet:not(.dock-is-collapsed) .adventure-deck{height:var(--party-sheet-h);margin-top:calc(-1 * var(--party-sheet-lift));box-shadow:0 -10px 18px #000b;background-color:#061621}
 .adventure-dock-preview.art-rebuild-preview #game.party-sheet .dock-heading{height:44px}
 .adventure-dock-preview.art-rebuild-preview #game.party-sheet .dock-body{height:var(--party-sheet-body)}
 .adventure-dock-preview.art-rebuild-preview #game.party-sheet-tall{--dock-rail-height:0px}

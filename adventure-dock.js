@@ -12,7 +12,7 @@
   // with a 1–5 / 6–10 switch, and the two rows open as a sheet over the lower scene. The mode comes from the measured
   // screen, never the phone model. When even one row and a 44px control band would leave under 240px, the band goes
   // and one control sits beside the goal and Challenge band (party-layout.css). Five-place saves keep one row.
-  const PAGE = 5, TARGET = 240, TWO_ROWS = 180, BAND = 44, ACTION = 52, EDGE = 1, CARD_EXTRA = 37;
+  const PAGE = 5, TARGET = 240, TWO_ROWS = 180, BAND = 44, ACTION = 52, EDGE = 1, CARD_EXTRA = 37, WIDE = 375, WIDE_MIN = 100;
   let view = 'expanded', sheet = false, fit = null, measured = '';
   function setPage(n) { page = n; last = ''; partyKey = ''; refresh(); }
   // Room the fight keeps with each tray layout. The combat area and the tray share one fixed height (the summon rail's
@@ -30,14 +30,17 @@
     if (!probe) { probe = document.createElement('span'); probe.id = 'partyCardMeasure'; probe.setAttribute('aria-hidden', 'true'); probe.style.cssText = 'position:absolute;visibility:hidden;pointer-events:none;width:0;height:var(--compact-card-h,0px)'; game.append(probe); }
     const cardW = (width - 24 - 16) / 5, cardH = Math.round(probe.getBoundingClientRect().height || cardW + CARD_EXTRA);
     const body = rows => 6 + rows * cardH + (rows - 1) * 6 + 8, scene = (band, rows) => Math.round(shared - floor - ACTION - band - body(rows) - EDGE);
-    return {cardW, cardH, body, rail: rail.offsetHeight, two: scene(BAND, 2), band: scene(BAND, 1), corner: scene(0, 1)};
+    // Joshua's #131 answer: on screens 375px wide and up the two rows open by default even when they cover much of the
+    // fight, as long as some fight is left (WIDE_MIN); narrower screens keep the TWO_ROWS rule.
+    const two = scene(BAND, 2), wide = (root.innerWidth || 0) >= WIDE && two >= WIDE_MIN;
+    return {cardW, cardH, body, rail: rail.offsetHeight, two, rows: two >= TWO_ROWS || wide, band: scene(BAND, 1), corner: scene(0, 1)};
   }
   // Picks the layout and sets the sizes party-layout.css reads. --dock-panel-height keeps meaning "tray height minus
   // the old 22px heading", which realm1-art.js reads when the tray is folded.
   function arrange(s) {
     const game = $('game'), many = s.party.slots.length > PAGE, choosing = !!root.LoreOwnershipAdventure?.choosing;
     const m = measure(); if (m) fit = m; if (!fit) return '';
-    const mode = many && fit.two >= TWO_ROWS && (choosing || view === 'expanded') ? 'expanded' : 'compact';
+    const mode = many && fit.rows && (choosing || view === 'expanded') ? 'expanded' : 'compact';
     const controls = mode === 'expanded' || fit.band >= TARGET ? 'band' : 'corner';
     if (!many || mode === 'expanded') sheet = false;
     const over = many && mode === 'compact' && (sheet || choosing), band = controls === 'band' ? BAND : 0, body = fit.body(mode === 'expanded' ? 2 : 1);
@@ -61,7 +64,7 @@
     if (!state || root.LoreOwnershipAdventure?.choosing || state.party.slots.length <= PAGE) return;
     if (sheet) sheet = false;
     else if ($('game').dataset.partyView === 'expanded') view = 'compact';
-    else if (fit && fit.two >= TWO_ROWS) view = 'expanded';
+    else if (fit && fit.rows) view = 'expanded';
     else sheet = true;
     last = ''; partyKey = ''; refresh();
     $('dockPartyView').focus({preventScroll:true});
