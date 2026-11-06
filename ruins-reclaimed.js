@@ -681,10 +681,10 @@ const plural=(n,one,many=one+'s')=>`${n} ${n===1?one:many}`;
 const bpButton=b=>`<button type="button" class="ruins-upgrade" data-ruins="bp" data-type="${b.id}"><span><strong></strong><small></small></span><b></b></button>`;
 
 const SKETCH=`<section class="ruins-proto" aria-labelledby="ruinsTitle">
-<header class="ruins-head"><div><small>Test prototype · trial numbers</small><h3 id="ruinsTitle">Ruins Reclaimed</h3></div><span class="ruins-head-actions"><button type="button" class="ruins-help-toggle" aria-expanded="false" aria-controls="ruinsHelp" aria-label="How Ruins Reclaimed works">?</button></span></header>
-<div class="ruins-help" id="ruinsHelp" hidden><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do sits under the map in four sections: Build, People, Defense and Land. Next shows one thing worth doing.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people (they need a place to live and some Food) and give them jobs. Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div>
+<h3 id="ruinsTitle" class="ruins-title-sr">Haven (test prototype, trial numbers)</h3>
 <dl class="ruins-stats"><div><dt>Wood</dt><dd id="ruinsWood">0</dd></div><div><dt>Stone</dt><dd id="ruinsStone">0</dd></div><div><dt>Ore</dt><dd id="ruinsOre">0</dd></div><div><dt>Food</dt><dd id="ruinsFood">0</dd></div></dl>
-<div class="ruins-level"><div class="ruins-level-row"><strong id="ruinsLevelName">Settlement Lv 1 · Camp</strong><span id="ruinsLevelPts">0 / 4</span></div><div class="ruins-level-bar" aria-hidden="true"><i id="ruinsLevelBar"></i></div><small id="ruinsNext"></small></div>
+<div class="ruins-level"><div class="ruins-level-main"><div class="ruins-level-row"><strong id="ruinsLevelName">Settlement Lv 1 · Camp</strong><span id="ruinsLevelPts">0 / 4</span></div><div class="ruins-level-bar" aria-hidden="true"><i id="ruinsLevelBar"></i></div><small id="ruinsNext"></small></div><button type="button" class="ruins-help-toggle" aria-expanded="false" aria-controls="ruinsHelp" aria-label="How Haven works">?</button></div>
+<div class="ruins-help" id="ruinsHelp" hidden><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do sits under the map in four sections: Build, People, Defense and Land. Next shows one thing worth doing.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people (they need a place to live and some Food) and give them jobs. Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div>
 <p class="ruins-alert" id="ruinsAlert" role="status" aria-live="polite" hidden></p>
 <div class="ruins-scene" id="ruinsScene"><canvas id="ruinsCanvas" tabindex="0" role="img"></canvas></div><p class="ruins-work" id="ruinsWorkText" hidden></p>
 <p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p>
@@ -735,6 +735,7 @@ function mount(slot){
   view.canvas.addEventListener('pointerdown',onDown);view.canvas.addEventListener('pointerup',onUp);view.canvas.addEventListener('pointercancel',()=>{if(view)view.down=null;});
   view.canvas.addEventListener('keydown',onKey);
   root.addEventListener('resize',onResize);document.addEventListener('visibilitychange',onVisible);
+  if(typeof root.ResizeObserver==='function'){view.resizer=new root.ResizeObserver(onSceneResize);view.resizer.observe(view.scene);}
   syncCrew(state,crew);
   layout(true);
   if(loadNote==='moved'&&loadOld){say(`Your earlier demo moved over: ${loadOld.wood} Wood, Better Tools Lv ${state.tools}, ${plural(state.workers,'worker')}, and ${state.gone.length} trees already cleared in the middle. Patches finished before that don't become land.`);}
@@ -744,7 +745,7 @@ function mount(slot){
 }
 function unmount(){
   if(!view)return;sleep();store();anims=[];drawerMemory={tab:view.tab,open:view.open};
-  root.removeEventListener('resize',onResize);document.removeEventListener('visibilitychange',onVisible);
+  root.removeEventListener('resize',onResize);document.removeEventListener('visibilitychange',onVisible);view.resizer?.disconnect();
   view.root.remove();view=null;
 }
 
@@ -1035,13 +1036,26 @@ function priceButton(btn,c,title,detail){const short=c!==null&&!afford(state,c);
 /* Isometric canvas. The view shows the territory plus a one-tile ring of mist. Tile (c,r) has its top corner at
  * ox+(c−r)·w/2, oy+(c+r−2a)·h/2, where a is the first tile shown and h = w/2. Wider than the screen, the scene scrolls. */
 function onResize(){if(!view)return;layout(false);draw();}
+/* The town fills the space between the counters and the drawer (ruins-reclaimed.css). Tiles grow until the map is as
+ * tall as the room the town has with the open section folded away, up to 44px, and the map pans both ways when it's
+ * bigger than its space. So opening a section covers part of the town without shrinking it, and while a building,
+ * road or palisade is being placed the tile size stays put, so the tile you aimed at doesn't move. */
+function townRoom(){const sh=view.scene.clientHeight||0;if(!sh)return 0;
+  const pane=view.open&&!view.manageBody.hidden?view.tabs[view.tab]?.pane:null,ph=pane&&!pane.hidden?(pane.offsetHeight||0):0;
+  return sh+(ph?ph+6:0);}
 function layout(center){
-  const cv=view.canvas,cw=view.scene.clientWidth||300,[lo,hi]=land(state),V=hi-lo+2;
-  const w=Math.max(24,Math.min(40,Math.floor(cw/10.4/2)*2)),h=w/2,top=Math.round(w*1.5),cssW=Math.round(V*w+w*.6),cssH=Math.round(top+V*h+w*.6+6),dpr=Math.min(root.devicePixelRatio||1,3);
-  cv.style.width=cssW+'px';cv.style.height=cssH+'px';cv.width=Math.round(cssW*dpr);cv.height=Math.round(cssH*dpr);
-  view.geo={w,h,ox:Math.round(cssW/2),oy:top,a:lo-1,V,dpr,cssW,cssH};
-  if(center)view.scene.scrollLeft=Math.max(0,(cssW-cw)/2);
+  const cv=view.canvas,sc=view.scene,cw=sc.clientWidth||300,sh=sc.clientHeight||0,[lo,hi]=land(state),V=hi-lo+2,old=view.geo;
+  const keep=old&&old.V===V&&!center&&!!(view.placing||view.roading||view.walling||view.upgrading),fitH=(townRoom()-16)/(2.1+V/2);
+  const w=keep?old.w:Math.max(24,Math.min(44,Math.floor(Math.max(cw/10.4,fitH||0)/2)*2)),h=w/2,top=Math.round(w*1.5),cssW=Math.round(V*w+w*.6),cssH=Math.round(top+V*h+w*.6+6),dpr=Math.min(root.devicePixelRatio||1,3);
+  const fx=old?((sc.scrollLeft||0)+cw/2)/old.cssW:.5,fy=old?((sc.scrollTop||0)+sh/2)/old.cssH:.5,same=old&&old.cssW===cssW&&old.cssH===cssH&&old.dpr===dpr;
+  if(!same){cv.style.width=cssW+'px';cv.style.height=cssH+'px';cv.width=Math.round(cssW*dpr);cv.height=Math.round(cssH*dpr);}
+  view.geo={w,h,ox:Math.round(cssW/2),oy:top,a:lo-1,V,dpr,cssW,cssH};view.size=[cw,sh];
+  if(center){sc.scrollLeft=Math.max(0,(cssW-cw)/2);sc.scrollTop=Math.max(0,(cssH-sh)/2);}
+  else if(!same){sc.scrollLeft=Math.max(0,fx*cssW-cw/2);sc.scrollTop=Math.max(0,fy*cssH-sh/2);}
 }
+/* Re-fit only when the town's space really changes size (the phone turns, the drawer folds, the help opens). */
+function onSceneResize(){if(!view)return;const sc=view.scene,[w0,h0]=view.size||[0,0];
+  if(Math.abs((sc.clientWidth||0)-w0)<2&&Math.abs((sc.clientHeight||0)-h0)<2)return;layout(false);draw();}
 const iso=(g,c,r)=>[g.ox+(c-r)*g.w/2,g.oy+(c+r-2*g.a)*g.h/2];
 function hit(x,y){
   const g=view.geo;if(!g)return null;

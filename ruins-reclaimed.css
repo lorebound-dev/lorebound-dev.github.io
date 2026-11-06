@@ -20,26 +20,33 @@
 .ruins-static[hidden]{display:none}
 @media (prefers-reduced-motion:reduce){.ruins-title-press canvas{animation:none}}
 
-.ruins-proto{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:8px;padding:10px 12px max(12px,env(safe-area-inset-bottom));border:2px solid #15121f;border-radius:6px;background:linear-gradient(#0c1f27,#091923);color:#eadfbe;font-family:Georgia,serif}
+/* Haven fills the page: no page header (the handheld and its title screen say what this is) and no page scroll. The town
+ * takes all the height the counters and the drawer leave; the open drawer section scrolls inside itself. Only when the
+ * handheld is on the page (test site): the live game's Coming Soon card for Haven keeps its normal page. */
+#destinationPage[data-area=haven]:has(>#destinationContent>.ruins-shell){display:flex;flex-direction:column;padding:0;overflow:hidden}
+#destinationPage[data-area=haven]:has(>#destinationContent>.ruins-shell)>header{position:absolute;width:1px;height:1px;min-height:0;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);border:0;white-space:nowrap}
+#destinationPage[data-area=haven]>#destinationContent:has(>.ruins-shell){flex:1 1 0;height:auto;min-height:0;display:flex;flex-direction:column}
+#destinationPage[data-area=haven]>#destinationContent>.ruins-shell{flex:1 1 0;height:auto}
+.ruins-title-sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.ruins-proto{position:relative;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:6px;padding:6px 6px max(6px,env(safe-area-inset-bottom));border:2px solid #15121f;border-radius:6px;background:linear-gradient(#0c1f27,#091923);color:#eadfbe;font-family:Georgia,serif}
 .ruins-proto *{box-sizing:border-box}
 .ruins-proto [hidden]{display:none!important}
-.ruins-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.ruins-head small{display:block;font:12px Georgia,serif!important;letter-spacing:.06em;text-transform:uppercase;color:#9fc2b4}
-.ruins-head h3{margin:2px 0 0;font-size:19px;color:#e7d7b1}
-.ruins-head>div{min-width:0}
-.ruins-head-actions{display:flex;gap:6px;flex-shrink:0}
+.ruins-proto>*{flex-shrink:0}
 .ruins-help-toggle{flex:0 0 44px;width:44px;height:44px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;font:bold 18px Georgia,serif!important;cursor:pointer}
-.ruins-help{padding:8px 10px;border:1px solid #927b4566;border-radius:5px;background:#0b1a22}
+.ruins-help-toggle[aria-expanded="true"]{border-color:#dac17c;background:#2b3837;box-shadow:inset 0 -2px #d6bd81}
+.ruins-help{max-height:42%;overflow-y:auto;overscroll-behavior:contain;padding:8px 10px;border:1px solid #927b4566;border-radius:5px;background:#0b1a22}
 .ruins-help p{margin:0 0 6px;font:13px/1.45 Georgia,serif!important;color:#c9d2cc}
 .ruins-help-buttons{display:flex;flex-wrap:wrap;gap:6px}
 .ruins-help button{min-height:44px;padding:8px 12px;border:1px solid #8a5a4a;border-radius:5px;background:#2a1d1b;color:#f0d6c4;font:13px Georgia,serif!important;cursor:pointer}
 .ruins-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:0}
-.ruins-stats>div{min-width:0;padding:5px 6px;border:1px solid #927b4566;border-radius:4px;background:#0b1a22;text-align:center}
+.ruins-stats>div{min-width:0;padding:3px 4px;border:1px solid #927b4566;border-radius:4px;background:#0b1a22;text-align:center}
 .ruins-stats dt{font:12px Georgia,serif!important;color:#b8c3bd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ruins-stats dd{margin:2px 0 0;font:15px Georgia,serif!important;color:#ffe8af;white-space:nowrap}
+.ruins-stats dd{margin:1px 0 0;font:15px Georgia,serif!important;color:#ffe8af;white-space:nowrap}
 /* The scene scrolls sideways once Haven grows wider than the screen; taps still work (a tap barely moves). */
-.ruins-scene{position:relative;display:block;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding:6px 0 4px;border:1px solid #2e4a3c;border-radius:4px;background:radial-gradient(ellipse at 50% 55%,#173628,#0a1a1f 72%);scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
-.ruins-scene canvas{display:block;margin:0 auto;max-width:none;touch-action:pan-x pan-y;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;cursor:pointer;border-radius:3px}
+/* The town takes the free height (flex 1, at least 120px) and pans both ways when it's bigger than that. The canvas
+ * centres with auto margins, which drop to 0 when it overflows, so every edge stays reachable. */
+.ruins-scene{position:relative;display:flex;flex:1 1 0;min-height:120px;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:0;border:1px solid #2e4a3c;border-radius:4px;background:radial-gradient(ellipse at 50% 55%,#173628,#0a1a1f 72%);scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
+.ruins-scene canvas{display:block;flex:none;margin:auto;max-width:none;touch-action:pan-x pan-y;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;cursor:pointer;border-radius:3px}
 .ruins-scene canvas:focus-visible{outline:2px solid #f8dc88;outline-offset:-2px}
 .ruins-work{margin:0;width:100%;padding:0 10px;min-height:18px;font:12px/1.4 Georgia,serif!important;color:#9fd8c0;text-align:center}
 .ruins-stage{margin:0;min-height:18px;font:13px/1.4 Georgia,serif!important;color:#d6bd81;text-align:center}
@@ -50,13 +57,16 @@
 .ruins-confirm{border-color:#dac17c;background:#2b3837;color:#ffe8af;box-shadow:inset 0 -2px #d6bd81}
 .ruins-confirm:disabled{opacity:.55;box-shadow:none;cursor:default}
 /* Haven 3.0: Settlement Level strip (one next milestone), under the counters */
-.ruins-level{display:grid;gap:4px;padding:6px 8px;border:1px solid #927b4566;border-radius:4px;background:#0b1a22}
+/* Settlement Level with the ? (How Haven works) beside it, in one compact plaque. */
+.ruins-level{display:flex;align-items:center;gap:6px;padding:3px 3px 3px 8px;border:1px solid #927b4566;border-radius:4px;background:#0b1a22}
 .ruins-level-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;min-width:0}
 .ruins-level strong{font:bold 13px Georgia,serif!important;color:#ffe8af;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ruins-level-row span{flex-shrink:0;font:12px Georgia,serif!important;color:#b8c3bd}
 .ruins-level-bar{height:6px;border:1px solid #a68c56;border-radius:2px;background:#152c36;overflow:hidden}
 .ruins-level-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#a68c56,#f8dc88)}
-.ruins-level small{font:12px/1.35 Georgia,serif!important;color:#9fc2b4}
+.ruins-level-main{flex:1;min-width:0;display:grid;gap:3px}
+.ruins-level small{font:12px/1.35 Georgia,serif!important;color:#9fc2b4;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+.ruins-level small:empty{display:none}
 /* Haven Management: one drawer under the map. A row of four squared section plaques, one section open at a time. */
 .ruins-manage{display:grid;gap:6px;padding:6px;border:1px solid #a68c56;border-radius:5px;background:#0b1a22}
 .ruins-manage-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
@@ -68,7 +78,8 @@
 .ruins-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
 .ruins-tab{min-width:0;min-height:44px;padding:6px 2px;border:1px solid #7e744e;border-radius:4px;background:#152c36;color:#c9d2cc;font:bold 13px Georgia,serif!important;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ruins-tab[aria-selected="true"]{border-color:#dac17c;background:#2b3837;color:#ffe8af;box-shadow:inset 0 -2px #d6bd81}
-.ruins-pane{display:grid;gap:6px}
+/* The open section scrolls inside the drawer, so the town stays on screen above it. */
+.ruins-pane{display:grid;gap:6px;max-height:clamp(92px,20vh,280px);overflow-y:auto;overscroll-behavior:contain;padding-right:2px;scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
 .ruins-bp-list{display:grid;gap:6px}
 .ruins-note{margin:0;padding:2px 4px;font:13px/1.45 Georgia,serif!important;color:#c9d2cc}
 .ruins-build-toggle{min-width:76px;min-height:56px;border-color:#dac17c;box-shadow:inset 0 -2px #d6bd81}
@@ -99,4 +110,4 @@
 .ruins-threat{color:#ffe8af!important}
 .ruins-repair{border-color:#b8322e;box-shadow:inset 3px 0 #b8322e}
 .ruins-repair:disabled{border-color:#7e744e;box-shadow:inset 3px 0 #9fd8c0}
-@media (max-width:340px){.ruins-head h3{font-size:17px}.ruins-upgrade{padding:8px 10px;gap:8px}.ruins-build-toggle{min-width:64px}.ruins-job{grid-template-columns:minmax(0,1fr) 44px 22px 44px;gap:4px;padding:6px}}
+@media (max-width:340px){.ruins-upgrade{padding:8px 10px;gap:8px}.ruins-build-toggle{min-width:64px}.ruins-job{grid-template-columns:minmax(0,1fr) 44px 22px 44px;gap:4px;padding:6px}}
