@@ -38,32 +38,36 @@
 .adventure-dock-preview #game .dock-companion.is-lifted{position:relative;z-index:5;transition:none!important;filter:drop-shadow(0 6px 10px #000a)}
 .adventure-dock-preview #game .dock-companion.is-drop-target{outline:2px solid #e0c183;outline-offset:-2px}
 /* Choosing a slot for a companion: the reveal steps aside and the real Party dock takes the choice. The waiting
-   companion floats as its own Party card beside its name and the party DPS change, and Release sits at the bottom.
-   Script caps the panel's height to the space above the dock. */
+   companion floats as its own Party card beside its name and a short hint, and Release sits at the bottom. A double-tap
+   on a Party card swaps it; script caps the panel's height to the space above the dock. */
 .adventure-dock-preview #game.dock-choosing .adventure-deck{overflow:visible}
 #dockChoice{position:absolute;left:0;right:0;bottom:calc(100% + 6px);z-index:8;display:flex;flex-direction:column;gap:6px;max-height:min(70dvh,520px);padding:10px 12px;background:linear-gradient(#07131b99,#0a1724dd 46%,#071722fa),var(--choice-habitat,url('assets/void.png')) center 30%/cover no-repeat;border:1px solid #ae925c;border-radius:6px;box-shadow:0 -6px 18px #020b14aa;color:#eadbb8;text-align:left;overflow:hidden}
 #dockChoice[hidden]{display:none}
 #dockChoice *{font-family:Georgia,serif!important;letter-spacing:normal!important}
 #dockChoice .choice-head{flex:0 1 auto;min-height:0;display:flex;align-items:center;gap:12px}
 #dockChoice .choice-card{flex:0 0 auto;width:clamp(72px,21vw,88px);aspect-ratio:5/8;filter:drop-shadow(0 6px 10px #000a)}
-#dockChoice .choice-card>.lore-card{min-height:0;cursor:default;animation:dock-choice-wiggle 1.4s ease-in-out infinite}
+/* The floating card's frame stays still; only the companion inside it moves (#117's companion-motion, below). */
+#dockChoice .choice-card>.lore-card{min-height:0;cursor:pointer}
+/* ownership-adventure.js wraps the floating card's picture in .cm-body so companion-motion's idle and lunge can move it
+   (companion-phase1.css pins the picture itself with transform:none!important). The keyframes are the tutorial's,
+   from adventure.css and companion-motion.css; the class names and timings match companion-motion.css. */
+#dockChoice .cm-body{position:absolute;inset:0;display:grid;place-items:center;transform-origin:50% 88%;animation:beetleBreathe 1.9s .65s ease-in-out infinite}
+#dockChoice .cm-stage.cm-sway .cm-body{animation:seedSway 3.4s .65s ease-in-out infinite}
+#dockChoice .cm-stage.cm-hover .cm-body{animation:lanternHover 3.1s .65s ease-in-out infinite}
+#dockChoice .cm-stage.cm-react .cm-body{animation:cmReact .9s ease-in-out 1}
+@media(prefers-reduced-motion:reduce){#dockChoice .cm-body{animation:none!important}}
+html.cm-still #dockChoice .cm-body{animation:none}
 #dockChoice .choice-fallback{width:100%;height:100%}#dockChoice .choice-fallback img{display:block;width:100%;height:100%;object-fit:contain}
 #dockChoice .choice-info{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:5px}
 #dockChoice .choice-name{font-size:17px;font-weight:normal;color:#f1d899;overflow-wrap:anywhere}
-#dockChoice .choice-note{color:#d8ccb0}
+#dockChoice .choice-hint{color:#d8ccb0}
 #dockChoice .choice-rarity{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--choice-color)}
 #dockChoice .choice-rarity i{flex:0 0 auto;width:7px;height:7px;rotate:45deg;background:var(--choice-color)}
 #dockChoice p{margin:0;font-size:13px;line-height:1.4}
-#dockChoice .choice-total{flex:0 0 auto;font-size:14px}
-#dockChoice .choice-total b{color:#f1dca3}
-#dockChoice .choice-total .choice-delta.is-up{color:#8fd19e}
-#dockChoice .choice-total .choice-delta.is-down{color:#f29090}
-#dockChoice .choice-total .choice-delta.is-same{color:#d8ccb0}
 #dockChoice .choice-actions{flex:0 0 auto;display:flex;gap:8px}
 #dockChoice .choice-actions:empty{display:none}
 #dockChoice button{min-height:44px;padding:8px;color:#f0d59a;background:linear-gradient(#21414b,#091c26);border:1px solid #ac9159;border-radius:4px;font-size:14px}
 #dockChoice .choice-actions button{flex:1}
-#dockChoice #choiceConfirm{background:linear-gradient(#5a4520,#2a1f0d);border-color:#e0c183;color:#ffe8b4}
 #dockChoice .choice-release{flex:0 0 auto;width:100%;background:linear-gradient(#3a1c1c,#1c0d0d);border-color:#a8735b;color:#f3d0b4}
 #dockChoice .choice-release.is-armed{border-color:#f29090;color:#ffe1d0;box-shadow:inset 0 0 0 1px #f2909066}
 #dockChoice #choiceError{color:#ffd38b}
@@ -72,19 +76,16 @@
 .adventure-dock-preview #game.dock-choosing .dock-companion:nth-child(2n){animation-delay:-.4s}
 .adventure-dock-preview #game.dock-choosing .dock-companion.is-empty{position:relative;outline:1px dashed #e0c18399;outline-offset:-3px}
 .adventure-dock-preview #game.dock-choosing .dock-companion.is-choice-pick{outline:2px solid #e0c183;outline-offset:-2px;animation:none}
-/* A swap that strictly raises party DPS: a thin, still green line with a soft inner glow over the card's own frame.
-   On the selected slot the green steps aside so its gold outline shows; the rarity art underneath keeps its colors. */
-.adventure-dock-preview #game.dock-choosing .dock-companion.is-choice-better:not(.is-choice-pick)::after{content:'';position:absolute;inset:0;z-index:7;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 1px #8fd19e,inset 0 0 6px #8fd19e88}
-/* Each choice's signed party DPS change takes the place of the card's own DPS, on every card at once. */
-.adventure-dock-preview #game.dock-choosing .dock-companion:has(.dock-choice-delta) .dock-dps{visibility:hidden}
-.adventure-dock-preview #game .dock-choice-delta{position:absolute;z-index:9;left:4px;right:4px;bottom:5px;height:23px;display:flex;align-items:center;justify-content:center;background:#06121ef5;font:bold 14px/1 Georgia,serif!important;letter-spacing:normal!important;white-space:nowrap;text-shadow:0 1px 2px #000}
-.adventure-dock-preview #game .dock-choice-delta.is-up{color:#8fd19e;box-shadow:inset 0 0 0 1px #8fd19e66}
-.adventure-dock-preview #game .dock-choice-delta.is-down{color:#f29090;box-shadow:inset 0 0 0 1px #f2909066}
-.adventure-dock-preview #game .dock-choice-delta.is-same{color:#d8ccb0}
+/* Double-tapping a card must not zoom the page or wait for a zoom: only these cards, only while choosing. */
+.adventure-dock-preview #game.dock-choosing #dockCompanions [data-dock-slot]{touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+/* During the brief exchange the companion that left rises out of its slot to the floating spot, so the panel lets it
+   pass; the one that joined slides down into its slot inside the dock, which keeps its own sideways paging. */
+#game.choice-swapping #dockChoice{overflow:visible}
+#dockChoice .choice-card{position:relative;z-index:2}
 @keyframes dock-choice-wiggle{0%,100%{rotate:0deg}25%{rotate:-1.2deg}75%{rotate:1.2deg}}
 /* A level badge turns green with an up arrow while its next level can be bought; otherwise it keeps its usual colors. */
 .adventure-dock-preview #game .dock-level.can-level{display:flex;align-items:center;gap:3px;background:#0d2a19e6;color:#c9f2c4;box-shadow:0 0 0 1px #7fcf8a,0 0 8px #7fcf8a99}
-.adventure-dock-preview #game .dock-level.can-level::before,#levelButton.can-level::before{content:'';flex:0 0 auto;width:8px;height:8px;background:currentColor;clip-path:polygon(50% 0,100% 55%,68% 55%,68% 100%,32% 100%,32% 55%,0 55%)}
-#levelButton.can-level{display:flex;align-items:center;justify-content:center;gap:6px;border-color:#7fcf8a;color:#d6f5d2;box-shadow:0 0 0 1px #7fcf8a66,0 0 10px #7fcf8a55}
-#levelButton.can-level::before{width:10px;height:10px}
+.adventure-dock-preview #game .dock-level.can-level::before{content:'';flex:0 0 auto;width:8px;height:8px;background:currentColor;clip-path:polygon(50% 0,100% 55%,68% 55%,68% 100%,32% 100%,32% 55%,0 55%)}
+/* Joshua (2026-11-06): Upgrade is the companion details' gold action (menus.css). When it can be bought it also glows gold. */
+#boundSheet #levelButton.can-level{box-shadow:inset 0 1px #fff3c466,0 0 0 1px #f4d27a99,0 0 12px #e9b94a88}
 @media (prefers-reduced-motion:reduce){#dockChoice .choice-card>.lore-card,.adventure-dock-preview #game.dock-choosing .dock-companion:not(.is-empty){animation:none}.adventure-dock-preview #game.dock-choosing .dock-companion:not(.is-empty){outline:1px solid #e0c18366;outline-offset:-3px}}

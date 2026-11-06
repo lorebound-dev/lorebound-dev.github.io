@@ -121,6 +121,18 @@
       "head": "05f6ded6ca37e22084edde4d967801936a0fe111"
     },
     {
+      "number": 118,
+      "title": "Double-tap Party cards to swap pending companions directly",
+      "head": "4b741d12b52c3b6a6d4c22b112a8e7683202e9db",
+      "resolved": [
+        "118-69-bound-sheet-bottom",
+        "118-97-party-dps-preview",
+        "118-89-bound-sources",
+        "118-69-team-companion-page",
+        "118-69-manager-return"
+      ]
+    },
+    {
       "number": 120,
       "title": "Unify Rift rarity bars and clean up legacy Tome UI",
       "head": "52bcba60b88ddd74ce3cee459d7be58925d4afbc",
@@ -160,16 +172,6 @@
       "with": "others"
     },
     {
-      "number": 118,
-      "title": "Double-tap Party cards to swap pending companions directly",
-      "head": "f86a8d33ded6ec54c2904136d9cd2b2a6d284047",
-      "files": [
-        "pocket-fortune/dist/companion-motion.css",
-        "pocket-fortune/dist/companion-motion.js"
-      ],
-      "with": "others"
-    },
-    {
       "number": 119,
       "title": "Double species mastery summon requirements and damage bonuses",
       "head": "786be6022c9a99d75e8820800db1ce2ad3181f50",
@@ -179,14 +181,9 @@
       "with": "others"
     }
   ],
-  "commit": "7e672634d2d7bcdc3f0a131b050a2b6d9e7dfa12",
+  "commit": "a331acfb90839b9a7f860f28b5f929465dec367a",
   "unusedResolutions": [
-    "118-69-bound-sheet-bottom",
-    "118-69-manager-return",
-    "118-69-team-companion-page",
-    "118-89-bound-sources",
-    "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-06T21:36:14Z"
+  "at": "2026-11-06T21:42:19Z"
 }
