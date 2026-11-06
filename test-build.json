@@ -99,6 +99,11 @@
       "head": "ef79bd583babd8b559927e6e72813394e6a90e11"
     },
     {
+      "number": 108,
+      "title": "Use tutorial egg companion details; keep Omnidex read-only",
+      "head": "421e18e1bdfecbafb1cdeee48324124292e79f43"
+    },
+    {
       "number": 115,
       "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
       "head": "cb786c4c53a795e2b89347e309d893c51b1d404d",
@@ -121,18 +126,6 @@
       "head": "05f6ded6ca37e22084edde4d967801936a0fe111"
     },
     {
-      "number": 118,
-      "title": "Double-tap Party cards to swap pending companions directly",
-      "head": "4b741d12b52c3b6a6d4c22b112a8e7683202e9db",
-      "resolved": [
-        "118-69-bound-sheet-bottom",
-        "118-97-party-dps-preview",
-        "118-89-bound-sources",
-        "118-69-team-companion-page",
-        "118-69-manager-return"
-      ]
-    },
-    {
       "number": 120,
       "title": "Unify Rift rarity bars and clean up legacy Tome UI",
       "head": "52bcba60b88ddd74ce3cee459d7be58925d4afbc",
@@ -152,22 +145,21 @@
   ],
   "skipped": [
     {
-      "number": 108,
-      "title": "Use tutorial egg companion details; keep Omnidex read-only",
-      "head": "515ca0b3693f89f66f1453d921e6418e1cf0c0c5",
-      "files": [
-        "pocket-fortune/dist/home.html",
-        "pocket-fortune/dist/omnidex.js",
-        "pocket-fortune/dist/team.js"
-      ],
-      "with": "others"
-    },
-    {
       "number": 109,
       "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
       "head": "3aead0ab03637711d215423df91b508d93848de2",
       "files": [
         "pocket-fortune/dist/treasure-ui.js"
+      ],
+      "with": "others"
+    },
+    {
+      "number": 118,
+      "title": "Double-tap Party cards to swap pending companions directly",
+      "head": "4b741d12b52c3b6a6d4c22b112a8e7683202e9db",
+      "files": [
+        "pocket-fortune/dist/home.html",
+        "pocket-fortune/dist/team.js"
       ],
       "with": "others"
     },
@@ -181,9 +173,14 @@
       "with": "others"
     }
   ],
-  "commit": "a331acfb90839b9a7f860f28b5f929465dec367a",
+  "commit": "cd3058b173fdfdc87da9f0da17f19fc4baa775f2",
   "unusedResolutions": [
+    "118-69-bound-sheet-bottom",
+    "118-69-manager-return",
+    "118-69-team-companion-page",
+    "118-89-bound-sources",
+    "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-06T21:42:19Z"
+  "at": "2026-11-06T21:45:09Z"
 }

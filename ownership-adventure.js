@@ -42,92 +42,46 @@ function decisions(){const s=read();if(!s?.pending)return;const p=s.pending,h=R.
 // Fallback for pages without the Adventure dock: the original replacement picker.
 function compare(){const s=read(),p=s.pending,h=R.species(p.speciesId);let box=$('ownershipCompare');if(!box){box=document.createElement('dialog');box.id='ownershipCompare';document.body.appendChild(box);}box.innerHTML='<h2>Welcome '+esc(h.name)+'?</h2><label for="ownershipReplace">Choose a companion to replace</label><select id="ownershipReplace">'+s.owned.map(c=>'<option value="'+c.id+'">'+esc(R.species(c.speciesId).name)+'</option>').join('')+'</select><p id="ownershipTransfer"></p><p>Both species retain all discovery and mastery progress.</p><p id="ownershipCompareError" role="alert"></p><button id="ownershipSwap">Confirm replacement</button><button id="ownershipCancel">Keep choosing</button>';
  const update=()=>{const old=s.owned.find(c=>c.id===$('ownershipReplace').value),same=R.species(old.speciesId).rarity===h.rarity,q=O.transfer(old.invested,same),projected=O.hydrate(O.decide(s,p.drawId,'swap',old.id));$('ownershipTransfer').textContent=R.total(s).toFixed(1)+' → '+R.total(projected).toFixed(1)+' Party DPS. '+(same?'100%':'80%')+' investment transferred ('+q.n+(q.d==='1'?'':'/'+q.d)+' Essence). '+R.species(old.speciesId).name+' becomes your next choice.';};$('ownershipReplace').onchange=update;update();$('ownershipSwap').onclick=()=>settle('swap',$('ownershipReplace').value);$('ownershipCancel').onclick=()=>box.close();box.showModal();}
-// Joshua's in-dock choice (2026-11-06): the reveal steps aside and the real Party dock opens with its cards wiggling.
-// Above it the waiting companion floats as the same Party card it will be in the team, with only Release below it:
-// no party DPS change, no per-card gains and no Confirm. Double-tapping (or double-clicking) a Party card swaps it with
-// the floating card at once, and the two cards visibly trade places. The companion that left becomes the floating card,
-// so it can be swapped again or released. Double-tapping an open slot adds the companion there. A single tap only
-// highlights a card. Keyboard and screen-reader activation of a card (a click with no pointer behind it) swaps it
-// directly. There is no Back (Joshua, 2026-11-06): the choice ends only with a swap or Release, and the companion
-// stays waiting, saved as pending, until then. Every swap is the existing decision
-// transaction in settle(); the motion only plays after it has been saved.
-let picking=false,chosen=null,tap=null,press=null,busy=false;
+// Joshua's in-dock choice: the reveal steps aside and the real Party dock opens with its cards wiggling. Above it the
+// waiting companion floats as the same Party card it will be in the team. Every Party card shows the signed party DPS
+// change of swapping it (or adding into an open slot), all at once, and each swap that strictly raises party DPS gets
+// a thin green outline. Tapping a slot only selects it; nothing
+// changes until Confirm Swap or Add to Party. Back returns to the reveal with the companion still waiting. After a swap
+// the companion that left becomes the waiting one in this same view. Release is at the bottom and needs a second tap.
+// This preview never writes the save.
+let picking=false,chosen=null,deltaKey='',deltas=[];
 const dps=n=>typeof statFmt==='function'?statFmt(n):String(Math.round(n*10)/10);
 // Each type's habitat comes from companion-profile.js, so this view matches the team and Omnidex pages.
 const habitat=category=>root.LoreCompanionProfile?.habitat(category)||"url('assets/void.png')";
-// Two taps on the same card within DOUBLE_MS are a double-tap. A press longer than PRESS_MS, or one that moved more than
-// SLOP pixels (a scroll or drag), is not a tap. SWAP_MS is the exchange motion; input is locked a little longer.
-const DOUBLE_MS=350,PRESS_MS=500,SLOP=10,SWAP_MS=260,LOCK_MS=320;
-// A tap belongs to one waiting companion and one exact target, so taps on two different cards, or taps that arrive
-// after a swap changed the waiting companion, never pair up.
-function tapKey(s,slot){return s.pending.drawId+':'+s.pending.id+':'+slot+':'+(s.owned[slot]?.id||'');}
-function markDock(){const box=$('dockCompanions');if(!box?.querySelectorAll)return;const s=read(),on=picking&&!!s?.pending,name=on?R.species(s.pending.speciesId).name:'';
- for(const card of box.querySelectorAll('[data-dock-slot]')){const i=Number(card.dataset.dockSlot),empty=card.classList.contains('is-empty');card.classList.toggle('is-choice-pick',on&&i===chosen);
-  if(!on){card.removeAttribute('aria-pressed');if(card.dataset.choiceLabel!==undefined){card.setAttribute('aria-label',card.dataset.choiceLabel);delete card.dataset.choiceLabel;}continue;}
-  card.setAttribute('aria-pressed',String(i===chosen));card.dataset.choiceLabel??=card.getAttribute('aria-label')||'';
-  card.setAttribute('aria-label',empty?'Open slot '+(i+1)+'. Add '+name+' here.':card.dataset.choiceLabel.replace(/\s*Level upgrade available\.$/,'')+' Swap with '+name+'.');}}
-// The waiting companion as its Party card, with the level and DPS it has while it waits. It is a picture here, not a
-// button, so it never opens the team.
-function floatingCard(h,item,level,power){const label=h.name+', '+h.rarity+', Lv. '+level+', '+dps(power)+' DPS.';
+const signed=d=>Math.abs(d)<1e-9?{way:'same',text:'±0'}:{way:d>0?'up':'down',text:(d>0?'+':'−')+dps(Math.abs(d))};
+function projection(s,slot){const p=s.pending,occupied=slot<s.owned.length,old=occupied?s.owned[slot]:null;if(!occupied&&s.owned.length>=O.slots(s))return null;const next=O.hydrate(O.decide(s,p.drawId,occupied?'swap':'recruit',old?.id));return {occupied,old,next,now:R.total(s),then:R.total(next)};}
+// One projection per slot for the current waiting companion and party; open slots all share the "add" projection.
+function slotDeltas(s){const key=s.pending.drawId+':'+s.pending.id+':'+s.revision;if(key!==deltaKey){deltaKey=key;deltas=Array.from({length:O.slots(s)},(_,i)=>i).map(i=>{try{const x=projection(s,Math.min(i,s.owned.length));return x?x.then-x.now:null;}catch{return null;}});}return deltas;}
+function markDock(){const box=$('dockCompanions');if(!box?.querySelectorAll)return;const s=read(),list=picking&&s?.pending?slotDeltas(s):[];for(const card of box.querySelectorAll('[data-dock-slot]')){const i=Number(card.dataset.dockSlot),d=list[i],empty=card.classList.contains('is-empty');card.classList.toggle('is-choice-pick',picking&&i===chosen);card.classList.toggle('is-choice-better',picking&&!empty&&typeof d==='number'&&signed(d).way==='up');card.setAttribute('aria-pressed',picking?String(i===chosen):'false');if(!picking)card.removeAttribute('aria-pressed');
+ let tag=card.querySelector('.dock-choice-delta');if(!picking||d===null||d===undefined){tag?.remove();if(card.dataset.choiceLabel!==undefined){card.setAttribute('aria-label',card.dataset.choiceLabel);delete card.dataset.choiceLabel;}continue;}
+ const v=signed(d);if(!tag){tag=document.createElement('span');tag.setAttribute('aria-hidden','true');card.appendChild(tag);}tag.className='dock-choice-delta is-'+v.way;tag.textContent=(empty?'Add ':'')+v.text;
+ card.dataset.choiceLabel??=card.getAttribute('aria-label')||'';card.setAttribute('aria-label',(empty?'Open slot. Add for ':card.dataset.choiceLabel+' Swap for ')+v.text+' party DPS.');}}
+// The waiting companion as its Party card, with the level and DPS it really has: as it waits, or after joining the
+// chosen slot with that slot's investment transfer. It is a picture here, not a button, so it never opens the team.
+function floatingCard(h,item,level,power,placed){const label=h.name+', '+h.rarity+', Lv. '+level+', '+dps(power)+' DPS'+(placed?' after joining this slot':'')+'.';
  try{return root.LoreAdventureCard.render(h,dps(power),'',null,level).replace(/^<button type="button"/,'<div role="img"').replace(/ data-dock-slot="[^"]*"/,'').replace(/ title="[^"]*"/,'').replace(/ aria-label="[^"]*"/,' aria-label="'+esc(label)+'"').replace(/<\/button>\s*$/,'</div>');}
  catch{return '<div class="choice-fallback" role="img" aria-label="'+esc(label)+'">'+root.LoreArt.portrait(item)+'</div>';}}
-function choose(){const s=read();if(!s?.pending||s.owned.some(c=>c.speciesId===s.pending.speciesId)||!root.__ADVENTURE_DOCK_READY__||!$('adventureDeck'))return false;picking=true;chosen=null;$('summonSheet').hidden=true;$('game').classList.remove('summon-active');$('combatLayout').inert=false;root.LoreNavigation?.showAdventure?.();root.LoreAdventureDock?.collapse(false);$('game').classList.add('dock-choosing');let panel=$('dockChoice');if(!panel){panel=document.createElement('section');panel.id='dockChoice';panel.setAttribute('aria-label','Choose a party slot');$('adventureDeck').appendChild(panel);}panel.hidden=false;renderChoice();$('choiceRelease')?.focus?.({preventScroll:true});return true;}
-function renderChoice(){const s=read(),panel=$('dockChoice');if(!picking||!s?.pending||!panel)return;const p=s.pending,h=R.species(p.speciesId),item=root.LoreSummonModel.item(p.id),out=p.displaced,open=s.owned.length<5;
+function choose(){const s=read();if(!s?.pending||s.owned.some(c=>c.speciesId===s.pending.speciesId)||!root.__ADVENTURE_DOCK_READY__||!$('adventureDeck'))return false;picking=true;chosen=null;$('summonSheet').hidden=true;$('game').classList.remove('summon-active');$('combatLayout').inert=false;root.LoreNavigation?.showAdventure?.();root.LoreAdventureDock?.collapse(false);$('game').classList.add('dock-choosing');let panel=$('dockChoice');if(!panel){panel=document.createElement('section');panel.id='dockChoice';panel.setAttribute('aria-label','Choose a party slot');$('adventureDeck').appendChild(panel);}panel.hidden=false;renderChoice();($('choiceBack')||$('choiceRelease'))?.focus?.({preventScroll:true});return true;}
+function renderChoice(){const s=read(),panel=$('dockChoice');if(!picking||!s?.pending||!panel)return;const p=s.pending,h=R.species(p.speciesId),item=root.LoreSummonModel.item(p.id),out=p.displaced;let x=null;try{x=chosen===null?null:projection(s,chosen);}catch(e){x=null;}
  panel.style.setProperty('--choice-color',item.color);panel.style.setProperty('--choice-habitat',habitat(h.category));panel.dataset.rarity=h.rarity.toLowerCase();const top=$('adventureDeck')?.getBoundingClientRect?.().top;if(top>0)panel.style.maxHeight=Math.max(270,top-12)+'px';
- let html='<div class="choice-head"><div class="choice-card">'+floatingCard(h,item,O.pendingLevel(s),R.combat(s,p.id).expectedDps)+'</div><div class="choice-info"><b class="choice-name">'+esc(h.name)+'</b><small class="choice-rarity"><i aria-hidden="true"></i>'+esc(h.rarity)+'</small>';
- html+='<p class="choice-hint">'+(open?'Double-tap an open slot to add, or a companion to swap':'Double-tap a companion to swap')+'</p></div></div>';
+ const level=x?O.leveling(x.next,p.id).level:O.pendingLevel(s),power=(x?R.combat(x.next,p.id):R.combat(s,p.id)).expectedDps,same=x?.occupied&&R.species(x.old.speciesId).rarity===h.rarity,was=x?.occupied?esc(R.species(x.old.speciesId).name):'',brings=x?.occupied&&Number(x.old.invested?.n||0)>0;
+ let html='<div class="choice-head"><div class="choice-card">'+floatingCard(h,item,level,power,!!x)+'</div><div class="choice-info"><b class="choice-name">'+esc(h.name)+'</b><small class="choice-rarity"><i aria-hidden="true"></i>'+esc(h.rarity)+'</small>';
+ const v=x&&signed(x.then-x.now);
+ html+='<p class="choice-total" role="status">Party DPS <b>'+dps(R.total(s))+'</b>'+(x?' → <b>'+dps(x.then)+'</b> <b class="choice-delta is-'+v.way+'">'+v.text+'</b>':'')+'</p>'+(was?'<p class="choice-note">'+(brings?'Joins with '+(same?'all':'80%')+' of '+was+'&#39;s Essence. ':'')+was+' waits as your next choice.</p>':'')+'</div></div>';
+ html+='<div class="choice-actions">'+(out?'':'<button id="choiceBack" type="button">Back</button>')+(x?'<button id="choiceConfirm" type="button">'+(x.occupied?'Confirm Swap':'Add to Party')+'</button>':'')+'</div>';
  html+='<button id="choiceRelease" class="choice-release" type="button">Release · +'+O.salvage(h.id)+' Essence</button><p id="choiceError" role="alert"></p>';
  panel.innerHTML=html;
- // One tap on the labelled Release button releases the floating companion, like the Release button on the result screen.
- $('choiceRelease').onclick=()=>{if(!busy)settle('release');};
- markDock();moveFloating(h,!out);}
-// Joshua's Changes (2026-11-06): the floating companion moves with #117's companion movement (companion-motion.js):
-// the tutorial pop-in, one windup-and-lunge about a second later, then its gentle idle (starters keep their own idle
-// and particles, Wildgrowth sways, Spirits hover, the rest breathe). Tapping the floating card replays the lunge; a
-// tap during a lunge restarts it. After a swap the card's flight is its entrance, so only the lunge and idle follow.
-// It is only looks: it reads and writes nothing, and the delayed lunge is cancelled when the floating companion
-// changes or this view closes. Reduced motion keeps the picture still.
-const STRIKE={Wildgrowth:true,Beasts:true,Constructs:true};
-let preview=0;
-const stopPreview=()=>{if(preview)clearTimeout(preview);preview=0;};
-function moveFloating(h,enter){stopPreview();const M=root.LoreCompanionMotion,card=$('dockChoice')?.querySelector?.('.choice-card'),stage=card?.querySelector?.('.dock-art-stage');if(!M||!stage)return;
- try{const body=document.createElement('span');body.className='cm-body';while(stage.firstChild)body.appendChild(stage.firstChild);stage.appendChild(body);
-  stage.classList.add('cm-stage','cm-'+(M.IDLE[h.category]||'breathe'),'cm-cat-'+String(h.category).toLowerCase());
-  const add=cls=>{const i=document.createElement('i');i.className=cls+' cm-deco';i.setAttribute('aria-hidden','true');stage.appendChild(i);};
-  if(h.id in M.STARTERS){stage.classList.add('idle-'+M.STARTERS[h.id]);add('idle-glow');for(const m of ['m1','m2','m3'])add('idle-mote '+m);}
-  if(STRIKE[h.category])add('reveal-strike');
-  card.onclick=()=>{stopPreview();M.react(stage);};
-  if(M.still())return;
-  if(enter){stage.classList.add('cm-enter');setTimeout(()=>stage.classList.remove('cm-enter'),700);}
-  const id=read()?.pending?.id;preview=setTimeout(()=>{preview=0;if(picking&&read()?.pending?.id===id&&stage.isConnected!==false)M.react(stage);},1000);}
- catch{}}
-// A dock card was activated. Keyboard and screen-reader activation swaps at once; a tap waits for its second tap.
-function pick(slot,e){if(!picking||busy)return;const s=read();if(!s?.pending)return exit(false);if(slot>=s.owned.length){if(s.owned.length>=O.slots(s))return;slot=s.owned.length;}
- const key=tapKey(s,slot),now=Date.now(),down=press;press=null;
- if(e&&e.detail===0){tap=null;return commit(slot,key);}
- if(down&&(now-down.t>PRESS_MS||(typeof e?.clientX==='number'&&Math.hypot(e.clientX-down.x,e.clientY-down.y)>SLOP))){tap=null;return;}
- if(tap&&tap.key===key&&now-tap.t<=DOUBLE_MS){tap=null;return commit(slot,key);}
- tap={key,t:now};chosen=slot;markDock();}
-// Swaps (or adds) through the existing decision transaction, only if the waiting companion and the target are still
-// the ones that were tapped. Input stays locked through the motion, which plays only after a successful save.
-function commit(slot,key){const s=read(),p=s?.pending;if(!p||busy||tapKey(s,slot)!==key)return false;const target=s.owned[slot]?.id,name=R.species(p.speciesId).name,left=target?R.species(s.owned[slot].speciesId).name:'';
- const from=rect($('dockChoice')?.querySelector?.('.choice-card')),to=rect(dockCard(slot));
- busy=true;setTimeout(()=>{busy=false;},LOCK_MS);
- if(!settle(target?'swap':'recruit',target))return false;
- root.LoreAdventureDock?.refresh?.();
- const status=$('dockReorderStatus');if(status)status.textContent=name+' joined your party in slot '+(slot+1)+'.'+(left&&read()?.pending?' '+left+' is waiting. Double-tap a companion to swap, or release.':'');
- exchange(slot,from,to);return true;}
-const rect=n=>{try{const r=n?.getBoundingClientRect?.();return r&&r.width>0?r:null;}catch{return null;}};
-const dockCard=slot=>$('dockCompanions')?.querySelector?.('[data-dock-slot="'+slot+'"]');
-// The visible exchange: the card that joined travels from the floating spot to its slot, and the companion that left
-// travels from the slot up to the floating spot. Reduced motion uses a short fade instead.
-function exchange(slot,from,to){const reduce=!!root.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches,game=$('game');
- const fly=(node,a)=>{const b=rect(node);if(!node?.animate||!b)return;
-  if(reduce||!a){node.animate([{opacity:.35},{opacity:1}],{duration:160,easing:'ease-out'});return;}
-  node.animate([{transformOrigin:'0 0',transform:'translate('+(a.left-b.left)+'px,'+(a.top-b.top)+'px) scale('+(a.width/b.width)+','+(a.height/b.height)+')'},{transformOrigin:'0 0',transform:'none'}],{duration:SWAP_MS,easing:'cubic-bezier(.3,.7,.3,1)'});};
- game?.classList.add('choice-swapping');setTimeout(()=>game?.classList.remove('choice-swapping'),SWAP_MS+20);
- fly(dockCard(slot),from);if(picking)fly($('dockChoice')?.querySelector?.('.choice-card'),to);}
-document.addEventListener?.('pointerdown',e=>{if(picking&&e.target?.closest?.('#dockCompanions'))press={t:Date.now(),x:e.clientX,y:e.clientY};},true);
-function exit(restore){if(!picking)return;picking=false;chosen=null;stopPreview();$('game').classList.remove('dock-choosing');const panel=$('dockChoice');if(panel)panel.hidden=true;markDock();if(restore&&read()?.pending){$('summonSheet').hidden=false;$('game').classList.add('summon-active');$('combatLayout').inert=true;decisions();$('ownershipAccept')?.focus?.({preventScroll:true});}}
-setInterval(()=>{if(picking&&(!read()?.pending||!$('summonSheet').hidden))exit(false);},250);root.LoreOwnershipAdventure={fresh,migration,saveUpdates,decisions,choose,pick,markDock,exit,get choosing(){return picking;},connect(get,save,draw){read=get;persist=save;redraw=draw;}};
+ // One tap on the labelled Release button releases, like the Release button on the result screen.
+ $('choiceRelease').onclick=()=>settle('release');
+ if(!out)$('choiceBack').onclick=()=>exit(true);if(x)$('choiceConfirm').onclick=()=>settle(x.occupied?'swap':'recruit',x.old?.id);markDock();}
+function pick(slot){if(!picking)return;const s=read();if(!s?.pending)return exit(false);if(slot>=s.owned.length){if(s.owned.length>=O.slots(s))return;slot=s.owned.length;}chosen=slot;renderChoice();$('choiceConfirm')?.focus?.({preventScroll:true});}
+function exit(restore){if(!picking)return;picking=false;chosen=null;$('game').classList.remove('dock-choosing');const panel=$('dockChoice');if(panel)panel.hidden=true;markDock();if(restore&&read()?.pending){$('summonSheet').hidden=false;$('game').classList.add('summon-active');$('combatLayout').inert=true;decisions();$('ownershipAccept')?.focus?.({preventScroll:true});}}
+setInterval(()=>{if(picking&&(!read()?.pending||!$('summonSheet').hidden))exit(false);},250);
+document.addEventListener?.('keydown',e=>{if(picking&&e.key==='Escape'&&!read()?.pending?.displaced){e.preventDefault?.();exit(true);}});
+root.LoreOwnershipAdventure={fresh,migration,saveUpdates,decisions,choose,pick,markDock,exit,get choosing(){return picking;},connect(get,save,draw){read=get;persist=save;redraw=draw;}};
 })(globalThis);

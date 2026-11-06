@@ -232,7 +232,7 @@
     $('dockCompanions').onclick = event => {
       const b = event.target.closest('[data-dock-slot]'); if (!b) return;
       if (Date.now() - swallowClick < 500) return; // The release of a drag is not an inspect tap.
-      if (root.LoreOwnershipAdventure?.choosing) { root.LoreOwnershipAdventure.pick(Number(b.dataset.dockSlot), event); return; }
+      if (root.LoreOwnershipAdventure?.choosing) { root.LoreOwnershipAdventure.pick(Number(b.dataset.dockSlot)); return; }
       root.LoreTeam.open(Number(b.dataset.dockSlot));
     };
     wireReorder();
