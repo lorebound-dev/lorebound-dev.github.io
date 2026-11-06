@@ -56,6 +56,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .timeline .k-live .gem{color:var(--live)}
 .timeline .k-test .gem{color:var(--test)}
 .timeline .k-question .gem{color:var(--ask)}
+.timeline .k-note .gem{color:var(--gold)}
+.timeline .k-passed .gem{color:var(--test)}
 .timeline .k-behind .gem,.timeline .k-closed .gem{color:var(--faint)}
 .timeline small{display:block;font-size:12px;color:var(--faint)}
 .empty{color:var(--faint);font-style:italic}
@@ -63,6 +65,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .asks li{margin:6px 0;overflow-wrap:anywhere}
 .hint{margin:10px 0 0;font-size:13px;color:var(--faint)}
 .card.noah{border-color:var(--bronze)}
+.notes{margin-top:14px;padding-top:12px;border-top:1px solid var(--edge)}
+.notes-title{margin:0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.notes .asks li{color:var(--ink)}
 .copybox{width:100%;min-height:120px;margin-top:10px;padding:8px;border:1px solid var(--edge);background:var(--bg);color:var(--ink);font:14px/1.4 Georgia,serif}
 .copyall{margin-bottom:16px}
 .copyall:empty{display:none}
@@ -141,8 +146,11 @@ const STAGES = {
   done: {done: 4, text: 'Finished. Nothing in the game itself changed.'},
   cancelled: {text: 'Cancelled.'},
   closed: {text: 'Closed without going live.'},
+  // An answers request: Joshua's answers to Claude's questions on several requests, passed on to each one by itself.
+  passing: {text: 'Your answers are on their way to each request. Claude rebuilds each one after that.'},
+  passed: {text: 'Your answers went to each request.'},
 };
-const ACTIVE = ['queued', 'started', 'building', 'questions', 'built', 'testing', 'going-live'];
+const ACTIVE = ['queued', 'started', 'building', 'questions', 'built', 'testing', 'going-live', 'passing'];
 const RECENT = 14 * 864e5;
 
 function el(tag, className, text) {
@@ -183,14 +191,16 @@ function card(item) {
   const forYou = item.waitingOn === 'joshua' || item.waitingOn === 'both';
   const forNoah = item.waitingOn === 'noah' || item.waitingOn === 'both';
   const node = el('li', 'card' + (forYou ? ' attention' : ''));
-  const who = item.kind === 'request' ? 'Your request' : (item.by || 'Noah') + '’s change';
-  node.append(el('p', 'meta', who + ' · ' + (item.kind === 'request' ? 'asked ' : 'started ') + ago(item.openedAt)));
+  const who = item.kind === 'request' ? 'Your request' : item.kind === 'answers' ? 'Your answers' : (item.by || 'Noah') + '’s change';
+  const verb = item.kind === 'request' ? 'asked ' : item.kind === 'answers' ? 'sent ' : 'started ';
+  node.append(el('p', 'meta', who + ' · ' + verb + ago(item.openedAt)));
   node.append(el('h3', '', item.title));
   if (item.quote) node.append(el('p', 'quote', '“' + item.quote + '”'));
   if (stage.done != null || stage.now != null || stage.blocked != null) node.append(tracker(item));
   let text = stage.text;
   if (item.stage === 'testing' && !item.testIsCurrent) text += ' A newer version is on its way to the test site.';
   if (item.stage === 'built' && item.clashes) text = 'Built, but it clashes with other changes, so it isn’t on the test site yet. Noah will sort it out.';
+  if (item.kind === 'answers' && item.stage === 'questions') text = 'Some of your answers couldn’t reach their request yet. Noah will sort it out.';
   if (item.stage !== 'questions') {
     if (forYou) text += ' Claude also has a question for you about part of it, at the top of this page.';
     if (forNoah) text += ' Part of it is waiting for Noah’s OK.';
@@ -201,7 +211,20 @@ function card(item) {
     link.href = 'https://lorebound-dev.github.io/';
     node.append(link);
   }
+  // Claude's take on what it built from Joshua's choices. Nothing waits on these.
+  if ((item.asks || []).some(a => a.who === 'note')) {
+    const notes = el('div', 'notes');
+    notes.append(el('p', 'notes-title', 'Claude’s notes'), askList(item, 'note'), copyButton('Copy for Codex', notesText(item)),
+      el('p', 'hint', 'Nothing to do unless you’d like something different. Then paste it in the Codex task where you asked for this.'));
+    node.append(notes);
+  }
   return node;
+}
+
+function notesText(item) {
+  const lines = (item.asks || []).filter(a => a.who === 'note').map((a, i) => `${i + 1}. ${a.text}`);
+  return `Claude left notes on my request “${item.title}” (pull request #${item.number}):\n${lines.join('\n')}\n\n` +
+    'Explain them to me in plain words and ask what I think. If I want anything different, add it to that request’s Changes so Claude rebuilds it. If I’m happy with them, nothing needs to change.';
 }
 
 function askList(item, who) {
@@ -219,8 +242,8 @@ function codexText(item) {
 }
 
 // The questions from every request waiting on Joshua in one copy. One Codex task can't update the other tasks' pull
-// requests, so Codex writes all the answers into one new request, a section per pull request (AGENTS.md), and Noah
-// passes each one on.
+// requests, so Codex writes all the answers into one new request, a section per pull request (AGENTS.md), and
+// .github/workflows/pass-answers.yml passes each one on to its request.
 function codexAllText(items) {
   const parts = items.map(item => {
     const asks = (item.asks || []).filter(a => a.who === 'joshua');
@@ -231,7 +254,7 @@ function codexAllText(items) {
   return `Claude has questions about ${items.length} of my requests, grouped by pull request:\n\n${parts.join('\n\n')}\n\n` +
     'Go through them with me one request at a time. Explain each question in plain words, and give Claude’s suggestion as the easy answer. ' +
     'Then write all my answers into one new request, with a section for each pull request: its number and title, then my answers numbered like its questions. ' +
-    'Noah passes each answer on to its request, and Claude rebuilds it.';
+    'Keep each section’s heading as “#### #<number> <title>”: when I tap Create PR, each answer goes to its own request by itself, and Claude rebuilds it.';
 }
 
 function copyButton(label, text) {
@@ -280,7 +303,7 @@ function render(data) {
   $('forYouBox').hidden = !forYou.length;
   $('forYouAll').replaceChildren(...(forYou.length > 1 ? [
     copyButton(`Copy all ${forYou.length} for Codex`, codexAllText(forYou)),
-    el('p', 'hint', 'One copy with the questions from every request below. Paste it in a new Codex task: Codex helps you answer them all at once, and Noah passes your answers on.'),
+    el('p', 'hint', 'One copy with the questions from every request below. Paste it in a new Codex task: Codex helps you answer them all at once, and each answer goes to its own request by itself.'),
   ] : []));
   $('forYou').replaceChildren(...forYou.map(askCard));
   const forNoah = open.filter(i => i.waitingOn === 'noah' || i.waitingOn === 'both');
