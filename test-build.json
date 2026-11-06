@@ -90,6 +90,11 @@
       "number": 117,
       "title": "Preview approved Common companions in existing detail screen",
       "head": "0ae34efeda296fda6f2ef343a69118515e2f71bd"
+    },
+    {
+      "number": 122,
+      "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
+      "head": "8b9386c77a5a3442cb7cd2fbbf9f2afeb8116a45"
     }
   ],
   "skipped": [
@@ -141,6 +146,6 @@
       "with": "others"
     }
   ],
-  "commit": "3b1360d0931bb2497e85ef94c4172f39d2ede7b1",
-  "at": "2026-11-06T12:49:10Z"
+  "commit": "56b07db611af8ec69412052461e01f0ea6307dc6",
+  "at": "2026-11-06T13:46:08Z"
 }
