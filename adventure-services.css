@@ -151,11 +151,6 @@
 #economyAuto .auto-row.is-zero::before,#economyAuto .auto-row.is-zero:has(input:checked)::before{filter:saturate(.7) brightness(.72)}
 #economyAuto .auto-row.is-zero .auto-gem img{opacity:.7}
 #economyAuto .auto-row.is-zero input,#economyAuto .auto-row.is-zero input:checked{border-color:#6f6a5e;background-color:#2a2c2c;opacity:.6}
-/* Joshua (2026-11-06): an empty box you can tick has a brighter gold edge, so it reads on the dark rarity art. Ticked boxes
-   and the greyed-out boxes of 0% rarities keep their own look. */
-#economyAuto .auto-row:not(.is-zero) input:not(:checked){border-color:#ead7a6;box-shadow:0 0 0 1px #000c,inset 0 0 0 1px #ead7a62e}
-/* Rows fade out under the list's top edge as they scroll, instead of being cut off by it. */
-#economyAuto .auto-odds-wrap{padding-top:11px;-webkit-mask-image:linear-gradient(#0000,#000 10px);mask-image:linear-gradient(#0000,#000 10px)}
 #economyAuto .auto-quantity{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 8px;padding-top:10px;border-top:1px solid #a8854f80;font-size:15px;color:#f1d899}
 #economyAuto .auto-quantity>span{white-space:nowrap}
 #economyAuto .auto-stepper{flex:0 1 190px;min-width:0;display:flex;align-items:stretch;border:1px solid #a8854f;border-radius:3px;background:#07131d}
