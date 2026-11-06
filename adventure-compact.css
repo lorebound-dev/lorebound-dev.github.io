@@ -42,10 +42,16 @@
   .art-rebuild-preview.adventure-refined #game #summonDock{--rail-slab:66px;grid-template-columns:minmax(0,1fr) 94px minmax(0,1fr);padding-inline:4px;gap:2px;background-position:50% 3px;background-size:auto 90px}
   .art-rebuild-preview.adventure-refined #game #summonPortal,.art-rebuild-preview.adventure-refined #game #autoSummon.dock-auto-button{height:72px}
   .art-rebuild-preview.adventure-refined #game.dock-is-collapsed #summonPortal,.art-rebuild-preview.adventure-refined #game.dock-is-collapsed #autoSummon.dock-auto-button{height:68px}
-  .art-rebuild-preview.adventure-refined #game .dock-summon-copy{top:53px}
+  /* 4px higher than the shrine's own spot, so the shard cost's last line clears the bottom bar (it was cut at 390 wide). */
+  .art-rebuild-preview.adventure-refined #game .dock-summon-copy{top:49px}
   .art-rebuild-preview.adventure-refined #game #summonPortal:before{left:calc(50% - 54px);top:-15px;width:108px;height:94px}
   .art-rebuild-preview.adventure-refined #game .summon-book{width:88px;height:88px;left:3px;top:-14px}
   .art-rebuild-preview.adventure-refined #game.dock-is-collapsed .summon-book{width:88px;height:88px;left:3px;top:-9px}
+}
+/* Short phones keep adventure-art-prototype.css's rail, where the shard cost sat at 57px and its last line was cut by
+   the bottom bar at 320 wide. The same 4px lift. */
+@media(max-height:700px){
+  .art-rebuild-preview.adventure-refined #game .dock-summon-copy{top:53px}
 }
 
 /* At 350px wide and under, tighter gaps give each card a few more pixels. The two-line DPS strip still shows the

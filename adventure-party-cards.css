@@ -41,9 +41,10 @@
   .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-dps{padding:0 1px}
   .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-dps b{font-size:12px!important}
   /* A three-figure level with the green arrow ("↑ Lv. 125") is wider than the art here, so the tag may start on the
-     plate's left border; it still ends inside the card. */
+     plate's left border; it still ends inside the card. At -2px it stuck out 2px past the card's left edge at 320 wide,
+     so it starts 1px inside, as on wider phones. */
   .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card>.card-face{overflow:visible}
-  .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level{left:-2px;padding:0 1px}
+  .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level{left:1px;padding:0 1px}
   .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level.can-level{gap:1px}
   .adventure-dock-preview.art-rebuild-preview #game #dockCompanions .lore-card .dock-level.can-level::before{width:6px}
 }
