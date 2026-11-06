@@ -83,8 +83,8 @@
     },
     {
       "number": 115,
-      "title": "Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up",
-      "head": "5a6b3444a1d791fa4e98214423d0b18de557eb28"
+      "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
+      "head": "0d72ab92543be8deca1f250679800d954eae114b"
     },
     {
       "number": 117,
@@ -114,6 +114,6 @@
       "with": "others"
     }
   ],
-  "commit": "92ee643f85d86d9ff343071eb76c5d40d98c5cb4",
-  "at": "2026-11-06T12:18:07Z"
+  "commit": "729b612b266ce97e80dea1e541b8eb1aa37b7663",
+  "at": "2026-11-06T12:21:47Z"
 }

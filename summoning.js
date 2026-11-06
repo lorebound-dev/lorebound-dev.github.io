@@ -20,7 +20,7 @@ const quick=$('quickAutoState');quick.hidden=!!$('autoAccess');quick.textContent
 function stop(reason=''){const stoppedAuto=auto||!!held;auto=false;if(stoppedAuto)clearStream();if(reason&&reason!=='Companion decision required')held=null;if(stoppedAuto)lastStop=reason;if(read())updateStatus(reason,stoppedAuto);}
 // With Lore Shards, Auto opens its ×N batch one companion at a time, 500ms apart (Joshua, 2026-11-06), and the batch's
 // last one stays for 2 seconds, which is also the pause before the next batch. Speed settings don't change either.
-const AUTO_SHOW_MS=500,AUTO_HOLD_MS=2000;
+const AUTO_SHOW_MS=200,AUTO_HOLD_MS=2000;
 // During Auto, a released result shows as a small sprite inside the portal and stays fully visible until the next
 // one's picture has loaded and replaces it, so the portal never blinks empty or shows a half-loaded picture. If a newer
 // picture is ready first, the older one is skipped. Presentation only: the result is already committed, so a failure
