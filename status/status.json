@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T21:45:37.668Z",
+ "generatedAt": "2026-11-06T22:16:22.650Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-06T21:45:09Z",
+  "updatedAt": "2026-11-06T22:16:03Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -40,6 +40,100 @@
  },
  "items": [
   {
+   "number": 106,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
+   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-04T13:41:58Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T22:16:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T22:16:04Z",
+   "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-06T18:32:13Z"
+  },
+  {
+   "number": 103,
+   "kind": "fix",
+   "by": "Joshua",
+   "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
+   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-03T21:24:18Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T22:16:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T22:16:04Z",
+   "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
+   "botState": "finished",
+   "botAt": "2026-11-04T06:26:18Z"
+  },
+  {
+   "number": 97,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Design guided progression companion power and achievements from owner references",
+   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The Party band (Party 5/10, the rows button and the fold arrow, 44px tall) replaces #93's small arrow (12px strip), which you asked for. Keep the band, or go back to the small arrow? My suggestion: keep the band. Pictures: reviews/realm1-visual-audit/question-97/ on #121's branch.",
+     "at": "2026-11-06T22:15:06Z"
+    },
+    {
+     "who": "joshua",
+     "text": "On phones 375 wide and up, the Party opens in two rows and hides almost all of the fight, even with one companion. Open in one row by default? My suggestion: yes.",
+     "at": "2026-11-06T22:15:06Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once Joshua answers, fix the see-through Party sheet at 320 wide: the enemy's name and the goal plaque show between the cards of the first row.",
+     "at": "2026-11-06T22:15:06Z"
+    }
+   ],
+   "openedAt": "2026-11-02T03:47:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T22:16:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T22:16:04Z",
+   "headSha": "fbf6ff9193661fd361807e00557b242a32735ad4",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-03T20:05:41Z"
+  },
+  {
    "number": 92,
    "kind": "request",
    "by": "Joshua",
@@ -47,48 +141,58 @@
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
    "stage": "testing",
    "waitingOn": null,
-   "forClaude": true,
+   "forClaude": false,
    "asks": [
-    {
-     "who": "claude",
-     "text": "Take phone pictures on the test site of Haven's title screen, the static wipe and the framed town, at 320×610, 375×812, 390×844 and 430×932. Check that the town fills the space, drags both ways, and that only the drawer's list scrolls.",
-     "at": "2026-11-06T21:45:11Z"
-    },
     {
      "who": "note",
      "text": "I removed both headers on Haven's page, because you said they compete for space. The words \"test prototype, trial numbers\" are still read out to screen readers, and the help (?) still says the numbers are trial values. They're just no longer shown at the top.",
-     "at": "2026-11-06T21:45:11Z"
+     "at": "2026-11-06T22:15:04Z"
     },
     {
      "who": "note",
      "text": "The town's tiles now grow to at most 44px, up from 40px and usually 32px. Past that, the edges of the map go off screen and you drag to see them. I think that's the right balance. Bigger tiles would mean dragging more.",
-     "at": "2026-11-06T21:45:11Z"
+     "at": "2026-11-06T22:15:04Z"
     },
     {
      "who": "note",
      "text": "An open drawer section is at most about a fifth of the screen's height (92–280px), and its list scrolls inside it. I'd keep it short like this, so the town stays the main thing on screen.",
-     "at": "2026-11-06T21:45:11Z"
+     "at": "2026-11-06T22:15:04Z"
     },
     {
      "who": "note",
      "text": "I left the handheld frame as it is (5px sides, an 18px top strip). It costs about 28px of height. If the town still feels cramped, the top strip could shrink to the same 5px as the sides, but I'd try this first.",
-     "at": "2026-11-06T21:45:11Z"
+     "at": "2026-11-06T22:15:04Z"
+    },
+    {
+     "who": "note",
+     "text": "On the smallest phone (320×610), Haven doesn't fit with a section open. The list shows about one row, cut off at the bottom of the frame, and you have to drag on the counters to bring the rest into view. I'd hide the two lines under the town while a section is open, so it fits.",
+     "at": "2026-11-06T22:15:04Z"
+    },
+    {
+     "who": "note",
+     "text": "On the smallest phone, tapping Hide makes the town's tiles smaller (32px to 24px), though the town gets more room. I'd work out the tile size from the room the town really gets.",
+     "at": "2026-11-06T22:15:04Z"
+    },
+    {
+     "who": "note",
+     "text": "On the smallest phone, the Defense tab reads \"Defe…\". I'd use 12px letters on the tabs there.",
+     "at": "2026-11-06T22:15:04Z"
     }
    ],
    "openedAt": "2026-11-02T02:38:48Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:11Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "dba3b85a11e036fee1efe70492bd2bf06f411f6c",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
-   "botState": "questions",
+   "botState": "finished",
    "botAt": "2026-11-06T21:45:11Z"
   },
   {
@@ -121,11 +225,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -163,11 +267,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
    "touchesGame": true,
    "answers": false,
@@ -200,11 +304,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
    "touchesGame": true,
    "answers": false,
@@ -237,11 +341,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "52bcba60b88ddd74ce3cee459d7be58925d4afbc",
    "touchesGame": true,
    "answers": false,
@@ -269,118 +373,17 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "31ac1d91a945206547b20af5774ad92878da133e",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-11-06T18:54:04Z"
-  },
-  {
-   "number": 103,
-   "kind": "fix",
-   "by": "Joshua",
-   "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
-   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Take phone pictures at 320×610, 375×812, 390×844 and 430×932 on the test site, with #97 combined, because the Party bar plate only shows there.",
-     "at": "2026-11-06T19:26:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "The shard cost under the summon portal is clipped by the bottom bar at 320 and 390 wide (found while building #122). It's placed by .dock-summon-copy (top:53px) in adventure-compact.css. Raise it about 4px here, then check it with #120 on the test site.",
-     "at": "2026-11-06T19:26:21Z"
-    }
-   ],
-   "openedAt": "2026-11-03T21:24:18Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
-   "headSha": "b97efe3e3e767d7703cba73ed78c400663c553f8",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
-   "botState": "questions",
-   "botAt": "2026-11-04T06:26:18Z"
-  },
-  {
-   "number": 97,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Design guided progression companion power and achievements from owner references",
-   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the combined test site at phone sizes, starting with 320×610 and 390×844, with this request, #103 and #106 together. Check whether the ten-place tray's button row should replace #93's collapse arrow. If that's a design choice, ask Joshua with pictures.",
-     "at": "2026-11-06T19:26:19Z"
-    }
-   ],
-   "openedAt": "2026-11-02T03:47:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
-   "headSha": "fbf6ff9193661fd361807e00557b242a32735ad4",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T20:05:41Z"
-  },
-  {
-   "number": 106,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
-   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "At 320 wide, the green Party level badge sticks out about 2px past the card's left edge (found while building #122). Nudge it about 3px inward in adventure-party-cards.css here, then check it at 320×610.",
-     "at": "2026-11-06T19:26:14Z"
-    }
-   ],
-   "openedAt": "2026-11-04T13:41:58Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
-   "headSha": "ef79bd583babd8b559927e6e72813394e6a90e11",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T18:32:13Z"
   },
   {
    "number": 117,
@@ -422,11 +425,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
    "touchesGame": true,
    "answers": false,
@@ -448,11 +451,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "c1494e8b45f798739afb1e5dbe4101435fd884c0",
    "touchesGame": true,
    "answers": false,
@@ -485,11 +488,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "cb786c4c53a795e2b89347e309d893c51b1d404d",
    "touchesGame": true,
    "answers": false,
@@ -511,11 +514,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "690d04bbf0a7ebf35544adb05bf20e06d47ff079",
    "touchesGame": true,
    "answers": false,
@@ -537,11 +540,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
    "touchesGame": true,
    "answers": false,
@@ -563,11 +566,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
    "touchesGame": true,
    "answers": false,
@@ -589,11 +592,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
    "touchesGame": true,
    "answers": false,
@@ -615,11 +618,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T21:45:09Z",
+   "testAt": "2026-11-06T22:16:04Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T21:45:09Z",
+   "updatedAt": "2026-11-06T22:16:04Z",
    "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
    "touchesGame": true,
    "answers": false,
@@ -1050,14 +1053,24 @@
    "by": "Joshua",
    "title": "Audit live and dev Realm 1 visuals before Realm 2",
    "quote": "\"Well I want to make sure everything looks good that’s currently in the game before adding a new realm\"",
-   "stage": "queued",
-   "waitingOn": null,
-   "forClaude": true,
+   "stage": "questions",
+   "waitingOn": "joshua",
+   "forClaude": false,
    "asks": [
     {
-     "who": "claude",
-     "text": "Do the Realm 1 screenshot check this request asks for: every screen it lists, at 320×610, 375×812, 390×844 and 430×932, on the real game and on the test site, then post the review here.",
-     "at": "2026-11-06T19:26:29Z"
+     "who": "joshua",
+     "text": "Which fixes do you want? The ranked list is in the review. The top ones: the boss timer covers the boss's health on bigger phones (#38); the companions can't be seen in boss fights on bigger phones (#38); on the smallest phone the Party sheet is see-through behind its first row (#97); and the summon shows \"Duplicate\" or \"New discovery\" before the companion appears (#115). My suggestion: all four.",
+     "at": "2026-11-06T22:15:03Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Five fights still use stand-in art and show \"art pending\" in the name: Vespera (Floor 20 boss), Vaelith (Floor 80 boss), Mirefang Bog Toad, Gravewing Raven and Bellveil Revenant. This is in the real game too. Can you approve finished art for them? Until then, my suggestion is to hide the words \"art pending\".",
+     "at": "2026-11-06T22:15:03Z"
+    },
+    {
+     "who": "joshua",
+     "text": "On phones 375 wide and up, the Party opens in two rows and hides almost all of the fight, even with one companion. You said on 11-04 that covering is OK. Would you like it to open in one row instead, with two rows only when you tap? My suggestion: yes, one row.",
+     "at": "2026-11-06T22:15:03Z"
     }
    ],
    "openedAt": "2026-11-06T12:42:36Z",
@@ -1069,7 +1082,7 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-11-06T12:45:05Z",
-   "headSha": "c8528e241da78670954664ed17394d1155184021",
+   "headSha": "51f9adba86e9ec27655ba0b679877dc1befa9270",
    "touchesGame": false,
    "answers": false,
    "requestStatus": "Waiting for answers",
@@ -1130,6 +1143,16 @@
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-06T22:16:04Z",
+   "kind": "test",
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+  },
+  {
+   "at": "2026-11-06T21:47:06Z",
+   "kind": "test",
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+  },
   {
    "at": "2026-11-06T21:45:11Z",
    "kind": "built",
@@ -1319,16 +1342,6 @@
    "at": "2026-11-06T18:43:35Z",
    "kind": "test",
    "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
-  },
-  {
-   "at": "2026-11-06T18:41:59Z",
-   "kind": "built",
-   "text": "Claude finished building “Rework Omnidex into universal collection and rarity pages”"
-  },
-  {
-   "at": "2026-11-06T18:41:59Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Rework Omnidex into universal collection and rarity pages”"
   }
  ],
  "otherPulls": [
