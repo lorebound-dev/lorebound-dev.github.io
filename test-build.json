@@ -60,7 +60,7 @@
     {
       "number": 89,
       "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-      "head": "e7597007d6e8cfa11302b60dd2eda342a6b29e40",
+      "head": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
       "resolved": [
         "89-78-bound-sources-rift-level"
       ]
@@ -99,11 +99,6 @@
       "head": "ef79bd583babd8b559927e6e72813394e6a90e11"
     },
     {
-      "number": 109,
-      "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
-      "head": "dcdc5ec5d28c61459f39b57613e54da62f7d0cec"
-    },
-    {
       "number": 115,
       "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
       "head": "cb786c4c53a795e2b89347e309d893c51b1d404d",
@@ -138,7 +133,6 @@
       "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
       "head": "31ac1d91a945206547b20af5774ad92878da133e",
       "resolved": [
-        "122-109-economy-auto-notes",
         "122-78-summoning-helpers",
         "122-78-rift-levels-note-price"
       ]
@@ -157,6 +151,15 @@
       "with": "others"
     },
     {
+      "number": 109,
+      "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
+      "head": "3aead0ab03637711d215423df91b508d93848de2",
+      "files": [
+        "pocket-fortune/dist/treasure-ui.js"
+      ],
+      "with": "others"
+    },
+    {
       "number": 118,
       "title": "Double-tap Party cards to swap pending companions directly",
       "head": "f86a8d33ded6ec54c2904136d9cd2b2a6d284047",
@@ -165,15 +168,25 @@
         "pocket-fortune/dist/companion-motion.js"
       ],
       "with": "others"
+    },
+    {
+      "number": 119,
+      "title": "Double species mastery summon requirements and damage bonuses",
+      "head": "786be6022c9a99d75e8820800db1ce2ad3181f50",
+      "files": [
+        "pocket-fortune/dist/team.js"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "89c5d1d888b7b76c9e5ecc7c4c750adb4f551f05",
+  "commit": "73793adc757f7b552fd19f32d6edd2f74cb3c8d7",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
     "118-69-team-companion-page",
     "118-89-bound-sources",
-    "118-97-party-dps-preview"
+    "118-97-party-dps-preview",
+    "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-06T19:27:04Z"
+  "at": "2026-11-06T21:03:54Z"
 }
