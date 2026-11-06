@@ -63,6 +63,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .empty{color:var(--faint);font-style:italic}
 .asks{margin:10px 0 0;padding-left:22px;list-style:decimal}
 .asks li{margin:6px 0;overflow-wrap:anywhere}
+.asks .since{display:block;font-size:12px;color:var(--faint)}
 .hint{margin:10px 0 0;font-size:13px;color:var(--faint)}
 .card.noah{border-color:var(--bronze)}
 .notes{margin-top:14px;padding-top:12px;border-top:1px solid var(--edge)}
@@ -108,6 +109,11 @@ footer{margin-top:40px;font-size:14px;color:var(--faint)}
 <section id="forNoahBox" hidden>
   <h2>Waiting on Noah</h2>
   <ul id="forNoah"></ul>
+</section>
+
+<section id="forClaudeBox" hidden>
+  <h2>Waiting on Claude</h2>
+  <ul id="forClaude"></ul>
 </section>
 
 <section>
@@ -199,12 +205,13 @@ function card(item) {
   if (stage.done != null || stage.now != null || stage.blocked != null) node.append(tracker(item));
   let text = stage.text;
   if (item.stage === 'testing' && !item.testIsCurrent) text += ' A newer version is on its way to the test site.';
-  if (item.stage === 'built' && item.clashes) text = 'Built, but it clashes with other changes, so it isn’t on the test site yet. Noah will sort it out.';
+  if (item.stage === 'built' && item.clashes) text = 'Built, but it clashes with other changes, so it isn’t on the test site yet. Claude will sort it out.';
   if (item.kind === 'answers' && item.stage === 'questions') text = 'Some of your answers couldn’t reach their request yet. Noah will sort it out.';
   if (item.stage !== 'questions') {
     if (forYou) text += ' Claude also has a question for you about part of it, at the top of this page.';
     if (forNoah) text += ' Part of it is waiting for Noah’s OK.';
   }
+  if (item.forClaude && !(item.stage === 'built' && item.clashes)) text += ' Claude has something left to do on it.';
   node.append(el('p', 'status', text));
   if (item.stage === 'testing') {
     const link = el('a', 'button', 'Try it on the test site');
@@ -227,9 +234,14 @@ function notesText(item) {
     'Explain them to me in plain words and ask what I think. If I want anything different, add it to that request’s Changes so Claude rebuilds it. If I’m happy with them, nothing needs to change.';
 }
 
-function askList(item, who) {
+// dated: say when each line was written, so anything waiting a long time stands out.
+function askList(item, who, dated = false) {
   const list = el('ol', 'asks');
-  for (const ask of (item.asks || []).filter(a => a.who === who)) list.append(el('li', '', ask.text));
+  for (const ask of (item.asks || []).filter(a => a.who === who)) {
+    const line = el('li', '', ask.text);
+    if (dated && ask.at) line.append(el('span', 'since', 'Since ' + ago(ask.at)));
+    list.append(line);
+  }
   return list;
 }
 
@@ -310,7 +322,15 @@ function render(data) {
   $('forNoahBox').hidden = !forNoah.length;
   $('forNoah').replaceChildren(...forNoah.map(i => {
     const node = el('li', 'card noah');
-    node.append(el('h3', '', i.title), askList(i, 'noah'), el('p', 'hint', 'Noah decides these. There’s nothing for you to do here.'));
+    node.append(el('h3', '', i.title), askList(i, 'noah', true), el('p', 'hint', 'Noah decides these. There’s nothing for you to do here.'));
+    return node;
+  }));
+  // Claude's to-do list on Noah's PC, like checking a change at phone size or settling a clash on the test site.
+  const forClaude = open.filter(i => i.forClaude);
+  $('forClaudeBox').hidden = !forClaude.length;
+  $('forClaude').replaceChildren(...forClaude.map(i => {
+    const node = el('li', 'card noah');
+    node.append(el('h3', '', i.title), askList(i, 'claude', true), el('p', 'hint', 'Claude does these on Noah’s computer. There’s nothing for you to do here.'));
     return node;
   }));
 
