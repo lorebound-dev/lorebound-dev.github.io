@@ -1,8 +1,26 @@
 /* Ruins Reclaimed test prototype (ruins-reclaimed.js), Haven 3.0 and 3.5. Haven tab, test site only. Scoped to .ruins-shell / .ruins-proto. */
-.ruins-shell{display:flex;flex-direction:column;height:100%;min-height:0}
+/* Haven's handheld: a thin plastic shell around Haven only. The top strip carries small, muted decorations (power light,
+ * cross pad, two round buttons); none of them can be pressed. The sides and bottom are 5px, so the town keeps its room. */
+.ruins-shell{--bz:5px;--bt:18px;position:relative;box-sizing:border-box;display:flex;flex-direction:column;height:100%;min-height:0;padding:var(--bt) var(--bz) var(--bz);border-radius:14px;background:linear-gradient(165deg,#4a4470,#2e2948 55%,#262139);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -2px 0 rgba(0,0,0,.35),0 2px 6px rgba(0,0,0,.35)}
+.ruins-shell::before{content:'LOREBOUND';content:'LOREBOUND'/'';position:absolute;top:0;left:0;right:0;height:var(--bt);pointer-events:none;text-align:center;font:12px/18px Georgia,serif!important;letter-spacing:.24em;color:#a9a2c9;
+  background:radial-gradient(circle,#7cdc7c 0 2px,#3f7a46 2.5px,transparent 3px) no-repeat 8px 6px/7px 7px,linear-gradient(#1c1830,#1c1830) no-repeat 22px 8px/9px 3px,linear-gradient(#1c1830,#1c1830) no-repeat 25px 5px/3px 9px,
+  radial-gradient(circle,#6b3a58 0 3px,transparent 3.5px) no-repeat right 22px top 7px/8px 8px,radial-gradient(circle,#6b3a58 0 3px,transparent 3.5px) no-repeat right 10px top 4px/8px 8px}
 .ruins-slot{flex:1;min-height:0;display:flex;flex-direction:column}
+/* Once per page session: the HAVEN title screen, all one Start button, on a dark LCD green. */
+.ruins-title{flex:1;min-height:0;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,4vh,30px);margin:0;padding:16px 12px;border:2px solid #15121f;border-radius:6px;background:repeating-linear-gradient(#0f2a1c 0 2px,#0c2418 2px 3px);color:#d4ebb0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ruins-title canvas{display:block;max-width:100%;image-rendering:pixelated;image-rendering:crisp-edges}
+.ruins-title-press{display:block;padding:8px 12px;border:2px solid #4f8a5c;border-radius:3px;background:#1d4430}
+.ruins-title-press canvas{animation:ruins-blink 1.6s steps(1) infinite}
+.ruins-title small{font:13px Georgia,serif!important;color:#9bbc6f}
+.ruins-title:focus-visible{outline:2px solid #f8dc88;outline-offset:-4px}
+.ruins-title:active .ruins-title-press{background:#2f6244}
+@keyframes ruins-blink{50%{opacity:.4}}
+/* Start: a short pixel-static wipe over the town (about 0.6 s). It takes taps while it plays so none land by accident. */
+.ruins-static{position:absolute;top:var(--bt);left:var(--bz);width:calc(100% - var(--bz)*2);height:calc(100% - var(--bt) - var(--bz));border-radius:6px;image-rendering:pixelated;image-rendering:crisp-edges;pointer-events:auto;touch-action:none}
+.ruins-static[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){.ruins-title-press canvas{animation:none}}
 
-.ruins-proto{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:8px;padding:10px 12px max(12px,env(safe-area-inset-bottom));border:1px solid #a68c56;border-radius:6px;background:linear-gradient(#0c1f27,#091923);color:#eadfbe;font-family:Georgia,serif}
+.ruins-proto{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:8px;padding:10px 12px max(12px,env(safe-area-inset-bottom));border:2px solid #15121f;border-radius:6px;background:linear-gradient(#0c1f27,#091923);color:#eadfbe;font-family:Georgia,serif}
 .ruins-proto *{box-sizing:border-box}
 .ruins-proto [hidden]{display:none!important}
 .ruins-head{display:flex;align-items:center;justify-content:space-between;gap:8px}

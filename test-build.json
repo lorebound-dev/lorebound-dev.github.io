@@ -49,7 +49,7 @@
     {
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-      "head": "3b65383492b4d1d1ac0b1bf2330701454a1175d5"
+      "head": "04a20617ff5c66e8696a8d65f35c1cc497b028f6"
     },
     {
       "number": 93,
@@ -154,6 +154,6 @@
       "with": "others"
     }
   ],
-  "commit": "7bc7c0a15007a08b6817a624540967bee22b0bd7",
-  "at": "2026-11-06T19:05:28Z"
+  "commit": "872e30be8258e37b41c84c282c0379c76ba9f793",
+  "at": "2026-11-06T19:13:04Z"
 }

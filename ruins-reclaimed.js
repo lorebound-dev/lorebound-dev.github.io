@@ -1309,9 +1309,56 @@ function raising(ctx,g,b,k,banner){if(k<.4){scaffold(ctx,g,b.c,b.r);return;}cons
 
 /* Haven, the first tab, opens Ruins Reclaimed directly every time (navigation.js). There is no other view and no way
  * through to the retired Hall. page() draws it into the destination; leave() stops it, keeping its progress. */
-let shell=null;
-function page(host){if(!host)return;if(!shell){shell=document.createElement('div');shell.className='ruins-shell';shell.innerHTML='<div class="ruins-slot"></div>';}
-  if(shell.parentNode!==host)host.replaceChildren(shell);mount(shell.firstElementChild);}
-function leave(){unmount();}
-root.LoreRuinsReclaimed.page=page;root.LoreRuinsReclaimed.leave=leave;
+/* Haven's handheld: a thin frame around Haven (ruins-reclaimed.css), and, once per page session, a HAVEN title screen
+ * that waits for Start, then a short pixel-static wipe into the town. Presentation only: nothing here is saved (a reload
+ * is a new session), and the town isn't mounted until Start, so no Haven time passes on the title screen. The wipe runs
+ * on its own animation frames (no timers) for WIPE_MS, blocks taps while it plays, and stops at once if Haven is left. */
+let shell=null,title=null,started=false,fx=0;
+const WIPE_MS=600;
+const LCD=['#0f2a1c','#1d4430','#2f6244','#4f8a5c','#9bbc6f','#d4ebb0'];
+// A 5×7 pixel letter set of our own, only the letters Haven's title needs.
+const GLYPH={H:'10001100011000111111100011000110001',A:'01110100011000111111100011000110001',V:'10001100011000110001100010101000100',
+  E:'11111100001000011110100001000011111',N:'10001110011010110011100011000110001',P:'11110100011000111110100001000010000',
+  R:'11110100011000111110101001001010001',S:'01111100001000001110000010000111110',T:'11111001000010000100001000010000100'};
+function pixelText(ctx,s,x,y,k,color){ctx.fillStyle=color;let cx=x;
+  for(const ch of s){const g=GLYPH[ch];if(g)for(let i=0;i<35;i++)if(g[i]==='1')ctx.fillRect(cx+(i%5)*k,y+Math.floor(i/5)*k,k,k);cx+=6*k;}}
+// One canvas at a whole-number scale, so every pixel stays square and sharp.
+function pixelCanvas(cv,w,h,k){const ctx=cv?.getContext?.('2d');if(!ctx)return null;const d=Math.min(3,Math.max(1,Math.round(root.devicePixelRatio||1)));
+  cv.width=w*k*d;cv.height=h*k*d;cv.style.width=`${w*k}px`;cv.style.height=`${h*k}px`;ctx.setTransform?.(k*d,0,0,k*d,0,0);ctx.imageSmoothingEnabled=false;return ctx;}
+function drawTitle(el,space){
+  const k=Math.max(2,Math.min(5,Math.floor(space*.78/64))),ctx=pixelCanvas(el.querySelector('.ruins-title-logo'),64,46,k);
+  if(ctx){pixelText(ctx,'HAVEN',4,3,2,LCD[2]);pixelText(ctx,'HAVEN',3,2,2,LCD[5]);
+    ctx.fillStyle=LCD[1];ctx.fillRect(0,39,64,7);ctx.fillStyle=LCD[2];ctx.fillRect(0,39,64,1);
+    for(const [x,s] of [[10,1],[17,0],[50,1],[56,0]]){ctx.fillStyle=LCD[3];[1,3,3,5,5,7].slice(s).forEach((w,i)=>ctx.fillRect(x-(w>>1),31+s+i,w,1));ctx.fillStyle=LCD[1];ctx.fillRect(x,37,1,2);}
+    ctx.fillStyle=LCD[2];[2,4,6,8,10,12].forEach((w,i)=>ctx.fillRect(32-(w>>1),26+i,w,1));
+    ctx.fillStyle=LCD[3];ctx.fillRect(27,32,10,7);ctx.fillStyle=LCD[0];ctx.fillRect(31,35,2,4);ctx.fillStyle=LCD[5];ctx.fillRect(28,33,2,2);ctx.fillRect(34,33,2,2);}
+  const p=pixelCanvas(el.querySelector('.ruins-title-start'),65,7,Math.max(2,Math.round(k*.6)));if(p)pixelText(p,'PRESS START',0,0,1,LCD[5]);}
+function showTitle(slot){
+  if(title&&title.parentNode===slot)return;
+  const wrap=document.createElement('div');
+  wrap.innerHTML='<button type="button" class="ruins-title" aria-label="Haven. Press Start to open your town."><canvas class="ruins-title-logo" aria-hidden="true"></canvas><span class="ruins-title-press" aria-hidden="true"><canvas class="ruins-title-start"></canvas></span><small aria-hidden="true">Tap to start</small></button>';
+  title=wrap.firstElementChild;title.addEventListener('click',start);slot.replaceChildren(title);
+  drawTitle(title,slot.clientWidth||shell.clientWidth||300);}
+// Start, once: the town mounts underneath and the static wipes off it. A second tap or key press does nothing.
+function start(){if(started||!shell||!title)return;started=true;title=null;mount(shell.firstElementChild);
+  if(!reduced())wipe();view?.canvas.focus?.({preventScroll:true});}
+function wipe(){
+  const cv=shell.querySelector('.ruins-static'),ctx=cv?.getContext?.('2d');if(!ctx)return;
+  const slot=shell.firstElementChild,w=48,h=Math.max(24,Math.min(160,Math.round(w*(slot.clientHeight||480)/(slot.clientWidth||300))));
+  cv.width=w;cv.height=h;cv.hidden=false;let t0=0;
+  const step=now=>{fx=0;if(!t0)t0=now;const t=now-t0;if(t>=WIPE_MS){endWipe();return;}
+    // A few still frames of low-contrast static (new noise every 80 ms, never a full-screen flash), then a bright
+    // scanline sweeps down and the town shows above it.
+    const edge=t<150?-1:Math.floor((t-150)/(WIPE_MS-150)*(h+2));let seed=(Math.floor(t/80)+1)*2654435761>>>0;
+    const rnd=()=>{seed^=seed<<13;seed>>>=0;seed^=seed>>>17;seed^=seed<<5;seed>>>=0;return seed/4294967296;};
+    ctx.clearRect(0,0,w,h);
+    for(let y=Math.max(0,edge+2);y<h;y++){const dim=y%2;for(let x=0;x<w;x++){ctx.fillStyle=LCD[Math.min(3,Math.floor(rnd()*4)+(dim?-1:0))]||LCD[0];ctx.fillRect(x,y,1,1);}}
+    if(edge>=0){ctx.fillStyle=LCD[4];ctx.fillRect(0,edge,w,1);ctx.fillStyle=LCD[3];ctx.fillRect(0,edge+1,w,1);}
+    fx=root.requestAnimationFrame(step);};
+  fx=root.requestAnimationFrame(step);}
+function endWipe(){if(fx)root.cancelAnimationFrame(fx);fx=0;const cv=shell?.querySelector('.ruins-static');if(cv){cv.hidden=true;cv.getContext?.('2d')?.clearRect(0,0,cv.width,cv.height);}}
+function page(host){if(!host)return;if(!shell){shell=document.createElement('div');shell.className='ruins-shell';shell.innerHTML='<div class="ruins-slot"></div><canvas class="ruins-static" aria-hidden="true" hidden></canvas>';}
+  if(shell.parentNode!==host)host.replaceChildren(shell);if(started)mount(shell.firstElementChild);else showTitle(shell.firstElementChild);}
+function leave(){endWipe();unmount();}
+Object.assign(root.LoreRuinsReclaimed,{page,leave,WIPE_MS});Object.defineProperty(root.LoreRuinsReclaimed,'started',{get:()=>started});
 })(globalThis);
