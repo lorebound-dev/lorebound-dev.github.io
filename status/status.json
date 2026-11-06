@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T10:50:45.185Z",
+ "generatedAt": "2026-11-06T10:53:17.818Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -38,9 +38,14 @@
    "by": "Joshua",
    "title": "Deliver five approved Common sprites to companion roster PR #98",
    "quote": "\"Ok package then\" [five individually reviewed and approved Common companion sprites]   \"Ok do you need to do a pr\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Pass these five pictures on to the companion roster change (#98). The easiest way is an @claude comment on #98 that links the Drive folder https://drive.google.com/drive/folders/1P0Ys5TGRotIl6th0-MYDjcUzQbg0DDHf, so that #98's build downloads and checks them. That build then…"
+    }
+   ],
    "openedAt": "2026-11-06T10:49:25Z",
    "mergedAt": null,
    "closedAt": null,
@@ -49,12 +54,12 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-06T10:49:25Z",
-   "headSha": "75eb5cddf5b9ce33e04ced8048f22101bf0e5df9",
+   "updatedAt": "2026-11-06T10:52:54Z",
+   "headSha": "a20a6bce72db1dbf91e292dee447b0ee7ef1335b",
    "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "",
-   "botAt": null
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T10:52:54Z"
   },
   {
    "number": 106,
@@ -1004,6 +1009,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-06T10:52:54Z",
+   "kind": "question",
+   "text": "Part of “Deliver five approved Common sprites to companion roster PR #98” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-06T10:49:25Z",
    "kind": "asked",
    "text": "You asked for “Deliver five approved Common sprites to companion roster PR #98”"
@@ -1197,11 +1207,6 @@
    "at": "2026-11-05T05:00:49Z",
    "kind": "built",
    "text": "Claude finished building “Use tutorial egg companion details; keep Omnidex read-only”"
-  },
-  {
-   "at": "2026-11-05T05:00:49Z",
-   "kind": "question",
-   "text": "Part of “Use tutorial egg companion details; keep Omnidex read-only” is waiting for Noah’s OK"
   }
  ],
  "otherPulls": [
