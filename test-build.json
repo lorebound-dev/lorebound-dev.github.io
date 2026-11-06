@@ -85,6 +85,11 @@
       "number": 115,
       "title": "Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up",
       "head": "5a6b3444a1d791fa4e98214423d0b18de557eb28"
+    },
+    {
+      "number": 117,
+      "title": "Preview approved Common companions in existing detail screen",
+      "head": "0ae34efeda296fda6f2ef343a69118515e2f71bd"
     }
   ],
   "skipped": [
@@ -109,6 +114,6 @@
       "with": "others"
     }
   ],
-  "commit": "abd2e45949a65fc1ea74c714967de43cbfb36a27",
-  "at": "2026-11-06T12:05:27Z"
+  "commit": "92ee643f85d86d9ff343071eb76c5d40d98c5cb4",
+  "at": "2026-11-06T12:18:07Z"
 }

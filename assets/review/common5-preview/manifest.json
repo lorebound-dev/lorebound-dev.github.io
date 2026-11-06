@@ -1,0 +1,251 @@
+{
+ "request": "requests/2026-11-06-companion-details-art-qa.md",
+ "live": false,
+ "note": "Test-only preview copies for companion-detail-preview.html. Not used by the game. Originals stay unchanged in the Artwork Inbox.",
+ "rule": {
+  "from": "PR #98 tools/rarity-rework/derive-commons.cjs (the live v03 companion rule)",
+  "traceAlpha": 2,
+  "fit": 0.9,
+  "feet": 0.95,
+  "size": 768,
+  "resize": "Lanczos-3, premultiplied alpha",
+  "format": "lossless 8-bit RGBA PNG"
+ },
+ "species": {
+  "reedwatch_tinker": {
+   "name": "Reedwatch Tinker",
+   "category": "Mortals",
+   "source": {
+    "path": "Approved/Common5-Transparent-Approved-v01/sprites/reedwatch_tinker.png",
+    "width": 1312,
+    "height": 1199,
+    "bytes": 1205557,
+    "sha256": "36107542b28475727b9fe8d71896578838f0488444fddcff67a44c15bbb753a9",
+    "colorType": "RGBA 8-bit",
+    "alphaRange": [
+     0,
+     255
+    ],
+    "clearFraction": 0.5508,
+    "corners": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "visibleBox": [
+    134,
+    23,
+    1086,
+    1176
+   ],
+   "copy": {
+    "file": "reedwatch-tinker-768.png",
+    "width": 768,
+    "height": 768,
+    "bytes": 549288,
+    "sha256": "3d01f4bddac15ba84abbc29824862a0bd98ac88113bd72cf09cffee0d58e56af",
+    "rgbaSha256": "b26234c82af59dc3df48bce851b7a18550407d3bb6da5dca749473524787a808",
+    "characterBox": [
+     98,
+     39,
+     669,
+     730
+    ],
+    "characterSize": [
+     571,
+     691
+    ]
+   }
+  },
+  "millward_bellkeeper": {
+   "name": "Millward Bellkeeper",
+   "category": "Mortals",
+   "source": {
+    "path": "Approved/Common5-Transparent-Approved-v01/sprites/millward_bellkeeper.png",
+    "width": 1312,
+    "height": 1199,
+    "bytes": 1170411,
+    "sha256": "fb3d6ac83dfa98798dc0c71c2a83ca8fa4c8ac0854c91a3a2f0a12c442e0cc90",
+    "colorType": "RGBA 8-bit",
+    "alphaRange": [
+     0,
+     255
+    ],
+    "clearFraction": 0.5505,
+    "corners": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "visibleBox": [
+    179,
+    8,
+    1186,
+    1189
+   ],
+   "copy": {
+    "file": "millward-bellkeeper-768.png",
+    "width": 768,
+    "height": 768,
+    "bytes": 508728,
+    "sha256": "6a587f74a487145cfb392ff5544ca4289e3c1d0bd1ae58627044a3808894317e",
+    "rgbaSha256": "20e871b43bc1b923b015a3238091f3c2f780267c63e95b5121690cc0b8882b28",
+    "characterBox": [
+     89,
+     39,
+     678,
+     730
+    ],
+    "characterSize": [
+     589,
+     691
+    ]
+   }
+  },
+  "dewfern": {
+   "name": "Dewfern",
+   "category": "Wildgrowth",
+   "source": {
+    "path": "Approved/Common5-Transparent-Approved-v01/sprites/dewfern.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1338467,
+    "sha256": "2c328bcceec377e52e6796c3d42161a2b8108d158f57ddc9d20415f071266891",
+    "colorType": "RGBA 8-bit",
+    "alphaRange": [
+     0,
+     255
+    ],
+    "clearFraction": 0.5191,
+    "corners": [
+     0,
+     1,
+     0,
+     0
+    ]
+   },
+   "visibleBox": [
+    43,
+    24,
+    1218,
+    1227
+   ],
+   "copy": {
+    "file": "dewfern-768.png",
+    "width": 768,
+    "height": 768,
+    "bytes": 536902,
+    "sha256": "a6a5861111ad9469c90259d819503086d7909fe58142118a8d3460df45772c76",
+    "rgbaSha256": "2980d3246c6635e88b6c4a545268c0c90019269c5aa97cfb14e2b597a1d45769",
+    "characterBox": [
+     46,
+     39,
+     721,
+     730
+    ],
+    "characterSize": [
+     675,
+     691
+    ]
+   }
+  },
+  "coppice_cricket": {
+   "name": "Coppice Cricket",
+   "category": "Wildgrowth",
+   "source": {
+    "path": "Approved/Common5-Transparent-Approved-v01/sprites/coppice_cricket.png",
+    "width": 1312,
+    "height": 1199,
+    "bytes": 1108381,
+    "sha256": "e4c97abaa683f54ba202ca6e76d78d8db21398c0b05355cc472bce19f2b7ca46",
+    "colorType": "RGBA 8-bit",
+    "alphaRange": [
+     0,
+     255
+    ],
+    "clearFraction": 0.6007,
+    "corners": [
+     0,
+     1,
+     0,
+     0
+    ]
+   },
+   "visibleBox": [
+    71,
+    94,
+    1264,
+    1138
+   ],
+   "copy": {
+    "file": "coppice-cricket-768.png",
+    "width": 768,
+    "height": 768,
+    "bytes": 456961,
+    "sha256": "784c1724a11c247b08a97898f9d56f4db565597edb7f2ee070bdaba475181385",
+    "rgbaSha256": "7da9233ada5b6e359494b633dd8df0f6c89e1bde7ae5e5918132fa64bb6c0ef3",
+    "characterBox": [
+     38,
+     125,
+     729,
+     730
+    ],
+    "characterSize": [
+     691,
+     605
+    ]
+   }
+  },
+  "unstitch": {
+   "name": "Unstitch",
+   "category": "Aberrations",
+   "source": {
+    "path": "Approved/Common5-Transparent-Approved-v01/sprites/unstitch.png",
+    "width": 1312,
+    "height": 1199,
+    "bytes": 1649251,
+    "sha256": "288c948fb6b6a523030cbb96da9b5fff4d0ae98620e62cb6b169317fced0a809",
+    "colorType": "RGBA 8-bit",
+    "alphaRange": [
+     0,
+     255
+    ],
+    "clearFraction": 0.4495,
+    "corners": [
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "visibleBox": [
+    109,
+    34,
+    1279,
+    1182
+   ],
+   "copy": {
+    "file": "unstitch-768.png",
+    "width": 768,
+    "height": 768,
+    "bytes": 693417,
+    "sha256": "7324b4cd4d464e782d3cd2a50eec36827a2ee56d1a5dc8543c8f1216c2c4cfba",
+    "rgbaSha256": "dd0f873e09a04d2b2f93ee5e397eb930855355e37ed4e78e47f6dadb2bc83c7a",
+    "characterBox": [
+     38,
+     52,
+     729,
+     730
+    ],
+    "characterSize": [
+     691,
+     678
+    ]
+   }
+  }
+ }
+}

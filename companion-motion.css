@@ -1,0 +1,23 @@
+/* Companion details move like the starter on the tutorial's "A NEW BOND" screen; companion-motion.js adds these classes.
+   Every keyframe below except the one-shot lunge is the tutorial's own, from adventure.css: boundAppear (entrance),
+   seedSway, beetleBreathe, lanternHover and hoverShadow (idles), and the starters' glow and motes (.idle-0/1/2 rules).
+   cmReact and cmStrike are revealAttackCycle and revealStrikeCycle's windup, lunge and recovery (their first 22%, about
+   0.9 seconds of the 4-second loop), played once per tap instead of every 4 seconds.
+   realm1.css stops every animation on #boundSheet .bound-card-sprite with !important, so the opt-in rules here need the
+   same weight. Nothing here changes the picture's size, position or the sheet's layout. */
+.cm-stage{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.cm-stage.cm-enter{animation:boundAppear .65s ease-out}
+#boundSheet .cm-stage .cm-body,#historicalCompanion .cm-stage .cm-body{transform-origin:50% 88%;animation:beetleBreathe 1.9s .65s ease-in-out infinite!important}
+#boundSheet .cm-stage.cm-sway .cm-body,#historicalCompanion .cm-stage.cm-sway .cm-body{animation:seedSway 3.4s .65s ease-in-out infinite!important}
+#boundSheet .cm-stage.cm-hover .cm-body,#historicalCompanion .cm-stage.cm-hover .cm-body{animation:lanternHover 3.1s .65s ease-in-out infinite!important}
+#boundSheet .cm-stage.cm-react .cm-body,#historicalCompanion .cm-stage.cm-react .cm-body{animation:cmReact .9s ease-in-out 1!important}
+/* The starters' strike colours and shapes from the tutorial; Wildgrowth uses Bramblebud's, Beasts Cinderclack's, Constructs Glimwick's. */
+.cm-stage{--attack-color:#b9e580;--attack-shape:polygon(50% 0,65% 38%,100% 48%,65% 60%,50% 100%,36% 60%,0 48%,36% 38%)}
+.cm-stage.cm-cat-beasts{--attack-color:#ffc073;--attack-shape:polygon(50% 0,65% 30%,90% 15%,80% 48%,100% 65%,70% 70%,50% 100%,35% 72%,0 65%,22% 40%,15% 15%,40% 30%)}
+.cm-stage.cm-cat-constructs{--attack-color:#b6f2ff;--attack-shape:polygon(50% 0,70% 35%,100% 50%,70% 65%,50% 100%,30% 65%,0 50%,30% 35%)}
+.cm-stage.cm-react .reveal-strike{animation:cmStrike .9s ease-out 1}
+@keyframes cmReact{0%,100%{transform:translate(0,0) rotate(0)}23%{transform:translate(-7px,4px) rotate(-4deg) scale(1.04,.96)}50%{transform:translate(12px,-5px) rotate(5deg)}73%{transform:translate(4px,0) rotate(1deg)}}
+@keyframes cmStrike{0%,36%,100%{opacity:0;transform:translate(-15px,15px) scale(.1) rotate(-30deg)}50%{opacity:.9;transform:translate(0,0) scale(.65) rotate(5deg)}91%{opacity:0;transform:translate(18px,-18px) scale(1.2) rotate(35deg)}}
+/* Reduced motion, and the preview page's "still" check: the picture stays put and nothing extra is drawn. */
+@media(prefers-reduced-motion:reduce){.cm-stage.cm-enter{animation:none}#boundSheet .cm-stage .cm-body,#historicalCompanion .cm-stage .cm-body,#boundSheet .cm-stage.cm-sway .cm-body,#historicalCompanion .cm-stage.cm-sway .cm-body,#boundSheet .cm-stage.cm-hover .cm-body,#historicalCompanion .cm-stage.cm-hover .cm-body,#boundSheet .cm-stage.cm-react .cm-body,#historicalCompanion .cm-stage.cm-react .cm-body{animation:none!important}.cm-stage>.cm-deco{display:none}}
+html.cm-still .cm-stage.cm-enter{animation:none}html.cm-still #boundSheet .cm-stage .cm-body,html.cm-still #historicalCompanion .cm-stage .cm-body{animation:none!important}html.cm-still .cm-stage>.cm-deco{display:none}

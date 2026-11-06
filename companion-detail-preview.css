@@ -1,0 +1,22 @@
+/* TEST-ONLY companion details preview page (companion-detail-preview.html). The detail page itself uses the game's own styles. */
+html,body{margin:0;min-height:100%;background:#071420;color:#dfe4ec}
+.cmp-index{max-width:450px;margin:0 auto;padding:max(18px,env(safe-area-inset-top)) 16px 32px;font:14px/1.5 Georgia,serif!important}
+.cmp-index :is(p,small,label,h1,h2,b){font-family:Georgia,serif!important;letter-spacing:normal}
+.cmp-kicker{margin:0;font-size:12px;letter-spacing:1px!important;color:#c8b27a}
+.cmp-index h1{margin:4px 0 6px;font-size:24px;color:#e7debd}
+.cmp-index h2{margin:22px 0 10px;padding-bottom:6px;border-bottom:1px solid #a1885a55;font-size:15px;color:#e7d9b3}
+.cmp-index>p{margin:0 0 6px;color:#c3cccf}
+.cmp-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
+.cmp-pick{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:44px;padding:8px 4px;border:1px solid #a1885a66;border-radius:0;background:#0b1c2a;color:#e7debd;cursor:pointer}
+.cmp-pick b{font-size:13px;line-height:1.25;text-align:center}
+.cmp-pick small{font-size:12px;color:#a9c3d1}
+.cmp-thumb{position:relative;display:block;width:72px;height:72px}
+.cmp-thumb>img,.cmp-thumb>.companion-art{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;image-rendering:auto}
+.cmp-thumb .companion-art img{width:100%;height:100%;object-fit:contain}
+.cmp-still{display:flex;align-items:center;gap:10px;min-height:44px;margin-top:20px;font-size:13px}
+.cmp-still input{width:20px;height:20px}
+/* The preview's own bar sits at the bottom of the detail page; the page gets room for it so nothing is hidden behind it. */
+#boundSheet.cmp-preview{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
+.cmp-bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 10px max(8px,env(safe-area-inset-bottom));border-top:1px solid #a1885a88;background:#061420f2}
+.cmp-bar button{min-width:64px;min-height:44px;padding:0 12px;border:1px solid #a1885a99;border-radius:0;background:#0b1c2a;color:#e7d9b3;font:13px Georgia,serif!important}
+.cmp-bar span{min-width:52px;text-align:center;font:12px Georgia,serif!important;color:#c8d3e3}
