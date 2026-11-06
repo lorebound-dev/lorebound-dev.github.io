@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T18:54:40.435Z",
+ "generatedAt": "2026-11-06T18:57:41.058Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-06T18:52:19Z",
+  "updatedAt": "2026-11-06T18:55:40Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -26,76 +26,87 @@
    "Refine Adventure: full-width companion cards and grounded battlefield",
    "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
    "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
-   "Preview approved Common companions in existing detail screen",
-   "Polish DEV Rift controls, summon quantity footer and Party labels"
+   "Preview approved Common companions in existing detail screen"
   ],
   "skipped": [
    "Replace Tome-tier UI with one permanent numeric Portal progression",
    "Use tutorial egg companion details; keep Omnidex read-only",
    "Rework Omnidex into universal collection and rarity pages",
    "Double-tap Party cards to swap pending companions directly",
-   "Unify Rift rarity bars and clean up legacy Tome UI"
+   "Unify Rift rarity bars and clean up legacy Tome UI",
+   "Polish DEV Rift controls, summon quantity footer and Party labels"
   ]
  },
  "items": [
-  {
-   "number": 122,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
-   "quote": "After reviewing real iPhone screenshots of Adventure (Party open and folded), Rift Upgrades (top and scrolled), and Auto Summon (top and scrolled), Joshua approved the proposed **small, targeted visual polish** rather than moving to Haven or Realm 2: \"Yes.\"",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "This is unchanged from my last report. Part D (the shard cost under the summon portal, clipped at 320 and 390 wide) and part E (the Party level badge sticking out about 2px at 320 wide) still belong to #103/#120 and #106. I left them alone. My suggestions are in my earlier comment above."
-    },
-    {
-     "who": "note",
-     "text": "On phones narrower than 360, the Auto quantity now reads \"×10\" instead of \"×10 Summons\". At 360 and wider, the full word fits with room to spare, so it stays there. I think this is the right cut-off: at 340 the full label would only just fit, with about 4px to spare."
-    }
-   ],
-   "openedAt": "2026-11-06T13:17:37Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
-   "onTest": true,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T18:54:04Z",
-   "headSha": "31ac1d91a945206547b20af5774ad92878da133e",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T18:54:04Z"
-  },
   {
    "number": 92,
    "kind": "request",
    "by": "Joshua",
    "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "both",
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should raids hurt more, so guards are worth having? I suggest bandits take from your Wood or Stone, and losses go up from 5–15% to 10–20%. The rule that a raid never takes buildings, levels, land or people would stay."
+    },
+    {
+     "who": "noah",
+     "text": "#96 (Gold caravans) can still be built. Haven 3.5 doesn't change anything it needs. When #96 moves Haven's save into the main save, this v5 save would have to go through the main game's \"update your save\" popup."
+    },
+    {
+     "who": "noah",
+     "text": "Main now has changes to workflow files and status tools that this branch doesn't have. They don't touch the game, and this pull request doesn't clash with main. I didn't merge them in, because I'm not allowed to push workflow-file changes. The hourly update robot or Noah can bring them in."
+    },
+    {
+     "who": "note",
+     "text": "A lost raid takes 5% to 15% of one resource. It's 15% with no Defense, and less the closer your Defense is to their Threat. It's capped at 10 + 5 × Settlement Level, and never more than 150. It also damages one building until you repair it. That's what you asked for. I think the cap keeps late losses fair."
+    },
+    {
+     "who": "note",
+     "text": "Repairs cost 30% of the building's price for each of its levels, in Wood and Stone only. After you pay, a builder needs about 9 seconds to fix it. I'd keep the price but make the fix slower, so a damaged building is felt for longer."
+    },
+    {
+     "who": "note",
+     "text": "Threat is 4 for wolves and 6 for bandits, plus half your Settlement Level, plus 1 for every 4 raids (up to +5). Each guard adds 3, the Watchtower 2, 4 or 6, and the whole palisade 8. I think these are easy to follow."
+    },
+    {
+     "who": "note",
+     "text": "Honest finding from my test player: a town with no guards finished every building faster (1 h 26 min) than one with 3 guards (2 h 35 min). Raids don't cost enough yet to make guards worth it. I'd try letting bandits take from your Wood or Stone (what you build with) instead of whatever you hold most of, which is usually Food."
+    },
+    {
+     "who": "note",
+     "text": "Raids start when you have a House, a Farm and your first expansion, then after 5 minutes of play. After a raid there are 4 quiet minutes if you drove it off, or 6 if you lost. In my test the first raid came at 13 minutes. That feels about right to me."
+    },
+    {
+     "who": "note",
+     "text": "Each person eats 1 Food a minute. A farmer grows about 4.6 Food a minute at a level 1 Farm, so one farmer feeds about 4 people. My test player was never hungry, so you could make Food a bit tighter if it feels too easy."
+    },
+    {
+     "who": "note",
+     "text": "Recruits cost the same Wood as Haven 3.0's workers up to the 8th person. After that each costs 15% more instead of 80% more, because the House adds 6 more places. Without that change the 14th person would cost over 50,000 Wood. Each recruit also costs Food: 3, plus 2 for each person already in Haven."
+    },
+    {
+     "who": "note",
+     "text": "There is one House and one Farm, each with three levels, not several of each. I didn't build a separate Guard Post, and the palisade can't be damaged yet. These keep the screen simple; tell Codex if you'd like more Houses or Farms."
+    }
+   ],
    "openedAt": "2026-11-02T02:38:48Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
-   "headSha": "ebf77785013a01fae042fc9118165ed61b5f35f5",
+   "updatedAt": "2026-11-06T18:56:47Z",
+   "headSha": "d1b5853b40fc555a69b1ac9e4b9b1eee3964cb78",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:35:08Z"
+   "botState": "questions",
+   "botAt": "2026-11-06T18:56:47Z"
   },
   {
    "number": 117,
@@ -139,11 +150,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
    "touchesGame": true,
    "answers": false,
@@ -169,11 +180,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "ef79bd583babd8b559927e6e72813394e6a90e11",
    "touchesGame": true,
    "answers": false,
@@ -194,11 +205,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "c1494e8b45f798739afb1e5dbe4101435fd884c0",
    "touchesGame": true,
    "answers": false,
@@ -228,11 +239,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "cb786c4c53a795e2b89347e309d893c51b1d404d",
    "touchesGame": true,
    "answers": false,
@@ -262,11 +273,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "e7597007d6e8cfa11302b60dd2eda342a6b29e40",
    "touchesGame": true,
    "answers": false,
@@ -296,11 +307,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "dcdc5ec5d28c61459f39b57613e54da62f7d0cec",
    "touchesGame": true,
    "answers": false,
@@ -326,11 +337,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "fbf6ff9193661fd361807e00557b242a32735ad4",
    "touchesGame": true,
    "answers": false,
@@ -356,11 +367,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "b97efe3e3e767d7703cba73ed78c400663c553f8",
    "touchesGame": true,
    "answers": false,
@@ -381,11 +392,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
    "touchesGame": true,
    "answers": false,
@@ -406,11 +417,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
    "touchesGame": true,
    "answers": false,
@@ -431,11 +442,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
    "touchesGame": true,
    "answers": false,
@@ -456,11 +467,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
    "touchesGame": true,
    "answers": false,
@@ -481,11 +492,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "b5751ae65d053601b3eb7eb66dab9a897afad84b",
    "touchesGame": true,
    "answers": false,
@@ -506,11 +517,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:52:19Z",
+   "testAt": "2026-11-06T18:55:41Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
+   "updatedAt": "2026-11-06T18:55:41Z",
    "headSha": "a982dc1554ba37af34d5550ceb395c21cd904f01",
    "touchesGame": true,
    "answers": false,
@@ -519,34 +530,42 @@
    "botAt": "2026-11-03T07:13:07Z"
   },
   {
-   "number": 60,
+   "number": 122,
    "kind": "request",
    "by": "Joshua",
-   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "testing",
+   "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
+   "quote": "After reviewing real iPhone screenshots of Adventure (Party open and folded), Rift Upgrades (top and scrolled), and Auto Summon (top and scrolled), Joshua approved the proposed **small, targeted visual polish** rather than moving to Haven or Realm 2: \"Yes.\"",
+   "stage": "built",
    "waitingOn": "noah",
    "asks": [
     {
      "who": "noah",
-     "text": "The Journal redesign is ready for your last look on a real iPhone. Merging it puts it in the real game, so please merge only when you're happy with it."
+     "text": "This is unchanged from my last report. Part D (the shard cost under the summon portal, clipped at 320 and 390 wide) and part E (the Party level badge sticking out about 2px at 320 wide) still belong to #103/#120 and #106. I left them alone. My suggestions are in my earlier comment above."
+    },
+    {
+     "who": "note",
+     "text": "On phones narrower than 360, the Auto quantity now reads \"×10\" instead of \"×10 Summons\". At 360 and wider, the full word fits with room to spare, so it stays there. I think this is the right cut-off: at 340 the full label would only just fit, with about 4px to spare."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in economy-interface.js, so it isn't on the test site yet."
     }
    ],
-   "openedAt": "2026-10-28T04:18:38Z",
+   "openedAt": "2026-11-06T13:17:37Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-06T18:52:19Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T18:52:19Z",
-   "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-06T18:54:04Z",
+   "headSha": "31ac1d91a945206547b20af5774ad92878da133e",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-03T07:12:23Z"
+   "botAt": "2026-11-06T18:54:04Z"
   },
   {
    "number": 118,
@@ -1076,6 +1095,31 @@
  ],
  "activity": [
   {
+   "at": "2026-11-06T18:56:47Z",
+   "kind": "built",
+   "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-06T18:56:47Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-06T18:56:47Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-06T18:56:47Z",
+   "kind": "question",
+   "text": "Part of “Haven 3.0–4.0: upgradeable town and endless connected frontier” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-06T18:55:41Z",
+   "kind": "test",
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
+  },
+  {
    "at": "2026-11-06T18:54:04Z",
    "kind": "built",
    "text": "Claude finished building “Polish DEV Rift controls, summon quantity footer and Party labels”"
@@ -1093,7 +1137,7 @@
   {
    "at": "2026-11-06T18:52:19Z",
    "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T18:50:40Z",
@@ -1113,7 +1157,7 @@
   {
    "at": "2026-11-06T18:50:21Z",
    "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T18:48:42Z",
@@ -1123,12 +1167,12 @@
   {
    "at": "2026-11-06T18:47:18Z",
    "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T18:43:35Z",
    "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T18:41:59Z",
@@ -1148,7 +1192,7 @@
   {
    "at": "2026-11-06T18:36:51Z",
    "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T18:35:09Z",
@@ -1159,11 +1203,6 @@
    "at": "2026-11-06T18:35:09Z",
    "kind": "question",
    "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-06T18:35:08Z",
-   "kind": "built",
-   "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   },
   {
    "at": "2026-11-06T18:34:28Z",
@@ -1223,7 +1262,7 @@
   {
    "at": "2026-11-06T18:17:06Z",
    "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T18:13:11Z",
@@ -1233,7 +1272,7 @@
   {
    "at": "2026-11-06T13:54:33Z",
    "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T13:52:42Z",
@@ -1248,35 +1287,24 @@
   {
    "at": "2026-11-06T13:49:17Z",
    "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T13:46:08Z",
    "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
-  },
-  {
-   "at": "2026-11-06T13:45:13Z",
-   "kind": "asked",
-   "text": "You asked for “Consolidate owner answers for eight LOREBOUND requests”"
-  },
-  {
-   "at": "2026-11-06T13:17:37Z",
-   "kind": "asked",
-   "text": "You asked for “Polish DEV Rift controls, summon quantity footer and Party labels”"
-  },
-  {
-   "at": "2026-11-06T12:49:12Z",
-   "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
-  },
-  {
-   "at": "2026-11-06T12:46:37Z",
-   "kind": "built",
-   "text": "Claude finished building “Unify Rift rarity bars and clean up legacy Tome UI”"
+   "text": "The test site was updated with “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   }
  ],
  "otherPulls": [
+  {
+   "number": 127,
+   "headSha": "a6f63b78f8657b06f27b374aabc16ef38d700489",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 125,
    "headSha": "ef0fa7b00c4f7030bfb9f022da871ba109807041",
