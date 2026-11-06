@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T13:46:27.670Z",
+ "generatedAt": "2026-11-06T13:48:23.906Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -38,6 +38,39 @@
   ]
  },
  "items": [
+  {
+   "number": 123,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Consolidate owner answers for eight LOREBOUND requests",
+   "quote": "\"Go through them with me one request at a time. Explain each question in plain words, and give Claude’s suggestion as the easy answer. Then write all my answers into one new request, with a section for each pull request: its number and title, then my answers numbered like its questions. Noah passes each answer on to its request, and Claude rebuilds it.\"",
+   "stage": "questions",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Please paste each section of requests/2026-11-06-owner-answers.md into the ### Changes of its own request (#118, #115, #117, #106, #102, #92, #116, #98), or post it there as an @claude comment, so Claude rebuilds each one. Then close this pull request without merging."
+    },
+    {
+     "who": "noah",
+     "text": "When you pass on #92, confirm that Joshua's raid rule (one building out of action until repaired with Wood and Stone, plus a small share of stored resources, never levels, land or workers) and trial Food, recruit and raid numbers on the test site are fine with you. They…"
+    }
+   ],
+   "openedAt": "2026-11-06T13:45:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-06T13:48:00Z",
+   "headSha": "a4dd559c19bde86c62d75f4a7b46cf508fc20316",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "questions",
+   "botAt": "2026-11-06T13:48:00Z"
+  },
   {
    "number": 122,
    "kind": "request",
@@ -626,30 +659,6 @@
    "botAt": "2026-10-28T03:15:36Z"
   },
   {
-   "number": 123,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Consolidate owner answers for eight LOREBOUND requests",
-   "quote": "\"Go through them with me one request at a time. Explain each question in plain words, and give Claude’s suggestion as the easy answer. Then write all my answers into one new request, with a section for each pull request: its number and title, then my answers numbered like its questions. Noah passes each answer on to its request, and Claude rebuilds it.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-06T13:45:13Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T13:45:13Z",
-   "headSha": "a4dd559c19bde86c62d75f4a7b46cf508fc20316",
-   "touchesGame": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "",
-   "botAt": null
-  },
-  {
    "number": 120,
    "kind": "request",
    "by": "Joshua",
@@ -1148,6 +1157,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-06T13:48:00Z",
+   "kind": "question",
+   "text": "Part of “Consolidate owner answers for eight LOREBOUND requests” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-06T13:46:08Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
@@ -1341,11 +1355,6 @@
    "at": "2026-11-06T11:54:10Z",
    "kind": "asked",
    "text": "You asked for “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”"
-  },
-  {
-   "at": "2026-11-06T11:11:24Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
   }
  ],
  "otherPulls": [
