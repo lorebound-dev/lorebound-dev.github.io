@@ -28,13 +28,17 @@
 @keyframes summonDiscoveryAccent{45%{filter:brightness(1.18) drop-shadow(0 0 10px #d0a2ff99)}to{filter:drop-shadow(0 0 5px #9d44bd66)}}
 /* Quantity is pinned above Auto, while Tome artwork and upgrades scroll independently. */
 #tomeQuickSheet{grid-template-rows:49px minmax(0,1fr) auto}
-#tomeQuickSheet .tome-popup-footer{position:relative;z-index:5;padding:7px 10px max(7px,env(safe-area-inset-bottom));background:linear-gradient(#0e2436,#061726);border-top:1px solid #b59a6266;min-width:0}
+#tomeQuickSheet .tome-popup-footer{position:relative;z-index:5;flex-direction:column;align-items:stretch;padding:6px 10px max(7px,env(safe-area-inset-bottom));background:linear-gradient(#0e2436,#061726);border-top:1px solid #b59a6266;min-width:0}
 #tomeQuickSheet .tome-popup-footer .quantity-choice{margin:0;min-width:0}
-#tomeQuickSheet .tome-popup-footer .quantity-choice legend{font-size:11px!important;padding-bottom:4px}
-#tomeQuickSheet .tome-popup-footer .quantity-choice button{min-height:74px;padding:5px 2px;gap:3px}
-#tomeQuickSheet .tome-popup-footer .quantity-choice button strong{font-size:19px!important}
-#tomeQuickSheet .tome-popup-footer .quantity-choice button small{font-size:10px!important;line-height:1.25!important}
-#tomeQuickSheet .tome-popup-footer #quickTomePrice{font-size:11px!important;margin:4px 0 3px;padding-bottom:4px}
+/* Joshua (2026-11-06): a compact quantity footer. The four choices stay in one row of 44px+ buttons at every phone width.
+   Only a locked choice keeps a note, how to unlock it, and the chosen quantity's total sits once, on the heading line. */
+#tomeQuickSheet .tome-popup-footer .quantity-choice>div{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+#tomeQuickSheet .tome-popup-footer .quantity-choice legend{font-size:12px!important;line-height:16px!important;padding-bottom:5px}
+#tomeQuickSheet .tome-popup-footer .quantity-choice button{min-height:46px;padding:3px 2px;flex-flow:row wrap;align-content:center;justify-content:center;gap:1px 4px}
+#tomeQuickSheet .tome-popup-footer .quantity-choice .quantity-lock{order:-1}
+#tomeQuickSheet .tome-popup-footer .quantity-choice button strong{font-size:18px!important;line-height:1.1!important}
+#tomeQuickSheet .tome-popup-footer .quantity-choice button small{flex-basis:100%;font-size:12px!important;line-height:1.15!important}
+#tomeQuickSheet .tome-popup-footer #quickTomePrice{position:absolute;top:6px;right:10px;max-width:calc(100% - 160px);margin:0;padding:0;border:0;font-size:12px!important;line-height:16px!important;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #tomeQuickSheet .tome-popup-footer .tome-auto-row{min-height:46px}
 /* Journal: a dark stone ledger with two pages, laid out after Joshua's approved mockup. Header, tabs and summary stay put; only the list scrolls. */
 #journalSheet{position:fixed;inset:auto;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;width:calc(100% - 14px);max-width:530px;height:calc(100dvh - max(14px,env(safe-area-inset-top)) - max(14px,env(safe-area-inset-bottom)));max-height:calc(100dvh - max(14px,env(safe-area-inset-top)) - max(14px,env(safe-area-inset-bottom)));padding:3px;border:6px solid transparent;border-image:url('assets/realm-frame.svg') 18 / 6px stretch;background:#0a131b;display:block;overflow:hidden;text-align:left;color:#e6dbc2}

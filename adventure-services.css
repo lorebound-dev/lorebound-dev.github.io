@@ -8,12 +8,16 @@
    tall; the shrine behind them is only a background. --rail-slab and the rail's size are in adventure-art-prototype.css. */
 .party-services #game :is(#tomeQuickAccess,#autoAccess){position:relative;grid-row:1;align-self:end;width:min(100%,calc(var(--rail-slab,70px) + 24px));height:auto;min-height:46px;min-width:0;margin:0 0 3px;padding:5px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border:1px solid transparent;border-image:url('assets/ui-kit/v01/frames/panel-standard-128.png') 24 / 12px stretch;border-radius:0;background:linear-gradient(#1b2f38,#0b1921) 50% 50%/calc(100% - 10px) calc(100% - 10px) no-repeat border-box;box-shadow:none;filter:drop-shadow(0 2px 3px #000c);color:#f0dcab;text-align:center;text-shadow:0 1px 2px #000;z-index:4;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .party-services #game #tomeQuickAccess{grid-column:1;justify-self:end}
+/* Joshua (2026-11-06): Upgrade Rift sits a little higher and smaller. 8px higher than Auto's spot, about 13% narrower
+   (85px instead of 98px on the 74px slab), 1px less padding each way and a 44px tap height. Its 13px text is unchanged,
+   and nothing is scaled with a transform. */
+.party-services #game #tomeQuickAccess{width:min(100%,calc((var(--rail-slab,70px) + 24px)*.87));min-height:44px;margin-bottom:11px;padding:4px 5px}
 .party-services #game #autoAccess{grid-column:3;justify-self:start}
 .party-services #game #tomeQuickAccess>:not(.dock-tome-options){display:none}
 .party-services #game #tomeQuickAccess .dock-tome-options,.party-services #game #autoAccess span{order:0;font:13px/1.15 Georgia,serif!important;letter-spacing:normal!important;color:#f0dcab;text-wrap:balance}
 .party-services #game :is(#tomeQuickAccess,#autoAccess):focus-visible{outline:2px solid #f3d38c;outline-offset:2px}
 .party-services #game :is(#tomeQuickAccess,#autoAccess):active{filter:brightness(1.15) drop-shadow(0 2px 3px #000c);transform:translateY(1px)}
-@media(max-height:700px),(max-width:350px){.party-services #game #tomeQuickAccess .dock-tome-options,.party-services #game #autoAccess span{font-size:12px!important}.party-services #game :is(#tomeQuickAccess,#autoAccess){margin-bottom:0}}
+@media(max-height:700px),(max-width:350px){.party-services #game #tomeQuickAccess .dock-tome-options,.party-services #game #autoAccess span{font-size:12px!important}.party-services #game :is(#tomeQuickAccess,#autoAccess){margin-bottom:0}.party-services #game #tomeQuickAccess{margin-bottom:8px}}
 /* Auto keeps Joshua's look from #82 (no plaque frame), now with the word Auto under the icon while it's off (2026-11-02), and a compact red
    "Stop Auto" while it runs or waits on a paused decision, so it has no plaque frame. Its whole spot stays the tap target. */
 .party-services #game #autoAccess{border:0;border-image:none;background:transparent;filter:none}
@@ -56,10 +60,12 @@
 .party-services #libraryBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding-right:3px}
 .party-services #libraryProgression{flex:none;margin:0;padding:4px 0 0}
 .party-services #libraryRequirements{margin:4px 0 8px;font-size:12px!important;line-height:1.4!important}
-.party-services #summonSettings .tome-tier-cards button{padding:5px 2px;min-width:0}
-.party-services #summonSettings .tome-tier-cards b{font:14px Georgia,serif!important}
+/* The Rift level row: numbered previews (1–5) with no book art, so the buttons are shorter. Current marks the Rift's level. */
+.party-services #summonSettings .tome-tier-cards button{padding:5px 2px;min-width:0;min-height:56px}
+.party-services #summonSettings .tome-tier-cards button[data-current=true] small{color:#8fe3d6}
+.party-services #summonSettings .tome-tier-cards b{font:18px Georgia,serif!important}
 .party-services #summonSettings .tome-overview-art{padding:8px 0}
-.party-services #summonSettings .tome-overview-art img{width:64px;height:64px}
+.party-services #summonSettings .tome-overview-art img{width:64px;height:64px;image-rendering:auto}
 .party-services #summonSettings .tome-overview-art h3{font:18px Georgia,serif!important}
 .party-services #tomeOverview>p{font:12px/1.5 Georgia,serif!important;margin:7px 0}
 .party-services #autoSettingsSheet{height:min(660px,calc(100dvh - var(--adventure-safe-top) - var(--adventure-safe-bottom) - 16px))}
@@ -151,6 +157,11 @@
 #economyAuto .auto-row.is-zero::before,#economyAuto .auto-row.is-zero:has(input:checked)::before{filter:saturate(.7) brightness(.72)}
 #economyAuto .auto-row.is-zero .auto-gem img{opacity:.7}
 #economyAuto .auto-row.is-zero input,#economyAuto .auto-row.is-zero input:checked{border-color:#6f6a5e;background-color:#2a2c2c;opacity:.6}
+/* Joshua (2026-11-06): an empty box you can tick has a brighter gold edge, so it reads on the dark rarity art. Ticked boxes
+   and the greyed-out boxes of 0% rarities keep their own look. */
+#economyAuto .auto-row:not(.is-zero) input:not(:checked){border-color:#ead7a6;box-shadow:0 0 0 1px #000c,inset 0 0 0 1px #ead7a62e}
+/* Rows fade out under the list's top edge as they scroll, instead of being cut off by it. */
+#economyAuto .auto-odds-wrap{padding-top:11px;-webkit-mask-image:linear-gradient(#0000,#000 10px);mask-image:linear-gradient(#0000,#000 10px)}
 #economyAuto .auto-quantity{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 8px;padding-top:10px;border-top:1px solid #a8854f80;font-size:15px;color:#f1d899}
 #economyAuto .auto-quantity>span{white-space:nowrap}
 #economyAuto .auto-stepper{flex:0 1 190px;min-width:0;display:flex;align-items:stretch;border:1px solid #a8854f;border-radius:3px;background:#07131d}
@@ -159,6 +170,9 @@
 #economyAuto .auto-stepper button:last-child{border-left:1px solid #a8854f}
 #economyAuto .auto-stepper button:disabled{opacity:.4}
 #economyAuto .auto-stepper output{flex:1;min-width:0;display:grid;place-items:center;font-size:15px;color:#f1dca3;white-space:nowrap}
+/* Joshua (2026-11-06): under 360px wide the quantity shows only "×10", because "×10 Summons" runs into its arrows there.
+   The word stays for screen readers (economy-interface.js puts it in .auto-qty-word). */
+@media (max-width:359px){#economyAuto .auto-qty-word{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
 #economyAuto .auto-release-note{flex:none;max-width:none;display:flex;align-items:center;gap:10px;margin:0;padding:8px 10px;border:1px solid #a8854f66;border-radius:3px;font-size:13px;line-height:1.4;color:#c9b88f}
 #economyAuto .auto-info{flex:none;width:22px;height:22px;display:grid;place-items:center;border:1px solid #c9a65a;border-radius:50%;font-size:13px;font-style:italic;color:#e0c183}
 #economyAuto #economyAutoReason{flex:none;margin:6px 0 0}

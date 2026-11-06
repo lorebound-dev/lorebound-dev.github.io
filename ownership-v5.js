@@ -59,7 +59,8 @@ function combat(s,id){if(root.LoreArmory?.active(s))return R.combat(hydrate(s),i
 function draw(s,drawId,rng=Math.random,now=Date.now()){
  demand(validate(s),'Invalid ownership save');demand(typeof drawId==='string'&&/^[a-zA-Z0-9_-]{1,100}$/.test(drawId)&&!['__proto__','constructor','prototype'].includes(drawId),'Invalid receipt ID');
  const seq=Number(drawId);demand(Number.isSafeInteger(seq)&&seq>0&&String(seq)===drawId,'Use a monotonic draw sequence');if(seq<=s.receiptFloor||Object.hasOwn(s.receipts,drawId))return clone(s);demand(seq===s.drawSequence+1,'Draw sequence conflict');
- demand(!s.pending,'Resolve your pending companion first');const t=R.C.tomes[s.progress.summoning.selected-1],modern=E.active(s),cost=modern?1:t?.price,currency=modern?'Lore Shards':'Gold',balance=modern?'shards':'gold';demand(t&&s.progress.summoning.selected<=s.progress.summoning.unlocked&&s.progress[balance]>=cost,'Not enough '+currency+' or Tome unavailable');
+ // Every summon rolls the Portal's level, the highest Tome tier unlocked, even in a save still holding a lower older selection.
+ demand(!s.pending,'Resolve your pending companion first');const t=R.C.tomes[E.portal.level(s)-1],modern=E.active(s),cost=modern?1:t?.price,currency=modern?'Lore Shards':'Gold',balance=modern?'shards':'gold';demand(t&&s.progress[balance]>=cost,'Not enough '+currency);
  const roll=rng();demand(Number.isFinite(roll)&&roll>=0&&roll<1,'Invalid draw');let cumulative=0;const h=R.C.companions.find(h=>(cumulative+=E.weight(s,h,t.level)||0)>roll*10000);
  demand(h,'Invalid Tome weights');const out=clone(s);out.drawSequence=seq;out.progress[balance]-=cost;out.progress.summoning.pulls++;out.serial++;out.history[h.id]=(out.history[h.id]||0)+1;
  out.progress.summoning.history.push({ownershipReceipt:drawId,itemId:h.id,name:h.name,rarity:h.rarity,cost,currency,at:now});out.progress.summoning.history=out.progress.summoning.history.slice(-40);

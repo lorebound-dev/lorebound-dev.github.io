@@ -25,3 +25,5 @@
 #summonAgain,#summonDone,.summon-save{border:6px solid transparent;border-image:url('assets/realm-frame.svg') 18 / 6px stretch;border-radius:0;background:linear-gradient(#40315d,#211832);color:#f7e8c6}#summonDone{background:linear-gradient(#21404c,#102733)}
 .game .luck-earned-track{height:10px!important;border-color:#9cb7a7;border-radius:2px;background:#091c26}.game .luck-earned-track #luckMeterFill{background:linear-gradient(#b1edbe,#68c692)}
 #summonDps{display:block;font:bold 15px Georgia,serif!important;color:#b3edce;margin-top:5px}#summonTeamAction{flex:1;min-height:34px;padding:7px 8px;border:6px solid transparent;border-image:url('assets/realm-frame.svg') 18 / 6px stretch;background:linear-gradient(#285348,#13312d);color:#f7e7c4;font:12px Georgia,serif!important}#summonTeamAction:disabled{opacity:.3}#summonSheet>footer{gap:5px}#summonAgain{flex:1}#summonDone{padding-left:7px;padding-right:7px}
+/* The reveal opens the approved Rift, not a book: no paper pages and no page-turn tilt. */
+#summonSheet .tome-open>i{display:none}#summonSheet[data-phase="rarity"] .tome-open img{transform:none}

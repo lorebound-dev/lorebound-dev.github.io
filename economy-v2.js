@@ -17,6 +17,24 @@ function buyCapacity(s,expected){const q=capacityOffer(s);if(!q||q.from!==expect
 function capacityGold(s){const p=s?.progress||s,at=capacities.indexOf(p?.summoning?.autoCapacity||1);return at>0?capacityPrices.slice(0,at).reduce((n,g)=>n+g,0):0;}
 const capacityRefund={amount:capacityGold,refunded:s=>capacityGold(s)===0,convert(input){if(input?.version!==5||!input.progress?.summoning)throw Error('Ownership version 5 required');const gold=capacityGold(input);if(!gold)return input;const p=input.progress;if(!Number.isSafeInteger(p.gold+gold))throw Error('Gold refund would overflow');p.gold+=gold;p.summoning.autoCapacity=1;return input;}};
 // stopRank 10 is "Don't stop for rarity": Auto then runs until capacity, Lore Shards, a discovery or a decision stops it.
-function thresholdValid(s){const rank=s.summoning.settings.stopRank;return rank===10||Number.isInteger(rank)&&rank>=0&&rank<3&&C.companions.some(h=>h.rank>=rank&&weight(s,h,s.summoning.selected)>0);}
-const api={active,enable,weight,weights,totals,unlockGold,discoveries,requirement,unlock,floorShards,questShards,achievementShards,capacities,capacityPrices,capacityOffer,buyCapacity,capacityRefund,thresholdValid};root.LoreEconomy=api;if(typeof module!=='undefined')module.exports=api;
+function thresholdValid(s){const rank=s.summoning.settings.stopRank;return rank===10||Number.isInteger(rank)&&rank>=0&&rank<3&&C.companions.some(h=>h.rank>=rank&&weight(s,h,portal.level(s))>0);}
+// One permanent Portal (the Rift). Its level is the highest Tome tier the player has unlocked (summoning.unlocked, 1-5); there
+// is no other level and no new save data. Summons, Auto, Rift Upgrades and every odds display read the level and its chances
+// here, from the same weights above, so what is shown is always what is rolled. summoning.selected is an older setting from
+// when a lower Tome could be picked: align() sets it to the Portal level, and adventure.js calls it on each save.
+// Rarities a level can't give are exactly 0. Later realms and rosters add their weights here, not a second table.
+const portal={max:C.tomes.length,
+ summoning(s){return s?.progress?.summoning||s?.summoning||null;},
+ level(s){const n=portal.summoning(s)?.unlocked;return Number.isInteger(n)&&n>=1&&n<=portal.max?n:1;},
+ next(s){const n=portal.level(s);return n<portal.max?n+1:null;},
+ weight(s,h,level=portal.level(s)){return Number.isInteger(level)&&level>=1&&level<=portal.max?weight(s,h,level)||0:0;},
+ // Chance of each rarity, in canonical order (Common first), in percent.
+ odds(s,level=portal.level(s)){return C.rarities.map((_,rank)=>C.companions.filter(h=>h.rank===rank).reduce((n,h)=>n+portal.weight(s,h,level),0)/100);},
+ // Chance of one species, in percent.
+ chance(s,h,level=portal.level(s)){return portal.weight(s,h,level)/100;},
+ possible(s,rank,level=portal.level(s)){return C.companions.some(h=>h.rank===rank&&portal.weight(s,h,level)>0);},
+ // Exact percent text: 0% only for a true zero, and small chances keep their digits (0.05%, never "0%" or "<0.1%").
+ percent(n){if(!(n>0))return '0%';if(n>=100)return '100%';const digits=n<1?2:1,text=n.toFixed(digits).replace(/\.?0+$/,'');return text+'%';},
+ align(s){const a=portal.summoning(s);if(!a||!Number.isInteger(a.unlocked)||a.selected===a.unlocked)return false;a.selected=a.unlocked;return true;}};
+const api={active,enable,weight,weights,totals,unlockGold,discoveries,requirement,unlock,floorShards,questShards,achievementShards,capacities,capacityPrices,capacityOffer,buyCapacity,capacityRefund,thresholdValid,portal};root.LoreEconomy=api;root.LorePortal=portal;if(typeof module!=='undefined')module.exports=api;
 })(globalThis);

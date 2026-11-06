@@ -1,5 +1,5 @@
 {
-  "base": "bcc9b88a6b1978d2e1ee609d589969960a5bc3ef",
+  "base": "79cb5f8fd60302043ac2a1a131799fb6464d4a60",
   "included": [
     {
       "number": 38,
@@ -22,6 +22,14 @@
       "head": "b5751ae65d053601b3eb7eb66dab9a897afad84b"
     },
     {
+      "number": 78,
+      "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
+      "head": "690d04bbf0a7ebf35544adb05bf20e06d47ff079",
+      "resolved": [
+        "78-69-omnidex-rift-level-chance"
+      ]
+    },
+    {
       "number": 81,
       "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
       "head": "7d2b36f8553737fc817e633f8620c267f85a5fb3"
@@ -34,22 +42,36 @@
     {
       "number": 84,
       "title": "Integrate approved 10 unique Auto Summon rarity rows",
-      "head": "ff367f98b060951cbc902ba7670c6780fe9a3839"
+      "head": "ff367f98b060951cbc902ba7670c6780fe9a3839",
+      "resolved": [
+        "84-78-auto-rarity-rows",
+        "84-78-auto-quantity-label"
+      ]
     },
     {
       "number": 85,
       "title": "Integrate approved Rift Upgrades rarity art and subtle high-tier animation",
-      "head": "a982dc1554ba37af34d5550ceb395c21cd904f01"
+      "head": "a982dc1554ba37af34d5550ceb395c21cd904f01",
+      "resolved": [
+        "85-78-rift-odds-percent",
+        "85-78-rift-upgrades-comment"
+      ]
     },
     {
       "number": 89,
       "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-      "head": "e7597007d6e8cfa11302b60dd2eda342a6b29e40"
+      "head": "e7597007d6e8cfa11302b60dd2eda342a6b29e40",
+      "resolved": [
+        "89-78-bound-sources-rift-level"
+      ]
     },
     {
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-      "head": "04a20617ff5c66e8696a8d65f35c1cc497b028f6"
+      "head": "04a20617ff5c66e8696a8d65f35c1cc497b028f6",
+      "resolved": [
+        "92-78-update-popup-texts"
+      ]
     },
     {
       "number": 93,
@@ -84,24 +106,45 @@
     {
       "number": 115,
       "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
-      "head": "cb786c4c53a795e2b89347e309d893c51b1d404d"
+      "head": "cb786c4c53a795e2b89347e309d893c51b1d404d",
+      "resolved": [
+        "120-115-summon-opening-tome",
+        "115-78-summon-opening-art"
+      ]
+    },
+    {
+      "number": 116,
+      "title": "Rework Omnidex into universal collection and rarity pages",
+      "head": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
+      "resolved": [
+        "116-89-grand-archive-families"
+      ]
     },
     {
       "number": 117,
       "title": "Preview approved Common companions in existing detail screen",
       "head": "05f6ded6ca37e22084edde4d967801936a0fe111"
+    },
+    {
+      "number": 120,
+      "title": "Unify Rift rarity bars and clean up legacy Tome UI",
+      "head": "52bcba60b88ddd74ce3cee459d7be58925d4afbc",
+      "resolved": [
+        "120-115-summon-opening-tome"
+      ]
+    },
+    {
+      "number": 122,
+      "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
+      "head": "31ac1d91a945206547b20af5774ad92878da133e",
+      "resolved": [
+        "122-109-economy-auto-notes",
+        "122-78-summoning-helpers",
+        "122-78-rift-levels-note-price"
+      ]
     }
   ],
   "skipped": [
-    {
-      "number": 78,
-      "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
-      "head": "690d04bbf0a7ebf35544adb05bf20e06d47ff079",
-      "files": [
-        "pocket-fortune/dist/grand-archive.js"
-      ],
-      "with": "others"
-    },
     {
       "number": 108,
       "title": "Use tutorial egg companion details; keep Omnidex read-only",
@@ -114,46 +157,23 @@
       "with": "others"
     },
     {
-      "number": 116,
-      "title": "Rework Omnidex into universal collection and rarity pages",
-      "head": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
-      "files": [
-        "pocket-fortune/dist/grand-archive.js"
-      ],
-      "with": "others"
-    },
-    {
       "number": 118,
       "title": "Double-tap Party cards to swap pending companions directly",
       "head": "f86a8d33ded6ec54c2904136d9cd2b2a6d284047",
       "files": [
         "pocket-fortune/dist/companion-motion.css",
-        "pocket-fortune/dist/companion-motion.js",
-        "pocket-fortune/dist/home.html",
-        "pocket-fortune/dist/ownership-adventure.js",
-        "pocket-fortune/dist/team.js"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 120,
-      "title": "Unify Rift rarity bars and clean up legacy Tome UI",
-      "head": "52bcba60b88ddd74ce3cee459d7be58925d4afbc",
-      "files": [
-        "pocket-fortune/dist/home.html"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 122,
-      "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
-      "head": "31ac1d91a945206547b20af5774ad92878da133e",
-      "files": [
-        "pocket-fortune/dist/economy-interface.js"
+        "pocket-fortune/dist/companion-motion.js"
       ],
       "with": "others"
     }
   ],
-  "commit": "872e30be8258e37b41c84c282c0379c76ba9f793",
-  "at": "2026-11-06T19:13:04Z"
+  "commit": "89c5d1d888b7b76c9e5ecc7c4c750adb4f551f05",
+  "unusedResolutions": [
+    "118-69-bound-sheet-bottom",
+    "118-69-manager-return",
+    "118-69-team-companion-page",
+    "118-89-bound-sources",
+    "118-97-party-dps-preview"
+  ],
+  "at": "2026-11-06T19:27:04Z"
 }
