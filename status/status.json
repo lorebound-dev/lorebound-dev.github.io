@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T18:46:04.252Z",
+ "generatedAt": "2026-11-06T18:51:34.420Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-06T18:43:34Z",
+  "updatedAt": "2026-11-06T18:50:20Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -39,6 +39,65 @@
  },
  "items": [
   {
+   "number": 118,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Double-tap Party cards to swap pending companions directly",
+   "quote": "When you pull a companion and are in the swap in party menu, double clicking on a companion in the deck should swap it. Also it should visually swap the cards no confirmation necessary. So there should just be a release button and the floating card no party dps change or anything of that.",
+   "stage": "built",
+   "waitingOn": "noah",
+   "asks": [
+    {
+     "who": "note",
+     "text": "Without Back, a player who chooses to put a companion in the party can't go back to the reveal. They have to swap or release. That's what you asked for, and the companion is never lost by accident."
+    },
+    {
+     "who": "noah",
+     "text": "It clashes with another change in progress, in companion-motion.css and companion-motion.js and home.html and ownership-adventure.js and team.js, so it isn't on the test site yet."
+    }
+   ],
+   "openedAt": "2026-11-06T12:23:49Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-06T18:50:40Z",
+   "headSha": "f86a8d33ded6ec54c2904136d9cd2b2a6d284047",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-06T18:50:40Z"
+  },
+  {
+   "number": 122,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
+   "quote": "After reviewing real iPhone screenshots of Adventure (Party open and folded), Rift Upgrades (top and scrolled), and Auto Summon (top and scrolled), Joshua approved the proposed **small, targeted visual polish** rather than moving to Haven or Realm 2: \"Yes.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-06T13:17:37Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T18:50:21Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T18:50:21Z",
+   "headSha": "993dfdc099d26dac310912df01d7d81da01ab690",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-06T18:49:15Z"
+  },
+  {
    "number": 92,
    "kind": "request",
    "by": "Joshua",
@@ -51,11 +110,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "ebf77785013a01fae042fc9118165ed61b5f35f5",
    "touchesGame": true,
    "answers": false,
@@ -105,11 +164,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
    "touchesGame": true,
    "answers": false,
@@ -135,11 +194,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "ef79bd583babd8b559927e6e72813394e6a90e11",
    "touchesGame": true,
    "answers": false,
@@ -160,11 +219,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "c1494e8b45f798739afb1e5dbe4101435fd884c0",
    "touchesGame": true,
    "answers": false,
@@ -194,59 +253,17 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "cb786c4c53a795e2b89347e309d893c51b1d404d",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
    "botAt": "2026-11-06T18:26:45Z"
-  },
-  {
-   "number": 122,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
-   "quote": "After reviewing real iPhone screenshots of Adventure (Party open and folded), Rift Upgrades (top and scrolled), and Auto Summon (top and scrolled), Joshua approved the proposed **small, targeted visual polish** rather than moving to Haven or Realm 2: \"Yes.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "asks": [
-    {
-     "who": "noah",
-     "text": "#120 isn't on the test site because it clashes with #115: both change the same summon-scene picture in home.html. My suggestion: add a test-site resolution record that keeps #120's Rift picture, or bring #120 up to date after #115. Then the portal-rail spacing (part D) can be checked against the real combined build."
-    },
-    {
-     "who": "noah",
-     "text": "Part D, the shard cost under the summon portal: the shard icon is clipped by the bottom bar at 320 and 390 wide. That spot is set by #103's adventure-compact.css, where .dock-summon-copy has top:53px. My suggestion: once #120 is on the test site, raise it by about 4px inside #103 (or let me do it here with your OK), without moving the portal, Auto or the Party."
-    },
-    {
-     "who": "noah",
-     "text": "Part E, the Party badges at 320 wide: the green level badge sticks out about 2px past the card's left edge. My suggestion: nudge it about 3px inward in #106's adventure-party-cards.css, inside #106 itself, so the two requests don't fight over the same card."
-    },
-    {
-     "who": "joshua",
-     "text": "In Auto Summon at 320 wide, \"×10 Summons\" in the \"Open per cycle\" box touches its arrows. It wasn't in this request, so I left it. My suggestion: shorten it to \"×10\" on small phones. Should I do that?"
-    }
-   ],
-   "openedAt": "2026-11-06T13:17:37Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
-   "headSha": "8b9386c77a5a3442cb7cd2fbbf9f2afeb8116a45",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T13:44:48Z"
   },
   {
    "number": 89,
@@ -270,11 +287,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "e7597007d6e8cfa11302b60dd2eda342a6b29e40",
    "touchesGame": true,
    "answers": false,
@@ -304,11 +321,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "dcdc5ec5d28c61459f39b57613e54da62f7d0cec",
    "touchesGame": true,
    "answers": false,
@@ -334,11 +351,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "fbf6ff9193661fd361807e00557b242a32735ad4",
    "touchesGame": true,
    "answers": false,
@@ -364,11 +381,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "b97efe3e3e767d7703cba73ed78c400663c553f8",
    "touchesGame": true,
    "answers": false,
@@ -389,11 +406,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
    "touchesGame": true,
    "answers": false,
@@ -414,11 +431,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
    "touchesGame": true,
    "answers": false,
@@ -439,11 +456,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
    "touchesGame": true,
    "answers": false,
@@ -464,11 +481,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
    "touchesGame": true,
    "answers": false,
@@ -489,11 +506,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "b5751ae65d053601b3eb7eb66dab9a897afad84b",
    "touchesGame": true,
    "answers": false,
@@ -514,11 +531,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "a982dc1554ba37af34d5550ceb395c21cd904f01",
    "touchesGame": true,
    "answers": false,
@@ -544,17 +561,42 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-06T18:43:35Z",
+   "testAt": "2026-11-06T18:50:21Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-06T18:43:35Z",
+   "updatedAt": "2026-11-06T18:50:21Z",
    "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-03T07:12:23Z"
+  },
+  {
+   "number": 126,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Relay confirmed owner answers for nine LOREBOUND requests",
+   "quote": "\"PR #122: Shorten the quantity label to ×10 on small screens; keep the full label on larger screens. Next request.\"  \"Keep my previously approved PR #115 answers unchanged.\"  \"Keep all prs as previously approved\"",
+   "stage": "closed",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-06T18:13:11Z",
+   "mergedAt": null,
+   "closedAt": "2026-11-06T18:48:42Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-06T18:48:42Z",
+   "headSha": "bd888aa60126d3581977c73c09af7e6dbc4f8ace",
+   "touchesGame": false,
+   "answers": false,
+   "requestStatus": "Waiting for answers",
+   "botState": "questions",
+   "botAt": "2026-11-06T18:15:46Z"
   },
   {
    "number": 116,
@@ -637,60 +679,6 @@
    "botAt": "2026-11-06T18:35:09Z"
   },
   {
-   "number": 118,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Double-tap Party cards to swap pending companions directly",
-   "quote": "When you pull a companion and are in the swap in party menu, double clicking on a companion in the deck should swap it. Also it should visually swap the cards no confirmation necessary. So there should just be a release button and the floating card no party dps change or anything of that.",
-   "stage": "built",
-   "waitingOn": "noah",
-   "asks": [
-    {
-     "who": "note",
-     "text": "Upgrade sits in the stats column where the toggle was, so on a 320px phone its text wraps onto two or three short lines. If you'd rather have it as one wide line across the whole sheet, above the picture and stats, that's an easy change."
-    },
-    {
-     "who": "note",
-     "text": "I couldn't find a gold button image in the approved art, and no art was linked, so Upgrade uses the game's existing antique-gold frame (realm-frame.svg) with a new gold fill. If you have an approved gold button in the Artwork Inbox, link it and I'll use it."
-    },
-    {
-     "who": "note",
-     "text": "I kept the one-line height and weight under the table, because the request's list of what to remove didn't include it. Say if it should go too."
-    },
-    {
-     "who": "note",
-     "text": "Companions have no top level in the game, so Upgrade never shows a \"max level\" state."
-    },
-    {
-     "who": "note",
-     "text": "I didn't find a \"Return to your team\" button in the current game code. The bottom row that did exist (Change placement / Remove) is gone, and the X is now the only close."
-    },
-    {
-     "who": "note",
-     "text": "Without Back, a player who chooses to put a companion in the party can no longer go back to the reveal screen. Now they must swap or release. That matches your answer."
-    },
-    {
-     "who": "noah",
-     "text": "It clashes with another change in progress, in companion-motion.css and companion-motion.js and home.html and ownership-adventure.js and team.js, so it isn't on the test site yet."
-    }
-   ],
-   "openedAt": "2026-11-06T12:23:49Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-06T18:34:57Z",
-   "headSha": "269e14c228cd072a14087ed198d517aa36df686f",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:34:57Z"
-  },
-  {
    "number": 112,
    "kind": "request",
    "by": "Joshua",
@@ -739,31 +727,6 @@
    "requestStatus": "Waiting to be built",
    "botState": "questions",
    "botAt": "2026-11-06T13:48:00Z"
-  },
-  {
-   "number": 126,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Relay confirmed owner answers for nine LOREBOUND requests",
-   "quote": "\"PR #122: Shorten the quantity label to ×10 on small screens; keep the full label on larger screens. Next request.\"  \"Keep my previously approved PR #115 answers unchanged.\"  \"Keep all prs as previously approved\"",
-   "stage": "building",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-11-06T18:13:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T18:15:46Z",
-   "headSha": "bd888aa60126d3581977c73c09af7e6dbc4f8ace",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-11-06T18:15:46Z"
   },
   {
    "number": 124,
@@ -1104,6 +1067,41 @@
  ],
  "activity": [
   {
+   "at": "2026-11-06T18:50:40Z",
+   "kind": "built",
+   "text": "Claude finished building “Double-tap Party cards to swap pending companions directly”"
+  },
+  {
+   "at": "2026-11-06T18:50:40Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Double-tap Party cards to swap pending companions directly”"
+  },
+  {
+   "at": "2026-11-06T18:50:40Z",
+   "kind": "question",
+   "text": "Part of “Double-tap Party cards to swap pending companions directly” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-06T18:50:21Z",
+   "kind": "test",
+   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+  },
+  {
+   "at": "2026-11-06T18:49:15Z",
+   "kind": "built",
+   "text": "Claude finished building “Polish DEV Rift controls, summon quantity footer and Party labels”"
+  },
+  {
+   "at": "2026-11-06T18:48:42Z",
+   "kind": "closed",
+   "text": "“Relay confirmed owner answers for nine LOREBOUND requests” was closed"
+  },
+  {
+   "at": "2026-11-06T18:47:18Z",
+   "kind": "test",
+   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+  },
+  {
    "at": "2026-11-06T18:43:35Z",
    "kind": "test",
    "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
@@ -1142,21 +1140,6 @@
    "at": "2026-11-06T18:35:08Z",
    "kind": "built",
    "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-06T18:34:57Z",
-   "kind": "built",
-   "text": "Claude finished building “Double-tap Party cards to swap pending companions directly”"
-  },
-  {
-   "at": "2026-11-06T18:34:57Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Double-tap Party cards to swap pending companions directly”"
-  },
-  {
-   "at": "2026-11-06T18:34:57Z",
-   "kind": "question",
-   "text": "Part of “Double-tap Party cards to swap pending companions directly” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-06T18:34:28Z",
@@ -1254,21 +1237,6 @@
    "text": "You asked for “Consolidate owner answers for eight LOREBOUND requests”"
   },
   {
-   "at": "2026-11-06T13:44:48Z",
-   "kind": "built",
-   "text": "Claude finished building “Polish DEV Rift controls, summon quantity footer and Party labels”"
-  },
-  {
-   "at": "2026-11-06T13:44:48Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Polish DEV Rift controls, summon quantity footer and Party labels”"
-  },
-  {
-   "at": "2026-11-06T13:44:48Z",
-   "kind": "question",
-   "text": "Part of “Polish DEV Rift controls, summon quantity footer and Party labels” is waiting for Noah’s OK"
-  },
-  {
    "at": "2026-11-06T13:17:37Z",
    "kind": "asked",
    "text": "You asked for “Polish DEV Rift controls, summon quantity footer and Party labels”"
@@ -1297,11 +1265,6 @@
    "at": "2026-11-06T12:42:36Z",
    "kind": "asked",
    "text": "You asked for “Audit live and dev Realm 1 visuals before Realm 2”"
-  },
-  {
-   "at": "2026-11-06T12:42:04Z",
-   "kind": "test",
-   "text": "The test site was updated with “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
   }
  ],
  "otherPulls": [
