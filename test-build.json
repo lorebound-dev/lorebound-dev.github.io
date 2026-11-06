@@ -130,8 +130,17 @@
         "pocket-fortune/dist/ownership-adventure.js"
       ],
       "with": "others"
+    },
+    {
+      "number": 120,
+      "title": "Unify Rift rarity bars and clean up legacy Tome UI",
+      "head": "52bcba60b88ddd74ce3cee459d7be58925d4afbc",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "b0dcc626a9a24b671a1c9ba82aa8d3f7bc791440",
-  "at": "2026-11-06T12:42:03Z"
+  "commit": "3b1360d0931bb2497e85ef94c4172f39d2ede7b1",
+  "at": "2026-11-06T12:49:10Z"
 }
