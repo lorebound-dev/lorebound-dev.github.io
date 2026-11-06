@@ -80,6 +80,11 @@
       "number": 109,
       "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
       "head": "dcdc5ec5d28c61459f39b57613e54da62f7d0cec"
+    },
+    {
+      "number": 115,
+      "title": "Restore 0.5-second Auto Summon and replace Tome opening with Rift spin-up",
+      "head": "5a6b3444a1d791fa4e98214423d0b18de557eb28"
     }
   ],
   "skipped": [
@@ -104,6 +109,6 @@
       "with": "others"
     }
   ],
-  "commit": "81fc10b56760d3e9066cfa2077e497803eaec9b0",
-  "at": "2026-11-06T11:11:23Z"
+  "commit": "6469b2d5a00131c334574ac5b35ca06bec23b3db",
+  "at": "2026-11-06T12:04:17Z"
 }
