@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T00:08:37.774Z",
+ "generatedAt": "2026-11-06T10:50:45.185Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -32,6 +32,30 @@
   ]
  },
  "items": [
+  {
+   "number": 113,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Deliver five approved Common sprites to companion roster PR #98",
+   "quote": "\"Ok package then\" [five individually reviewed and approved Common companion sprites]   \"Ok do you need to do a pr\"",
+   "stage": "building",
+   "waitingOn": null,
+   "asks": [],
+   "openedAt": "2026-11-06T10:49:25Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-06T10:49:25Z",
+   "headSha": "75eb5cddf5b9ce33e04ced8048f22101bf0e5df9",
+   "touchesGame": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 106,
    "kind": "request",
@@ -976,33 +1000,14 @@
    "requestStatus": "Waiting for answers",
    "botState": "questions",
    "botAt": "2026-11-02T03:10:02Z"
-  },
-  {
-   "number": 63,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner approves all three Journal choices from #60",
-   "quote": "send it. and yes make sure everything is updated",
-   "stage": "closed",
-   "waitingOn": null,
-   "asks": [],
-   "openedAt": "2026-10-28T18:46:53Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-03T05:09:11Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-03T05:09:11Z",
-   "headSha": "8647f4a556730452282b7c2f6c35d47238591377",
-   "touchesGame": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-28T18:49:36Z"
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-06T10:49:25Z",
+   "kind": "asked",
+   "text": "You asked for “Deliver five approved Common sprites to companion roster PR #98”"
+  },
   {
    "at": "2026-11-05T23:41:37Z",
    "kind": "test",
@@ -1197,11 +1202,6 @@
    "at": "2026-11-05T05:00:49Z",
    "kind": "question",
    "text": "Part of “Use tutorial egg companion details; keep Omnidex read-only” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-05T04:55:25Z",
-   "kind": "asked",
-   "text": "You asked for “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
   }
  ],
  "otherPulls": [
