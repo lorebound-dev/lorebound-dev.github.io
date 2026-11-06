@@ -171,9 +171,18 @@
         "pocket-fortune/dist/team.js"
       ],
       "with": "others"
+    },
+    {
+      "number": 130,
+      "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
+      "head": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "94614d5bef4b36e4b05767bd7ac9874d4328166a",
+  "commit": "cc5b79e50bd09b7a265f36967365d74b6b03fab9",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -182,5 +191,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-06T22:16:03Z"
+  "at": "2026-11-06T22:57:00Z"
 }
