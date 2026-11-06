@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T22:16:22.650Z",
+ "generatedAt": "2026-11-06T22:55:41.333Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -39,6 +39,73 @@
   ]
  },
  "items": [
+  {
+   "number": 130,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
+   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
+   "stage": "built",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the Omnidex in a local browser at 320×610, 375×667, 390×844 and 430×932: the Common page with a mix of found and blank cards, a type filter like Mortals, Uncommon and Rare, and the front page next to main. Check that the type buttons are two rows of three with \"Aberrations\" not cut off at 320, that the cards start higher than in Joshua's screenshot, and that nothing is clipped.",
+     "at": "2026-11-06T22:55:04Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check test-build.json on the test site after this push. This pull request includes all of #116, so it goes on after #116 and next to #89. If it's left out because of a clash with #89 in grand-archive.js, add a record next to 116-89-grand-archive-families.json.",
+     "at": "2026-11-06T22:55:04Z"
+    },
+    {
+     "who": "note",
+     "text": "Undiscovered cards use the blank parchment card of their own rarity (the Common, Uncommon or Rare frame), slightly faded so the companions you've found stand out. The name sits in the normal nameplate, with \"Undiscovered\" on the small plate under it. I think it reads clearly without giving anything away.",
+     "at": "2026-11-06T22:55:04Z"
+    },
+    {
+     "who": "note",
+     "text": "I took out the small \"Eligible · unseen\" / \"Tome locked\" line that used to sit under unknown cards, because the plate already says Undiscovered and the request asked for unknown cards to stay plain. If you liked seeing which ones your Tomes can give you, say so and I'll put it back under the card.",
+     "at": "2026-11-06T22:55:04Z"
+    },
+    {
+     "who": "note",
+     "text": "The six type buttons are now in two rows of three on every phone up to 440px wide, which covers every iPhone, including the big ones.",
+     "at": "2026-11-06T22:55:04Z"
+    },
+    {
+     "who": "note",
+     "text": "On rarity pages the Omnidex logo is a bit smaller (38px tall instead of 54px), with a little less space around the rarity name and the pickers. Buttons stay full size for tapping. The front page keeps the big logo.",
+     "at": "2026-11-06T22:55:04Z"
+    },
+    {
+     "who": "note",
+     "text": "The card frames only come in Common, Uncommon and Rare for now. If an undiscovered Epic or higher companion is ever added, its card uses the dark \"sealed\" frame with its name until those frames exist. No Epic or higher companions are in the game today.",
+     "at": "2026-11-06T22:55:04Z"
+    },
+    {
+     "who": "note",
+     "text": "The line above the cards (\"16 of 16 species shown\") now counts all the slots on the page, so Mortals shows \"3 of 16\". The found counts stay on the type buttons and at the top.",
+     "at": "2026-11-06T22:55:04Z"
+    }
+   ],
+   "openedAt": "2026-11-06T22:49:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-06T22:55:04Z",
+   "headSha": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T22:55:04Z"
+  },
   {
    "number": 106,
    "kind": "request",
@@ -605,32 +672,6 @@
    "botAt": "2026-11-03T07:16:57Z"
   },
   {
-   "number": 84,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved 10 unique Auto Summon rarity rows",
-   "quote": "\"I want each line to have its own pattern and color for each rarity\" \"Approved\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-10-31T01:06:23Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T22:16:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T22:16:04Z",
-   "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-03T07:14:35Z"
-  },
-  {
    "number": 118,
    "kind": "request",
    "by": "Joshua",
@@ -1144,14 +1185,29 @@
  ],
  "activity": [
   {
+   "at": "2026-11-06T22:55:04Z",
+   "kind": "built",
+   "text": "Claude finished building “Show named blank undiscovered Omnidex cards and tighten rarity pages”"
+  },
+  {
+   "at": "2026-11-06T22:55:04Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Show named blank undiscovered Omnidex cards and tighten rarity pages”"
+  },
+  {
+   "at": "2026-11-06T22:49:04Z",
+   "kind": "asked",
+   "text": "You asked for “Show named blank undiscovered Omnidex cards and tighten rarity pages”"
+  },
+  {
    "at": "2026-11-06T22:16:04Z",
    "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T21:47:06Z",
    "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T21:45:11Z",
@@ -1166,7 +1222,7 @@
   {
    "at": "2026-11-06T21:45:09Z",
    "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T21:43:37Z",
@@ -1181,7 +1237,7 @@
   {
    "at": "2026-11-06T21:42:21Z",
    "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Double-tap Party cards to swap pending companions directly”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Double-tap Party cards to swap pending companions directly”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T21:40:35Z",
@@ -1196,7 +1252,7 @@
   {
    "at": "2026-11-06T21:36:15Z",
    "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T21:34:52Z",
@@ -1216,17 +1272,17 @@
   {
    "at": "2026-11-06T21:19:02Z",
    "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T21:16:28Z",
    "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T21:03:55Z",
    "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T21:02:01Z",
@@ -1276,7 +1332,7 @@
   {
    "at": "2026-11-06T19:27:04Z",
    "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T19:25:21Z",
@@ -1291,22 +1347,22 @@
   {
    "at": "2026-11-06T19:13:04Z",
    "kind": "test",
-   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
+   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
   },
   {
    "at": "2026-11-06T19:05:29Z",
    "kind": "test",
-   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
+   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
   },
   {
    "at": "2026-11-06T18:58:23Z",
    "kind": "test",
-   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
+   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
   },
   {
    "at": "2026-11-06T18:55:41Z",
    "kind": "test",
-   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
+   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”"
   },
   {
    "at": "2026-11-06T18:54:04Z",
@@ -1321,27 +1377,12 @@
   {
    "at": "2026-11-06T18:52:19Z",
    "kind": "test",
-   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   },
   {
    "at": "2026-11-06T18:50:21Z",
    "kind": "test",
-   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
-  },
-  {
-   "at": "2026-11-06T18:48:42Z",
-   "kind": "closed",
-   "text": "“Relay confirmed owner answers for nine LOREBOUND requests” was closed"
-  },
-  {
-   "at": "2026-11-06T18:47:18Z",
-   "kind": "test",
-   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
-  },
-  {
-   "at": "2026-11-06T18:43:35Z",
-   "kind": "test",
-   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   }
  ],
  "otherPulls": [
