@@ -1,0 +1,57 @@
+{
+ "request": "requests/2026-11-06-companion-details-art-qa.md",
+ "live": false,
+ "note": "Review-only background comparisons for companion-detail-preview.html (Joshua, #123 answer 3). Byte-for-byte copies of approved v04 masters. Not used by the game and not a default for any companion or category.",
+ "scenes": {
+  "beast_wetland_reeds": {
+   "file": "beast-wetland-reeds.png",
+   "pairedWith": "reedwatch_tinker",
+   "source": "Approved/Companion-Theme-Backdrops-P1-Complete12-v04/backgrounds/beast_wetland_reeds.png",
+   "width": 1024,
+   "height": 1536,
+   "bytes": 2658366,
+   "sha256": "4d017132cd2c9df3abb061706989b05e16dae1ece19635106366bf917a1d6880",
+   "copyUntouched": true
+  },
+  "construct_ancient_gate": {
+   "file": "construct-ancient-gate.png",
+   "pairedWith": "millward_bellkeeper",
+   "source": "Approved/Companion-Theme-Backdrops-P1-Complete12-v04/backgrounds/construct_ancient_gate.png",
+   "width": 1024,
+   "height": 1536,
+   "bytes": 2993961,
+   "sha256": "a9fe7730b370dd30bd25296abfabef0db45558dafc9d3a9085124baf63bd1cff",
+   "copyUntouched": true
+  },
+  "wildgrowth_fungal_hollow": {
+   "file": "wildgrowth-fungal-hollow.png",
+   "pairedWith": "dewfern",
+   "source": "Approved/Companion-Theme-Backdrops-P1-Complete12-v04/backgrounds/wildgrowth_fungal_hollow.png",
+   "width": 1024,
+   "height": 1536,
+   "bytes": 3291102,
+   "sha256": "de92afe298c72a3f17dcf4feca6f29e8bab3bcd401827233e5d0e8647503f89a",
+   "copyUntouched": true
+  },
+  "wildgrowth_thorn_bramble": {
+   "file": "wildgrowth-thorn-bramble.png",
+   "pairedWith": "coppice_cricket",
+   "source": "Approved/Companion-Theme-Backdrops-P1-Complete12-v04/backgrounds/wildgrowth_thorn_bramble.png",
+   "width": 1024,
+   "height": 1536,
+   "bytes": 3096579,
+   "sha256": "fcd2d6097f46498d185e94edc1d9fc8d0dd5aecd78fedc5df1fdcd0a551afa23",
+   "copyUntouched": true
+  },
+  "aberration_rift_fracture": {
+   "file": "aberration-rift-fracture.png",
+   "pairedWith": "unstitch",
+   "source": "Approved/Companion-Theme-Backdrops-P1-Complete12-v04/backgrounds/aberration_rift_fracture.png",
+   "width": 1024,
+   "height": 1536,
+   "bytes": 3335658,
+   "sha256": "fb06afcc5ef4e24284904ea77895103c1f9c587091b762f0f4bb7b76295ea740",
+   "copyUntouched": true
+  }
+ }
+}

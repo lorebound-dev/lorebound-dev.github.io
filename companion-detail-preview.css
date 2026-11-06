@@ -18,5 +18,7 @@ html,body{margin:0;min-height:100%;background:#071420;color:#dfe4ec}
 /* The preview's own bar sits at the bottom of the detail page; the page gets room for it so nothing is hidden behind it. */
 #boundSheet.cmp-preview{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
 .cmp-bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 10px max(8px,env(safe-area-inset-bottom));border-top:1px solid #a1885a88;background:#061420f2}
-.cmp-bar button{min-width:64px;min-height:44px;padding:0 12px;border:1px solid #a1885a99;border-radius:0;background:#0b1c2a;color:#e7d9b3;font:13px Georgia,serif!important}
-.cmp-bar span{min-width:52px;text-align:center;font:12px Georgia,serif!important;color:#c8d3e3}
+.cmp-bar{gap:6px}
+.cmp-bar button{min-width:44px;min-height:44px;padding:0 9px;border:1px solid #a1885a99;border-radius:0;background:#0b1c2a;color:#e7d9b3;font:13px Georgia,serif!important}
+.cmp-bar button[aria-pressed="true"]{border-color:#c8b27a;background:#2a2412;color:#f3e3b0}
+.cmp-bar span{min-width:40px;text-align:center;font:12px Georgia,serif!important;color:#c8d3e3}

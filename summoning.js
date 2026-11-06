@@ -21,7 +21,7 @@ function updateStatus(reason='',stoppedAuto=false){const on=auto||!!held;root.Lo
 const quick=$('quickAutoState');quick.hidden=!!$('autoAccess');quick.textContent=quick.hidden?'':on?'Auto ON':'Auto OFF ▾';$('summonRunStatus').textContent=auto?'AUTO · '+run+' opened':held?'AUTO PAUSED · '+held.why:reason?(stoppedAuto?'AUTO STOPPED · ':'')+reason:'SUMMONING';$('summonAutoStop').hidden=!held;$('summonRemaining').textContent=fmt(root.LoreBatch.balance(read()))+' '+root.LoreBatch.currency(read())+' remaining';$('autoSummon').textContent=on?'■ STOP':'▶ OFF';$('autoSummon').setAttribute('aria-label',on?'Stop auto summon':'Start auto summon');}
 // A new discovery or a ticked rarity only pauses Auto (held) while its decision is open. Any stop with a reason, like Stop or a menu, cancels the pause too.
 function stop(reason=''){const stoppedAuto=auto||!!held;auto=false;if(stoppedAuto)clearStream();if(reason&&reason!=='Companion decision required')held=null;if(stoppedAuto)lastStop=reason;if(read())updateStatus(reason,stoppedAuto);}
-// With Lore Shards, Auto opens its ×N batch one companion at a time, 500ms apart (Joshua, 2026-11-06), and the batch's
+// With Lore Shards, Auto opens its ×N batch one companion at a time, 200ms apart (Joshua, 2026-11-06), and the batch's
 // last one stays for 2 seconds, which is also the pause before the next batch. Speed settings don't change either.
 const AUTO_SHOW_MS=200,AUTO_HOLD_MS=2000;
 // During Auto, a released result shows as a small sprite inside the portal and stays fully visible until the next
@@ -64,7 +64,8 @@ function presentDiscovery(next,fromAuto=false,reason=''){if(next.isNew)root.Lore
 // for and saved before the spin-up starts, so a reload or a closed app shows it as the waiting result: the spin-up only
 // delays the screen. Taps on the Rift, Auto, the Tome button and the settings do nothing while it spins. Reduced motion
 // gets a short, still glow instead (RIFT_CALM_MS). If the Rift picture never loaded, the result opens straight away.
-const RIFT_SPIN_MS=500,RIFT_CALM_MS=250;let spinning=null;
+// Joshua's answer (2026-11-06): the spin-up lasts 0.3 seconds.
+const RIFT_SPIN_MS=300,RIFT_CALM_MS=250;let spinning=null;
 function spinUp(next){if(document.hidden||visibleReveal()||$('game')?.dataset?.railArt!=='rift')return presentDiscovery(next);const spin={next},portal=$('summonPortal');spinning=spin;phase='spin';portal.setAttribute('data-phase','spin');portal.classList.add('rift-spinning');setTimeout(()=>{if(spinning===spin)spunUp();},reduced()?RIFT_CALM_MS:RIFT_SPIN_MS);return true;}
 function spunUp(){const spin=spinning;if(!spin)return false;spinning=null;$('summonPortal').classList.remove('rift-spinning');phase='idle';return presentDiscovery(spin.next);}
 // A companion swapped out of the party waits in the open Party dock as the next choice, not in another reveal.

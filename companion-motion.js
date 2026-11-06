@@ -1,17 +1,18 @@
 /* Companion details move like the starter on the tutorial's "A NEW BOND" screen (request 2026-11-06-companion-details-art-qa).
    Cosmetic only: it reads nothing from the save, writes nothing, and never starts a game action.
-   - Opening a companion (Party, Team manager or Omnidex) plays the tutorial entrance (boundAppear), then one windup-and-lunge
-     (revealAttackCycle's motion, once instead of every 4 seconds), then a quiet idle.
-   - Tapping the companion's picture plays the lunge again. A tap during a lunge restarts it, so nothing queues or stacks.
-   - The three starters keep their own tutorial idle and particles. Other companions reuse the starter idle that suits them:
-     Wildgrowth sways, Spirits hover, everyone else breathes. Only categories with a tutorial strike shape show one.
+   - Opening a companion (Party, Team manager or Omnidex) plays the tutorial entrance (boundAppear), then the windup-and-lunge
+     one second in and every 4 seconds after, like revealAttackCycle on the tutorial screen, over a quiet idle.
+   - Tapping the companion's picture plays the lunge at once and restarts the 4-second count, so nothing queues or stacks.
+   - The three starters keep their own tutorial idle and particles. Other companions reuse the starter idle that suits them
+     (Wildgrowth sways, Spirits hover, everyone else breathes) and get a soft glow and three small motes in their category's
+     colours, spread a little differently each time a companion opens (Joshua's answer 2 in #123). Every category has a strike flash.
    - Reduced motion (or the preview page's still mode) shows the picture without any of this. */
 (function(root){'use strict';
 const STAGES={boundSheet:['.bound-art','#boundCardSprite'],historicalCompanion:['.detail-art','.creature']};
 const STARTERS={bramblebud:0,cinderclack:1,glimwick:2};
 const IDLE={Wildgrowth:'sway',Spirits:'hover'};
-const STRIKE={Wildgrowth:true,Beasts:true,Constructs:true};
-const ENTRANCE=650,FIRST_REACTION=1000,REACTION=900;
+const ENTRANCE=650,FIRST_REACTION=1000,REACTION=900,LOOP=4000;
+const between=(a,b)=>a+Math.random()*(b-a);
 const timers=new WeakMap();
 function still(){return !!(root.document?.documentElement?.classList?.contains('cm-still')||root.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches);}
 function companions(){return root.LoreRealm?.C?.companions||root.LoreConfig?.companions||[];}
@@ -25,9 +26,13 @@ function identify(dialog){
 }
 function decorations(stage,who){
  stage.querySelectorAll(':scope>.cm-deco').forEach(x=>x.remove());
- const add=cls=>{const i=root.document.createElement('i');i.className=cls+' cm-deco';i.setAttribute('aria-hidden','true');stage.appendChild(i);};
- if(who.id in STARTERS){add('idle-glow');for(const m of ['m1','m2','m3'])add('idle-mote '+m);}
- if(STRIKE[who.category])add('reveal-strike');
+ const add=cls=>{const i=root.document.createElement('i');i.className=cls+' cm-deco';i.setAttribute('aria-hidden','true');stage.appendChild(i);return i;};
+ add('idle-glow');
+ // Starters keep the tutorial's fixed mote places. Everyone else gets a slightly different spread each time.
+ for(const m of ['m1','m2','m3']){const i=add('idle-mote '+m);if(who.id in STARTERS||!i.style?.setProperty)continue;
+  i.style.setProperty('--cm-x',between(18,78).toFixed(0)+'%');i.style.setProperty('--cm-y',between(12,52).toFixed(0)+'%');
+  i.style.setProperty('--cm-wait',between(.8,3.4).toFixed(2)+'s');i.style.setProperty('--cm-speed',between(.85,1.2).toFixed(2));}
+ add('reveal-strike');
 }
 function setup(dialog){
  const sel=STAGES[dialog.id];if(!sel)return null;const stage=dialog.querySelector(sel[0]),body=stage?.querySelector(sel[1]);if(!stage||!body)return null;
@@ -35,20 +40,22 @@ function setup(dialog){
  stage.className=stage.className.replace(/\b(cm-[\w-]+|idle-[0-2])\b/g,'').trim();body.classList.add('cm-body');
  stage.classList.add('cm-stage','cm-'+(IDLE[who.category]||'breathe'));
  if(who.category)stage.classList.add('cm-cat-'+who.category.toLowerCase());
- if(who.id in STARTERS)stage.classList.add('idle-'+STARTERS[who.id]);
+ if(who.id in STARTERS)stage.classList.add('idle-'+STARTERS[who.id]);else stage.classList.add('cm-acc');
  decorations(stage,who);
  return stage;
 }
 function restart(stage,cls){stage.classList.remove(cls);void stage.offsetWidth;stage.classList.add(cls);}
 function clear(stage){const t=timers.get(stage);if(t)t.forEach(clearTimeout);timers.set(stage,[]);}
 function later(stage,fn,ms){const list=timers.get(stage)||[];list.push(setTimeout(fn,ms));timers.set(stage,list);}
-// Plays the lunge once. A new tap restarts it rather than adding another.
+// Plays the lunge now and the next one 4 seconds later, while the page stays open. A tap restarts this rather than
+// adding another, so lunges never stack.
 function react(stage){
  if(!stage||still())return false;
- const list=timers.get(stage)||[];list.forEach(clearTimeout);timers.set(stage,[]);
- restart(stage,'cm-react');later(stage,()=>stage.classList.remove('cm-react'),REACTION+50);return true;
+ clear(stage);
+ restart(stage,'cm-react');later(stage,()=>stage.classList.remove('cm-react'),REACTION+50);
+ later(stage,()=>{if(stage.closest?.('dialog')?.open)react(stage);},LOOP);return true;
 }
-// Plays the entrance, then one lunge at the tutorial's one-second mark, then the idle.
+// Plays the entrance, then the lunge at the tutorial's one-second mark and every 4 seconds after.
 function play(dialog){
  const stage=setup(dialog);if(!stage)return null;clear(stage);stage.classList.remove('cm-react');
  if(still())return stage;

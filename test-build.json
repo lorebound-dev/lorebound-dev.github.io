@@ -1,5 +1,5 @@
 {
-  "base": "d0b8122aab4c37b1aba6d9d18946c481a579dd21",
+  "base": "bcc9b88a6b1978d2e1ee609d589969960a5bc3ef",
   "included": [
     {
       "number": 38,
@@ -49,7 +49,7 @@
     {
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-      "head": "f0979610dd5a350a06efe66169816bbd105c9d30"
+      "head": "ebf77785013a01fae042fc9118165ed61b5f35f5"
     },
     {
       "number": 93,
@@ -64,7 +64,7 @@
     {
       "number": 102,
       "title": "Integrate approved 10-tier companion dock backgrounds",
-      "head": "8515bfc09043d19601438cbad48686581e117881"
+      "head": "c1494e8b45f798739afb1e5dbe4101435fd884c0"
     },
     {
       "number": 103,
@@ -74,7 +74,7 @@
     {
       "number": 106,
       "title": "Refine Adventure: full-width companion cards and grounded battlefield",
-      "head": "5bb9e03b472e5d1d781b28ce423458c8e8d15e01"
+      "head": "ef79bd583babd8b559927e6e72813394e6a90e11"
     },
     {
       "number": 109,
@@ -84,12 +84,12 @@
     {
       "number": 115,
       "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
-      "head": "0d72ab92543be8deca1f250679800d954eae114b"
+      "head": "cb786c4c53a795e2b89347e309d893c51b1d404d"
     },
     {
       "number": 117,
       "title": "Preview approved Common companions in existing detail screen",
-      "head": "0ae34efeda296fda6f2ef343a69118515e2f71bd"
+      "head": "05f6ded6ca37e22084edde4d967801936a0fe111"
     },
     {
       "number": 122,
@@ -121,7 +121,7 @@
     {
       "number": 116,
       "title": "Rework Omnidex into universal collection and rarity pages",
-      "head": "9b88766d540b76d0737c9a8e14c8e24d5438c0d7",
+      "head": "ef493d2202024d49a81128916aa059af138d56bb",
       "files": [
         "pocket-fortune/dist/grand-archive.js"
       ],
@@ -130,9 +130,13 @@
     {
       "number": 118,
       "title": "Double-tap Party cards to swap pending companions directly",
-      "head": "b5b39bf2334a0e20cdf4bc7a8000335733da3a4b",
+      "head": "269e14c228cd072a14087ed198d517aa36df686f",
       "files": [
-        "pocket-fortune/dist/ownership-adventure.js"
+        "pocket-fortune/dist/companion-motion.css",
+        "pocket-fortune/dist/companion-motion.js",
+        "pocket-fortune/dist/home.html",
+        "pocket-fortune/dist/ownership-adventure.js",
+        "pocket-fortune/dist/team.js"
       ],
       "with": "others"
     },
@@ -146,6 +150,6 @@
       "with": "others"
     }
   ],
-  "commit": "b85b00d4280c861bf5f1d072ea0f5454614946aa",
-  "at": "2026-11-06T18:17:06Z"
+  "commit": "26c85afd7b3614ac312a580ac8c1bf5d119112bd",
+  "at": "2026-11-06T18:36:51Z"
 }

@@ -6,7 +6,7 @@
 (function(root){'use strict';
 const $=id=>document.getElementById(id),R=root.LoreRealm,A=root.LoreArt,P=root.LoreCompanionProfile;
 const ART='assets/review/common5-preview/';
-// The five approved Commons. Categories are #98's planned ones; they have no stats, odds, Tome, size or weight yet.
+// The five approved Commons. Categories are #98's planned ones; they have no stats, odds or Tome yet.
 const NEW=[['reedwatch-tinker','Reedwatch Tinker','Mortals'],['millward-bellkeeper','Millward Bellkeeper','Mortals'],['dewfern','Dewfern','Wildgrowth'],
  ['coppice-cricket','Coppice Cricket','Wildgrowth'],['unstitch','Unstitch','Aberrations']].map(([id,name,category])=>({id,name,category,rarity:'Common',src:ART+id+'-768.png',preview:true}));
 // Current companions, unchanged: the three starters and one from each other category.
@@ -16,6 +16,20 @@ for(const id of BASE){const owned=state.party.slots.find(x=>x&&x.split('~')[0]==
 const current=BASE.map(id=>({...R.species(id),copy:copies[id]}));
 const all=[...NEW,...current];let at=0;
 const num=n=>n<1000?String(Math.round(n*10)/10):Math.round(n).toLocaleString('en-US');
+// Review-only background comparisons (Joshua, #123 answer 3): five approved v04 scenes, copied unchanged, one suggested
+// for each new Common. "Scene" steps from the companion's current background through its suggested scene, then the others.
+// Nothing here changes any companion's or category's background in the game.
+const SCENES=[['reedwatch-tinker','beast-wetland-reeds','Wetland Reeds'],['millward-bellkeeper','construct-ancient-gate','Ancient Gate'],
+ ['dewfern','wildgrowth-fungal-hollow','Fungal Hollow'],['coppice-cricket','wildgrowth-thorn-bramble','Thorn Bramble'],['unstitch','aberration-rift-fracture','Rift Fracture']]
+ .map(([pair,file,name])=>({pair,name,src:'assets/review/scene-compare/'+file+'.png'}));
+let scene=0;
+function scenesFor(h){const own=SCENES.filter(s=>s.pair===h.id);return [null,...own,...SCENES.filter(s=>s.pair!==h.id)];}
+function showScene(h){
+ const sheet=$('boundSheet'),pick=scenesFor(h)[scene],habitat=pick?`url('${pick.src}')`:(P.habitat(h.category)||'');
+ sheet.classList.toggle('bound-habitat',!!habitat);sheet.style.setProperty('--companion-habitat',habitat||'none');
+ $('boundKicker').textContent=pick?'REVIEW SCENE · '+pick.name.toUpperCase()+' · NOT IN GAME':h.preview?'PREVIEW · NEW, NOT IN GAME':'PREVIEW · CURRENT, UNCHANGED';
+ $('cmpScene').setAttribute('aria-pressed',String(!!pick));$('cmpScene').setAttribute('aria-label',pick?'Scene: '+pick.name+', review only. Tap for the next.':'Scene: current. Tap to try a review scene.');
+}
 function picture(el,h){if(h.preview){el.className='starter-sheet bound-card-sprite companion-art';el.innerHTML=`<img src="${h.src}" alt="${h.name}">`;el.setAttribute('aria-label',h.name);}else{el.className='starter-sheet bound-card-sprite';A.apply(el,h,{creatureOnly:true});}}
 function fill(h){
  const sheet=$('boundSheet');
@@ -25,17 +39,16 @@ function fill(h){
  $('boundRarityBadge').innerHTML=A.rarity(h.rarity);$('boundRarityBadge').style.color=h.color||'';
  $('boundTypeBadge').innerHTML=`<svg viewBox="0 0 32 32"><use href="assets/category-sigils.svg#${h.category.toLowerCase()}"/></svg><b>${h.category}</b>`;
  picture($('boundCardSprite'),h);
- const habitat=P.habitat(h.category)||'';sheet.classList.toggle('bound-habitat',!!habitat);sheet.style.setProperty('--companion-habitat',habitat||'none');
+ scene=0;showScene(h);
  if(h.preview){for(const id of ['boundCardLevel','boundCardDps','boundCardHp','boundCardDef'])$(id).textContent='—';
-  $('boundFlavor').textContent='Size and weight not set yet';
   $('boundEvolutionTarget').textContent='Not set yet';$('boundEvolutionFill').style.width='0%';$('boundEvolutionHint').textContent='Mastery starts once this companion is in the game.';
   $('boundSources').innerHTML='<p>'+h.category+' · Common · Preview only</p><p>Not in the game yet: it can’t be summoned or owned, and its stats, odds and Tome aren’t set. The numbers above stay blank until they are.</p>';}
  else{const c=R.combat(state,h.copy,true),t=R.C.masteryThresholds[h.category==='Aberrations'?'aberration':'ordinary'][h.rarity];
   $('boundCardLevel').textContent=Number(c.interval.toFixed(3))+'s';$('boundCardDps').textContent=num(c.expectedDps);$('boundCardHp').textContent=num(c.damage);$('boundCardDef').textContent=(c.crit*100).toFixed(1)+'%';
-  $('boundFlavor').textContent=P.text(h.id)||'';
   $('boundEvolutionTarget').textContent='Lv. 0 / 6 · 1 lifetime summons';$('boundEvolutionFill').style.width='0%';$('boundEvolutionHint').textContent='Next: '+t[0]+(t[0]===1?' summon':' summons');
   $('boundSources').innerHTML='<p>'+h.category+' · '+h.rarity+' · Preview copy, not owned</p><p>Available from Tome '+['I','II','III','IV','V'][h.unlock-1]+' onward</p><p>Base numbers for a new copy. In the game they include your upgrades.</p>';}
- $('boundFlavor').hidden=!$('boundFlavor').textContent;
+ // Size and weight are gone from every companion screen (Joshua, #123 answer 4).
+ $('boundFlavor').textContent='';$('boundFlavor').hidden=true;
  $('boundSheetName').textContent=h.name;
  $('cmpCount').textContent=(at+1)+' / '+all.length;
 }
@@ -44,6 +57,7 @@ function card(h,i){return `<button type="button" class="cmp-pick" data-pick="${i
 $('cmpNew').innerHTML=NEW.map((h,i)=>card(h,i)).join('');
 $('cmpBase').innerHTML=current.map((h,i)=>card(h,NEW.length+i)).join('');
 document.addEventListener('click',e=>{const b=e.target.closest?.('[data-pick]');if(b)open(Number(b.dataset.pick));});
+$('cmpScene').onclick=()=>{scene=(scene+1)%(SCENES.length+1);showScene(all[at]);};
 $('cmpPrev').onclick=()=>open(at-1);$('cmpNext').onclick=()=>open(at+1);
 $('closeBound').onclick=$('cmpList').onclick=()=>$('boundSheet').close();
 // The page's buttons stand where the game's are, for layout only. Here they do nothing.

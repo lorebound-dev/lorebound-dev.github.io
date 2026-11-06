@@ -1,20 +1,13 @@
-/* Cosmetic companion lore: one habitat per category and fixed display measurements. No combat, odds or save data. */
+/* Cosmetic companion lore: one habitat per category. No combat, odds or save data. */
 (function(root){'use strict';
 // One full-screen habitat per category; the starry void stays as the fallback. Joshua chose Ruined Fortress v03 for
 // Mortals and kept the volcano for Beasts; the alternatives he didn't pick are kept in reviews/companion-habitats/.
 const habitats=Object.freeze({Wildgrowth:'habitat-woodland',Beasts:'habitat-volcanic',Constructs:'habitat-moonlit',Mortals:'habitat-ruined-fortress',Spirits:'habitat-veiled-sanctuary',Aberrations:'habitat-fractured-observatory'});
 const fallback='void';
-// Species id (owned copy ids like 'bramblebud~3' resolve too): [size label, metres, weight in kg or a word for bodiless species]
-const measures=Object.freeze({
- bramblebud:['Height',.3,1.4],cinderclack:['Size',.4,6.5],glimwick:['Height',.4,2.8],
- 'lost-squire':['Height',1.5,48],'cavern-scout':['Height',1.7,62],'wandering-acolyte':['Height',1.7,58],rustblade:['Height',1.8,84],'hollow-knight':['Height',2,140],
- 'gloom-bat':['Size',.6,.4],'stoneback-toad':['Height',.5,18],'cave-moth':['Size',.5,.2],'moonveil-stag':['Height',1.6,190],
- 'soot-sprite':['Size',.2,'Weightless'],'wick-wisp':['Size',.2,'Weightless'],'lantern-wisp':['Size',.3,'Weightless'],'rune-wisp':['Size',.4,'Weightless'],'ashen-familiar':['Height',.5,1.2],'dusk-revenant':['Height',1.9,'Weightless'],
- pebblekin:['Height',.3,12],rustmite:['Size',.3,4.5],dripstone:['Height',.6,35],'stone-sentinel':['Height',2.6,1250],
- rootling:['Height',.4,3.2],shroomlet:['Height',.3,.9],twigling:['Height',.6,2.1],briarling:['Height',.8,9.5],gravecap:['Height',.7,6],
- 'crooked-eye':['Size',.5,3.4],'hollow-maw':['Size',4.2,260],'forgotten-watcher':['Height',2.3,'Unknown']});
 function habitat(category){if(!(category in habitats))return '';return `url('assets/${habitats[category]||fallback}.png')`;}
-function measure(id){const m=measures[String(id).split('~')[0]];if(!m)return null;return {sizeLabel:m[0],size:m[1].toFixed(1)+' m',weight:typeof m[2]==='number'?m[2].toLocaleString('en-US',{maximumFractionDigits:1})+' kg':m[2]};}
-function text(id){const m=measure(id);return m?`${m.sizeLabel} ${m.size} · Weight ${m.weight}`:'';}
-root.LoreCompanionProfile=Object.freeze({habitats,fallback,measures,habitat,measure,text});
+// Joshua removed size and weight from every companion screen (request 2026-11-06-companion-details-art-qa, answer 4 in #123).
+// The Team sheet, Omnidex page and summon reveal hide their line when this is empty, and the tutorial's "A NEW BOND"
+// screen shows the starter's own description instead.
+function text(){return '';}
+root.LoreCompanionProfile=Object.freeze({habitats,fallback,habitat,text});
 })(globalThis);
