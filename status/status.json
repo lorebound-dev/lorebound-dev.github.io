@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T21:02:29.791Z",
+ "generatedAt": "2026-11-06T21:15:31.395Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-06T19:27:04Z",
+  "updatedAt": "2026-11-06T21:03:54Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -25,7 +25,6 @@
    "Integrate approved 10-tier companion dock backgrounds",
    "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
    "Refine Adventure: full-width companion cards and grounded battlefield",
-   "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
    "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
    "Rework Omnidex into universal collection and rarity pages",
    "Preview approved Common companions in existing detail screen",
@@ -34,10 +33,563 @@
   ],
   "skipped": [
    "Use tutorial egg companion details; keep Omnidex read-only",
-   "Double-tap Party cards to swap pending companions directly"
+   "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
+   "Double-tap Party cards to swap pending companions directly",
+   "Double species mastery summon requirements and damage bonuses"
   ]
  },
  "items": [
+  {
+   "number": 89,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
+   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Once #78 is merged, add the Realm 2 companions' summon chances to its Portal the way Joshua approved: each rarity keeps its total, ordinary companions share it evenly, Parallax Shard gets Crooked Eye's rate, Riftmourn gets Forgotten Watcher's 0.1%, and Epic's 1% comes from Common.",
+     "at": "2026-11-06T21:00:05Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at the Omnidex in a local browser at 320×610, 375×667, 390×844 and 430×932. Check that Mossbound Ruins and Ashen Expanse both show, that Ashen Expanse reads 0 / 30 with every card hidden, and that the realm, rarity and family filters fit without clipping. Joshua can also try it on https://lorebound-dev.github.io/.",
+     "at": "2026-11-06T21:00:05Z"
+    },
+    {
+     "who": "note",
+     "text": "Both discovery achievements now count companions from every realm, as you asked. The second one is still called \"Discover every Realm 1 species\", but once Realm 2 companions can be summoned, a player could earn it without finding all of Realm 1. I'd change the wording to \"Discover 30 species\" so it says what it does. I haven't changed it, because you asked to keep the titles.",
+     "at": "2026-11-06T21:00:05Z"
+    }
+   ],
+   "openedAt": "2026-11-01T03:47:10Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T21:00:05Z"
+  },
+  {
+   "number": 92,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Take phone pictures on the test site of Haven's title screen, the static wipe and the framed town, at 320×610, 375×812, 390×844 and 430×932.",
+     "at": "2026-11-06T19:29:03Z"
+    },
+    {
+     "who": "note",
+     "text": "The static wipe lasts 0.6 seconds: about 0.15 s of plain static, then a scanline sweeps down over 0.45 s. That's in the middle of the 0.4–0.8 s you asked for, and I think it feels like a screen switching on without slowing you down.",
+     "at": "2026-11-06T19:29:03Z"
+    },
+    {
+     "who": "note",
+     "text": "The title shows once each time the game is opened or reloaded. Closing and reopening Haven doesn't show it again. I think that's right: more often would get in the way.",
+     "at": "2026-11-06T19:29:03Z"
+    },
+    {
+     "who": "note",
+     "text": "The HAVEN and PRESS START letters are pixel letters I drew in code, not a copied console font or logo. The shell is purple-grey plastic, like an old handheld, and the top strip says LOREBOUND, not a console name.",
+     "at": "2026-11-06T19:29:03Z"
+    },
+    {
+     "who": "note",
+     "text": "I kept the decorations to the top strip and left the sides and bottom at 5px, so the town loses only about 28px of height. If you'd like a chunkier handheld, with a real cross pad and buttons under the screen, it would cost about 60–80px of the town's height on a small phone. I'd keep it thin.",
+     "at": "2026-11-06T19:29:03Z"
+    },
+    {
+     "who": "note",
+     "text": "Inside the frame, Haven's screen edge is now a dark bezel line instead of the thin gold border, so it reads as a screen inside the shell. The panels inside keep their gold edges.",
+     "at": "2026-11-06T19:29:03Z"
+    }
+   ],
+   "openedAt": "2026-11-02T02:38:48Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "04a20617ff5c66e8696a8d65f35c1cc497b028f6",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T19:11:37Z"
+  },
+  {
+   "number": 116,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rework Omnidex into universal collection and rarity pages",
+   "quote": "Also the codex needs to be reworked as there are no longer realm specific companions. Just have it be total collection at the top that you can click on and have pages sorted by rarity instead of one long scroll page. Also on the front have the collection breakdown (the one with the types) be at a rarity level. So first it will have counting discovered by rarity then when you click it has the collection breakdown",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "note",
+     "text": "The type boxes switch to two rows of three on screens up to 400px wide. That covers most phones, so the cards come up higher where it matters, while big phones keep the roomier boxes. I think it reads better than before.",
+     "at": "2026-11-06T19:29:02Z"
+    },
+    {
+     "who": "note",
+     "text": "On those phones, a finished type shows its completed seal but not the word \"Complete\", because the word doesn't fit in a third of the width. I think the seal is clear enough. If you'd like the word back, the box could show a small check mark instead.",
+     "at": "2026-11-06T19:29:02Z"
+    }
+   ],
+   "openedAt": "2026-11-06T11:56:55Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-06T18:41:59Z"
+  },
+  {
+   "number": 120,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify Rift rarity bars and clean up legacy Tome UI",
+   "quote": "Make the upgrade rift rarity bars be the same ones used on the auto screen. Remove anything saying highest level. Remove all pngs of tomes and replace with the new rift. Remove the all levels button on the upgrade rift. Move the upgrade rift button up a bit and shrink it a bit.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Once #78 is merged, remove All levels here, and take out #78's new \"highest level\" wording as this request asks. Until #78 is in, All levels is the only way back to a higher Rift level after picking a lower one.",
+     "at": "2026-11-06T19:26:28Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #84 is merged, make Upgrade Rift use Auto Summon's rarity rows here, leaving #85's row art out, as this request asks.",
+     "at": "2026-11-06T19:26:28Z"
+    }
+   ],
+   "openedAt": "2026-11-06T12:38:45Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "52bcba60b88ddd74ce3cee459d7be58925d4afbc",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T12:46:37Z"
+  },
+  {
+   "number": 122,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
+   "quote": "After reviewing real iPhone screenshots of Adventure (Party open and folded), Rift Upgrades (top and scrolled), and Auto Summon (top and scrolled), Joshua approved the proposed **small, targeted visual polish** rather than moving to Haven or Realm 2: \"Yes.\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "note",
+     "text": "On phones narrower than 360, the Auto quantity now reads \"×10\" instead of \"×10 Summons\". At 360 and wider, the full word fits with room to spare, so it stays there. I think this is the right cut-off: at 340 the full label would only just fit, with about 4px to spare.",
+     "at": "2026-11-06T19:26:23Z"
+    }
+   ],
+   "openedAt": "2026-11-06T13:17:37Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "31ac1d91a945206547b20af5774ad92878da133e",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-06T18:54:04Z"
+  },
+  {
+   "number": 103,
+   "kind": "fix",
+   "by": "Joshua",
+   "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
+   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Take phone pictures at 320×610, 375×812, 390×844 and 430×932 on the test site, with #97 combined, because the Party bar plate only shows there.",
+     "at": "2026-11-06T19:26:21Z"
+    },
+    {
+     "who": "claude",
+     "text": "The shard cost under the summon portal is clipped by the bottom bar at 320 and 390 wide (found while building #122). It's placed by .dock-summon-copy (top:53px) in adventure-compact.css. Raise it about 4px here, then check it with #120 on the test site.",
+     "at": "2026-11-06T19:26:21Z"
+    }
+   ],
+   "openedAt": "2026-11-03T21:24:18Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "b97efe3e3e767d7703cba73ed78c400663c553f8",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
+   "botState": "questions",
+   "botAt": "2026-11-04T06:26:18Z"
+  },
+  {
+   "number": 97,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Design guided progression companion power and achievements from owner references",
+   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the combined test site at phone sizes, starting with 320×610 and 390×844, with this request, #103 and #106 together. Check whether the ten-place tray's button row should replace #93's collapse arrow. If that's a design choice, ask Joshua with pictures.",
+     "at": "2026-11-06T19:26:19Z"
+    }
+   ],
+   "openedAt": "2026-11-02T03:47:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "fbf6ff9193661fd361807e00557b242a32735ad4",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-03T20:05:41Z"
+  },
+  {
+   "number": 106,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
+   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "At 320 wide, the green Party level badge sticks out about 2px past the card's left edge (found while building #122). Nudge it about 3px inward in adventure-party-cards.css here, then check it at 320×610.",
+     "at": "2026-11-06T19:26:14Z"
+    }
+   ],
+   "openedAt": "2026-11-04T13:41:58Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "ef79bd583babd8b559927e6e72813394e6a90e11",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T18:32:13Z"
+  },
+  {
+   "number": 117,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Preview approved Common companions in existing detail screen",
+   "quote": "\"Ok\" [to preparing a test version of companion-detail screens using already approved sprites and habitat backgrounds].  \"Yeah I like all the ones so far that are there.\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "note",
+     "text": "The lunge now repeats every 4 seconds, the same timing as the tutorial, and a tap plays it at once. I think it suits the page. If it feels busy while you read stats, 6 seconds would be calmer.",
+     "at": "2026-11-06T19:26:11Z"
+    },
+    {
+     "who": "note",
+     "text": "Every companion except the starters now gets a soft glow, three sparkles and a strike flash in its category's colours, placed a bit differently each time. I kept it to three sparkles, the same as the starters, so the page stays calm. A Rare or higher companion could get one or two extra sparkles later if you want them to feel more special.",
+     "at": "2026-11-06T19:26:11Z"
+    },
+    {
+     "who": "note",
+     "text": "Mortals, Spirits and Aberrations had no strike flash in the tutorial, so I gave them one in the same style: a gold diamond for Mortals, a pale star for Spirits and a jagged violet shard for Aberrations.",
+     "at": "2026-11-06T19:26:11Z"
+    },
+    {
+     "who": "note",
+     "text": "Size and weight are removed everywhere. The tutorial's \"A NEW BOND\" screen now shows the starter's short description in that spot instead of leaving it empty.",
+     "at": "2026-11-06T19:26:11Z"
+    },
+    {
+     "who": "note",
+     "text": "I picked one scene for each new Common: Reedwatch Tinker with Wetland Reeds, Millward Bellkeeper with Ancient Gate, Dewfern with Fungal Hollow, Coppice Cricket with Thorn Bramble and Unstitch with Rift Fracture. They're only on the preview page. Tell me which pairs you like and I'll make them those companions' backgrounds in the game.",
+     "at": "2026-11-06T19:26:11Z"
+    }
+   ],
+   "openedAt": "2026-11-06T12:00:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-06T18:34:28Z"
+  },
+  {
+   "number": 102,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved 10-tier companion dock backgrounds",
+   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-03T20:41:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "c1494e8b45f798739afb1e5dbe4101435fd884c0",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-06T18:27:37Z"
+  },
+  {
+   "number": 115,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
+   "quote": "during auto summons it goes back to .5 seconds per companion. Also the tome animation needs to be removed when opening one at a time. I think it should be replaced with the portal gif spinning up faster than having the screen pop up.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "note",
+     "text": "A tap on the Rift now spins it up for 0.3 seconds before the result opens. I think that's a good length: it feels quick, but you still see it. In 0.3 seconds the swirl turns one and a half times, so it ends quite fast. If it looks like a flicker on your phone, I'd make it one full turn instead.",
+     "at": "2026-11-06T18:26:45Z"
+    },
+    {
+     "who": "note",
+     "text": "I kept the shorter effect for repeats that the game already had: repeat Commons and Uncommons play at a bit under half the length, and new or Rare-and-up companions get the full effect. That's what you asked for, so I didn't make it any shorter.",
+     "at": "2026-11-06T18:26:45Z"
+    }
+   ],
+   "openedAt": "2026-11-06T11:54:10Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "cb786c4c53a795e2b89347e309d893c51b1d404d",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-06T18:26:45Z"
+  },
+  {
+   "number": 78,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
+   "quote": "LOREBOUND — Summoning System UI Refactor. Replace Tome-tier presentation with one permanent Portal progression. This request supersedes earlier Tome-tier UI direction. one permanent Summoning Portal / Rift ... one portal level progression ... Level 1, Level 2, Level 3 ... no Tome I / II / III / IV / V presentation ... no “Library > Tome III” style labeling. This request is primarily a UI / presentation refactor ... preserve current real functionality where possible ... all values displayed are real, live game values.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-10-29T23:17:42Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "690d04bbf0a7ebf35544adb05bf20e06d47ff079",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-05T14:45:11Z"
+  },
+  {
+   "number": 81,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
+   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-10-30T01:27:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-04T06:24:58Z"
+  },
+  {
+   "number": 93,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Reduce empty space above expanded Party cards",
+   "quote": "Also the distance between the top of the menus and the companions is too big",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-02T02:55:24Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-03T19:51:15Z"
+  },
+  {
+   "number": 83,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Stage approved companion habitats on dev for mobile QA",
+   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-10-31T00:30:55Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-03T07:16:57Z"
+  },
+  {
+   "number": 84,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate approved 10 unique Auto Summon rarity rows",
+   "quote": "\"I want each line to have its own pattern and color for each rarity\" \"Approved\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-10-31T01:06:23Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:03:55Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-06T21:03:55Z",
+   "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-03T07:14:35Z"
+  },
   {
    "number": 119,
    "kind": "request",
@@ -72,6 +624,11 @@
      "who": "note",
      "text": "The Hall trophy \"The Sixfold Covenant\" (Mastery VI in each of the six families) is worked out fresh from the current ranks. So a player who had it could see it locked again until they reach the new totals. It gives no reward, so nothing is taken back. \"The Last Vigil\" stays unlocked, because the game already remembers that one once it's earned.",
      "at": "2026-11-06T21:02:01Z"
+    },
+    {
+     "who": "claude",
+     "text": "It clashes with another change in progress, in team.js, so it isn't on the test site yet.",
+     "at": null
     }
    ],
    "openedAt": "2026-11-06T12:37:13Z",
@@ -81,7 +638,7 @@
    "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
-   "clashes": false,
+   "clashes": true,
    "updatedAt": "2026-11-06T21:02:01Z",
    "headSha": "786be6022c9a99d75e8820800db1ce2ad3181f50",
    "touchesGame": true,
@@ -96,7 +653,7 @@
    "by": "Joshua",
    "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
    "quote": "\"If nothing is checked in the auto summon it should stop at every single one. Also any mention of tone should be replaced and any image of a tome book should be. I need the achievement bar to look better, open to suggestion. Remove the guardian relics.\"",
-   "stage": "testing",
+   "stage": "built",
    "waitingOn": null,
    "forClaude": true,
    "asks": [
@@ -129,6 +686,11 @@
      "who": "note",
      "text": "With the Guardian room gone, Records has three tabs. I put them in one row on phones, instead of the old two-by-two grid, which would have left one tab alone on the second row.",
      "at": "2026-11-06T21:00:53Z"
+    },
+    {
+     "who": "claude",
+     "text": "It clashes with another change in progress, in treasure-ui.js, so it isn't on the test site yet.",
+     "at": null
     }
    ],
    "openedAt": "2026-11-05T04:55:25Z",
@@ -136,9 +698,9 @@
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
+   "onTest": false,
    "testIsCurrent": false,
-   "clashes": false,
+   "clashes": true,
    "updatedAt": "2026-11-06T21:00:53Z",
    "headSha": "3aead0ab03637711d215423df91b508d93848de2",
    "touchesGame": true,
@@ -146,48 +708,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-06T21:00:53Z"
-  },
-  {
-   "number": 89,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Once #78 is merged, add the Realm 2 companions' summon chances to its Portal the way Joshua approved: each rarity keeps its total, ordinary companions share it evenly, Parallax Shard gets Crooked Eye's rate, Riftmourn gets Forgotten Watcher's 0.1%, and Epic's 1% comes from Common.",
-     "at": "2026-11-06T21:00:05Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the Omnidex in a local browser at 320×610, 375×667, 390×844 and 430×932. Check that Mossbound Ruins and Ashen Expanse both show, that Ashen Expanse reads 0 / 30 with every card hidden, and that the realm, rarity and family filters fit without clipping. Joshua can also try it on https://lorebound-dev.github.io/.",
-     "at": "2026-11-06T21:00:05Z"
-    },
-    {
-     "who": "note",
-     "text": "Both discovery achievements now count companions from every realm, as you asked. The second one is still called \"Discover every Realm 1 species\", but once Realm 2 companions can be summoned, a player could earn it without finding all of Realm 1. I'd change the wording to \"Discover 30 species\" so it says what it does. I haven't changed it, because you asked to keep the titles.",
-     "at": "2026-11-06T21:00:05Z"
-    }
-   ],
-   "openedAt": "2026-11-01T03:47:10Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T21:00:05Z",
-   "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T21:00:05Z"
   },
   {
    "number": 96,
@@ -246,515 +766,6 @@
    "requestStatus": "Waiting to be built",
    "botState": "finished",
    "botAt": "2026-11-06T20:56:36Z"
-  },
-  {
-   "number": 92,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Take phone pictures on the test site of Haven's title screen, the static wipe and the framed town, at 320×610, 375×812, 390×844 and 430×932.",
-     "at": "2026-11-06T19:29:03Z"
-    },
-    {
-     "who": "note",
-     "text": "The static wipe lasts 0.6 seconds: about 0.15 s of plain static, then a scanline sweeps down over 0.45 s. That's in the middle of the 0.4–0.8 s you asked for, and I think it feels like a screen switching on without slowing you down.",
-     "at": "2026-11-06T19:29:03Z"
-    },
-    {
-     "who": "note",
-     "text": "The title shows once each time the game is opened or reloaded. Closing and reopening Haven doesn't show it again. I think that's right: more often would get in the way.",
-     "at": "2026-11-06T19:29:03Z"
-    },
-    {
-     "who": "note",
-     "text": "The HAVEN and PRESS START letters are pixel letters I drew in code, not a copied console font or logo. The shell is purple-grey plastic, like an old handheld, and the top strip says LOREBOUND, not a console name.",
-     "at": "2026-11-06T19:29:03Z"
-    },
-    {
-     "who": "note",
-     "text": "I kept the decorations to the top strip and left the sides and bottom at 5px, so the town loses only about 28px of height. If you'd like a chunkier handheld, with a real cross pad and buttons under the screen, it would cost about 60–80px of the town's height on a small phone. I'd keep it thin.",
-     "at": "2026-11-06T19:29:03Z"
-    },
-    {
-     "who": "note",
-     "text": "Inside the frame, Haven's screen edge is now a dark bezel line instead of the thin gold border, so it reads as a screen inside the shell. The panels inside keep their gold edges.",
-     "at": "2026-11-06T19:29:03Z"
-    }
-   ],
-   "openedAt": "2026-11-02T02:38:48Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "04a20617ff5c66e8696a8d65f35c1cc497b028f6",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T19:11:37Z"
-  },
-  {
-   "number": 116,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rework Omnidex into universal collection and rarity pages",
-   "quote": "Also the codex needs to be reworked as there are no longer realm specific companions. Just have it be total collection at the top that you can click on and have pages sorted by rarity instead of one long scroll page. Also on the front have the collection breakdown (the one with the types) be at a rarity level. So first it will have counting discovered by rarity then when you click it has the collection breakdown",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [
-    {
-     "who": "note",
-     "text": "The type boxes switch to two rows of three on screens up to 400px wide. That covers most phones, so the cards come up higher where it matters, while big phones keep the roomier boxes. I think it reads better than before.",
-     "at": "2026-11-06T19:29:02Z"
-    },
-    {
-     "who": "note",
-     "text": "On those phones, a finished type shows its completed seal but not the word \"Complete\", because the word doesn't fit in a third of the width. I think the seal is clear enough. If you'd like the word back, the box could show a small check mark instead.",
-     "at": "2026-11-06T19:29:02Z"
-    }
-   ],
-   "openedAt": "2026-11-06T11:56:55Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:41:59Z"
-  },
-  {
-   "number": 120,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify Rift rarity bars and clean up legacy Tome UI",
-   "quote": "Make the upgrade rift rarity bars be the same ones used on the auto screen. Remove anything saying highest level. Remove all pngs of tomes and replace with the new rift. Remove the all levels button on the upgrade rift. Move the upgrade rift button up a bit and shrink it a bit.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Once #78 is merged, remove All levels here, and take out #78's new \"highest level\" wording as this request asks. Until #78 is in, All levels is the only way back to a higher Rift level after picking a lower one.",
-     "at": "2026-11-06T19:26:28Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #84 is merged, make Upgrade Rift use Auto Summon's rarity rows here, leaving #85's row art out, as this request asks.",
-     "at": "2026-11-06T19:26:28Z"
-    }
-   ],
-   "openedAt": "2026-11-06T12:38:45Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "52bcba60b88ddd74ce3cee459d7be58925d4afbc",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T12:46:37Z"
-  },
-  {
-   "number": 122,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
-   "quote": "After reviewing real iPhone screenshots of Adventure (Party open and folded), Rift Upgrades (top and scrolled), and Auto Summon (top and scrolled), Joshua approved the proposed **small, targeted visual polish** rather than moving to Haven or Realm 2: \"Yes.\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [
-    {
-     "who": "note",
-     "text": "On phones narrower than 360, the Auto quantity now reads \"×10\" instead of \"×10 Summons\". At 360 and wider, the full word fits with room to spare, so it stays there. I think this is the right cut-off: at 340 the full label would only just fit, with about 4px to spare.",
-     "at": "2026-11-06T19:26:23Z"
-    }
-   ],
-   "openedAt": "2026-11-06T13:17:37Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "31ac1d91a945206547b20af5774ad92878da133e",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:54:04Z"
-  },
-  {
-   "number": 103,
-   "kind": "fix",
-   "by": "Joshua",
-   "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
-   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Take phone pictures at 320×610, 375×812, 390×844 and 430×932 on the test site, with #97 combined, because the Party bar plate only shows there.",
-     "at": "2026-11-06T19:26:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "The shard cost under the summon portal is clipped by the bottom bar at 320 and 390 wide (found while building #122). It's placed by .dock-summon-copy (top:53px) in adventure-compact.css. Raise it about 4px here, then check it with #120 on the test site.",
-     "at": "2026-11-06T19:26:21Z"
-    }
-   ],
-   "openedAt": "2026-11-03T21:24:18Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "b97efe3e3e767d7703cba73ed78c400663c553f8",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
-   "botState": "questions",
-   "botAt": "2026-11-04T06:26:18Z"
-  },
-  {
-   "number": 97,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Design guided progression companion power and achievements from owner references",
-   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the combined test site at phone sizes, starting with 320×610 and 390×844, with this request, #103 and #106 together. Check whether the ten-place tray's button row should replace #93's collapse arrow. If that's a design choice, ask Joshua with pictures.",
-     "at": "2026-11-06T19:26:19Z"
-    }
-   ],
-   "openedAt": "2026-11-02T03:47:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "fbf6ff9193661fd361807e00557b242a32735ad4",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T20:05:41Z"
-  },
-  {
-   "number": 106,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
-   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "At 320 wide, the green Party level badge sticks out about 2px past the card's left edge (found while building #122). Nudge it about 3px inward in adventure-party-cards.css here, then check it at 320×610.",
-     "at": "2026-11-06T19:26:14Z"
-    }
-   ],
-   "openedAt": "2026-11-04T13:41:58Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "ef79bd583babd8b559927e6e72813394e6a90e11",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T18:32:13Z"
-  },
-  {
-   "number": 117,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Preview approved Common companions in existing detail screen",
-   "quote": "\"Ok\" [to preparing a test version of companion-detail screens using already approved sprites and habitat backgrounds].  \"Yeah I like all the ones so far that are there.\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [
-    {
-     "who": "note",
-     "text": "The lunge now repeats every 4 seconds, the same timing as the tutorial, and a tap plays it at once. I think it suits the page. If it feels busy while you read stats, 6 seconds would be calmer.",
-     "at": "2026-11-06T19:26:11Z"
-    },
-    {
-     "who": "note",
-     "text": "Every companion except the starters now gets a soft glow, three sparkles and a strike flash in its category's colours, placed a bit differently each time. I kept it to three sparkles, the same as the starters, so the page stays calm. A Rare or higher companion could get one or two extra sparkles later if you want them to feel more special.",
-     "at": "2026-11-06T19:26:11Z"
-    },
-    {
-     "who": "note",
-     "text": "Mortals, Spirits and Aberrations had no strike flash in the tutorial, so I gave them one in the same style: a gold diamond for Mortals, a pale star for Spirits and a jagged violet shard for Aberrations.",
-     "at": "2026-11-06T19:26:11Z"
-    },
-    {
-     "who": "note",
-     "text": "Size and weight are removed everywhere. The tutorial's \"A NEW BOND\" screen now shows the starter's short description in that spot instead of leaving it empty.",
-     "at": "2026-11-06T19:26:11Z"
-    },
-    {
-     "who": "note",
-     "text": "I picked one scene for each new Common: Reedwatch Tinker with Wetland Reeds, Millward Bellkeeper with Ancient Gate, Dewfern with Fungal Hollow, Coppice Cricket with Thorn Bramble and Unstitch with Rift Fracture. They're only on the preview page. Tell me which pairs you like and I'll make them those companions' backgrounds in the game.",
-     "at": "2026-11-06T19:26:11Z"
-    }
-   ],
-   "openedAt": "2026-11-06T12:00:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:34:28Z"
-  },
-  {
-   "number": 102,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved 10-tier companion dock backgrounds",
-   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-03T20:41:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "c1494e8b45f798739afb1e5dbe4101435fd884c0",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:27:37Z"
-  },
-  {
-   "number": 115,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
-   "quote": "during auto summons it goes back to .5 seconds per companion. Also the tome animation needs to be removed when opening one at a time. I think it should be replaced with the portal gif spinning up faster than having the screen pop up.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [
-    {
-     "who": "note",
-     "text": "A tap on the Rift now spins it up for 0.3 seconds before the result opens. I think that's a good length: it feels quick, but you still see it. In 0.3 seconds the swirl turns one and a half times, so it ends quite fast. If it looks like a flicker on your phone, I'd make it one full turn instead.",
-     "at": "2026-11-06T18:26:45Z"
-    },
-    {
-     "who": "note",
-     "text": "I kept the shorter effect for repeats that the game already had: repeat Commons and Uncommons play at a bit under half the length, and new or Rare-and-up companions get the full effect. That's what you asked for, so I didn't make it any shorter.",
-     "at": "2026-11-06T18:26:45Z"
-    }
-   ],
-   "openedAt": "2026-11-06T11:54:10Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "cb786c4c53a795e2b89347e309d893c51b1d404d",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:26:45Z"
-  },
-  {
-   "number": 78,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Tome-tier UI with one permanent numeric Portal progression",
-   "quote": "LOREBOUND — Summoning System UI Refactor. Replace Tome-tier presentation with one permanent Portal progression. This request supersedes earlier Tome-tier UI direction. one permanent Summoning Portal / Rift ... one portal level progression ... Level 1, Level 2, Level 3 ... no Tome I / II / III / IV / V presentation ... no “Library > Tome III” style labeling. This request is primarily a UI / presentation refactor ... preserve current real functionality where possible ... all values displayed are real, live game values.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-10-29T23:17:42Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "690d04bbf0a7ebf35544adb05bf20e06d47ff079",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-05T14:45:11Z"
-  },
-  {
-   "number": 81,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use approved rarity-frame design and simplify Adventure Rift rail",
-   "quote": "\"Next I want the bottom part menu to be more efficient and more difference between the rarities.\"  \"Approved but I do want to have the name of the character name instead of doc the rarity. But I approve those I love them.\"  \"Agreed lead the way.\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-10-30T01:27:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-04T06:24:58Z"
-  },
-  {
-   "number": 93,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Reduce empty space above expanded Party cards",
-   "quote": "Also the distance between the top of the menus and the companions is too big",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-02T02:55:24Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "db10fb734819e24d0225152b3ce92e4055309cca",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-03T19:51:15Z"
-  },
-  {
-   "number": 83,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Stage approved companion habitats on dev for mobile QA",
-   "quote": "\"LOREBOUND — Companion Habitat Backgrounds\" \"One background per category—not per companion or rarity.\" \"Approved.\" \"Ok next\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-10-31T00:30:55Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "5f535a50c081061507304307a76782b0c72fa1c5",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-03T07:16:57Z"
-  },
-  {
-   "number": 84,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate approved 10 unique Auto Summon rarity rows",
-   "quote": "\"I want each line to have its own pattern and color for each rarity\" \"Approved\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-10-31T01:06:23Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T19:27:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-06T19:27:04Z",
-   "headSha": "ff367f98b060951cbc902ba7670c6780fe9a3839",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-03T07:14:35Z"
   },
   {
    "number": 118,
@@ -914,7 +925,7 @@
    "by": "Joshua",
    "title": "Haven handheld title screen and Press Start transition",
    "quote": "\"I even think for haven we should have some kind of frame that resembles a GBA device\"  \"And there should be a screen turning on animation when you first go to that menu in a gaming session\"  \"Actually a little title screen for haven and maybe that says haven with the gameboy text and press to start then when you press it, it does the screen change with a static kind of animation to the main area\"",
-   "stage": "queued",
+   "stage": "building",
    "waitingOn": null,
    "forClaude": false,
    "asks": [],
@@ -927,7 +938,7 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-11-06T13:52:42Z",
-   "headSha": "1650e639bd87306d479790678ec0edae8ba5cc4b",
+   "headSha": "afc23870586c102e40e8a1000d57bdbce20bc66d",
    "touchesGame": false,
    "answers": false,
    "requestStatus": "Waiting for answers",
@@ -1109,6 +1120,11 @@
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-06T21:03:55Z",
+   "kind": "test",
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
+  },
   {
    "at": "2026-11-06T21:02:01Z",
    "kind": "built",
@@ -1303,11 +1319,6 @@
    "at": "2026-11-06T18:22:00Z",
    "kind": "behind",
    "text": "Behind the scenes: “Let Joshua decide design calls, and pass his answers on by themselves”"
-  },
-  {
-   "at": "2026-11-06T18:17:06Z",
-   "kind": "test",
-   "text": "The test site was updated with “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   }
  ],
  "otherPulls": [
