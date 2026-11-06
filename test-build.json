@@ -94,7 +94,7 @@
     {
       "number": 122,
       "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
-      "head": "8b9386c77a5a3442cb7cd2fbbf9f2afeb8116a45"
+      "head": "993dfdc099d26dac310912df01d7d81da01ab690"
     }
   ],
   "skipped": [
@@ -130,7 +130,7 @@
     {
       "number": 118,
       "title": "Double-tap Party cards to swap pending companions directly",
-      "head": "269e14c228cd072a14087ed198d517aa36df686f",
+      "head": "f86a8d33ded6ec54c2904136d9cd2b2a6d284047",
       "files": [
         "pocket-fortune/dist/companion-motion.css",
         "pocket-fortune/dist/companion-motion.js",
@@ -150,6 +150,6 @@
       "with": "others"
     }
   ],
-  "commit": "24d29fe28c0d47a1fc8235a85c4da7b6332ded85",
-  "at": "2026-11-06T18:47:17Z"
+  "commit": "cd668c8443f7b03c087461a34b55aafb0c41d523",
+  "at": "2026-11-06T18:50:20Z"
 }
