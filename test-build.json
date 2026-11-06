@@ -125,13 +125,13 @@
     {
       "number": 118,
       "title": "Double-tap Party cards to swap pending companions directly",
-      "head": "8d7971351236f86d5de9e55b6190eb85ad48dd69",
+      "head": "43b25be280e235af97666b7ef5a8186c312f56f8",
       "files": [
         "pocket-fortune/dist/ownership-adventure.js"
       ],
       "with": "others"
     }
   ],
-  "commit": "6b2a7dd3a4d0414eadda48239c4ef40d87088f17",
-  "at": "2026-11-06T12:35:23Z"
+  "commit": "10add23ba5cf19f953d05f2d08046e8b1b9cd8f2",
+  "at": "2026-11-06T12:37:50Z"
 }
