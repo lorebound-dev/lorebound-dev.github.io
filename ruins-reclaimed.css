@@ -1,4 +1,4 @@
-/* Ruins Reclaimed test prototype (ruins-reclaimed.js), Haven 3.0. Haven tab, test site only. Scoped to .ruins-shell / .ruins-proto. */
+/* Ruins Reclaimed test prototype (ruins-reclaimed.js), Haven 3.0 and 3.5. Haven tab, test site only. Scoped to .ruins-shell / .ruins-proto. */
 .ruins-shell{display:flex;flex-direction:column;height:100%;min-height:0}
 .ruins-slot{flex:1;min-height:0;display:flex;flex-direction:column}
 
@@ -74,4 +74,11 @@
 .ruins-upgrade:disabled{opacity:.62;cursor:default}
 .ruins-upgrade:not(:disabled):active,.ruins-confirm:not(:disabled):active,.ruins-cancel:active,.ruins-build-toggle:active,.ruins-job button:not(:disabled):active{transform:translateY(1px)}
 .ruins-proto button:focus-visible{outline:2px solid #f8dc88;outline-offset:2px}
+/* Haven 3.5: one warning line above the map (a raid coming, or Food running out), Food at zero, repair buttons. */
+.ruins-alert{margin:0;padding:6px 10px;border:1px solid #b8322e;border-radius:4px;background:#2a1414;font:bold 13px/1.4 Georgia,serif!important;color:#ffd9c8;text-align:center}
+.ruins-alert[data-kind="food"]{border-color:#c9a043;background:#2a2312;color:#ffe8af}
+.ruins-stats dd.ruins-empty{color:#ff9a8a}
+.ruins-threat{color:#ffe8af!important}
+.ruins-repair{border-color:#b8322e;box-shadow:inset 3px 0 #b8322e}
+.ruins-repair:disabled{border-color:#7e744e;box-shadow:inset 3px 0 #9fd8c0}
 @media (max-width:340px){.ruins-head h3{font-size:17px}.ruins-upgrade{padding:8px 10px;gap:8px}.ruins-build-toggle{min-width:64px}.ruins-job{grid-template-columns:minmax(0,1fr) 44px 22px 44px;gap:4px;padding:6px}}
