@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T06:19:20.961Z",
+ "generatedAt": "2026-11-07T15:22:15.039Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -43,61 +43,52 @@
  },
  "items": [
   {
+   "number": 140,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven: simpler growth, suggested upgrades, automatic defenses and zoom",
+   "quote": "\"It’s a bit better but it still feels so busy and text heavy it makes me not want to read any of it. Can we figure out a way to start very small and make it build kind of like clash of clans without all the complexity as well?\"  \"Yeah we need to suggest upgrades that would make it easier. Also for defenses and all that, just place them for the user it doesn’t need to be all customized. Also I want to be able to zoom in and out as well as side to side\"",
+   "stage": "closed",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-07T15:21:04Z",
+   "mergedAt": null,
+   "closedAt": "2026-11-07T15:21:33Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-07T15:21:33Z",
+   "headSha": "f2ca9193e79a3d444af41263f5bbcf335e4696d0",
+   "touchesGame": false,
+   "answers": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "finished",
+   "botAt": "2026-11-07T15:21:32Z",
+   "goLive": false
+  },
+  {
    "number": 92,
    "kind": "request",
    "by": "Joshua",
    "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
+   "stage": "building",
    "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Take phone pictures on the test site at 320×610, 375×812, 390×844 and 430×932 (with Safari's bars if possible) of Haven with no menu open, then with each of Build, People, Defense and Land open, then while placing a House, and the bar after tapping a person. From a new save: tap Start, gather, build a few buildings. Check that the strip and × aren't cut off, that \"Defense\" is whole at 320,…",
-     "at": "2026-11-07T03:20:36Z"
-    },
-    {
-     "who": "note",
-     "text": "Haven now opens with no menu open, so the town gets the whole screen. Before, it opened with the Build list showing. I think the town should come first. One tap opens any menu.",
-     "at": "2026-11-07T03:20:36Z"
-    },
-    {
-     "who": "note",
-     "text": "A window covers at most about two-thirds of the town, up to 340px tall. On short phones it can cover up to about four-fifths, so it still shows two or three rows. The top of the town stays visible and still works behind it. I'd keep this, since one tap closes it.",
-     "at": "2026-11-07T03:20:36Z"
-    },
-    {
-     "who": "note",
-     "text": "After you build something, its window stays closed so you can see the new building. Tap Build again for the next one. If you'd rather the list came straight back, tell Codex.",
-     "at": "2026-11-07T03:20:36Z"
-    },
-    {
-     "who": "note",
-     "text": "Tapping a person or raider now opens a small bar instead of a line of text. It only shows what's already there, with one button to the right menu. You can't change one person's job from there, because jobs are set as counts in People. I didn't add that, because it would be a new rule.",
-     "at": "2026-11-07T03:20:36Z"
-    },
-    {
-     "who": "note",
-     "text": "The four buttons show words, not little pictures. Words are easier to read at this size. If you want pixel icons on them, I'd add them through the Artwork Inbox or draw them in code. Tell Codex which.",
-     "at": "2026-11-07T03:20:36Z"
-    },
-    {
-     "who": "note",
-     "text": "The windows use the dark and light greens from the HAVEN title screen, so they look like part of the same handheld. The town's own colours didn't change.",
-     "at": "2026-11-07T03:20:36Z"
-    }
-   ],
+   "forClaude": false,
+   "asks": [],
    "openedAt": "2026-11-02T02:38:48Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-07T06:18:51Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-11-07T06:18:51Z",
-   "headSha": "391457bb7d0016b8d0e49aa9b23a79cc31885fa3",
+   "headSha": "43ca8c17640611371d883727b8a55f36601675e6",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
@@ -1270,36 +1261,19 @@
    "botState": "questions",
    "botAt": "2026-11-06T13:48:00Z",
    "goLive": false
-  },
-  {
-   "number": 107,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unblock companion art intake with exact-file downloads",
-   "quote": "Can you do those things for me?",
-   "stage": "done",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-04T13:45:59Z",
-   "mergedAt": "2026-11-05T21:42:59Z",
-   "closedAt": "2026-11-05T21:42:59Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-05T21:42:59Z",
-   "headSha": "5ea4fd9da933213c195fb70c66dd4ff3b249d7f5",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-04T13:53:16Z",
-   "goLive": false
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-07T15:21:33Z",
+   "kind": "closed",
+   "text": "“Haven: simpler growth, suggested upgrades, automatic defenses and zoom” was closed"
+  },
+  {
+   "at": "2026-11-07T15:21:04Z",
+   "kind": "asked",
+   "text": "You asked for “Haven: simpler growth, suggested upgrades, automatic defenses and zoom”"
+  },
   {
    "at": "2026-11-07T06:18:51Z",
    "kind": "test",
@@ -1314,11 +1288,6 @@
    "at": "2026-11-07T03:20:36Z",
    "kind": "built",
    "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-07T03:20:36Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   },
   {
    "at": "2026-11-07T03:12:33Z",
@@ -1494,11 +1463,6 @@
    "at": "2026-11-06T22:55:04Z",
    "kind": "built",
    "text": "Claude finished building “Show named blank undiscovered Omnidex cards and tighten rarity pages”"
-  },
-  {
-   "at": "2026-11-06T22:55:04Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Show named blank undiscovered Omnidex cards and tighten rarity pages”"
   }
  ],
  "otherPulls": [
