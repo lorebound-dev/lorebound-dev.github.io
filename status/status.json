@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T22:38:48.547Z",
+ "generatedAt": "2026-11-07T22:52:49.423Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T21:26:56Z",
+  "updatedAt": "2026-11-07T22:46:37Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -47,6 +47,122 @@
  },
  "items": [
   {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "testing",
+   "waitingOn": "both",
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "With ten companions, the boss is now a bit smaller on bigger phones (about 1.2 to 1.3 times its original size instead of 1.5), so companions stay normal size and stand beside it. My suggestion: keep it like this. The other choice is a bigger boss with companions moved further out or lower, which would change the ten-place layout in #97.",
+     "at": "2026-11-07T22:44:50Z"
+    },
+    {
+     "who": "noah",
+     "text": "A phone check at 320×610, 375×812, 390×844 and 430×932 still needs a browser. Please check: a Story boss with a full Party of ten (companions normal size and none on the boss); an Endless guardian fight; a normal fight with one companion and with five (no shadow where nobody stands); and an enemy dying (its shadow goes with it). I couldn't run a browser here.",
+     "at": "2026-11-07T22:44:50Z"
+    },
+    {
+     "who": "noah",
+     "text": "This fix only does something when #97's ten-place layout is in the game. If #97 changes how it places companions beside the enemy, this limit should be checked again. If #97 goes live first, nothing extra is needed. If this one goes live first, the limit simply waits.",
+     "at": "2026-11-07T22:44:50Z"
+    }
+   ],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T22:46:38Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T22:46:38Z",
+   "headSha": "b479376953502d0d37964f9d6dec9e3472572d82",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T22:44:50Z",
+   "goLive": false
+  },
+  {
+   "number": 147,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Ascend with 25-hero rarity board for tap power",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "On the test site at 320×610, open the party test save, go to Heroes and tap Odds. Check that the explanation, the openings box, the Odds button and all five table columns fit with no sideways scrolling, and that nothing else on Heroes is wider than the panel.",
+     "at": "2026-11-07T22:44:02Z"
+    },
+    {
+     "who": "claude",
+     "text": "Open chest 6 (Dev tools can add opened chests). Check that the UNCOMMON HEROES UNLOCKED plaque fits at 320×610, 375×812, 390×844 and 430×932.",
+     "at": "2026-11-07T22:44:02Z"
+    },
+    {
+     "who": "claude",
+     "text": "Tap a found or unlocked hero with enough Crests, then tap Buy 1, and Buy 2 to unlock. Check that the Confirm line and its buttons fit at all four sizes.",
+     "at": "2026-11-07T22:44:02Z"
+    },
+    {
+     "who": "claude",
+     "text": "Equip another unlocked hero, then go to Quest. Check that TAP shows the new hero's tap power at all four sizes.",
+     "at": "2026-11-07T22:44:02Z"
+    },
+    {
+     "who": "note",
+     "text": "Rarities unlock by chests opened: Uncommon at 6, Rare 18, Epic 40, Legendary 75, Mythic 115, Ancient 165, Exalted 225, Transcendent 300, Eternal 400. Before that a rarity is exactly 0%. After that it grows over 150 chests to its full share. With 3 chests a day, Eternal can't drop before about day 134. That keeps the top heroes really hard, which is what you asked for. It's a long wait, so it's…",
+     "at": "2026-11-07T22:44:02Z"
+    },
+    {
+     "who": "note",
+     "text": "A chest gives 1 fragment. 3 fragments unlock a hero for free, and mastery comes at 8, 14, 21, 29, 38 and 48 fragments. A Common needs 45 more fragments after unlocking to reach VI, so that's a long goal even for Commons.",
+     "at": "2026-11-07T22:44:02Z"
+    },
+    {
+     "who": "note",
+     "text": "A full hero (3 fragments at once) has a 0.2% chance per chest. That's about 1 chest in 500, or about once in 5–6 months at 3 a day. Most players will rarely see it. I'd keep it this rare for now and look at it again once the test numbers settle.",
+     "at": "2026-11-07T22:44:02Z"
+    },
+    {
+     "who": "note",
+     "text": "One fragment costs 30 Hero Crests for a Common, up to 1,200 for an Eternal. You can only buy rarities your chest level has unlocked. A chest gives 5–45 Crests, so a Common fragment costs about 5–6 chests' worth of Crests. That seems fair.",
+     "at": "2026-11-07T22:44:02Z"
+    },
+    {
+     "who": "note",
+     "text": "All of these are test numbers. On the real game the Heroes tab still says Coming Soon.",
+     "at": "2026-11-07T22:44:02Z"
+    }
+   ],
+   "openedAt": "2026-11-07T17:05:00Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T22:46:38Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T22:46:38Z",
+   "headSha": "94897082193e1e904a07ad0d1a050e63f831e75f",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T22:44:02Z",
+   "goLive": false
+  },
+  {
    "number": 108,
    "kind": "request",
    "by": "Joshua",
@@ -66,11 +182,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
+   "testAt": "2026-11-07T22:46:38Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
+   "updatedAt": "2026-11-07T22:46:38Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -119,11 +235,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
+   "testAt": "2026-11-07T22:46:38Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
+   "updatedAt": "2026-11-07T22:46:38Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -162,71 +278,17 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
+   "testAt": "2026-11-07T22:46:38Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
+   "updatedAt": "2026-11-07T22:46:38Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-06T23:03:18Z",
-   "goLive": false
-  },
-  {
-   "number": 147,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Ascend with 25-hero rarity board for tap power",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T17:05:00Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
-   "headSha": "250fb8e548e394e9f7380bec6e04885e93faa9ee",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T18:58:58Z",
-   "goLive": false
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
-   "headSha": "62096da571c3b2068bc3f4d4a8498c941103a7db",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T17:09:57Z",
    "goLive": false
   },
   {
@@ -284,11 +346,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
+   "testAt": "2026-11-07T22:46:38Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
+   "updatedAt": "2026-11-07T22:46:38Z",
    "headSha": "699556791c607f05dd6daf251cd363d701188a87",
    "touchesGame": true,
    "answers": false,
@@ -317,11 +379,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
+   "testAt": "2026-11-07T22:46:38Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
+   "updatedAt": "2026-11-07T22:46:38Z",
    "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
    "touchesGame": true,
    "answers": false,
@@ -380,71 +442,17 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
+   "testAt": "2026-11-07T22:46:38Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
+   "updatedAt": "2026-11-07T22:46:38Z",
    "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-07T02:45:31Z",
-   "goLive": false
-  },
-  {
-   "number": 106,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
-   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-04T13:41:58Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
-   "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:32:13Z",
-   "goLive": false
-  },
-  {
-   "number": 103,
-   "kind": "fix",
-   "by": "Joshua",
-   "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
-   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-03T21:24:18Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T21:26:56Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T21:26:56Z",
-   "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
-   "botState": "finished",
-   "botAt": "2026-11-04T06:26:18Z",
    "goLive": false
   },
   {
@@ -1460,127 +1468,43 @@
    "botState": "finished",
    "botAt": "2026-11-07T02:39:22Z",
    "goLive": false
-  },
-  {
-   "number": 96,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Connect Haven to LOREBOUND economy through resource-backed Gold caravans",
-   "quote": "\"Ok what next. I want the economy of this to still feed into the main game\"",
-   "stage": "questions",
-   "waitingOn": "joshua",
-   "forClaude": false,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "This request waits until you've played Haven itself (#92) on the test site and you're happy with the town, its layout and how it grows. When you are, tell Codex in this request's task that Haven is approved and I should build the caravans. I'll then build the first version, for the test site only.",
-     "at": "2026-11-06T23:00:48Z"
-    }
-   ],
-   "openedAt": "2026-11-02T03:42:27Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T23:00:48Z",
-   "headSha": "a0d4b843d78ad67604566fc47023842a09c1a4f9",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "On hold until Joshua approves Haven (#92) on the test site",
-   "botState": "questions",
-   "botAt": "2026-11-06T23:00:48Z",
-   "goLive": false
-  },
-  {
-   "number": 131,
-   "kind": "answers",
-   "by": "Joshua",
-   "title": "Owner answers: Party controls, Haven hold and Realm 1 visual fixes",
-   "quote": "\"PR #97 answers: 1. Keep the 44px Party control band. 2. Keep the two-row Party open by default.\"  \"PR #96: Keep Gold caravans on hold until I explicitly approve the playable Haven settlement on DEV. The title screen approval does not count.\"  \"PR #121 answers: 1. Approve all four visual fixes, assigned to their existing owning PRs. 2. Hide the 'art pending' wording for Vespera, Vaelith, Mirefang Bog Toad, Gravewing Raven and Bellveil Revenant; keep replacement final art pending approval. 3. Keep Party opening in two rows by default.\"  \"Consolidate and submit my PR #97, #96 and #121 answers to GitHub.\"",
-   "stage": "passed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T22:57:24Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-06T22:58:00Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T22:58:00Z",
-   "headSha": "d8af7a740ebaa91bdc21089e575eec0796442df0",
-   "touchesGame": false,
-   "answers": true,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-06T22:57:59Z",
-   "goLive": false
-  },
-  {
-   "number": 124,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven handheld title screen and Press Start transition",
-   "quote": "\"I even think for haven we should have some kind of frame that resembles a GBA device\"  \"And there should be a screen turning on animation when you first go to that menu in a gaming session\"  \"Actually a little title screen for haven and maybe that says haven with the gameboy text and press to start then when you press it, it does the screen change with a static kind of animation to the main area\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T13:50:26Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-06T21:34:52Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T21:34:52Z",
-   "headSha": "afc23870586c102e40e8a1000d57bdbce20bc66d",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-11-06T21:17:15Z",
-   "goLive": false
-  },
-  {
-   "number": 114,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Confirm clean Fungal Hollow and Moonlit Grove for companion roster #98",
-   "quote": "On viewing the current clean Fungal Hollow scene: \"Yeah that’s good\"  On viewing the current Moonlit Grove scene without the dark bands: \"Approve\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T11:06:59Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-06T21:34:50Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T21:34:50Z",
-   "headSha": "de21b8fd60c13994b00a32008eaf9599c39e894f",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T11:10:14Z",
-   "goLive": false
   }
  ],
  "activity": [
   {
+   "at": "2026-11-07T22:46:38Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
+   "at": "2026-11-07T22:44:50Z",
+   "kind": "built",
+   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
+   "at": "2026-11-07T22:44:50Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
+   "at": "2026-11-07T22:44:50Z",
+   "kind": "question",
+   "text": "Part of “Lower battlefield characters and enlarge bosses by 40%” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-07T22:44:02Z",
+   "kind": "built",
+   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
+   "at": "2026-11-07T22:44:02Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
    "at": "2026-11-07T21:26:56Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T21:25:30Z",
@@ -1605,7 +1529,7 @@
   {
    "at": "2026-11-07T20:39:54Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T20:38:24Z",
@@ -1620,17 +1544,12 @@
   {
    "at": "2026-11-07T19:00:35Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T18:58:58Z",
-   "kind": "built",
-   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T18:46:59Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T18:45:33Z",
@@ -1640,7 +1559,7 @@
   {
    "at": "2026-11-07T18:45:19Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T18:45:04Z",
@@ -1650,7 +1569,7 @@
   {
    "at": "2026-11-07T18:34:54Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T18:33:24Z",
@@ -1665,12 +1584,12 @@
   {
    "at": "2026-11-07T18:21:41Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T18:06:31Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T18:04:52Z",
@@ -1685,12 +1604,12 @@
   {
    "at": "2026-11-07T17:59:04Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T17:49:01Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T17:47:35Z",
@@ -1705,7 +1624,7 @@
   {
    "at": "2026-11-07T17:19:22Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T17:16:58Z",
@@ -1730,12 +1649,7 @@
   {
    "at": "2026-11-07T17:12:04Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T17:09:57Z",
-   "kind": "built",
-   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
   },
   {
    "at": "2026-11-07T17:09:34Z",
@@ -1745,7 +1659,7 @@
   {
    "at": "2026-11-07T17:08:08Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
   },
   {
    "at": "2026-11-07T17:06:42Z",
@@ -1756,29 +1670,63 @@
    "at": "2026-11-07T17:06:14Z",
    "kind": "asked",
    "text": "You asked for “Fix unexplained shadows beneath bosses and empty Party positions”"
-  },
-  {
-   "at": "2026-11-07T17:05:00Z",
-   "kind": "asked",
-   "text": "You asked for “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T17:00:45Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T16:55:36Z",
-   "kind": "asked",
-   "text": "You asked for “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T16:26:54Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   }
  ],
  "otherPulls": [
+  {
+   "number": 160,
+   "headSha": "1a48e15f9e54bf91a6492b3af8fb350e2556d574",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 159,
+   "headSha": "d232d5b4cee46d118df0f1b2353aa03ab3ff4069",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 158,
+   "headSha": "2a6b0359046472a575458b9e5ebce7b3ca019109",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 157,
+   "headSha": "51799db2242bf3a67138efe66c5579649292475a",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 156,
+   "headSha": "1201ee0c3a0624efcaccb6920c5f315399271503",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 155,
+   "headSha": "c1151e58f6f4e3488257e84d2f2e06adc4cd7d0f",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 139,
    "headSha": "fe78e7f994730aea35319471bd6cc5887e1d2955",
