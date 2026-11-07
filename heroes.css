@@ -122,9 +122,23 @@
 @keyframes hero-fade-in{0%,40%{opacity:0}100%{opacity:1}}
 @media(prefers-reduced-motion:reduce){.hero-reveal,.hr-shadow,.hr-color{animation:none}.hr-shadow{opacity:0}}
 @media(max-width:350px){.hero-reveal{grid-template-columns:76px 1fr;gap:8px}.hero-current{grid-template-columns:76px 1fr;gap:8px}.hero-current h3{font-size:16px!important}.hero-stats dd{font-size:15px}.hero-card-name{font-size:13px}.hero-grid{gap:6px}}
-/* #152: a found hero that isn't recruited. Its card keeps the shadow with a solid gold-edged frame, and its result flashes
-   the rarity but stays a shadow, because the hero isn't the player's until it's recruited. */
+/* #153: a hero with 1 or 2 fragments keeps its shadow, with a solid frame and a small fragment bar. A chest result for a
+   hero that still needs fragments flashes the rarity but stays a shadow. */
 .hero-card.is-found{border-style:solid;border-color:color-mix(in srgb,var(--hr-ink) 80%,transparent)}
 .hero-card.is-found .hero-card-lock{color:#f3da9c}
 .hero-card.is-found .hero-card-hint{color:#e7dfc8}
-.hero-reveal.is-found .hr-shadow,.hero-reveal.is-found.is-done .hr-shadow{animation:none;opacity:1}
+.hero-reveal.is-shadow .hr-shadow,.hero-reveal.is-shadow.is-done .hr-shadow{animation:none;opacity:1}
+/* A rarity the chest level hasn't unlocked: dimmer frame and name. */
+.hero-card.is-gated{opacity:.72}
+.hero-card.is-gated .hero-card-lock{color:#93a6ab}
+.hero-odds tr.is-gated th,.hero-odds tr.is-gated td{color:#7f9095}
+/* Chest level: one short line and a thin bar across the openings bar. */
+.hero-chest{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:baseline;padding-top:6px;border-top:1px solid #9b855144}
+.hero-chest-level{font-size:13px;color:#f3da9c}
+.hero-chest-next{font-size:12px;color:#c3d2d5;text-align:right}
+.hero-chest-bar{grid-column:1/-1}
+.hero-chest-bar span{background:#e2c180}
+/* "EPIC HEROES UNLOCKED": a restrained plaque under the result, in the new rarity's colour. */
+.hero-reveal-tier{grid-column:1/-1;justify-self:center;padding:4px 12px;border:1px solid var(--hr-ink);border-left-width:3px;border-right-width:3px;background:#0a1a27;font-size:13px!important;letter-spacing:.08em;color:var(--hr-light)}
+.hero-reveal.is-jackpot .hero-reveal-tag{background:color-mix(in srgb,var(--hr-dark) 50%,transparent);color:#f3da9c;border-color:#e2c180}
+@media(max-width:350px){.hero-chest{grid-template-columns:1fr}.hero-chest-next{text-align:left}}
