@@ -34,7 +34,6 @@
 .ruins-proto>*{flex-shrink:0}
 .ruins-help-toggle{flex:0 0 44px;width:44px;height:44px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;font:bold 18px Georgia,serif!important;cursor:pointer}
 .ruins-help-toggle[aria-expanded="true"]{border-color:#dac17c;background:#2b3837;box-shadow:inset 0 -2px #d6bd81}
-.ruins-help{max-height:42%;overflow-y:auto;overscroll-behavior:contain;padding:8px 10px;border:1px solid #927b4566;border-radius:5px;background:#0b1a22}
 .ruins-help p{margin:0 0 6px;font:13px/1.45 Georgia,serif!important;color:#c9d2cc}
 .ruins-help-buttons{display:flex;flex-wrap:wrap;gap:6px}
 .ruins-help button{min-height:44px;padding:8px 12px;border:1px solid #8a5a4a;border-radius:5px;background:#2a1d1b;color:#f0d6c4;font:13px Georgia,serif!important;cursor:pointer}
@@ -47,18 +46,35 @@
  * centres with auto margins, which drop to 0 when it overflows, so every edge stays reachable. */
 /* The town and its message line: the line sits on the town's bottom edge (only when there is something to say), so it
  * costs the town no height. Taps go straight through it to the town. */
-.ruins-world{position:relative;display:flex;flex-direction:column;flex:1 1 0;min-height:120px}
-.ruins-caption{position:absolute;left:6px;right:6px;bottom:6px;display:grid;gap:3px;justify-items:center;pointer-events:none}
-.ruins-caption>p{max-width:100%;padding:3px 8px;border:1px solid #927b4566;border-radius:3px;background:rgba(7,18,22,.86);box-shadow:0 1px 3px rgba(0,0,0,.5)}
+/* The game screen: the town, with everything that pops up over it (.ruins-over), and the strip of four menu buttons
+ * along its bottom edge. The overlay is a column that lets taps through its empty part: the alert line at the top,
+ * then (from the bottom up) the open window or bar, with the message line just above it. */
+.ruins-world{position:relative;display:flex;flex-direction:column;flex:1 1 0;min-height:170px;border:2px solid #0c1a12;border-radius:3px;background:#0c1a12;overflow:hidden}
+.ruins-field{position:relative;display:flex;flex-direction:column;flex:1 1 0;min-height:0}
+.ruins-over{position:absolute;inset:4px;display:flex;flex-direction:column;gap:4px;pointer-events:none}
+.ruins-over>*{flex-shrink:0;pointer-events:auto}
+.ruins-over>.ruins-gap{flex:1 1 0;min-height:0;pointer-events:none}
+.ruins-caption{display:grid;gap:3px;justify-items:center;pointer-events:none!important}
+.ruins-caption>p{max-width:100%;padding:3px 8px;border:2px solid #0c1a12;border-radius:0;background:rgba(15,42,28,.92);box-shadow:2px 2px 0 rgba(0,0,0,.45)}
 .ruins-caption>p:empty{display:none}
-.ruins-scene{position:relative;display:flex;flex:1 1 0;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:0;border:1px solid #2e4a3c;border-radius:4px;background:radial-gradient(ellipse at 50% 55%,#173628,#0a1a1f 72%);scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
+.ruins-scene{position:relative;display:flex;flex:1 1 0;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:0;border:0;border-radius:0;background:radial-gradient(ellipse at 50% 55%,#173628,#0a1a1f 72%);scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
 .ruins-scene canvas{display:block;flex:none;margin:auto;max-width:none;touch-action:pan-x pan-y;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;cursor:pointer;border-radius:3px}
 .ruins-scene canvas:focus-visible{outline:2px solid #f8dc88;outline-offset:-2px}
 .ruins-work{margin:0;font:12px/1.4 Georgia,serif!important;color:#9fd8c0;text-align:center}
 .ruins-stage{margin:0;font:13px/1.4 Georgia,serif!important;color:#f0d79a;text-align:center}
-.ruins-place{display:grid;gap:6px;padding:8px 10px;border:1px solid #dac17c;border-radius:5px;background:#0b1a22}
-.ruins-place-name{font:bold 14px Georgia,serif!important;color:#ffe8af;text-align:center;letter-spacing:.02em}
-.ruins-place p{margin:0;font:13px/1.4 Georgia,serif!important;color:#ffe8af;text-align:center}
+/* In-game windows and the small bar on the town: hard 2px pixel borders, square corners, the title screen's LCD greens. */
+.ruins-place,.ruins-win{border:2px solid #9bbc6f;border-radius:0;background:#0f2a1c;box-shadow:0 0 0 2px #0c1a12,4px 4px 0 2px rgba(0,0,0,.45)}
+.ruins-place{display:grid;gap:6px;padding:6px 8px;max-height:100%;overflow-y:auto}
+.ruins-place-name{font:bold 14px Georgia,serif!important;color:#e8f5c8;text-align:center;letter-spacing:.02em}
+.ruins-place p{margin:0;font:13px/1.4 Georgia,serif!important;color:#d4ebb0;text-align:center}
+.ruins-win{display:flex;flex-direction:column;flex:0 1 auto;min-height:0;max-height:min(64%,340px);overflow:hidden}
+.ruins-help.ruins-win{max-height:100%}
+.ruins-win-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-shrink:0;padding-left:10px;background:#1d4430;border-bottom:2px solid #9bbc6f}
+.ruins-win-head strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:bold 14px Georgia,serif!important;letter-spacing:.08em;text-transform:uppercase;color:#e8f5c8}
+.ruins-close{flex-shrink:0;width:44px;height:40px;padding:0;border:0;border-left:2px solid #9bbc6f;border-radius:0;background:#0f2a1c;color:#e8f5c8;font:bold 22px/1 Georgia,serif!important;cursor:pointer}
+.ruins-close:active{background:#2f6244}
+.ruins-win-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:8px 10px}
+.ruins-win>.ruins-goal{flex-shrink:0;padding:5px 10px;border-bottom:1px solid #4f8a5c}
 .ruins-place>div{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .ruins-confirm,.ruins-cancel,.ruins-build-toggle{min-height:44px;padding:8px 12px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;font:bold 14px Georgia,serif!important;cursor:pointer}
 .ruins-confirm{border-color:#dac17c;background:#2b3837;color:#ffe8af;box-shadow:inset 0 -2px #d6bd81}
@@ -74,20 +90,26 @@
 .ruins-level-main{flex:1;min-width:0;display:grid;gap:3px}
 .ruins-level small{font:12px/1.35 Georgia,serif!important;color:#9fc2b4;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 .ruins-level small:empty{display:none}
-/* Haven Management: one drawer under the map. A row of four squared section plaques, one section open at a time. */
-.ruins-manage{display:grid;gap:6px;padding:6px;border:1px solid #a68c56;border-radius:5px;background:#0b1a22}
-.ruins-manage-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
-.ruins-goal{flex:1;min-width:0;margin:0;padding:0 4px;font:13px/1.35 Georgia,serif!important;color:#ffe8af}
-.ruins-manage-head:has(.ruins-goal[hidden]){justify-content:flex-end}
-.ruins-manage-toggle{flex-shrink:0;min-width:64px;min-height:44px;padding:6px 10px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;font:bold 13px Georgia,serif!important;cursor:pointer}
-.ruins-manage-toggle[aria-expanded="false"]{flex:1;border-color:#dac17c;box-shadow:inset 0 -2px #d6bd81;font-size:14px!important}
-.ruins-manage-body{display:grid;gap:6px}
-.ruins-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
-.ruins-tab{min-width:0;min-height:44px;padding:6px 2px;border:1px solid #4f5a4a;border-radius:4px;background:#11232b;color:#aab6b0;font:bold 13px Georgia,serif!important;letter-spacing:0;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ruins-tab[aria-selected="true"]{border-color:#dac17c;background:#33402f;color:#ffe8af;box-shadow:inset 0 -3px #d6bd81}
-/* The open section scrolls inside the drawer, under a fixed rule below the tabs, so the town stays on screen above it and
- * the first row always starts clear of the tabs. At least two rows show. */
-.ruins-pane{display:grid;gap:6px;max-height:clamp(118px,22vh,280px);overflow-y:auto;overscroll-behavior:contain;padding:6px 2px 0 0;border-top:1px solid #a68c5666;scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
+/* Haven's menus: a strip of four small game buttons on the bottom edge of the screen. Each opens one window over the
+ * town; the lit button is the open one. */
+.ruins-goal{margin:0;font:13px/1.35 Georgia,serif!important;color:#e8f5c8}
+.ruins-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;flex-shrink:0;padding:2px;background:#0c1a12;border-top:2px solid #2f5a3a}
+.ruins-tab{min-width:0;min-height:44px;padding:4px 2px;border:2px solid #2f5a3a;border-radius:0;background:#0f2a1c;color:#9bbc6f;font:bold 13px Georgia,serif!important;letter-spacing:.02em;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-tap-highlight-color:transparent}
+.ruins-tab[aria-selected="true"]{border-color:#9bbc6f;background:#1d4430;color:#e8f5c8;box-shadow:inset 0 -3px #d4ebb0}
+.ruins-tab:active{background:#2f6244}
+/* The open window's list scrolls inside the window, under its title bar, so the first row always starts clear of it. */
+.ruins-pane{display:grid;align-content:start;gap:6px;flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:6px;scrollbar-width:thin;scrollbar-color:#9bbc6f transparent}
+/* Rows inside the windows and the bar: square, hard-edged buttons in the same greens. */
+.ruins-win .ruins-upgrade,.ruins-win .ruins-job,.ruins-win .ruins-cancel,.ruins-help button,.ruins-place button{border-radius:0;border-width:2px}
+.ruins-win .ruins-upgrade,.ruins-win .ruins-job{border-color:#4f8a5c;background:#163a28;color:#e8f5c8}
+.ruins-win .ruins-upgrade small,.ruins-win .ruins-job small{color:#b5cf98}
+.ruins-win .ruins-upgrade b{border-radius:0;border-color:#9bbc6f;background:#0c1a12;color:#e8f5c8}
+.ruins-win .ruins-job strong,.ruins-win .ruins-job b{color:#e8f5c8}
+.ruins-win .ruins-job button{border-radius:0;border-width:2px;border-color:#9bbc6f;background:#1d4430;color:#e8f5c8}
+.ruins-win .ruins-note,.ruins-win .ruins-jobs>p{color:#d4ebb0}
+.ruins-win .ruins-build-head{color:#9bbc6f}
+.ruins-place .ruins-cancel,.ruins-win .ruins-cancel{border-color:#4f8a5c;background:#163a28;color:#e8f5c8}
+.ruins-place .ruins-confirm{border-color:#d4ebb0;background:#2f6244;color:#f4ffe0;box-shadow:inset 0 -3px #9bbc6f}
 .ruins-bp-list{display:grid;gap:6px}
 .ruins-note{margin:0;padding:2px 4px;font:13px/1.45 Georgia,serif!important;color:#c9d2cc}
 .ruins-build-toggle{min-width:76px;min-height:56px;border-color:#dac17c;box-shadow:inset 0 -2px #d6bd81}
@@ -112,12 +134,14 @@
 .ruins-upgrade:not(:disabled):active,.ruins-confirm:not(:disabled):active,.ruins-cancel:active,.ruins-build-toggle:active,.ruins-job button:not(:disabled):active{transform:translateY(1px)}
 .ruins-proto button:focus-visible{outline:2px solid #f8dc88;outline-offset:2px}
 /* Haven 3.5: one warning line above the map (a raid coming, or Food running out), Food at zero, repair buttons. */
-.ruins-alert{margin:0;padding:6px 10px;border:1px solid #b8322e;border-radius:4px;background:#2a1414;font:bold 13px/1.4 Georgia,serif!important;color:#ffd9c8;text-align:center}
+.ruins-alert{margin:0;padding:5px 8px;border:2px solid #b8322e;border-radius:0;box-shadow:2px 2px 0 rgba(0,0,0,.45);background:#2a1414;font:bold 13px/1.4 Georgia,serif!important;color:#ffd9c8;text-align:center}
 .ruins-alert[data-kind="food"]{border-color:#c9a043;background:#2a2312;color:#ffe8af}
 .ruins-stats dd.ruins-empty{color:#ff9a8a}
 .ruins-threat{color:#ffe8af!important}
 .ruins-repair{border-color:#b8322e;box-shadow:inset 3px 0 #b8322e}
 .ruins-repair:disabled{border-color:#7e744e;box-shadow:inset 3px 0 #9fd8c0}
-/* Narrow phones (320–360 wide): a little less padding round the drawer and 12px tab names, so "Defense" fits whole. */
-@media (max-width:360px){.ruins-proto{padding-left:4px;padding-right:4px}.ruins-manage{padding:5px 4px}.ruins-tabs{gap:3px}.ruins-tab{padding:6px 0;font-size:12px!important}}
+/* Narrow phones (320–360 wide): a little less padding and 12px menu names, so "Defense" fits whole. */
+@media (max-width:360px){.ruins-proto{padding-left:4px;padding-right:4px}.ruins-tab{padding:4px 0;font-size:12px!important;letter-spacing:0}.ruins-win-body{padding:6px 8px}}
+/* Short screens: the window may use more of the town's height, since one tap closes it. */
+@media (max-height:700px){.ruins-win{max-height:78%}}
 @media (max-width:340px){.ruins-upgrade{padding:8px 10px;gap:8px}.ruins-build-toggle{min-width:64px}.ruins-job{grid-template-columns:minmax(0,1fr) 44px 22px 44px;gap:4px;padding:6px}}

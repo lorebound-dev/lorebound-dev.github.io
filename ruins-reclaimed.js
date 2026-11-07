@@ -684,15 +684,14 @@ const SKETCH=`<section class="ruins-proto" aria-labelledby="ruinsTitle">
 <h3 id="ruinsTitle" class="ruins-title-sr">Haven (test prototype, trial numbers)</h3>
 <dl class="ruins-stats"><div><dt>Wood</dt><dd id="ruinsWood">0</dd></div><div><dt>Stone</dt><dd id="ruinsStone">0</dd></div><div><dt>Ore</dt><dd id="ruinsOre">0</dd></div><div><dt>Food</dt><dd id="ruinsFood">0</dd></div></dl>
 <div class="ruins-level"><div class="ruins-level-main"><div class="ruins-level-row"><strong id="ruinsLevelName">Settlement Lv 1 · Camp</strong><span id="ruinsLevelPts">0 / 4</span></div><div class="ruins-level-bar" aria-hidden="true"><i id="ruinsLevelBar"></i></div><small id="ruinsNext"></small></div><button type="button" class="ruins-help-toggle" aria-expanded="false" aria-controls="ruinsHelp" aria-label="How Haven works">?</button></div>
-<div class="ruins-help" id="ruinsHelp" hidden><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do sits under the map in four sections: Build, People, Defense and Land. Next shows one thing worth doing.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people (they need a place to live and some Food) and give them jobs. Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div>
-<p class="ruins-alert" id="ruinsAlert" role="status" aria-live="polite" hidden></p>
-<div class="ruins-world"><div class="ruins-scene" id="ruinsScene"><canvas id="ruinsCanvas" tabindex="0" role="img"></canvas></div>
-<div class="ruins-caption"><p class="ruins-work" id="ruinsWorkText" hidden></p><p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p></div></div>
+<div class="ruins-world"><div class="ruins-field"><div class="ruins-scene" id="ruinsScene"><canvas id="ruinsCanvas" tabindex="0" role="img"></canvas></div>
+<div class="ruins-over"><p class="ruins-alert" id="ruinsAlert" role="status" aria-live="polite" hidden></p>
+<div class="ruins-help ruins-win" id="ruinsHelp" role="group" aria-label="How Haven works" hidden><div class="ruins-win-head"><strong>How Haven works</strong><button type="button" class="ruins-close" data-ruins="helpclose" aria-label="Close How Haven works">×</button></div><div class="ruins-win-body"><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do opens from the four buttons along the bottom of the screen: Build, People, Defense and Land. Each opens a small window over the town, and × (or the same button again) closes it. Next shows one thing worth doing. Tap a building or a person to see what you can do with them.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people (they need a place to live and some Food) and give them jobs. Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div></div>
+<i class="ruins-gap"></i><div class="ruins-caption"><p class="ruins-work" id="ruinsWorkText" hidden></p><p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p></div>
 <div class="ruins-place" id="ruinsPlace" hidden><strong class="ruins-place-name" id="ruinsPlaceName"></strong><p id="ruinsPlaceText"></p><div><button type="button" class="ruins-confirm" data-ruins="confirm">Build here</button><button type="button" class="ruins-cancel" data-ruins="cancel">Cancel</button></div></div>
-<div class="ruins-manage" id="ruinsManage">
-<div class="ruins-manage-head"><p class="ruins-goal" id="ruinsGoal" hidden></p><button type="button" class="ruins-manage-toggle" data-ruins="manage" aria-expanded="true" aria-controls="ruinsManageBody">Hide</button></div>
-<div class="ruins-manage-body" id="ruinsManageBody">
-<div class="ruins-tabs" role="tablist" aria-label="Manage Haven">${TABS.map(t=>`<button type="button" role="tab" class="ruins-tab" id="ruinsTab-${t.id}" data-ruins="${t.id}" aria-controls="${t.pane}" aria-selected="false" tabindex="-1">${t.name}</button>`).join('')}</div>
+<div class="ruins-win" id="ruinsManageBody" role="group" aria-labelledby="ruinsWinTitle" hidden>
+<div class="ruins-win-head"><strong id="ruinsWinTitle">Build</strong><button type="button" class="ruins-close" data-ruins="manage" aria-controls="ruinsManageBody">×</button></div>
+<p class="ruins-goal" id="ruinsGoal" hidden></p>
 <div class="ruins-pane ruins-build" id="ruinsBuild" role="tabpanel" aria-labelledby="ruinsTab-build" hidden>
 <button type="button" class="ruins-upgrade" data-ruins="tools"><span><strong></strong><small></small></span><b></b></button>
 <button type="button" class="ruins-upgrade" data-ruins="roads"><span><strong></strong><small></small></span><b></b></button>
@@ -709,7 +708,8 @@ ${DAMAGEABLE.map(t=>`<button type="button" class="ruins-upgrade ruins-repair" da
 <div class="ruins-pane" id="ruinsLandPane" role="tabpanel" aria-labelledby="ruinsTab-land" hidden><p class="ruins-note" id="ruinsLandText"></p>
 <button type="button" class="ruins-upgrade ruins-expand" data-ruins="expand"><span><strong></strong><small></small></span><b></b></button>
 <button type="button" class="ruins-cancel" data-ruins="centre">Show the middle of Haven</button></div>
-</div></div>
+</div></div></div>
+<div class="ruins-tabs" id="ruinsManage" role="tablist" aria-label="Manage Haven">${TABS.map(t=>`<button type="button" role="tab" class="ruins-tab" id="ruinsTab-${t.id}" data-ruins="${t.id}" aria-controls="ruinsManageBody" aria-selected="false" aria-expanded="false" tabindex="-1">${t.name}</button>`).join('')}</div></div>
 </section>`;
 
 function mount(slot){
@@ -723,12 +723,12 @@ function mount(slot){
     levelName:q('#ruinsLevelName'),levelPts:q('#ruinsLevelPts'),levelBar:q('#ruinsLevelBar'),next:q('#ruinsNext'),
     place:q('#ruinsPlace'),placeName:q('#ruinsPlaceName'),placeText:q('#ruinsPlaceText'),confirm:q('[data-ruins=confirm]'),cancel:q('[data-ruins=cancel]'),buildPanel:q('#ruinsBuild'),expand:q('[data-ruins=expand]'),
     jobsPanel:q('#ruinsJobs'),jobsText:q('#ruinsJobsText'),auto:q('[data-ruins=auto]'),
-    manage:q('[data-ruins=manage]'),manageBody:q('#ruinsManageBody'),goal:q('#ruinsGoal'),defenseText:q('#ruinsDefenseText'),watchText:q('#ruinsWatchText'),landText:q('#ruinsLandText'),
-    tabs:Object.fromEntries(TABS.map(t=>[t.id,{btn:q(`[data-ruins=${t.id}]`),pane:q('#'+t.pane)}])),lists:{home:q('#ruinsList-home'),found:q('#ruinsList-found'),town:q('#ruinsList-town')},tab:'build',open:true,
+    manage:q('[data-ruins=manage]'),manageBody:q('#ruinsManageBody'),winTitle:q('#ruinsWinTitle'),goal:q('#ruinsGoal'),defenseText:q('#ruinsDefenseText'),watchText:q('#ruinsWatchText'),landText:q('#ruinsLandText'),
+    tabs:Object.fromEntries(TABS.map(t=>[t.id,{btn:q(`[data-ruins=${t.id}]`),pane:q('#'+t.pane)}])),lists:{home:q('#ruinsList-home'),found:q('#ruinsList-found'),town:q('#ruinsList-town')},tab:'build',open:false,info:null,
     jobs:Object.fromEntries(JOBS.map(j=>[j,{name:q(`#ruinsJobName-${j}`),info:q(`#ruinsJobInfo-${j}`),n:q(`#ruinsJobN-${j}`),less:q(`[data-ruins=job][data-job=${j}][data-d=less]`),add:q(`[data-ruins=job][data-job=${j}][data-d=add]`)}])),
     roads:q('[data-ruins=roads]'),
     bps:Object.fromEntries(BLUEPRINTS.map(b=>[b.id,q(`[data-type=${b.id}]`)])),tools:q('[data-ruins=tools]'),worker:q('[data-ruins=worker]'),workText:q('#ruinsWorkText'),
-    help:q('#ruinsHelp'),helpToggle:q('.ruins-help-toggle'),reset:q('[data-ruins=reset]'),reimport:q('[data-ruins=reimport]'),geo:null,down:null,placing:null,roading:false,upgrading:null,site:null,sites:[],selected:null,level:0};
+    help:q('#ruinsHelp'),helpToggle:q('.ruins-help-toggle'),helpClose:q('[data-ruins=helpclose]'),reset:q('[data-ruins=reset]'),reimport:q('[data-ruins=reimport]'),geo:null,down:null,placing:null,roading:false,upgrading:null,site:null,sites:[],selected:null,level:0};
   if(drawerMemory)Object.assign(view,drawerMemory);
   view.place.hidden=true;view.help.hidden=true;
   el.addEventListener('click',onClick);el.addEventListener('keydown',onPanelKey);
@@ -803,9 +803,9 @@ function tapAt(x,y){
   if(t.node!==undefined){work(t.node);return;}
   if(t.building){const type=t.building.t;if(isBroken(state,type)){if(state.broken[type]>0)fix(type);else openRepair(type);return;}openUpgrade(type);return;}
   if(t.raider){const k=state.raid,o=raidOutcome(state,k),tg=raidTarget(state,k);
-    say(`${RAID_NAME[k]} · Threat ${o.th} against your Defense ${o.def}${tg?` · heading for the ${BP[tg].name}`:''}. ${o.won?'They will be driven off.':'Add guards in People to drive them off.'}`);return;}
+    openInfo(RAID_NAME[k],`Threat ${o.th} against your Defense ${o.def}${tg?` · heading for the ${BP[tg].name}`:''}. ${o.won?'They will be driven off.':'Add guards in People to drive them off.'}`,'defense');return;}
   if(t.person){const w=t.person,role=roleOf(state,w.k),doing=w.task==='farm'?'working the Farm':w.task==='repair'?'repairing':w.task==='post'?'keeping watch':w.phase==='work'?'working':w.phase==='walk'?'walking to a job':'resting';
-    say(`A ${JOB_ONE[role]}, ${doing}. Eats 1 Food a minute. Change jobs in People.`);return;}
+    const job=JOB_ONE[role];openInfo(job[0].toUpperCase()+job.slice(1),`${doing[0].toUpperCase()+doing.slice(1)}. Eats 1 Food a minute. Jobs are set in People.`,'jobs');return;}
 }
 /* A hit by hand on a building being repaired: the same 0.48 s pace as gathering, and your full hit power. */
 function fix(type){const now=performance.now();if(!canSwing(lastSwing,now))return;const res=repairHit(state,type,manualPower(state));if(!res)return;lastSwing=now;
@@ -828,40 +828,46 @@ function work(id){const n=world(state.origin).nodes.get(id),now=performance.now(
   const res=hitNode(state,id,manualPower(state));if(!res)return;lastSwing=now;anims.push({type:'swing',id,t0:now,life:CONFIG.manualHitMs});view.selected=res.done?null:id;store();struck(id,res,false);
   if(!res.done){const h=Math.ceil(res.left/manualPower(state)),on=crew.some(w=>w.node===id&&w.phase==='work');
     say(`${CONFIG.kinds[n.kind].name}: ${plural(h,'more hit','more hits')} · gives ${fmt(yieldOf(state,n.kind))}${on?' · a worker is on it':''}.`);}update();wake();}
-/* The drawer. While a building is being placed, a road laid or an upgrade confirmed, the bar above takes its place,
- * so only one set of choices is open at a time; it comes back on the same section afterwards. */
+/* The in-game menus. Four small buttons along the bottom edge of the screen (Build, People, Defense, Land) each open
+ * one small window over the town; × or the same button again closes it, and the town behind keeps its size and pan.
+ * While a building is being placed, a road laid, an upgrade confirmed or a person looked at, the small bar on the
+ * town takes the window's place, so only one set of choices is open at a time; Cancel brings the window back. */
+const busyBar=()=>!!(view.placing||view.roading||view.walling||view.upgrading||view.info);
 function showDrawer(){
-  const busy=!!(view.placing||view.roading||view.walling||view.upgrading);view.manageBody.hidden=!view.open||busy;
-  view.manage.hidden=busy;view.manage.textContent=view.open?'Hide':'Manage Haven';view.manage.setAttribute('aria-expanded',String(view.open));
-  view.manage.setAttribute('aria-label',view.open?'Hide Haven Management':'Open Haven Management');
-  for(const t of TABS){const v=view.tabs[t.id],on=t.id===view.tab;v.pane.hidden=!on;v.btn.setAttribute('aria-selected',String(on));v.btn.setAttribute('tabindex',on?'0':'-1');}}
+  const busy=busyBar(),shown=view.open&&!busy;view.manageBody.hidden=!shown;
+  const name=TABS.find(t=>t.id===view.tab)?.name||'';view.winTitle.textContent=name;view.manage.setAttribute('aria-label','Close '+name);
+  for(const t of TABS){const v=view.tabs[t.id],on=t.id===view.tab;v.pane.hidden=!on;v.btn.setAttribute('aria-selected',String(on&&shown));v.btn.setAttribute('aria-expanded',String(on&&shown));v.btn.setAttribute('tabindex',on?'0':'-1');}}
 // Ready choices first. Only reordered when a section opens or after something is built, never while you're choosing.
 function sortBuild(){if(!view)return;for(const g of ['home','found','town']){const list=view.lists[g];if(typeof list?.append!=='function')continue;
   const order=buildOrder(state,g);if(order.every((id,i)=>list.children[i]===view.bps[id]))continue;list.append(...order.map(id=>view.bps[id]));}}
-function openTab(id,focus){if(!view.tabs[id])return;endPlacing();view.tab=id;view.open=true;if(id==='build')sortBuild();view.tabs[id].pane.scrollTop=0;say('');update();if(focus)view.tabs[id].btn.focus?.();}
-// Arrow keys move between the four sections; Escape closes a bar first, then the drawer.
+function openTab(id,focus){if(!view.tabs[id])return;endPlacing();closeHelp();view.tab=id;view.open=true;if(id==='build')sortBuild();view.tabs[id].pane.scrollTop=0;say('');update();if(focus)view.tabs[id].btn.focus?.();}
+function closeHelp(){if(!view.help.hidden){view.help.hidden=true;view.helpToggle.setAttribute('aria-expanded','false');}}
+// Arrow keys move between the four menus; Escape closes a bar first, then the window (or How Haven works).
 function onPanelKey(e){
-  if(e.key==='Escape'){if(view.placing||view.roading||view.walling||view.upgrading){e.preventDefault();endPlacing();say('');update();view.canvas.focus?.();return;}
-    if(view.open){e.preventDefault();view.open=false;update();view.manage.focus?.();}return;}
+  if(e.key==='Escape'){if(busyBar()){e.preventDefault();endPlacing();say('');update();view.canvas.focus?.();return;}
+    if(!view.help.hidden){e.preventDefault();closeHelp();view.helpToggle.focus?.();return;}
+    if(view.open){e.preventDefault();view.open=false;update();view.tabs[view.tab].btn.focus?.();}return;}
   const tab=e.target?.closest?.('[role=tab]');if(!tab||(e.key!=='ArrowLeft'&&e.key!=='ArrowRight'&&e.key!=='Home'&&e.key!=='End'))return;
   e.preventDefault();const i=TABS.findIndex(t=>t.id===view.tab),n=TABS.length,j=e.key==='Home'?0:e.key==='End'?n-1:(i+(e.key==='ArrowRight'?1:n-1))%n;openTab(TABS[j].id,true);}
 function onClick(e){
   const b=e.target.closest?.('button');if(!b||!view)return;
-  if(b===view.helpToggle){const open=view.help.hidden;view.help.hidden=!open;b.setAttribute('aria-expanded',String(open));return;}
+  if(b===view.helpToggle){const open=view.help.hidden;if(open){endPlacing();view.open=false;update();}view.help.hidden=!open;b.setAttribute('aria-expanded',String(open));return;}
+  if(b===view.helpClose){closeHelp();view.helpToggle.focus?.();return;}
   const what=b.dataset.ruins;
   if(what==='tools'||what==='worker'){const r=buy(state,what);if(r.ok){store();if(what==='worker')syncCrew(state,crew);
     say(what==='tools'?`Better Tools level ${state.tools}. Hit power is now ${power(manualPower(state))}.`:`Someone new joins Haven. ${plural(state.workers,'person','people')} now. They start on Auto; give them a job in People.`);update();wake();}
     else if(r.reason==='hungry')say('No one joins a hungry town. Get some Food first.');return;}
   if(what==='walls'){startWalls();return;}
   if(what==='repair'){openRepair(b.dataset.fix);return;}
-  if(TABS.some(t=>t.id===what)){openTab(what,false);return;}
-  if(what==='manage'){endPlacing();view.open=!view.open;if(view.open&&view.tab==='build')sortBuild();update();return;}
-  if(what==='centre'){layout(true);draw();view.scene.scrollIntoView?.({block:'nearest'});view.canvas.focus?.();return;}
+  // The same menu button again closes its window, so one tap always gives the whole town back.
+  if(TABS.some(t=>t.id===what)){if(view.open&&view.tab===what&&!busyBar()){view.open=false;update();return;}openTab(what,false);return;}
+  if(what==='manage'){endPlacing();view.open=false;update();view.tabs[view.tab].btn.focus?.();return;}
+  if(what==='centre'){view.open=false;layout(true);update();view.canvas.focus?.();return;}
   if(what==='auto'){if(allAuto(state).ok){store();say(`Every worker is on Auto and works anything.`);update();}return;}
   if(what==='job'){const r=setJob(state,b.dataset.job,b.dataset.d==='add'?1:-1);if(r.ok){store();update();}return;}
   if(what==='bp'){if(has(state,b.dataset.type))openUpgrade(b.dataset.type);else startPlacing(b.dataset.type);return;}
   if(what==='roads'){startRoads();return;}
-  if(what==='confirm'){if(view.repairing)confirmRepair();else if(view.upgrading)confirmUpgrade();else confirmBuild();return;}
+  if(what==='confirm'){if(view.info){const go=view.info.go;endPlacing();openTab(go,false);return;}if(view.repairing)confirmRepair();else if(view.upgrading)confirmUpgrade();else confirmBuild();return;}
   if(what==='cancel'){const wasRoads=view.roading,wasWalls=view.walling;endPlacing();
     say(wasRoads&&state.roads.length?`${plural(state.roads.length,'road tile')} in Haven.`:wasWalls&&state.walls.length?`${plural(state.walls.length,'palisade tile')} in Haven.`:'');update();return;}
   if(what==='expand'){if(Date.now()-lastBig<700)return;const r=expand(state);
@@ -886,14 +892,18 @@ function startRoads(){const st=settlement(state);if(st.level<CONFIG.roadsAt){say
 function startWalls(){if(settlement(state).level<CONFIG.roadsAt){say(`Palisade opens at Settlement Lv ${CONFIG.roadsAt}.`);return;}
   const sites=wallSites(state);if(!sites.length){say(state.walls.length>=CONFIG.wallMaxTiles?`Haven has its full ${CONFIG.wallMaxTiles} palisade tiles.`:'The whole edge is walled, or trees and deposits stand on the rest. Clear them first.');return;}
   endPlacing();view.walling=true;view.sites=sites;placeLine();update();}
+// A person or raider tapped on the town: who they are, with one way on to the menu where they're managed. Nothing is
+// charged and nothing new can be done here; Close returns to the town as it was.
+function openInfo(title,text,go){endPlacing();closeHelp();view.info={title,text,go};placeLine();update();}
 function openUpgrade(type){if(!has(state,type))return;endPlacing();view.upgrading=type;placeLine();update();}
 function openRepair(type){if(!isBroken(state,type))return;if(state.broken[type]>0){say(`The ${BP[type].name} is being repaired: ${state.broken[type]} work left. Builders do it, or tap it yourself.`);return;}
   endPlacing();view.repairing=type;view.upgrading=type;placeLine();update();}
 // Paying for a repair, like building: the bar closes on success, so a double tap can't pay twice.
 function confirmRepair(){const type=view.repairing;if(!type)return;const res=startRepair(state,type);if(!res.ok){placeLine();return;}
   store();endPlacing();say(`Repair of the ${BP[type].name} paid. ${state.jobs.build?'Your builders are on their way.':'No one is a Builder: tap it yourself to repair it, or make someone a Builder in People.'}`);update();wake();}
-function endPlacing(){if(!view)return;view.placing=null;view.roading=false;view.walling=false;view.upgrading=null;view.repairing=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';}
-function placeLine(){view.place.hidden=false;
+function endPlacing(){if(!view)return;view.info=null;view.placing=null;view.roading=false;view.walling=false;view.upgrading=null;view.repairing=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';}
+function placeLine(){view.place.hidden=false;view.confirm.disabled=false;
+  if(view.info){view.placeName.textContent=view.info.title;view.placeText.textContent=view.info.text;view.confirm.hidden=false;view.confirm.textContent=TABS.find(t=>t.id===view.info.go).name;view.cancel.textContent='Close';return;}
   // One plain heading for what's in hand, so it's clear what a tap on the town will do.
   view.placeName.textContent=view.roading?'Laying road':view.walling?'Building palisade':view.repairing?`Repair · ${BP[view.repairing].name}`
     :view.upgrading?`${BP[view.upgrading].name} · Lv ${lvOf(state,view.upgrading)}`:view.placing?`Placing · ${BP[view.placing].name}`:'';
@@ -905,7 +915,7 @@ function placeLine(){view.place.hidden=false;
   if(view.repairing){const type=view.repairing,u=canRepair(state,type),c=repairCost(state,type);view.confirm.textContent='Repair';view.confirm.disabled=!u.ok;
     view.placeText.textContent=u.reason==='short'?`The ${BP[type].name} is damaged and does nothing until repaired. Repair costs ${fmt(c)}: you need ${fmt(u.need)} more.`
       :`Repair the ${BP[type].name} for ${fmt(c)}? Then builders (or your taps) do ${CONFIG.repairWork} work and it works again.`;return;}
-  if(view.upgrading){const type=view.upgrading,bp=BP[type],lv=lvOf(state,type),u=canUpgrade(state,type);view.confirm.textContent='Upgrade';view.confirm.disabled=!u.ok;
+  if(view.upgrading){const type=view.upgrading,bp=BP[type],lv=lvOf(state,type),u=canUpgrade(state,type);view.confirm.textContent='Upgrade';view.confirm.disabled=!u.ok;view.cancel.textContent='Close';
     const now=`${bp.name} · Lv ${lv} (${STAGES[lv-1]}): ${bp.effects[lv-1]}.`;
     view.placeText.textContent=u.reason==='max'?`${now} It's at its highest level.`
       :u.reason==='townhall'?`${now} Raise the Town Hall to Lv ${u.to} to upgrade it.`
@@ -917,7 +927,7 @@ function placeLine(){view.place.hidden=false;
 // A second tap on Build here finds placing already ended, so a double tap can never build or charge twice.
 function confirmBuild(){if(!view.placing||view.site===null)return;const type=view.placing,c=view.site%W,r=Math.floor(view.site/W),res=build(state,type,c,r);
   if(!res.ok){say(res.reason==='short'?`You need ${fmt(res.need)} more.`:'That spot is no longer free. Pick another lit tile.');if(res.reason!=='short'){view.sites=validSites(state,type);view.site=null;placeLine();draw();}return;}
-  store();endPlacing();sortBuild();if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
+  store();endPlacing();sortBuild();view.open=false;if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
   say(`${BP[type].name} built. ${BP[type].effects[0]}.`);update();wake();}
 // The same for upgrades: the bar closes on success, so a second tap finds nothing to upgrade.
 function confirmUpgrade(){const type=view.upgrading;if(!type)return;const res=upgrade(state,type);
@@ -1046,11 +1056,8 @@ function onResize(){if(!view)return;layout(false);draw();}
  * tall as the room the town has with the open section folded away, up to 44px, and the map pans both ways when it's
  * bigger than its space. So opening a section covers part of the town without shrinking it, and while a building,
  * road or palisade is being placed the tile size stays put, so the tile you aimed at doesn't move. */
-/* The room the town would have with the drawer folded: its own height, plus the open section and its tabs, less any
- * part of the page that already runs off the bottom (on the smallest phones). So Hide never makes the tiles smaller. */
-function townRoom(){const sh=view.scene.clientHeight||0;if(!sh)return 0;
-  const body=view.open&&!view.manageBody.hidden?(view.manageBody.offsetHeight||0):0,over=Math.max(0,(view.root.scrollHeight||0)-(view.root.clientHeight||0));
-  return Math.max(sh,sh+(body?body+6:0)-over);}
+/* The menus float over the town, so the town's room is just its own height: opening or closing one never resizes it. */
+function townRoom(){return view.scene.clientHeight||0;}
 function layout(center){
   const cv=view.canvas,sc=view.scene,cw=sc.clientWidth||300,sh=sc.clientHeight||0,[lo,hi]=land(state),V=hi-lo+2,old=view.geo;
   const keep=old&&old.V===V&&!center&&!!(view.placing||view.roading||view.walling||view.upgrading),fitH=(townRoom()-16)/(2.1+V/2);
