@@ -1175,8 +1175,28 @@
       "to": 40,
       "master": "art-production/realm-01-mossbound-ruins/area-production/enemies/mirefang-bog-toad/portrait_master_1024.png",
       "masterSha256": "6167a6b459eec74d4d347a22e222a4a4656f8836dc9741a39b2f7c974829cd88",
-      "image": null,
-      "hold": "Prior source-framing hold"
+      "image": {
+        "src": "assets/realm1-approved/enemy-mirefang-bog-toad.png",
+        "bytes": 140231,
+        "sha256": "547fcb9a193eb93346ee9ac63f4e1ec35966b10767eb6a6fa941e71a77448f65",
+        "visibleBounds": [
+          0,
+          7,
+          1254,
+          1254
+        ],
+        "width": 384,
+        "height": 384,
+        "masterSha256": "ba7ff0a1a285addc850e0166b334c423db46cc2cf78a75f6a3ec7114d65c13ad"
+      },
+      "hold": null,
+      "approvedArt": {
+        "pack": "Approved/Realm1-Five-Held-Approved-v01",
+        "file": "mirefang-bog-toad.png",
+        "sha256": "ba7ff0a1a285addc850e0166b334c423db46cc2cf78a75f6a3ec7114d65c13ad",
+        "decision": "revision",
+        "approved": "2026-11-06"
+      }
     },
     {
       "id": "rotcap-shambler",
@@ -1208,8 +1228,28 @@
       "to": 70,
       "master": "art-production/realm-01-mossbound-ruins/area-production/enemies/bellveil-revenant/portrait_master_1024.png",
       "masterSha256": "4c424e607034ae4e5315c71e5ed429a1ae49764d52d34742a27f9ea82de69041",
-      "image": null,
-      "hold": "Prior source-framing hold"
+      "image": {
+        "src": "assets/realm1-approved/enemy-bellveil-revenant.png",
+        "bytes": 255049,
+        "sha256": "463cb4e8c9b3793cb6ede6a9e4c92ea78808c03b234ad553113ef6a35c55e438",
+        "visibleBounds": [
+          64,
+          64,
+          960,
+          960
+        ],
+        "width": 384,
+        "height": 384,
+        "masterSha256": "4c424e607034ae4e5315c71e5ed429a1ae49764d52d34742a27f9ea82de69041"
+      },
+      "hold": null,
+      "approvedArt": {
+        "pack": "Approved/Realm1-Five-Held-Approved-v01",
+        "file": "bellveil-revenant.png",
+        "sha256": "4c424e607034ae4e5315c71e5ed429a1ae49764d52d34742a27f9ea82de69041",
+        "decision": "original",
+        "approved": "2026-11-06"
+      }
     },
     {
       "id": "hallwing-horror",
@@ -1471,8 +1511,28 @@
       "to": 60,
       "master": "art-production/realm-01-mossbound-ruins/area-production/enemies/gravewing-raven/portrait_master_1024.png",
       "masterSha256": "6b6bed66e2932c7d882ea2506d20e284c7e88e01543a3daea6f0ead2a276d427",
-      "image": null,
-      "hold": "Unresolved identity mismatch"
+      "image": {
+        "src": "assets/realm1-approved/enemy-gravewing-raven.png",
+        "bytes": 227712,
+        "sha256": "cf4ab205dae6a1f3f1751e0419f498b3ebaf19d9ce27b1b741c2fd5b6689842e",
+        "visibleBounds": [
+          0,
+          0,
+          1254,
+          1254
+        ],
+        "width": 384,
+        "height": 384,
+        "masterSha256": "f3f606e3691acf6c6fcee5a43ec5b5cb82018f120d8a25d58ec6436c0a18144d"
+      },
+      "hold": null,
+      "approvedArt": {
+        "pack": "Approved/Realm1-Five-Held-Approved-v01",
+        "file": "gravewing-raven.png",
+        "sha256": "f3f606e3691acf6c6fcee5a43ec5b5cb82018f120d8a25d58ec6436c0a18144d",
+        "decision": "replacement",
+        "approved": "2026-11-06"
+      }
     },
     {
       "id": "thornscale-serpent",
@@ -2348,7 +2408,20 @@
       "source": "story_bosses/02_vespera_mother_of_thorns/source_art.png",
       "sourceSha256": "3d0784bd047a8e2c71116c46f9ce7a32a522d2d0e61430849f2b7f986f723cdd",
       "masterSha256": "e22b1431d7fe64451db4f84e61ca1ae5c5573faf9fd5074efe3b5049da840967",
-      "image": null,
+      "image": {
+        "src": "assets/realm1-approved/guardian-20.png",
+        "bytes": 531797,
+        "sha256": "5ca42781346d13d3088304c7956b64ec73e8738f5c0fa911c06f1e8dd8208944",
+        "visibleBounds": [
+          18,
+          170,
+          1015,
+          853
+        ],
+        "width": 768,
+        "height": 768,
+        "masterSha256": "e22b1431d7fe64451db4f84e61ca1ae5c5573faf9fd5074efe3b5049da840967"
+      },
       "arenaSource": "floors_11_20_thornback_guardian_arena.png",
       "arena": {
         "src": "assets/realm1-approved/arena-20.webp",
@@ -2359,7 +2432,14 @@
         "height": 1844,
         "masterSha256": "e34e8e397cc8d21a2a4c8522d81b23ba73d42628c7010fe2f5e9c6e0022d8691"
       },
-      "hold": "Individual source-framing/fitting review"
+      "hold": null,
+      "approvedArt": {
+        "pack": "Approved/Realm1-Five-Held-Approved-v01",
+        "file": "boss_02_vespera_mother_of_thorns.png",
+        "sha256": "e22b1431d7fe64451db4f84e61ca1ae5c5573faf9fd5074efe3b5049da840967",
+        "decision": "original",
+        "approved": "2026-11-06"
+      }
     },
     {
       "id": "boss_03_ordris_the_broken_vigil",
@@ -2545,7 +2625,20 @@
       "source": "story_bosses/08_vaelith_the_hollow_reliquary/source_art.png",
       "sourceSha256": "b4b2ad197f9d193fe28e20a82a3a2e85f32c2b7733cdb906708ec78e11e8132f",
       "masterSha256": "4818b2029b340bb10cee9148e9bee5680fd42030f7d12c152ba033558fd6cb14",
-      "image": null,
+      "image": {
+        "src": "assets/realm1-approved/guardian-80.png",
+        "bytes": 419642,
+        "sha256": "23efe1da4138dc8203d2237d3806376e7e1e5a292a4724ccaac4924e6ac80be9",
+        "visibleBounds": [
+          31,
+          0,
+          1520,
+          1024
+        ],
+        "width": 768,
+        "height": 768,
+        "masterSha256": "5f39c0f0bfc5cbb230f17f2dfa1917ff79f34d62083ba3364f432f5c440d8ee7"
+      },
       "arenaSource": "floors_71_80_hollow_warden_arena.png",
       "arena": {
         "src": "assets/realm1-approved/arena-80.webp",
@@ -2556,7 +2649,14 @@
         "height": 1844,
         "masterSha256": "5295d1b42cd9e4f94e4408e9e307b500222c56a710a365ae3b63b8f1bcb32afb"
       },
-      "hold": "Individual source-framing/fitting review"
+      "hold": null,
+      "approvedArt": {
+        "pack": "Approved/Realm1-Five-Held-Approved-v01",
+        "file": "boss_08_vaelith_the_hollow_reliquary.png",
+        "sha256": "5f39c0f0bfc5cbb230f17f2dfa1917ff79f34d62083ba3364f432f5c440d8ee7",
+        "decision": "revision",
+        "approved": "2026-11-06"
+      }
     },
     {
       "id": "boss_09_auralith_the_dreadstalker",
@@ -2630,12 +2730,7 @@
     }
   ],
   "held": {
-    "wandering-acolyte": "Prior source-framing review hold",
-    "gravewing-raven": "Unresolved identity mismatch",
-    "bellveil-revenant": "Prior source-framing hold",
-    "mirefang-bog-toad": "Prior source-framing hold",
-    "boss_02_vespera_mother_of_thorns": "Individual source-framing/fitting review",
-    "boss_08_vaelith_the_hollow_reliquary": "Individual source-framing/fitting review"
+    "wandering-acolyte": "Prior source-framing review hold"
   },
   "archives": [
     {

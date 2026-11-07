@@ -126,6 +126,11 @@
       "head": "05f6ded6ca37e22084edde4d967801936a0fe111"
     },
     {
+      "number": 121,
+      "title": "Audit live and dev Realm 1 visuals before Realm 2",
+      "head": "689fcb0169090cbb620c9bc220df76247b547ed0"
+    },
+    {
       "number": 122,
       "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
       "head": "31ac1d91a945206547b20af5774ad92878da133e",
@@ -188,7 +193,7 @@
       "with": "others"
     }
   ],
-  "commit": "43cd9e8860ee14697d882b7b1abe78b00889047f",
+  "commit": "e183ce0dab2deb69b625cc84240588720b16c155",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -197,5 +202,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T02:40:56Z"
+  "at": "2026-11-07T02:46:58Z"
 }
