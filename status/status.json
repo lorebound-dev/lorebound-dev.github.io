@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T17:48:14.705Z",
+ "generatedAt": "2026-11-07T17:57:52.266Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T17:19:21Z",
+  "updatedAt": "2026-11-07T17:49:00Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -47,57 +47,76 @@
  },
  "items": [
   {
-   "number": 150,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Heroes: three openings per 24 hours, silhouette collection and duplicate mastery",
-   "quote": "\"Ok now we need to tink about how we will open them and get more. I think that if you get dupes, it should take copies to upgrade it just like the companions. Also they should be hreyed out with just a shadowed outline and their name if it’s not unlocked. I think a user should get 3 openings every 24 hours\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T17:47:07Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T17:47:35Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:47:35Z",
-   "headSha": "de6d25904b5555a5a366d6ebbedb8aa5c45151af",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T17:47:34Z",
-   "goLive": false
-  },
-  {
    "number": 147,
    "kind": "request",
    "by": "Joshua",
    "title": "Replace Ascend with 25-hero rarity board for tap power",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "noah",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "noah",
+     "text": "To go live, the hero collection has to move into the real game save and its backups. It would hold: found heroes, copies, the equipped hero, when each opening comes back, the last receipt and an unseen result. That is a save change, with an update in save-storage.js's UPDATES list and in save-backups.html. Until Noah OKs it, the collection stays in a separate test-only storage key, and a…",
+     "at": "2026-11-07T17:57:31Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check Heroes on the test site in a browser at 320×610, 375×812, 390×844 and 430×932. From a new save, tap the fourth tab (Heroes). Check:",
+     "at": "2026-11-07T17:57:31Z"
+    },
+    {
+     "who": "note",
+     "text": "Openings: 3, each back 24 hours after its own use, free. Built as you asked. I think this works well: players can open any time of day and never lose an opening by not logging in at midnight.",
+     "at": "2026-11-07T17:57:31Z"
+    },
+    {
+     "who": "note",
+     "text": "Odds: 25 / 21 / 17 / 13 / 9 / 6 / 4 / 2.5 / 1.5 / 1%. Built exactly. They feel generous early: half the board in a week and a first Eternal in about 3–4 weeks. After that, new heroes slow down a lot. Finding all 25 takes about 3½ months, because each Eternal hero is only 0.5% per opening.",
+     "at": "2026-11-07T17:57:31Z"
+    },
+    {
+     "who": "note",
+     "text": "Mastery thresholds and +8% per rank: built exactly. Common and Epic heroes reach rank VI in 3–5 months, which feels right. A named Eternal reaches rank VI in about 1½ years (2+ years for some players). If that's too slow, my suggestion is to lower only the top five rarities to 2 / 3 / 4 / 5 / 6 / 7 copies, or to add a 4th opening a day. I didn't change the odds or add anything to speed it up.",
+     "at": "2026-11-07T17:57:31Z"
+    },
+    {
+     "who": "note",
+     "text": "A duplicate of your equipped hero raises your tap damage straight away. A duplicate of another hero only makes that hero stronger for later.",
+     "at": "2026-11-07T17:57:31Z"
+    },
+    {
+     "who": "note",
+     "text": "Heroes are still a test-site preview, kept on the device apart from your save, as the request allowed until Noah says yes. That means clearing the browser's data gives you a fresh start with 3 openings. So it isn't safe to put live yet, and the screen says so (\"DEV preview\").",
+     "at": "2026-11-07T17:57:31Z"
+    },
+    {
+     "who": "note",
+     "text": "The opening icon is a tiny pixel card drawn in code, like the helm on the tab. Bonus ideas (Fortune, Rally and so on) still say \"not active yet\".",
+     "at": "2026-11-07T17:57:31Z"
+    },
+    {
+     "who": "note",
+     "text": "Everything from the first build still applies: Heroes goes after #92 (Haven), and on the real game the tab only says \"Heroes · Coming Soon\".",
+     "at": "2026-11-07T17:57:31Z"
+    }
+   ],
    "openedAt": "2026-11-07T17:05:00Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
-   "headSha": "256af7656cc2550f0fc4a3d31300720564f89475",
+   "updatedAt": "2026-11-07T17:57:31Z",
+   "headSha": "f701a6008b1b4663fe8ff1543a7309032ef18897",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-07T17:17:36Z",
+   "botAt": "2026-11-07T17:57:31Z",
    "goLive": false
   },
   {
@@ -130,11 +149,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "62096da571c3b2068bc3f4d4a8498c941103a7db",
    "touchesGame": true,
    "answers": false,
@@ -198,11 +217,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524",
    "touchesGame": true,
    "answers": false,
@@ -266,11 +285,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "699556791c607f05dd6daf251cd363d701188a87",
    "touchesGame": true,
    "answers": false,
@@ -299,11 +318,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
    "touchesGame": true,
    "answers": false,
@@ -362,11 +381,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
    "touchesGame": true,
    "answers": false,
@@ -415,11 +434,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -458,11 +477,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
@@ -485,11 +504,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
    "touchesGame": true,
    "answers": false,
@@ -512,11 +531,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
    "touchesGame": true,
    "answers": false,
@@ -555,11 +574,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -598,17 +617,44 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:19:22Z",
+   "testAt": "2026-11-07T17:49:01Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:19:22Z",
+   "updatedAt": "2026-11-07T17:49:01Z",
    "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-06T21:00:05Z",
+   "goLive": false
+  },
+  {
+   "number": 150,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Heroes: three openings per 24 hours, silhouette collection and duplicate mastery",
+   "quote": "\"Ok now we need to tink about how we will open them and get more. I think that if you get dupes, it should take copies to upgrade it just like the companions. Also they should be hreyed out with just a shadowed outline and their name if it’s not unlocked. I think a user should get 3 openings every 24 hours\"",
+   "stage": "closed",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-07T17:47:07Z",
+   "mergedAt": null,
+   "closedAt": "2026-11-07T17:47:35Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:47:35Z",
+   "headSha": "de6d25904b5555a5a366d6ebbedb8aa5c45151af",
+   "touchesGame": false,
+   "answers": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "finished",
+   "botAt": "2026-11-07T17:47:34Z",
    "goLive": false
   },
   {
@@ -1590,6 +1636,26 @@
  ],
  "activity": [
   {
+   "at": "2026-11-07T17:57:31Z",
+   "kind": "built",
+   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
+   "at": "2026-11-07T17:57:31Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
+   "at": "2026-11-07T17:57:31Z",
+   "kind": "question",
+   "text": "Part of “Replace Ascend with 25-hero rarity board for tap power” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-07T17:49:01Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
    "at": "2026-11-07T17:47:35Z",
    "kind": "closed",
    "text": "“Heroes: three openings per 24 hours, silhouette collection and duplicate mastery” was closed"
@@ -1603,11 +1669,6 @@
    "at": "2026-11-07T17:19:22Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T17:17:36Z",
-   "kind": "built",
-   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T17:16:58Z",
@@ -1773,21 +1834,6 @@
    "at": "2026-11-07T16:01:44Z",
    "kind": "note",
    "text": "Claude left notes for you on “Add Codex Claim All discovery rewards and rarity completion bonuses”"
-  },
-  {
-   "at": "2026-11-07T16:01:44Z",
-   "kind": "question",
-   "text": "Part of “Add Codex Claim All discovery rewards and rarity completion bonuses” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-07T15:56:50Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
-  },
-  {
-   "at": "2026-11-07T15:54:13Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   }
  ],
  "otherPulls": [
