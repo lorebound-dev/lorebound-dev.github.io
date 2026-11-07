@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T01:10:42.168Z",
+ "generatedAt": "2026-11-07T01:53:30.908Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T01:06:03Z",
+  "updatedAt": "2026-11-07T01:12:06Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -29,7 +29,6 @@
    "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
    "Rework Omnidex into universal collection and rarity pages",
    "Preview approved Common companions in existing detail screen",
-   "Unify Rift rarity bars and clean up legacy Tome UI",
    "Polish DEV Rift controls, summon quantity footer and Party labels",
    "Keep enemy and companions stationary when Party collapses"
   ],
@@ -37,72 +36,11 @@
    "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
    "Double-tap Party cards to swap pending companions directly",
    "Double species mastery summon requirements and damage bonuses",
+   "Unify Rift rarity bars and clean up legacy Tome UI",
    "Show named blank undiscovered Omnidex cards and tighten rarity pages"
   ]
  },
  "items": [
-  {
-   "number": 120,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify Rift rarity bars and clean up legacy Tome UI",
-   "quote": "Make the upgrade rift rarity bars be the same ones used on the auto screen. Remove anything saying highest level. Remove all pngs of tomes and replace with the new rift. Remove the all levels button on the upgrade rift. Move the upgrade rift button up a bit and shrink it a bit.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "In #115 (review/summon-cadence-rift-reveal), fix pocket-fortune/dist/rift-vortex.css: change animation:riftSpinUp .3scubic-bezier(.6,0,1,.6) both to animation:riftSpinUp .3s cubic-bezier(.6,0,1,.6) both, and give rift-vortex.css a new ?v= tag in home.html. Without the space, browsers drop the whole line, so the Rift never visibly spins up on a single summon.",
-     "at": "2026-11-07T01:10:08Z"
-    },
-    {
-     "who": "claude",
-     "text": "Then on the test site, record one summon at phone size to show the spin-up before the result, and check that #115 and this request are both on the test site.",
-     "at": "2026-11-07T01:10:08Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the Shard plaque under the Rift at 320×610, 375×667, 390×844 and 430×932, with the Party open and closed. Take screenshots with a small balance (like 40) and a large one (like 12.3K). The plaque mustn't overlap Upgrade Rift, Auto, the Rift's tap area or the bottom buttons.",
-     "at": "2026-11-07T01:10:08Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #78 is merged, remove All levels here, and take out #78's new \"highest level\" wording, as this request asks. Until #78 is in, All levels is the only way back to a higher Rift level after picking a lower one.",
-     "at": "2026-11-07T01:10:08Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #84 is merged, make Upgrade Rift use Auto Summon's rarity rows here, leaving #85's row art out, as this request asks.",
-     "at": "2026-11-07T01:10:08Z"
-    },
-    {
-     "who": "note",
-     "text": "The Shard number is 18px bold on most phones and 16px on narrow (350px or less) or short phones. I think that's as big as it can go: any bigger and it would push into the bottom buttons when the Party is closed.",
-     "at": "2026-11-07T01:10:08Z"
-    },
-    {
-     "who": "note",
-     "text": "The plaque is wide enough for up to four characters (like 12.3K) without changing size. Only bigger numbers make it a little wider.",
-     "at": "2026-11-07T01:10:08Z"
-    }
-   ],
-   "openedAt": "2026-11-06T12:38:45Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
-   "onTest": true,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T01:10:08Z",
-   "headSha": "77fe9eb5db5dfd312e7ccde92425879fba83cfd7",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T01:10:08Z"
-  },
   {
    "number": 133,
    "kind": "request",
@@ -143,17 +81,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-07T01:01:17Z"
+   "botAt": "2026-11-07T01:01:17Z",
+   "goLive": false
   },
   {
    "number": 97,
@@ -185,17 +124,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T23:03:18Z"
+   "botAt": "2026-11-06T23:03:18Z",
+   "goLive": false
   },
   {
    "number": 106,
@@ -211,17 +151,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-06T18:32:13Z"
+   "botAt": "2026-11-06T18:32:13Z",
+   "goLive": false
   },
   {
    "number": 103,
@@ -237,17 +178,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
    "botState": "finished",
-   "botAt": "2026-11-04T06:26:18Z"
+   "botAt": "2026-11-04T06:26:18Z",
+   "goLive": false
   },
   {
    "number": 92,
@@ -299,17 +241,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "dba3b85a11e036fee1efe70492bd2bf06f411f6c",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-06T21:45:11Z"
+   "botAt": "2026-11-06T21:45:11Z",
+   "goLive": false
   },
   {
    "number": 108,
@@ -341,17 +284,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T21:43:37Z"
+   "botAt": "2026-11-06T21:43:37Z",
+   "goLive": false
   },
   {
    "number": 89,
@@ -383,17 +327,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T21:00:05Z"
+   "botAt": "2026-11-06T21:00:05Z",
+   "goLive": false
   },
   {
    "number": 116,
@@ -420,17 +365,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-06T18:41:59Z"
+   "botAt": "2026-11-06T18:41:59Z",
+   "goLive": false
   },
   {
    "number": 122,
@@ -452,17 +398,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "31ac1d91a945206547b20af5774ad92878da133e",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-06T18:54:04Z"
+   "botAt": "2026-11-06T18:54:04Z",
+   "goLive": false
   },
   {
    "number": 117,
@@ -504,17 +451,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-06T18:34:28Z"
+   "botAt": "2026-11-06T18:34:28Z",
+   "goLive": false
   },
   {
    "number": 102,
@@ -530,17 +478,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "c1494e8b45f798739afb1e5dbe4101435fd884c0",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-06T18:27:37Z"
+   "botAt": "2026-11-06T18:27:37Z",
+   "goLive": false
   },
   {
    "number": 115,
@@ -567,17 +516,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "cb786c4c53a795e2b89347e309d893c51b1d404d",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-06T18:26:45Z"
+   "botAt": "2026-11-06T18:26:45Z",
+   "goLive": false
   },
   {
    "number": 78,
@@ -593,17 +543,18 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "690d04bbf0a7ebf35544adb05bf20e06d47ff079",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-05T14:45:11Z"
+   "botAt": "2026-11-05T14:45:11Z",
+   "goLive": false
   },
   {
    "number": 81,
@@ -619,17 +570,86 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T01:06:04Z",
+   "testAt": "2026-11-07T01:12:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:04Z",
+   "updatedAt": "2026-11-07T01:12:06Z",
    "headSha": "7d2b36f8553737fc817e633f8620c267f85a5fb3",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-04T06:24:58Z"
+   "botAt": "2026-11-04T06:24:58Z",
+   "goLive": false
+  },
+  {
+   "number": 120,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify Rift rarity bars and clean up legacy Tome UI",
+   "quote": "Make the upgrade rift rarity bars be the same ones used on the auto screen. Remove anything saying highest level. Remove all pngs of tomes and replace with the new rift. Remove the all levels button on the upgrade rift. Move the upgrade rift button up a bit and shrink it a bit.",
+   "stage": "built",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "In #115 (review/summon-cadence-rift-reveal), fix pocket-fortune/dist/rift-vortex.css: change animation:riftSpinUp .3scubic-bezier(.6,0,1,.6) both to animation:riftSpinUp .3s cubic-bezier(.6,0,1,.6) both, and give rift-vortex.css a new ?v= tag in home.html. Without the space, browsers drop the whole line, so the Rift never visibly spins up on a single summon.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "Then on the test site, record one summon at phone size to show the spin-up before the result, and check that #115 and this request are both on the test site.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at the Shard plaque under the Rift at 320×610, 375×667, 390×844 and 430×932, with the Party open and closed. Take screenshots with a small balance (like 40) and a large one (like 12.3K). The plaque mustn't overlap Upgrade Rift, Auto, the Rift's tap area or the bottom buttons.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #78 is merged, remove All levels here, and take out #78's new \"highest level\" wording, as this request asks. Until #78 is in, All levels is the only way back to a higher Rift level after picking a lower one.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #84 is merged, make Upgrade Rift use Auto Summon's rarity rows here, leaving #85's row art out, as this request asks.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "note",
+     "text": "The Shard number is 18px bold on most phones and 16px on narrow (350px or less) or short phones. I think that's as big as it can go: any bigger and it would push into the bottom buttons when the Party is closed.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "note",
+     "text": "The plaque is wide enough for up to four characters (like 12.3K) without changing size. Only bigger numbers make it a little wider.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "It clashes with another change in progress, in economy-interface.js, so it isn't on the test site yet.",
+     "at": null
+    }
+   ],
+   "openedAt": "2026-11-06T12:38:45Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T01:06:04Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-07T01:10:08Z",
+   "headSha": "77fe9eb5db5dfd312e7ccde92425879fba83cfd7",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T01:10:08Z",
+   "goLive": false
   },
   {
    "number": 96,
@@ -661,7 +681,8 @@
    "answers": false,
    "requestStatus": "On hold until Joshua approves Haven (#92) on the test site",
    "botState": "questions",
-   "botAt": "2026-11-06T23:00:48Z"
+   "botAt": "2026-11-06T23:00:48Z",
+   "goLive": false
   },
   {
    "number": 121,
@@ -713,7 +734,8 @@
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T22:59:51Z"
+   "botAt": "2026-11-06T22:59:51Z",
+   "goLive": false
   },
   {
    "number": 131,
@@ -739,7 +761,8 @@
    "answers": true,
    "requestStatus": "Waiting to be built",
    "botState": "finished",
-   "botAt": "2026-11-06T22:57:59Z"
+   "botAt": "2026-11-06T22:57:59Z",
+   "goLive": false
   },
   {
    "number": 130,
@@ -811,7 +834,8 @@
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T22:55:04Z"
+   "botAt": "2026-11-06T22:55:04Z",
+   "goLive": false
   },
   {
    "number": 118,
@@ -858,7 +882,8 @@
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T21:40:35Z"
+   "botAt": "2026-11-06T21:40:35Z",
+   "goLive": false
   },
   {
    "number": 124,
@@ -884,7 +909,8 @@
    "answers": false,
    "requestStatus": "Waiting for answers",
    "botState": "questions",
-   "botAt": "2026-11-06T21:17:15Z"
+   "botAt": "2026-11-06T21:17:15Z",
+   "goLive": false
   },
   {
    "number": 114,
@@ -910,7 +936,8 @@
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-06T11:10:14Z"
+   "botAt": "2026-11-06T11:10:14Z",
+   "goLive": false
   },
   {
    "number": 113,
@@ -936,7 +963,8 @@
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "finished",
-   "botAt": "2026-11-06T10:52:54Z"
+   "botAt": "2026-11-06T10:52:54Z",
+   "goLive": false
   },
   {
    "number": 119,
@@ -993,7 +1021,8 @@
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T21:02:01Z"
+   "botAt": "2026-11-06T21:02:01Z",
+   "goLive": false
   },
   {
    "number": 109,
@@ -1055,7 +1084,8 @@
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T21:00:53Z"
+   "botAt": "2026-11-06T21:00:53Z",
+   "goLive": false
   },
   {
    "number": 129,
@@ -1081,7 +1111,8 @@
    "answers": true,
    "requestStatus": "Waiting to be built",
    "botState": "finished",
-   "botAt": "2026-11-06T20:56:36Z"
+   "botAt": "2026-11-06T20:56:36Z",
+   "goLive": false
   },
   {
    "number": 126,
@@ -1107,7 +1138,8 @@
    "answers": false,
    "requestStatus": "Waiting for answers",
    "botState": "questions",
-   "botAt": "2026-11-06T18:15:46Z"
+   "botAt": "2026-11-06T18:15:46Z",
+   "goLive": false
   },
   {
    "number": 98,
@@ -1144,7 +1176,8 @@
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-06T18:35:09Z"
+   "botAt": "2026-11-06T18:35:09Z",
+   "goLive": false
   },
   {
    "number": 112,
@@ -1170,7 +1203,8 @@
    "answers": false,
    "requestStatus": "Owner answers confirmed; waiting for Noah to relay to existing pull requests",
    "botState": "questions",
-   "botAt": "2026-11-05T23:21:21Z"
+   "botAt": "2026-11-05T23:21:21Z",
+   "goLive": false
   },
   {
    "number": 123,
@@ -1196,7 +1230,8 @@
    "answers": false,
    "requestStatus": "Waiting to be built",
    "botState": "questions",
-   "botAt": "2026-11-06T13:48:00Z"
+   "botAt": "2026-11-06T13:48:00Z",
+   "goLive": false
   },
   {
    "number": 107,
@@ -1222,7 +1257,8 @@
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-04T13:53:16Z"
+   "botAt": "2026-11-04T13:53:16Z",
+   "goLive": false
   },
   {
    "number": 104,
@@ -1248,10 +1284,21 @@
    "answers": false,
    "requestStatus": "Waiting to be relayed",
    "botState": "questions",
-   "botAt": "2026-11-03T22:11:03Z"
+   "botAt": "2026-11-03T22:11:03Z",
+   "goLive": false
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-07T01:53:15Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Autopilot: Joshua puts requests live himself, hand-offs pass on by themselves, and a daily caretaker”"
+  },
+  {
+   "at": "2026-11-07T01:12:06Z",
+   "kind": "test",
+   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+  },
   {
    "at": "2026-11-07T01:10:08Z",
    "kind": "built",
@@ -1441,16 +1488,6 @@
    "at": "2026-11-06T21:02:01Z",
    "kind": "built",
    "text": "Claude finished building “Double species mastery summon requirements and damage bonuses”"
-  },
-  {
-   "at": "2026-11-06T21:02:01Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Double species mastery summon requirements and damage bonuses”"
-  },
-  {
-   "at": "2026-11-06T21:00:53Z",
-   "kind": "built",
-   "text": "Claude finished building “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
   }
  ],
  "otherPulls": [
