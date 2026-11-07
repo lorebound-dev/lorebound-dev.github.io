@@ -20,5 +20,3 @@
 /* Fighters stand out from the busy painted backgrounds: a thin dark outline and a grounded shadow. The hit flash keeps the outline. */
 .adventure-refined #game:not(.boss-room) .enemy-sprite{filter:drop-shadow(0 0 1px #000d) drop-shadow(0 0 1px #000d) drop-shadow(0 6px 5px #000b)}
 .adventure-refined #game:not(.boss-room) .enemy-sprite.struck{filter:brightness(1.18) drop-shadow(0 0 1px #000d) drop-shadow(0 0 1px #000d) drop-shadow(0 0 3px #d7c89b)}
-/* A soft dark pool behind the fight, so the fighters don't stand on the brightest part of the painting */
-.adventure-refined #game:not(.boss-room) #combatLayout:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 72% 26% at 50% calc(var(--court-y) - 34px),#020b12a6,#020b1259 45%,transparent 72%)}

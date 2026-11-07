@@ -29,14 +29,12 @@
 .game .timer{position:absolute;left:0;right:0;top:100%;font:bold 10px/1.4 'Courier New',monospace!important;margin:3px 0 0;color:#e3b59c}
 /* Creature and contact shadow share the same baseline, including sprite alpha margins. */
 .game .battlefield{position:relative;inset:auto;width:100%;height:100%;min-height:0;display:block;overflow:visible;border:0;background:none;padding:0;isolation:isolate}
-.game .battlefield:before{content:'';position:absolute;z-index:-1;left:9%;right:9%;bottom:-9px;height:68px;background:url('assets/quiet-floor.svg') center bottom/160px 90px;mask-image:radial-gradient(ellipse,black 5%,transparent 70%);opacity:.6;pointer-events:none}
-.game .enemy-shadow{top:auto;bottom:0;left:50%;translate:0 0;transform:translateX(-50%);width:88px;height:12px;filter:blur(2px);background:#01080ce6;opacity:.8}
+/* No floor tiles or fixed ovals: the painted background is the floor. The only enemy contact shadow is #enemySprite's own :before (battlefield-finish.css), so it goes when the enemy does. */
+.game .enemy-shadow{display:none}
 .game .enemy-sprite{--enemy-size:clamp(100px,17dvh,148px);position:absolute;top:auto;bottom:2px;left:50%;width:var(--enemy-size);height:var(--enemy-size);translate:-50% calc(var(--sprite-gap,.09) * 100%);margin:0;animation:groundedIdle 3.2s ease-in-out infinite;filter:drop-shadow(0 2px 1px #02081099);transform-origin:50% 85%}
 .game .enemy-sprite.boss{--enemy-size:clamp(120px,21dvh,184px)}.game .enemy-sprite.struck{filter:brightness(1.18) drop-shadow(0 0 2px #d7c89b)}
 .game .enemy-impact{top:auto;bottom:15px}.game .damage-pop{top:auto;bottom:65px;font:bold 20px 'Courier New',monospace!important}
 .game .party-stage{position:relative;inset:auto;height:100%;margin:0;display:block;overflow:visible;isolation:isolate}
-.game .party-stage:before{content:'';position:absolute;left:50%;bottom:3px;translate:-50% 0;width:43px;height:8px;border-radius:50%;background:#02080cc9;filter:blur(1px)}
-.game .party-stage:after{content:'';position:absolute;z-index:-1;left:15%;right:15%;top:-7px;bottom:0;background:url('assets/quiet-floor.svg') center bottom/160px 90px;mask-image:radial-gradient(ellipse,black,transparent 72%);opacity:.35;pointer-events:none}
 .game .bound-unit{position:absolute;bottom:4px;left:50%;width:clamp(49px,8.2dvh,70px);height:clamp(49px,8.2dvh,70px);translate:-50% 5.7%;margin:0;animation:groundedIdle 2.8s ease-in-out infinite;transform-origin:50% 95%}.game .bound-unit.auto-attack{animation:boundStrike .65s ease-out}.game .battle-bolt{left:calc(50% - 8px);top:4px}
 .game .battle-panel{position:relative;inset:auto;align-self:center;width:72%;height:56px;margin:0 auto;padding:0;border:0;box-shadow:none;background:none}
 .game .progress-row{display:flex;justify-content:center;gap:7px;font:10px/1.4 Arial,sans-serif!important;letter-spacing:1px;color:#f4ead3;text-shadow:0 2px 2px #000}
