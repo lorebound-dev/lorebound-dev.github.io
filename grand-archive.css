@@ -11,6 +11,12 @@
 #omnidexSheet .archive-family.has-unseen:after{content:'';position:absolute;top:8px;right:8px;width:8px;height:8px;rotate:45deg;border:1px solid #f5dc96;background:#ef5b41}
 #omnidexSheet .dex-new-count{display:flex;align-items:center;gap:8px;margin-top:4px;font:bold var(--ui-label)/1.3 Georgia,serif!important;font-style:normal;color:#eddbaf}
 #omnidexSheet .dex-new-count:before{content:'';width:8px;height:8px;margin-left:2px;rotate:45deg;border:1px solid #f5dc96;background:#ef5b41}
+/* Undiscovered slots: the name on a blank parchment card of the rarity, a little muted so found companions stand out. No portrait or mastery marks. */
+#omnidexSheet .archive-card.named-blank .card-art{filter:saturate(.6) brightness(.96)}
+#omnidexSheet .archive-card.named-blank .card-rarity{letter-spacing:normal}
+/* Collection reward under a discovered card: its Shard is ready (gold, bold) or already claimed (muted). Undiscovered cards show none. */
+#omnidexSheet .archive-card-reward{display:block;text-align:center;font:12px/1.35 Georgia,serif!important;letter-spacing:normal;color:#6b5636}
+#omnidexSheet .archive-card-reward.is-ready{color:#6f4a10;font-weight:bold!important}
 /* Companion page: full screen with the category's habitat behind it, like the first companion reveal. Long entries scroll. Categories without their own habitat yet use the starry void. */
 #historicalCompanion.archive-dialog[open]{inset:0;width:100%;max-width:none;height:100vh;height:100dvh;max-height:none;border:0;border-radius:0;box-shadow:none;padding:max(22px,env(safe-area-inset-top)) max(16px,calc((100% - 450px)/2)) max(22px,env(safe-area-inset-bottom))}
 #historicalCompanion.archive-dialog .detail-art{height:clamp(150px,30dvh,280px);width:min(100%,280px)}

@@ -55,7 +55,7 @@ function validate(s){try{
  return true;
  }catch{return false;}}
 function mastery(s,id){demand(known(id),'Unknown species');return R.mastery({masteryCopies:s.history},id);}
-function combat(s,id){if(root.LoreArmory?.active(s))return R.combat(hydrate(s),id);const c=s.owned.find(c=>c.id===id);demand(c,'Companion is not active');const x=R.combat({...s.progress,masteryCopies:s.history},id),ratio=(1+.04*mastery(s,c.speciesId))*(1+leveling(s,id).bonus)/(1+R.E.masteryStep*mastery(s,c.speciesId));return {...x,damage:x.damage*ratio,expectedDps:x.expectedDps*ratio};}
+function combat(s,id){if(root.LoreArmory?.active(s))return R.combat(hydrate(s),id);const c=s.owned.find(c=>c.id===id);demand(c,'Companion is not active');const x=R.combat({...s.progress,masteryCopies:s.history},id),ratio=(1+.08*mastery(s,c.speciesId))*(1+leveling(s,id).bonus)/(1+R.E.masteryStep*mastery(s,c.speciesId));return {...x,damage:x.damage*ratio,expectedDps:x.expectedDps*ratio};}
 function draw(s,drawId,rng=Math.random,now=Date.now()){
  demand(validate(s),'Invalid ownership save');demand(typeof drawId==='string'&&/^[a-zA-Z0-9_-]{1,100}$/.test(drawId)&&!['__proto__','constructor','prototype'].includes(drawId),'Invalid receipt ID');
  const seq=Number(drawId);demand(Number.isSafeInteger(seq)&&seq>0&&String(seq)===drawId,'Use a monotonic draw sequence');if(seq<=s.receiptFloor||Object.hasOwn(s.receipts,drawId))return clone(s);demand(seq===s.drawSequence+1,'Draw sequence conflict');

@@ -1,0 +1,34 @@
+/* Companion details use the tutorial's "A NEW BOND" screen (Joshua, 2026-11-07): edge-to-edge habitat, small spaced
+   kicker, large pale name, the companion large in the middle, the rarity and category badges side by side, one row of
+   three stats (DPS, Normal hit, Critical chance), and the actions where the tutorial's sentence sits. No other text.
+   Sizes, colours and badge shapes are the tutorial's own (dialog.hatch-reveal, .reveal-type and .reveal-stats in
+   adventure.css). The sheet scrolls naturally on short phones instead of shrinking text. This file loads after the
+   older bottom-sheet rules (menus.css, realm1.css, collection-ui.css), so its selectors carry #boundSheet.bond-card. */
+#boundSheet.bond-card{inset:0;left:0;right:0;top:0;bottom:0;transform:none;width:100%;max-width:none;height:100dvh;max-height:100dvh;margin:0;padding:0 0 max(24px,env(safe-area-inset-bottom));border:0;border-image:none;outline:0;border-radius:0;box-shadow:none;overflow-y:auto;text-align:center;color:#d0d6e3;background:linear-gradient(#08122550,#11182d63),url('assets/void.png') center/cover no-repeat}
+#boundSheet.bond-card.bound-habitat{background:linear-gradient(#07131b40,transparent 25%,#0715252e 45%,#0a17297d 72%,#091426b3),var(--companion-habitat) center/cover no-repeat}
+#boundSheet.bond-card::backdrop{background:#020b16}
+/* The X stays the only close, in the top right and in reach while the sheet scrolls. */
+#boundSheet.bond-card>#closeBound{margin:max(8px,env(safe-area-inset-top)) 8px -52px 0}
+#boundSheet.bond-card .bound-sheet-heading{padding:clamp(44px,8dvh,72px) 54px 0;border:0;background:none;text-align:center}
+#boundSheet.bond-card .bound-sheet-heading:before{display:none}
+#boundSheet.bond-card .bound-sheet-heading>span{display:block;font:12px LorePixel,monospace!important;letter-spacing:2px;color:#aabbd5;text-shadow:0 2px 3px #051323}
+#boundSheet.bond-card .bound-sheet-heading h2{margin:clamp(14px,3.5dvh,34px) 0 0;font:clamp(23px,6vw,31px)/1.5 LorePixel,monospace!important;color:#e6dbff;letter-spacing:0;overflow-wrap:anywhere;text-shadow:0 2px #181b39}
+/* The companion stands in the scene with no frame, like the tutorial's reveal actor. */
+#boundSheet.bond-card .bond-stage{position:relative;width:clamp(170px,50vw,230px);height:clamp(170px,50vw,230px);min-height:0;margin:clamp(20px,11dvh,110px) auto 14px;padding:0;border:0;border-image:none;background:none;box-shadow:none;overflow:visible}
+#boundSheet.bond-card .bond-stage:after{display:none}
+#boundSheet.bond-card .bond-stage .bound-card-sprite{top:0;left:0;width:100%;height:100%;translate:none;aspect-ratio:auto;filter:drop-shadow(0 7px 5px #09132380)}
+#boundSheet.bond-card .bond-badges{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px;margin:0 16px 24px;text-shadow:0 2px 3px #051323}
+/* The tutorial's slim translucent rarity box, tinted with the companion's own rarity colour. */
+#boundSheet.bond-card .bond-badges .rarity-badge{font:bold 15px Georgia,'Times New Roman',serif!important;font-variant:small-caps!important;letter-spacing:.6px;padding:4px 8px;border:1px solid color-mix(in srgb,var(--rarity-ink,#c3c6c8) 55%,#79828a);border-radius:2px;background:#1a222b66;color:color-mix(in srgb,var(--rarity-ink,#c3c6c8) 60%,#c3c6c8);-webkit-text-fill-color:currentColor;background-image:none;filter:none;box-shadow:inset 0 1px #ffffff15;text-shadow:0 1px #111923}
+#boundSheet.bond-card .bond-badges .rarity-badge.rarity-common{border-color:#79828a;color:#c3c6c8}
+#boundSheet.bond-card .bond-badges .bound-type-badge b{font-size:15px}
+#boundSheet.bond-card .bond-stats{display:flex;justify-content:center;gap:clamp(16px,6vw,28px);margin:0 10px;text-shadow:0 2px 3px #051323}
+#boundSheet.bond-card .bond-stats span{display:grid;gap:10px;min-width:60px}
+#boundSheet.bond-card .bond-stats b{font:19px LorePixel,monospace!important;color:#e7debd}
+#boundSheet.bond-card .bond-stats small{font:12px Georgia,serif!important;letter-spacing:.5px;color:#9cbbcc}
+/* The actions take the place of the tutorial's sentence. */
+#boundSheet.bond-card .bond-actions{display:flex;flex-direction:column;align-items:center;gap:10px;margin:clamp(24px,9dvh,90px) auto 0;padding:0 24px}
+#boundSheet.bond-card .bond-actions .bound-upgrade{width:min(100%,300px)}
+#boundSheet.bond-card .bond-actions .bound-upgrade[hidden]{display:none}
+@media(max-height:650px){#boundSheet.bond-card .bond-stage{width:155px;height:155px;margin-bottom:8px}#boundSheet.bond-card .bond-badges{margin-bottom:15px}#boundSheet.bond-card .bond-stats{gap:20px}#boundSheet.bond-card .bond-stats b{font-size:16px}}
+@media(max-width:350px){#boundSheet.bond-card .bond-badges .rarity-badge,#boundSheet.bond-card .bond-badges .bound-type-badge b{font-size:13px}#boundSheet.bond-card .bond-stats{gap:12px}#boundSheet.bond-card .bond-stats span{min-width:0}}

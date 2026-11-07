@@ -1,5 +1,5 @@
 {
-  "base": "665df025808b893d613c9d37cacc05f5c2cec8d3",
+  "base": "749932eda76a4d2b68ee9a7c7428a24631531b17",
   "included": [
     {
       "number": 38,
@@ -104,6 +104,14 @@
       "head": "421e18e1bdfecbafb1cdeee48324124292e79f43"
     },
     {
+      "number": 109,
+      "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
+      "head": "3aead0ab03637711d215423df91b508d93848de2",
+      "resolved": [
+        "109-86-treasure-records-groups"
+      ]
+    },
+    {
       "number": 115,
       "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
       "head": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
@@ -126,6 +134,40 @@
       "head": "05f6ded6ca37e22084edde4d967801936a0fe111"
     },
     {
+      "number": 118,
+      "title": "Double-tap Party cards to swap pending companions directly",
+      "head": "70a72d76209fc1e0ec7e0d9ff060a34331ed92be",
+      "resolved": [
+        "118-bond-card-stylesheet",
+        "118-108-bound-sheet-top",
+        "118-108-bound-sheet-body",
+        "118-108-bound-sheet-stats",
+        "118-97-party-dps-preview",
+        "118-108-kicker-badges",
+        "118-108-detail-text",
+        "118-108-companion-page-actions",
+        "118-108-detail-buttons",
+        "118-108-manager-return"
+      ]
+    },
+    {
+      "number": 119,
+      "title": "Double species mastery summon requirements and damage bonuses",
+      "head": "786be6022c9a99d75e8820800db1ce2ad3181f50",
+      "resolved": [
+        "119-118-bound-sheet-mastery-hint"
+      ]
+    },
+    {
+      "number": 120,
+      "title": "Unify Rift rarity bars and clean up legacy Tome UI",
+      "head": "77fe9eb5db5dfd312e7ccde92425879fba83cfd7",
+      "resolved": [
+        "120-97-rift-shard-balance",
+        "120-115-summon-opening-tome"
+      ]
+    },
+    {
       "number": 121,
       "title": "Audit live and dev Realm 1 visuals before Realm 2",
       "head": "689fcb0169090cbb620c9bc220df76247b547ed0"
@@ -135,8 +177,17 @@
       "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
       "head": "31ac1d91a945206547b20af5774ad92878da133e",
       "resolved": [
+        "122-109-auto-note-quantity",
         "122-78-summoning-helpers",
         "122-78-rift-levels-note-price"
+      ]
+    },
+    {
+      "number": 130,
+      "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
+      "head": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
+      "resolved": [
+        "130-117-gallery-cards-tag"
       ]
     },
     {
@@ -145,67 +196,21 @@
       "head": "321dd9e6d94ffd7b0165e4f78e892436a143f832"
     },
     {
+      "number": 142,
+      "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
+      "head": "f7fc9f11979888d07b156c1553d5c59638ddcc24"
+    },
+    {
       "number": 147,
       "title": "Replace Ascend with 25-hero rarity board for tap power",
-      "head": "94897082193e1e904a07ad0d1a050e63f831e75f"
+      "head": "94897082193e1e904a07ad0d1a050e63f831e75f",
+      "resolved": [
+        "147-109-endless-reward-gold",
+        "147-119-companion-damage"
+      ]
     }
   ],
   "skipped": [
-    {
-      "number": 109,
-      "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
-      "head": "3aead0ab03637711d215423df91b508d93848de2",
-      "files": [
-        "pocket-fortune/dist/treasure-ui.js"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 118,
-      "title": "Double-tap Party cards to swap pending companions directly",
-      "head": "70a72d76209fc1e0ec7e0d9ff060a34331ed92be",
-      "files": [
-        "pocket-fortune/dist/home.html",
-        "pocket-fortune/dist/team.js"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 119,
-      "title": "Double species mastery summon requirements and damage bonuses",
-      "head": "786be6022c9a99d75e8820800db1ce2ad3181f50",
-      "files": [
-        "pocket-fortune/dist/team.js"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 120,
-      "title": "Unify Rift rarity bars and clean up legacy Tome UI",
-      "head": "77fe9eb5db5dfd312e7ccde92425879fba83cfd7",
-      "files": [
-        "pocket-fortune/dist/economy-interface.js"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 130,
-      "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
-      "head": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
-      "files": [
-        "pocket-fortune/dist/home.html"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 142,
-      "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
-      "head": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
-      "files": [
-        "pocket-fortune/dist/home.html"
-      ],
-      "with": "others"
-    },
     {
       "number": 146,
       "title": "Implement approved QoL audit across summoning collection and mobile play",
@@ -226,14 +231,10 @@
       "with": "others"
     }
   ],
-  "commit": "3384a13a523a8b8c10ceb3facf6502b4e00a7e1f",
+  "commit": "e54e39342d2a8aef3001fee3ac303fecb67c4fa9",
   "unusedResolutions": [
-    "118-69-bound-sheet-bottom",
-    "118-69-manager-return",
-    "118-69-team-companion-page",
-    "118-89-bound-sources",
-    "118-97-party-dps-preview",
+    "119-89-bound-mastery-hint",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T22:46:37Z"
+  "at": "2026-11-07T22:58:57Z"
 }

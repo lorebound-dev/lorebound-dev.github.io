@@ -74,9 +74,19 @@
 .art-rebuild-preview #game[data-rail-art=rift] .summon-book {filter:drop-shadow(0 0 6px #4fcdbf55);-webkit-mask-image:linear-gradient(#000 69%,transparent 77%);mask-image:linear-gradient(#000 69%,transparent 77%)}
 .art-rebuild-preview #game[data-rail-art=rift] .summon-portal[data-funded=false] .summon-book {filter:grayscale(.75) brightness(.67)}
 .art-rebuild-preview #game #summonDock .art-corners {display:none}
-/* One number on the shrine's front step, under the Rift: the player's Lore Shards (economy-interface.js). */
-.art-rebuild-preview #game .dock-summon-copy {position:absolute;inset:65px 0 auto;gap:7px;align-items:center;z-index:2}
-.art-rebuild-preview #game .portal-caption[data-show=balance] :is(img,b) {display:none}
+/* One number under the Rift: the player's Lore Shards (economy-interface.js).
+   Joshua (2026-11-07): it sits centred directly below the Rift, in a small squared plaque on the Rift's stone base, with the
+   rail's dark fill, an antique-gold edge and the Lore Shard emblem, in bigger bold numbers (18px, 16px on small phones).
+   Its top edge is just under the vortex, so it stays still and readable while the vortex spins. Empty "SUMMON" text takes
+   no room. The plaque is wide enough for 999.9K, so it doesn't jump when the number grows. */
+.art-rebuild-preview #game .dock-summon-copy {position:absolute;inset:57px 0 auto;gap:7px;align-items:center;z-index:2}
+.art-rebuild-preview #game.dock-is-collapsed .dock-summon-copy {top:51px}
+.art-rebuild-preview #game .tome-action-label:empty {display:none}
+.art-rebuild-preview #game .portal-caption[data-show=balance] b {display:none}
+.art-rebuild-preview #game .portal-caption[data-show=balance] {box-sizing:border-box;min-width:74px;height:auto;padding:1px 8px 1px 6px;gap:5px;justify-content:center;border:1px solid #b49c54;border-image:none;border-radius:0;background:linear-gradient(#13252e,#071219);box-shadow:inset 0 1px 0 #f3d38c2e,inset 0 -2px 3px #0009,0 2px 3px #000c}
+.art-rebuild-preview #game .portal-caption[data-show=balance] img {display:block;width:16px;height:16px;flex:none}
+.art-rebuild-preview #game .portal-caption[data-show=balance] small {font:bold 18px/19px Georgia,serif!important;color:#f6e2ad;letter-spacing:0;font-variant-numeric:tabular-nums;text-shadow:0 1px 2px #000}
+@media(max-width:350px){.art-rebuild-preview #game .portal-caption[data-show=balance] small {font-size:16px!important;line-height:17px!important}}
 .art-rebuild-preview #game .tome-action-label {font-size:17px!important;letter-spacing:.4px;text-shadow:0 2px 3px #12071c}
 .art-rebuild-preview #game .portal-caption b,.art-rebuild-preview #game .portal-caption small {font-size:14px!important}
 .art-rebuild-preview #game #autoSummon.dock-auto-button {height:80px;gap:5px;z-index:4}
@@ -131,7 +141,9 @@
   /* Short phones draw the shrine 90px tall (0.395) in the 82px rail, so every offset above shrinks by about 0.87. */
   .art-rebuild-preview #game #summonDock {--rail-slab:66px;grid-template-columns:minmax(0,1fr) 94px minmax(0,1fr);padding-inline:4px;gap:2px;background-position:50% 3px;background-size:auto 90px}
   .art-rebuild-preview #game #summonPortal,.art-rebuild-preview #game #autoSummon.dock-auto-button {height:72px}
-  .art-rebuild-preview #game .dock-summon-copy {top:57px}
+  .art-rebuild-preview #game .dock-summon-copy {top:48px}
+  .art-rebuild-preview #game.dock-is-collapsed .dock-summon-copy {top:46px}
+  .art-rebuild-preview #game .portal-caption[data-show=balance] small {font-size:16px!important;line-height:17px!important}
   .art-rebuild-preview #game .summon-book {left:calc(50% - 53px);top:0;width:68px;height:72px}
   .art-rebuild-preview #game #summonPortal:before {left:calc(50% - 54px);top:-15px;width:108px;height:94px}
   .art-rebuild-preview #game .tome-action-label {font-size:14px!important}
