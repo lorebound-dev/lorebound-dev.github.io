@@ -68,7 +68,7 @@
     {
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-      "head": "4782ff50054b4922bd913db593760494776daa5d",
+      "head": "699556791c607f05dd6daf251cd363d701188a87",
       "resolved": [
         "92-78-update-popup-texts"
       ]
@@ -202,7 +202,7 @@
       "with": "others"
     }
   ],
-  "commit": "8f78951fdc34fb25ca57b37f7d8aecb03b6ac6a9",
+  "commit": "49d3caa740c40792d02cf108f98a67e70587c9af",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -211,5 +211,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T16:19:32Z"
+  "at": "2026-11-07T16:26:54Z"
 }

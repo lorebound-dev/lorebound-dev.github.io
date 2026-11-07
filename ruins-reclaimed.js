@@ -550,6 +550,19 @@ function suggest(s){
   if(wc&&!hungry(s))return pick(s,'worker',{cost:wc,name:'Recruit',why:'+1 person',verb:'Recruit'});
   if(!s.built.length||auto)return pick(s,'gather',{name:'Gather',why:'Tap trees and rocks',ready:false});
   return null;}
+/* Finding a resource (#145). When the suggestion is short of something, Find shows the nearest standing tree, bush,
+ * stone or ore vein that gives it. Which one: of everything the price is short of, the one that takes the most hits by
+ * hand to make up. Where: the closest to the middle of Haven, preferring one a worker can also walk up to. It only
+ * looks: nothing is stored, paid or worked. */
+const GIVES={wood:['pine','oak','bush'],stone:['stone'],ore:['ore'],food:['bush']};
+function findWhat(s,need){let best=null,most=0;for(const k of RES){const n=need?.[k]||0;if(!n)continue;
+    const per=Math.min(...GIVES[k].map(x=>CONFIG.kinds[x].hp/(yieldOf(s,x)[k]||Infinity))),work=n*per;if(work>most){most=work;best=k;}}return best;}
+function nearestNode(s,res){const kinds=GIVES[res];if(!kinds)return null;const wd=world(s.origin),[lo,hi]=land(s),m=(lo+hi-1)/2,open=reach(s);
+  let best=null,bs=Infinity;
+  for(const id of standingIds(s)){const n=wd.nodes.get(id);if(!kinds.includes(n.kind))continue;
+    const near=AROUND.some(([dx,dy])=>{const c=n.c+dx,r=n.r+dy;return inLand(s,c,r)?open.has(wid(c,r)):c>=lo-1&&r>=lo-1&&c<=hi&&r<=hi;});
+    const sc=(near?0:1000)+Math.abs(n.c-m)+Math.abs(n.r-m)+(res==='wood'&&n.kind==='bush'?3:0);if(sc<bs||(sc===bs&&id<best)){bs=sc;best=id;}}
+  return best;}
 /* Places chosen for the player. Palisade: the edge of the territory walked round in one fixed order from the top
  * corner; the next tile is one beside palisade already standing, so it grows as one run, or else the first free edge
  * tile. Buildings: a free tile that passes every placing rule. A Watchtower goes one tile in from the edge (so the
@@ -740,7 +753,7 @@ const logic={STAFF,staff,staffCap,KEY,V4_KEY,V2_KEY,V1_KEY,BAD_KEY,CONFIG,FX,BLU
   hungry,fed,farmOpen,farmCap,farmHit,eat,foodRate,raidsOpen,raidKind,threat,edgeIds,defense,warnLead,raidTarget,raidOutcome,resolveRaid,tickThreat,canWall,layWall,wallSites,
   repairCost,canRepair,startRepair,repairHit,repairing,postsFor,planFor,tileOf,
   cost,afford,manualPower,workerPower,hitsFor,buy,hitNode,regrow,regrowOldest,timedRegrow,canSwing,blocked,walkable,reach,route,stepTime,lockReason,buildCost,canPlace,validSites,build,
-  maxLevel,upgradeCost,canUpgrade,upgrade,canRoad,layRoad,roadSites,setJob,roleOf,allAuto,yieldOf,buildRank,buildOrder,goal,suggest,defensePick,perimeter,autoWall,autoSite,addWall,paneBuild,panePeople,TABS,toolsCap,workerCap,expandCost,canExpand,expand,points,levelAt,settlement,simulate,syncCrew,crewPosition};
+  maxLevel,upgradeCost,canUpgrade,upgrade,canRoad,layRoad,roadSites,setJob,roleOf,allAuto,yieldOf,buildRank,buildOrder,goal,suggest,defensePick,perimeter,autoWall,autoSite,addWall,findWhat,nearestNode,paneBuild,panePeople,TABS,toolsCap,workerCap,expandCost,canExpand,expand,points,levelAt,settlement,simulate,syncCrew,crewPosition};
 
 /* ---------- Everything below needs a browser. ---------- */
 // The drawer's open section is kept only while the page is open (never saved), so leaving Haven and coming back keeps it.
@@ -936,6 +949,16 @@ function work(id){const n=world(state.origin).nodes.get(id),now=performance.now(
   const res=hitNode(state,id,manualPower(state));if(!res)return;lastSwing=now;anims.push({type:'swing',id,t0:now,life:CONFIG.manualHitMs});view.selected=res.done?null:id;store();struck(id,res,false);
   if(!res.done){const h=Math.ceil(res.left/manualPower(state)),on=crew.some(w=>w.node===id&&w.phase==='work');
     say(`${CONFIG.kinds[n.kind].name}: ${plural(h,'more hit','more hits')} · gives ${fmt(yieldOf(state,n.kind))}${on?' · a worker is on it':''}.`);}update();wake();}
+/* Find (#145): the nearest node that gives what the suggestion is short of gets the gold tile and a pointer for a
+ * moment, and the town scrolls to it if it's off screen. Looking only: nothing is worked, paid or saved. */
+function findNode(res){const id=nearestNode(state,res),name=res==='food'?'berry bush':RES_NAME[res];
+  if(id===null){say(`No ${name} standing right now. Felled ones grow back in a little while.`);return;}
+  const n=world(state.origin).nodes.get(id),now=performance.now();view.selected=id;anims=anims.filter(a=>a.type!=='find');anims.push({type:'find',id,t0:now,life:2400});
+  const g=view.geo,sc=view.scene;if(g&&sc){const [x,y]=iso(g,n.c+.5,n.r+.5),cw=sc.clientWidth||0,sh=sc.clientHeight||0,ox=Math.max(0,(cw-g.cssW)/2),oy=Math.max(0,(sh-g.cssH)/2),
+      vx=x+ox-(sc.scrollLeft||0),vy=y+oy-(sc.scrollTop||0);
+    if(vx<40||vx>cw-40||vy<g.w*1.6+60||vy>sh-60){sc.scrollLeft=Math.max(0,x+ox-cw/2);sc.scrollTop=Math.max(0,y+oy-sh/2);}}
+  const h=Math.ceil((state.hp[id]??CONFIG.kinds[n.kind].hp)/manualPower(state));
+  say(`Nearest ${CONFIG.kinds[n.kind].name}: tap it ${plural(h,'time','times')} for ${fmt(yieldOf(state,n.kind))}.`);draw();wake();}
 /* The in-game menus. Four small buttons along the bottom edge of the screen (Build, People, Defense, Land) each open
  * one small window over the town; × or the same button again closes it, and the town behind keeps its size and pan.
  * While a building is being placed, a road laid, an upgrade confirmed or a person looked at, the small bar on the
@@ -1005,7 +1028,7 @@ function onClick(e){
   if(b===view.helpClose){closeHelp();view.helpToggle.focus?.();return;}
   const what=b.dataset.ruins;
   if(what==='tools'||what==='worker'){buyThing(what);return;}
-  if(what==='suggest'){act(view.sug);return;}
+  if(what==='suggest'){if(view.findRes)findNode(view.findRes);else act(view.sug);return;}
   if(what==='pick'){act(view.picks[b.dataset.pane]);return;}
   if(what==='more'){view.more=!view.more;update();return;}
   if(what==='zoomin'||what==='zoomout'){zoomTo(view.zoom*(what==='zoomin'?1.25:.8));return;}
@@ -1165,8 +1188,11 @@ function simple(auto,cap){
   const sug=suggest(state);view.sug=sug;view.sugKey=sug?.key||'';
   const covered=busyBar()||(view.open&&!view.manageBody.hidden)||!view.help.hidden;view.hud.hidden=!sug||covered;
   if(sug&&!covered){view.hudName.textContent=sug.name;view.hudCost.textContent=costLine(sug);
-    view.hudGo.hidden=sug.kind==='gather';view.hudGo.textContent=sug.verb;view.hudGo.disabled=!sug.ready;
-    view.hudGo.setAttribute('aria-label',`${sug.verb} ${sug.name}. ${costLine(sug)}.`);drawIcon(view.hudIcon,sug);}
+    // Short of something (or told to pick berries): the button becomes Find, which points at the nearest one.
+    view.findRes=sug.need?findWhat(state,sug.need):sug.kind==='gather'&&sug.why==='+Food'?'food':null;const find=!!view.findRes;
+    view.hudGo.hidden=sug.kind==='gather'&&!find;view.hudGo.textContent=find?'Find':sug.verb;view.hudGo.disabled=!sug.ready&&!find;
+    view.hudGo.setAttribute('aria-label',find?`Find the nearest ${view.findRes==='food'?'berry bush':RES_NAME[view.findRes]}. ${sug.name}: ${costLine(sug)}.`:`${sug.verb} ${sug.name}. ${costLine(sug)}.`);drawIcon(view.hudIcon,sug);}
+  else view.findRes=null;
   view.picks={build:paneBuild(state,sug),jobs:panePeople(state,sug),defense:defensePick(state)};
   for(const [p,btn] of Object.entries(view.pickBtns))card(btn,view.picks[p]);
   view.manageBody.classList?.toggle('ruins-show-more',view.more);view.moreBtn.textContent=view.more?'Less':view.tab==='jobs'?'More jobs':'More';view.moreBtn.setAttribute('aria-expanded',String(view.more));
@@ -1300,7 +1326,9 @@ function hit(x,y){
   // Raiders first (they're rare and worth knowing about), then trees, deposits and buildings, then people.
   for(const p of raiderSpots(performance.now())){const [cx,cy]=iso(g,p.c+.5,p.r+.5);if(Math.abs(x-cx)<=10&&y<=cy+4&&y>=cy-20)return{raider:p};}
   const objs=[...standingIds(state).map(id=>({node:id,id})),...state.built.map(b=>({building:b,id:wid(b.c,b.r)}))].sort((p,q)=>depth(q.id)-depth(p.id));
-  for(const o of objs){const [cx,cy]=iso(g,o.id%W+.5,Math.floor(o.id/W)+.5);if(Math.abs(x-cx)<=g.w*.4&&y<=cy+g.h*.5&&y>=cy-g.w*1.3)return o;}
+  // Zoomed out, a tree or rock still takes a finger: at least 24px wide and 28px tall (#145).
+  const hw=Math.max(g.w*.4,12),up=Math.max(g.w*1.3,28),dn=Math.max(g.h*.5,6);
+  for(const o of objs){const [cx,cy]=iso(g,o.id%W+.5,Math.floor(o.id/W)+.5);if(Math.abs(x-cx)<=hw&&y<=cy+dn&&y>=cy-up)return o;}
   if(state.workers>0)for(const w of crew){const [wc,wr]=crewPosition(w,!reduced(),state),[cx,cy]=iso(g,wc+.5,wr+.5);if(Math.abs(x-cx)<=8&&y<=cy+3&&y>=cy-18)return{person:w};}
   return tile===undefined?null:{tile};
 }
@@ -1315,6 +1343,8 @@ function box(ctx,x,y,hw,ht,top,left,right){const hh=hw/2;poly(ctx,[[x-hw,y],[x,y
 const C={grass:['#3b6c43','#42764a','#36633e'],grassHi:'#5a9358',grassLo:'#2c5535',edge:'#2f5a37',bloom:['#e8d27a','#d9a0c8','#f2efe0'],dirtL:'#5a4330',dirtR:'#3e2f22',dirtLip:'#6f5a3e',
   lot:'#6b5c42',lotEdge:'#8c7856',lotLo:'#584b36',ink:'#0c1a12',stone:'#8a8676',stoneHi:'#b9b29b',stoneLo:'#5d5b51',faint:'#566553',moss:'#4a7d52',trunk:'#5a3d26',pine:['#1d5236','#286a45','#3a8a57'],oak:['#24603a','#337a49','#56a05c'],bush:['#2f6a3d','#46894f'],berry:'#c8465a',
   valid:'rgba(159,216,192,.3)',validEdge:'#9fd8c0',pick:'rgba(248,220,136,.55)',pickEdge:'#ffe8af',nope:'rgba(214,72,62,.6)',nopeEdge:'#ff9a8a',brass:'#d6bd81',roof:'#6e3f2e',roofHi:'#8b5440',wood:'#7a5534',woodHi:'#9a7048',lantern:'#f3c46a',ore:['#4a4452','#655c70','#342f3c'],vein:'#e09a46',veinHi:'#8fd6c9',mist:'#0d1d22',plot:'rgba(248,220,136,.22)',plotEdge:'#f8dc88',road:'#6f5c40',roadHi:'#86714f',roadEdge:'#4d3f2c'};
+// Chip colours for a hit on each kind: bark and leaves, leaves and berries, stone, ore with its glint.
+const CHIPS={pine:['#9a7a52',C.pine[2],'#c9a878'],oak:['#9a7a52',C.oak[2],'#c9a878'],bush:[C.bush[1],C.berry,'#7fb86a'],stone:[C.stoneHi,C.stone,'#d8d2bc'],ore:[C.ore[1],C.vein,C.veinHi]};
 /* Upgrade stages change the look in place: Lv 1 is Haven 2.0's makeshift look (unchanged); Lv 2 is timber on a timber
  * deck with a brass pennant; Lv 3 is dressed stone with a slate roof and corner stones. */
 const STAGE_LOOK=[null,
@@ -1351,10 +1381,13 @@ function draw(now){
   // A tile that can't take it blinks red.
   for(const a of anims)if(a.type==='nope'){ctx.globalAlpha=Math.max(0,1-(now-a.t0)/a.life);diamond(ctx,g,a.c,a.r,C.nope,C.nopeEdge);ctx.globalAlpha=1;}
   // Objects back to front
-  const objs=[],shaking=new Map(anims.filter(a=>a.type==='shake').map(a=>[a.id,a])),falling=anims.filter(a=>a.type==='fall'),watch=sees(state),walls=new Set(state.walls);
+  const objs=[],shaking=new Map(anims.filter(a=>a.type==='shake').map(a=>[a.id,a])),sprouting=new Map(anims.filter(a=>a.type==='sprout').map(a=>[a.id,a])),falling=anims.filter(a=>a.type==='fall'),watch=sees(state),walls=new Set(state.walls);
   for(const n of wd.nodes.values()){const id=n.id,sh=wd.shade(id);
     if(n.land>state.land){if(watch&&n.land===state.land+1&&n.c>=g.a&&n.r>=g.a&&n.c<g.a+g.V&&n.r<g.a+g.V)objs.push([n.c+n.r,()=>{ctx.globalAlpha=.55;node(ctx,g,n,sh,0);ctx.globalAlpha=1;}]);continue;}
-    if(!gone.has(id)){const s=shaking.get(id),dx=s&&smooth?Math.round(Math.sin((now-s.t0)/s.life*Math.PI*4)*2):0;objs.push([n.c+n.r,()=>node(ctx,g,n,sh,dx)]);}
+    if(!gone.has(id)){const s=shaking.get(id),dx=s&&smooth?Math.round(Math.sin((now-s.t0)/s.life*Math.PI*4)*2):0,sp=sprouting.get(id);
+      if(sp){const k=Math.max(0,Math.min(1,(now-sp.t0)/sp.life)),z=k<.75?.3+.8*easeOut(k/.75):1.1-.1*((k-.75)/.25),[bx,by]=iso(g,n.c+.5,n.r+.5);
+        objs.push([n.c+n.r,()=>{ctx.save();ctx.translate(bx,by);ctx.scale(z,z);ctx.translate(-bx,-by);node(ctx,g,n,sh,0);ctx.restore();}]);}
+      else objs.push([n.c+n.r,()=>node(ctx,g,n,sh,dx)]);}
     else if(!buildingAt(state,id)&&!roads.has(id)&&!walls.has(id))objs.push([n.c+n.r-.1,()=>remains(ctx,g,n)]);}
   for(const id of walls){const c=id%W,r=Math.floor(id/W);objs.push([c+r+.01,()=>palisade(ctx,g,c,r,walls)]);}
   for(const f of falling){const n=wd.nodes.get(f.id);if(n)objs.push([n.c+n.r,()=>fallingTree(ctx,g,n.c,n.r,n.kind,wd.shade(n.id),(now-f.t0)/f.life,f.dir)]);}
@@ -1375,6 +1408,10 @@ function draw(now){
   if(chosen)pointer(ctx,g,chosen.c,chosen.r,TALL[chosen.t]?.[chosen.lv]||1.1,now,smooth);
   if(view.placing&&view.site!==null)pointer(ctx,g,view.site%W,Math.floor(view.site/W),TALL[view.placing]?.[1]||1.1,now,smooth);
   if(view.walling==='auto'&&view.site!==null)pointer(ctx,g,view.site%W,Math.floor(view.site/W),.8,now,smooth);
+  // Find: a pointer over the node, and its tile's gold edge pulses (steady with reduced motion) until it fades.
+  for(const a of anims)if(a.type==='find'&&standing(state,a.id)){const n=wd.nodes.get(a.id),k=(now-a.t0)/a.life;if(!n)continue;
+    ctx.globalAlpha=Math.max(0,Math.min(1,(1-k)*3))*(smooth?.55+.45*Math.sin(now/140):1);diamond(ctx,g,n.c,n.r,'rgba(248,220,136,.35)',C.pickEdge);ctx.globalAlpha=1;
+    pointer(ctx,g,n.c,n.r,isWood(n.kind)&&n.kind!=='bush'?1.5:.85,now,smooth);}
   // Work bars over nodes that have been started
   for(const [k,left] of Object.entries(state.hp)){const n=wd.nodes.get(Number(k));if(!n)continue;const max=CONFIG.kinds[n.kind].hp,[x,y]=iso(g,n.c+.5,n.r+.5),bw=Math.round(g.w*.6),bx=Math.round(x-bw/2),by=Math.round(y-g.w*(n.kind==='stone'||n.kind==='ore'||n.kind==='bush'?.62:1.35));
     ctx.fillStyle='#000c';ctx.fillRect(bx-1,by-1,bw+2,6);ctx.fillStyle='#3a2f20';ctx.fillRect(bx,by,bw,4);ctx.fillStyle=Number(k)===view.selected?'#ffe8af':C.brass;ctx.fillRect(bx,by,Math.max(1,Math.round(bw*left/max)),4);
@@ -1382,7 +1419,13 @@ function draw(now){
     const sw=anims.find(a=>a.type==='swing'&&a.id===Number(k));if(sw){ctx.fillStyle='#000c';ctx.fillRect(bx-1,by+5,bw+2,3);ctx.fillStyle='#9fd8c0';ctx.fillRect(bx,by+6,Math.max(1,Math.round(bw*Math.min(1,(now-sw.t0)/sw.life))),1);}}
   // Chips and floating rewards
   for(const a of anims){if(now<a.t0)continue;const k=Math.min(1,(now-a.t0)/a.life),[x,y]=iso(g,a.c+.5,a.r+.5);
-    if(a.type==='chips'){ctx.fillStyle=a.color;ctx.globalAlpha=1-k;for(let j=0;j<5;j++){const ang=-Math.PI*(.15+j*.17),d=3+k*g.w*.4;ctx.fillRect(Math.round(x+Math.cos(ang)*d)-1,Math.round(y-g.w*.35+Math.sin(ang)*d+k*k*8)-1,3,3);}ctx.globalAlpha=1;}
+    // A hit: five chips fly up and drop, in the node's own colours (bark and leaves, berries, stone, ore and its glint).
+    if(a.type==='chips'){const cs=a.colors||[a.color];ctx.globalAlpha=1-k;for(let j=0;j<5;j++){const ang=-Math.PI*(.15+j*.17),d=3+k*g.w*.4;ctx.fillStyle=cs[j%cs.length];ctx.fillRect(Math.round(x+Math.cos(ang)*d)-1,Math.round(y-g.w*.35+Math.sin(ang)*d+k*k*8)-1,3,3);}ctx.globalAlpha=1;}
+    // Stone or ore finished: the rock breaks into eight chunks that tumble out and settle.
+    if(a.type==='crumble'){const cs=a.colors,e=easeOut(k);ctx.globalAlpha=Math.max(0,1-k*k);for(let j=0;j<8;j++){const ang=Math.PI*(j/8)*2+.3,d=2+e*g.w*.32,s=j%3?3:4;
+        ctx.fillStyle=cs[j%cs.length];ctx.fillRect(Math.round(x+Math.cos(ang)*d)-1,Math.round(y-g.w*.18+Math.sin(ang)*d*.5-Math.sin(k*Math.PI)*6+k*k*6)-1,s,s);}ctx.globalAlpha=1;}
+    // Grown back: four small green pixels rise from it.
+    if(a.type==='sprout'){ctx.globalAlpha=Math.max(0,1-k);ctx.fillStyle='#9be07a';for(let j=0;j<4;j++)ctx.fillRect(Math.round(x+(j-1.5)*g.w*.14),Math.round(y-g.w*(.2+k*.5)-(j%2)*4),2,2);ctx.globalAlpha=1;}
     // A suggestion done: eight chunky gold pixels burst out from where it happened.
     if(a.type==='ack'){const e=easeOut(k),R=Math.round;ctx.globalAlpha=Math.max(0,1-k*k);ctx.fillStyle='#f8dc88';
       for(let j=0;j<8;j++){const ang=j*Math.PI/4,d=4+e*g.w*.8;ctx.fillRect(R(x+Math.cos(ang)*d)-2,R(y-g.w*.5+Math.sin(ang)*d*.6)-2,4,4);}ctx.globalAlpha=1;}
@@ -1390,13 +1433,15 @@ function draw(now){
 }
 // Feedback for one hit: a shake and chips; a finished node tips over or crumbles, and its reward floats up.
 function struck(id,res,byWorker){const now=performance.now(),c=id%W,r=Math.floor(id/W),smooth=!reduced(),wood=isWood(res.kind);
-  if(smooth){anims.push({type:'shake',id,t0:now,life:180});anims.push({type:'chips',c,r,color:wood?'#9a7a52':res.kind==='ore'?C.vein:C.stoneHi,t0:now,life:360});}
+  const colors=CHIPS[res.kind]||[C.stoneHi];
+  if(smooth){anims.push({type:'shake',id,t0:now,life:180});anims.push({type:'chips',c,r,colors,t0:now,life:360});}
   if(!res.done)return;
+  if(smooth&&!wood)anims.push({type:'crumble',c,r,colors,t0:now,life:460});
   if(smooth&&wood){const w=byWorker?crew.find(x=>Math.abs(x.c-c)<=1&&Math.abs(x.r-r)<=1):null;anims.push({type:'fall',id,t0:now,life:420,dir:w&&w.c-w.r>c-r?-1:1});}
   anims.push({type:'pop',c,r,text:'+'+RES.filter(k=>res.gain[k]).map(k=>`${res.gain[k]} ${RES_NAME[k]}`).join(' +'),worker:byWorker,t0:smooth&&wood?now+300:now,life:smooth?850:1100});
   if(res.regrown!==null&&res.regrown!==undefined)regrown(res.regrown,now+400);}
 // Something grew back: show it, and start the play-time count-down again so two don't come back close together.
-function regrown(id,t0){regrowClock.left=CONFIG.regrowMs;anims.push({type:'pop',c:id%W,r:Math.floor(id/W),text:'Regrown',worker:true,t0,life:1100});}
+function regrown(id,t0){regrowClock.left=CONFIG.regrowMs;if(!reduced())anims.push({type:'sprout',id,c:id%W,r:Math.floor(id/W),t0,life:520});anims.push({type:'pop',c:id%W,r:Math.floor(id/W),text:'Regrown',worker:true,t0,life:1100});}
 
 /* Roads join up by themselves: a square of packed earth in the middle of the tile and a strip towards every
  * neighbouring road or building, so straight runs, bends and crossings all come out right. */
