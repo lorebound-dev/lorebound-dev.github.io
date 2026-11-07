@@ -39,6 +39,13 @@
 /* Challenge Boss sits just above the Party tray, on the right, clear of the enemy in both tray states. */
 .adventure-refined #game:not(.boss-room) .battle-panel{top:auto;bottom:6px;height:44px;align-items:flex-end}
 .adventure-refined #game:not(.boss-room){--court-y:var(--art-court-y,clamp(110px,calc(100dvh - 448px),600px))}
+/* The enemy keeps one size while Party opens and folds (request 2026-11-07-stable-battlefield-collapse). The fight stands
+   on the folded ground line (#106), so only realm1-art.js's art-short-court, measured as if folded, makes the enemy
+   small. #97's party-short-court is measured with the tray open; on phones where the open fight is short it shrank the
+   enemy to 98px and moved its name and health bar each time the tray opened. #106 already undoes its --foe-base; this
+   undoes its --foe-want, back to #38's sizes in adventure-refinement.css. Endless guardians keep their own size. */
+html.adventure-refined #game[data-party-view].party-short-court:not(.boss-room):not(.art-short-court):not(.endless-active){--foe-want:clamp(140px,21dvh,196px)}
+@media(max-height:700px){html.adventure-refined #game[data-party-view].party-short-court:not(.boss-room):not(.art-short-court):not(.endless-active){--foe-want:134px}}
 /* Approved environment and full-alpha encounter art; existing motion layers remain. */
 .adventure-dock-preview.art-rebuild-preview #game:before{background-image:linear-gradient(#03111c52,transparent 19%,transparent 65%,#03121b30),var(--realm-background,url('assets/battle-ruins-v3.png'))}
 .adventure-dock-preview.art-rebuild-preview #game.boss-room:before{background-image:linear-gradient(#020b14ad,transparent 26%,transparent 70%,#020b14bf),var(--realm-background,url('assets/battle-ruins-v3.png'))}

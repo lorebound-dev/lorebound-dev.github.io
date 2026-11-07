@@ -37,5 +37,11 @@
   if(collapsed)foldedDeck=deck.offsetHeight;const foldedHeight=combat.clientHeight+deck.offsetHeight-foldedDeck;
   const court=Math.max(90,foldedHeight-84);game.style.setProperty('--art-court-y',court+'px');game.classList.toggle('art-short-court',court<160);
  }
- const resize=new ResizeObserver(layout);const game=document.getElementById('game');if(game)resize.observe(game);const mount=new MutationObserver(()=>{const deck=document.getElementById('adventureDeck');if(deck){resize.observe(deck);resize.observe(document.getElementById('combatLayout'));mount.disconnect();layout();}});mount.observe(document.body,{childList:true,subtree:true});
+ // Measure only when the Party tray isn't part-way through folding or opening (request 2026-11-07-stable-battlefield-collapse).
+ // While it animates its height (0.28s), the tray is already marked folded but is still part-way tall, and the folded
+ // ground line was taken from that part-way height, so the enemy and fighters followed the tray's top down until the
+ // fold ended. Screen changes still measure at once; during a fold they measure as soon as it ends.
+ const folding=deck=>!!deck?.getAnimations?.().some(a=>a.transitionProperty==='height'&&a.playState==='running');
+ function settled(){if(!folding(document.getElementById('adventureDeck')))layout();}
+ const resize=new ResizeObserver(settled);const game=document.getElementById('game');if(game)resize.observe(game);const mount=new MutationObserver(()=>{const deck=document.getElementById('adventureDeck');if(deck){resize.observe(deck);resize.observe(document.getElementById('combatLayout'));for(const type of ['transitionend','transitioncancel'])deck.addEventListener(type,e=>{if(e.target===deck&&e.propertyName==='height')settled();});mount.disconnect();layout();}});mount.observe(document.body,{childList:true,subtree:true});
 })(globalThis);

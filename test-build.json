@@ -141,6 +141,11 @@
         "122-78-summoning-helpers",
         "122-78-rift-levels-note-price"
       ]
+    },
+    {
+      "number": 133,
+      "title": "Keep enemy and companions stationary when Party collapses",
+      "head": "321dd9e6d94ffd7b0165e4f78e892436a143f832"
     }
   ],
   "skipped": [
@@ -182,7 +187,7 @@
       "with": "others"
     }
   ],
-  "commit": "e42c075217dd4aadf8bf21db7abbf35fbbcfc28a",
+  "commit": "63e426ae1e17548d060efb7189dcef1a221ea1ff",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -191,5 +196,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-06T23:05:14Z"
+  "at": "2026-11-07T01:02:59Z"
 }
