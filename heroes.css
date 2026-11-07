@@ -1,0 +1,57 @@
+/* Heroes (fourth tab, DEV preview). Same panel language as the Forge and the old Ascension screen: navy, antique gold,
+   squared plaques, Georgia, nothing under 12px. Rarity colours come in as --hr-ink/--hr-light/--hr-dark from heroes-model.js. */
+.destination-page[data-area="heroes"]{--area-art:url('assets/habitat-moonlit.png');--area-base:#0a1a27;--area-shade:#06131dee;--area-accent:#e2c180;--area-panel:#0c2430ee;--area-edge:#9b8551}
+.heroes{display:grid;gap:12px;margin:6px 0 18px;color:#e7dfc8}
+.heroes,.heroes *{font-family:Georgia,serif!important}
+.heroes p,.heroes h3,.heroes h4{margin:0}
+.heroes [hidden]{display:none!important}
+.hero-art{display:block;width:100%;height:auto;aspect-ratio:16/18;image-rendering:pixelated}
+.nav-pixel-art{image-rendering:pixelated}
+.destination-pixel-icon{display:block;width:46px;height:auto;aspect-ratio:12/10;image-rendering:pixelated}
+.hero-dev{padding:8px 10px;border:1px solid #9b855166;background:#0c2430;font-size:12px!important;line-height:1.45;color:#c3d2d5}
+.hero-dev strong{color:#f3da9c;font-weight:normal}
+.hero-warn{padding:10px 12px;border:1px solid #c47c65;background:#2a1414;color:#f3d2c2;font-size:13px!important;line-height:1.4}
+.hero-portrait{display:grid;place-items:center;padding:6px;border:1px solid var(--hr-ink);background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--hr-dark) 55%,#0c2430),#061621 75%)}
+.hero-current{display:grid;grid-template-columns:minmax(84px,30%) 1fr;gap:10px;align-items:start;padding:10px;border:1px solid #e2c180;background:linear-gradient(#0a2232,#061621)}
+.hero-current .hero-portrait .hero-art{max-width:104px}
+.hero-current-text{display:grid;gap:4px;min-width:0}
+.hero-kicker{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c9b37c}
+.hero-current h3{font-size:18px!important;line-height:1.2;color:#f3da9c;overflow-wrap:anywhere}
+.hero-rarity{font-size:13px;color:var(--hr-light)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:4px 0 0}
+.hero-stats div{padding:5px 8px;border:1px solid #9b855155;background:#0c2430;min-width:0}
+.hero-stats dt{font-size:12px;color:#b6c4c7}
+.hero-stats dd{margin:2px 0 0;font-size:16px;color:#f3da9c;overflow-wrap:anywhere}
+.hero-trait{font-size:12px!important;line-height:1.45;color:#aac0c9}
+.hero-trait b{font-weight:normal;color:#e2c180}
+.hero-trait i{font-style:normal;color:#c9b37c}
+.hero-jump{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+.hero-jump::-webkit-scrollbar{display:none}
+.hero-jump button{flex:none;min-height:44px;padding:0 12px;border:1px solid var(--hr-ink);background:#0a1a27;color:var(--hr-light);font-size:13px}
+.hero-tier{display:grid;gap:8px;scroll-margin-top:8px}
+.hero-tier-title{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:0 2px 4px;border-bottom:1px solid var(--hr-ink);font-size:16px!important;font-weight:normal;color:var(--hr-light)}
+.hero-tier-title span{font-size:12px;color:#b6c4c7}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hero-card{position:relative;display:grid;grid-template-rows:auto auto auto;justify-items:center;gap:4px;min-width:0;min-height:44px;padding:8px 6px 10px;border:1px solid color-mix(in srgb,var(--hr-ink) 70%,transparent);border-radius:0;background:linear-gradient(#0a2232,#061621);color:#f1e2be;text-align:center;cursor:pointer}
+.hero-card-art{display:grid;place-items:center;width:100%;max-width:84px;padding:4px;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--hr-dark) 55%,#0c2430),#061621 75%);border:1px solid color-mix(in srgb,var(--hr-ink) 45%,transparent)}
+.hero-card-name{font-size:14px;line-height:1.2;color:#f1e2be;overflow-wrap:anywhere}
+.hero-card-tap{font-size:12px;color:#c4e9ff}
+.hero-card-tap b{font-weight:normal;color:#f3da9c}
+.hero-card-state{position:absolute;top:4px;left:4px;font-size:12px;line-height:1;color:#f3da9c}
+.hero-card-state:empty{display:none}
+.hero-card.is-open{border-color:var(--hr-light)}
+.hero-card.is-active{border:2px solid #e2c180;padding:7px 5px 9px;background:linear-gradient(#14303d,#081d29);box-shadow:inset 0 0 0 1px #06131d}
+.hero-card.is-active::after{content:'';position:absolute;top:6px;right:6px;width:7px;height:7px;background:#e2c180;transform:rotate(45deg)}
+.hero-preview{display:grid;gap:8px;padding:10px;border:1px solid var(--hr-light);background:#0c2430}
+.hero-preview-head{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:center}
+.hero-preview-head h4{font-size:17px!important;font-weight:normal;line-height:1.2;color:#f3da9c;overflow-wrap:anywhere}
+.hero-preview-head .hero-rarity{color:var(--hr-light)}
+.hero-preview-mult{font-size:14px!important;color:#c4e9ff;margin-top:2px!important}
+.hero-preview-line{font-size:14px!important;color:#e7dfc8}
+.hero-preview-line b{font-weight:normal;color:#f3da9c}
+.hero-preview-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hero-button{min-height:48px;border:1px solid #998651;border-radius:4px;background:linear-gradient(#244958,#0d2a39);color:#f6dfac;font-size:15px;padding:8px}
+.hero-button:disabled{opacity:.6;cursor:default}
+.hero-button.hero-quiet{background:#0a1a27;color:#d9cfb3;border-color:#9b855188}
+.heroes button:focus-visible{outline:2px solid #e2c180;outline-offset:2px}
+@media(max-width:350px){.hero-current{grid-template-columns:76px 1fr;gap:8px}.hero-current h3{font-size:16px!important}.hero-stats dd{font-size:15px}.hero-card-name{font-size:13px}.hero-grid{gap:6px}}

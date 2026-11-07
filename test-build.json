@@ -148,6 +148,11 @@
       "number": 146,
       "title": "Implement approved QoL audit across summoning collection and mobile play",
       "head": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524"
+    },
+    {
+      "number": 147,
+      "title": "Replace Ascend with 25-hero rarity board for tap power",
+      "head": "f98df73936b06e6606b5e56eb03ce6b476b50bcf"
     }
   ],
   "skipped": [
@@ -205,9 +210,19 @@
         "pocket-fortune/dist/home.html"
       ],
       "with": "others"
+    },
+    {
+      "number": 149,
+      "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
+      "head": "f30863505df12d95e82d58c8239373029dd6e06f",
+      "files": [
+        "pocket-fortune/dist/home.html",
+        "pocket-fortune/dist/navigation.js"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "555034b7c1c4da2f125463c1328bf7d235885adc",
+  "commit": "36126108d310ca17d6ac95b157ecedd38ebf4a4f",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -216,5 +231,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T17:12:04Z"
+  "at": "2026-11-07T17:19:21Z"
 }
