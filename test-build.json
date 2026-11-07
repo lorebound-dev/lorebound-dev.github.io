@@ -191,9 +191,18 @@
         "pocket-fortune/dist/home.html"
       ],
       "with": "others"
+    },
+    {
+      "number": 142,
+      "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
+      "head": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "91cb6b182658b40c75c4f442db94c24c5153fca9",
+  "commit": "679fa038380786a67d1d6ddeb9d1abc9d80f8c3b",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -202,5 +211,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T15:56:50Z"
+  "at": "2026-11-07T16:03:24Z"
 }
