@@ -45,12 +45,19 @@
 /* The scene scrolls sideways once Haven grows wider than the screen; taps still work (a tap barely moves). */
 /* The town takes the free height (flex 1, at least 120px) and pans both ways when it's bigger than that. The canvas
  * centres with auto margins, which drop to 0 when it overflows, so every edge stays reachable. */
-.ruins-scene{position:relative;display:flex;flex:1 1 0;min-height:120px;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:0;border:1px solid #2e4a3c;border-radius:4px;background:radial-gradient(ellipse at 50% 55%,#173628,#0a1a1f 72%);scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
+/* The town and its message line: the line sits on the town's bottom edge (only when there is something to say), so it
+ * costs the town no height. Taps go straight through it to the town. */
+.ruins-world{position:relative;display:flex;flex-direction:column;flex:1 1 0;min-height:120px}
+.ruins-caption{position:absolute;left:6px;right:6px;bottom:6px;display:grid;gap:3px;justify-items:center;pointer-events:none}
+.ruins-caption>p{max-width:100%;padding:3px 8px;border:1px solid #927b4566;border-radius:3px;background:rgba(7,18,22,.86);box-shadow:0 1px 3px rgba(0,0,0,.5)}
+.ruins-caption>p:empty{display:none}
+.ruins-scene{position:relative;display:flex;flex:1 1 0;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:0;border:1px solid #2e4a3c;border-radius:4px;background:radial-gradient(ellipse at 50% 55%,#173628,#0a1a1f 72%);scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
 .ruins-scene canvas{display:block;flex:none;margin:auto;max-width:none;touch-action:pan-x pan-y;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;cursor:pointer;border-radius:3px}
 .ruins-scene canvas:focus-visible{outline:2px solid #f8dc88;outline-offset:-2px}
-.ruins-work{margin:0;width:100%;padding:0 10px;min-height:18px;font:12px/1.4 Georgia,serif!important;color:#9fd8c0;text-align:center}
-.ruins-stage{margin:0;min-height:18px;font:13px/1.4 Georgia,serif!important;color:#d6bd81;text-align:center}
+.ruins-work{margin:0;font:12px/1.4 Georgia,serif!important;color:#9fd8c0;text-align:center}
+.ruins-stage{margin:0;font:13px/1.4 Georgia,serif!important;color:#f0d79a;text-align:center}
 .ruins-place{display:grid;gap:6px;padding:8px 10px;border:1px solid #dac17c;border-radius:5px;background:#0b1a22}
+.ruins-place-name{font:bold 14px Georgia,serif!important;color:#ffe8af;text-align:center;letter-spacing:.02em}
 .ruins-place p{margin:0;font:13px/1.4 Georgia,serif!important;color:#ffe8af;text-align:center}
 .ruins-place>div{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .ruins-confirm,.ruins-cancel,.ruins-build-toggle{min-height:44px;padding:8px 12px;border:1px solid #7e744e;border-radius:5px;background:#152c36;color:#f4e3b9;font:bold 14px Georgia,serif!important;cursor:pointer}
@@ -76,10 +83,11 @@
 .ruins-manage-toggle[aria-expanded="false"]{flex:1;border-color:#dac17c;box-shadow:inset 0 -2px #d6bd81;font-size:14px!important}
 .ruins-manage-body{display:grid;gap:6px}
 .ruins-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
-.ruins-tab{min-width:0;min-height:44px;padding:6px 2px;border:1px solid #7e744e;border-radius:4px;background:#152c36;color:#c9d2cc;font:bold 13px Georgia,serif!important;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.ruins-tab[aria-selected="true"]{border-color:#dac17c;background:#2b3837;color:#ffe8af;box-shadow:inset 0 -2px #d6bd81}
-/* The open section scrolls inside the drawer, so the town stays on screen above it. */
-.ruins-pane{display:grid;gap:6px;max-height:clamp(92px,20vh,280px);overflow-y:auto;overscroll-behavior:contain;padding-right:2px;scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
+.ruins-tab{min-width:0;min-height:44px;padding:6px 2px;border:1px solid #4f5a4a;border-radius:4px;background:#11232b;color:#aab6b0;font:bold 13px Georgia,serif!important;letter-spacing:0;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ruins-tab[aria-selected="true"]{border-color:#dac17c;background:#33402f;color:#ffe8af;box-shadow:inset 0 -3px #d6bd81}
+/* The open section scrolls inside the drawer, under a fixed rule below the tabs, so the town stays on screen above it and
+ * the first row always starts clear of the tabs. At least two rows show. */
+.ruins-pane{display:grid;gap:6px;max-height:clamp(118px,22vh,280px);overflow-y:auto;overscroll-behavior:contain;padding:6px 2px 0 0;border-top:1px solid #a68c5666;scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
 .ruins-bp-list{display:grid;gap:6px}
 .ruins-note{margin:0;padding:2px 4px;font:13px/1.45 Georgia,serif!important;color:#c9d2cc}
 .ruins-build-toggle{min-width:76px;min-height:56px;border-color:#dac17c;box-shadow:inset 0 -2px #d6bd81}
@@ -110,4 +118,6 @@
 .ruins-threat{color:#ffe8af!important}
 .ruins-repair{border-color:#b8322e;box-shadow:inset 3px 0 #b8322e}
 .ruins-repair:disabled{border-color:#7e744e;box-shadow:inset 3px 0 #9fd8c0}
+/* Narrow phones (320–360 wide): a little less padding round the drawer and 12px tab names, so "Defense" fits whole. */
+@media (max-width:360px){.ruins-proto{padding-left:4px;padding-right:4px}.ruins-manage{padding:5px 4px}.ruins-tabs{gap:3px}.ruins-tab{padding:6px 0;font-size:12px!important}}
 @media (max-width:340px){.ruins-upgrade{padding:8px 10px;gap:8px}.ruins-build-toggle{min-width:64px}.ruins-job{grid-template-columns:minmax(0,1fr) 44px 22px 44px;gap:4px;padding:6px}}

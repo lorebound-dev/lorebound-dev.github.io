@@ -686,9 +686,9 @@ const SKETCH=`<section class="ruins-proto" aria-labelledby="ruinsTitle">
 <div class="ruins-level"><div class="ruins-level-main"><div class="ruins-level-row"><strong id="ruinsLevelName">Settlement Lv 1 · Camp</strong><span id="ruinsLevelPts">0 / 4</span></div><div class="ruins-level-bar" aria-hidden="true"><i id="ruinsLevelBar"></i></div><small id="ruinsNext"></small></div><button type="button" class="ruins-help-toggle" aria-expanded="false" aria-controls="ruinsHelp" aria-label="How Haven works">?</button></div>
 <div class="ruins-help" id="ruinsHelp" hidden><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do sits under the map in four sections: Build, People, Defense and Land. Next shows one thing worth doing.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people (they need a place to live and some Food) and give them jobs. Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div>
 <p class="ruins-alert" id="ruinsAlert" role="status" aria-live="polite" hidden></p>
-<div class="ruins-scene" id="ruinsScene"><canvas id="ruinsCanvas" tabindex="0" role="img"></canvas></div><p class="ruins-work" id="ruinsWorkText" hidden></p>
-<p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p>
-<div class="ruins-place" id="ruinsPlace" hidden><p id="ruinsPlaceText"></p><div><button type="button" class="ruins-confirm" data-ruins="confirm">Build here</button><button type="button" class="ruins-cancel" data-ruins="cancel">Cancel</button></div></div>
+<div class="ruins-world"><div class="ruins-scene" id="ruinsScene"><canvas id="ruinsCanvas" tabindex="0" role="img"></canvas></div>
+<div class="ruins-caption"><p class="ruins-work" id="ruinsWorkText" hidden></p><p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p></div></div>
+<div class="ruins-place" id="ruinsPlace" hidden><strong class="ruins-place-name" id="ruinsPlaceName"></strong><p id="ruinsPlaceText"></p><div><button type="button" class="ruins-confirm" data-ruins="confirm">Build here</button><button type="button" class="ruins-cancel" data-ruins="cancel">Cancel</button></div></div>
 <div class="ruins-manage" id="ruinsManage">
 <div class="ruins-manage-head"><p class="ruins-goal" id="ruinsGoal" hidden></p><button type="button" class="ruins-manage-toggle" data-ruins="manage" aria-expanded="true" aria-controls="ruinsManageBody">Hide</button></div>
 <div class="ruins-manage-body" id="ruinsManageBody">
@@ -721,7 +721,7 @@ function mount(slot){
     alert:q('#ruinsAlert'),defenseParts:q('#ruinsDefenseParts'),lastRaid:q('#ruinsLastRaid'),walls:q('[data-ruins=walls]'),
     repairs:Object.fromEntries(DAMAGEABLE.map(t=>[t,q(`[data-ruins=repair][data-fix=${t}]`)])),walling:false,repairing:null,alertText:null,
     levelName:q('#ruinsLevelName'),levelPts:q('#ruinsLevelPts'),levelBar:q('#ruinsLevelBar'),next:q('#ruinsNext'),
-    place:q('#ruinsPlace'),placeText:q('#ruinsPlaceText'),confirm:q('[data-ruins=confirm]'),cancel:q('[data-ruins=cancel]'),buildPanel:q('#ruinsBuild'),expand:q('[data-ruins=expand]'),
+    place:q('#ruinsPlace'),placeName:q('#ruinsPlaceName'),placeText:q('#ruinsPlaceText'),confirm:q('[data-ruins=confirm]'),cancel:q('[data-ruins=cancel]'),buildPanel:q('#ruinsBuild'),expand:q('[data-ruins=expand]'),
     jobsPanel:q('#ruinsJobs'),jobsText:q('#ruinsJobsText'),auto:q('[data-ruins=auto]'),
     manage:q('[data-ruins=manage]'),manageBody:q('#ruinsManageBody'),goal:q('#ruinsGoal'),defenseText:q('#ruinsDefenseText'),watchText:q('#ruinsWatchText'),landText:q('#ruinsLandText'),
     tabs:Object.fromEntries(TABS.map(t=>[t.id,{btn:q(`[data-ruins=${t.id}]`),pane:q('#'+t.pane)}])),lists:{home:q('#ruinsList-home'),found:q('#ruinsList-found'),town:q('#ruinsList-town')},tab:'build',open:true,
@@ -787,17 +787,19 @@ function onKey(e){if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();if(v
   const target=view.selected!==null&&standing(state,view.selected)?view.selected:standingIds(state).sort((a,b)=>depth(b)-depth(a))[0];if(target!==undefined)work(target);}
 const depth=id=>id%W+Math.floor(id/W);
 const WHY={outside:'That land is still in the mist.',building:'There is a building there already.',rubble:'That rubble can’t be built on.',node:'Clear that tree or deposit first.',path:'That spot would wall off the paths. Pick another lit tile.',road:'There is a road there already.',wall:'There is palisade there already.',inside:'Palisade goes on the edge of Haven. Pick a lit tile.'};
+// A tile that can't take what's being placed blinks red for a moment (drawn on the ground; nothing is charged).
+function nope(id){if(id===undefined||id===null)return;anims=anims.filter(a=>a.type!=='nope');anims.push({type:'nope',c:id%W,r:Math.floor(id/W),t0:performance.now(),life:600});draw();wake();}
 function tapAt(x,y){
   const t=hit(x,y);if(!t)return;
   if(view.walling){if(t.tile===undefined)return;const c=t.tile%W,r=Math.floor(t.tile/W),res=layWall(state,c,r);
-    if(!res.ok){say(res.reason==='short'?`You need ${fmt(res.need)} more for palisade.`:res.reason==='max'?`Haven has its full ${CONFIG.wallMaxTiles} palisade tiles.`:WHY[res.reason]||'Pick a lit tile.');return;}
+    if(!res.ok){nope(t.tile);say(res.reason==='short'?`You need ${fmt(res.need)} more for palisade.`:res.reason==='max'?`Haven has its full ${CONFIG.wallMaxTiles} palisade tiles.`:WHY[res.reason]||'Pick a lit tile.');return;}
     store();view.sites=wallSites(state);say('');update();return;}
   if(view.roading){if(t.tile===undefined)return;const c=t.tile%W,r=Math.floor(t.tile/W),res=layRoad(state,c,r);
-    if(!res.ok){say(res.reason==='short'?'You need 1 more Stone for a road.':res.reason==='max'?`Haven has its full ${CONFIG.roadMax} road tiles.`:WHY[res.reason]||'Pick a lit tile.');return;}
+    if(!res.ok){nope(t.tile);say(res.reason==='short'?'You need 1 more Stone for a road.':res.reason==='max'?`Haven has its full ${CONFIG.roadMax} road tiles.`:WHY[res.reason]||'Pick a lit tile.');return;}
     store();view.sites=roadSites(state);say('');update();return;}
   if(view.placing){if(t.tile===undefined)return;const c=t.tile%W,r=Math.floor(t.tile/W);
     if(view.sites.includes(t.tile)){view.site=t.tile;placeLine();draw();return;}
-    const p=canPlace(state,view.placing,c,r);say(p.ok?'':WHY[p.reason]||'Pick a lit tile.');return;}
+    const p=canPlace(state,view.placing,c,r);if(!p.ok)nope(t.tile);say(p.ok?'':WHY[p.reason]||'Pick a lit tile.');return;}
   if(t.node!==undefined){work(t.node);return;}
   if(t.building){const type=t.building.t;if(isBroken(state,type)){if(state.broken[type]>0)fix(type);else openRepair(type);return;}openUpgrade(type);return;}
   if(t.raider){const k=state.raid,o=raidOutcome(state,k),tg=raidTarget(state,k);
@@ -836,7 +838,7 @@ function showDrawer(){
 // Ready choices first. Only reordered when a section opens or after something is built, never while you're choosing.
 function sortBuild(){if(!view)return;for(const g of ['home','found','town']){const list=view.lists[g];if(typeof list?.append!=='function')continue;
   const order=buildOrder(state,g);if(order.every((id,i)=>list.children[i]===view.bps[id]))continue;list.append(...order.map(id=>view.bps[id]));}}
-function openTab(id,focus){if(!view.tabs[id])return;endPlacing();view.tab=id;view.open=true;if(id==='build')sortBuild();say('');update();if(focus)view.tabs[id].btn.focus?.();}
+function openTab(id,focus){if(!view.tabs[id])return;endPlacing();view.tab=id;view.open=true;if(id==='build')sortBuild();view.tabs[id].pane.scrollTop=0;say('');update();if(focus)view.tabs[id].btn.focus?.();}
 // Arrow keys move between the four sections; Escape closes a bar first, then the drawer.
 function onPanelKey(e){
   if(e.key==='Escape'){if(view.placing||view.roading||view.walling||view.upgrading){e.preventDefault();endPlacing();say('');update();view.canvas.focus?.();return;}
@@ -892,6 +894,9 @@ function confirmRepair(){const type=view.repairing;if(!type)return;const res=sta
   store();endPlacing();say(`Repair of the ${BP[type].name} paid. ${state.jobs.build?'Your builders are on their way.':'No one is a Builder: tap it yourself to repair it, or make someone a Builder in People.'}`);update();wake();}
 function endPlacing(){if(!view)return;view.placing=null;view.roading=false;view.walling=false;view.upgrading=null;view.repairing=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';}
 function placeLine(){view.place.hidden=false;
+  // One plain heading for what's in hand, so it's clear what a tap on the town will do.
+  view.placeName.textContent=view.roading?'Laying road':view.walling?'Building palisade':view.repairing?`Repair · ${BP[view.repairing].name}`
+    :view.upgrading?`${BP[view.upgrading].name} · Lv ${lvOf(state,view.upgrading)}`:view.placing?`Placing · ${BP[view.placing].name}`:'';
   if(view.roading){view.confirm.hidden=true;view.cancel.textContent='Done';
     view.placeText.textContent=`Tap lit tiles to lay road, ${fmt(CONFIG.roadCost)} each. Workers walk faster on roads. ${plural(state.roads.length,'tile')} laid.`;return;}
   if(view.walling){view.confirm.hidden=true;view.cancel.textContent='Done';const d=defense(state);
@@ -908,7 +913,7 @@ function placeLine(){view.place.hidden=false;
       :u.reason==='short'?`${now} Lv ${u.to} (${STAGES[u.to-1]}) costs ${fmt(u.cost)}: you need ${fmt(u.need)} more.`
       :`${now} Upgrade to Lv ${u.to} (${STAGES[u.to-1]}) for ${fmt(u.cost)}? ${bp.effects[u.to-1]}.`;return;}
   const bp=BP[view.placing],c=buildCost(state,view.placing);view.confirm.textContent='Build here';view.confirm.disabled=view.site===null;
-  view.placeText.textContent=view.site===null?`Tap a lit tile for the ${bp.name}. It costs ${fmt(c)}.`:`Build the ${bp.name} here for ${fmt(c)}?`;}
+  view.placeText.textContent=view.site===null?`Tap a lit tile for the ${bp.name}. It costs ${fmt(c)}. Drag to look around.`:`Build the ${bp.name} here for ${fmt(c)}?`;}
 // A second tap on Build here finds placing already ended, so a double tap can never build or charge twice.
 function confirmBuild(){if(!view.placing||view.site===null)return;const type=view.placing,c=view.site%W,r=Math.floor(view.site/W),res=build(state,type,c,r);
   if(!res.ok){say(res.reason==='short'?`You need ${fmt(res.need)} more.`:'That spot is no longer free. Pick another lit tile.');if(res.reason!=='short'){view.sites=validSites(state,type);view.site=null;placeLine();draw();}return;}
@@ -932,7 +937,8 @@ function update(){
   view.levelName.textContent=`Settlement Lv ${st.level} · ${st.title}`;view.levelPts.textContent=`${st.points} / ${st.next}`;
   view.levelBar.style.width=`${Math.round(100*(st.points-st.at)/(st.next-st.at))}%`;
   view.next.textContent=st.milestone?`Next: Lv ${st.milestone.lv} · ${st.milestone.text}`:'Every milestone reached for now';
-  if(!view.stage.textContent&&!view.placing&&!view.roading&&!view.upgrading)say(state.built.length?'Gather, build, and grow Haven.':'Tap a tree or stone to start working it.');
+  // The message line sits on the bottom edge of the town, so it stays empty when there's nothing to say.
+  if(!view.stage.textContent&&!view.placing&&!view.roading&&!view.upgrading&&!state.built.length)say('Tap a tree or stone to start working it.');
   const tp=manualPower(state),np=state.tools<toolsCap(state)?manualPower(state,state.tools+1):null;
   priceButton(view.tools,cost(state,'tools'),`Better Tools · Lv ${state.tools}`,np===null?`Hit power ${power(tp)} · tree ${hitsFor('pine',tp)}, stone ${hitsFor('stone',tp)}, ore ${hitsFor('ore',tp)} hits${state.tools<CONFIG.toolsMax+FX.foundryTools[3]?' · a Foundry allows more':''}`:`Hit power ${power(tp)} → ${power(np)} · stone ${hitsFor('stone',tp)} → ${hitsFor('stone',np)} hits`);
   const cap=workerCap(state);
@@ -1040,9 +1046,11 @@ function onResize(){if(!view)return;layout(false);draw();}
  * tall as the room the town has with the open section folded away, up to 44px, and the map pans both ways when it's
  * bigger than its space. So opening a section covers part of the town without shrinking it, and while a building,
  * road or palisade is being placed the tile size stays put, so the tile you aimed at doesn't move. */
+/* The room the town would have with the drawer folded: its own height, plus the open section and its tabs, less any
+ * part of the page that already runs off the bottom (on the smallest phones). So Hide never makes the tiles smaller. */
 function townRoom(){const sh=view.scene.clientHeight||0;if(!sh)return 0;
-  const pane=view.open&&!view.manageBody.hidden?view.tabs[view.tab]?.pane:null,ph=pane&&!pane.hidden?(pane.offsetHeight||0):0;
-  return sh+(ph?ph+6:0);}
+  const body=view.open&&!view.manageBody.hidden?(view.manageBody.offsetHeight||0):0,over=Math.max(0,(view.root.scrollHeight||0)-(view.root.clientHeight||0));
+  return Math.max(sh,sh+(body?body+6:0)-over);}
 function layout(center){
   const cv=view.canvas,sc=view.scene,cw=sc.clientWidth||300,sh=sc.clientHeight||0,[lo,hi]=land(state),V=hi-lo+2,old=view.geo;
   const keep=old&&old.V===V&&!center&&!!(view.placing||view.roading||view.walling||view.upgrading),fitH=(townRoom()-16)/(2.1+V/2);
@@ -1075,7 +1083,11 @@ function diamond(ctx,g,c,r,fill,edge){const a=iso(g,c,r),b=iso(g,c+1,r),d=iso(g,
 function patch(ctx,g,c0,r0,c1,r1,fill){poly(ctx,[iso(g,c0,r0),iso(g,c1,r0),iso(g,c1,r1),iso(g,c0,r1)],fill);}
 // A box standing on the ground at (x,y), half-width hw (px along x), height ht. Top, left and right faces.
 function box(ctx,x,y,hw,ht,top,left,right){const hh=hw/2;poly(ctx,[[x-hw,y],[x,y+hh],[x,y+hh-ht],[x-hw,y-ht]],left);poly(ctx,[[x+hw,y],[x,y+hh],[x,y+hh-ht],[x+hw,y-ht]],right);poly(ctx,[[x,y-hh-ht],[x+hw,y-ht],[x,y+hh-ht],[x-hw,y-ht]],top);}
-const C={grass:['#2f5a3a','#36643f','#2b5236'],edge:'#1f3c29',dirtL:'#3b2d22',dirtR:'#2a2019',stone:'#7d7a6d',stoneHi:'#a7a08a',stoneLo:'#55544b',faint:'#4a5a48',moss:'#3d6b48',trunk:'#5a3d26',pine:['#163d2b','#1f5238','#2c6b48'],oak:['#1d4a2f','#2a6340','#3f8455'],bush:['#2a5c37','#3b7a4a'],brass:'#d6bd81',roof:'#6e3f2e',roofHi:'#8b5440',wood:'#7a5534',woodHi:'#9a7048',lantern:'#f3c46a',ore:['#3a3540','#4d4654','#2a2630'],vein:'#e09a46',veinHi:'#8fd6c9',mist:'#0d1d22',plot:'rgba(248,220,136,.22)',plotEdge:'#f8dc88',road:'#6f5c40',roadHi:'#86714f',roadEdge:'#4d3f2c'};
+/* Haven's palette. The town reads at phone size: grass a few steps lighter than the forest around it, a packed-earth
+ * footprint under every building, trees, rocks and people with a dark one-pixel outline so they stand off the grass. */
+const C={grass:['#3b6c43','#42764a','#36633e'],grassHi:'#5a9358',grassLo:'#2c5535',edge:'#2f5a37',bloom:['#e8d27a','#d9a0c8','#f2efe0'],dirtL:'#5a4330',dirtR:'#3e2f22',dirtLip:'#6f5a3e',
+  lot:'#6b5c42',lotEdge:'#8c7856',lotLo:'#584b36',ink:'#0c1a12',stone:'#8a8676',stoneHi:'#b9b29b',stoneLo:'#5d5b51',faint:'#566553',moss:'#4a7d52',trunk:'#5a3d26',pine:['#1d5236','#286a45','#3a8a57'],oak:['#24603a','#337a49','#56a05c'],bush:['#2f6a3d','#46894f'],berry:'#c8465a',
+  valid:'rgba(159,216,192,.3)',validEdge:'#9fd8c0',pick:'rgba(248,220,136,.55)',pickEdge:'#ffe8af',nope:'rgba(214,72,62,.6)',nopeEdge:'#ff9a8a',brass:'#d6bd81',roof:'#6e3f2e',roofHi:'#8b5440',wood:'#7a5534',woodHi:'#9a7048',lantern:'#f3c46a',ore:['#4a4452','#655c70','#342f3c'],vein:'#e09a46',veinHi:'#8fd6c9',mist:'#0d1d22',plot:'rgba(248,220,136,.22)',plotEdge:'#f8dc88',road:'#6f5c40',roadHi:'#86714f',roadEdge:'#4d3f2c'};
 /* Upgrade stages change the look in place: Lv 1 is Haven 2.0's makeshift look (unchanged); Lv 2 is timber on a timber
  * deck with a brass pennant; Lv 3 is dressed stone with a slate roof and corner stones. */
 const STAGE_LOOK=[null,
@@ -1092,17 +1104,25 @@ function draw(now){
   // Earth slab under the territory
   const L=iso(g,lo,hi),B=iso(g,hi,hi),R=iso(g,hi,lo),dep=Math.round(g.w*.3);
   poly(ctx,[L,B,[B[0],B[1]+dep],[L[0],L[1]+dep]],C.dirtL);poly(ctx,[B,R,[R[0],R[1]+dep],[B[0],B[1]+dep]],C.dirtR);
+  // A grassy lip along the cliff top and a darker band of earth near the bottom, so the land reads as a raised slab.
+  poly(ctx,[[L[0],L[1]+dep*.6],[B[0],B[1]+dep*.6],[B[0],B[1]+dep],[L[0],L[1]+dep]],'#0003');poly(ctx,[[B[0],B[1]+dep*.6],[R[0],R[1]+dep*.6],[R[0],R[1]+dep],[B[0],B[1]+dep]],'#0003');
+  ctx.beginPath();ctx.moveTo(L[0],L[1]+1);ctx.lineTo(B[0],B[1]+1);ctx.lineTo(R[0],R[1]+1);ctx.strokeStyle=C.grassLo;ctx.lineWidth=2;ctx.stroke();
   // Ground: territory (with roads), then the ring of mist around it
   for(let r=g.a;r<g.a+g.V;r++)for(let c=g.a;c<g.a+g.V;c++){const id=wid(c,r),sh=wd.shade(id);
     if(inLand(state,c,r)){
       if(wd.rubble.has(id))diamond(ctx,g,c,r,C.faint,C.stoneLo);
-      else if(buildingAt(state,id))diamond(ctx,g,c,r,'#4a4334',C.stoneLo);
-      else diamond(ctx,g,c,r,C.grass[Math.floor(sh*3)],C.edge);
+      else if(buildingAt(state,id))lot(ctx,g,c,r);
+      else{diamond(ctx,g,c,r,C.grass[Math.floor(sh*3)],C.edge);if(!roads.has(id))tuft(ctx,g,c,r,sh);}
       if(roads.has(id))roadTile(ctx,g,c,r,roads,sh);
       if(landAnim&&(c<plo||r<plo||c>=phi||r>=phi)){ctx.globalAlpha=Math.max(0,1-grow);diamond(ctx,g,c,r,C.mist);ctx.globalAlpha=1;}}
     else{ctx.globalAlpha=.85;diamond(ctx,g,c,r,C.mist,'#16302f');ctx.globalAlpha=1;}}
-  // Lit tiles while placing a building or laying road
-  if(view.placing||view.roading||view.walling)for(const id of view.sites){diamond(ctx,g,id%W,Math.floor(id/W),id===view.site?'rgba(248,220,136,.45)':C.plot,C.plotEdge);}
+  // What's selected, on the ground: the tree or deposit you're working, or the building whose bar is open.
+  if(view.selected!==null&&standing(state,view.selected))diamond(ctx,g,view.selected%W,Math.floor(view.selected/W),'rgba(248,220,136,.22)',C.pickEdge);
+  const chosen=view.upgrading?state.built.find(x=>x.t===view.upgrading):null;if(chosen)diamond(ctx,g,chosen.c,chosen.r,'rgba(248,220,136,.3)',C.pickEdge);
+  // Lit tiles while placing a building or laying road: pale green where it can go, gold on the tile you picked.
+  if(view.placing||view.roading||view.walling)for(const id of view.sites){const on=id===view.site;diamond(ctx,g,id%W,Math.floor(id/W),on?C.pick:C.valid,on?C.pickEdge:C.validEdge);}
+  // A tile that can't take it blinks red.
+  for(const a of anims)if(a.type==='nope'){ctx.globalAlpha=Math.max(0,1-(now-a.t0)/a.life);diamond(ctx,g,a.c,a.r,C.nope,C.nopeEdge);ctx.globalAlpha=1;}
   // Objects back to front
   const objs=[],shaking=new Map(anims.filter(a=>a.type==='shake').map(a=>[a.id,a])),falling=anims.filter(a=>a.type==='fall'),watch=sees(state),walls=new Set(state.walls);
   for(const n of wd.nodes.values()){const id=n.id,sh=wd.shade(id);
@@ -1115,15 +1135,16 @@ function draw(now){
   const raise=anims.find(a=>a.type==='raise'),banner=settlement(state).level>=20;
   for(const b of state.built)objs.push([b.c+b.r+.02,()=>{if(raise&&raise.t===b.t)raising(ctx,g,b,(now-raise.t0)/raise.life,banner);else building(ctx,g,b.t,b.c,b.r,b.lv,banner);
     if(isBroken(state,b.t))damaged(ctx,g,b.c,b.r,state.broken[b.t],now,smooth);}]);
-  if(view.placing&&view.site!==null){const c=view.site%W,r=Math.floor(view.site/W);objs.push([c+r+.03,()=>{ctx.globalAlpha=.6;building(ctx,g,view.placing,c,r,1);ctx.globalAlpha=1;}]);}
+  if(view.placing&&view.site!==null){const c=view.site%W,r=Math.floor(view.site/W);objs.push([c+r+.03,()=>{ctx.globalAlpha=.78;building(ctx,g,view.placing,c,r,1);ctx.globalAlpha=1;}]);}
   // Mist silhouettes of the forest beyond (skipping tiles a Watchtower already shows)
   for(let r=g.a;r<g.a+g.V;r++)for(let c=g.a;c<g.a+g.V;c++){if(inLand(state,c,r))continue;const id=wid(c,r),sh=wd.shade(id),n=wd.nodes.get(id);if(watch&&n&&n.land===state.land+1)continue;
     if(sh<.55)objs.push([c+r,()=>{ctx.globalAlpha=.32;tree(ctx,g,c,r,sh<.3?'pine':'oak',sh);ctx.globalAlpha=1;}]);}
   if(state.workers>0)for(const w of crew){const [wc,wr]=crewPosition(w,smooth,state);objs.push([wc+wr+.05,()=>worker(ctx,g,w,wc,wr,now,smooth)]);}
   for(const p of raiderSpots(now))objs.push([p.c+p.r+.06,()=>raider(ctx,g,p,now,smooth)]);
   objs.sort((a,b)=>a[0]-b[0]).forEach(o=>o[1]());
-  // Selected building outline
-  if(view.upgrading){const b=state.built.find(x=>x.t===view.upgrading);if(b){diamond(ctx,g,b.c,b.r,'rgba(248,220,136,.12)',C.plotEdge);}}
+  // The building whose bar is open gets a small gold pointer above its roof; so does the tile picked for a new one.
+  if(chosen)pointer(ctx,g,chosen.c,chosen.r,TALL[chosen.t]?.[chosen.lv]||1.1,now,smooth);
+  if(view.placing&&view.site!==null)pointer(ctx,g,view.site%W,Math.floor(view.site/W),TALL[view.placing]?.[1]||1.1,now,smooth);
   // Work bars over nodes that have been started
   for(const [k,left] of Object.entries(state.hp)){const n=wd.nodes.get(Number(k));if(!n)continue;const max=CONFIG.kinds[n.kind].hp,[x,y]=iso(g,n.c+.5,n.r+.5),bw=Math.round(g.w*.6),bx=Math.round(x-bw/2),by=Math.round(y-g.w*(n.kind==='stone'||n.kind==='ore'||n.kind==='bush'?.62:1.35));
     ctx.fillStyle='#000c';ctx.fillRect(bx-1,by-1,bw+2,6);ctx.fillStyle='#3a2f20';ctx.fillRect(bx,by,bw,4);ctx.fillStyle=Number(k)===view.selected?'#ffe8af':C.brass;ctx.fillRect(bx,by,Math.max(1,Math.round(bw*left/max)),4);
@@ -1151,20 +1172,40 @@ function roadTile(ctx,g,c,r,roads,v){const joins=id=>roads.has(id)||!!buildingAt
   if(c+1<W&&joins(wid(c+1,r)))patch(ctx,g,c+.5,r+.28,c+1,r+.72,C.road);if(c>0&&joins(wid(c-1,r)))patch(ctx,g,c,r+.28,c+.5,r+.72,C.road);
   if(r+1<W&&joins(wid(c,r+1)))patch(ctx,g,c+.28,r+.5,c+.72,r+1,C.road);if(r>0&&joins(wid(c,r-1)))patch(ctx,g,c+.28,r,c+.72,r+.5,C.road);
   const [x,y]=iso(g,c+.5,r+.5);ctx.fillStyle=C.roadHi;ctx.fillRect(Math.round(x-g.w*.12+v*4),Math.round(y-1),2,2);ctx.fillRect(Math.round(x+g.w*.08-v*3),Math.round(y+2),2,2);ctx.fillStyle=C.roadEdge;ctx.fillRect(Math.round(x-2+v*6),Math.round(y-g.h*.2),2,1);}
+// A building's lot: packed earth with a lighter rim and a few flagstones, so every building sits on its own grid tile.
+function lot(ctx,g,c,r){diamond(ctx,g,c,r,C.lot,C.lotEdge);const [x,y]=iso(g,c+.5,r+.5),w=g.w,R=Math.round;ctx.fillStyle=C.lotLo;
+  ctx.fillRect(R(x-w*.3),R(y+w*.04),3,2);ctx.fillRect(R(x+w*.22),R(y+w*.06),3,2);ctx.fillRect(R(x-w*.04),R(y+w*.16),4,2);}
+// A few blades of grass and, on some tiles, a flower: fixed per tile (from its shade), so nothing flickers.
+function tuft(ctx,g,c,r,v){const [x,y]=iso(g,c+.5,r+.5),w=g.w,R=Math.round,k=Math.floor(v*997)%9,ox=((k*7)%5-2)*w*.06,oy=((k*3)%3-1)*w*.04;
+  ctx.fillStyle=C.grassHi;ctx.fillRect(R(x+ox-w*.16),R(y+oy-1),1,2);ctx.fillRect(R(x+ox-w*.14),R(y+oy-2),1,3);ctx.fillRect(R(x+ox+w*.12),R(y-oy+2),1,2);
+  ctx.fillStyle=C.grassLo;ctx.fillRect(R(x-ox+w*.02),R(y+oy+w*.12),2,1);
+  if(k<2){ctx.fillStyle=C.bloom[(k+Math.floor(v*31))%3];ctx.fillRect(R(x-ox+w*.18),R(y-oy-w*.04),2,2);}}
+// A small gold pointer floating over what's picked.
+const TALL={townhall:[0,1.3,1.6,1.9],watchtower:[0,1.5,1.7,1.9],survey:[0,1.8,1.8,1.8],yard:[0,1.45,1.45,1.45]};
+function pointer(ctx,g,c,r,up,now,smooth){const [x0,y0]=iso(g,c+.5,r+.5),x=Math.round(x0),y=Math.round(y0-g.w*up)+(smooth?Math.round(Math.sin(now/260)*1.5):0);
+  poly(ctx,[[x-6,y-8],[x+6,y-8],[x,y+1]],C.ink);poly(ctx,[[x-4,y-7],[x+4,y-7],[x,y-1]],C.brass);ctx.fillStyle=C.pickEdge;ctx.fillRect(x-3,y-7,3,1);}
 function node(ctx,g,n,v,dx){if(isWood(n.kind)){tree(ctx,g,n.c,n.r,n.kind,v,dx);return;}
   const [x0,y0]=iso(g,n.c+.5,n.r+.5),x=Math.round(x0+(v-.5)*4)+dx,y=Math.round(y0),w=g.w;ctx.fillStyle='#0005';ctx.fillRect(x-w*.3,y-2,w*.6,4);
-  if(n.kind==='stone'){box(ctx,x-Math.round(w*.08),y,w*.2,w*.2,C.stoneHi,C.stone,C.stoneLo);box(ctx,x+Math.round(w*.14),y+2,w*.13,w*.13,C.stoneHi,C.stone,C.stoneLo);box(ctx,x-Math.round(w*.02),Math.round(y-w*.2),w*.1,w*.1,'#b8b19a',C.stone,C.stoneLo);return;}
-  const o=C.ore;box(ctx,x,y,w*.24,w*.26,o[1],o[0],o[2]);box(ctx,x+Math.round(w*.16),y+2,w*.12,w*.14,o[1],o[0],o[2]);
+  // A dark rim round each rock, so stone and ore stand off the grass.
+  const rim=(bx,by,hw,ht)=>box(ctx,bx,by+1,hw+1.5,ht+2,C.ink,C.ink,C.ink);
+  if(n.kind==='stone'){rim(x-Math.round(w*.08),y,w*.2,w*.2);rim(x+Math.round(w*.14),y+2,w*.13,w*.13);rim(x-Math.round(w*.02),Math.round(y-w*.2),w*.1,w*.1);box(ctx,x-Math.round(w*.08),y,w*.2,w*.2,C.stoneHi,C.stone,C.stoneLo);box(ctx,x+Math.round(w*.14),y+2,w*.13,w*.13,C.stoneHi,C.stone,C.stoneLo);box(ctx,x-Math.round(w*.02),Math.round(y-w*.2),w*.1,w*.1,'#b8b19a',C.stone,C.stoneLo);return;}
+  const o=C.ore;rim(x,y,w*.24,w*.26);rim(x+Math.round(w*.16),y+2,w*.12,w*.14);box(ctx,x,y,w*.24,w*.26,o[1],o[0],o[2]);box(ctx,x+Math.round(w*.16),y+2,w*.12,w*.14,o[1],o[0],o[2]);
   ctx.fillStyle=C.vein;ctx.fillRect(x-Math.round(w*.14),Math.round(y-w*.2),3,3);ctx.fillRect(x+Math.round(w*.06),Math.round(y-w*.12),3,3);ctx.fillRect(x-Math.round(w*.04),Math.round(y-w*.32),3,2);ctx.fillStyle=C.veinHi;ctx.fillRect(x+Math.round(w*.1),Math.round(y-w*.26),2,2);}
 function remains(ctx,g,n){const [x,y]=iso(g,n.c+.5,n.r+.5),w=g.w;
   if(isWood(n.kind)){if(n.kind==='bush')return;ctx.fillStyle=C.trunk;ctx.fillRect(Math.round(x-w*.07),Math.round(y-w*.1),Math.round(w*.14),Math.round(w*.1));ctx.fillStyle='#9a7a52';ctx.fillRect(Math.round(x-w*.07),Math.round(y-w*.12),Math.round(w*.14),3);return;}
   ctx.fillStyle=n.kind==='ore'?C.ore[0]:C.stoneLo;ctx.fillRect(Math.round(x-w*.16),Math.round(y-2),4,3);ctx.fillRect(Math.round(x+w*.06),Math.round(y),4,3);ctx.fillRect(Math.round(x-w*.02),Math.round(y-w*.08),3,2);}
 function rubble(ctx,g,c,r,v){const [x,y]=iso(g,c+.5,r+.5),w=g.w;box(ctx,Math.round(x+(v-.5)*w*.3),Math.round(y),w*.14,w*(.1+v*.12),'#6a6a5e','#575649','#43423a');if(v>.5){ctx.fillStyle=C.moss;ctx.fillRect(Math.round(x-w*.2),Math.round(y-w*.06),Math.round(w*.14),3);}}
 function tree(ctx,g,c,r,kind,v,dx=0){const [x,y0]=iso(g,c+.5,r+.5),w=g.w,y=Math.round(y0),X=Math.round(x+(v-.5)*w*.12)+dx;
-  if(kind==='bush'){const cl=C.bush;ctx.fillStyle='#0004';ctx.fillRect(X-w*.26,y-2,w*.52,4);ctx.fillStyle=cl[0];ctx.fillRect(X-w*.26,y-w*.3,w*.52,w*.3);ctx.fillRect(X-w*.18,y-w*.4,w*.36,w*.1);ctx.fillStyle=cl[1];ctx.fillRect(X-w*.14,y-w*.36,w*.16,w*.1);return;}
-  ctx.fillStyle='#0005';ctx.fillRect(X-w*.22,y-2,w*.44,4);ctx.fillStyle=C.trunk;ctx.fillRect(X-Math.max(2,w*.05),y-w*.42,Math.max(4,w*.1),w*.42);
-  if(kind==='pine'){const cl=C.pine,tall=w*(1.15+v*.2);for(let k=0;k<3;k++){const b=y-w*.3-k*tall*.26,half=w*(.36-k*.08);poly(ctx,[[X,b-tall*.36],[X+half,b],[X-half,b]],cl[k===2?2:k]);}ctx.fillStyle=cl[2];ctx.fillRect(X-w*.12,y-w*.5,w*.08,w*.08);return;}
-  const cl=C.oak,cy=y-w*(.78+v*.12),rr=w*.33;ctx.fillStyle=cl[0];ctx.fillRect(X-rr,cy-rr*.6,rr*2,rr*1.4);ctx.fillRect(X-rr*.7,cy-rr,rr*1.4,rr*2);ctx.fillStyle=cl[1];ctx.fillRect(X-rr*.75,cy-rr*.8,rr*1.2,rr*1.1);ctx.fillStyle=cl[2];ctx.fillRect(X-rr*.5,cy-rr*.7,rr*.5,rr*.4);}
+  // Every tree and bush has a dark one-pixel rim (drawn first, one pixel bigger) and a lit side, so it reads at phone size.
+  if(kind==='bush'){const cl=C.bush;ctx.fillStyle='#0004';ctx.fillRect(X-w*.26,y-2,w*.52,4);
+    ctx.fillStyle=C.ink;ctx.fillRect(X-w*.26-1,y-w*.3-1,w*.52+2,w*.3+2);ctx.fillRect(X-w*.18-1,y-w*.4-1,w*.36+2,w*.1+2);
+    ctx.fillStyle=cl[0];ctx.fillRect(X-w*.26,y-w*.3,w*.52,w*.3);ctx.fillRect(X-w*.18,y-w*.4,w*.36,w*.1);ctx.fillStyle=cl[1];ctx.fillRect(X-w*.14,y-w*.36,w*.16,w*.1);
+    ctx.fillStyle=C.berry;ctx.fillRect(Math.round(X-w*.16),Math.round(y-w*.18),2,2);ctx.fillRect(Math.round(X+w*.08),Math.round(y-w*.26),2,2);ctx.fillRect(Math.round(X+w*.02),Math.round(y-w*.1),2,2);return;}
+  ctx.fillStyle='#0005';ctx.fillRect(X-w*.22,y-2,w*.44,4);const tw=Math.max(4,w*.1);ctx.fillStyle=C.ink;ctx.fillRect(X-Math.max(2,w*.05)-1,y-w*.42,tw+2,w*.42+1);ctx.fillStyle=C.trunk;ctx.fillRect(X-Math.max(2,w*.05),y-w*.42,tw,w*.42);
+  if(kind==='pine'){const cl=C.pine,tall=w*(1.15+v*.2),tiers=[];for(let k=0;k<3;k++){const b=y-w*.3-k*tall*.26,half=w*(.36-k*.08);tiers.push([b,half,b-tall*.36]);}
+    for(const [b,half,t] of tiers)poly(ctx,[[X,t-1.5],[X+half+1.5,b+1],[X-half-1.5,b+1]],C.ink);
+    tiers.forEach(([b,half,t],k)=>{poly(ctx,[[X,t],[X+half,b],[X-half,b]],cl[k===2?2:k]);poly(ctx,[[X,t],[X-half,b],[X-half*.45,b]],k===2?'#4f9e66':cl[k+1]);});return;}
+  const cl=C.oak,cy=y-w*(.78+v*.12),rr=w*.33;ctx.fillStyle=C.ink;ctx.fillRect(X-rr-1,cy-rr*.6-1,rr*2+2,rr*1.4+2);ctx.fillRect(X-rr*.7-1,cy-rr-1,rr*1.4+2,rr*2+2);ctx.fillStyle=cl[0];ctx.fillRect(X-rr,cy-rr*.6,rr*2,rr*1.4);ctx.fillRect(X-rr*.7,cy-rr,rr*1.4,rr*2);ctx.fillStyle=cl[1];ctx.fillRect(X-rr*.75,cy-rr*.8,rr*1.2,rr*1.1);ctx.fillStyle=cl[2];ctx.fillRect(X-rr*.5,cy-rr*.7,rr*.5,rr*.4);}
 function fallingTree(ctx,g,c,r,kind,v,k,dir){if(k<0||k>=1)return;const [x,y]=iso(g,c+.5,r+.5),e=k*k;ctx.save();ctx.globalAlpha=1-Math.max(0,(k-.55)/.45);ctx.translate(Math.round(x),Math.round(y));ctx.rotate(dir*e*Math.PI*.45);ctx.translate(-Math.round(x),-Math.round(y));tree(ctx,g,c,r,kind,v);ctx.restore();}
 /* A small person in the colours of their job (LOOK, below): lantern-yellow cap on Auto, green woodcutter, grey stone
  * miner, orange ore miner, straw-hatted farmer with a hoe, yellow-capped builder with a hammer, helmeted guard with a
@@ -1175,8 +1216,10 @@ function worker(ctx,g,w,wc,wr,now,smooth){
   else if(phase==='work'&&w.node!==null){const dx=(w.node%W-w.c)-(Math.floor(w.node/W)-w.r);if(dx)face=w.face=dx>0?1:-1;}
   const bob=smooth&&phase==='walk'?Math.round(Math.abs(Math.sin(w.t/CONFIG.stepMs*Math.PI))*-2):0,x=Math.round(x0),y=Math.round(y0)+bob;
   ctx.globalAlpha=inLand(state,Math.round(wc),Math.round(wr))?1:.75;
-  ctx.fillStyle='#0006';ctx.fillRect(x-5,Math.round(y0)-1,10,3);
+  ctx.fillStyle='#0006';ctx.fillRect(x-5,Math.round(y0)-1,10,3);ctx.fillStyle='rgba(248,220,136,.4)';ctx.fillRect(x-3,Math.round(y0),6,1);
   const role=roleOf(state,w.k),L=LOOK[role];
+  // A dark rim round body and head, so people stand out on grass, earth and road alike.
+  ctx.fillStyle=C.ink;ctx.fillRect(x-4,y-12,8,11);ctx.fillRect(x-3,y-16,7,5);
   ctx.fillStyle=L.tunic;ctx.fillRect(x-3,y-11,6,9);ctx.fillStyle='#e0b98d';ctx.fillRect(x-2,y-15,5,4);
   // Each job has its own hat or hood, so you can tell them apart at a glance.
   ctx.fillStyle=L.cap;
