@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T16:25:53.058Z",
+ "generatedAt": "2026-11-07T16:59:42.277Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T16:19:32Z",
+  "updatedAt": "2026-11-07T16:26:54Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -43,6 +43,74 @@
   ]
  },
  "items": [
+  {
+   "number": 146,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Implement approved QoL audit across summoning collection and mobile play",
+   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
+   "stage": "built",
+   "waitingOn": "both",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Which area should I build next? My suggestion is the Auto summary after you stop Auto (area 2). It's useful every day, and nothing else is changing that part of the screen.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Can each area become its own request? My suggestion is yes: one small request per area, so you can try and approve each one on its own. The simplest way is to tell Codex \"split the QoL audit into one request per area\".",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "noah",
+     "text": "Favorite and Protect for companions (area 3) need new data in every save, through a save update. I haven't built it. It needs Noah's OK on the save change first.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at Save Backups at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save: Profile, then Save Backups. Check that the \"N/30 discovered\" line fits without wrapping oddly.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "note",
+     "text": "I built only the Save Backups total from area 9. It's small, but it's the only part I could build without clashing with your other open requests.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "note",
+     "text": "This request is too big for one build. It's nine areas, each about the size of a normal request, and several depend on requests that aren't live yet. One big change like that would be very hard for you to try out and approve.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "note",
+     "text": "These parts don't depend on any other request, so I could build each one as its own request next: the Auto summary after you stop Auto (area 2), a \"Reduced effects\" setting (area 5), the Ascend screen listing what resets and what stays (area 7), and the opening-pace measurements (area 6, a report only, with no number changes).",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "note",
+     "text": "These parts should wait until their request goes live, and then be built on top of it: Party card upgrade feedback (#118), Codex search, filters and remembered page (#142/#130), the mastery explanation (#119), and Haven building states (#92/#141/#143).",
+     "at": "2026-11-07T16:59:20Z"
+    }
+   ],
+   "openedAt": "2026-11-07T16:55:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-07T16:59:20Z",
+   "headSha": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T16:59:20Z",
+   "goLive": false
+  },
   {
    "number": 92,
    "kind": "request",
@@ -98,11 +166,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:25:30Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "699556791c607f05dd6daf251cd363d701188a87",
    "touchesGame": true,
    "answers": false,
@@ -131,11 +199,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
    "touchesGame": true,
    "answers": false,
@@ -194,11 +262,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
    "touchesGame": true,
    "answers": false,
@@ -247,11 +315,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -290,11 +358,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
@@ -317,11 +385,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
    "touchesGame": true,
    "answers": false,
@@ -344,11 +412,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
    "touchesGame": true,
    "answers": false,
@@ -387,11 +455,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -430,11 +498,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
    "touchesGame": true,
    "answers": false,
@@ -468,11 +536,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
    "touchesGame": true,
    "answers": false,
@@ -501,11 +569,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "31ac1d91a945206547b20af5774ad92878da133e",
    "touchesGame": true,
    "answers": false,
@@ -554,11 +622,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T16:19:33Z",
+   "testAt": "2026-11-07T16:26:54Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T16:19:33Z",
+   "updatedAt": "2026-11-07T16:26:54Z",
    "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
    "touchesGame": true,
    "answers": false,
@@ -1412,36 +1480,39 @@
    "botState": "finished",
    "botAt": "2026-11-06T20:56:36Z",
    "goLive": false
-  },
-  {
-   "number": 126,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Relay confirmed owner answers for nine LOREBOUND requests",
-   "quote": "\"PR #122: Shorten the quantity label to ×10 on small screens; keep the full label on larger screens. Next request.\"  \"Keep my previously approved PR #115 answers unchanged.\"  \"Keep all prs as previously approved\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T18:13:11Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-06T18:48:42Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T18:48:42Z",
-   "headSha": "bd888aa60126d3581977c73c09af7e6dbc4f8ace",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-11-06T18:15:46Z",
-   "goLive": false
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-07T16:59:20Z",
+   "kind": "built",
+   "text": "Claude finished building “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T16:59:20Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T16:59:20Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T16:59:20Z",
+   "kind": "question",
+   "text": "Part of “Implement approved QoL audit across summoning collection and mobile play” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-07T16:55:36Z",
+   "kind": "asked",
+   "text": "You asked for “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T16:26:54Z",
+   "kind": "test",
+   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+  },
   {
    "at": "2026-11-07T16:25:30Z",
    "kind": "built",
@@ -1611,36 +1682,6 @@
    "at": "2026-11-07T15:31:27Z",
    "kind": "built",
    "text": "Claude finished building “Unify Rift rarity bars and clean up legacy Tome UI”"
-  },
-  {
-   "at": "2026-11-07T15:31:27Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Unify Rift rarity bars and clean up legacy Tome UI”"
-  },
-  {
-   "at": "2026-11-07T15:31:27Z",
-   "kind": "question",
-   "text": "Part of “Unify Rift rarity bars and clean up legacy Tome UI” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-07T15:31:00Z",
-   "kind": "asked",
-   "text": "You asked for “Haven: assign villagers by tapping buildings, unassigned stay on Auto”"
-  },
-  {
-   "at": "2026-11-07T15:29:14Z",
-   "kind": "built",
-   "text": "Claude finished building “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”"
-  },
-  {
-   "at": "2026-11-07T15:23:24Z",
-   "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
-  },
-  {
-   "at": "2026-11-07T15:21:33Z",
-   "kind": "closed",
-   "text": "“Haven: simpler growth, suggested upgrades, automatic defenses and zoom” was closed"
   }
  ],
  "otherPulls": [
