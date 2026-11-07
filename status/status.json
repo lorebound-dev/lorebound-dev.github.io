@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T02:28:59.147Z",
+ "generatedAt": "2026-11-07T02:39:52.391Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -41,6 +41,33 @@
   ]
  },
  "items": [
+  {
+   "number": 136,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Integrate five approved Realm 1 boss and enemy sprites on DEV",
+   "quote": "\"Let's make those missing companions or check for them on the drive.\"  After retrieving all five held enemy/guardian sprites from his old Realm 1 archives, Joshua reviewed their originals and revised artwork one by one. He approved Vespera's and Bellveil's ORIGINAL artwork with framing corrections only, the NEW revised Vaelith floating-reliquary artwork, the later restrained/coarse-pixel Mirefang Bog Toad (NOT the rejected oversized-fanged variants), and the detailed lavender-black raven redesign (NOT the earlier basic raven or mismatched serpent).  \"Approved.\" \"Ok let's do it.\"",
+   "stage": "closed",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-07T02:38:53Z",
+   "mergedAt": null,
+   "closedAt": "2026-11-07T02:39:23Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-07T02:39:23Z",
+   "headSha": "3e008223a50d24b0433b1bcecc7d90b8ed7e775e",
+   "touchesGame": false,
+   "answers": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "finished",
+   "botAt": "2026-11-07T02:39:22Z",
+   "goLive": false
+  },
   {
    "number": 133,
    "kind": "request",
@@ -663,36 +690,10 @@
    "by": "Joshua",
    "title": "Audit live and dev Realm 1 visuals before Realm 2",
    "quote": "\"Well I want to make sure everything looks good that’s currently in the game before adding a new realm\"",
-   "stage": "queued",
+   "stage": "building",
    "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Pass Joshua's approved fixes on to their requests, and ask Claude to build them there. On #38: stop the boss timer covering the boss's health at 375–430 wide, and make the companions visible in boss fights at 375–430 without changing the team layout. Also hide \" · art pending\" in realm1-art.js for the five stand-in fights, if Noah agrees #38 should own it. On #97: put a solid panel behind both…",
-     "at": "2026-11-06T22:59:51Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once those three are rebuilt, check the boss fight, the Party sheet and the summon reveal on the test site at 320×610, 375×812, 390×844 and 430×932, and add the pictures to this review.",
-     "at": "2026-11-06T22:59:51Z"
-    },
-    {
-     "who": "note",
-     "text": "You approved all four top fixes. They go to #38, #97 and #115, so each fix sits with the screen it belongs to and nothing clashes. This review doesn't change any game files.",
-     "at": "2026-11-06T22:59:51Z"
-    },
-    {
-     "who": "note",
-     "text": "No open request owns hiding \"art pending\" yet. The words come from one line of the game's code. I suggest #38 takes it, because the long boss name is part of why the timer covers the boss's health. Vespera, Vaelith, Mirefang Bog Toad, Gravewing Raven and Bellveil Revenant still need finished art. I've kept that as an open task.",
-     "at": "2026-11-06T22:59:51Z"
-    },
-    {
-     "who": "note",
-     "text": "The Party keeps opening in two rows, as you chose. I've marked fix 8 as closed in the review.",
-     "at": "2026-11-06T22:59:51Z"
-    }
-   ],
+   "forClaude": false,
+   "asks": [],
    "openedAt": "2026-11-06T12:42:36Z",
    "mergedAt": null,
    "closedAt": null,
@@ -702,7 +703,7 @@
    "testIsCurrent": false,
    "clashes": false,
    "updatedAt": "2026-11-06T22:59:51Z",
-   "headSha": "6276f5a9d505e3086efc8e1cca046c4d69e4c03e",
+   "headSha": "b35bd7a48faa92871a85aa47cf4574e50cb0ea29",
    "touchesGame": false,
    "answers": false,
    "requestStatus": "Built, ready to check",
@@ -1232,36 +1233,19 @@
    "botState": "questions",
    "botAt": "2026-11-04T13:53:16Z",
    "goLive": false
-  },
-  {
-   "number": 104,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Owner answers: PRs #81, #102, #98, #78 and #96",
-   "quote": "\"All five PRs are now answered. Create the single consolidated owner-answers request in lorebound-game/LOREBOUND with numbered answers under PR #81, #102, #98, #78, and #96, following AGENTS.md, and open the PR for Noah to relay to Claude. Do not merge or deploy.\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-03T22:01:01Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-04T06:27:20Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-04T06:27:20Z",
-   "headSha": "c4aff2df1dc29a9be825ac2973531d6015ec9f67",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be relayed",
-   "botState": "questions",
-   "botAt": "2026-11-03T22:11:03Z",
-   "goLive": false
   }
  ],
  "activity": [
+  {
+   "at": "2026-11-07T02:39:23Z",
+   "kind": "closed",
+   "text": "“Integrate five approved Realm 1 boss and enemy sprites on DEV” was closed"
+  },
+  {
+   "at": "2026-11-07T02:38:53Z",
+   "kind": "asked",
+   "text": "You asked for “Integrate five approved Realm 1 boss and enemy sprites on DEV”"
+  },
   {
    "at": "2026-11-07T02:02:09Z",
    "kind": "test",
@@ -1346,11 +1330,6 @@
    "at": "2026-11-06T23:00:48Z",
    "kind": "question",
    "text": "Claude has a question for you about “Connect Haven to LOREBOUND economy through resource-backed Gold caravans”"
-  },
-  {
-   "at": "2026-11-06T22:59:51Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Audit live and dev Realm 1 visuals before Realm 2”"
   },
   {
    "at": "2026-11-06T22:59:45Z",
@@ -1456,11 +1435,6 @@
    "at": "2026-11-06T21:34:48Z",
    "kind": "closed",
    "text": "“Deliver five approved Common sprites to companion roster PR #98” was closed"
-  },
-  {
-   "at": "2026-11-06T21:19:02Z",
-   "kind": "test",
-   "text": "The test site was updated with “Replace Tome-tier UI with one permanent numeric Portal progression”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   }
  ],
  "otherPulls": [
