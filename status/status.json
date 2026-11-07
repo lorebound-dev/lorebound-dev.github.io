@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T21:25:51.895Z",
+ "generatedAt": "2026-11-07T22:38:48.547Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T20:39:54Z",
+  "updatedAt": "2026-11-07T21:26:56Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -32,7 +32,6 @@
    "Audit live and dev Realm 1 visuals before Realm 2",
    "Polish DEV Rift controls, summon quantity footer and Party labels",
    "Keep enemy and companions stationary when Party collapses",
-   "Implement approved QoL audit across summoning collection and mobile play",
    "Replace Ascend with 25-hero rarity board for tap power"
   ],
   "skipped": [
@@ -42,96 +41,138 @@
    "Unify Rift rarity bars and clean up legacy Tome UI",
    "Show named blank undiscovered Omnidex cards and tighten rarity pages",
    "Add Codex Claim All discovery rewards and rarity completion bonuses",
+   "Implement approved QoL audit across summoning collection and mobile play",
    "Replace Shardworks with a timed-egg Pet Farm and roaming pets"
   ]
  },
  "items": [
   {
-   "number": 146,
+   "number": 108,
    "kind": "request",
    "by": "Joshua",
-   "title": "Implement approved QoL audit across summoning collection and mobile play",
-   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
+   "title": "Use tutorial egg companion details; keep Omnidex read-only",
+   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
    "stage": "testing",
-   "waitingOn": "both",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the companion page at 320×610 and 390×844 from a Team manager tap (then close it: you should land back where you were) and from an Omnidex tap (record page only, no Level up or placement buttons).",
+     "at": "2026-11-07T22:38:33Z"
+    }
+   ],
+   "openedAt": "2026-11-05T04:43:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T21:26:56Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T21:26:56Z",
+   "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T21:43:37Z",
+   "goLive": false
+  },
+  {
+   "number": 133,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep enemy and companions stationary when Party collapses",
+   "quote": "I need the companions and enemy to not follow the to of the menu when collapsing. Need to figure out why",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at #133 on the test site at 320×610, 375×812, 390×844 and 430×932, with 1, 5 and 10 companions. Fold and open Party several times while fighting, with normal and reduced motion, and check that the enemy, its name and health bar, its shadow and every companion never move or change size, including during the fold. Then check attacks, damage numbers, Challenge Boss, the boss room and Endless.",
+     "at": "2026-11-07T22:38:32Z"
+    },
+    {
+     "who": "claude",
+     "text": "After #38 merges, change realm1-art.js so the folded tray height counts the tray's negative top margin (offsetHeight plus margin-top), so the 320-wide ten-companion Party sheet won't push the fight down.",
+     "at": "2026-11-07T22:38:32Z"
+    },
+    {
+     "who": "note",
+     "text": "While Party folds or opens, the enemy, its name and health bar, and all the companions now stay where they are. The tray moves over them.",
+     "at": "2026-11-07T22:38:32Z"
+    },
+    {
+     "who": "note",
+     "text": "On shorter phones the enemy no longer shrinks when Party is open. With ten companions, the open two rows now cover the whole fight on phones 375 to 430 wide; the question about that is on #97.",
+     "at": "2026-11-07T22:38:32Z"
+    },
+    {
+     "who": "note",
+     "text": "On narrow phones (320 wide) with ten companions, the Party sheet may still push the fight down a little when it opens. The fix belongs in #38's code, so Claude does it once #38 is in the game.",
+     "at": "2026-11-07T22:38:32Z"
+    }
+   ],
+   "openedAt": "2026-11-07T00:52:56Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T21:26:56Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T21:26:56Z",
+   "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T01:01:17Z",
+   "goLive": false
+  },
+  {
+   "number": 97,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Design guided progression companion power and achievements from owner references",
+   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
+   "stage": "testing",
+   "waitingOn": "joshua",
    "forClaude": true,
    "asks": [
     {
      "who": "joshua",
-     "text": "Ascend is being replaced by Heroes (#147). Should I drop the \"what resets / what stays\" list for Ascend? My suggestion: drop it if Heroes replaces Ascend. If you're keeping Ascend, I'll build it in #88.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "joshua",
-     "text": "How should we fix the Floor 1 stall? My suggestion: no number change. When a Floor 1 boss fight is lost, show \"Tap the enemy to help your companions\", built with the boss retry once #133 is live. The other option is Floor 1 boss health from 1,000 to 900, which fixes the three-companion starts but not the two-companion ones.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "noah",
-     "text": "Favorite and Protect in Manage Team (area 3) need a save update, because Protect is stored per companion copy. They wait for Noah's OK on that save change. The rest of the audit doesn't wait for it.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "noah",
-     "text": "The one-time mastery explanation (area 6, #119) only needs a save change if it's remembered per save. Remembering it on the phone needs no OK.",
-     "at": "2026-11-07T21:25:30Z"
+     "text": "With six or more companions, the two open Party rows hide the enemy and every companion on phones 375 to 430 wide; only the enemy's name and health bar show above the cards. It comes from two choices together: the fight stays still when Party opens (#106, #133), and two rows open by default from 375 wide (#97). I suggest Party opens one row by default, so the fight stays visible, and the rows…",
+     "at": "2026-11-07T22:38:32Z"
     },
     {
      "who": "claude",
-     "text": "Look at the Auto plaque at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save: Summon, then Auto, then Start, then Stop Auto after a few summons. Check that it sits above the rail without covering the Stop button and that the text doesn't clip.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the Auto setup at the same four sizes, and check that the new Reduced effects row and its 12px note fit. Turn it on, fight a few enemies, and check that damage numbers thin out and crits still show.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Post each handoff from the ledger on its owning request: #115, #118, #119, #133, #141, #142, #97, #109 and #98. Each post lists exactly what's still to build there.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at Save Backups at the four sizes. From a new save: Profile, then Save Backups. Check the \"N/30 discovered\" line.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Profile ten companions, a fight and Auto on a slowed-down browser (area 9). Check that the away popup and update popups never overlap.",
-     "at": "2026-11-07T21:25:30Z"
+     "text": "Look at the test site at 320×610, open the two-row Party sheet, and check that nothing from the fight shows between the cards.",
+     "at": "2026-11-07T22:38:32Z"
     },
     {
      "who": "note",
-     "text": "The Auto plaque shows when you tap Stop and also when Auto runs out of Lore Shards, because both end the session. It hides after 12 seconds. If you'd rather it stays until you tap ×, that's a one-line change.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "Reduced effects allows two damage numbers on screen at once, and always lets a critical hit through. I think two is enough to follow the fight on a small phone.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "The opening is quick for most new saves. The one weak spot is the Floor 1 boss after an unlucky start. Those players need about 22 taps in the fight (about 125 with only two companions), and nothing tells them to tap.",
-     "at": "2026-11-07T21:25:30Z"
+     "text": "On 375×667, two Party rows open by default, as you chose. Together with the fight now staying still when Party opens (#106 and #133), the open rows cover the fight completely on phones 375 to 430 wide (see the question below).",
+     "at": "2026-11-07T22:38:32Z"
     }
    ],
-   "openedAt": "2026-11-07T16:55:36Z",
+   "openedAt": "2026-11-02T03:47:29Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
+   "testAt": "2026-11-07T21:26:56Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T21:25:30Z",
-   "headSha": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
+   "updatedAt": "2026-11-07T21:26:56Z",
+   "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
-   "requestStatus": "Partly built, ready to check (each stage's owner and outcome: `pocket-fortune/docs/qol-audit/LEDGER.md`)",
+   "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-07T21:25:30Z",
+   "botAt": "2026-11-06T23:03:18Z",
    "goLive": false
   },
   {
@@ -140,70 +181,19 @@
    "by": "Joshua",
    "title": "Replace Ascend with 25-hero rarity board for tap power",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "To go live, the hero collection has to move into the real game save and its backups. That's a save change, with an update in save-storage.js's UPDATES list and in save-backups.html. It would hold: fragments per hero, chests opened, the equipped hero, when each opening comes back, the Hero Crests balance, the last chest and purchase receipts, and an unseen result. Until Noah OKs it, the…",
-     "at": "2026-11-07T18:58:58Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check Heroes on the test site in a browser at 320×610, 375×812, 390×844 and 430×932. From a new save, tap the fourth tab (Heroes). Check that:",
-     "at": "2026-11-07T18:58:58Z"
-    },
-    {
-     "who": "note",
-     "text": "Chest gates: 6 / 18 / 40 / 75 / 115 / 165 / 225 / 300 / 400 chests, built exactly. Higher rarities really are 0% until then. I like how this feels: the board opens up step by step over about 4½ months.",
-     "at": "2026-11-07T18:58:58Z"
-    },
-    {
-     "who": "note",
-     "text": "Growing odds: each rarity starts at 1/150 of its share and grows over 150 chests, built exactly. Everything is fully grown at chest 550 (about day 184). While the top rarities are still small, Common and Uncommon come up a little more than their final 25% and 21%. That can't be avoided, because the shares always add up to 100%.",
-     "at": "2026-11-07T18:58:58Z"
-    },
-    {
-     "who": "note",
-     "text": "Fragments: 3 unlock, and mastery at 8 / 14 / 21 / 29 / 38 / 48, the same for every rarity, built exactly. The first unlocks feel good: a Rare in about 3½ weeks and half the board in about 2 months. But rare heroes' mastery is extremely slow. Each Eternal hero is only 0.5% of chests even when fully grown, so 48 Selka fragments take about 9 years from chests alone, or about 4 years with every…",
-     "at": "2026-11-07T18:58:58Z"
-    },
-    {
-     "who": "note",
-     "text": "Full hero: 0.2%, its own roll, built exactly. That's about 2 a year at 3 chests a day, and half of players see their first one by about day 119. It's a nice surprise, but rare enough that many players will wait months for one. If you want it to be talked about, 0.5% would be about 5 a year.",
-     "at": "2026-11-07T18:58:58Z"
-    },
-    {
-     "who": "note",
-     "text": "Fragment prices: 30 / 50 / 80 / 120 / 185 / 285 / 400 / 585 / 835 / 1,200 Crests, built exactly. Unlocking a hero from nothing costs 3 times that (90 for a Common, 3,600 for an Eternal), the same as the old Buy price. The shop roughly halves the wait for your first Uncommon and takes about 3 months off \"all 25 heroes\". Crests feel useful without replacing chests. Early chests give only…",
-     "at": "2026-11-07T18:58:58Z"
-    },
-    {
-     "who": "note",
-     "text": "Your Changes say \"Unlock at N chests\" in one place and \"Unlocks at Chest N\" in another. I used Unlocks at Chest N on cards and Chest N in the Odds table. A locked rarity shows 0% rather than 0.000%, and a tiny real chance shows <0.01%.",
-     "at": "2026-11-07T18:58:58Z"
-    },
-    {
-     "who": "note",
-     "text": "Old test collections: owned heroes keep their mastery rank, at that rank's fragment count, and found heroes from #152 become fragments with no fee. Older collections didn't count chests, so I estimated the count from every copy you'd had. An old result you hadn't looked at yet is dropped. It had already been paid out, so this way nothing is paid twice.",
-     "at": "2026-11-07T18:58:58Z"
-    },
-    {
-     "who": "note",
-     "text": "Everything on Heroes is still a test-site preview, kept on the device outside your save. On the real game the tab only says \"Coming Soon\".",
-     "at": "2026-11-07T18:58:58Z"
-    }
-   ],
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
    "openedAt": "2026-11-07T17:05:00Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
+   "testAt": "2026-11-07T21:26:56Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
+   "updatedAt": "2026-11-07T21:26:56Z",
    "headSha": "250fb8e548e394e9f7380bec6e04885e93faa9ee",
    "touchesGame": true,
    "answers": false,
@@ -218,35 +208,19 @@
    "by": "Joshua",
    "title": "Lower battlefield characters and enlarge bosses by 40%",
    "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
+   "stage": "building",
    "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the battlefield in a browser at 320×610, 375×812, 390×844 and 430×932 with throwaway saves (pocket-fortune/tools/create-endless-review-save.cjs gives an Endless save). Check Endless, a Story boss, a normal fight with one and with five companions, and an enemy dying, with the Party menu open and closed. Take before and after screenshots (main is the before), and confirm the floor shows…",
-     "at": "2026-11-07T17:09:57Z"
-    },
-    {
-     "who": "note",
-     "text": "I also removed the big dark pool over the courtyard. It was added earlier so fighters wouldn't stand on the brightest part of the painting. They still have their dark outlines and foot shadows, so they should stay easy to see. If they look washed out now, I can bring back a much lighter pool.",
-     "at": "2026-11-07T17:09:57Z"
-    },
-    {
-     "who": "note",
-     "text": "Each companion and enemy has two soft shadows that sit together under its feet: the oval and a shadow cast from the picture itself. They are tied to the fighter and move with it, so I left them as they were. If they look too heavy, I can drop one of them.",
-     "at": "2026-11-07T17:09:57Z"
-    }
-   ],
+   "forClaude": false,
+   "asks": [],
    "openedAt": "2026-10-27T21:22:11Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
+   "testAt": "2026-11-07T21:26:56Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
+   "updatedAt": "2026-11-07T21:26:56Z",
    "headSha": "62096da571c3b2068bc3f4d4a8498c941103a7db",
    "touchesGame": true,
    "answers": false,
@@ -310,11 +284,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
+   "testAt": "2026-11-07T21:26:56Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
+   "updatedAt": "2026-11-07T21:26:56Z",
    "headSha": "699556791c607f05dd6daf251cd363d701188a87",
    "touchesGame": true,
    "answers": false,
@@ -343,11 +317,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
+   "testAt": "2026-11-07T21:26:56Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
+   "updatedAt": "2026-11-07T21:26:56Z",
    "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
    "touchesGame": true,
    "answers": false,
@@ -406,113 +380,17 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
+   "testAt": "2026-11-07T21:26:56Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
+   "updatedAt": "2026-11-07T21:26:56Z",
    "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-07T02:45:31Z",
-   "goLive": false
-  },
-  {
-   "number": 133,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Keep enemy and companions stationary when Party collapses",
-   "quote": "I need the companions and enemy to not follow the to of the menu when collapsing. Need to figure out why",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at #133 on the test site in a browser at 320×610, 375×812, 390×844 and 430×932, with 1, 5 and 10 companions. Fold and open Party several times while fighting, starting both open and folded, with normal and reduced motion. The enemy, its name and health bar, its shadow and every companion should not move or change size at any point, including during the fold. Then check that attacks,…",
-     "at": "2026-11-07T01:01:17Z"
-    },
-    {
-     "who": "claude",
-     "text": "After #38 merges, change realm1-art.js so the folded tray height counts the tray's negative top margin (offsetHeight plus margin-top). Then the 320-wide ten-companion Party sheet won't push the fight down when it opens. Doing it now would clash with #38 on the test site.",
-     "at": "2026-11-07T01:01:17Z"
-    },
-    {
-     "who": "note",
-     "text": "While Party folds or opens, the enemy, its name and health bar, and all the companions now stay where they are. The tray moves over them. I think that's what you asked for, and it matches how #106 already meant it to work.",
-     "at": "2026-11-07T01:01:17Z"
-    },
-    {
-     "who": "note",
-     "text": "On shorter phones the enemy no longer shrinks when Party is open. It's the same size as with Party folded, and the open cards may cover the lower part of the fight. That follows your #106 choice that the open tray covers the scene instead of moving it.",
-     "at": "2026-11-07T01:01:17Z"
-    },
-    {
-     "who": "note",
-     "text": "One case is still left: on narrow phones (320 wide) with ten companions, the Party button opens the two rows as a sheet over the fight. I expect the fight still drops a little when that sheet opens. The fix belongs in #38's code, so I'll do it once #38 is in the game (see below).",
-     "at": "2026-11-07T01:01:17Z"
-    }
-   ],
-   "openedAt": "2026-11-07T00:52:56Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
-   "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T01:01:17Z",
-   "goLive": false
-  },
-  {
-   "number": 97,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Design guided progression companion power and achievements from owner references",
-   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the test site at 375×667 with ten companions. Check that the two rows open at once, the enemy still shows above the cards, and no fighter sits under the tray.",
-     "at": "2026-11-06T23:03:18Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the test site at 320×610, open the two-row Party sheet, and check that nothing from the fight shows between the cards.",
-     "at": "2026-11-06T23:03:18Z"
-    },
-    {
-     "who": "note",
-     "text": "On 375×667, two rows leave about 140px for the fight, with a small enemy and the smallest fighters (about 30px). That's what you chose, and it's built. If it feels too cramped after you play it, the easy change is to open one row only on that one size.",
-     "at": "2026-11-06T23:03:18Z"
-    }
-   ],
-   "openedAt": "2026-11-02T03:47:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
-   "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T23:03:18Z",
    "goLive": false
   },
   {
@@ -529,11 +407,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
+   "testAt": "2026-11-07T21:26:56Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
+   "updatedAt": "2026-11-07T21:26:56Z",
    "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
    "touchesGame": true,
    "answers": false,
@@ -556,11 +434,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
+   "testAt": "2026-11-07T21:26:56Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
+   "updatedAt": "2026-11-07T21:26:56Z",
    "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
    "touchesGame": true,
    "answers": false,
@@ -570,46 +448,96 @@
    "goLive": false
   },
   {
-   "number": 108,
+   "number": 146,
    "kind": "request",
    "by": "Joshua",
-   "title": "Use tutorial egg companion details; keep Omnidex read-only",
-   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
-   "stage": "testing",
-   "waitingOn": null,
+   "title": "Implement approved QoL audit across summoning collection and mobile play",
+   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
+   "stage": "built",
+   "waitingOn": "both",
    "forClaude": true,
    "asks": [
     {
-     "who": "claude",
-     "text": "Look at the companion page at 320×610 and 390×844 from three places: a Party tap, a Team manager tap (then close it, and you should land back where you were), and an Omnidex tap (record page only, no Level up or placement buttons). This run had no browser.",
-     "at": "2026-11-06T21:43:37Z"
+     "who": "joshua",
+     "text": "Ascend is being replaced by Heroes (#147). Should I drop the \"what resets / what stays\" list for Ascend? My suggestion: drop it if Heroes replaces Ascend. If you're keeping Ascend, I'll build it in #88.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "joshua",
+     "text": "How should we fix the Floor 1 stall? My suggestion: no number change. When a Floor 1 boss fight is lost, show \"Tap the enemy to help your companions\", built with the boss retry once #133 is live. The other option is Floor 1 boss health from 1,000 to 900, which fixes the three-companion starts but not the two-companion ones.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "noah",
+     "text": "Favorite and Protect in Manage Team (area 3) need a save update, because Protect is stored per companion copy. They wait for Noah's OK on that save change. The rest of the audit doesn't wait for it.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "noah",
+     "text": "The one-time mastery explanation (area 6, #119) only needs a save change if it's remembered per save. Remembering it on the phone needs no OK.",
+     "at": "2026-11-07T21:25:30Z"
     },
     {
      "who": "claude",
-     "text": "Check the test site's test-build.json to see whether this request is now included. Older open requests that touch the same files (#78, #89, #97, #106) might still clash with it. If one does, add a record in pocket-fortune/tools/test-site/resolutions/ on main. Records 118-69-* may also need a 118-108 partner, because #118 now meets #69's changes through this request too.",
-     "at": "2026-11-06T21:43:37Z"
+     "text": "Look at the Auto plaque at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save: Summon, then Auto, then Start, then Stop Auto after a few summons. Check that it sits above the rail without covering the Stop button and that the text doesn't clip.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at the Auto setup at the same four sizes, and check that the new Reduced effects row and its 12px note fit. Turn it on, fight a few enemies, and check that damage numbers thin out and crits still show.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Post each handoff from the ledger on its owning request: #115, #118, #119, #133, #141, #142, #97, #109 and #98. Each post lists exactly what's still to build there.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at Save Backups at the four sizes. From a new save: Profile, then Save Backups. Check the \"N/30 discovered\" line.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Profile ten companions, a fight and Auto on a slowed-down browser (area 9). Check that the away popup and update popups never overlap.",
+     "at": "2026-11-07T21:25:30Z"
     },
     {
      "who": "note",
-     "text": "On the companion page from the Party, I kept #69's notes at the bottom (the chance in your current Tome, and the first-discovery note) and its Return button. I left out #69's second picture and its mastery seals, because the tutorial-egg layout already shows the companion and its mastery.",
-     "at": "2026-11-06T21:43:37Z"
+     "text": "The Auto plaque shows when you tap Stop and also when Auto runs out of Lore Shards, because both end the session. It hides after 12 seconds. If you'd rather it stays until you tap ×, that's a one-line change.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "Reduced effects allows two damage numbers on screen at once, and always lets a critical hit through. I think two is enough to follow the fight on a small phone.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "The opening is quick for most new saves. The one weak spot is the Floor 1 boss after an unlucky start. Those players need about 22 taps in the fight (about 125 with only two companions), and nothing tells them to tap.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "It clashes with another change in progress, in adventure-services.js, so it isn't on the test site yet.",
+     "at": null
     }
    ],
-   "openedAt": "2026-11-05T04:43:50Z",
+   "openedAt": "2026-11-07T16:55:36Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-07T20:39:54Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
-   "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-07T21:25:30Z",
+   "headSha": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
    "touchesGame": true,
    "answers": false,
-   "requestStatus": "Built, ready to check",
+   "requestStatus": "Partly built, ready to check (each stage's owner and outcome: `pocket-fortune/docs/qol-audit/LEDGER.md`)",
    "botState": "questions",
-   "botAt": "2026-11-06T21:43:37Z",
+   "botAt": "2026-11-07T21:25:30Z",
    "goLive": false
   },
   {
@@ -1272,10 +1200,15 @@
    "by": "Joshua",
    "title": "Haven: cozy raised starting camp and clearable land patches on the map",
    "quote": "\"Ok what else, and how do we make it feel more ‘homey’. I think they starting area should be higher and there should be more clear area clearing costs and options built into the map, like you scroll to an area and there is a button with a cost, or a button with a lock if it’s too far outside the area. And pressing it will clear it mostly to add it to an area you can get resources and build.\"  \"Yes and figure out if we need to render any assets or no.\"",
-   "stage": "queued",
-   "waitingOn": null,
+   "stage": "questions",
+   "waitingOn": "noah",
    "forClaude": true,
    "asks": [
+    {
+     "who": "noah",
+     "text": "Close this pull request. It's an earlier copy of #144, which went into #92 by itself on 2026-11-07, so building it here would only repeat that work.",
+     "at": "2026-11-07T22:38:34Z"
+    },
     {
      "who": "claude",
      "text": "Joshua’s newest changes to it haven’t been built yet. Claude starts the build.",
@@ -1295,7 +1228,7 @@
    "touchesGame": false,
    "answers": false,
    "requestStatus": "Waiting to be built",
-   "botState": "",
+   "botState": "questions",
    "botAt": null,
    "goLive": false
   },
@@ -1645,6 +1578,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-07T21:26:56Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
    "at": "2026-11-07T21:25:30Z",
    "kind": "built",
    "text": "Claude finished building “Implement approved QoL audit across summoning collection and mobile play”"
@@ -1688,16 +1626,6 @@
    "at": "2026-11-07T18:58:58Z",
    "kind": "built",
    "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T18:58:58Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T18:58:58Z",
-   "kind": "question",
-   "text": "Part of “Replace Ascend with 25-hero rarity board for tap power” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-07T18:46:59Z",
@@ -1810,11 +1738,6 @@
    "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
   },
   {
-   "at": "2026-11-07T17:09:57Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Lower battlefield characters and enlarge bosses by 40%”"
-  },
-  {
    "at": "2026-11-07T17:09:34Z",
    "kind": "asked",
    "text": "You asked for “Replace Shardworks with a timed-egg Pet Farm and roaming pets”"
@@ -1843,6 +1766,16 @@
    "at": "2026-11-07T17:00:45Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T16:55:36Z",
+   "kind": "asked",
+   "text": "You asked for “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T16:26:54Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   }
  ],
  "otherPulls": [
