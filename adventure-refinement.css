@@ -5,8 +5,10 @@
 .adventure-refined #game #battlefield{position:absolute;top:36px;left:0;height:calc(var(--court-y) - 36px);width:100%;container-type:normal}
 /* One enemy size and ground line in both dock states. Ordinary enemies are 1.4x their former clamp(100px,15dvh,140px); Endless guardians are 1.96x their former
    folded-dock size and stand a little further back. Each is capped so its name and health bar fit above the art, below the location row. */
-.adventure-refined #game:not(.boss-room){--foe-want:clamp(140px,21dvh,196px);--foe-base:78px;--foe-lift:0px;--foe-field:36px;--foe-room:46px;--foe-info:40px;--foe-size:min(var(--foe-want),94vw,calc((var(--court-y) - var(--foe-room) - var(--foe-info) - var(--foe-base) - var(--foe-lift)) / .92))}
+.adventure-refined #game:not(.boss-room){--foe-want:clamp(140px,21dvh,196px);--foe-base:78px;--foe-lift:0px;--foe-field:36px;--foe-room:46px;--foe-info:40px;--foe-size:min(var(--foe-want),94vw,var(--boss-flank-fit,94vw),calc((var(--court-y) - var(--foe-room) - var(--foe-info) - var(--foe-base) - var(--foe-lift)) / .92))}
 .adventure-refined #game.endless-active:not(.boss-room){--foe-want:clamp(245px,39.2dvh,363px);--foe-lift:22px;--foe-info:74px}
+/* With companions on fixed places beside the guardian (party-formation.js), the guardian leaves them room, as in boss-room.css. */
+.adventure-refined #game.endless-active:not(.boss-room):has(#partyStage [data-anchor]){--boss-flank-fit:calc((100vw - 16px) * 1.08 - 102px)}
 .adventure-refined #game:not(.boss-room) :is(#enemySprite,#enemyGhost){--enemy-size:var(--foe-size);bottom:calc(var(--foe-base) + var(--foe-lift))}
 .adventure-refined #game #partyStage{position:absolute;top:calc(var(--court-y) - 48px);height:64px;left:0;right:0;margin:0;transform:none}
 .adventure-refined #game #boundSprite,.adventure-refined #game .battle-follower{width:clamp(58px,18vw,78px);height:clamp(58px,18vw,78px);bottom:var(--court-depth,0px);filter:drop-shadow(0 6px 3px #001014b0)}

@@ -61,4 +61,8 @@
 /* Short screens: the guardian hangs just below the timer, which sits 22px lower than before so a boss name on two lines clears it,
    and the companions' row stays clear of the note at the bottom. */
 @media(max-height:700px){.adventure-refined #game.boss-room{--boss-court:64dvh;--boss-top:219px}}
-.adventure-refined #game.boss-room :is(#enemySprite,#enemyGhost){--enemy-size:min(clamp(353px,56.8dvh,533px),calc(100vw - 16px),calc(var(--boss-court) + 19px - var(--boss-top)));top:var(--boss-top);bottom:auto;translate:-50% 0}
+/* When companions stand on fixed places beside the guardian (the ten-place formation, party-formation.js sets data-anchor), the guardian also leaves
+   them room: its body (the middle 70% of its box) stays inside the side places at 12% and 88%, with room for 59px companions, the size they have at 320 wide.
+   Without that the formation shrinks every companion to 30px to clear a guardian nearly as wide as the screen, and the side ones stand on its body. */
+.adventure-refined #game.boss-room:has(#partyStage [data-anchor]){--boss-flank-fit:calc((100vw - 16px) * 1.08 - 102px)}
+.adventure-refined #game.boss-room :is(#enemySprite,#enemyGhost){--enemy-size:min(clamp(353px,56.8dvh,533px),calc(100vw - 16px),calc(var(--boss-court) + 19px - var(--boss-top)),var(--boss-flank-fit,100vw));top:var(--boss-top);bottom:auto;translate:-50% 0}

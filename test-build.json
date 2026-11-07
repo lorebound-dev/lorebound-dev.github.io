@@ -4,7 +4,7 @@
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "62096da571c3b2068bc3f4d4a8498c941103a7db"
+      "head": "b479376953502d0d37964f9d6dec9e3472572d82"
     },
     {
       "number": 60,
@@ -147,7 +147,7 @@
     {
       "number": 147,
       "title": "Replace Ascend with 25-hero rarity board for tap power",
-      "head": "250fb8e548e394e9f7380bec6e04885e93faa9ee"
+      "head": "94897082193e1e904a07ad0d1a050e63f831e75f"
     }
   ],
   "skipped": [
@@ -226,7 +226,7 @@
       "with": "others"
     }
   ],
-  "commit": "1b4827bc01b836eea24ae7aaaa35954dd3946b58",
+  "commit": "3384a13a523a8b8c10ceb3facf6502b4e00a7e1f",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -235,5 +235,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T21:26:56Z"
+  "at": "2026-11-07T22:46:37Z"
 }

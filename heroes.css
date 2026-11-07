@@ -142,3 +142,9 @@
 .hero-reveal-tier{grid-column:1/-1;justify-self:center;padding:4px 12px;border:1px solid var(--hr-ink);border-left-width:3px;border-right-width:3px;background:#0a1a27;font-size:13px!important;letter-spacing:.08em;color:var(--hr-light)}
 .hero-reveal.is-jackpot .hero-reveal-tag{background:color-mix(in srgb,var(--hr-dark) 50%,transparent);color:#f3da9c;border-color:#e2c180}
 @media(max-width:350px){.hero-chest{grid-template-columns:1fr}.hero-chest-next{text-align:left}}
+/* Odds at 320 wide: the panel's one column can never grow past the screen, and the table is narrower so all five
+   columns fit (labels stay 12px Georgia; "Chest 300" wraps under its header when space is short). */
+.heroes{grid-template-columns:minmax(0,1fr)}
+.heroes>*{min-width:0}
+.hero-odds{overflow-wrap:break-word}
+@media(max-width:350px){.hero-odds{padding:8px 6px}.hero-odds th,.hero-odds td,.hero-odds thead th{padding:3px 2px;font-size:12px}}
