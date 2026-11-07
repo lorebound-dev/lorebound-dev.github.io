@@ -145,11 +145,6 @@
       "head": "321dd9e6d94ffd7b0165e4f78e892436a143f832"
     },
     {
-      "number": 146,
-      "title": "Implement approved QoL audit across summoning collection and mobile play",
-      "head": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524"
-    },
-    {
       "number": 147,
       "title": "Replace Ascend with 25-hero rarity board for tap power",
       "head": "250fb8e548e394e9f7380bec6e04885e93faa9ee"
@@ -212,6 +207,15 @@
       "with": "others"
     },
     {
+      "number": 146,
+      "title": "Implement approved QoL audit across summoning collection and mobile play",
+      "head": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
+      "files": [
+        "pocket-fortune/dist/adventure-services.js"
+      ],
+      "with": "others"
+    },
+    {
       "number": 149,
       "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
       "head": "f30863505df12d95e82d58c8239373029dd6e06f",
@@ -222,7 +226,7 @@
       "with": "others"
     }
   ],
-  "commit": "93a0df46bfed53d1e3579cca6a2c036ce0c86241",
+  "commit": "1b4827bc01b836eea24ae7aaaa35954dd3946b58",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -231,5 +235,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T20:39:54Z"
+  "at": "2026-11-07T21:26:56Z"
 }
