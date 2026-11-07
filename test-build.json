@@ -68,7 +68,7 @@
     {
       "number": 92,
       "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-      "head": "43ca8c17640611371d883727b8a55f36601675e6",
+      "head": "3f9fbbb1119e7df04221839829abc88575bb7ccb",
       "resolved": [
         "92-78-update-popup-texts"
       ]
@@ -106,7 +106,7 @@
     {
       "number": 115,
       "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
-      "head": "cb786c4c53a795e2b89347e309d893c51b1d404d",
+      "head": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
       "resolved": [
         "120-115-summon-opening-tome",
         "115-78-summon-opening-art"
@@ -158,7 +158,7 @@
     {
       "number": 118,
       "title": "Double-tap Party cards to swap pending companions directly",
-      "head": "4b741d12b52c3b6a6d4c22b112a8e7683202e9db",
+      "head": "e2fadd7fd52e8ac7a42839f87a0cb55e42abc1a2",
       "files": [
         "pocket-fortune/dist/home.html",
         "pocket-fortune/dist/team.js"
@@ -193,7 +193,7 @@
       "with": "others"
     }
   ],
-  "commit": "dc9650a545087eea8900e4b6c3eb72e759ef5dca",
+  "commit": "94584ac75c29feb4bf860d8c79f40ea9db74b57a",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -202,5 +202,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T15:23:24Z"
+  "at": "2026-11-07T15:45:11Z"
 }

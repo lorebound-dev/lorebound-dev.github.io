@@ -490,6 +490,78 @@ function goal(s){
   if(s.workers<workerCap(s)&&!hungry(s)&&afford(s,cost(s,'worker')))return'You can recruit another person (People).';
   return'';}
 
+/* ---------- One suggestion at a time (#140) ----------
+ * Haven names one useful, legal next step from what it has and needs right now, with its exact price. It never names
+ * anything locked as something to buy now, never spends anything by itself and never changes a price or a rule: it
+ * only picks which existing choice to show first. Worked out fresh every time; nothing is stored. */
+const autoJobs=s=>s.workers-JOBS.reduce((a,k)=>a+s.jobs[k],0);
+function pick(s,kind,o={}){const c=o.cost||null,ready=o.ready!==undefined?o.ready:!c||afford(s,c);
+  return{kind,key:o.key||kind,type:o.type||'',job:o.job||'',cost:c,need:c&&!ready?shortOf(s,c):null,ready,name:o.name,why:o.why||'',verb:o.verb||'Build'};}
+// Whether a building has anywhere to go: stops at the first tile that passes every placing rule.
+function hasSite(s,type){const [lo,hi]=land(s),b=blocked(s);let before=null;
+  for(let r=lo;r<hi;r++)for(let c=lo;c<hi;c++){const id=wid(c,r);if(b.has(id)||isRoad(s,id)||isWall(s,id))continue;before=before||reach(s,b);if(canPlace(s,type,c,r,b,before).ok)return true;}return false;}
+function buildPick(s,type){if(has(s,type)||lockReason(s,type)||!hasSite(s,type))return null;
+  return pick(s,'build',{key:'build:'+type,type,cost:buildCost(s,type),name:BP[type].name,why:WHY_SHORT[type]||''});}
+function upgradePick(s,type){const u=canUpgrade(s,type);if(!u.ok&&u.reason!=='short')return null;
+  return pick(s,'upgrade',{key:'upgrade:'+type,type,cost:u.cost,name:`${BP[type].name} Lv ${u.to}`,why:WHY_SHORT[type]||'',verb:'Upgrade'});}
+const WHY_SHORT={house:'Room for people',farm:'+Food',workshop:'Stronger hits',lumber:'Faster wood',stoneyard:'Faster stone',survey:'Lets Haven grow',
+  sawmill:'More wood',quarry:'Faster stone',yard:'Cheaper building',townhall:'Buildings can grow',watchtower:'+Defense',warehouse:'Room for workers',foundry:'Better tools'};
+function wallPick(s){if(settlement(s).level<CONFIG.roadsAt||autoWall(s)===null)return null;
+  return pick(s,'wall',{cost:CONFIG.wallCost,name:'Add Palisade',why:'+Defense',verb:'Add'});}
+function jobPick(s,job,why){if(autoJobs(s)<1)return null;return pick(s,'job',{key:'job:'+job,job,name:`One more ${JOB_ONE[job]}`,why,verb:'Assign'});}
+// Defense first when a raid is close and Haven would lose it; a repair it can start; then what keeps raids off.
+function defensePick(s,quiet=false){
+  const fix=DAMAGEABLE.find(t=>isBroken(s,t)&&!(s.broken[t]>0));
+  if(raidsOpen(s)&&(s.raid||s.calm<=warnLead(s))&&defense(s).total<threat(s,nextKind(s))){
+    const p=jobPick(s,'guard','+'+CONFIG.guardPower+' Defense')||wallPick(s)||buildPick(s,'watchtower');if(p)return p;}
+  if(fix)return pick(s,'repair',{key:'repair:'+fix,type:fix,cost:repairCost(s,fix),name:`Repair ${BP[fix].name}`,why:'Works again',verb:'Repair'});
+  if(quiet)return null;
+  if(raidsOpen(s)||has(s,'house')&&has(s,'farm')){const p=buildPick(s,'watchtower');if(p)return p;}
+  return wallPick(s);}
+function suggest(s){
+  const d=defensePick(s,true);if(d)return d;
+  const fr=foodRate(s),auto=autoJobs(s);
+  if(s.workers&&(hungry(s)||(fr.grow<fr.eat&&s.food<fr.eat*2))){
+    const p=buildPick(s,'farm')||(farmOpen(s)&&s.jobs.farm<farmCap(s)&&jobPick(s,'farm','+Food'));if(p)return p;
+    return pick(s,'gather',{name:'Pick berries',why:'+Food',ready:false});}
+  for(const t of ['house','farm']){const p=buildPick(s,t);if(p)return p;}
+  const wc=cost(s,'worker');
+  // A small town is told to grow its crew (up to 3 people) even before it can pay; after that, only when it can.
+  if(wc&&!hungry(s)&&(afford(s,wc)||s.workers<3))return pick(s,'worker',{cost:wc,name:'Recruit',why:'+1 person',verb:'Recruit'});
+  if(!wc&&lvOf(s,'house')){const p=upgradePick(s,'house');if(p)return p;}
+  for(const t of ['workshop','lumber','stoneyard','survey']){const p=buildPick(s,t);if(p)return p;}
+  const xc=canExpand(s);if(xc.ok||xc.reason==='short')return pick(s,'expand',{cost:xc.cost,name:'Expand Haven',why:'More land',verb:'Expand'});
+  for(const t of ['townhall','sawmill','quarry','yard','watchtower','warehouse','foundry']){const p=buildPick(s,t);if(p)return p;}
+  if(has(s,'townhall')){const p=upgradePick(s,'townhall');if(p)return p;}
+  // The cheapest upgrade Haven can do or is only short of materials for.
+  const ups=s.built.map(b=>upgradePick(s,b.t)).filter(Boolean),sum=c=>RES.reduce((a,k)=>a+(c[k]||0),0);
+  if(ups.length)return ups.sort((a,b)=>sum(a.cost)-sum(b.cost))[0];
+  const tc=cost(s,'tools');if(tc)return pick(s,'tools',{cost:tc,name:`Better Tools Lv ${s.tools+1}`,why:'Stronger hits',verb:'Buy'});
+  if(wc&&!hungry(s))return pick(s,'worker',{cost:wc,name:'Recruit',why:'+1 person',verb:'Recruit'});
+  if(!s.built.length||auto)return pick(s,'gather',{name:'Gather',why:'Tap trees and rocks',ready:false});
+  return null;}
+/* Places chosen for the player. Palisade: the edge of the territory walked round in one fixed order from the top
+ * corner; the next tile is one beside palisade already standing, so it grows as one run, or else the first free edge
+ * tile. Buildings: a free tile that passes every placing rule. A Watchtower goes one tile in from the edge (so the
+ * palisade can still go round it), other buildings as near the middle as they fit. Nothing already there moves. */
+function perimeter(s){const [lo,hi]=land(s),e=hi-1,out=[];
+  for(let c=lo;c<=e;c++)out.push(wid(c,lo));for(let r=lo+1;r<=e;r++)out.push(wid(e,r));for(let c=e-1;c>=lo;c--)out.push(wid(c,e));for(let r=e-1;r>lo;r--)out.push(wid(lo,r));return out;}
+function autoWall(s){const free=new Set(wallSites(s));if(!free.size)return null;const ring=perimeter(s),n=ring.length;
+  for(let i=0;i<n;i++)if(isWall(s,ring[i])){const a=ring[(i+1)%n],b=ring[(i+n-1)%n];if(free.has(a))return a;if(free.has(b))return b;}
+  return ring.find(id=>free.has(id))??null;}
+function autoSite(s,type){const sites=validSites(s,type);if(!sites.length)return null;const [lo,hi]=land(s),m=(lo+hi-1)/2;
+  const score=id=>{const c=id%W,r=Math.floor(id/W);if(type==='watchtower'){const e=Math.min(c-lo,r-lo,hi-1-c,hi-1-r);return Math.abs(e-1)*100+Math.abs(c-m)+Math.abs(r-lo);}return Math.abs(c-m)+Math.abs(r-m);};
+  return sites.map(id=>[score(id),id]).sort((a,b)=>a[0]-b[0]||a[1]-b[1])[0][1];}
+// Lays one palisade tile where autoWall() picks: the same price and rules as laying it by hand.
+function addWall(s){const id=autoWall(s);if(id===null)return{ok:false,reason:wallSites(s).length?'none':'full'};const r=layWall(s,id%W,Math.floor(id/W));return r.ok?{...r,id}:r;}
+
+// The Build window's one choice: the suggestion when it's something to build, else the first thing ready to build or
+// upgrade, else the first one only short of materials.
+function paneBuild(s,g=suggest(s)){if(g&&['build','upgrade','tools'].includes(g.kind))return g;
+  const all=BLUEPRINTS.map(b=>has(s,b.id)?upgradePick(s,b.id):buildPick(s,b.id)).filter(Boolean);return all.find(p=>p.ready)||all[0]||null;}
+// The People window's one choice: a job or a recruit, when that's the suggestion.
+function panePeople(s,g=suggest(s)){return g&&(g.kind==='job'||g.kind==='worker')?g:null;}
+
 // Expanding grows the same map by two tiles on every side. Nothing already there moves.
 const expandCost=s=>{const c=CONFIG.expand[s.land];return c?scaled(c,1-FX.survey[lvOf(s,'survey')]):null;};
 function canExpand(s){const c=expandCost(s);if(!c)return{ok:false,reason:'max'};if(!has(s,'survey'))return{ok:false,reason:'survey',cost:c};if(!afford(s,c))return{ok:false,reason:'short',cost:c,need:shortOf(s,c)};return{ok:true,cost:c};}
@@ -658,7 +730,7 @@ const logic={KEY,V4_KEY,V2_KEY,V1_KEY,BAD_KEY,CONFIG,FX,BLUEPRINTS,MILESTONES,JO
   hungry,fed,farmOpen,farmCap,farmHit,eat,foodRate,raidsOpen,raidKind,threat,edgeIds,defense,warnLead,raidTarget,raidOutcome,resolveRaid,tickThreat,canWall,layWall,wallSites,
   repairCost,canRepair,startRepair,repairHit,repairing,postsFor,planFor,tileOf,
   cost,afford,manualPower,workerPower,hitsFor,buy,hitNode,regrow,regrowOldest,timedRegrow,canSwing,blocked,walkable,reach,route,stepTime,lockReason,buildCost,canPlace,validSites,build,
-  maxLevel,upgradeCost,canUpgrade,upgrade,canRoad,layRoad,roadSites,setJob,roleOf,allAuto,yieldOf,buildRank,buildOrder,goal,TABS,toolsCap,workerCap,expandCost,canExpand,expand,points,levelAt,settlement,simulate,syncCrew,crewPosition};
+  maxLevel,upgradeCost,canUpgrade,upgrade,canRoad,layRoad,roadSites,setJob,roleOf,allAuto,yieldOf,buildRank,buildOrder,goal,suggest,defensePick,perimeter,autoWall,autoSite,addWall,paneBuild,panePeople,TABS,toolsCap,workerCap,expandCost,canExpand,expand,points,levelAt,settlement,simulate,syncCrew,crewPosition};
 
 /* ---------- Everything below needs a browser. ---------- */
 // The drawer's open section is kept only while the page is open (never saved), so leaving Haven and coming back keeps it.
@@ -678,34 +750,40 @@ function store(){storeApi.set(KEY,JSON.stringify(state));}
 const fmt=c=>RES.filter(k=>c[k]).map(k=>`${c[k]} ${RES_NAME[k]}`).join(' · ')||'Free';
 const power=q=>{const v=q/4;return Number.isInteger(v)?String(v):v.toFixed(2).replace(/0$/,'');};
 const plural=(n,one,many=one+'s')=>`${n} ${n===1?one:many}`;
+// One big choice at the top of a window: a small drawing, a name, what it's for, and its price (or what's missing).
+const pickCard=pane=>`<button type="button" class="ruins-upgrade ruins-pick" data-ruins="pick" data-pane="${pane}" hidden><canvas class="ruins-icon" aria-hidden="true"></canvas><span><strong></strong><small></small></span><b></b></button>`;
 const bpButton=b=>`<button type="button" class="ruins-upgrade" data-ruins="bp" data-type="${b.id}"><span><strong></strong><small></small></span><b></b></button>`;
 
 const SKETCH=`<section class="ruins-proto" aria-labelledby="ruinsTitle">
 <h3 id="ruinsTitle" class="ruins-title-sr">Haven (test prototype, trial numbers)</h3>
-<dl class="ruins-stats"><div><dt>Wood</dt><dd id="ruinsWood">0</dd></div><div><dt>Stone</dt><dd id="ruinsStone">0</dd></div><div><dt>Ore</dt><dd id="ruinsOre">0</dd></div><div><dt>Food</dt><dd id="ruinsFood">0</dd></div></dl>
-<div class="ruins-level"><div class="ruins-level-main"><div class="ruins-level-row"><strong id="ruinsLevelName">Settlement Lv 1 · Camp</strong><span id="ruinsLevelPts">0 / 4</span></div><div class="ruins-level-bar" aria-hidden="true"><i id="ruinsLevelBar"></i></div><small id="ruinsNext"></small></div><button type="button" class="ruins-help-toggle" aria-expanded="false" aria-controls="ruinsHelp" aria-label="How Haven works">?</button></div>
+<dl class="ruins-stats"><div><dt>Wood</dt><dd id="ruinsWood">0</dd></div><div><dt>Stone</dt><dd id="ruinsStone">0</dd></div><div id="ruinsOreBox"><dt>Ore</dt><dd id="ruinsOre">0</dd></div><div><dt>Food</dt><dd id="ruinsFood">0</dd></div></dl>
+<div class="ruins-level"><div class="ruins-level-main"><div class="ruins-level-row"><strong id="ruinsLevelName">Settlement Lv 1 · Camp</strong><span id="ruinsLevelPts">0 / 4</span></div><div class="ruins-level-bar" aria-hidden="true"><i id="ruinsLevelBar"></i></div><small id="ruinsNext" hidden></small></div><button type="button" class="ruins-help-toggle" aria-expanded="false" aria-controls="ruinsHelp" aria-label="How Haven works">?</button></div>
 <div class="ruins-world"><div class="ruins-field"><div class="ruins-scene" id="ruinsScene"><canvas id="ruinsCanvas" tabindex="0" role="img"></canvas></div>
+<div class="ruins-zoom" role="group" aria-label="Zoom"><button type="button" data-ruins="zoomin" aria-label="Zoom in">+</button><button type="button" data-ruins="zoomout" aria-label="Zoom out">−</button><button type="button" class="ruins-home" data-ruins="home" aria-label="Center town"><i></i></button></div>
 <div class="ruins-over"><p class="ruins-alert" id="ruinsAlert" role="status" aria-live="polite" hidden></p>
-<div class="ruins-help ruins-win" id="ruinsHelp" role="group" aria-label="How Haven works" hidden><div class="ruins-win-head"><strong>How Haven works</strong><button type="button" class="ruins-close" data-ruins="helpclose" aria-label="Close How Haven works">×</button></div><div class="ruins-win-body"><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do opens from the four buttons along the bottom of the screen: Build, People, Defense and Land. Each opens a small window over the town, and × (or the same button again) closes it. Next shows one thing worth doing. Tap a building or a person to see what you can do with them.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people (they need a place to live and some Food) and give them jobs. Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div></div>
+<div class="ruins-next" id="ruinsHud" hidden><canvas class="ruins-icon" aria-hidden="true"></canvas><span><strong id="ruinsHudName"></strong><small id="ruinsHudCost"></small></span><button type="button" class="ruins-next-go" data-ruins="suggest">Build</button></div>
+<div class="ruins-help ruins-win" id="ruinsHelp" role="group" aria-label="How Haven works" hidden><div class="ruins-win-head"><strong>How Haven works</strong><button type="button" class="ruins-close" data-ruins="helpclose" aria-label="Close How Haven works">×</button></div><div class="ruins-win-body"><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do opens from the four buttons along the bottom of the screen: Build, People, Defense and Land. Each opens a small window over the town, and × (or the same button again) closes it. The box at the top of the town suggests one thing worth doing next, with its price; you never have to follow it. Each window shows one choice first; More shows everything. Tap a building or a person to see what you can do with them.</p><p>Drag the town to look around. Pinch, or use + and −, to zoom; the square button brings the middle back.</p><p>Add Palisade (Defense) picks the next edge tile for you and shows it before you pay. Pick for me does the same for a building; you can still tap any lit tile yourself.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people (they need a place to live and some Food) and give them jobs. Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div></div>
 <i class="ruins-gap"></i><div class="ruins-caption"><p class="ruins-work" id="ruinsWorkText" hidden></p><p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p></div>
-<div class="ruins-place" id="ruinsPlace" hidden><strong class="ruins-place-name" id="ruinsPlaceName"></strong><p id="ruinsPlaceText"></p><div><button type="button" class="ruins-confirm" data-ruins="confirm">Build here</button><button type="button" class="ruins-cancel" data-ruins="cancel">Cancel</button></div></div>
+<div class="ruins-place" id="ruinsPlace" hidden><strong class="ruins-place-name" id="ruinsPlaceName"></strong><p id="ruinsPlaceText"></p><div><button type="button" class="ruins-confirm" data-ruins="confirm">Build here</button><button type="button" class="ruins-confirm" data-ruins="autopick" hidden>Pick for me</button><button type="button" class="ruins-cancel" data-ruins="cancel">Cancel</button></div></div>
 <div class="ruins-win" id="ruinsManageBody" role="group" aria-labelledby="ruinsWinTitle" hidden>
-<div class="ruins-win-head"><strong id="ruinsWinTitle">Build</strong><button type="button" class="ruins-close" data-ruins="manage" aria-controls="ruinsManageBody">×</button></div>
-<p class="ruins-goal" id="ruinsGoal" hidden></p>
+<div class="ruins-win-head"><strong id="ruinsWinTitle">Build</strong><button type="button" class="ruins-more-btn" data-ruins="more" aria-expanded="false">More</button><button type="button" class="ruins-close" data-ruins="manage" aria-controls="ruinsManageBody">×</button></div>
+<p class="ruins-goal ruins-more" id="ruinsGoal" hidden></p>
 <div class="ruins-pane ruins-build" id="ruinsBuild" role="tabpanel" aria-labelledby="ruinsTab-build" hidden>
-<button type="button" class="ruins-upgrade" data-ruins="tools"><span><strong></strong><small></small></span><b></b></button>
-<button type="button" class="ruins-upgrade" data-ruins="roads"><span><strong></strong><small></small></span><b></b></button>
-<p class="ruins-build-head">Homes &amp; food</p><div class="ruins-bp-list" id="ruinsList-home">${BLUEPRINTS.filter(b=>b.group==='home').map(bpButton).join('')}</div>
-<p class="ruins-build-head">Foundations</p><div class="ruins-bp-list" id="ruinsList-found">${BLUEPRINTS.filter(b=>b.group==='found').map(bpButton).join('')}</div>
-<p class="ruins-build-head">Town</p><div class="ruins-bp-list" id="ruinsList-town">${BLUEPRINTS.filter(b=>b.group==='town').map(bpButton).join('')}</div></div>
+${pickCard('build')}
+<button type="button" class="ruins-upgrade ruins-more" data-ruins="tools"><span><strong></strong><small></small></span><b></b></button>
+<button type="button" class="ruins-upgrade ruins-more" data-ruins="roads"><span><strong></strong><small></small></span><b></b></button>
+<p class="ruins-build-head ruins-more">Homes &amp; food</p><div class="ruins-bp-list ruins-more" id="ruinsList-home">${BLUEPRINTS.filter(b=>b.group==='home').map(bpButton).join('')}</div>
+<p class="ruins-build-head ruins-more">Foundations</p><div class="ruins-bp-list ruins-more" id="ruinsList-found">${BLUEPRINTS.filter(b=>b.group==='found').map(bpButton).join('')}</div>
+<p class="ruins-build-head ruins-more">Town</p><div class="ruins-bp-list ruins-more" id="ruinsList-town">${BLUEPRINTS.filter(b=>b.group==='town').map(bpButton).join('')}</div></div>
 <div class="ruins-pane ruins-jobs" id="ruinsJobs" role="tabpanel" aria-labelledby="ruinsTab-jobs" hidden>
+<p class="ruins-note ruins-threat" id="ruinsPeopleShort"></p>${pickCard('jobs')}
 <button type="button" class="ruins-upgrade" data-ruins="worker"><span><strong></strong><small></small></span><b></b></button>
-<p id="ruinsJobsText"></p>${JOBS.map(j=>`<div class="ruins-job"><span><strong id="ruinsJobName-${j}"></strong><small id="ruinsJobInfo-${j}"></small></span><button type="button" data-ruins="job" data-job="${j}" data-d="less">−</button><b id="ruinsJobN-${j}">0</b><button type="button" data-ruins="job" data-job="${j}" data-d="add">+</button></div>`).join('')}
-<button type="button" class="ruins-cancel ruins-auto" data-ruins="auto">Put every worker on Auto</button></div>
-<div class="ruins-pane" id="ruinsDefensePane" role="tabpanel" aria-labelledby="ruinsTab-defense" hidden><p class="ruins-note ruins-threat" id="ruinsDefenseText"></p><p class="ruins-note" id="ruinsDefenseParts"></p><p class="ruins-note" id="ruinsLastRaid" hidden></p>
+<p id="ruinsJobsText" class="ruins-more"></p>${JOBS.map(j=>`<div class="ruins-job" id="ruinsJob-${j}"><span><strong id="ruinsJobName-${j}"></strong><small id="ruinsJobInfo-${j}"></small></span><button type="button" data-ruins="job" data-job="${j}" data-d="less">−</button><b id="ruinsJobN-${j}">0</b><button type="button" data-ruins="job" data-job="${j}" data-d="add">+</button></div>`).join('')}
+<button type="button" class="ruins-cancel ruins-auto ruins-more" data-ruins="auto">Put every worker on Auto</button></div>
+<div class="ruins-pane" id="ruinsDefensePane" role="tabpanel" aria-labelledby="ruinsTab-defense" hidden><p class="ruins-note ruins-threat" id="ruinsDefShort"></p>${pickCard('defense')}<p class="ruins-note ruins-more" id="ruinsDefenseText"></p><p class="ruins-note ruins-more" id="ruinsDefenseParts"></p><p class="ruins-note ruins-more" id="ruinsLastRaid" hidden></p>
 ${DAMAGEABLE.map(t=>`<button type="button" class="ruins-upgrade ruins-repair" data-ruins="repair" data-fix="${t}" hidden><span><strong></strong><small></small></span><b></b></button>`).join('')}
-<button type="button" class="ruins-upgrade" data-ruins="walls"><span><strong></strong><small></small></span><b></b></button><p class="ruins-note" id="ruinsWatchText"></p></div>
-<div class="ruins-pane" id="ruinsLandPane" role="tabpanel" aria-labelledby="ruinsTab-land" hidden><p class="ruins-note" id="ruinsLandText"></p>
+<button type="button" class="ruins-upgrade ruins-more" data-ruins="walls"><span><strong></strong><small></small></span><b></b></button><p class="ruins-note ruins-more" id="ruinsWatchText"></p></div>
+<div class="ruins-pane" id="ruinsLandPane" role="tabpanel" aria-labelledby="ruinsTab-land" hidden><p class="ruins-note ruins-more" id="ruinsLandText"></p>
 <button type="button" class="ruins-upgrade ruins-expand" data-ruins="expand"><span><strong></strong><small></small></span><b></b></button>
 <button type="button" class="ruins-cancel" data-ruins="centre">Show the middle of Haven</button></div>
 </div></div></div>
@@ -728,11 +806,17 @@ function mount(slot){
     jobs:Object.fromEntries(JOBS.map(j=>[j,{name:q(`#ruinsJobName-${j}`),info:q(`#ruinsJobInfo-${j}`),n:q(`#ruinsJobN-${j}`),less:q(`[data-ruins=job][data-job=${j}][data-d=less]`),add:q(`[data-ruins=job][data-job=${j}][data-d=add]`)}])),
     roads:q('[data-ruins=roads]'),
     bps:Object.fromEntries(BLUEPRINTS.map(b=>[b.id,q(`[data-type=${b.id}]`)])),tools:q('[data-ruins=tools]'),worker:q('[data-ruins=worker]'),workText:q('#ruinsWorkText'),
-    help:q('#ruinsHelp'),helpToggle:q('.ruins-help-toggle'),helpClose:q('[data-ruins=helpclose]'),reset:q('[data-ruins=reset]'),reimport:q('[data-ruins=reimport]'),geo:null,down:null,placing:null,roading:false,upgrading:null,site:null,sites:[],selected:null,level:0};
+    help:q('#ruinsHelp'),helpToggle:q('.ruins-help-toggle'),helpClose:q('[data-ruins=helpclose]'),reset:q('[data-ruins=reset]'),reimport:q('[data-ruins=reimport]'),geo:null,down:null,placing:null,roading:false,upgrading:null,site:null,sites:[],selected:null,level:0,
+    oreBox:q('#ruinsOreBox'),hud:q('#ruinsHud'),hudIcon:q('#ruinsHud canvas'),hudName:q('#ruinsHudName'),hudCost:q('#ruinsHudCost'),hudGo:q('[data-ruins=suggest]'),autopick:q('[data-ruins=autopick]'),
+    moreBtn:q('[data-ruins=more]'),more:false,peopleShort:q('#ruinsPeopleShort'),defShort:q('#ruinsDefShort'),zoomIn:q('[data-ruins=zoomin]'),zoomOut:q('[data-ruins=zoomout]'),
+    pickBtns:Object.fromEntries(['build','jobs','defense'].map(p=>[p,q(`[data-ruins=pick][data-pane=${p}]`)])),picks:{},sug:null,
+    jobRows:Object.fromEntries(JOBS.map(j=>[j,q(`#ruinsJob-${j}`)])),zoom:1,ptrs:new Map(),pinch:null,panning:false};
   if(drawerMemory)Object.assign(view,drawerMemory);
   view.place.hidden=true;view.help.hidden=true;
   el.addEventListener('click',onClick);el.addEventListener('keydown',onPanelKey);
-  view.canvas.addEventListener('pointerdown',onDown);view.canvas.addEventListener('pointerup',onUp);view.canvas.addEventListener('pointercancel',()=>{if(view)view.down=null;});
+  view.canvas.addEventListener('pointerdown',onDown);view.canvas.addEventListener('pointerup',onUp);view.canvas.addEventListener('pointermove',onMove);
+  view.canvas.addEventListener('pointercancel',e=>{if(!view)return;view.down=null;view.ptrs.delete(e?.pointerId);if(view.ptrs.size<2)view.pinch=null;if(!view.ptrs.size)view.panning=false;});
+  view.scene.addEventListener?.('wheel',onWheel,{passive:false});
   view.canvas.addEventListener('keydown',onKey);
   root.addEventListener('resize',onResize);document.addEventListener('visibilitychange',onVisible);
   if(typeof root.ResizeObserver==='function'){view.resizer=new root.ResizeObserver(onSceneResize);view.resizer.observe(view.scene);}
@@ -744,7 +828,7 @@ function mount(slot){
   loadNote='';view.level=settlement(state).level;sortBuild();update();wake();
 }
 function unmount(){
-  if(!view)return;sleep();store();anims=[];drawerMemory={tab:view.tab,open:view.open};
+  if(!view)return;sleep();store();anims=[];drawerMemory={tab:view.tab,open:view.open,zoom:view.zoom};
   root.removeEventListener('resize',onResize);document.removeEventListener('visibilitychange',onVisible);view.resizer?.disconnect();
   view.root.remove();view=null;
 }
@@ -779,10 +863,22 @@ function frame(now){
 }
 function onVisible(){if(!view)return;if(document.hidden){sleep();store();}else{wake();}}
 
-/* Input: a short press without much movement is a tap. Swipes scroll the scene sideways or the page up and down. */
-function onDown(e){if(e.button>0)return;view.down={x:e.clientX,y:e.clientY,t:Date.now(),id:e.pointerId};}
-function onUp(e){const d=view?.down;if(!d||d.id!==e.pointerId)return;view.down=null;if(Math.hypot(e.clientX-d.x,e.clientY-d.y)>12||Date.now()-d.t>700)return;
+/* Input: a short press without much movement is a tap. One finger dragging moves the town both ways (never the page);
+ * two fingers pinch to zoom around the point between them. A drag or a pinch is never a tap, so it can't chop, place,
+ * build or spend anything. */
+function onDown(e){if(e.button>0)return;view.ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});try{view.canvas.setPointerCapture?.(e.pointerId);}catch{}
+  if(view.ptrs.size===1){view.down={x:e.clientX,y:e.clientY,t:Date.now(),id:e.pointerId};view.panning=false;return;}
+  view.down=null;const [a,b]=[...view.ptrs.values()];view.pinch={d:Math.hypot(a.x-b.x,a.y-b.y),z:view.zoom};}
+function onMove(e){const p=view?.ptrs.get(e.pointerId);if(!p)return;const dx=e.clientX-p.x,dy=e.clientY-p.y;p.x=e.clientX;p.y=e.clientY;
+  if(view.ptrs.size===1){const d=view.down;if(!view.panning&&d&&Math.hypot(e.clientX-d.x,e.clientY-d.y)<=6)return;view.panning=true;
+    const sc=view.scene;sc.scrollLeft=(sc.scrollLeft||0)-dx;sc.scrollTop=(sc.scrollTop||0)-dy;return;}
+  if(view.ptrs.size===2&&view.pinch&&view.pinch.d>=10){const [a,b]=[...view.ptrs.values()],box=view.scene.getBoundingClientRect?.()||{left:0,top:0};
+    zoomTo(view.pinch.z*Math.hypot(a.x-b.x,a.y-b.y)/view.pinch.d,[(a.x+b.x)/2-box.left,(a.y+b.y)/2-box.top]);}}
+function onUp(e){if(!view)return;view.ptrs.delete(e.pointerId);if(view.ptrs.size<2)view.pinch=null;if(!view.ptrs.size)view.panning=false;
+  const d=view.down;if(!d||d.id!==e.pointerId)return;view.down=null;if(Math.hypot(e.clientX-d.x,e.clientY-d.y)>12||Date.now()-d.t>700)return;
   const box=view.canvas.getBoundingClientRect();tapAt(e.clientX-box.left,e.clientY-box.top);}
+// A trackpad pinch (or Ctrl + wheel) zooms too; a plain wheel scrolls the town as before.
+function onWheel(e){if(!view||!e.ctrlKey)return;e.preventDefault();const box=view.scene.getBoundingClientRect?.()||{left:0,top:0};zoomTo(view.zoom*(e.deltaY<0?1.1:1/1.1),[e.clientX-box.left,e.clientY-box.top]);}
 function onKey(e){if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();if(view.roading||view.walling)return;if(view.repairing){confirmRepair();return;}if(view.upgrading){confirmUpgrade();return;}if(view.placing){if(view.site!==null)confirmBuild();return;}
   const target=view.selected!==null&&standing(state,view.selected)?view.selected:standingIds(state).sort((a,b)=>depth(b)-depth(a))[0];if(target!==undefined)work(target);}
 const depth=id=>id%W+Math.floor(id/W);
@@ -791,6 +887,7 @@ const WHY={outside:'That land is still in the mist.',building:'There is a buildi
 function nope(id){if(id===undefined||id===null)return;anims=anims.filter(a=>a.type!=='nope');anims.push({type:'nope',c:id%W,r:Math.floor(id/W),t0:performance.now(),life:600});draw();wake();}
 function tapAt(x,y){
   const t=hit(x,y);if(!t)return;
+  if(view.walling==='auto')return; // the tile is already picked for you; Build here or Cancel
   if(view.walling){if(t.tile===undefined)return;const c=t.tile%W,r=Math.floor(t.tile/W),res=layWall(state,c,r);
     if(!res.ok){nope(t.tile);say(res.reason==='short'?`You need ${fmt(res.need)} more for palisade.`:res.reason==='max'?`Haven has its full ${CONFIG.wallMaxTiles} palisade tiles.`:WHY[res.reason]||'Pick a lit tile.');return;}
     store();view.sites=wallSites(state);say('');update();return;}
@@ -840,7 +937,7 @@ function showDrawer(){
 // Ready choices first. Only reordered when a section opens or after something is built, never while you're choosing.
 function sortBuild(){if(!view)return;for(const g of ['home','found','town']){const list=view.lists[g];if(typeof list?.append!=='function')continue;
   const order=buildOrder(state,g);if(order.every((id,i)=>list.children[i]===view.bps[id]))continue;list.append(...order.map(id=>view.bps[id]));}}
-function openTab(id,focus){if(!view.tabs[id])return;endPlacing();closeHelp();view.tab=id;view.open=true;if(id==='build')sortBuild();view.tabs[id].pane.scrollTop=0;say('');update();if(focus)view.tabs[id].btn.focus?.();}
+function openTab(id,focus){if(!view.tabs[id])return;endPlacing();closeHelp();view.tab=id;view.open=true;view.more=false;if(id==='build')sortBuild();view.tabs[id].pane.scrollTop=0;say('');update();if(focus)view.tabs[id].btn.focus?.();}
 function closeHelp(){if(!view.help.hidden){view.help.hidden=true;view.helpToggle.setAttribute('aria-expanded','false');}}
 // Arrow keys move between the four menus; Escape closes a bar first, then the window (or How Haven works).
 function onPanelKey(e){
@@ -848,15 +945,60 @@ function onPanelKey(e){
     if(!view.help.hidden){e.preventDefault();closeHelp();view.helpToggle.focus?.();return;}
     if(view.open){e.preventDefault();view.open=false;update();view.tabs[view.tab].btn.focus?.();}return;}
   const tab=e.target?.closest?.('[role=tab]');if(!tab||(e.key!=='ArrowLeft'&&e.key!=='ArrowRight'&&e.key!=='Home'&&e.key!=='End'))return;
-  e.preventDefault();const i=TABS.findIndex(t=>t.id===view.tab),n=TABS.length,j=e.key==='Home'?0:e.key==='End'?n-1:(i+(e.key==='ArrowRight'?1:n-1))%n;openTab(TABS[j].id,true);}
+  e.preventDefault();const list=TABS.filter(t=>tabOn(t.id)),i=Math.max(0,list.findIndex(t=>t.id===view.tab)),n=list.length,j=e.key==='Home'?0:e.key==='End'?n-1:(i+(e.key==='ArrowRight'?1:n-1))%n;openTab(list[j].id,true);}
+// Menus show up once they're useful: Build and People from the start, Defense once Haven has a House and a Farm (what
+// raids need before they start), or palisade, a Watchtower, raids or damage; Land once there's a Survey Post or more
+// land. A grown town has all four.
+function tabOn(id){if(id==='defense')return has(state,'house')&&has(state,'farm')||raidsOpen(state)||!!state.raid||state.walls.length>0||Object.keys(state.broken).length>0||has(state,'watchtower');
+  if(id==='land')return has(state,'survey')||state.land>0;return true;}
+/* Taking the suggestion (or a window's one choice). It goes through exactly the same steps as the full lists: a
+ * building or palisade still shows where it goes and its price before Build here, an upgrade or repair still asks.
+ * Only Recruit, Better Tools, Expand and a job change happen on the tap, as their own buttons always have, and the
+ * price is on the button. A second tap within 0.6 s is ignored, so a double tap can't take the next suggestion too. */
+let lastAct=-1e9;
+function act(sug){if(!sug||!sug.ready||!view)return;const now=performance.now();if(now-lastAct<600)return;lastAct=now;
+  if(sug.kind==='build'){startPlacing(sug.type,sug.type==='watchtower');return;}
+  if(sug.kind==='upgrade'){openUpgrade(sug.type);return;}
+  if(sug.kind==='repair'){openRepair(sug.type);return;}
+  if(sug.kind==='wall'){startAutoWall();return;}
+  if(sug.kind==='worker'||sug.kind==='tools'){buyThing(sug.kind==='tools'?'tools':'worker');return;}
+  if(sug.kind==='expand'){doExpand();return;}
+  if(sug.kind==='job'){if(setJob(state,sug.job,1).ok){done(sug.key);store();say(`One more ${JOB_ONE[sug.job]}.`);update();}}}
+// A done suggestion gets a small gold burst on the map, where it happened, then the next suggestion shows.
+function done(key,id){if(!view||!key||view.sugKey!==key)return;const [lo,hi]=land(state),m=Math.floor((lo+hi)/2),at=id??wid(m,m),now=performance.now();
+  if(!reduced())anims.push({type:'ack',c:at%W,r:Math.floor(at/W),t0:now,life:900});anims.push({type:'pop',c:at%W,r:Math.floor(at/W),text:'Done!',worker:false,t0:now+150,life:1100});wake();}
+function buyThing(what){const r=buy(state,what);if(r.ok){done(what);store();if(what==='worker')syncCrew(state,crew);
+    say(what==='tools'?`Better Tools level ${state.tools}. Hit power is now ${power(manualPower(state))}.`:`Someone new joins Haven. ${plural(state.workers,'person','people')} now. They start on Auto; give them a job in People.`);update();wake();}
+  else if(r.reason==='hungry')say('No one joins a hungry town. Get some Food first.');}
+function doExpand(){if(Date.now()-lastBig<700)return;const r=expand(state);
+  if(!r.ok){say(r.reason==='survey'?'Build a Survey Post first.':r.reason==='short'?`You need ${fmt(r.need)} more to expand.`:'Haven has reached its full size for now.');return;}
+  lastBig=Date.now();done('expand');store();endPlacing();if(!reduced())anims.push({type:'land',t0:performance.now(),life:900});
+  say(`Haven grows. Territory ${state.land+1} / ${CONFIG.lands.length}. New trees, stone${state.land>=1?' and ore':''} wait at the edges.`);layout(true);update();wake();}
+// Add Palisade: Haven picks the next edge tile and shows it, gold, with its price; nothing is paid until Build here.
+function startAutoWall(){if(settlement(state).level<CONFIG.roadsAt){say(`Palisade opens at Settlement Lv ${CONFIG.roadsAt}.`);return;}
+  const id=autoWall(state);if(id===null){say(state.walls.length>=CONFIG.wallMaxTiles?`Haven has its full ${CONFIG.wallMaxTiles} palisade tiles.`:'No free edge tile. Clear trees or rocks on the edge first.');return;}
+  endPlacing();view.walling='auto';view.sites=[id];view.site=id;placeLine();update();}
+// Paid once: the bar closes on success, so a second tap finds nothing to build.
+function confirmWall(){const id=view.site;if(view.walling!=='auto'||id===null)return;const r=layWall(state,id%W,Math.floor(id/W));
+  if(!r.ok){endPlacing();say(r.reason==='short'?`You need ${fmt(r.need)} more for palisade.`:'That tile is taken now. Tap Add Palisade again.');update();return;}
+  done('wall',id);store();endPlacing();const d=defense(state);say(`Palisade added: ${d.walled} / ${d.edge} edge tiles, +${d.walls} Defense.`);update();wake();}
+/* Zoom: + and −, a pinch, or Ctrl + wheel. It scales the tiles between 20px and 72px around a point (the middle, or
+ * between your fingers), keeping that point still. Only kept while the page is open, never saved. */
+const ZMIN=20,ZMAX=72;
+function zoomTo(z,focus){const g=view?.geo;if(!g)return;z=Math.max(ZMIN/g.base,Math.min(ZMAX/g.base,z));if(Math.abs(z-view.zoom)<.001)return;
+  view.zoom=z;const w0=g.w;layout(false,focus);if(view.geo.w!==w0)draw();zoomButtons();}
+function zoomButtons(){const g=view?.geo;if(!g)return;view.zoomIn.disabled=g.w>=ZMAX;view.zoomOut.disabled=g.w<=ZMIN;}
 function onClick(e){
   const b=e.target.closest?.('button');if(!b||!view)return;
   if(b===view.helpToggle){const open=view.help.hidden;if(open){endPlacing();view.open=false;update();}view.help.hidden=!open;b.setAttribute('aria-expanded',String(open));return;}
   if(b===view.helpClose){closeHelp();view.helpToggle.focus?.();return;}
   const what=b.dataset.ruins;
-  if(what==='tools'||what==='worker'){const r=buy(state,what);if(r.ok){store();if(what==='worker')syncCrew(state,crew);
-    say(what==='tools'?`Better Tools level ${state.tools}. Hit power is now ${power(manualPower(state))}.`:`Someone new joins Haven. ${plural(state.workers,'person','people')} now. They start on Auto; give them a job in People.`);update();wake();}
-    else if(r.reason==='hungry')say('No one joins a hungry town. Get some Food first.');return;}
+  if(what==='tools'||what==='worker'){buyThing(what);return;}
+  if(what==='suggest'){act(view.sug);return;}
+  if(what==='pick'){act(view.picks[b.dataset.pane]);return;}
+  if(what==='more'){view.more=!view.more;update();return;}
+  if(what==='zoomin'||what==='zoomout'){zoomTo(view.zoom*(what==='zoomin'?1.25:.8));return;}
+  if(what==='autopick'){if(!view.placing)return;const id=autoSite(state,view.placing);if(id===null){say('No free tile to build on. Clear a tree or deposit first.');return;}view.site=id;placeLine();draw();return;}
   if(what==='walls'){startWalls();return;}
   if(what==='repair'){openRepair(b.dataset.fix);return;}
   // The same menu button again closes its window, so one tap always gives the whole town back.
@@ -864,16 +1006,14 @@ function onClick(e){
   if(what==='manage'){endPlacing();view.open=false;update();view.tabs[view.tab].btn.focus?.();return;}
   if(what==='centre'){view.open=false;layout(true);update();view.canvas.focus?.();return;}
   if(what==='auto'){if(allAuto(state).ok){store();say(`Every worker is on Auto and works anything.`);update();}return;}
-  if(what==='job'){const r=setJob(state,b.dataset.job,b.dataset.d==='add'?1:-1);if(r.ok){store();update();}return;}
+  if(what==='home'){layout(true);draw();return;}
+  if(what==='job'){const add=b.dataset.d==='add',r=setJob(state,b.dataset.job,add?1:-1);if(r.ok){if(add)done('job:'+b.dataset.job);store();update();}return;}
   if(what==='bp'){if(has(state,b.dataset.type))openUpgrade(b.dataset.type);else startPlacing(b.dataset.type);return;}
   if(what==='roads'){startRoads();return;}
-  if(what==='confirm'){if(view.info){const go=view.info.go;endPlacing();openTab(go,false);return;}if(view.repairing)confirmRepair();else if(view.upgrading)confirmUpgrade();else confirmBuild();return;}
+  if(what==='confirm'){if(view.info){const go=view.info.go;endPlacing();openTab(go,false);return;}if(view.walling==='auto'){confirmWall();return;}if(view.repairing)confirmRepair();else if(view.upgrading)confirmUpgrade();else confirmBuild();return;}
   if(what==='cancel'){const wasRoads=view.roading,wasWalls=view.walling;endPlacing();
     say(wasRoads&&state.roads.length?`${plural(state.roads.length,'road tile')} in Haven.`:wasWalls&&state.walls.length?`${plural(state.walls.length,'palisade tile')} in Haven.`:'');update();return;}
-  if(what==='expand'){if(Date.now()-lastBig<700)return;const r=expand(state);
-    if(!r.ok){say(r.reason==='survey'?'Build a Survey Post first.':r.reason==='short'?`You need ${fmt(r.need)} more to expand.`:'Haven has reached its full size for now.');return;}
-    lastBig=Date.now();store();endPlacing();if(!reduced())anims.push({type:'land',t0:performance.now(),life:900});
-    say(`Haven grows. Territory ${state.land+1} / ${CONFIG.lands.length}. New trees, stone${state.land>=1?' and ore':''} wait at the edges.`);layout(true);update();wake();return;}
+  if(what==='expand'){doExpand();return;}
   if(what==='reset'){if(Date.now()-resetArmed>3000){resetArmed=Date.now();b.textContent='Tap again to reset the demo';return;}
     resetArmed=0;b.textContent='Reset demo';state=newGame();regrowClock.left=CONFIG.regrowMs;raidClock.walk=0;lastSwing=null;resetCrew(crew);anims=[];endPlacing();store();view.level=1;say('Demo reset. Only Haven’s test settlement was cleared.');layout(true);update();wake();return;}
   if(what==='reimport'){const r=loadFrom({get:k=>k===KEY?null:storeApi.get(k),set:()=>{}});if(!r.from)return;
@@ -881,11 +1021,11 @@ function onClick(e){
     importArmed=0;b.textContent='Restart from earlier save';state=r.state;raidClock.walk=0;resetCrew(crew);anims=[];endPlacing();store();view.level=settlement(state).level;
     say(r.from===4?`Restarted from your Haven 3.0 save: ${plural(state.built.length,'building')}, territory ${state.land+1}, ${state.food} Food to start.`:r.from===2?`Restarted from your Haven 2.0 save: ${plural(state.built.length,'building')}, territory ${state.land+1}.`:`Restarted from the old demo: ${state.wood} Wood, Better Tools Lv ${state.tools}, ${plural(state.workers,'worker')}.`);layout(true);update();return;}
 }
-function startPlacing(type){const bp=BP[type];if(!bp||has(state,type))return;
+function startPlacing(type,auto=false){const bp=BP[type];if(!bp||has(state,type))return;
   const lock=lockReason(state,type);if(lock){say(`${bp.name}: ${lock}.`);return;}
   const c=buildCost(state,type);if(!afford(state,c)){say(`You need ${fmt(shortOf(state,c))} more for the ${bp.name}.`);return;}
   const sites=validSites(state,type);if(!sites.length){say('No free tile to build on. Clear a tree or deposit first.');return;}
-  endPlacing();view.placing=type;view.site=null;view.sites=sites;placeLine();update();}
+  endPlacing();view.placing=type;view.sites=sites;view.site=auto?autoSite(state,type):null;placeLine();update();}
 function startRoads(){const st=settlement(state);if(st.level<CONFIG.roadsAt){say(`Roads open at Settlement Lv ${CONFIG.roadsAt}.`);return;}
   const sites=roadSites(state);if(!sites.length){say(state.roads.length>=CONFIG.roadMax?`Haven has its full ${CONFIG.roadMax} road tiles.`:'No open ground for a road. Clear a tree or deposit first.');return;}
   endPlacing();view.roading=true;view.sites=sites;placeLine();update();}
@@ -900,15 +1040,17 @@ function openRepair(type){if(!isBroken(state,type))return;if(state.broken[type]>
   endPlacing();view.repairing=type;view.upgrading=type;placeLine();update();}
 // Paying for a repair, like building: the bar closes on success, so a double tap can't pay twice.
 function confirmRepair(){const type=view.repairing;if(!type)return;const res=startRepair(state,type);if(!res.ok){placeLine();return;}
-  store();endPlacing();say(`Repair of the ${BP[type].name} paid. ${state.jobs.build?'Your builders are on their way.':'No one is a Builder: tap it yourself to repair it, or make someone a Builder in People.'}`);update();wake();}
-function endPlacing(){if(!view)return;view.info=null;view.placing=null;view.roading=false;view.walling=false;view.upgrading=null;view.repairing=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';}
-function placeLine(){view.place.hidden=false;view.confirm.disabled=false;
+  done('repair:'+type,tileOf(state,type));store();endPlacing();say(`Repair of the ${BP[type].name} paid. ${state.jobs.build?'Your builders are on their way.':'No one is a Builder: tap it yourself to repair it, or make someone a Builder in People.'}`);update();wake();}
+function endPlacing(){if(!view)return;view.info=null;view.placing=null;view.roading=false;view.walling=false;view.upgrading=null;view.repairing=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.autopick.hidden=true;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';}
+function placeLine(){view.place.hidden=false;view.confirm.disabled=false;view.autopick.hidden=true;
   if(view.info){view.placeName.textContent=view.info.title;view.placeText.textContent=view.info.text;view.confirm.hidden=false;view.confirm.textContent=TABS.find(t=>t.id===view.info.go).name;view.cancel.textContent='Close';return;}
   // One plain heading for what's in hand, so it's clear what a tap on the town will do.
-  view.placeName.textContent=view.roading?'Laying road':view.walling?'Building palisade':view.repairing?`Repair · ${BP[view.repairing].name}`
+  view.placeName.textContent=view.roading?'Laying road':view.walling==='auto'?'Add Palisade':view.walling?'Building palisade':view.repairing?`Repair · ${BP[view.repairing].name}`
     :view.upgrading?`${BP[view.upgrading].name} · Lv ${lvOf(state,view.upgrading)}`:view.placing?`Placing · ${BP[view.placing].name}`:'';
   if(view.roading){view.confirm.hidden=true;view.cancel.textContent='Done';
     view.placeText.textContent=`Tap lit tiles to lay road, ${fmt(CONFIG.roadCost)} each. Workers walk faster on roads. ${plural(state.roads.length,'tile')} laid.`;return;}
+  if(view.walling==='auto'){const d=defense(state),ok=afford(state,CONFIG.wallCost);view.confirm.hidden=false;view.confirm.textContent='Build here';view.confirm.disabled=!ok;view.cancel.textContent='Cancel';
+    view.placeText.textContent=ok?`Here, for ${fmt(CONFIG.wallCost)}? ${d.walled} / ${d.edge} edge tiles done.`:`${fmt(CONFIG.wallCost)} a tile: you need ${fmt(shortOf(state,CONFIG.wallCost))} more.`;return;}
   if(view.walling){view.confirm.hidden=true;view.cancel.textContent='Done';const d=defense(state);
     view.placeText.textContent=`Tap lit edge tiles for palisade, ${fmt(CONFIG.wallCost)} each. ${d.walled} of ${d.edge} edge tiles walled: +${d.walls} Defense (+${CONFIG.wallMax} for all of it).`;return;}
   view.confirm.hidden=false;view.cancel.textContent='Cancel';
@@ -922,17 +1064,17 @@ function placeLine(){view.place.hidden=false;view.confirm.disabled=false;
       :u.reason==='level'?`${now} Lv ${u.to} needs Settlement Lv ${CONFIG.townHallNeeds[u.to]}.`
       :u.reason==='short'?`${now} Lv ${u.to} (${STAGES[u.to-1]}) costs ${fmt(u.cost)}: you need ${fmt(u.need)} more.`
       :`${now} Upgrade to Lv ${u.to} (${STAGES[u.to-1]}) for ${fmt(u.cost)}? ${bp.effects[u.to-1]}.`;return;}
-  const bp=BP[view.placing],c=buildCost(state,view.placing);view.confirm.textContent='Build here';view.confirm.disabled=view.site===null;
-  view.placeText.textContent=view.site===null?`Tap a lit tile for the ${bp.name}. It costs ${fmt(c)}. Drag to look around.`:`Build the ${bp.name} here for ${fmt(c)}?`;}
+  const bp=BP[view.placing],c=buildCost(state,view.placing);view.confirm.textContent='Build here';view.confirm.disabled=view.site===null;view.confirm.hidden=view.site===null;view.autopick.hidden=view.site!==null;
+  view.placeText.textContent=view.site===null?`Tap a lit tile, or Pick for me. ${fmt(c)}. Drag to look around.`:`Build the ${bp.name} here for ${fmt(c)}?`;}
 // A second tap on Build here finds placing already ended, so a double tap can never build or charge twice.
 function confirmBuild(){if(!view.placing||view.site===null)return;const type=view.placing,c=view.site%W,r=Math.floor(view.site/W),res=build(state,type,c,r);
   if(!res.ok){say(res.reason==='short'?`You need ${fmt(res.need)} more.`:'That spot is no longer free. Pick another lit tile.');if(res.reason!=='short'){view.sites=validSites(state,type);view.site=null;placeLine();draw();}return;}
-  store();endPlacing();sortBuild();view.open=false;if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
+  done('build:'+type,wid(c,r));store();endPlacing();sortBuild();view.open=false;if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
   say(`${BP[type].name} built. ${BP[type].effects[0]}.`);update();wake();}
 // The same for upgrades: the bar closes on success, so a second tap finds nothing to upgrade.
 function confirmUpgrade(){const type=view.upgrading;if(!type)return;const res=upgrade(state,type);
   if(!res.ok){placeLine();return;}
-  store();endPlacing();sortBuild();if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
+  done('upgrade:'+type,tileOf(state,type));store();endPlacing();sortBuild();if(!reduced())anims.push({type:'raise',t:type,t0:performance.now(),life:700});
   say(`${BP[type].name} upgraded to Lv ${res.to} (${STAGES[res.to-1]}). ${BP[type].effects[res.to-1]}.`);update();wake();}
 function say(text){if(view)view.stage.textContent=text;}
 
@@ -977,13 +1119,53 @@ function update(){
   view.expand.querySelector('small').textContent=!xc?`All ${CONFIG.lands.length} territories open`:ex.reason==='survey'?'Needs a Survey Post':ex.reason==='short'?`Need ${fmt(ex.need)} more${seen?' · '+seen:''}`:seen||'The mist clears; the map grows';
   view.expand.querySelector('b').textContent=xc?fmt(xc):'Max';view.expand.disabled=!ex.ok;view.expand.setAttribute('aria-label',`${view.expand.querySelector('strong').textContent}. ${view.expand.querySelector('small').textContent}.`);
   view.auto.disabled=auto===state.workers;view.auto.setAttribute('aria-label',auto===state.workers?'Every worker is already on Auto':'Put every worker on Auto');
-  manageText(st,xc);showDrawer();
+  manageText(st,xc);showDrawer();simple(auto,cap);
   if(view.placing||view.roading||view.walling||view.upgrading)placeLine();
   view.reimport.hidden=storeApi.get(V4_KEY)===null&&storeApi.get(V2_KEY)===null&&storeApi.get(V1_KEY)===null;
   const sids=standingIds(state),wd=world(state.origin),count=k=>sids.filter(id=>{const n=wd.nodes.get(id).kind;return k==='wood'?isWood(n):n===k;}).length;
   view.canvas.setAttribute('aria-label',`Haven settlement, territory ${state.land+1} of ${CONFIG.lands.length}, Settlement Lv ${st.level}. ${count('wood')} trees, ${count('stone')} stone and ${count('ore')} ore left. ${state.built.length?'Buildings: '+state.built.map(b=>`${BP[b.t].name} Lv ${b.lv}`).join(', ')+'.':'No buildings yet.'}${state.roads.length?` ${plural(state.roads.length,'road tile')}.`:''}${state.walls.length?` ${plural(state.walls.length,'palisade tile')}.`:''} ${plural(state.workers,'person','people')}, ${state.food} Food.${Object.keys(state.broken).length?` Damaged: ${Object.keys(state.broken).map(t=>BP[t].name).join(', ')}.`:''}${state.raid?` ${RAID_NAME[state.raid]} are attacking.`:''} Tap a tree or deposit, or press Enter, to work it.`);
   workLine();draw();
 }
+/* The simple view (#140): one suggestion in a box at the top of the town, one big choice at the top of each window,
+ * a short line where the long ones were (they're under More), and only the counters and menus Haven needs yet. */
+function simple(auto,cap){
+  const sug=suggest(state);view.sug=sug;view.sugKey=sug?.key||'';
+  const covered=busyBar()||(view.open&&!view.manageBody.hidden)||!view.help.hidden;view.hud.hidden=!sug||covered;
+  if(sug&&!covered){view.hudName.textContent=sug.name;view.hudCost.textContent=costLine(sug);
+    view.hudGo.hidden=sug.kind==='gather';view.hudGo.textContent=sug.verb;view.hudGo.disabled=!sug.ready;
+    view.hudGo.setAttribute('aria-label',`${sug.verb} ${sug.name}. ${costLine(sug)}.`);drawIcon(view.hudIcon,sug);}
+  view.picks={build:paneBuild(state,sug),jobs:panePeople(state,sug),defense:defensePick(state)};
+  for(const [p,btn] of Object.entries(view.pickBtns))card(btn,view.picks[p]);
+  view.manageBody.classList?.toggle('ruins-show-more',view.more);view.moreBtn.textContent=view.more?'Less':'More';view.moreBtn.setAttribute('aria-expanded',String(view.more));
+  view.peopleShort.textContent=state.workers?`${state.workers} / ${cap} people · ${auto} on Auto`:'No one lives here yet';
+  for(const j of JOBS)view.jobRows[j].classList?.toggle('ruins-more',['ore','build','scout'].includes(j)&&!state.jobs[j]);
+  view.defShort.textContent=defShort();
+  view.oreBox.hidden=!state.ore&&!state.land&&!has(state,'foundry');
+  for(const t of TABS)view.tabs[t.id].btn.hidden=!tabOn(t.id);
+  zoomButtons();}
+const costLine=sug=>sug.need?`Need ${fmt(sug.need)}`:sug.cost?`${sug.why} · ${fmt(sug.cost)}`:sug.why;
+function card(btn,sug){btn.hidden=!sug;if(!sug)return;btn.querySelector('strong').textContent=sug.name;btn.querySelector('small').textContent=sug.why;
+  const price=sug.kind==='gather'?'':sug.need?`Need ${fmt(sug.need)}`:sug.cost?`${sug.verb} · ${fmt(sug.cost)}`:sug.verb;
+  btn.querySelector('b').textContent=price;btn.disabled=!sug.ready;btn.setAttribute('aria-label',`${sug.name}. ${sug.why}. ${price}.`);drawIcon(btn.querySelector('canvas'),sug);}
+// Defense in one line: what's coming (or that it's quiet) against what Haven has.
+function defShort(){const d=defense(state).total;if(!raidsOpen(state)&&!state.raid)return`Quiet · Defense ${d}`;
+  const k=nextKind(state),th=threat(state,k);
+  if(state.raid)return`${RAID_NAME[k]} attacking · Threat ${th} · Defense ${d}`;
+  if(state.calm<=warnLead(state))return`${RAID_NAME[k]} in ${mmss(state.calm)} · Threat ${th} · Defense ${d}`;
+  return`Quiet · Defense ${d} · next Threat ${th}`;}
+/* Small pixel drawings for the suggestion: the real building as it's drawn on the map, a tree for gathering, and an
+ * 8×8 sprite at 3× for the rest. Drawn only when what it shows changes. */
+const SPRITE={tools:['..SSSS..','..SSSS..','...ww...','...ww...','...ww...','...ww...','...ww...','........'],
+  person:['...hh...','...hh...','..cccc..','.hcccch.','..cccc..','..w..w..','..w..w..','........'],
+  wall:['w..w..w.','ww.ww.ww','wwwwwwww','ww.ww.ww','wwwwwwww','ww.ww.ww','ww.ww.ww','........'],
+  flag:['.kbbbb..','.kbbbbb.','.kbbbb..','.k......','.k......','.k......','gggggggg','........']};
+function drawIcon(cv,sug){const ctx=cv?.getContext?.('2d');if(!ctx||!sug)return;const lv=sug.type?(sug.kind==='upgrade'?lvOf(state,sug.type)+1:Math.max(1,lvOf(state,sug.type))):0,k=`${sug.kind}:${sug.type||sug.job}:${lv}`;
+  if(cv.dataset.k===k)return;cv.dataset.k=k;const d=Math.min(3,Math.max(1,Math.round(root.devicePixelRatio||1)));
+  cv.width=28*d;cv.height=28*d;cv.style.width='28px';cv.style.height='28px';ctx.setTransform?.(d,0,0,d,0,0);ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,28,28);
+  if(sug.type){building(ctx,{w:14,h:7,ox:14,oy:20,a:0},sug.type,0,0,lv);return;}
+  if(sug.kind==='gather'){tree(ctx,{w:16,h:8,ox:14,oy:18,a:0},0,0,'pine',.5);return;}
+  const rows=SPRITE[sug.kind==='tools'?'tools':sug.kind==='wall'?'wall':sug.kind==='expand'?'flag':'person'],col={S:C.stoneHi,w:C.woodHi,h:'#e0b48a',c:sug.job==='guard'?'#8a8676':'#4f8a5c',k:C.ink,b:C.brass,g:C.grass[1]};
+  rows.forEach((row,y)=>[...row].forEach((ch,x)=>{if(col[ch]){ctx.fillStyle=col[ch];ctx.fillRect(2+x*3,2+y*3,3,3);}}));}
 // One short line under each job: what it does now, from the real numbers.
 function jobInfo(j){
   if(JOB_KIND[j]){const kind=JOB_KIND[j],noun=j==='wood'?'trees':j==='stone'?'stone':'ore';return`Hit power ${power(workerPower(state,kind,j))} on ${noun} · Auto ${power(workerPower(state,kind))}`;}
@@ -1058,15 +1240,19 @@ function onResize(){if(!view)return;layout(false);draw();}
  * road or palisade is being placed the tile size stays put, so the tile you aimed at doesn't move. */
 /* The menus float over the town, so the town's room is just its own height: opening or closing one never resizes it. */
 function townRoom(){return view.scene.clientHeight||0;}
-function layout(center){
+/* Zoom (#140) scales that fitted tile size (base) by view.zoom, to an even size between 20px and 72px. A zoom, a
+ * resize or a new territory keeps the point in focus still: the middle of the town's space, or between your fingers. */
+function layout(center,focus){
   const cv=view.canvas,sc=view.scene,cw=sc.clientWidth||300,sh=sc.clientHeight||0,[lo,hi]=land(state),V=hi-lo+2,old=view.geo;
   const keep=old&&old.V===V&&!center&&!!(view.placing||view.roading||view.walling||view.upgrading),fitH=(townRoom()-16)/(2.1+V/2);
-  const w=keep?old.w:Math.max(24,Math.min(44,Math.floor(Math.max(cw/10.4,fitH||0)/2)*2)),h=w/2,top=Math.round(w*1.5),cssW=Math.round(V*w+w*.6),cssH=Math.round(top+V*h+w*.6+6),dpr=Math.min(root.devicePixelRatio||1,3);
-  const fx=old?((sc.scrollLeft||0)+cw/2)/old.cssW:.5,fy=old?((sc.scrollTop||0)+sh/2)/old.cssH:.5,same=old&&old.cssW===cssW&&old.cssH===cssH&&old.dpr===dpr;
+  const base=keep?old.base:Math.max(24,Math.min(44,Math.floor(Math.max(cw/10.4,fitH||0)/2)*2));
+  const w=Math.max(ZMIN,Math.min(ZMAX,Math.round(base*(view.zoom||1)/2)*2)),h=w/2,top=Math.round(w*1.5),cssW=Math.round(V*w+w*.6),cssH=Math.round(top+V*h+w*.6+6),dpr=Math.min(root.devicePixelRatio||1,3);
+  const [px,py]=focus||[cw/2,sh/2],offX=o=>Math.max(0,(cw-o.cssW)/2),offY=o=>Math.max(0,(sh-o.cssH)/2);
+  const fx=old?((sc.scrollLeft||0)+px-offX(old))/old.cssW:.5,fy=old?((sc.scrollTop||0)+py-offY(old))/old.cssH:.5,same=old&&old.cssW===cssW&&old.cssH===cssH&&old.dpr===dpr;
   if(!same){cv.style.width=cssW+'px';cv.style.height=cssH+'px';cv.width=Math.round(cssW*dpr);cv.height=Math.round(cssH*dpr);}
-  view.geo={w,h,ox:Math.round(cssW/2),oy:top,a:lo-1,V,dpr,cssW,cssH};view.size=[cw,sh];
+  view.geo={w,h,base,ox:Math.round(cssW/2),oy:top,a:lo-1,V,dpr,cssW,cssH};view.size=[cw,sh];
   if(center){sc.scrollLeft=Math.max(0,(cssW-cw)/2);sc.scrollTop=Math.max(0,(cssH-sh)/2);}
-  else if(!same){sc.scrollLeft=Math.max(0,fx*cssW-cw/2);sc.scrollTop=Math.max(0,fy*cssH-sh/2);}
+  else if(!same){sc.scrollLeft=Math.max(0,fx*cssW+offX(view.geo)-px);sc.scrollTop=Math.max(0,fy*cssH+offY(view.geo)-py);}
 }
 /* Re-fit only when the town's space really changes size (the phone turns, the drawer folds, the help opens). */
 function onSceneResize(){if(!view)return;const sc=view.scene,[w0,h0]=view.size||[0,0];
@@ -1143,6 +1329,8 @@ function draw(now){
   for(const b of state.built)objs.push([b.c+b.r+.02,()=>{if(raise&&raise.t===b.t)raising(ctx,g,b,(now-raise.t0)/raise.life,banner);else building(ctx,g,b.t,b.c,b.r,b.lv,banner);
     if(isBroken(state,b.t))damaged(ctx,g,b.c,b.r,state.broken[b.t],now,smooth);}]);
   if(view.placing&&view.site!==null){const c=view.site%W,r=Math.floor(view.site/W);objs.push([c+r+.03,()=>{ctx.globalAlpha=.78;building(ctx,g,view.placing,c,r,1);ctx.globalAlpha=1;}]);}
+  // Add Palisade: a see-through preview of the tile Haven picked, joined to the palisade already there.
+  if(view.walling==='auto'&&view.site!==null){const c=view.site%W,r=Math.floor(view.site/W),with_=new Set([...walls,view.site]);objs.push([c+r+.03,()=>{ctx.globalAlpha=.7;palisade(ctx,g,c,r,with_);ctx.globalAlpha=1;}]);}
   // Mist silhouettes of the forest beyond (skipping tiles a Watchtower already shows)
   for(let r=g.a;r<g.a+g.V;r++)for(let c=g.a;c<g.a+g.V;c++){if(inLand(state,c,r))continue;const id=wid(c,r),sh=wd.shade(id),n=wd.nodes.get(id);if(watch&&n&&n.land===state.land+1)continue;
     if(sh<.55)objs.push([c+r,()=>{ctx.globalAlpha=.32;tree(ctx,g,c,r,sh<.3?'pine':'oak',sh);ctx.globalAlpha=1;}]);}
@@ -1152,6 +1340,7 @@ function draw(now){
   // The building whose bar is open gets a small gold pointer above its roof; so does the tile picked for a new one.
   if(chosen)pointer(ctx,g,chosen.c,chosen.r,TALL[chosen.t]?.[chosen.lv]||1.1,now,smooth);
   if(view.placing&&view.site!==null)pointer(ctx,g,view.site%W,Math.floor(view.site/W),TALL[view.placing]?.[1]||1.1,now,smooth);
+  if(view.walling==='auto'&&view.site!==null)pointer(ctx,g,view.site%W,Math.floor(view.site/W),.8,now,smooth);
   // Work bars over nodes that have been started
   for(const [k,left] of Object.entries(state.hp)){const n=wd.nodes.get(Number(k));if(!n)continue;const max=CONFIG.kinds[n.kind].hp,[x,y]=iso(g,n.c+.5,n.r+.5),bw=Math.round(g.w*.6),bx=Math.round(x-bw/2),by=Math.round(y-g.w*(n.kind==='stone'||n.kind==='ore'||n.kind==='bush'?.62:1.35));
     ctx.fillStyle='#000c';ctx.fillRect(bx-1,by-1,bw+2,6);ctx.fillStyle='#3a2f20';ctx.fillRect(bx,by,bw,4);ctx.fillStyle=Number(k)===view.selected?'#ffe8af':C.brass;ctx.fillRect(bx,by,Math.max(1,Math.round(bw*left/max)),4);
@@ -1160,6 +1349,9 @@ function draw(now){
   // Chips and floating rewards
   for(const a of anims){if(now<a.t0)continue;const k=Math.min(1,(now-a.t0)/a.life),[x,y]=iso(g,a.c+.5,a.r+.5);
     if(a.type==='chips'){ctx.fillStyle=a.color;ctx.globalAlpha=1-k;for(let j=0;j<5;j++){const ang=-Math.PI*(.15+j*.17),d=3+k*g.w*.4;ctx.fillRect(Math.round(x+Math.cos(ang)*d)-1,Math.round(y-g.w*.35+Math.sin(ang)*d+k*k*8)-1,3,3);}ctx.globalAlpha=1;}
+    // A suggestion done: eight chunky gold pixels burst out from where it happened.
+    if(a.type==='ack'){const e=easeOut(k),R=Math.round;ctx.globalAlpha=Math.max(0,1-k*k);ctx.fillStyle='#f8dc88';
+      for(let j=0;j<8;j++){const ang=j*Math.PI/4,d=4+e*g.w*.8;ctx.fillRect(R(x+Math.cos(ang)*d)-2,R(y-g.w*.5+Math.sin(ang)*d*.6)-2,4,4);}ctx.globalAlpha=1;}
     if(a.type==='pop'){const lift=smooth?easeOut(k)*20:0;ctx.globalAlpha=Math.max(0,1-k*k);ctx.font='bold 13px Georgia,serif';ctx.textAlign='center';ctx.fillStyle='#000a';ctx.fillText(a.text,x+1,y-g.w*.9-lift+1);ctx.fillStyle=a.worker?'#9fd8c0':C.brass;ctx.fillText(a.text,x,y-g.w*.9-lift);ctx.globalAlpha=1;}}
 }
 // Feedback for one hit: a shake and chips; a finished node tips over or crumbles, and its reward floats up.

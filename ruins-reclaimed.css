@@ -37,8 +37,8 @@
 .ruins-help p{margin:0 0 6px;font:13px/1.45 Georgia,serif!important;color:#c9d2cc}
 .ruins-help-buttons{display:flex;flex-wrap:wrap;gap:6px}
 .ruins-help button{min-height:44px;padding:8px 12px;border:1px solid #8a5a4a;border-radius:5px;background:#2a1d1b;color:#f0d6c4;font:13px Georgia,serif!important;cursor:pointer}
-.ruins-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:0}
-.ruins-stats>div{min-width:0;padding:3px 4px;border:1px solid #927b4566;border-radius:4px;background:#0b1a22;text-align:center}
+.ruins-stats{display:flex;gap:4px;margin:0}
+.ruins-stats>div{flex:1 1 0;min-width:0;padding:3px 4px;border:1px solid #927b4566;border-radius:4px;background:#0b1a22;text-align:center}
 .ruins-stats dt{font:12px Georgia,serif!important;color:#b8c3bd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ruins-stats dd{margin:1px 0 0;font:15px Georgia,serif!important;color:#ffe8af;white-space:nowrap}
 /* The scene scrolls sideways once Haven grows wider than the screen; taps still work (a tap barely moves). */
@@ -58,7 +58,7 @@
 .ruins-caption>p{max-width:100%;padding:3px 8px;border:2px solid #0c1a12;border-radius:0;background:rgba(15,42,28,.92);box-shadow:2px 2px 0 rgba(0,0,0,.45)}
 .ruins-caption>p:empty{display:none}
 .ruins-scene{position:relative;display:flex;flex:1 1 0;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:0;border:0;border-radius:0;background:radial-gradient(ellipse at 50% 55%,#173628,#0a1a1f 72%);scrollbar-width:thin;scrollbar-color:#a68c56 transparent}
-.ruins-scene canvas{display:block;flex:none;margin:auto;max-width:none;touch-action:pan-x pan-y;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;cursor:pointer;border-radius:3px}
+.ruins-scene canvas{display:block;flex:none;margin:auto;max-width:none;touch-action:none;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;cursor:pointer;border-radius:3px;image-rendering:pixelated;image-rendering:crisp-edges}
 .ruins-scene canvas:focus-visible{outline:2px solid #f8dc88;outline-offset:-2px}
 .ruins-work{margin:0;font:12px/1.4 Georgia,serif!important;color:#9fd8c0;text-align:center}
 .ruins-stage{margin:0;font:13px/1.4 Georgia,serif!important;color:#f0d79a;text-align:center}
@@ -93,8 +93,8 @@
 /* Haven's menus: a strip of four small game buttons on the bottom edge of the screen. Each opens one window over the
  * town; the lit button is the open one. */
 .ruins-goal{margin:0;font:13px/1.35 Georgia,serif!important;color:#e8f5c8}
-.ruins-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;flex-shrink:0;padding:2px;background:#0c1a12;border-top:2px solid #2f5a3a}
-.ruins-tab{min-width:0;min-height:44px;padding:4px 2px;border:2px solid #2f5a3a;border-radius:0;background:#0f2a1c;color:#9bbc6f;font:bold 13px Georgia,serif!important;letter-spacing:.02em;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-tap-highlight-color:transparent}
+.ruins-tabs{display:flex;gap:2px;flex-shrink:0;padding:2px;background:#0c1a12;border-top:2px solid #2f5a3a}
+.ruins-tab{flex:1 1 0;min-width:0;min-height:44px;padding:4px 2px;border:2px solid #2f5a3a;border-radius:0;background:#0f2a1c;color:#9bbc6f;font:bold 13px Georgia,serif!important;letter-spacing:.02em;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-tap-highlight-color:transparent}
 .ruins-tab[aria-selected="true"]{border-color:#9bbc6f;background:#1d4430;color:#e8f5c8;box-shadow:inset 0 -3px #d4ebb0}
 .ruins-tab:active{background:#2f6244}
 /* The open window's list scrolls inside the window, under its title bar, so the first row always starts clear of it. */
@@ -140,6 +140,32 @@
 .ruins-threat{color:#ffe8af!important}
 .ruins-repair{border-color:#b8322e;box-shadow:inset 3px 0 #b8322e}
 .ruins-repair:disabled{border-color:#7e744e;box-shadow:inset 3px 0 #9fd8c0}
+/* #140, the simple view. Zoom: +, − and the square Center button in a small column on the town's top-right corner,
+ * under any open window, so they never cover its ×. The town takes one-finger drags and pinches itself (touch-action
+ * none on the canvas), so the page never scrolls or zooms instead. */
+.ruins-zoom{position:absolute;top:4px;right:4px;display:grid;gap:4px}
+.ruins-zoom button{width:38px;height:38px;padding:0;border:2px solid #9bbc6f;border-radius:0;background:rgba(15,42,28,.92);color:#e8f5c8;font:bold 20px/1 Georgia,serif!important;cursor:pointer;box-shadow:2px 2px 0 rgba(0,0,0,.45);-webkit-tap-highlight-color:transparent}
+.ruins-zoom button:active{background:#2f6244}
+.ruins-zoom button:disabled{opacity:.45;cursor:default}
+.ruins-home i{display:block;width:14px;height:14px;margin:auto;border:2px solid #e8f5c8;box-shadow:inset 0 0 0 3px #0f2a1c,inset 0 0 0 7px #e8f5c8}
+.ruins-over>.ruins-alert,.ruins-over>.ruins-next{margin-right:44px}
+/* The one suggestion: a small drawing, a name, what it's for and its price, and one button. */
+.ruins-next{display:flex;align-items:center;gap:6px;padding:4px 4px 4px 6px;border:2px solid #d4ebb0;border-radius:0;background:rgba(15,42,28,.94);box-shadow:0 0 0 2px #0c1a12,3px 3px 0 2px rgba(0,0,0,.45)}
+.ruins-next>span{flex:1 1 auto;display:grid;gap:1px;min-width:0}
+.ruins-next strong{font:bold 14px Georgia,serif!important;color:#f4ffe0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ruins-next small{font:12px/1.3 Georgia,serif!important;color:#d4ebb0}
+.ruins-next-go{flex:0 0 auto;min-width:72px;min-height:40px;padding:4px 8px;border:2px solid #d4ebb0;border-radius:0;background:#2f6244;color:#f4ffe0;font:bold 14px Georgia,serif!important;box-shadow:inset 0 -3px #9bbc6f;cursor:pointer}
+.ruins-next-go:disabled{opacity:.5;box-shadow:none;cursor:default}
+.ruins-icon{flex:0 0 28px;width:28px;height:28px;image-rendering:pixelated;image-rendering:crisp-edges}
+/* A window's one big choice: the same row as the lists, lit in the title screen's pale green. */
+.ruins-win .ruins-pick{justify-content:flex-start;border-color:#d4ebb0;background:#1d4430;box-shadow:inset 0 -3px #9bbc6f}
+.ruins-pick>span{flex:1 1 auto}
+.ruins-win .ruins-pick small{color:#d4ebb0}
+.ruins-pick:disabled{opacity:.8}
+/* More shows everything else in a window (the full lists and the details); Less folds it away again. */
+.ruins-more-btn{flex-shrink:0;margin-left:auto;min-width:56px;height:40px;padding:0 8px;border:0;border-left:2px solid #9bbc6f;border-radius:0;background:#0f2a1c;color:#e8f5c8;font:bold 13px Georgia,serif!important;cursor:pointer}
+.ruins-more-btn[aria-expanded="true"]{background:#2f6244}
+.ruins-win:not(.ruins-show-more) .ruins-more,.ruins-win:not(.ruins-show-more) .ruins-job small{display:none!important}
 /* Narrow phones (320–360 wide): a little less padding and 12px menu names, so "Defense" fits whole. */
 @media (max-width:360px){.ruins-proto{padding-left:4px;padding-right:4px}.ruins-tab{padding:4px 0;font-size:12px!important;letter-spacing:0}.ruins-win-body{padding:6px 8px}}
 /* Short screens: the window may use more of the town's height, since one tap closes it. */
