@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T17:05:26.821Z",
+ "generatedAt": "2026-11-07T17:08:24.113Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T17:00:45Z",
+  "updatedAt": "2026-11-07T17:08:07Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -62,13 +62,40 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:05:00Z",
+   "updatedAt": "2026-11-07T17:08:17Z",
    "headSha": "e72a3577d860890fd22ae4fc71d92efba1c843f0",
    "touchesGame": false,
    "answers": false,
    "requestStatus": "Waiting to be built",
-   "botState": "",
-   "botAt": null,
+   "botState": "finished",
+   "botAt": "2026-11-07T17:08:17Z",
+   "goLive": false
+  },
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:08:08Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:08:08Z",
+   "headSha": "b14da5917027255b0bb7bb33ac61bc22f5c696f4",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-07T17:07:29Z",
    "goLive": false
   },
   {
@@ -126,11 +153,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524",
    "touchesGame": true,
    "answers": false,
@@ -194,11 +221,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "699556791c607f05dd6daf251cd363d701188a87",
    "touchesGame": true,
    "answers": false,
@@ -227,11 +254,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
    "touchesGame": true,
    "answers": false,
@@ -290,11 +317,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
    "touchesGame": true,
    "answers": false,
@@ -343,11 +370,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -386,11 +413,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
@@ -413,11 +440,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
    "touchesGame": true,
    "answers": false,
@@ -440,11 +467,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
    "touchesGame": true,
    "answers": false,
@@ -483,11 +510,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -526,11 +553,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
    "touchesGame": true,
    "answers": false,
@@ -564,11 +591,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
    "touchesGame": true,
    "answers": false,
@@ -597,11 +624,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
+   "testAt": "2026-11-07T17:08:08Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
+   "updatedAt": "2026-11-07T17:08:08Z",
    "headSha": "31ac1d91a945206547b20af5774ad92878da133e",
    "touchesGame": true,
    "answers": false,
@@ -611,56 +638,30 @@
    "goLive": false
   },
   {
-   "number": 117,
+   "number": 148,
    "kind": "request",
    "by": "Joshua",
-   "title": "Preview approved Common companions in existing detail screen",
-   "quote": "\"Ok\" [to preparing a test version of companion-detail screens using already approved sprites and habitat backgrounds].  \"Yeah I like all the ones so far that are there.\"",
-   "stage": "testing",
+   "title": "Fix unexplained shadows beneath bosses and empty Party positions",
+   "quote": "\"Why are there random shadows below the boss where nothing is\"  \"Ok let’s do it.\"",
+   "stage": "closed",
    "waitingOn": null,
    "forClaude": false,
-   "asks": [
-    {
-     "who": "note",
-     "text": "The lunge now repeats every 4 seconds, the same timing as the tutorial, and a tap plays it at once. I think it suits the page. If it feels busy while you read stats, 6 seconds would be calmer.",
-     "at": "2026-11-06T19:26:11Z"
-    },
-    {
-     "who": "note",
-     "text": "Every companion except the starters now gets a soft glow, three sparkles and a strike flash in its category's colours, placed a bit differently each time. I kept it to three sparkles, the same as the starters, so the page stays calm. A Rare or higher companion could get one or two extra sparkles later if you want them to feel more special.",
-     "at": "2026-11-06T19:26:11Z"
-    },
-    {
-     "who": "note",
-     "text": "Mortals, Spirits and Aberrations had no strike flash in the tutorial, so I gave them one in the same style: a gold diamond for Mortals, a pale star for Spirits and a jagged violet shard for Aberrations.",
-     "at": "2026-11-06T19:26:11Z"
-    },
-    {
-     "who": "note",
-     "text": "Size and weight are removed everywhere. The tutorial's \"A NEW BOND\" screen now shows the starter's short description in that spot instead of leaving it empty.",
-     "at": "2026-11-06T19:26:11Z"
-    },
-    {
-     "who": "note",
-     "text": "I picked one scene for each new Common: Reedwatch Tinker with Wetland Reeds, Millward Bellkeeper with Ancient Gate, Dewfern with Fungal Hollow, Coppice Cricket with Thorn Bramble and Unstitch with Rift Fracture. They're only on the preview page. Tell me which pairs you like and I'll make them those companions' backgrounds in the game.",
-     "at": "2026-11-06T19:26:11Z"
-    }
-   ],
-   "openedAt": "2026-11-06T12:00:36Z",
+   "asks": [],
+   "openedAt": "2026-11-07T17:06:14Z",
    "mergedAt": null,
-   "closedAt": null,
+   "closedAt": "2026-11-07T17:06:42Z",
    "liveAt": null,
-   "testAt": "2026-11-07T17:00:45Z",
-   "onTest": true,
-   "testIsCurrent": true,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:00:45Z",
-   "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
-   "touchesGame": true,
+   "updatedAt": "2026-11-07T17:06:42Z",
+   "headSha": "aa9919a6fbf4ad25684513101b352d1a2867f841",
+   "touchesGame": false,
    "answers": false,
-   "requestStatus": "Built, ready to check",
+   "requestStatus": "Waiting to be built",
    "botState": "finished",
-   "botAt": "2026-11-06T18:34:28Z",
+   "botAt": "2026-11-07T17:06:41Z",
    "goLive": false
   },
   {
@@ -1512,6 +1513,26 @@
  ],
  "activity": [
   {
+   "at": "2026-11-07T17:08:08Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T17:07:29Z",
+   "kind": "built",
+   "text": "Claude finished building “Lower battlefield characters and enlarge bosses by 40%”"
+  },
+  {
+   "at": "2026-11-07T17:06:42Z",
+   "kind": "closed",
+   "text": "“Fix unexplained shadows beneath bosses and empty Party positions” was closed"
+  },
+  {
+   "at": "2026-11-07T17:06:14Z",
+   "kind": "asked",
+   "text": "You asked for “Fix unexplained shadows beneath bosses and empty Party positions”"
+  },
+  {
    "at": "2026-11-07T17:05:00Z",
    "kind": "asked",
    "text": "You asked for “Replace Ascend with 25-hero rarity board for tap power”"
@@ -1519,7 +1540,7 @@
   {
    "at": "2026-11-07T17:00:45Z",
    "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
   },
   {
    "at": "2026-11-07T16:59:20Z",
@@ -1549,7 +1570,7 @@
   {
    "at": "2026-11-07T16:26:54Z",
    "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T16:25:30Z",
@@ -1574,7 +1595,7 @@
   {
    "at": "2026-11-07T16:19:33Z",
    "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T16:18:05Z",
@@ -1589,7 +1610,7 @@
   {
    "at": "2026-11-07T16:14:33Z",
    "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T16:12:34Z",
@@ -1609,7 +1630,7 @@
   {
    "at": "2026-11-07T16:03:25Z",
    "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T16:01:44Z",
@@ -1629,12 +1650,12 @@
   {
    "at": "2026-11-07T15:56:50Z",
    "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T15:54:13Z",
    "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T15:52:27Z",
@@ -1654,7 +1675,7 @@
   {
    "at": "2026-11-07T15:47:50Z",
    "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T15:46:04Z",
@@ -1664,7 +1685,7 @@
   {
    "at": "2026-11-07T15:45:11Z",
    "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T15:43:00Z",
@@ -1690,26 +1711,6 @@
    "at": "2026-11-07T15:41:06Z",
    "kind": "built",
    "text": "Claude finished building “Double species mastery summon requirements and damage bonuses”"
-  },
-  {
-   "at": "2026-11-07T15:41:06Z",
-   "kind": "question",
-   "text": "Part of “Double species mastery summon requirements and damage bonuses” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-07T15:39:22Z",
-   "kind": "asked",
-   "text": "You asked for “Haven: cozy raised starting camp and clearable land patches on the map”"
-  },
-  {
-   "at": "2026-11-07T15:36:29Z",
-   "kind": "asked",
-   "text": "You asked for “Add Codex Claim All discovery rewards and rarity completion bonuses”"
-  },
-  {
-   "at": "2026-11-07T15:36:18Z",
-   "kind": "built",
-   "text": "Claude finished building “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
   }
  ],
  "otherPulls": [
@@ -1743,15 +1744,6 @@
   {
    "number": 132,
    "headSha": "1a0d89df2a0d747a6c171965d9f811680971ed8c",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 128,
-   "headSha": "5818703969ee79ab8d9a88b459fd25ed5db20a27",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
