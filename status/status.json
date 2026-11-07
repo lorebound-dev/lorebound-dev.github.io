@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T02:51:09.890Z",
+ "generatedAt": "2026-11-07T02:59:58.403Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -48,25 +48,61 @@
    "by": "Joshua",
    "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
+   "stage": "testing",
    "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Take phone pictures on the test site of Haven's town at 320×610, 375×812, 390×844 and 430×932, with the drawer folded and with each of Build, People, Defense and Land open, plus a town with 5–10 buildings. From a new save: tap Start, gather, build a few buildings. Check that \"Defense\" isn't cut off at 320, the first Build row starts clear of the tabs, Hide doesn't shrink the tiles, and the…",
+     "at": "2026-11-07T02:59:21Z"
+    },
+    {
+     "who": "note",
+     "text": "I kept the isometric view, as you left it to me. Switching to straight-down would have meant redrawing every building and moving everyone's town. I think isometric suits the handheld look better.",
+     "at": "2026-11-07T02:59:21Z"
+    },
+    {
+     "who": "note",
+     "text": "I didn't use your style picture in the game. It's a single painting, and the request says it isn't approved art. I wrote down exact sprite sizes in Haven's notes (pocket-fortune/docs/RUINS-RECLAIMED-PROTOTYPE.md, \"Sprite contract\"), so a real art batch can drop straight in later: terrain tiles, a House, a Farm and villagers.",
+     "at": "2026-11-07T02:59:21Z"
+    },
+    {
+     "who": "note",
+     "text": "Every Haven building takes one tile today. Your request mentions a House that could take 2×2 tiles. That would be a new rule for where buildings fit, so I left it at one tile. Tell Codex if you want bigger buildings.",
+     "at": "2026-11-07T02:59:21Z"
+    },
+    {
+     "who": "note",
+     "text": "I moved the message line onto the bottom edge of the town and dropped the idle \"Gather, build, and grow Haven.\" line. I think a message that only shows when something happens keeps the town clear.",
+     "at": "2026-11-07T02:59:21Z"
+    },
+    {
+     "who": "note",
+     "text": "A tile that can't take a building blinks red for 0.6 seconds. I think that's long enough to see without getting in the way.",
+     "at": "2026-11-07T02:59:21Z"
+    },
+    {
+     "who": "note",
+     "text": "The drawer now always shows at least two rows, up to about a fifth of the screen. On a 320×610 phone that leaves the town about 120px tall while a section is open. I'd keep it, because Hide gives the town the full height.",
+     "at": "2026-11-07T02:59:21Z"
+    }
+   ],
    "openedAt": "2026-11-02T02:38:48Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-07T02:50:50Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T02:51:08Z",
-   "headSha": "3053bb276286765347bc292d0afb4cc8c7ca7185",
+   "updatedAt": "2026-11-07T02:59:21Z",
+   "headSha": "3df3210d677ce94a711dabfa1e361ec3c1a403cd",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-07T02:51:08Z",
+   "botState": "questions",
+   "botAt": "2026-11-07T02:59:21Z",
    "goLive": false
   },
   {
@@ -1238,9 +1274,14 @@
  ],
  "activity": [
   {
-   "at": "2026-11-07T02:51:08Z",
+   "at": "2026-11-07T02:59:21Z",
    "kind": "built",
    "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-07T02:59:21Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   },
   {
    "at": "2026-11-07T02:50:50Z",
@@ -1431,11 +1472,6 @@
    "at": "2026-11-06T21:43:37Z",
    "kind": "note",
    "text": "Claude left notes for you on “Use tutorial egg companion details; keep Omnidex read-only”"
-  },
-  {
-   "at": "2026-11-06T21:42:21Z",
-   "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Double-tap Party cards to swap pending companions directly”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Polish DEV Rift controls, summon quantity footer and Party labels”"
   }
  ],
  "otherPulls": [
