@@ -2,6 +2,8 @@
    Heroes are found in free openings: 3 charges, each back 24 trusted hours after it was used. A repeat adds a copy,
    and copies raise that hero's mastery (six ranks, +8% of its tap multiplier and +5% of its signature each).
    Every opening also pays Hero Crests by the drawn rarity; Crests buy one copy of a chosen hero (purchases never pay Crests).
+   Since #152 an opening that draws a hero you haven't recruited only finds it: the hero stays a shadow with its copies held,
+   and recruiting it costs a lower, one-time Crest price (RECRUIT_PRICE). Recruiting moves every held copy into its mastery.
    Only the equipped hero counts, and each part is applied once, in one place:
    - tap: Lore.tapPower = weapon tap × hero tap multiplier + the hero's flat tap (tap());
    - companions: LoreRealm.combat adds the hero's all-DPS % plus the matching-type % to each hit, and a flat expected DPS
@@ -25,6 +27,8 @@ const RARITY_COLORS={Common:['#b7bbc0','#e1e2df','#666d75'],Uncommon:['#6fa783',
 // Hero Crests per opening by the drawn hero's rarity, and the price of one copy of a chosen hero (#151, DEV trial values).
 const CREST_REWARD={Common:5,Uncommon:6,Rare:7,Epic:8,Legendary:10,Mythic:13,Ancient:17,Exalted:22,Transcendent:30,Eternal:45};
 const CREST_PRICE={Common:80,Uncommon:140,Rare:230,Epic:360,Legendary:550,Mythic:850,Ancient:1200,Exalted:1750,Transcendent:2500,Eternal:3600};
+// One-time price to recruit a hero an opening has found (#152, DEV trial values, about a quarter of CREST_PRICE).
+const RECRUIT_PRICE={Common:20,Uncommon:35,Rare:60,Epic:90,Legendary:140,Mythic:215,Ancient:300,Exalted:440,Transcendent:625,Eternal:900};
 // Each signature grows by 5% of its listed value per mastery rank (linear, ×1.30 at VI).
 const SIGNATURE_STEP=0.05;
 const TYPES=['Mortals','Beasts','Spirits','Constructs','Wildgrowth','Aberrations'];
@@ -144,16 +148,22 @@ function draw(rng){let x=rng()*100,rarity=RARITIES[RARITIES.length-1];for(const 
 // v3 adds crests (the Hero Crests balance) and bought (the last Crest purchase, by its receipt). The key keeps its v02 name.
 // A v2 record (#150) keeps everything and starts at 0 Crests: openings already paid out earn nothing after the fact, and a
 // v2 result still waiting to be seen shows no Crests (Crests start with the next opening).
-const fresh=()=>({v:3,owned:{[DEFAULT]:1},active:DEFAULT,spent:[],high:0,seq:0,receipt:'',pending:null,crests:0,bought:null});
+// v4 adds found: heroes an opening has drawn but the player hasn't recruited, with the copies held for each. A hero is in
+// owned or in found, never both. A v2/v3 collection keeps every owned hero as recruited and starts with nothing found.
+const fresh=()=>({v:4,owned:{[DEFAULT]:1},found:{},active:DEFAULT,spent:[],high:0,seq:0,receipt:'',pending:null,crests:0,bought:null});
 const wallet=n=>Number.isSafeInteger(n)&&n>=0;
-function clean(v){if(!v||typeof v!=='object'||(v.v!==2&&v.v!==3)||!v.owned||typeof v.owned!=='object'||Array.isArray(v.owned))return null;
+function clean(v){if(!v||typeof v!=='object'||![2,3,4].includes(v.v)||!v.owned||typeof v.owned!=='object'||Array.isArray(v.owned))return null;
  const owned={};for(const [id,n] of Object.entries(v.owned))if(own(id)&&count(n))owned[id]=n;if(!owned[DEFAULT])owned[DEFAULT]=1;
+ const found={},f=v.v===4&&v.found&&typeof v.found==='object'&&!Array.isArray(v.found)?v.found:{};for(const [id,n] of Object.entries(f))if(own(id)&&!owned[id]&&count(n))found[id]=n;
  const high=Number.isFinite(v.high)&&v.high>=0?v.high:0;
  // A return time more than 24h past the latest trusted time is a future jump: it can only come back 24h from then.
  const spent=(Array.isArray(v.spent)?v.spent:[]).filter(Number.isFinite).map(t=>Math.min(t,high+RECHARGE_MS)).sort((a,b)=>a-b).slice(-CHARGES);
- const p=v.pending,v3=v.v===3;const pending=p&&typeof p==='object'&&typeof p.receipt==='string'&&p.receipt&&own(p.id)&&owned[p.id]&&count(p.copies)?{receipt:p.receipt,id:p.id,isNew:!!p.isNew,copies:p.copies,before:rank(p.id,p.copies-1),after:rank(p.id,p.copies),crests:v3&&wallet(p.crests)?p.crests:0}:null;
- const b=v3?v.bought:null,bought=b&&typeof b==='object'&&typeof b.receipt==='string'&&b.receipt&&own(b.id)&&owned[b.id]&&count(b.copies)&&wallet(b.price)?{receipt:b.receipt,id:b.id,isNew:!!b.isNew,copies:b.copies,price:b.price,before:rank(b.id,b.copies-1),after:rank(b.id,b.copies)}:null;
- return {v:3,owned,active:own(v.active)&&owned[v.active]?v.active:DEFAULT,spent,high,seq:Number.isInteger(v.seq)&&v.seq>=0?v.seq:0,receipt:typeof v.receipt==='string'?v.receipt:'',pending,crests:v3&&wallet(v.crests)?v.crests:0,bought};}
+ const p=v.pending,v3=v.v>=3,ok=p&&typeof p==='object'&&typeof p.receipt==='string'&&p.receipt&&own(p.id);
+ // A found result stays valid after the hero is recruited (from the board, while the result is still on screen).
+ const pending=!ok?null:p.found===true&&v.v===4?(count(p.held)&&(found[p.id]||owned[p.id])?{receipt:p.receipt,id:p.id,isNew:p.held===1,found:true,held:p.held,copies:0,before:0,after:0,crests:wallet(p.crests)?p.crests:0}:null)
+  :owned[p.id]&&count(p.copies)?{receipt:p.receipt,id:p.id,isNew:!!p.isNew,copies:p.copies,before:rank(p.id,p.copies-1),after:rank(p.id,p.copies),crests:v3&&wallet(p.crests)?p.crests:0}:null;
+ const b=v3?v.bought:null,bought=b&&typeof b==='object'&&typeof b.receipt==='string'&&b.receipt&&own(b.id)&&owned[b.id]&&count(b.copies)&&wallet(b.price)?{receipt:b.receipt,id:b.id,isNew:!!b.isNew,copies:b.copies,price:b.price,before:b.recruit===true?0:rank(b.id,b.copies-1),after:rank(b.id,b.copies),...(b.recruit===true?{recruit:true}:{})}:null;
+ return {v:4,owned,found,active:own(v.active)&&owned[v.active]?v.active:DEFAULT,spent,high,seq:Number.isInteger(v.seq)&&v.seq>=0?v.seq:0,receipt:typeof v.receipt==='string'?v.receipt:'',pending,crests:v3&&wallet(v.crests)?v.crests:0,bought};}
 let state=null,warn='';
 function storage(){try{return root.localStorage||null;}catch{return null;}}
 // Always re-read before a change, so another tab's opening is seen first.
@@ -171,10 +181,13 @@ function open({now,trusted,rng=Math.random}={}){if(!enabled())return {ok:false,r
  if(rec.pending)return {ok:true,replay:true,result:rec.pending};
  if(!trusted||!Number.isFinite(now))return {ok:false,reason:'clock'};
  const t=Math.max(now,rec.high),c=charges(t,rec);if(c.available<=0)return {ok:false,reason:'empty',nextAt:c.nextAt};
- const h=draw(rng),had=rec.owned[h.id]||0,copies=had+1,seq=rec.seq+1,receipt=makeReceipt(t,seq);
- const crests=CREST_REWARD[h.rarity],pending={receipt,id:h.id,isNew:!had,copies,before:rank(h.id,had),after:rank(h.id,copies),crests};
+ // A recruited hero gets a copy at once. Any other hero is only found: its held copies go up by one and it stays locked.
+ const h=draw(rng),had=rec.owned[h.id]||0,seq=rec.seq+1,receipt=makeReceipt(t,seq),crests=CREST_REWARD[h.rarity];
+ let pending,owned=rec.owned,found=rec.found;
+ if(had){const copies=had+1;pending={receipt,id:h.id,isNew:false,copies,before:rank(h.id,had),after:rank(h.id,copies),crests};owned={...owned,[h.id]:copies};}
+ else{const held=(found[h.id]||0)+1;pending={receipt,id:h.id,isNew:held===1,found:true,held,copies:0,before:0,after:0,crests};found={...found,[h.id]:held};}
  if(!wallet(rec.crests+crests))return {ok:false,reason:'save'};
- const next={...rec,owned:{...rec.owned,[h.id]:copies},spent:[...rec.spent.filter(x=>x>t),t+RECHARGE_MS],high:t,seq,receipt,pending,crests:rec.crests+crests};
+ const next={...rec,owned,found,spent:[...rec.spent.filter(x=>x>t),t+RECHARGE_MS],high:t,seq,receipt,pending,crests:rec.crests+crests};
  if(!commit(next))return {ok:false,reason:'save'};return {ok:true,result:pending};}
 // The player has seen the result. Only clears the matching receipt.
 function acknowledge(receipt){if(!enabled())return false;const rec=load();if(!rec.pending||rec.pending.receipt!==receipt)return false;return commit({...rec,pending:null});}
@@ -184,12 +197,26 @@ function priceOf(id){const h=BY_ID[id];return h?CREST_PRICE[h.rarity]:null;}
 function maxed(id,copies){const h=BY_ID[id];return !!h&&copies>=THRESHOLDS[h.rarity][5];}
 function buy({id,price,seq}={}){if(!enabled())return {ok:false,reason:'off'};if(!own(id))return {ok:false,reason:'unknown'};const rec=load();
  if(price!==CREST_PRICE[BY_ID[id].rarity])return {ok:false,reason:'price'};if(seq!==rec.seq)return {ok:false,reason:'stale'};
- const had=rec.owned[id]||0;if(maxed(id,had))return {ok:false,reason:'max'};if(!wallet(rec.crests)||rec.crests<price)return {ok:false,reason:'funds'};
- const copies=had+1,nextSeq=rec.seq+1,bought={receipt:'b'+makeReceipt(rec.high,nextSeq).slice(1),id,isNew:!had,copies,price,before:rank(id,had),after:rank(id,copies)};
- if(!commit({...rec,owned:{...rec.owned,[id]:copies},crests:rec.crests-price,seq:nextSeq,bought}))return {ok:false,reason:'save'};return {ok:true,result:bought};}
+ // A found hero bought this way keeps its held copies: they and the bought copy all count, in the same write.
+ const had=rec.owned[id]||0,held=had?0:rec.found[id]||0;if(maxed(id,had))return {ok:false,reason:'max'};if(!wallet(rec.crests)||rec.crests<price)return {ok:false,reason:'funds'};
+ const copies=had+held+1,nextSeq=rec.seq+1,bought={receipt:'b'+makeReceipt(rec.high,nextSeq).slice(1),id,isNew:!had,copies,price,before:had?rank(id,had):0,after:rank(id,copies)};
+ const found={...rec.found};delete found[id];
+ if(!commit({...rec,owned:{...rec.owned,[id]:copies},found,crests:rec.crests-price,seq:nextSeq,bought}))return {ok:false,reason:'save'};return {ok:true,result:bought};}
+// Recruit a hero an opening found, for its rarity's one-time RECRUIT_PRICE. Every held copy becomes a lifetime copy.
+// Needs no clock: the Crests and the find were both earned already. price and seq are what the player confirmed.
+function recruitPrice(id){const h=BY_ID[id];return h?RECRUIT_PRICE[h.rarity]:null;}
+function recruit({id,price,seq}={}){if(!enabled())return {ok:false,reason:'off'};if(!own(id))return {ok:false,reason:'unknown'};const rec=load();
+ if(rec.owned[id])return {ok:false,reason:'owned'};const held=rec.found[id]||0;if(!held)return {ok:false,reason:'notfound'};
+ if(price!==RECRUIT_PRICE[BY_ID[id].rarity])return {ok:false,reason:'price'};if(seq!==rec.seq)return {ok:false,reason:'stale'};
+ if(!wallet(rec.crests)||rec.crests<price)return {ok:false,reason:'funds'};
+ const nextSeq=rec.seq+1,bought={receipt:'r'+makeReceipt(rec.high,nextSeq).slice(1),id,isNew:true,recruit:true,copies:held,price,before:0,after:rank(id,held)};
+ const found={...rec.found};delete found[id];
+ if(!commit({...rec,owned:{...rec.owned,[id]:held},found,crests:rec.crests-price,seq:nextSeq,bought}))return {ok:false,reason:'save'};return {ok:true,result:bought};}
 function select(id){if(!enabled()||!own(id))return false;const rec=load();if(!rec.owned[id])return false;if(rec.active===id)return true;return commit({...rec,active:id});}
 function activeHero(){return BY_ID[enabled()?current().active:DEFAULT];}
 function copiesOf(id){return enabled()?current().owned[id]||0:(id===DEFAULT?1:0);}
+// Copies held for a found hero that isn't recruited yet (0 once recruited). They give nothing until it is.
+function heldOf(id){return enabled()&&own(id)?current().found[id]||0:0;}
 // The equipped hero's effects. On the real game every one of them is nothing.
 function tapMultiplier(){if(!enabled())return 1;const rec=current();return heroTap(rec.active,rec.owned[rec.active]);}
 function bonus(){if(!enabled())return null;const rec=current();return signature(rec.active,rec.owned[rec.active]);}
@@ -204,8 +231,8 @@ function companion(type){const x=bonus();if(!x)return {pct:0,flat:0,key:''};cons
  return {pct:x.all+(x.type&&x.type[0]===type?x.type[1]:0),flat:x.typeFlat&&x.typeFlat[0]===type?x.typeFlat[1]:0,key:rec.active+':'+rank(rec.active,rec.owned[rec.active])};}
 // Another tab changed the collection: drop the cached copy.
 try{root.addEventListener?.('storage',e=>{if(e?.key===KEY||e?.key===null)state=null;});}catch{}
-root.LoreHeroes={KEY,LEGACY_KEY,DEFAULT,RARITIES,RARITY_COLORS,ROSTER,ODDS,THRESHOLDS,CHARGES,RECHARGE_MS,MASTERY_STEP,SIGNATURE_STEP,CREST_REWARD,CREST_PRICE,TYPES,byId:id=>own(id)?BY_ID[id]:null,
+root.LoreHeroes={KEY,LEGACY_KEY,DEFAULT,RARITIES,RARITY_COLORS,ROSTER,ODDS,THRESHOLDS,CHARGES,RECHARGE_MS,MASTERY_STEP,SIGNATURE_STEP,CREST_REWARD,CREST_PRICE,RECRUIT_PRICE,TYPES,byId:id=>own(id)?BY_ID[id]:null,
  enabled,clock,active:activeHero,copies:copiesOf,owned:id=>copiesOf(id)>0,rank,heroTap,nextThreshold,draw,charges:now=>charges(now),pending:()=>enabled()?current().pending:null,
- crests:()=>enabled()?current().crests:0,seq:()=>enabled()?current().seq:0,lastBought:()=>enabled()?current().bought:null,priceOf,maxed,buy,signature,effects,help,
+ crests:()=>enabled()?current().crests:0,seq:()=>enabled()?current().seq:0,lastBought:()=>enabled()?current().bought:null,priceOf,maxed,buy,recruitPrice,recruit,held:heldOf,signature,effects,help,
  open,acknowledge,select,tapMultiplier,bonus,tap,tapWith,gold,companion,portrait,grid,navIcon,warning:()=>warn,reload:()=>{state=null;return load();},_reset(){state=null;warn='';}};
 })(globalThis);

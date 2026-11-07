@@ -122,3 +122,9 @@
 @keyframes hero-fade-in{0%,40%{opacity:0}100%{opacity:1}}
 @media(prefers-reduced-motion:reduce){.hero-reveal,.hr-shadow,.hr-color{animation:none}.hr-shadow{opacity:0}}
 @media(max-width:350px){.hero-reveal{grid-template-columns:76px 1fr;gap:8px}.hero-current{grid-template-columns:76px 1fr;gap:8px}.hero-current h3{font-size:16px!important}.hero-stats dd{font-size:15px}.hero-card-name{font-size:13px}.hero-grid{gap:6px}}
+/* #152: a found hero that isn't recruited. Its card keeps the shadow with a solid gold-edged frame, and its result flashes
+   the rarity but stays a shadow, because the hero isn't the player's until it's recruited. */
+.hero-card.is-found{border-style:solid;border-color:color-mix(in srgb,var(--hr-ink) 80%,transparent)}
+.hero-card.is-found .hero-card-lock{color:#f3da9c}
+.hero-card.is-found .hero-card-hint{color:#e7dfc8}
+.hero-reveal.is-found .hr-shadow,.hero-reveal.is-found.is-done .hr-shadow{animation:none;opacity:1}
