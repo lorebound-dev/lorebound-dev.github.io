@@ -122,6 +122,7 @@ const RES=['wood','stone','ore','food'],RES_NAME={wood:'Wood',stone:'Stone',ore:
 const JOBS=['wood','stone','ore','farm','build','guard','scout'];
 const JOB_NAME={wood:'Woodcutters',stone:'Stone miners',ore:'Ore miners',farm:'Farmers',build:'Builders',guard:'Guards',scout:'Scouts'};
 const JOB_ONE={wood:'woodcutter',stone:'stone miner',ore:'ore miner',farm:'farmer',build:'builder',guard:'guard',scout:'scout',auto:'settler on Auto'};
+const JOB_SHORT={wood:'woodcutting',stone:'on stone',ore:'on ore',farm:'farming',build:'building',guard:'guarding',scout:'scouting'};
 const JOB_KIND={wood:'pine',stone:'stone',ore:'ore'};
 const GATHER=new Set(['auto','wood','stone','ore','farm','build']); // jobs that work trees and deposits (farmers forage berry bushes)
 const RAID_NAME={beast:'Wolves',bandit:'Bandits'};
@@ -460,6 +461,15 @@ function setJob(s,job,d){if(!JOBS.includes(job)||(d!==1&&d!==-1))return{ok:false
 function roleOf(s,k){let n=0;for(const j of JOBS){n+=s.jobs[j];if(k<n)return j;}return'auto';}
 // Every worker back on Auto in one go. Like setJob, it pays nothing and restarts no swing.
 function allAuto(s){if(!JOBS.some(j=>s.jobs[j]>0))return{ok:false,reason:'none'};for(const j of JOBS)s.jobs[j]=0;return{ok:true};}
+/* #141: tap a building to staff it. A building that matches a job adds or takes away one of that job through setJob, so
+ * the saved job counts stay the only record and the People counters always agree. Only someone on Auto is assigned:
+ * nobody is taken from another job, hired or charged, and − puts them back on Auto. The Farm takes up to its places
+ * (2 / 3 / 4); other jobs have no places of their own, so only the number of people limits them. */
+const STAFF=Object.freeze({farm:'farm',lumber:'wood',stoneyard:'stone',foundry:'ore',workshop:'build',watchtower:'guard',survey:'scout'});
+const staffCap=(s,type)=>type==='farm'?FX.farmers[lvOf(s,'farm')]:null;
+function staff(s,type,d){const job=STAFF[type];if(!job||!has(s,type)||(d!==1&&d!==-1))return{ok:false,reason:'job'};
+  if(d===1){if(autoJobs(s)<1)return{ok:false,reason:'busy'};const cap=staffCap(s,type);if(cap!==null&&s.jobs[job]>=cap)return{ok:false,reason:'cap',cap};}
+  const r=setJob(s,job,d);return r.ok?{ok:true,job,n:s.jobs[job]}:r;}
 
 /* ---------- Haven Management: ordering, one next goal, what a node gives ----------
  * All worked out from the state as it is; nothing here is stored. */
@@ -726,7 +736,7 @@ function resetCrew(crew){crew.length=0;}
 function crewPosition(w,smooth,s){if(w.phase!=='walk'||!w.steps.length)return[w.c,w.r];const [nc,nr]=w.steps[0],k=Math.min(1,w.t/(s?stepTime(s,nc,nr):CONFIG.stepMs)),e=smooth?easeInOut(k):k<.5?0:1;return[w.c+(nc-w.c)*e,w.r+(nr-w.r)*e];}
 const easeInOut=k=>.5-Math.cos(Math.PI*k)/2,easeOut=k=>1-(1-k)**3;
 
-const logic={KEY,V4_KEY,V2_KEY,V1_KEY,BAD_KEY,CONFIG,FX,BLUEPRINTS,MILESTONES,JOBS,DAMAGEABLE,v1Patch,validateV1,validateV2,validateV4,fromV2,fromV4,world,land,inLand,standing,standingIds,buildingAt,has,lvOf,on,isBroken,fresh,newGame,validate,migrate,loadFrom,
+const logic={STAFF,staff,staffCap,KEY,V4_KEY,V2_KEY,V1_KEY,BAD_KEY,CONFIG,FX,BLUEPRINTS,MILESTONES,JOBS,DAMAGEABLE,v1Patch,validateV1,validateV2,validateV4,fromV2,fromV4,world,land,inLand,standing,standingIds,buildingAt,has,lvOf,on,isBroken,fresh,newGame,validate,migrate,loadFrom,
   hungry,fed,farmOpen,farmCap,farmHit,eat,foodRate,raidsOpen,raidKind,threat,edgeIds,defense,warnLead,raidTarget,raidOutcome,resolveRaid,tickThreat,canWall,layWall,wallSites,
   repairCost,canRepair,startRepair,repairHit,repairing,postsFor,planFor,tileOf,
   cost,afford,manualPower,workerPower,hitsFor,buy,hitNode,regrow,regrowOldest,timedRegrow,canSwing,blocked,walkable,reach,route,stepTime,lockReason,buildCost,canPlace,validSites,build,
@@ -762,9 +772,9 @@ const SKETCH=`<section class="ruins-proto" aria-labelledby="ruinsTitle">
 <div class="ruins-zoom" role="group" aria-label="Zoom"><button type="button" data-ruins="zoomin" aria-label="Zoom in">+</button><button type="button" data-ruins="zoomout" aria-label="Zoom out">−</button><button type="button" class="ruins-home" data-ruins="home" aria-label="Center town"><i></i></button></div>
 <div class="ruins-over"><p class="ruins-alert" id="ruinsAlert" role="status" aria-live="polite" hidden></p>
 <div class="ruins-next" id="ruinsHud" hidden><canvas class="ruins-icon" aria-hidden="true"></canvas><span><strong id="ruinsHudName"></strong><small id="ruinsHudCost"></small></span><button type="button" class="ruins-next-go" data-ruins="suggest">Build</button></div>
-<div class="ruins-help ruins-win" id="ruinsHelp" role="group" aria-label="How Haven works" hidden><div class="ruins-win-head"><strong>How Haven works</strong><button type="button" class="ruins-close" data-ruins="helpclose" aria-label="Close How Haven works">×</button></div><div class="ruins-win-body"><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do opens from the four buttons along the bottom of the screen: Build, People, Defense and Land. Each opens a small window over the town, and × (or the same button again) closes it. The box at the top of the town suggests one thing worth doing next, with its price; you never have to follow it. Each window shows one choice first; More shows everything. Tap a building or a person to see what you can do with them.</p><p>Drag the town to look around. Pinch, or use + and −, to zoom; the square button brings the middle back.</p><p>Add Palisade (Defense) picks the next edge tile for you and shows it before you pay. Pick for me does the same for a building; you can still tap any lit tile yourself.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people (they need a place to live and some Food) and give them jobs. Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div></div>
+<div class="ruins-help ruins-win" id="ruinsHelp" role="group" aria-label="How Haven works" hidden><div class="ruins-win-head"><strong>How Haven works</strong><button type="button" class="ruins-close" data-ruins="helpclose" aria-label="Close How Haven works">×</button></div><div class="ruins-win-body"><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do opens from the four buttons along the bottom of the screen: Build, People, Defense and Land. Each opens a small window over the town, and × (or the same button again) closes it. The box at the top of the town suggests one thing worth doing next, with its price; you never have to follow it. Each window shows one choice first; More shows everything. Tap a building or a person to see what you can do with them.</p><p>Drag the town to look around. Pinch, or use + and −, to zoom; the square button brings the middle back.</p><p>Add Palisade (Defense) picks the next edge tile for you and shows it before you pay. Pick for me does the same for a building; you can still tap any lit tile yourself.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people at the House or in People (they need a place to live and some Food). Tap a building to give it workers: + takes someone on Auto, − puts them back. The Farm, Lumber Camp, Stone Yard, Foundry, Workshop, Watchtower and Survey Post each have their job; More jobs in People has every job, even before its building.Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div></div>
 <i class="ruins-gap"></i><div class="ruins-caption"><p class="ruins-work" id="ruinsWorkText" hidden></p><p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p></div>
-<div class="ruins-place" id="ruinsPlace" hidden><strong class="ruins-place-name" id="ruinsPlaceName"></strong><p id="ruinsPlaceText"></p><div><button type="button" class="ruins-confirm" data-ruins="confirm">Build here</button><button type="button" class="ruins-confirm" data-ruins="autopick" hidden>Pick for me</button><button type="button" class="ruins-cancel" data-ruins="cancel">Cancel</button></div></div>
+<div class="ruins-place" id="ruinsPlace" hidden><strong class="ruins-place-name" id="ruinsPlaceName"></strong><p id="ruinsPlaceText"></p><div class="ruins-staff" id="ruinsStaff" hidden><span><strong id="ruinsStaffName"></strong><small id="ruinsStaffInfo"></small></span><button type="button" data-ruins="staff" data-d="less">−</button><b id="ruinsStaffN">0</b><button type="button" data-ruins="staff" data-d="add">+</button></div><button type="button" class="ruins-cancel ruins-bar-go" data-ruins="recruit" hidden>Recruit</button><button type="button" class="ruins-cancel ruins-bar-go" data-ruins="topeople" hidden>Reassign in People</button><div><button type="button" class="ruins-confirm" data-ruins="confirm">Build here</button><button type="button" class="ruins-confirm" data-ruins="autopick" hidden>Pick for me</button><button type="button" class="ruins-cancel" data-ruins="cancel">Cancel</button></div></div>
 <div class="ruins-win" id="ruinsManageBody" role="group" aria-labelledby="ruinsWinTitle" hidden>
 <div class="ruins-win-head"><strong id="ruinsWinTitle">Build</strong><button type="button" class="ruins-more-btn" data-ruins="more" aria-expanded="false">More</button><button type="button" class="ruins-close" data-ruins="manage" aria-controls="ruinsManageBody">×</button></div>
 <p class="ruins-goal ruins-more" id="ruinsGoal" hidden></p>
@@ -776,9 +786,9 @@ ${pickCard('build')}
 <p class="ruins-build-head ruins-more">Foundations</p><div class="ruins-bp-list ruins-more" id="ruinsList-found">${BLUEPRINTS.filter(b=>b.group==='found').map(bpButton).join('')}</div>
 <p class="ruins-build-head ruins-more">Town</p><div class="ruins-bp-list ruins-more" id="ruinsList-town">${BLUEPRINTS.filter(b=>b.group==='town').map(bpButton).join('')}</div></div>
 <div class="ruins-pane ruins-jobs" id="ruinsJobs" role="tabpanel" aria-labelledby="ruinsTab-jobs" hidden>
-<p class="ruins-note ruins-threat" id="ruinsPeopleShort"></p>${pickCard('jobs')}
+<p class="ruins-note ruins-threat" id="ruinsPeopleShort"></p><p class="ruins-note" id="ruinsJobSum"></p>${pickCard('jobs')}
 <button type="button" class="ruins-upgrade" data-ruins="worker"><span><strong></strong><small></small></span><b></b></button>
-<p id="ruinsJobsText" class="ruins-more"></p>${JOBS.map(j=>`<div class="ruins-job" id="ruinsJob-${j}"><span><strong id="ruinsJobName-${j}"></strong><small id="ruinsJobInfo-${j}"></small></span><button type="button" data-ruins="job" data-job="${j}" data-d="less">−</button><b id="ruinsJobN-${j}">0</b><button type="button" data-ruins="job" data-job="${j}" data-d="add">+</button></div>`).join('')}
+<p id="ruinsJobsText" class="ruins-more"></p>${JOBS.map(j=>`<div class="ruins-job ruins-more" id="ruinsJob-${j}"><span><strong id="ruinsJobName-${j}"></strong><small id="ruinsJobInfo-${j}"></small></span><button type="button" data-ruins="job" data-job="${j}" data-d="less">−</button><b id="ruinsJobN-${j}">0</b><button type="button" data-ruins="job" data-job="${j}" data-d="add">+</button></div>`).join('')}
 <button type="button" class="ruins-cancel ruins-auto ruins-more" data-ruins="auto">Put every worker on Auto</button></div>
 <div class="ruins-pane" id="ruinsDefensePane" role="tabpanel" aria-labelledby="ruinsTab-defense" hidden><p class="ruins-note ruins-threat" id="ruinsDefShort"></p>${pickCard('defense')}<p class="ruins-note ruins-more" id="ruinsDefenseText"></p><p class="ruins-note ruins-more" id="ruinsDefenseParts"></p><p class="ruins-note ruins-more" id="ruinsLastRaid" hidden></p>
 ${DAMAGEABLE.map(t=>`<button type="button" class="ruins-upgrade ruins-repair" data-ruins="repair" data-fix="${t}" hidden><span><strong></strong><small></small></span><b></b></button>`).join('')}
@@ -810,7 +820,8 @@ function mount(slot){
     oreBox:q('#ruinsOreBox'),hud:q('#ruinsHud'),hudIcon:q('#ruinsHud canvas'),hudName:q('#ruinsHudName'),hudCost:q('#ruinsHudCost'),hudGo:q('[data-ruins=suggest]'),autopick:q('[data-ruins=autopick]'),
     moreBtn:q('[data-ruins=more]'),more:false,peopleShort:q('#ruinsPeopleShort'),defShort:q('#ruinsDefShort'),zoomIn:q('[data-ruins=zoomin]'),zoomOut:q('[data-ruins=zoomout]'),
     pickBtns:Object.fromEntries(['build','jobs','defense'].map(p=>[p,q(`[data-ruins=pick][data-pane=${p}]`)])),picks:{},sug:null,
-    jobRows:Object.fromEntries(JOBS.map(j=>[j,q(`#ruinsJob-${j}`)])),zoom:1,ptrs:new Map(),pinch:null,panning:false};
+    jobRows:Object.fromEntries(JOBS.map(j=>[j,q(`#ruinsJob-${j}`)])),jobSum:q('#ruinsJobSum'),
+    staff:q('#ruinsStaff'),staffName:q('#ruinsStaffName'),staffInfo:q('#ruinsStaffInfo'),staffN:q('#ruinsStaffN'),staffLess:q('[data-ruins=staff][data-d=less]'),staffAdd:q('[data-ruins=staff][data-d=add]'),recruit:q('[data-ruins=recruit]'),toPeople:q('[data-ruins=topeople]'),zoom:1,ptrs:new Map(),pinch:null,panning:false};
   if(drawerMemory)Object.assign(view,drawerMemory);
   view.place.hidden=true;view.help.hidden=true;
   el.addEventListener('click',onClick);el.addEventListener('keydown',onPanelKey);
@@ -902,7 +913,7 @@ function tapAt(x,y){
   if(t.raider){const k=state.raid,o=raidOutcome(state,k),tg=raidTarget(state,k);
     openInfo(RAID_NAME[k],`Threat ${o.th} against your Defense ${o.def}${tg?` · heading for the ${BP[tg].name}`:''}. ${o.won?'They will be driven off.':'Add guards in People to drive them off.'}`,'defense');return;}
   if(t.person){const w=t.person,role=roleOf(state,w.k),doing=w.task==='farm'?'working the Farm':w.task==='repair'?'repairing':w.task==='post'?'keeping watch':w.phase==='work'?'working':w.phase==='walk'?'walking to a job':'resting';
-    const job=JOB_ONE[role];openInfo(job[0].toUpperCase()+job.slice(1),`${doing[0].toUpperCase()+doing.slice(1)}. Eats 1 Food a minute. Jobs are set in People.`,'jobs');return;}
+    const job=JOB_ONE[role];openInfo(job[0].toUpperCase()+job.slice(1),`${doing[0].toUpperCase()+doing.slice(1)}. Eats 1 Food a minute. Tap a building to give it workers.`,'jobs');return;}
 }
 /* A hit by hand on a building being repaired: the same 0.48 s pace as gathering, and your full hit power. */
 function fix(type){const now=performance.now();if(!canSwing(lastSwing,now))return;const res=repairHit(state,type,manualPower(state));if(!res)return;lastSwing=now;
@@ -968,7 +979,7 @@ function act(sug){if(!sug||!sug.ready||!view)return;const now=performance.now();
 function done(key,id){if(!view||!key||view.sugKey!==key)return;const [lo,hi]=land(state),m=Math.floor((lo+hi)/2),at=id??wid(m,m),now=performance.now();
   if(!reduced())anims.push({type:'ack',c:at%W,r:Math.floor(at/W),t0:now,life:900});anims.push({type:'pop',c:at%W,r:Math.floor(at/W),text:'Done!',worker:false,t0:now+150,life:1100});wake();}
 function buyThing(what){const r=buy(state,what);if(r.ok){done(what);store();if(what==='worker')syncCrew(state,crew);
-    say(what==='tools'?`Better Tools level ${state.tools}. Hit power is now ${power(manualPower(state))}.`:`Someone new joins Haven. ${plural(state.workers,'person','people')} now. They start on Auto; give them a job in People.`);update();wake();}
+    say(what==='tools'?`Better Tools level ${state.tools}. Hit power is now ${power(manualPower(state))}.`:`Someone new joins Haven. ${plural(state.workers,'person','people')} now. They start on Auto; tap a building to give them a job.`);update();wake();}
   else if(r.reason==='hungry')say('No one joins a hungry town. Get some Food first.');}
 function doExpand(){if(Date.now()-lastBig<700)return;const r=expand(state);
   if(!r.ok){say(r.reason==='survey'?'Build a Survey Post first.':r.reason==='short'?`You need ${fmt(r.need)} more to expand.`:'Haven has reached its full size for now.');return;}
@@ -1014,6 +1025,9 @@ function onClick(e){
   if(what==='cancel'){const wasRoads=view.roading,wasWalls=view.walling;endPlacing();
     say(wasRoads&&state.roads.length?`${plural(state.roads.length,'road tile')} in Haven.`:wasWalls&&state.walls.length?`${plural(state.walls.length,'palisade tile')} in Haven.`:'');update();return;}
   if(what==='expand'){doExpand();return;}
+  if(what==='staff'){staffTap(b.dataset.d==='add');return;}
+  if(what==='recruit'){buyThing('worker');if(view.upgrading)placeLine();return;}
+  if(what==='topeople'){endPlacing();openTab('jobs',false);view.more=true;update();return;}
   if(what==='reset'){if(Date.now()-resetArmed>3000){resetArmed=Date.now();b.textContent='Tap again to reset the demo';return;}
     resetArmed=0;b.textContent='Reset demo';state=newGame();regrowClock.left=CONFIG.regrowMs;raidClock.walk=0;lastSwing=null;resetCrew(crew);anims=[];endPlacing();store();view.level=1;say('Demo reset. Only Haven’s test settlement was cleared.');layout(true);update();wake();return;}
   if(what==='reimport'){const r=loadFrom({get:k=>k===KEY?null:storeApi.get(k),set:()=>{}});if(!r.from)return;
@@ -1041,8 +1055,8 @@ function openRepair(type){if(!isBroken(state,type))return;if(state.broken[type]>
 // Paying for a repair, like building: the bar closes on success, so a double tap can't pay twice.
 function confirmRepair(){const type=view.repairing;if(!type)return;const res=startRepair(state,type);if(!res.ok){placeLine();return;}
   done('repair:'+type,tileOf(state,type));store();endPlacing();say(`Repair of the ${BP[type].name} paid. ${state.jobs.build?'Your builders are on their way.':'No one is a Builder: tap it yourself to repair it, or make someone a Builder in People.'}`);update();wake();}
-function endPlacing(){if(!view)return;view.info=null;view.placing=null;view.roading=false;view.walling=false;view.upgrading=null;view.repairing=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.autopick.hidden=true;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';}
-function placeLine(){view.place.hidden=false;view.confirm.disabled=false;view.autopick.hidden=true;
+function endPlacing(){if(!view)return;view.info=null;view.placing=null;view.roading=false;view.walling=false;view.upgrading=null;view.repairing=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.autopick.hidden=true;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';hideStaff();}
+function placeLine(){view.place.hidden=false;view.confirm.disabled=false;view.autopick.hidden=true;hideStaff();
   if(view.info){view.placeName.textContent=view.info.title;view.placeText.textContent=view.info.text;view.confirm.hidden=false;view.confirm.textContent=TABS.find(t=>t.id===view.info.go).name;view.cancel.textContent='Close';return;}
   // One plain heading for what's in hand, so it's clear what a tap on the town will do.
   view.placeName.textContent=view.roading?'Laying road':view.walling==='auto'?'Add Palisade':view.walling?'Building palisade':view.repairing?`Repair · ${BP[view.repairing].name}`
@@ -1057,15 +1071,34 @@ function placeLine(){view.place.hidden=false;view.confirm.disabled=false;view.au
   if(view.repairing){const type=view.repairing,u=canRepair(state,type),c=repairCost(state,type);view.confirm.textContent='Repair';view.confirm.disabled=!u.ok;
     view.placeText.textContent=u.reason==='short'?`The ${BP[type].name} is damaged and does nothing until repaired. Repair costs ${fmt(c)}: you need ${fmt(u.need)} more.`
       :`Repair the ${BP[type].name} for ${fmt(c)}? Then builders (or your taps) do ${CONFIG.repairWork} work and it works again.`;return;}
-  if(view.upgrading){const type=view.upgrading,bp=BP[type],lv=lvOf(state,type),u=canUpgrade(state,type);view.confirm.textContent='Upgrade';view.confirm.disabled=!u.ok;view.cancel.textContent='Close';
-    const now=`${bp.name} · Lv ${lv} (${STAGES[lv-1]}): ${bp.effects[lv-1]}.`;
-    view.placeText.textContent=u.reason==='max'?`${now} It's at its highest level.`
-      :u.reason==='townhall'?`${now} Raise the Town Hall to Lv ${u.to} to upgrade it.`
-      :u.reason==='level'?`${now} Lv ${u.to} needs Settlement Lv ${CONFIG.townHallNeeds[u.to]}.`
-      :u.reason==='short'?`${now} Lv ${u.to} (${STAGES[u.to-1]}) costs ${fmt(u.cost)}: you need ${fmt(u.need)} more.`
-      :`${now} Upgrade to Lv ${u.to} (${STAGES[u.to-1]}) for ${fmt(u.cost)}? ${bp.effects[u.to-1]}.`;return;}
+  if(view.upgrading){const type=view.upgrading,bp=BP[type],lv=lvOf(state,type),u=canUpgrade(state,type);view.confirm.textContent='Upgrade';view.confirm.disabled=!u.ok;view.confirm.hidden=u.reason==='max';view.cancel.textContent='Close';
+    // #141: what the building does now in one line, then its next level in a few words.
+    const now=`${bp.effects[lv-1]}.`;
+    view.placeText.textContent=u.reason==='max'?`${now} Highest level.`
+      :u.reason==='townhall'?`${now} Lv ${u.to} later: needs Town Hall Lv ${u.to}.`
+      :u.reason==='level'?`${now} Lv ${u.to} later: needs Settlement Lv ${CONFIG.townHallNeeds[u.to]}.`
+      :u.reason==='short'?`${now} Lv ${u.to} (${STAGES[u.to-1]}): ${fmt(u.cost)}, need ${fmt(u.need)} more.`
+      :`${now} Upgrade to Lv ${u.to} (${STAGES[u.to-1]}) for ${fmt(u.cost)}?`;staffLine(type);return;}
   const bp=BP[view.placing],c=buildCost(state,view.placing);view.confirm.textContent='Build here';view.confirm.disabled=view.site===null;view.confirm.hidden=view.site===null;view.autopick.hidden=view.site!==null;
   view.placeText.textContent=view.site===null?`Tap a lit tile, or Pick for me. ${fmt(c)}. Drag to look around.`:`Build the ${bp.name} here for ${fmt(c)}?`;}
+function hideStaff(){if(!view.staff)return;view.staff.hidden=true;view.recruit.hidden=true;view.toPeople.hidden=true;}
+/* #141: a tapped building's people. A House recruits (same price and rules as People); a building with a job shows
+ * how many have it, with − and +. With no one on Auto, + is off and the bar offers People to free someone. */
+function staffLine(type){
+  if(type==='house'){const c=cost(state,'worker'),cap=workerCap(state),full=c===null,hun=!full&&hungry(state),short=!full&&!hun&&!afford(state,c);view.recruit.hidden=false;
+    view.recruit.textContent=full?`People ${state.workers} / ${cap} · full`:hun?'Recruit · need Food':short?`Recruit · need ${fmt(shortOf(state,c))}`:`Recruit · ${fmt(c)}`;
+    view.recruit.disabled=full||hun||short;view.recruit.setAttribute('aria-label',`${view.recruit.textContent}. ${state.workers} of ${cap} people.`);return;}
+  const job=STAFF[type];if(!job)return;const n=state.jobs[job],cap=staffCap(state,type),auto=autoJobs(state),capped=cap!==null&&n>=cap;
+  view.staff.hidden=false;view.staffName.textContent=JOB_NAME[job];view.staffN.textContent=cap===null?String(n):`${n} / ${cap}`;
+  view.staffInfo.textContent=capped?`The Farm is full · ${auto} on Auto`:auto<1?'No free workers':`${auto} on Auto`;
+  view.staffLess.disabled=n<=0;view.staffAdd.disabled=auto<1||capped;view.toPeople.hidden=auto>=1||capped;
+  view.staffLess.setAttribute('aria-label',`One fewer ${JOB_ONE[job]}, back to Auto`);view.staffAdd.setAttribute('aria-label',`One more ${JOB_ONE[job]} from Auto`);}
+// + or − on a building: only someone on Auto changes job, nothing is paid, and they finish what they're doing first.
+function staffTap(add){const type=view.upgrading;if(!type||view.repairing)return;const r=staff(state,type,add?1:-1);
+  if(!r.ok){say(r.reason==='busy'?'No free workers. Recruit at the House, or free someone in People.':r.reason==='cap'?`The Farm has room for ${r.cap} farmers.`:'');placeLine();return;}
+  if(add)done('job:'+r.job,tileOf(state,type));store();const id=tileOf(state,type);
+  if(id!==null)anims.push({type:'pop',c:id%W,r:Math.floor(id/W),text:`${add?'+1':'−1'} ${JOB_ONE[r.job]}`,worker:true,t0:performance.now(),life:900});
+  say(add?`One more ${JOB_ONE[r.job]}. They head over after their current task.`:`One ${JOB_ONE[r.job]} is back on Auto.`);update();wake();}
 // A second tap on Build here finds placing already ended, so a double tap can never build or charge twice.
 function confirmBuild(){if(!view.placing||view.site===null)return;const type=view.placing,c=view.site%W,r=Math.floor(view.site/W),res=build(state,type,c,r);
   if(!res.ok){say(res.reason==='short'?`You need ${fmt(res.need)} more.`:'That spot is no longer free. Pick another lit tile.');if(res.reason!=='short'){view.sites=validSites(state,type);view.site=null;placeLine();draw();}return;}
@@ -1136,9 +1169,10 @@ function simple(auto,cap){
     view.hudGo.setAttribute('aria-label',`${sug.verb} ${sug.name}. ${costLine(sug)}.`);drawIcon(view.hudIcon,sug);}
   view.picks={build:paneBuild(state,sug),jobs:panePeople(state,sug),defense:defensePick(state)};
   for(const [p,btn] of Object.entries(view.pickBtns))card(btn,view.picks[p]);
-  view.manageBody.classList?.toggle('ruins-show-more',view.more);view.moreBtn.textContent=view.more?'Less':'More';view.moreBtn.setAttribute('aria-expanded',String(view.more));
+  view.manageBody.classList?.toggle('ruins-show-more',view.more);view.moreBtn.textContent=view.more?'Less':view.tab==='jobs'?'More jobs':'More';view.moreBtn.setAttribute('aria-expanded',String(view.more));
   view.peopleShort.textContent=state.workers?`${state.workers} / ${cap} people · ${auto} on Auto`:'No one lives here yet';
-  for(const j of JOBS)view.jobRows[j].classList?.toggle('ruins-more',['ore','build','scout'].includes(j)&&!state.jobs[j]);
+  const held=JOBS.filter(j=>state.jobs[j]).map(j=>`${state.jobs[j]} ${JOB_SHORT[j]}`).join(' · ');
+  view.jobSum.textContent=!state.workers?'Recruit someone below.':`${held?held+'. ':''}Tap a building to give it workers.`;
   view.defShort.textContent=defShort();
   view.oreBox.hidden=!state.ore&&!state.land&&!has(state,'foundry');
   for(const t of TABS)view.tabs[t.id].btn.hidden=!tabOn(t.id);
