@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T17:18:12.602Z",
+ "generatedAt": "2026-11-07T17:48:14.705Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T17:12:04Z",
+  "updatedAt": "2026-11-07T17:19:21Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -32,7 +32,8 @@
    "Audit live and dev Realm 1 visuals before Realm 2",
    "Polish DEV Rift controls, summon quantity footer and Party labels",
    "Keep enemy and companions stationary when Party collapses",
-   "Implement approved QoL audit across summoning collection and mobile play"
+   "Implement approved QoL audit across summoning collection and mobile play",
+   "Replace Ascend with 25-hero rarity board for tap power"
   ],
   "skipped": [
    "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
@@ -40,81 +41,574 @@
    "Double species mastery summon requirements and damage bonuses",
    "Unify Rift rarity bars and clean up legacy Tome UI",
    "Show named blank undiscovered Omnidex cards and tighten rarity pages",
-   "Add Codex Claim All discovery rewards and rarity completion bonuses"
+   "Add Codex Claim All discovery rewards and rarity completion bonuses",
+   "Replace Shardworks with a timed-egg Pet Farm and roaming pets"
   ]
  },
  "items": [
+  {
+   "number": 150,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Heroes: three openings per 24 hours, silhouette collection and duplicate mastery",
+   "quote": "\"Ok now we need to tink about how we will open them and get more. I think that if you get dupes, it should take copies to upgrade it just like the companions. Also they should be hreyed out with just a shadowed outline and their name if it’s not unlocked. I think a user should get 3 openings every 24 hours\"",
+   "stage": "closed",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-07T17:47:07Z",
+   "mergedAt": null,
+   "closedAt": "2026-11-07T17:47:35Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:47:35Z",
+   "headSha": "de6d25904b5555a5a366d6ebbedb8aa5c45151af",
+   "touchesGame": false,
+   "answers": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "finished",
+   "botAt": "2026-11-07T17:47:34Z",
+   "goLive": false
+  },
   {
    "number": 147,
    "kind": "request",
    "by": "Joshua",
    "title": "Replace Ascend with 25-hero rarity board for tap power",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "built",
+   "stage": "building",
    "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Check Heroes on the test site in a browser at 320×610, 375×812, 390×844 and 430×932. From a new save, tap the fourth tab (Heroes). Then check: the rarity buttons, the 2-column cards (nothing cut off or overlapping), the preview with Equip and Close, and the Active marker. Then on Quest, check that the TAP number goes from 3 to 3.6 (Ashara) and 6.9 (Selka). Take screenshots of the board, an…",
-     "at": "2026-11-07T17:17:36Z"
-    },
-    {
-     "who": "note",
-     "text": "I built your tap numbers exactly as written: ×1.00 for Rowan up to ×2.30 for Selka. One weapon level gives ×1.2, so the best hero is worth about 4–5 weapon levels. That's a good size for trying out, but how heroes are earned will decide whether ×2.30 feels fair.",
-     "at": "2026-11-07T17:17:36Z"
-    },
-    {
-     "who": "note",
-     "text": "Like Ascend before it, Heroes only works on the test site. In the real game the tab says \"Heroes · Coming Soon\" and taps stay as they are. So until you decide how heroes are earned, putting this live would only rename the tab.",
-     "at": "2026-11-07T17:17:36Z"
-    },
-    {
-     "who": "note",
-     "text": "Your hero choice is kept on the device, separately from your game save. That's why no save update was needed. It also means the choice doesn't go into Save backups or move to another phone. If heroes become a real part of the game, they should go into the save, and that change needs Noah's OK.",
-     "at": "2026-11-07T17:17:36Z"
-    },
-    {
-     "who": "note",
-     "text": "The tab icon is a simple pixel helm drawn in code. The other four tabs have your painted emblems, so this one looks plainer. If you'd like a matching Heroes emblem, put one in the Artwork Inbox and I'll swap it in.",
-     "at": "2026-11-07T17:17:36Z"
-    },
-    {
-     "who": "note",
-     "text": "Ascend only exists in the Haven request (#92), so I built Heroes on top of it. That means Heroes can only go live after #92. If you want Heroes without Haven, say so and I'll rebuild it on the current game's fourth tab instead.",
-     "at": "2026-11-07T17:17:36Z"
-    },
-    {
-     "who": "note",
-     "text": "Each hero has one bonus idea (Fortune, Battle focus, Guard breaker, Precision or Rally). They are only labels for now and say \"not active yet\".",
-     "at": "2026-11-07T17:17:36Z"
-    },
-    {
-     "who": "note",
-     "text": "Ascend's files are still in the game folder, but they no longer load. Any old Ascend run saved in a browser is left as it was.",
-     "at": "2026-11-07T17:17:36Z"
-    },
-    {
-     "who": "note",
-     "text": "The test caught one real bug while I built this: one unusual broken hero choice could have left no hero active. It's fixed, and a test now covers it.",
-     "at": "2026-11-07T17:17:36Z"
-    }
-   ],
+   "forClaude": false,
+   "asks": [],
    "openedAt": "2026-11-07T17:05:00Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": null,
-   "onTest": false,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T17:17:36Z",
-   "headSha": "f98df73936b06e6606b5e56eb03ce6b476b50bcf",
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "256af7656cc2550f0fc4a3d31300720564f89475",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-07T17:17:36Z",
+   "goLive": false
+  },
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the battlefield in a browser at 320×610, 375×812, 390×844 and 430×932 with throwaway saves (pocket-fortune/tools/create-endless-review-save.cjs gives an Endless save). Check Endless, a Story boss, a normal fight with one and with five companions, and an enemy dying, with the Party menu open and closed. Take before and after screenshots (main is the before), and confirm the floor shows…",
+     "at": "2026-11-07T17:09:57Z"
+    },
+    {
+     "who": "note",
+     "text": "I also removed the big dark pool over the courtyard. It was added earlier so fighters wouldn't stand on the brightest part of the painting. They still have their dark outlines and foot shadows, so they should stay easy to see. If they look washed out now, I can bring back a much lighter pool.",
+     "at": "2026-11-07T17:09:57Z"
+    },
+    {
+     "who": "note",
+     "text": "Each companion and enemy has two soft shadows that sit together under its feet: the oval and a shadow cast from the picture itself. They are tied to the fighter and move with it, so I left them as they were. If they look too heavy, I can drop one of them.",
+     "at": "2026-11-07T17:09:57Z"
+    }
+   ],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "62096da571c3b2068bc3f4d4a8498c941103a7db",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T17:09:57Z",
+   "goLive": false
+  },
+  {
+   "number": 146,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Implement approved QoL audit across summoning collection and mobile play",
+   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
+   "stage": "testing",
+   "waitingOn": "both",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Which area should I build next? My suggestion is the Auto summary after you stop Auto (area 2). It's useful every day, and nothing else is changing that part of the screen.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Can each area become its own request? My suggestion is yes: one small request per area, so you can try and approve each one on its own. The simplest way is to tell Codex \"split the QoL audit into one request per area\".",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "noah",
+     "text": "Favorite and Protect for companions (area 3) need new data in every save, through a save update. I haven't built it. It needs Noah's OK on the save change first.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at Save Backups at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save: Profile, then Save Backups. Check that the \"N/30 discovered\" line fits without wrapping oddly.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "note",
+     "text": "I built only the Save Backups total from area 9. It's small, but it's the only part I could build without clashing with your other open requests.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "note",
+     "text": "This request is too big for one build. It's nine areas, each about the size of a normal request, and several depend on requests that aren't live yet. One big change like that would be very hard for you to try out and approve.",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "note",
+     "text": "These parts don't depend on any other request, so I could build each one as its own request next: the Auto summary after you stop Auto (area 2), a \"Reduced effects\" setting (area 5), the Ascend screen listing what resets and what stays (area 7), and the opening-pace measurements (area 6, a report only, with no number changes).",
+     "at": "2026-11-07T16:59:20Z"
+    },
+    {
+     "who": "note",
+     "text": "These parts should wait until their request goes live, and then be built on top of it: Party card upgrade feedback (#118), Codex search, filters and remembered page (#142/#130), the mastery explanation (#119), and Haven building states (#92/#141/#143).",
+     "at": "2026-11-07T16:59:20Z"
+    }
+   ],
+   "openedAt": "2026-11-07T16:55:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T16:59:20Z",
+   "goLive": false
+  },
+  {
+   "number": 92,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Do you want a quicker start (note 2)? I suggest B: the first House costs 12 Wood · 6 Stone and the first Farm 10 Wood · 3 Stone, and nothing else changes. Or keep it as it is.",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "noah",
+     "text": "#144 replaces Haven's land rings with patches you clear one at a time. That needs a new version of Haven's own test save (v5 → v6). Joshua says his test town can be started over. I suggest OK, test site only: a fresh start under a new key, with the v5 save kept untouched as a backup. The real game's saves aren't touched. #145's fuller resource layout is built on that new map, so it waits on…",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Build #144 and #145's resource layout together once Noah OKs the v6 Haven test save. That means the raised home clearing, patches with Clear and lock badges, a short Land window with Find Next Clearing, and the palisade and raids following the new edge. It also means clustered trees and rocks, about 20–30% more in the outer patches, and a clear middle. Then check that each early patch has…",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Take phone pictures on the test site at 320×610, 375×812, 390×844 and 430×932, starting from a new save (? → Reset demo, then Start). Get the suggestion box with Find and the gold pointer after tapping it, chips mid-hit on a tree and a stone, a stone crumbling, and a tap on a tree at the smallest zoom. Also get the Farm's bar with − / + (0 / 2, then 1 / 2), \"No free workers\" with Reassign in…",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "Is the start drawn out? Yes, a bit. I measured it with the hits and prices you have now. Swinging as fast as Haven allows (about 2 a second), the first House takes 114–134 hits (about 1 minute) and the Farm 176–222 hits in total (about 1½–2 minutes). Tapping once a second, it's about 1½–2 minutes to the House and 2½–4 minutes to the Farm. The lower numbers are with your first settler on Auto…",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "If you want a quicker start, here are two options. A: Pines give 3 Wood instead of 2, and berry bushes 2 Wood instead of 1. The first House would take about 90 hits, and everything later would get a bit quicker too. B: Only the first House and Farm get cheaper: House 12 Wood · 6 Stone, Farm 10 Wood · 3 Stone. The first House would take about 70 hits, and nothing later would change. I'd pick B,…",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "Find points at what you're shortest of, counted in hits. For the first House that's Wood (20 Wood takes more hits than 8 Stone). Once you have the Wood, it points at Stone. I think that's the most useful thing to point at.",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "Find prefers pines and oaks over bushes for Wood, because they give more per hit. It also prefers nodes your workers can walk up to.",
+     "at": "2026-11-07T16:25:30Z"
+    }
+   ],
+   "openedAt": "2026-11-02T02:38:48Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "699556791c607f05dd6daf251cd363d701188a87",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T16:25:30Z",
+   "goLive": false
+  },
+  {
+   "number": 115,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
+   "quote": "during auto summons it goes back to .5 seconds per companion. Also the tome animation needs to be removed when opening one at a time. I think it should be replaced with the portal gif spinning up faster than having the screen pop up.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the spin-up in a local browser at 320×610, 375×667, 390×844 and 430×932. From a new save, open the Rift tab, tap the Rift once and check that the vortex visibly speeds up for 0.3 seconds before one result screen opens, without flicker or jumps. In developer tools, check that the .rift-spinning .summon-book::after rule shows animation: riftSpinUp 0.3s cubic-bezier(0.6, 0, 1, 0.6) both…",
+     "at": "2026-11-07T15:29:14Z"
+    }
+   ],
+   "openedAt": "2026-11-06T11:54:10Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T15:29:14Z",
+   "goLive": false
+  },
+  {
+   "number": 121,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Audit live and dev Realm 1 visuals before Realm 2",
+   "quote": "\"Well I want to make sure everything looks good that’s currently in the game before adding a new realm\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Take phone-size screenshots of the five fights on the test site at 320×610, 375×812, 390×844 and 430×932, and add them to reviews/realm1-visual-audit/. From a new save, use Dev tools to reach the Floor 20 boss, the Floor 80 boss, and floors 35, 55 and 65 (step through the enemies to find the toad, the raven and the revenant). Check that nothing is clipped, there are no boxes behind them, and…",
+     "at": "2026-11-07T02:45:31Z"
+    },
+    {
+     "who": "claude",
+     "text": "Optional: make WebP copies of the five pictures with the same fitting, and update manifest.json and realm1-art-data.js with a new ?v= tag. They'd be smaller to download and look the same.",
+     "at": "2026-11-07T02:45:31Z"
+    },
+    {
+     "who": "claude",
+     "text": "Pass Joshua's approved fixes on to their requests, and ask Claude to build them there:",
+     "at": "2026-11-07T02:45:31Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #38, #97 and #115 are rebuilt, check the boss fight, the Party sheet and the summon reveal on the test site at 320×610, 375×812, 390×844 and 430×932, and add the pictures to this review.",
+     "at": "2026-11-07T02:45:31Z"
+    },
+    {
+     "who": "note",
+     "text": "I built all five pictures exactly as you approved them, with the same fitting as every other enemy and boss. The fights, floors and names are unchanged.",
+     "at": "2026-11-07T02:45:31Z"
+    },
+    {
+     "who": "note",
+     "text": "The game-size copies are PNG files, about 1.6 MB in total. The other enemies use a smaller format, and this run had no tool to make it. They load fine, but WebP copies would be about a third of the size. I'd swap them when someone runs the art tool locally. It only changes file size, not how they look.",
+     "at": "2026-11-07T02:45:31Z"
+    },
+    {
+     "who": "note",
+     "text": "With these five in, every Realm 1 enemy and boss has finished art. Only the Wandering Acolyte companion is still held back.",
+     "at": "2026-11-07T02:45:31Z"
+    }
+   ],
+   "openedAt": "2026-11-06T12:42:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T02:45:31Z",
+   "goLive": false
+  },
+  {
+   "number": 133,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep enemy and companions stationary when Party collapses",
+   "quote": "I need the companions and enemy to not follow the to of the menu when collapsing. Need to figure out why",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at #133 on the test site in a browser at 320×610, 375×812, 390×844 and 430×932, with 1, 5 and 10 companions. Fold and open Party several times while fighting, starting both open and folded, with normal and reduced motion. The enemy, its name and health bar, its shadow and every companion should not move or change size at any point, including during the fold. Then check that attacks,…",
+     "at": "2026-11-07T01:01:17Z"
+    },
+    {
+     "who": "claude",
+     "text": "After #38 merges, change realm1-art.js so the folded tray height counts the tray's negative top margin (offsetHeight plus margin-top). Then the 320-wide ten-companion Party sheet won't push the fight down when it opens. Doing it now would clash with #38 on the test site.",
+     "at": "2026-11-07T01:01:17Z"
+    },
+    {
+     "who": "note",
+     "text": "While Party folds or opens, the enemy, its name and health bar, and all the companions now stay where they are. The tray moves over them. I think that's what you asked for, and it matches how #106 already meant it to work.",
+     "at": "2026-11-07T01:01:17Z"
+    },
+    {
+     "who": "note",
+     "text": "On shorter phones the enemy no longer shrinks when Party is open. It's the same size as with Party folded, and the open cards may cover the lower part of the fight. That follows your #106 choice that the open tray covers the scene instead of moving it.",
+     "at": "2026-11-07T01:01:17Z"
+    },
+    {
+     "who": "note",
+     "text": "One case is still left: on narrow phones (320 wide) with ten companions, the Party button opens the two rows as a sheet over the fight. I expect the fight still drops a little when that sheet opens. The fix belongs in #38's code, so I'll do it once #38 is in the game (see below).",
+     "at": "2026-11-07T01:01:17Z"
+    }
+   ],
+   "openedAt": "2026-11-07T00:52:56Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T01:01:17Z",
+   "goLive": false
+  },
+  {
+   "number": 97,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Design guided progression companion power and achievements from owner references",
+   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the test site at 375×667 with ten companions. Check that the two rows open at once, the enemy still shows above the cards, and no fighter sits under the tray.",
+     "at": "2026-11-06T23:03:18Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at the test site at 320×610, open the two-row Party sheet, and check that nothing from the fight shows between the cards.",
+     "at": "2026-11-06T23:03:18Z"
+    },
+    {
+     "who": "note",
+     "text": "On 375×667, two rows leave about 140px for the fight, with a small enemy and the smallest fighters (about 30px). That's what you chose, and it's built. If it feels too cramped after you play it, the easy change is to open one row only on that one size.",
+     "at": "2026-11-06T23:03:18Z"
+    }
+   ],
+   "openedAt": "2026-11-02T03:47:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T23:03:18Z",
+   "goLive": false
+  },
+  {
+   "number": 106,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
+   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-04T13:41:58Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-06T18:32:13Z",
+   "goLive": false
+  },
+  {
+   "number": 103,
+   "kind": "fix",
+   "by": "Joshua",
+   "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
+   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-03T21:24:18Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
+   "botState": "finished",
+   "botAt": "2026-11-04T06:26:18Z",
+   "goLive": false
+  },
+  {
+   "number": 108,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use tutorial egg companion details; keep Omnidex read-only",
+   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the companion page at 320×610 and 390×844 from three places: a Party tap, a Team manager tap (then close it, and you should land back where you were), and an Omnidex tap (record page only, no Level up or placement buttons). This run had no browser.",
+     "at": "2026-11-06T21:43:37Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check the test site's test-build.json to see whether this request is now included. Older open requests that touch the same files (#78, #89, #97, #106) might still clash with it. If one does, add a record in pocket-fortune/tools/test-site/resolutions/ on main. Records 118-69-* may also need a 118-108 partner, because #118 now meets #69's changes through this request too.",
+     "at": "2026-11-06T21:43:37Z"
+    },
+    {
+     "who": "note",
+     "text": "On the companion page from the Party, I kept #69's notes at the bottom (the chance in your current Tome, and the first-discovery note) and its Return button. I left out #69's second picture and its mastery seals, because the tutorial-egg layout already shows the companion and its mastery.",
+     "at": "2026-11-06T21:43:37Z"
+    }
+   ],
+   "openedAt": "2026-11-05T04:43:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T21:43:37Z",
+   "goLive": false
+  },
+  {
+   "number": 89,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
+   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Once #78 is merged, add the Realm 2 companions' summon chances to its Portal the way Joshua approved: each rarity keeps its total, ordinary companions share it evenly, Parallax Shard gets Crooked Eye's rate, Riftmourn gets Forgotten Watcher's 0.1%, and Epic's 1% comes from Common.",
+     "at": "2026-11-06T21:00:05Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at the Omnidex in a local browser at 320×610, 375×667, 390×844 and 430×932. Check that Mossbound Ruins and Ashen Expanse both show, that Ashen Expanse reads 0 / 30 with every card hidden, and that the realm, rarity and family filters fit without clipping. Joshua can also try it on https://lorebound-dev.github.io/.",
+     "at": "2026-11-06T21:00:05Z"
+    },
+    {
+     "who": "note",
+     "text": "Both discovery achievements now count companions from every realm, as you asked. The second one is still called \"Discover every Realm 1 species\", but once Realm 2 companions can be summoned, a player could earn it without finding all of Realm 1. I'd change the wording to \"Discover 30 species\" so it says what it does. I haven't changed it, because you asked to keep the titles.",
+     "at": "2026-11-06T21:00:05Z"
+    }
+   ],
+   "openedAt": "2026-11-01T03:47:10Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T17:19:22Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-07T17:19:22Z",
+   "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T21:00:05Z",
    "goLive": false
   },
   {
@@ -196,6 +690,11 @@
      "who": "note",
      "text": "I agree with the request on Boss 40 for the Farm unlock instead of Shardworks' Floor 60. It gives players eggs to look forward to earlier.",
      "at": "2026-11-07T17:16:58Z"
+    },
+    {
+     "who": "claude",
+     "text": "It clashes with another change in progress, in home.html and navigation.js, so it isn't on the test site yet.",
+     "at": null
     }
    ],
    "openedAt": "2026-11-07T17:09:34Z",
@@ -205,7 +704,7 @@
    "testAt": null,
    "onTest": false,
    "testIsCurrent": false,
-   "clashes": false,
+   "clashes": true,
    "updatedAt": "2026-11-07T17:16:58Z",
    "headSha": "f30863505df12d95e82d58c8239373029dd6e06f",
    "touchesGame": true,
@@ -213,555 +712,6 @@
    "requestStatus": "Built, ready to check (stage A only: the Farm scene; eggs, pets and bonuses wait on answers)",
    "botState": "questions",
    "botAt": "2026-11-07T17:16:58Z",
-   "goLive": false
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the battlefield in a browser at 320×610, 375×812, 390×844 and 430×932 with throwaway saves (pocket-fortune/tools/create-endless-review-save.cjs gives an Endless save). Check Endless, a Story boss, a normal fight with one and with five companions, and an enemy dying, with the Party menu open and closed. Take before and after screenshots (main is the before), and confirm the floor shows…",
-     "at": "2026-11-07T17:09:57Z"
-    },
-    {
-     "who": "note",
-     "text": "I also removed the big dark pool over the courtyard. It was added earlier so fighters wouldn't stand on the brightest part of the painting. They still have their dark outlines and foot shadows, so they should stay easy to see. If they look washed out now, I can bring back a much lighter pool.",
-     "at": "2026-11-07T17:09:57Z"
-    },
-    {
-     "who": "note",
-     "text": "Each companion and enemy has two soft shadows that sit together under its feet: the oval and a shadow cast from the picture itself. They are tied to the fighter and move with it, so I left them as they were. If they look too heavy, I can drop one of them.",
-     "at": "2026-11-07T17:09:57Z"
-    }
-   ],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "62096da571c3b2068bc3f4d4a8498c941103a7db",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T17:09:57Z",
-   "goLive": false
-  },
-  {
-   "number": 146,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Implement approved QoL audit across summoning collection and mobile play",
-   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
-   "stage": "testing",
-   "waitingOn": "both",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Which area should I build next? My suggestion is the Auto summary after you stop Auto (area 2). It's useful every day, and nothing else is changing that part of the screen.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Can each area become its own request? My suggestion is yes: one small request per area, so you can try and approve each one on its own. The simplest way is to tell Codex \"split the QoL audit into one request per area\".",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "noah",
-     "text": "Favorite and Protect for companions (area 3) need new data in every save, through a save update. I haven't built it. It needs Noah's OK on the save change first.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at Save Backups at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save: Profile, then Save Backups. Check that the \"N/30 discovered\" line fits without wrapping oddly.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "note",
-     "text": "I built only the Save Backups total from area 9. It's small, but it's the only part I could build without clashing with your other open requests.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "note",
-     "text": "This request is too big for one build. It's nine areas, each about the size of a normal request, and several depend on requests that aren't live yet. One big change like that would be very hard for you to try out and approve.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "note",
-     "text": "These parts don't depend on any other request, so I could build each one as its own request next: the Auto summary after you stop Auto (area 2), a \"Reduced effects\" setting (area 5), the Ascend screen listing what resets and what stays (area 7), and the opening-pace measurements (area 6, a report only, with no number changes).",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "note",
-     "text": "These parts should wait until their request goes live, and then be built on top of it: Party card upgrade feedback (#118), Codex search, filters and remembered page (#142/#130), the mastery explanation (#119), and Haven building states (#92/#141/#143).",
-     "at": "2026-11-07T16:59:20Z"
-    }
-   ],
-   "openedAt": "2026-11-07T16:55:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T16:59:20Z",
-   "goLive": false
-  },
-  {
-   "number": 92,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Do you want a quicker start (note 2)? I suggest B: the first House costs 12 Wood · 6 Stone and the first Farm 10 Wood · 3 Stone, and nothing else changes. Or keep it as it is.",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "noah",
-     "text": "#144 replaces Haven's land rings with patches you clear one at a time. That needs a new version of Haven's own test save (v5 → v6). Joshua says his test town can be started over. I suggest OK, test site only: a fresh start under a new key, with the v5 save kept untouched as a backup. The real game's saves aren't touched. #145's fuller resource layout is built on that new map, so it waits on…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Build #144 and #145's resource layout together once Noah OKs the v6 Haven test save. That means the raised home clearing, patches with Clear and lock badges, a short Land window with Find Next Clearing, and the palisade and raids following the new edge. It also means clustered trees and rocks, about 20–30% more in the outer patches, and a clear middle. Then check that each early patch has…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Take phone pictures on the test site at 320×610, 375×812, 390×844 and 430×932, starting from a new save (? → Reset demo, then Start). Get the suggestion box with Find and the gold pointer after tapping it, chips mid-hit on a tree and a stone, a stone crumbling, and a tap on a tree at the smallest zoom. Also get the Farm's bar with − / + (0 / 2, then 1 / 2), \"No free workers\" with Reassign in…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "Is the start drawn out? Yes, a bit. I measured it with the hits and prices you have now. Swinging as fast as Haven allows (about 2 a second), the first House takes 114–134 hits (about 1 minute) and the Farm 176–222 hits in total (about 1½–2 minutes). Tapping once a second, it's about 1½–2 minutes to the House and 2½–4 minutes to the Farm. The lower numbers are with your first settler on Auto…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "If you want a quicker start, here are two options. A: Pines give 3 Wood instead of 2, and berry bushes 2 Wood instead of 1. The first House would take about 90 hits, and everything later would get a bit quicker too. B: Only the first House and Farm get cheaper: House 12 Wood · 6 Stone, Farm 10 Wood · 3 Stone. The first House would take about 70 hits, and nothing later would change. I'd pick B,…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "Find points at what you're shortest of, counted in hits. For the first House that's Wood (20 Wood takes more hits than 8 Stone). Once you have the Wood, it points at Stone. I think that's the most useful thing to point at.",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "Find prefers pines and oaks over bushes for Wood, because they give more per hit. It also prefers nodes your workers can walk up to.",
-     "at": "2026-11-07T16:25:30Z"
-    }
-   ],
-   "openedAt": "2026-11-02T02:38:48Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "699556791c607f05dd6daf251cd363d701188a87",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T16:25:30Z",
-   "goLive": false
-  },
-  {
-   "number": 115,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
-   "quote": "during auto summons it goes back to .5 seconds per companion. Also the tome animation needs to be removed when opening one at a time. I think it should be replaced with the portal gif spinning up faster than having the screen pop up.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the spin-up in a local browser at 320×610, 375×667, 390×844 and 430×932. From a new save, open the Rift tab, tap the Rift once and check that the vortex visibly speeds up for 0.3 seconds before one result screen opens, without flicker or jumps. In developer tools, check that the .rift-spinning .summon-book::after rule shows animation: riftSpinUp 0.3s cubic-bezier(0.6, 0, 1, 0.6) both…",
-     "at": "2026-11-07T15:29:14Z"
-    }
-   ],
-   "openedAt": "2026-11-06T11:54:10Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T15:29:14Z",
-   "goLive": false
-  },
-  {
-   "number": 121,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Audit live and dev Realm 1 visuals before Realm 2",
-   "quote": "\"Well I want to make sure everything looks good that’s currently in the game before adding a new realm\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Take phone-size screenshots of the five fights on the test site at 320×610, 375×812, 390×844 and 430×932, and add them to reviews/realm1-visual-audit/. From a new save, use Dev tools to reach the Floor 20 boss, the Floor 80 boss, and floors 35, 55 and 65 (step through the enemies to find the toad, the raven and the revenant). Check that nothing is clipped, there are no boxes behind them, and…",
-     "at": "2026-11-07T02:45:31Z"
-    },
-    {
-     "who": "claude",
-     "text": "Optional: make WebP copies of the five pictures with the same fitting, and update manifest.json and realm1-art-data.js with a new ?v= tag. They'd be smaller to download and look the same.",
-     "at": "2026-11-07T02:45:31Z"
-    },
-    {
-     "who": "claude",
-     "text": "Pass Joshua's approved fixes on to their requests, and ask Claude to build them there:",
-     "at": "2026-11-07T02:45:31Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #38, #97 and #115 are rebuilt, check the boss fight, the Party sheet and the summon reveal on the test site at 320×610, 375×812, 390×844 and 430×932, and add the pictures to this review.",
-     "at": "2026-11-07T02:45:31Z"
-    },
-    {
-     "who": "note",
-     "text": "I built all five pictures exactly as you approved them, with the same fitting as every other enemy and boss. The fights, floors and names are unchanged.",
-     "at": "2026-11-07T02:45:31Z"
-    },
-    {
-     "who": "note",
-     "text": "The game-size copies are PNG files, about 1.6 MB in total. The other enemies use a smaller format, and this run had no tool to make it. They load fine, but WebP copies would be about a third of the size. I'd swap them when someone runs the art tool locally. It only changes file size, not how they look.",
-     "at": "2026-11-07T02:45:31Z"
-    },
-    {
-     "who": "note",
-     "text": "With these five in, every Realm 1 enemy and boss has finished art. Only the Wandering Acolyte companion is still held back.",
-     "at": "2026-11-07T02:45:31Z"
-    }
-   ],
-   "openedAt": "2026-11-06T12:42:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T02:45:31Z",
-   "goLive": false
-  },
-  {
-   "number": 133,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Keep enemy and companions stationary when Party collapses",
-   "quote": "I need the companions and enemy to not follow the to of the menu when collapsing. Need to figure out why",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at #133 on the test site in a browser at 320×610, 375×812, 390×844 and 430×932, with 1, 5 and 10 companions. Fold and open Party several times while fighting, starting both open and folded, with normal and reduced motion. The enemy, its name and health bar, its shadow and every companion should not move or change size at any point, including during the fold. Then check that attacks,…",
-     "at": "2026-11-07T01:01:17Z"
-    },
-    {
-     "who": "claude",
-     "text": "After #38 merges, change realm1-art.js so the folded tray height counts the tray's negative top margin (offsetHeight plus margin-top). Then the 320-wide ten-companion Party sheet won't push the fight down when it opens. Doing it now would clash with #38 on the test site.",
-     "at": "2026-11-07T01:01:17Z"
-    },
-    {
-     "who": "note",
-     "text": "While Party folds or opens, the enemy, its name and health bar, and all the companions now stay where they are. The tray moves over them. I think that's what you asked for, and it matches how #106 already meant it to work.",
-     "at": "2026-11-07T01:01:17Z"
-    },
-    {
-     "who": "note",
-     "text": "On shorter phones the enemy no longer shrinks when Party is open. It's the same size as with Party folded, and the open cards may cover the lower part of the fight. That follows your #106 choice that the open tray covers the scene instead of moving it.",
-     "at": "2026-11-07T01:01:17Z"
-    },
-    {
-     "who": "note",
-     "text": "One case is still left: on narrow phones (320 wide) with ten companions, the Party button opens the two rows as a sheet over the fight. I expect the fight still drops a little when that sheet opens. The fix belongs in #38's code, so I'll do it once #38 is in the game (see below).",
-     "at": "2026-11-07T01:01:17Z"
-    }
-   ],
-   "openedAt": "2026-11-07T00:52:56Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T01:01:17Z",
-   "goLive": false
-  },
-  {
-   "number": 97,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Design guided progression companion power and achievements from owner references",
-   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the test site at 375×667 with ten companions. Check that the two rows open at once, the enemy still shows above the cards, and no fighter sits under the tray.",
-     "at": "2026-11-06T23:03:18Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the test site at 320×610, open the two-row Party sheet, and check that nothing from the fight shows between the cards.",
-     "at": "2026-11-06T23:03:18Z"
-    },
-    {
-     "who": "note",
-     "text": "On 375×667, two rows leave about 140px for the fight, with a small enemy and the smallest fighters (about 30px). That's what you chose, and it's built. If it feels too cramped after you play it, the easy change is to open one row only on that one size.",
-     "at": "2026-11-06T23:03:18Z"
-    }
-   ],
-   "openedAt": "2026-11-02T03:47:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T23:03:18Z",
-   "goLive": false
-  },
-  {
-   "number": 106,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Refine Adventure: full-width companion cards and grounded battlefield",
-   "quote": "\"Yep spot on. I do like the empty slot buttons so if we can get that look for the normal ones. You lead the way.\" \"You send it among and yes\" [approve sending the correction and specifying a precise card sizing / sprite / level / DPS plan]",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-04T13:41:58Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:32:13Z",
-   "goLive": false
-  },
-  {
-   "number": 103,
-   "kind": "fix",
-   "by": "Joshua",
-   "title": "Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid",
-   "quote": "\"I need you to look at my current game and help me fix this. The second screenshot is one from what I am trying to emulate. The screen efficiency is terrible right now.\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-03T21:24:18Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check (card side of the 5×2 grid, with the approved empty plate and Party header plate; the two always-shown rows and the tray's height are built in #97)",
-   "botState": "finished",
-   "botAt": "2026-11-04T06:26:18Z",
-   "goLive": false
-  },
-  {
-   "number": 108,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use tutorial egg companion details; keep Omnidex read-only",
-   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the companion page at 320×610 and 390×844 from three places: a Party tap, a Team manager tap (then close it, and you should land back where you were), and an Omnidex tap (record page only, no Level up or placement buttons). This run had no browser.",
-     "at": "2026-11-06T21:43:37Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check the test site's test-build.json to see whether this request is now included. Older open requests that touch the same files (#78, #89, #97, #106) might still clash with it. If one does, add a record in pocket-fortune/tools/test-site/resolutions/ on main. Records 118-69-* may also need a 118-108 partner, because #118 now meets #69's changes through this request too.",
-     "at": "2026-11-06T21:43:37Z"
-    },
-    {
-     "who": "note",
-     "text": "On the companion page from the Party, I kept #69's notes at the bottom (the chance in your current Tome, and the first-discovery note) and its Return button. I left out #69's second picture and its mastery seals, because the tutorial-egg layout already shows the companion and its mastery.",
-     "at": "2026-11-06T21:43:37Z"
-    }
-   ],
-   "openedAt": "2026-11-05T04:43:50Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T21:43:37Z",
-   "goLive": false
-  },
-  {
-   "number": 89,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Add approved Realm 2 companions to universal summoning and Omnidex",
-   "quote": "put all realm two companions ... add them now to the loot pool ... all currently created companions should be loaded and omnidex and all that updated to show all rarities and stuff available now",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Once #78 is merged, add the Realm 2 companions' summon chances to its Portal the way Joshua approved: each rarity keeps its total, ordinary companions share it evenly, Parallax Shard gets Crooked Eye's rate, Riftmourn gets Forgotten Watcher's 0.1%, and Epic's 1% comes from Common.",
-     "at": "2026-11-06T21:00:05Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the Omnidex in a local browser at 320×610, 375×667, 390×844 and 430×932. Check that Mossbound Ruins and Ashen Expanse both show, that Ashen Expanse reads 0 / 30 with every card hidden, and that the realm, rarity and family filters fit without clipping. Joshua can also try it on https://lorebound-dev.github.io/.",
-     "at": "2026-11-06T21:00:05Z"
-    },
-    {
-     "who": "note",
-     "text": "Both discovery achievements now count companions from every realm, as you asked. The second one is still called \"Discover every Realm 1 species\", but once Realm 2 companions can be summoned, a player could earn it without finding all of Realm 1. I'd change the wording to \"Discover 30 species\" so it says what it does. I haven't changed it, because you asked to keep the titles.",
-     "at": "2026-11-06T21:00:05Z"
-    }
-   ],
-   "openedAt": "2026-11-01T03:47:10Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T21:00:05Z",
-   "goLive": false
-  },
-  {
-   "number": 116,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rework Omnidex into universal collection and rarity pages",
-   "quote": "Also the codex needs to be reworked as there are no longer realm specific companions. Just have it be total collection at the top that you can click on and have pages sorted by rarity instead of one long scroll page. Also on the front have the collection breakdown (the one with the types) be at a rarity level. So first it will have counting discovered by rarity then when you click it has the collection breakdown",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [
-    {
-     "who": "note",
-     "text": "The type boxes switch to two rows of three on screens up to 400px wide. That covers most phones, so the cards come up higher where it matters, while big phones keep the roomier boxes. I think it reads better than before.",
-     "at": "2026-11-06T19:29:02Z"
-    },
-    {
-     "who": "note",
-     "text": "On those phones, a finished type shows its completed seal but not the word \"Complete\", because the word doesn't fit in a third of the width. I think the seal is clear enough. If you'd like the word back, the box could show a small check mark instead.",
-     "at": "2026-11-06T19:29:02Z"
-    }
-   ],
-   "openedAt": "2026-11-06T11:56:55Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T17:12:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:12:04Z",
-   "headSha": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T18:41:59Z",
    "goLive": false
   },
   {
@@ -1640,14 +1590,24 @@
  ],
  "activity": [
   {
-   "at": "2026-11-07T17:17:36Z",
-   "kind": "built",
-   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
+   "at": "2026-11-07T17:47:35Z",
+   "kind": "closed",
+   "text": "“Heroes: three openings per 24 hours, silhouette collection and duplicate mastery” was closed"
+  },
+  {
+   "at": "2026-11-07T17:47:07Z",
+   "kind": "asked",
+   "text": "You asked for “Heroes: three openings per 24 hours, silhouette collection and duplicate mastery”"
+  },
+  {
+   "at": "2026-11-07T17:19:22Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T17:17:36Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Replace Ascend with 25-hero rarity board for tap power”"
+   "kind": "built",
+   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T17:16:58Z",
@@ -1672,7 +1632,7 @@
   {
    "at": "2026-11-07T17:12:04Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
   },
   {
    "at": "2026-11-07T17:09:57Z",
@@ -1692,7 +1652,7 @@
   {
    "at": "2026-11-07T17:08:08Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
   },
   {
    "at": "2026-11-07T17:06:42Z",
@@ -1712,7 +1672,7 @@
   {
    "at": "2026-11-07T17:00:45Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
   },
   {
    "at": "2026-11-07T16:59:20Z",
@@ -1742,7 +1702,7 @@
   {
    "at": "2026-11-07T16:26:54Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T16:25:30Z",
@@ -1767,7 +1727,7 @@
   {
    "at": "2026-11-07T16:19:33Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T16:18:05Z",
@@ -1782,7 +1742,7 @@
   {
    "at": "2026-11-07T16:14:33Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T16:12:34Z",
@@ -1802,7 +1762,7 @@
   {
    "at": "2026-11-07T16:03:25Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T16:01:44Z",
@@ -1822,22 +1782,12 @@
   {
    "at": "2026-11-07T15:56:50Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   },
   {
    "at": "2026-11-07T15:54:13Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
-  },
-  {
-   "at": "2026-11-07T15:52:27Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
-  },
-  {
-   "at": "2026-11-07T15:52:27Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   }
  ],
  "otherPulls": [
