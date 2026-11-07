@@ -1,9 +1,19 @@
 /* Heroes (fourth tab, DEV preview). 25 fixed placeholder heroes, 2–3 per companion rarity, and the one active hero.
+   Heroes are found in free openings: 3 charges, each back 24 trusted hours after it was used. A repeat adds a copy,
+   and copies raise that hero's mastery (six ranks, +8% of its tap multiplier each).
    Only the active hero's tap multiplier is real: Lore.tapPower multiplies the weapon's tap damage by it once.
    Runs only on the test site and local copies, like Ascension before it. On the real game the multiplier is always 1.
-   The choice lives under its own localStorage key and never touches the LOREBOUND save. Portraits are drawn from squares in code. */
+   The collection lives under its own localStorage key and never touches the LOREBOUND save, so it is NOT shippable as a
+   daily-limited reward until Noah approves moving it into the save. The old v01 preview key is read by nothing and kept.
+   Portraits are drawn from squares in code. */
 (function(root){'use strict';
-const KEY='lorebound-heroes-preview-v01',DEFAULT='rowan-thatch',HOSTS=['lorebound-dev.github.io','localhost','127.0.0.1',''];
+const KEY='lorebound-heroes-dev-v02',LEGACY_KEY='lorebound-heroes-preview-v01',DEFAULT='rowan-thatch',HOSTS=['lorebound-dev.github.io','localhost','127.0.0.1',''];
+// Provisional DEV test values from Joshua's request #150 (not approved for the real game).
+const CHARGES=3,RECHARGE_MS=24*60*60*1000,MASTERY_STEP=0.08;
+const ODDS={Common:25,Uncommon:21,Rare:17,Epic:13,Legendary:9,Mythic:6,Ancient:4,Exalted:2.5,Transcendent:1.5,Eternal:1};
+// Lifetime copies (the first find is copy 1) needed for mastery I–VI.
+const LATE=[2,3,4,5,6,8];
+const THRESHOLDS={Common:[2,4,7,11,16,24],Uncommon:[2,4,7,10,14,20],Rare:[2,3,5,8,12,18],Epic:[2,3,5,7,10,14],Legendary:[2,3,4,6,8,11],Mythic:LATE,Ancient:LATE,Exalted:LATE,Transcendent:LATE,Eternal:LATE};
 const RARITIES=['Common','Uncommon','Rare','Epic','Legendary','Mythic','Ancient','Exalted','Transcendent','Eternal'];
 // The same ink/light/dark as the companion rarity classes in adventure.css (.rarity-common …).
 const RARITY_COLORS={Common:['#b7bbc0','#e1e2df','#666d75'],Uncommon:['#6fa783','#c1dfbb','#315c46'],Rare:['#6f9dc5','#c8e0f2','#324e78'],Epic:['#ac83c3','#e6c8f1','#61437e'],Legendary:['#c49c52','#fae3a3','#805328'],Mythic:['#c36f76','#f5b6ad','#7a343e'],Ancient:['#ab8873','#ead5b1','#635242'],Exalted:['#b7b6a4','#fff9d9','#8a8268'],Transcendent:['#71afb5','#c3f3e8','#3f6b81'],Eternal:['#b49abc','#fde1ef','#5e4f83']};
@@ -68,7 +78,9 @@ function grid(h){const g=(h.cloak?CLOAK:blank()).map(r=>r.split(''));const put=r
  put(Object.fromEntries(BODY.map((l,i)=>[i,l])));for(const part of HEAD[h.head])put(part);put(WEAPON[h.weapon]);return g.map(r=>r.join(''));}
 function palette(h){const [ink,light,dark]=RARITY_COLORS[h.rarity];return {o:'#1b1420',e:'#1b1420',s:h.skin,h:h.hair,a:h.armor,b:ink,p:shade(h.armor,-0.45),k:'#3a2a22',w:h.rank>=6?'#e2c180':'#c9d2d8',d:'#6b4528',c:dark,g:light};}
 // One rect per horizontal run of one colour; crisp squares at any size.
-function portrait(id,cls='hero-art'){const h=BY_ID[id]||BY_ID[DEFAULT],g=grid(h),pal=palette(h);let rects='';
+// Undiscovered heroes: the same figure in charcoal, outline kept darker so the shape still reads.
+const SHADOW={o:'#0b0d10',fill:'#3a3f47'};
+function portrait(id,cls='hero-art',shadow=false){const h=BY_ID[id]||BY_ID[DEFAULT],g=grid(h),pal=shadow?new Proxy({},{get:(_,ch)=>ch==='o'?SHADOW.o:SHADOW.fill}):palette(h);let rects='';
  g.forEach((row,y)=>{for(let x=0;x<W;){const ch=row[x];let n=1;while(x+n<W&&row[x+n]===ch)n++;if(ch!=='.')rects+=`<rect x="${x}" y="${y}" width="${n}" height="1" fill="${pal[ch]}"/>`;x+=n;}});
  return `<svg class="${cls}" viewBox="0 0 ${W} ${H}" shape-rendering="crispEdges" aria-hidden="true" focusable="false">${rects}</svg>`;}
 
@@ -77,11 +89,59 @@ const HELM=['.....bb.....','....obbo....','...owwwvo...','..olwwwwvo..','.olwwww
 function navIcon(cls='nav-art'){let rects='';HELM.forEach((row,y)=>{for(let x=0;x<row.length;){const ch=row[x];let n=1;while(x+n<row.length&&row[x+n]===ch)n++;if(ch!=='.')rects+=`<rect x="${x}" y="${y}" width="${n}" height="1" fill="${HELM_PAL[ch]}"/>`;x+=n;}});
  return `<svg class="${cls}" viewBox="0 0 12 10" shape-rendering="crispEdges" aria-hidden="true" focusable="false">${rects}</svg>`;}
 function enabled(){try{return HOSTS.includes(String(root.location?.hostname??'-'));}catch{return false;}}
-let active=null,warn='';
-function load(){if(active)return active;let id=DEFAULT;try{const raw=root.localStorage?.getItem(KEY);if(raw!==null&&raw!==undefined){const v=JSON.parse(raw);if(v&&v.v===1&&BY_ID[v.active])id=v.active;}}catch{}active=id;return active;}
-function activeHero(){return BY_ID[enabled()?load():DEFAULT];}
-function select(id){if(!enabled()||!BY_ID[id])return false;active=id;try{root.localStorage.setItem(KEY,JSON.stringify({v:1,active:id}));warn='';}catch{warn='This device would not keep your hero choice. It resets to Rowan Thatch next time.';}return true;}
-// The only real effect: 1 on the real game, the active hero's multiplier on the test site.
-function tapMultiplier(){return enabled()?activeHero().tap:1;}
-root.LoreHeroes={KEY,DEFAULT,RARITIES,RARITY_COLORS,ROSTER,byId:id=>BY_ID[id]||null,enabled,active:activeHero,select,tapMultiplier,portrait,grid,navIcon,warning:()=>warn,_reset(){active=null;warn='';}};
+const has=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
+const own=id=>typeof id==='string'&&has(BY_ID,id);
+const count=n=>Number.isInteger(n)&&n>=1&&n<=100000;
+// Mastery rank 0–6 from lifetime copies, and the hero's tap multiplier with it.
+function rank(id,copies){const h=BY_ID[id];if(!h||!(copies>0))return 0;return THRESHOLDS[h.rarity].filter(n=>copies>=n).length;}
+function heroTap(id,copies){const h=BY_ID[id];return h?h.tap*(1+MASTERY_STEP*rank(id,copies)):1;}
+function nextThreshold(id,copies){const h=BY_ID[id];return h?THRESHOLDS[h.rarity].find(n=>copies<n)??null:null;}
+// One opening: a rarity from ODDS, then an even pick among that rarity's heroes. rng() returns [0,1).
+function draw(rng){let x=rng()*100,rarity=RARITIES[RARITIES.length-1];for(const r of RARITIES){x-=ODDS[r];if(x<0){rarity=r;break;}}
+ const list=ROSTER.filter(h=>h.rarity===rarity);return list[Math.min(list.length-1,Math.floor(rng()*list.length))];}
+
+// The collection record. spent: when each used charge comes back (trusted ms). high: latest trusted time seen.
+// pending: the committed result of the last opening until the player has seen it, so a reload replays it and never re-rolls.
+const fresh=()=>({v:2,owned:{[DEFAULT]:1},active:DEFAULT,spent:[],high:0,seq:0,receipt:'',pending:null});
+function clean(v){if(!v||typeof v!=='object'||v.v!==2||!v.owned||typeof v.owned!=='object'||Array.isArray(v.owned))return null;
+ const owned={};for(const [id,n] of Object.entries(v.owned))if(own(id)&&count(n))owned[id]=n;if(!owned[DEFAULT])owned[DEFAULT]=1;
+ const high=Number.isFinite(v.high)&&v.high>=0?v.high:0;
+ // A return time more than 24h past the latest trusted time is a future jump: it can only come back 24h from then.
+ const spent=(Array.isArray(v.spent)?v.spent:[]).filter(Number.isFinite).map(t=>Math.min(t,high+RECHARGE_MS)).sort((a,b)=>a-b).slice(-CHARGES);
+ const p=v.pending;const pending=p&&typeof p==='object'&&typeof p.receipt==='string'&&p.receipt&&own(p.id)&&owned[p.id]&&count(p.copies)?{receipt:p.receipt,id:p.id,isNew:!!p.isNew,copies:p.copies,before:rank(p.id,p.copies-1),after:rank(p.id,p.copies)}:null;
+ return {v:2,owned,active:own(v.active)&&owned[v.active]?v.active:DEFAULT,spent,high,seq:Number.isInteger(v.seq)&&v.seq>=0?v.seq:0,receipt:typeof v.receipt==='string'?v.receipt:'',pending};}
+let state=null,warn='';
+function storage(){try{return root.localStorage||null;}catch{return null;}}
+// Always re-read before a change, so another tab's opening is seen first.
+function load(){const ls=storage();let rec=null;try{const raw=ls?.getItem(KEY);if(raw===null||raw===undefined)rec=fresh();else{rec=clean(JSON.parse(raw));if(!rec){rec=fresh();warn='Your hero collection could not be read on this device, so it started again with Rowan Thatch.';}}}catch{rec=state||fresh();}
+ state=rec;return rec;}
+function current(){return state||load();}
+// Write, then read back. If the device won't keep it, nothing changes.
+function commit(next){const ls=storage(),text=JSON.stringify(next);try{if(!ls)throw Error('no storage');ls.setItem(KEY,text);if(ls.getItem(KEY)!==text)throw Error('not kept');}catch{warn='This device would not save your heroes, so nothing was changed. Try again.';return false;}state=next;warn='';return true;}
+function enabled(){try{return HOSTS.includes(String(root.location?.hostname??'-'));}catch{return false;}}
+// The game's trusted clock (origin HTTP Date + monotonic time). Never the device clock on its own.
+function clock(){const C=root.LoreClock;const trusted=!!C?.trusted?.();return {trusted,now:trusted?C.now(0):null};}
+function charges(now,rec=current()){const t=Math.max(Number(now)||0,rec.high),out=rec.spent.filter(x=>x>t);return {available:CHARGES-out.length,max:CHARGES,nextAt:out.length?out[0]:null};}
+function makeReceipt(t,seq){let r='';try{const a=new Uint32Array(2);root.crypto.getRandomValues(a);r=a[0].toString(36)+a[1].toString(36);}catch{r=Math.floor(Math.random()*2**32).toString(36);}return `h${Math.floor(t).toString(36)}-${seq}-${r}`;}
+// The only way to get a hero. Checks the charge, draws, and stores hero, copies, charge and receipt in one write.
+function open({now,trusted,rng=Math.random}={}){if(!enabled())return {ok:false,reason:'off'};const rec=load();
+ if(rec.pending)return {ok:true,replay:true,result:rec.pending};
+ if(!trusted||!Number.isFinite(now))return {ok:false,reason:'clock'};
+ const t=Math.max(now,rec.high),c=charges(t,rec);if(c.available<=0)return {ok:false,reason:'empty',nextAt:c.nextAt};
+ const h=draw(rng),had=rec.owned[h.id]||0,copies=had+1,seq=rec.seq+1,receipt=makeReceipt(t,seq);
+ const pending={receipt,id:h.id,isNew:!had,copies,before:rank(h.id,had),after:rank(h.id,copies)};
+ const next={...rec,owned:{...rec.owned,[h.id]:copies},spent:[...rec.spent.filter(x=>x>t),t+RECHARGE_MS],high:t,seq,receipt,pending};
+ if(!commit(next))return {ok:false,reason:'save'};return {ok:true,result:pending};}
+// The player has seen the result. Only clears the matching receipt.
+function acknowledge(receipt){if(!enabled())return false;const rec=load();if(!rec.pending||rec.pending.receipt!==receipt)return false;return commit({...rec,pending:null});}
+function select(id){if(!enabled()||!own(id))return false;const rec=load();if(!rec.owned[id])return false;if(rec.active===id)return true;return commit({...rec,active:id});}
+function activeHero(){return BY_ID[enabled()?current().active:DEFAULT];}
+function copiesOf(id){return enabled()?current().owned[id]||0:(id===DEFAULT?1:0);}
+// The only real effect: 1 on the real game, the active hero's multiplier (with mastery) on the test site.
+function tapMultiplier(){if(!enabled())return 1;const rec=current();return heroTap(rec.active,rec.owned[rec.active]);}
+// Another tab changed the collection: drop the cached copy.
+try{root.addEventListener?.('storage',e=>{if(e?.key===KEY||e?.key===null)state=null;});}catch{}
+root.LoreHeroes={KEY,LEGACY_KEY,DEFAULT,RARITIES,RARITY_COLORS,ROSTER,ODDS,THRESHOLDS,CHARGES,RECHARGE_MS,MASTERY_STEP,byId:id=>own(id)?BY_ID[id]:null,
+ enabled,clock,active:activeHero,copies:copiesOf,owned:id=>copiesOf(id)>0,rank,heroTap,nextThreshold,draw,charges:now=>charges(now),pending:()=>enabled()?current().pending:null,
+ open,acknowledge,select,tapMultiplier,portrait,grid,navIcon,warning:()=>warn,reload:()=>{state=null;return load();},_reset(){state=null;warn='';}};
 })(globalThis);

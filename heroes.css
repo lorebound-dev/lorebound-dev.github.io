@@ -54,4 +54,51 @@
 .hero-button:disabled{opacity:.6;cursor:default}
 .hero-button.hero-quiet{background:#0a1a27;color:#d9cfb3;border-color:#9b855188}
 .heroes button:focus-visible{outline:2px solid #e2c180;outline-offset:2px}
-@media(max-width:350px){.hero-current{grid-template-columns:76px 1fr;gap:8px}.hero-current h3{font-size:16px!important}.hero-stats dd{font-size:15px}.hero-card-name{font-size:13px}.hero-grid{gap:6px}}
+/* Openings: one compact bar under the equipped hero. */
+.hero-open{display:grid;grid-template-columns:30px 1fr;gap:6px 10px;align-items:center;padding:8px 10px;border:1px solid #9b8551;background:linear-gradient(#0c2430,#071b27)}
+.hero-open-icon{width:30px;height:30px;image-rendering:pixelated}
+.hero-open-text{display:grid;gap:2px;min-width:0}
+.hero-open-text strong{font-size:16px;font-weight:normal;color:#f3da9c}
+.hero-open-text span{font-size:13px;color:#c3d2d5;overflow-wrap:anywhere}
+.hero-open-actions{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:8px}
+.hero-open-button{letter-spacing:.06em}
+.hero-odds-button{min-width:76px}
+.hero-odds{padding:8px 10px;border:1px solid #9b855188;background:#0a1a27}
+.hero-odds-note{font-size:12px!important;line-height:1.45;color:#c3d2d5;margin-bottom:6px!important}
+.hero-odds table{width:100%;border-collapse:collapse}
+.hero-odds th,.hero-odds td{padding:3px 4px;font-size:13px;font-weight:normal;border-bottom:1px solid #9b855133}
+.hero-odds th{text-align:left;color:var(--hr-light)}
+.hero-odds td{text-align:right;color:#f3da9c}
+/* Locked heroes: name, rarity frame and a charcoal shadow only. */
+.hero-card.is-locked{cursor:default;border-style:dashed;background:linear-gradient(#0a1c27,#05121b)}
+.hero-card.is-locked .hero-card-art{background:radial-gradient(circle at 50% 40%,#1b252d,#061621 75%);border-color:color-mix(in srgb,var(--hr-ink) 30%,transparent)}
+.hero-card.is-locked .hero-card-name{color:#b6c4c7}
+.hero-card-lock{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--hr-light)}
+.hero-card-hint{font-size:12px;color:#93a6ab}
+.hero-card-mastery{font-size:12px;color:#d9cfb3}
+.hero-bar{display:block;width:100%;height:5px;background:#06131d;border:1px solid #9b855155}
+.hero-bar span{display:block;height:100%;background:var(--hr-ink,#e2c180)}
+.hero-card .hero-bar{max-width:110px}
+/* Opening result. */
+.hero-reveal{display:grid;grid-template-columns:96px 1fr;gap:8px 12px;align-items:center;padding:10px;border:2px solid var(--hr-ink);background:linear-gradient(#0c2430,#061621);animation:hero-flash 900ms ease-out both}
+.hero-reveal-art{position:relative;display:grid;place-items:center;padding:6px;border:1px solid var(--hr-ink);background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--hr-dark) 60%,#0c2430),#061621 75%);cursor:pointer}
+.hero-reveal-art>span{grid-area:1/1;width:100%}
+.hr-shadow{animation:hero-fade-out 900ms ease-in both}
+.hr-color{animation:hero-fade-in 900ms ease-in both}
+.hero-reveal.is-done,.hero-reveal.is-done .hr-shadow,.hero-reveal.is-done .hr-color{animation:none}
+.hero-reveal.is-done .hr-shadow{opacity:0}
+.hero-reveal-text{display:grid;gap:3px;min-width:0}
+.hero-reveal-tag{justify-self:start;padding:1px 6px;border:1px solid var(--hr-light);font-size:12px;letter-spacing:.08em;color:var(--hr-light)}
+.hero-reveal h4{font-size:17px!important;font-weight:normal;line-height:1.2;color:#f3da9c;overflow-wrap:anywhere}
+.hero-reveal .hero-rarity{color:var(--hr-light)}
+.hero-reveal-line{font-size:13px!important;color:#e7dfc8}
+.hero-reveal-rank{font-size:13px!important;color:#f3da9c;padding-left:12px;position:relative}
+.hero-reveal-rank::before{content:'';position:absolute;left:0;top:5px;width:6px;height:6px;background:var(--hr-light);transform:rotate(45deg)}
+.hero-reveal .hero-preview-actions{grid-column:1/-1}
+.hero-reveal .hero-preview-actions:has(> :only-child){grid-template-columns:1fr}
+.hero-preview .hero-bar{max-width:none}
+@keyframes hero-flash{0%{box-shadow:0 0 0 0 transparent}55%{box-shadow:0 0 0 3px var(--hr-light)}100%{box-shadow:0 0 0 0 transparent}}
+@keyframes hero-fade-out{0%,40%{opacity:1}100%{opacity:0}}
+@keyframes hero-fade-in{0%,40%{opacity:0}100%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.hero-reveal,.hr-shadow,.hr-color{animation:none}.hr-shadow{opacity:0}}
+@media(max-width:350px){.hero-reveal{grid-template-columns:76px 1fr;gap:8px}.hero-current{grid-template-columns:76px 1fr;gap:8px}.hero-current h3{font-size:16px!important}.hero-stats dd{font-size:15px}.hero-card-name{font-size:13px}.hero-grid{gap:6px}}
