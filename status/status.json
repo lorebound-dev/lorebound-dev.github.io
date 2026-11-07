@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T18:45:57.331Z",
+ "generatedAt": "2026-11-07T18:59:19.752Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T18:45:19Z",
+  "updatedAt": "2026-11-07T18:46:59Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -47,57 +47,81 @@
  },
  "items": [
   {
-   "number": 153,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Heroes: unlock rarities by chest level, collect fragments to unlock and master",
-   "quote": "\"No sorry I misunderstood. I was talking about how the odd to open like when you open a chest you have certain odds to get a partial copy of a certain hero and if you get a certain amount of that that you unlock it and then the same thing goes for upgrading that you need like three to unlock it and then five level 16 to level six stuff like that. And maybe there’s a small chance that you can get all copies for a year at the same time, but it would be like super small and a much less large than it would be to just get one naturally. I also think that every time you open a chest, it should just naturally upgrade your odds by a small margin so that way the more you open the higher odds, you can get to get those higher. It would be very slow and maybe even tap off at a certain point to make sure that the hardest one continue to stay hard but yeah, those are my thoughts.\"  \"No that’s too much I want there to be no chance for higher ones at first do it similar to what at dud sky bowman mode\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T18:45:04Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T18:45:33Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T18:45:33Z",
-   "headSha": "525083e21a4a9165f90f645e0288075345dff491",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T18:45:32Z",
-   "goLive": false
-  },
-  {
    "number": 147,
    "kind": "request",
    "by": "Joshua",
    "title": "Replace Ascend with 25-hero rarity board for tap power",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "noah",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "noah",
+     "text": "To go live, the hero collection has to move into the real game save and its backups. That's a save change, with an update in save-storage.js's UPDATES list and in save-backups.html. It would hold: fragments per hero, chests opened, the equipped hero, when each opening comes back, the Hero Crests balance, the last chest and purchase receipts, and an unseen result. Until Noah OKs it, the…",
+     "at": "2026-11-07T18:58:58Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check Heroes on the test site in a browser at 320×610, 375×812, 390×844 and 430×932. From a new save, tap the fourth tab (Heroes). Check that:",
+     "at": "2026-11-07T18:58:58Z"
+    },
+    {
+     "who": "note",
+     "text": "Chest gates: 6 / 18 / 40 / 75 / 115 / 165 / 225 / 300 / 400 chests, built exactly. Higher rarities really are 0% until then. I like how this feels: the board opens up step by step over about 4½ months.",
+     "at": "2026-11-07T18:58:58Z"
+    },
+    {
+     "who": "note",
+     "text": "Growing odds: each rarity starts at 1/150 of its share and grows over 150 chests, built exactly. Everything is fully grown at chest 550 (about day 184). While the top rarities are still small, Common and Uncommon come up a little more than their final 25% and 21%. That can't be avoided, because the shares always add up to 100%.",
+     "at": "2026-11-07T18:58:58Z"
+    },
+    {
+     "who": "note",
+     "text": "Fragments: 3 unlock, and mastery at 8 / 14 / 21 / 29 / 38 / 48, the same for every rarity, built exactly. The first unlocks feel good: a Rare in about 3½ weeks and half the board in about 2 months. But rare heroes' mastery is extremely slow. Each Eternal hero is only 0.5% of chests even when fully grown, so 48 Selka fragments take about 9 years from chests alone, or about 4 years with every…",
+     "at": "2026-11-07T18:58:58Z"
+    },
+    {
+     "who": "note",
+     "text": "Full hero: 0.2%, its own roll, built exactly. That's about 2 a year at 3 chests a day, and half of players see their first one by about day 119. It's a nice surprise, but rare enough that many players will wait months for one. If you want it to be talked about, 0.5% would be about 5 a year.",
+     "at": "2026-11-07T18:58:58Z"
+    },
+    {
+     "who": "note",
+     "text": "Fragment prices: 30 / 50 / 80 / 120 / 185 / 285 / 400 / 585 / 835 / 1,200 Crests, built exactly. Unlocking a hero from nothing costs 3 times that (90 for a Common, 3,600 for an Eternal), the same as the old Buy price. The shop roughly halves the wait for your first Uncommon and takes about 3 months off \"all 25 heroes\". Crests feel useful without replacing chests. Early chests give only…",
+     "at": "2026-11-07T18:58:58Z"
+    },
+    {
+     "who": "note",
+     "text": "Your Changes say \"Unlock at N chests\" in one place and \"Unlocks at Chest N\" in another. I used Unlocks at Chest N on cards and Chest N in the Odds table. A locked rarity shows 0% rather than 0.000%, and a tiny real chance shows <0.01%.",
+     "at": "2026-11-07T18:58:58Z"
+    },
+    {
+     "who": "note",
+     "text": "Old test collections: owned heroes keep their mastery rank, at that rank's fragment count, and found heroes from #152 become fragments with no fee. Older collections didn't count chests, so I estimated the count from every copy you'd had. An old result you hadn't looked at yet is dropped. It had already been paid out, so this way nothing is paid twice.",
+     "at": "2026-11-07T18:58:58Z"
+    },
+    {
+     "who": "note",
+     "text": "Everything on Heroes is still a test-site preview, kept on the device outside your save. On the real game the tab only says \"Coming Soon\".",
+     "at": "2026-11-07T18:58:58Z"
+    }
+   ],
    "openedAt": "2026-11-07T17:05:00Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
-   "headSha": "daafce2002741a60bb314fa94a76b3d2533a55ac",
+   "updatedAt": "2026-11-07T18:58:58Z",
+   "headSha": "250fb8e548e394e9f7380bec6e04885e93faa9ee",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-07T18:43:48Z",
+   "botAt": "2026-11-07T18:58:58Z",
    "goLive": false
   },
   {
@@ -130,11 +154,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "62096da571c3b2068bc3f4d4a8498c941103a7db",
    "touchesGame": true,
    "answers": false,
@@ -198,11 +222,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524",
    "touchesGame": true,
    "answers": false,
@@ -266,11 +290,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "699556791c607f05dd6daf251cd363d701188a87",
    "touchesGame": true,
    "answers": false,
@@ -299,11 +323,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
    "touchesGame": true,
    "answers": false,
@@ -362,11 +386,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
    "touchesGame": true,
    "answers": false,
@@ -415,11 +439,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -458,11 +482,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
@@ -485,11 +509,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
    "touchesGame": true,
    "answers": false,
@@ -512,11 +536,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
    "touchesGame": true,
    "answers": false,
@@ -555,17 +579,44 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T18:45:19Z",
+   "testAt": "2026-11-07T18:46:59Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:45:19Z",
+   "updatedAt": "2026-11-07T18:46:59Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-06T21:43:37Z",
+   "goLive": false
+  },
+  {
+   "number": 153,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Heroes: unlock rarities by chest level, collect fragments to unlock and master",
+   "quote": "\"No sorry I misunderstood. I was talking about how the odd to open like when you open a chest you have certain odds to get a partial copy of a certain hero and if you get a certain amount of that that you unlock it and then the same thing goes for upgrading that you need like three to unlock it and then five level 16 to level six stuff like that. And maybe there’s a small chance that you can get all copies for a year at the same time, but it would be like super small and a much less large than it would be to just get one naturally. I also think that every time you open a chest, it should just naturally upgrade your odds by a small margin so that way the more you open the higher odds, you can get to get those higher. It would be very slow and maybe even tap off at a certain point to make sure that the hardest one continue to stay hard but yeah, those are my thoughts.\"  \"No that’s too much I want there to be no chance for higher ones at first do it similar to what at dud sky bowman mode\"",
+   "stage": "closed",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-07T18:45:04Z",
+   "mergedAt": null,
+   "closedAt": "2026-11-07T18:45:33Z",
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-07T18:45:33Z",
+   "headSha": "525083e21a4a9165f90f645e0288075345dff491",
+   "touchesGame": false,
+   "answers": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "finished",
+   "botAt": "2026-11-07T18:45:32Z",
    "goLive": false
   },
   {
@@ -1574,6 +1625,26 @@
  ],
  "activity": [
   {
+   "at": "2026-11-07T18:58:58Z",
+   "kind": "built",
+   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
+   "at": "2026-11-07T18:58:58Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
+   "at": "2026-11-07T18:58:58Z",
+   "kind": "question",
+   "text": "Part of “Replace Ascend with 25-hero rarity board for tap power” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-07T18:46:59Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
    "at": "2026-11-07T18:45:33Z",
    "kind": "closed",
    "text": "“Heroes: unlock rarities by chest level, collect fragments to unlock and master” was closed"
@@ -1587,11 +1658,6 @@
    "at": "2026-11-07T18:45:04Z",
    "kind": "asked",
    "text": "You asked for “Heroes: unlock rarities by chest level, collect fragments to unlock and master”"
-  },
-  {
-   "at": "2026-11-07T18:43:48Z",
-   "kind": "built",
-   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T18:34:54Z",
@@ -1757,21 +1823,6 @@
    "at": "2026-11-07T16:25:30Z",
    "kind": "note",
    "text": "Claude left notes for you on “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-07T16:25:30Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
-  },
-  {
-   "at": "2026-11-07T16:25:30Z",
-   "kind": "question",
-   "text": "Part of “Haven 3.0–4.0: upgradeable town and endless connected frontier” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-07T16:19:33Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   }
  ],
  "otherPulls": [
