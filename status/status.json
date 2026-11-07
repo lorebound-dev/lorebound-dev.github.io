@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T20:40:09.490Z",
+ "generatedAt": "2026-11-07T21:25:51.895Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -46,6 +46,94 @@
   ]
  },
  "items": [
+  {
+   "number": 146,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Implement approved QoL audit across summoning collection and mobile play",
+   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
+   "stage": "testing",
+   "waitingOn": "both",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Ascend is being replaced by Heroes (#147). Should I drop the \"what resets / what stays\" list for Ascend? My suggestion: drop it if Heroes replaces Ascend. If you're keeping Ascend, I'll build it in #88.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "joshua",
+     "text": "How should we fix the Floor 1 stall? My suggestion: no number change. When a Floor 1 boss fight is lost, show \"Tap the enemy to help your companions\", built with the boss retry once #133 is live. The other option is Floor 1 boss health from 1,000 to 900, which fixes the three-companion starts but not the two-companion ones.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "noah",
+     "text": "Favorite and Protect in Manage Team (area 3) need a save update, because Protect is stored per companion copy. They wait for Noah's OK on that save change. The rest of the audit doesn't wait for it.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "noah",
+     "text": "The one-time mastery explanation (area 6, #119) only needs a save change if it's remembered per save. Remembering it on the phone needs no OK.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at the Auto plaque at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save: Summon, then Auto, then Start, then Stop Auto after a few summons. Check that it sits above the rail without covering the Stop button and that the text doesn't clip.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at the Auto setup at the same four sizes, and check that the new Reduced effects row and its 12px note fit. Turn it on, fight a few enemies, and check that damage numbers thin out and crits still show.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Post each handoff from the ledger on its owning request: #115, #118, #119, #133, #141, #142, #97, #109 and #98. Each post lists exactly what's still to build there.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at Save Backups at the four sizes. From a new save: Profile, then Save Backups. Check the \"N/30 discovered\" line.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Profile ten companions, a fight and Auto on a slowed-down browser (area 9). Check that the away popup and update popups never overlap.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "The Auto plaque shows when you tap Stop and also when Auto runs out of Lore Shards, because both end the session. It hides after 12 seconds. If you'd rather it stays until you tap ×, that's a one-line change.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "Reduced effects allows two damage numbers on screen at once, and always lets a critical hit through. I think two is enough to follow the fight on a small phone.",
+     "at": "2026-11-07T21:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "The opening is quick for most new saves. The one weak spot is the Floor 1 boss after an unlucky start. Those players need about 22 taps in the fight (about 125 with only two companions), and nothing tells them to tap.",
+     "at": "2026-11-07T21:25:30Z"
+    }
+   ],
+   "openedAt": "2026-11-07T16:55:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-07T20:39:54Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-07T21:25:30Z",
+   "headSha": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Partly built, ready to check (each stage's owner and outcome: `pocket-fortune/docs/qol-audit/LEDGER.md`)",
+   "botState": "questions",
+   "botAt": "2026-11-07T21:25:30Z",
+   "goLive": false
+  },
   {
    "number": 147,
    "kind": "request",
@@ -165,74 +253,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-07T17:09:57Z",
-   "goLive": false
-  },
-  {
-   "number": 146,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Implement approved QoL audit across summoning collection and mobile play",
-   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
-   "stage": "testing",
-   "waitingOn": "both",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Which area should I build next? My suggestion is the Auto summary after you stop Auto (area 2). It's useful every day, and nothing else is changing that part of the screen.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Can each area become its own request? My suggestion is yes: one small request per area, so you can try and approve each one on its own. The simplest way is to tell Codex \"split the QoL audit into one request per area\".",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "noah",
-     "text": "Favorite and Protect for companions (area 3) need new data in every save, through a save update. I haven't built it. It needs Noah's OK on the save change first.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at Save Backups at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save: Profile, then Save Backups. Check that the \"N/30 discovered\" line fits without wrapping oddly.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "note",
-     "text": "I built only the Save Backups total from area 9. It's small, but it's the only part I could build without clashing with your other open requests.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "note",
-     "text": "This request is too big for one build. It's nine areas, each about the size of a normal request, and several depend on requests that aren't live yet. One big change like that would be very hard for you to try out and approve.",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "note",
-     "text": "These parts don't depend on any other request, so I could build each one as its own request next: the Auto summary after you stop Auto (area 2), a \"Reduced effects\" setting (area 5), the Ascend screen listing what resets and what stays (area 7), and the opening-pace measurements (area 6, a report only, with no number changes).",
-     "at": "2026-11-07T16:59:20Z"
-    },
-    {
-     "who": "note",
-     "text": "These parts should wait until their request goes live, and then be built on top of it: Party card upgrade feedback (#118), Codex search, filters and remembered page (#142/#130), the mastery explanation (#119), and Haven building states (#92/#141/#143).",
-     "at": "2026-11-07T16:59:20Z"
-    }
-   ],
-   "openedAt": "2026-11-07T16:55:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T20:39:54Z",
-   "headSha": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T16:59:20Z",
    "goLive": false
   },
   {
@@ -1625,6 +1645,26 @@
  ],
  "activity": [
   {
+   "at": "2026-11-07T21:25:30Z",
+   "kind": "built",
+   "text": "Claude finished building “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T21:25:30Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T21:25:30Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-07T21:25:30Z",
+   "kind": "question",
+   "text": "Part of “Implement approved QoL audit across summoning collection and mobile play” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-07T20:39:54Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
@@ -1803,26 +1843,6 @@
    "at": "2026-11-07T17:00:45Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T16:59:20Z",
-   "kind": "built",
-   "text": "Claude finished building “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T16:59:20Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T16:59:20Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T16:59:20Z",
-   "kind": "question",
-   "text": "Part of “Implement approved QoL audit across summoning collection and mobile play” is waiting for Noah’s OK"
   }
  ],
  "otherPulls": [
