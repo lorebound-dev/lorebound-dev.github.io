@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T01:06:35.442Z",
+ "generatedAt": "2026-11-07T01:10:42.168Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -47,25 +47,61 @@
    "by": "Joshua",
    "title": "Unify Rift rarity bars and clean up legacy Tome UI",
    "quote": "Make the upgrade rift rarity bars be the same ones used on the auto screen. Remove anything saying highest level. Remove all pngs of tomes and replace with the new rift. Remove the all levels button on the upgrade rift. Move the upgrade rift button up a bit and shrink it a bit.",
-   "stage": "building",
+   "stage": "testing",
    "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "In #115 (review/summon-cadence-rift-reveal), fix pocket-fortune/dist/rift-vortex.css: change animation:riftSpinUp .3scubic-bezier(.6,0,1,.6) both to animation:riftSpinUp .3s cubic-bezier(.6,0,1,.6) both, and give rift-vortex.css a new ?v= tag in home.html. Without the space, browsers drop the whole line, so the Rift never visibly spins up on a single summon.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "Then on the test site, record one summon at phone size to show the spin-up before the result, and check that #115 and this request are both on the test site.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at the Shard plaque under the Rift at 320×610, 375×667, 390×844 and 430×932, with the Party open and closed. Take screenshots with a small balance (like 40) and a large one (like 12.3K). The plaque mustn't overlap Upgrade Rift, Auto, the Rift's tap area or the bottom buttons.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #78 is merged, remove All levels here, and take out #78's new \"highest level\" wording, as this request asks. Until #78 is in, All levels is the only way back to a higher Rift level after picking a lower one.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #84 is merged, make Upgrade Rift use Auto Summon's rarity rows here, leaving #85's row art out, as this request asks.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "note",
+     "text": "The Shard number is 18px bold on most phones and 16px on narrow (350px or less) or short phones. I think that's as big as it can go: any bigger and it would push into the bottom buttons when the Party is closed.",
+     "at": "2026-11-07T01:10:08Z"
+    },
+    {
+     "who": "note",
+     "text": "The plaque is wide enough for up to four characters (like 12.3K) without changing size. Only bigger numbers make it a little wider.",
+     "at": "2026-11-07T01:10:08Z"
+    }
+   ],
    "openedAt": "2026-11-06T12:38:45Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-07T01:06:04Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T01:06:15Z",
-   "headSha": "298ff7fcde1a57dcf60ef3fc6f6d40f7b77e40f9",
+   "updatedAt": "2026-11-07T01:10:08Z",
+   "headSha": "77fe9eb5db5dfd312e7ccde92425879fba83cfd7",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-07T01:06:15Z"
+   "botState": "questions",
+   "botAt": "2026-11-07T01:10:08Z"
   },
   {
    "number": 133,
@@ -1217,9 +1253,14 @@
  ],
  "activity": [
   {
-   "at": "2026-11-07T01:06:15Z",
+   "at": "2026-11-07T01:10:08Z",
    "kind": "built",
    "text": "Claude finished building “Unify Rift rarity bars and clean up legacy Tome UI”"
+  },
+  {
+   "at": "2026-11-07T01:10:08Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Unify Rift rarity bars and clean up legacy Tome UI”"
   },
   {
    "at": "2026-11-07T01:06:04Z",
@@ -1410,11 +1451,6 @@
    "at": "2026-11-06T21:00:53Z",
    "kind": "built",
    "text": "Claude finished building “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
-  },
-  {
-   "at": "2026-11-06T21:00:53Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”"
   }
  ],
  "otherPulls": [
