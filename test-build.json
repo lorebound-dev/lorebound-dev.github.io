@@ -126,14 +126,6 @@
       "head": "05f6ded6ca37e22084edde4d967801936a0fe111"
     },
     {
-      "number": 120,
-      "title": "Unify Rift rarity bars and clean up legacy Tome UI",
-      "head": "298ff7fcde1a57dcf60ef3fc6f6d40f7b77e40f9",
-      "resolved": [
-        "120-115-summon-opening-tome"
-      ]
-    },
-    {
       "number": 122,
       "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
       "head": "31ac1d91a945206547b20af5774ad92878da133e",
@@ -178,6 +170,15 @@
       "with": "others"
     },
     {
+      "number": 120,
+      "title": "Unify Rift rarity bars and clean up legacy Tome UI",
+      "head": "77fe9eb5db5dfd312e7ccde92425879fba83cfd7",
+      "files": [
+        "pocket-fortune/dist/economy-interface.js"
+      ],
+      "with": "others"
+    },
+    {
       "number": 130,
       "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
       "head": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
@@ -187,7 +188,7 @@
       "with": "others"
     }
   ],
-  "commit": "df314328acd6c5dabff7ac246e35bfa13f21a13f",
+  "commit": "07a17f954d4bd32cb50c62153a19d7da54911a69",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -196,5 +197,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T01:06:03Z"
+  "at": "2026-11-07T01:12:06Z"
 }
