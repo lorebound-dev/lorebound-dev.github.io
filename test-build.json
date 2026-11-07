@@ -1,5 +1,5 @@
 {
-  "base": "e0e07ac55955408856ff884f15b3570bd8679986",
+  "base": "3b02830103629a5bf2a8414d4c917740daed7dcf",
   "included": [
     {
       "number": 38,
@@ -188,7 +188,7 @@
       "with": "others"
     }
   ],
-  "commit": "6d36c92a076bb963dbb4e5a8a19bbcaf5998544c",
+  "commit": "f02097ad0b00032d2c6a752dbb872d75f92cef6a",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -197,5 +197,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T01:54:46Z"
+  "at": "2026-11-07T02:02:08Z"
 }
