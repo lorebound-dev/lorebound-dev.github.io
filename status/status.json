@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T15:48:24.607Z",
+ "generatedAt": "2026-11-07T15:55:33.405Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T15:47:49Z",
+  "updatedAt": "2026-11-07T15:54:12Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -43,30 +43,103 @@
  },
  "items": [
   {
+   "number": 118,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Double-tap Party cards to swap pending companions directly",
+   "quote": "When you pull a companion and are in the swap in party menu, double clicking on a companion in the deck should swap it. Also it should visually swap the cards no confirmation necessary. So there should just be a release button and the floating card no party dps change or anything of that.",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-06T12:23:49Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-06T21:42:21Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-07T15:55:19Z",
+   "headSha": "e2fadd7fd52e8ac7a42839f87a0cb55e42abc1a2",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-07T15:55:19Z",
+   "goLive": false
+  },
+  {
    "number": 92,
    "kind": "request",
    "by": "Joshua",
    "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "noah",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "noah",
+     "text": "#144 replaces Haven's land rings with patches you clear one at a time on the map. That needs a new version of Haven's own test save (v5 → v6). Joshua says his test town can be started over. I suggest OK, test site only. It should be a fresh start under the new key, with the v5 save kept untouched as a backup. The real game's saves aren't touched.",
+     "at": "2026-11-07T15:52:31Z"
+    },
+    {
+     "who": "claude",
+     "text": "Build #144 once Noah OKs the v6 Haven test save: the raised home clearing, patches with Clear and lock badges on the map, a short Land window with Find Next Clearing, and the palisade and raids following the new edge.",
+     "at": "2026-11-07T15:52:31Z"
+    },
+    {
+     "who": "claude",
+     "text": "Take phone pictures on the test site at 320×610, 375×812, 390×844 and 430×932, starting from a new save (? → Reset demo, then Start). Get the Farm's bar with − / + (0 / 2, then 1 / 2), a bar with \"No free workers\" and Reassign in People, the House's Recruit, a Warehouse's bar, and People short and with More jobs. Check that the worker row, − / + and Close are never cut off, and that no tap on…",
+     "at": "2026-11-07T15:52:31Z"
+    },
+    {
+     "who": "note",
+     "text": "Only the Farm has a worker limit (2, 3 or 4 places). Lumber Camp, Stone Yard, Foundry, Workshop, Watchtower and Survey Post have none, because their jobs never had one. I didn't invent limits.",
+     "at": "2026-11-07T15:52:31Z"
+    },
+    {
+     "who": "note",
+     "text": "An older town with more farmers than Farm places keeps them all, and the extras forage berries as before. Only + stops at the limit. In More jobs, you can still add farmers past it, as before.",
+     "at": "2026-11-07T15:52:31Z"
+    },
+    {
+     "who": "note",
+     "text": "When nobody is free, Reassign in People opens People with every job showing, so you choose who to move. I think moving someone from one building to another without asking would be confusing.",
+     "at": "2026-11-07T15:52:31Z"
+    },
+    {
+     "who": "note",
+     "text": "The building bar now shows the next level's price, but not what that level does, so it stays short. The Build → More list still shows what each next level does. Tell Codex if you want it on the bar too.",
+     "at": "2026-11-07T15:52:31Z"
+    },
+    {
+     "who": "note",
+     "text": "People opens short, and the seven job rows are under More jobs. Before, three of them showed straight away. I think the buildings should be the main way in, as you chose.",
+     "at": "2026-11-07T15:52:31Z"
+    },
+    {
+     "who": "claude",
+     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
+     "at": "2026-11-07T15:55:09Z"
+    }
+   ],
    "openedAt": "2026-11-02T02:38:48Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
-   "headSha": "37abc2f563a26d4fbc57f484bf518e4a9d414592",
+   "updatedAt": "2026-11-07T15:54:13Z",
+   "headSha": "e88c7bd0ad2e8aaf646f7e4b8ec404db0e692588",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-07T15:45:17Z",
+   "botState": "questions",
+   "botAt": "2026-11-07T15:52:31Z",
    "goLive": false
   },
   {
@@ -89,11 +162,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
    "touchesGame": true,
    "answers": false,
@@ -152,11 +225,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
    "touchesGame": true,
    "answers": false,
@@ -205,11 +278,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -248,11 +321,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
@@ -275,11 +348,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "a91610200f612f316d64a148f1ee37cb0b67f2f8",
    "touchesGame": true,
    "answers": false,
@@ -302,11 +375,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "321e1e1f71fbe9c1704bb9e97f6a3ed625ed50e9",
    "touchesGame": true,
    "answers": false,
@@ -345,11 +418,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -388,11 +461,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "b4db7cfe3e9c96ad0f3c31b767af3184fd5dc794",
    "touchesGame": true,
    "answers": false,
@@ -426,11 +499,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "6bb37a9147cf475f596deb5b998d933c8a52a8b8",
    "touchesGame": true,
    "answers": false,
@@ -459,11 +532,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "31ac1d91a945206547b20af5774ad92878da133e",
    "touchesGame": true,
    "answers": false,
@@ -512,11 +585,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "05f6ded6ca37e22084edde4d967801936a0fe111",
    "touchesGame": true,
    "answers": false,
@@ -539,11 +612,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T15:47:50Z",
+   "testAt": "2026-11-07T15:54:13Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:50Z",
+   "updatedAt": "2026-11-07T15:54:13Z",
    "headSha": "c1494e8b45f798739afb1e5dbe4101435fd884c0",
    "touchesGame": true,
    "answers": false,
@@ -558,10 +631,61 @@
    "by": "Joshua",
    "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
    "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "building",
-   "waitingOn": null,
+   "stage": "questions",
+   "waitingOn": "both",
    "forClaude": false,
-   "asks": [],
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "How much stronger should each rarity be? I suggest ×1.41 per rarity: Common 10, Uncommon 14.1, Rare 20, Epic 28.3, Legendary 40, Mythic 56.6. Nobody's companion gets weaker, and none more than doubles. The other choices are today's ×2, which makes most companions 4× or 8× stronger, or keeping each companion's current damage, which makes new Commons and moved-up Uncommons hit the same.",
+     "at": "2026-11-07T15:52:27Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Legendary has 14 companions, not 15. Should it open early? I suggest yes: 0.20% at Rift Level 5, rising to 1.00% at Level 46, with the 14 sharing it (Riftmourn 1.07% of Legendary). Otherwise Hollow Knight, Moonveil Stag, Stone Sentinel, Dusk Revenant and ten Realm 2 companions can't be summoned until a 15th Legendary exists.",
+     "at": "2026-11-07T15:52:27Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Forgotten Watcher is the only Mythic. I suggest leaving it unsummonable until Mythic has 15 companions, as your request says. Players who own it keep it. The other choice is keeping it Legendary for now, but then Legendary would have two Aberrations.",
+     "at": "2026-11-07T15:52:27Z"
+    },
+    {
+     "who": "joshua",
+     "text": "What should a level cost for the new rarities? I suggest multipliers of Epic 5, Legendary 8 and Mythic 13, rising at the same pace as Uncommon to Rare. Without these, Epic and higher companions can't be levelled at all.",
+     "at": "2026-11-07T15:52:27Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Which three new Commons should new players choose their starter from? I suggest Brackenfox, Burrbloom and Tackbolt: a Beast, a Wildgrowth and a Construct, like today's three.",
+     "at": "2026-11-07T15:52:27Z"
+    },
+    {
+     "who": "noah",
+     "text": "The save update in the plan: it recalculates each companion's Essence so its level stays the same, moves Auto's stop choices, and adds a marker that it ran. I suggest building it last, after #119, #78, #89 and #97, and testing it on a made-up full save first.",
+     "at": "2026-11-07T15:52:27Z"
+    },
+    {
+     "who": "noah",
+     "text": "The summon roll needs finer steps: parts per million instead of parts per 10,000. Riftmourn at Level 5 is 21 per million, which is less than one step today. That change is in ownership-v5.js.",
+     "at": "2026-11-07T15:52:27Z"
+    },
+    {
+     "who": "noah",
+     "text": "New saves would store the starter by companion name ID (starterId), because today's starter number only reaches today's three starters. Old saves keep theirs as they are.",
+     "at": "2026-11-07T15:52:27Z"
+    },
+    {
+     "who": "note",
+     "text": "#78 as built keeps today's five Tome tables and adds no new rarities. So the only chance table that covers all ten rarities is #97's draft ladder, and I used it. If you change the ladder in #97, this plan follows it.",
+     "at": "2026-11-07T15:52:27Z"
+    },
+    {
+     "who": "note",
+     "text": "Moving companions up a rarity makes each of them rarer to summon, because each rarity is summoned less often. For example, Hollow Knight goes from about 0.5% today to about 0.02% at Level 5. That's what moving up means, but you'll notice it.",
+     "at": "2026-11-07T15:52:27Z"
+    }
+   ],
    "openedAt": "2026-11-02T04:06:28Z",
    "mergedAt": null,
    "closedAt": null,
@@ -570,13 +694,40 @@
    "onTest": false,
    "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T15:47:15Z",
-   "headSha": "a9f47cfc03c78504905425fcd09603fb7fa6d99f",
+   "updatedAt": "2026-11-07T15:52:27Z",
+   "headSha": "cb40ae719b5e340a86fdc2489d796ac4415513c2",
    "touchesGame": false,
    "answers": false,
    "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T15:52:27Z",
+   "goLive": false
+  },
+  {
+   "number": 142,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
+   "quote": "Add a claim all button to the codex discoveries and award a rift gem or whatever for each discovery and an extra award for discovering all companions of a rarity. Also on undiscovered ones I want them to show their name",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-07T15:36:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-07T15:50:00Z",
+   "headSha": "5c71214f376cb81b622cc73b82ff43dddc9c9d33",
+   "touchesGame": false,
+   "answers": false,
+   "requestStatus": "Waiting to be built",
    "botState": "finished",
-   "botAt": "2026-11-07T15:47:15Z",
+   "botAt": "2026-11-07T15:50:00Z",
    "goLive": false
   },
   {
@@ -774,60 +925,6 @@
    "answers": false,
    "requestStatus": "Waiting to be built",
    "botState": "",
-   "botAt": null,
-   "goLive": false
-  },
-  {
-   "number": 118,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Double-tap Party cards to swap pending companions directly",
-   "quote": "When you pull a companion and are in the swap in party menu, double clicking on a companion in the deck should swap it. Also it should visually swap the cards no confirmation necessary. So there should just be a release button and the floating card no party dps change or anything of that.",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T12:23:49Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-06T21:42:21Z",
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-07T15:38:45Z",
-   "headSha": "e2fadd7fd52e8ac7a42839f87a0cb55e42abc1a2",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-07T15:38:45Z",
-   "goLive": false
-  },
-  {
-   "number": 142,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
-   "quote": "Add a claim all button to the codex discoveries and award a rift gem or whatever for each discovery and an extra award for discovering all companions of a rarity. Also on undiscovered ones I want them to show their name",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T15:36:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T15:36:29Z",
-   "headSha": "5c71214f376cb81b622cc73b82ff43dddc9c9d33",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "questions",
    "botAt": null,
    "goLive": false
   },
@@ -1258,6 +1355,46 @@
  ],
  "activity": [
   {
+   "at": "2026-11-07T15:55:19Z",
+   "kind": "built",
+   "text": "Claude finished building “Double-tap Party cards to swap pending companions directly”"
+  },
+  {
+   "at": "2026-11-07T15:54:13Z",
+   "kind": "test",
+   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
+  },
+  {
+   "at": "2026-11-07T15:52:31Z",
+   "kind": "built",
+   "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-07T15:52:31Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-07T15:52:31Z",
+   "kind": "question",
+   "text": "Part of “Haven 3.0–4.0: upgradeable town and endless connected frontier” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-07T15:52:27Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
+  },
+  {
+   "at": "2026-11-07T15:52:27Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster”"
+  },
+  {
+   "at": "2026-11-07T15:52:27Z",
+   "kind": "question",
+   "text": "Part of “Rework companions: 15 per rarity, four summon bands, and brand-new Common roster” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-07T15:47:50Z",
    "kind": "test",
    "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
@@ -1266,11 +1403,6 @@
    "at": "2026-11-07T15:46:04Z",
    "kind": "closed",
    "text": "“Haven: cozy raised starter and on-map land patch clearing” was closed"
-  },
-  {
-   "at": "2026-11-07T15:45:17Z",
-   "kind": "built",
-   "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
   },
   {
    "at": "2026-11-07T15:45:11Z",
@@ -1311,11 +1443,6 @@
    "at": "2026-11-07T15:39:22Z",
    "kind": "asked",
    "text": "You asked for “Haven: cozy raised starting camp and clearable land patches on the map”"
-  },
-  {
-   "at": "2026-11-07T15:38:45Z",
-   "kind": "built",
-   "text": "Claude finished building “Double-tap Party cards to swap pending companions directly”"
   },
   {
    "at": "2026-11-07T15:36:29Z",
@@ -1426,36 +1553,6 @@
    "at": "2026-11-07T02:45:31Z",
    "kind": "built",
    "text": "Claude finished building “Audit live and dev Realm 1 visuals before Realm 2”"
-  },
-  {
-   "at": "2026-11-07T02:45:31Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Audit live and dev Realm 1 visuals before Realm 2”"
-  },
-  {
-   "at": "2026-11-07T02:40:57Z",
-   "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
-  },
-  {
-   "at": "2026-11-07T02:39:23Z",
-   "kind": "closed",
-   "text": "“Integrate five approved Realm 1 boss and enemy sprites on DEV” was closed"
-  },
-  {
-   "at": "2026-11-07T02:38:53Z",
-   "kind": "asked",
-   "text": "You asked for “Integrate five approved Realm 1 boss and enemy sprites on DEV”"
-  },
-  {
-   "at": "2026-11-07T02:02:09Z",
-   "kind": "test",
-   "text": "The test site was updated with “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Keep enemy and companions stationary when Party collapses”"
-  },
-  {
-   "at": "2026-11-07T02:00:36Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Quote claude-build's run-name so Claude's builds run again”"
   }
  ],
  "otherPulls": [
