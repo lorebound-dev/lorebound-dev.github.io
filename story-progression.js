@@ -52,9 +52,11 @@ function convert(input,sourceHash='0'.repeat(64)){
  s.schema=SCHEMA;s.revision++;spawn(s);R.timers(s,true);R.syncProgress(s);
  demand(root.LoreOwnership.validate(s),'Story conversion failed validation');return s;
 }
+// The equipped hero's Quest Gold (heroes-model.js, test site only): after Armory and recruits, once per paid reward.
+function heroGold(n){return root.LoreHeroes?.gold?root.LoreHeroes.gold(n):n;}
 function firstClear(s,f){const t=record(s);if(t.receipts[f])return {gold:0,shards:0,xp:0,first:false};
  demand(f===t.completed.length+1,'Non-contiguous story reward rejected');
- const reward={gold:R.goldReward(s,true),shards:root.LoreEconomy.floorShards(f),xp:R.E.bossXp,first:true};
+ const reward={gold:heroGold(R.goldReward(s,true)),shards:root.LoreEconomy.floorShards(f),xp:R.E.bossXp,first:true};
  t.receipts[f]='story-v1';t.completed.push(f);s.cleared.push(f);if(isBoss(f))t.bosses.push(f);
  s.gold+=reward.gold;s.shards+=reward.shards;s.playerXp+=reward.xp;s.bossClears=t.bosses.length;
  return reward;
@@ -62,7 +64,7 @@ function firstClear(s,f){const t=record(s);if(t.receipts[f])return {gold:0,shard
 function finish(s,rng,offline=false){const t=record(s);if(t.status==='complete')return null;
  const boss=s.mode==='boss',floor=s.floor,farm=!boss&&isBoss(floor);
  let gold=0,xp=0,shards=0,first=false;
- if(!boss){gold=R.goldReward(s);if(farm&&root.LoreArmory?.active(s))gold=root.LoreArmory.farmingGold(s,gold);if(farm&&root.LoreRecruitment?.enabled(s))gold=root.LoreRecruitment.applyGold(s,gold,'farmingGold');xp=R.E.regularXp;s.gold+=gold;s.playerXp+=xp;s.regularKills++;if(!offline&&root.LoreRealmSystems.active(s))s.progress.realmSystems.activeKills++;if(farm)root.LoreGuide?.aidKill(s);}
+ if(!boss){gold=R.goldReward(s);if(farm&&root.LoreArmory?.active(s))gold=root.LoreArmory.farmingGold(s,gold);if(farm&&root.LoreRecruitment?.enabled(s))gold=root.LoreRecruitment.applyGold(s,gold,'farmingGold');gold=heroGold(gold);xp=R.E.regularXp;s.gold+=gold;s.playerXp+=xp;s.regularKills++;if(!offline&&root.LoreRealmSystems.active(s))s.progress.realmSystems.activeKills++;if(farm)root.LoreGuide?.aidKill(s);}
  if(!farm){const r=firstClear(s,floor);gold+=r.gold;xp+=r.xp;shards=r.shards;first=r.first;
   if(floor===100){s.realmComplete=true;t.status='complete';t.completion=completion();}else{s.floor++;t.floor=s.floor;}
  }

@@ -22,9 +22,6 @@
 .hero-stats div{padding:5px 8px;border:1px solid #9b855155;background:#0c2430;min-width:0}
 .hero-stats dt{font-size:12px;color:#b6c4c7}
 .hero-stats dd{margin:2px 0 0;font-size:16px;color:#f3da9c;overflow-wrap:anywhere}
-.hero-trait{font-size:12px!important;line-height:1.45;color:#aac0c9}
-.hero-trait b{font-weight:normal;color:#e2c180}
-.hero-trait i{font-style:normal;color:#c9b37c}
 .hero-jump{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-overflow-scrolling:touch}
 .hero-jump::-webkit-scrollbar{display:none}
 .hero-jump button{flex:none;min-height:44px;padding:0 12px;border:1px solid var(--hr-ink);background:#0a1a27;color:var(--hr-light);font-size:13px}
@@ -70,7 +67,7 @@
 .hero-odds th{text-align:left;color:var(--hr-light)}
 .hero-odds td{text-align:right;color:#f3da9c}
 /* Locked heroes: name, rarity frame and a charcoal shadow only. */
-.hero-card.is-locked{cursor:default;border-style:dashed;background:linear-gradient(#0a1c27,#05121b)}
+.hero-card.is-locked{border-style:dashed;background:linear-gradient(#0a1c27,#05121b)}
 .hero-card.is-locked .hero-card-art{background:radial-gradient(circle at 50% 40%,#1b252d,#061621 75%);border-color:color-mix(in srgb,var(--hr-ink) 30%,transparent)}
 .hero-card.is-locked .hero-card-name{color:#b6c4c7}
 .hero-card-lock{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--hr-light)}
@@ -97,6 +94,29 @@
 .hero-reveal .hero-preview-actions{grid-column:1/-1}
 .hero-reveal .hero-preview-actions:has(> :only-child){grid-template-columns:1fr}
 .hero-preview .hero-bar{max-width:none}
+/* Signature effects (#151): at most two short rows, each with a small diamond coloured by what it boosts. */
+.hero-card-fx,.hero-current-fx,.hero-preview-fx{display:grid;gap:2px;justify-items:center}
+.hero-current-fx,.hero-preview-fx{justify-items:start;margin:2px 0 0!important}
+.hero-fx{position:relative;padding-left:11px;font-size:12px;line-height:1.3;color:#e7dfc8;overflow-wrap:anywhere}
+.hero-preview-fx .hero-fx{font-size:14px;padding-left:12px}
+.hero-fx::before{content:'';position:absolute;left:1px;top:.45em;width:5px;height:5px;transform:rotate(45deg);background:#8fc0d8}
+.hero-fx-gold::before{background:#e2c180}
+.hero-fx-tap::before{background:#f0a483}
+.hero-fx-help{font-size:12px!important;line-height:1.4;color:#aac0c9}
+.hero-next{font-size:13px!important;color:#c9b37c}
+/* Hero Crests: one count in the openings bar, the price and Confirm in a hero's preview. */
+.hero-open-text .hero-crests{display:flex;align-items:baseline;gap:6px;font-size:13px;color:#f3da9c}
+.hero-crests i{flex:none;width:7px;height:7px;transform:rotate(45deg) translateY(-1px);background:#e2c180;border:1px solid #805328}
+.hero-shop-line{font-size:13px!important;line-height:1.4;color:#e7dfc8;padding-top:6px;border-top:1px solid #9b855144}
+.hero-shop-line b{font-weight:normal;color:#f3da9c}
+.hero-shop-done{font-size:13px!important;color:#c1dfbb}
+.hero-buy{width:100%}
+.hero-preview-actions.is-single{grid-template-columns:1fr}
+.hero-preview.is-locked .hero-preview-line{color:#b6c4c7}
+.hero-reveal-crests{font-size:13px!important;color:#f3da9c}
+.hero-card.is-locked{cursor:pointer}
+.hero-odds thead th{text-align:right;color:#c9b37c;font-size:12px}
+.hero-odds thead th:first-child{text-align:left}
 @keyframes hero-flash{0%{box-shadow:0 0 0 0 transparent}55%{box-shadow:0 0 0 3px var(--hr-light)}100%{box-shadow:0 0 0 0 transparent}}
 @keyframes hero-fade-out{0%,40%{opacity:1}100%{opacity:0}}
 @keyframes hero-fade-in{0%,40%{opacity:0}100%{opacity:1}}
