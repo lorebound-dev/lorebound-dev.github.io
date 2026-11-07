@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T18:41:35.500Z",
+ "generatedAt": "2026-11-07T18:44:11.215Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -52,25 +52,71 @@
    "by": "Joshua",
    "title": "Replace Ascend with 25-hero rarity board for tap power",
    "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "noah",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "noah",
+     "text": "To go live, the hero collection has to move into the real game save and its backups. That's a save change, with an update in save-storage.js's UPDATES list and in save-backups.html. It would hold: recruited heroes and copies, found heroes and their waiting copies, the equipped hero, when each opening comes back, the Hero Crests balance, the last opening and purchase receipts, and an unseen…",
+     "at": "2026-11-07T18:43:48Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check Heroes on the test site in a browser at 320×610, 375×812, 390×844 and 430×932. From a new save, tap the fourth tab (Heroes). Check that:",
+     "at": "2026-11-07T18:43:48Z"
+    },
+    {
+     "who": "note",
+     "text": "\"Need Crests to unlock one\" is built the way the request read it: the openings stay free, and a newly found hero costs a one-time Crest payment to recruit. Duplicates of heroes you've recruited stay free. I think that's right: charging for openings too would make Crests run out.",
+     "at": "2026-11-07T18:43:48Z"
+    },
+    {
+     "who": "note",
+     "text": "Recruit prices are built exactly: 20 / 35 / 60 / 90 / 140 / 215 / 300 / 440 / 625 / 900. They make Crests the real limit now. Recruiting all 25 costs 5,995 Crests, about 234 days of openings. That's more than twice as long as before (about 107 days). Half the board takes about a month instead of a week, and a first Eternal about 6½ months for a player who recruits everything as they go. A…",
+     "at": "2026-11-07T18:43:48Z"
+    },
+    {
+     "who": "note",
+     "text": "Buying a hero you haven't found (80 to 3,600) almost never helps now. Something found is nearly always waiting and is 4 times cheaper, so the simulated \"recruit + buy\" player ends up just like the \"recruit only\" one. That's fine if Buy is meant as a rare way to pick a favourite.",
+     "at": "2026-11-07T18:43:48Z"
+    },
+    {
+     "who": "note",
+     "text": "To keep the two prices apart, cards you haven't found now say Buy · N Crests, and found ones say Recruit · N Crests. Before, unfound cards said \"Recruit\".",
+     "at": "2026-11-07T18:43:48Z"
+    },
+    {
+     "who": "note",
+     "text": "A found hero's reveal stays a shadow and only flashes its rarity colour, so it never looks owned before you pay. Its card gets a solid frame instead of a dashed one, so found heroes stand out among the undiscovered ones.",
+     "at": "2026-11-07T18:43:48Z"
+    },
+    {
+     "who": "note",
+     "text": "Tapping Recruit on a reveal opens that hero's preview at Confirm, so every purchase is confirmed in one place, with the balance you'll have after.",
+     "at": "2026-11-07T18:43:48Z"
+    },
+    {
+     "who": "note",
+     "text": "Everything on Heroes is still a test-site preview, kept on the device and outside your save. On the real game, the tab only says \"Coming Soon\".",
+     "at": "2026-11-07T18:43:48Z"
+    }
+   ],
    "openedAt": "2026-11-07T17:05:00Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-07T18:34:54Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T18:35:29Z",
-   "headSha": "deb8308fcd411bb664c4904414879726ad761c9c",
+   "updatedAt": "2026-11-07T18:43:48Z",
+   "headSha": "862e16017cf0da388a62969a88420dc9db8686c3",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-07T18:35:29Z",
+   "botState": "questions",
+   "botAt": "2026-11-07T18:43:48Z",
    "goLive": false
   },
   {
@@ -1574,9 +1620,19 @@
  ],
  "activity": [
   {
-   "at": "2026-11-07T18:35:29Z",
+   "at": "2026-11-07T18:43:48Z",
    "kind": "built",
    "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
+   "at": "2026-11-07T18:43:48Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
+   "at": "2026-11-07T18:43:48Z",
+   "kind": "question",
+   "text": "Part of “Replace Ascend with 25-hero rarity board for tap power” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-07T18:34:54Z",
@@ -1762,16 +1818,6 @@
    "at": "2026-11-07T16:18:05Z",
    "kind": "closed",
    "text": "“Haven: make resources denser and gathering more rewarding” was closed"
-  },
-  {
-   "at": "2026-11-07T16:17:37Z",
-   "kind": "asked",
-   "text": "You asked for “Haven: make resources denser and gathering more rewarding”"
-  },
-  {
-   "at": "2026-11-07T16:14:33Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”"
   }
  ],
  "otherPulls": [
