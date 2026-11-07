@@ -143,6 +143,11 @@
       "number": 133,
       "title": "Keep enemy and companions stationary when Party collapses",
       "head": "321dd9e6d94ffd7b0165e4f78e892436a143f832"
+    },
+    {
+      "number": 146,
+      "title": "Implement approved QoL audit across summoning collection and mobile play",
+      "head": "cbd80221e58b9a9e5975d9a9ae2f4776d3d75524"
     }
   ],
   "skipped": [
@@ -202,7 +207,7 @@
       "with": "others"
     }
   ],
-  "commit": "49d3caa740c40792d02cf108f98a67e70587c9af",
+  "commit": "b6876f5530f522c9e029b9b85c886c5ba7bf43b3",
   "unusedResolutions": [
     "118-69-bound-sheet-bottom",
     "118-69-manager-return",
@@ -211,5 +216,5 @@
     "118-97-party-dps-preview",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T16:26:54Z"
+  "at": "2026-11-07T17:00:45Z"
 }
