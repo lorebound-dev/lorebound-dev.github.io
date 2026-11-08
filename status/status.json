@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T19:53:43.377Z",
+ "generatedAt": "2026-11-08T21:37:00.595Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -1369,33 +1369,6 @@
    "botState": "finished",
    "botAt": "2026-11-07T17:06:41Z",
    "goLive": false
-  },
-  {
-   "number": 145,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven: make resources denser and gathering more rewarding",
-   "quote": "\"I feel like it is sparse with the resources and boring\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T16:17:37Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T16:18:05Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T16:18:05Z",
-   "headSha": "a89c0e85aecc9d82504b10d68bb1c9bb6127523e",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T16:18:05Z",
-   "goLive": false
   }
  ],
  "activity": [
@@ -1601,6 +1574,15 @@
   }
  ],
  "otherPulls": [
+  {
+   "number": 174,
+   "headSha": "b04e5cbd844121a7f0eebeec2bed56350d733f3c",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 173,
    "headSha": "4935109011785926d72abfb93a07a27ecb7b00a9",
