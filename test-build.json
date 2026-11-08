@@ -273,12 +273,21 @@
         "pocket-fortune/dist/tome-popup.js"
       ],
       "with": "others"
+    },
+    {
+      "number": 167,
+      "title": "Show exact floor-clear bonuses and away earnings",
+      "head": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
+      "files": [
+        "pocket-fortune/dist/adventure.js"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "5b432c54bcb976e971acf670c968dae62f6c429f",
+  "commit": "83222e4a351631a366346108db69e6361245bd41",
   "unusedResolutions": [
     "119-89-bound-mastery-hint",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-08T04:50:32Z"
+  "at": "2026-11-08T04:54:51Z"
 }
