@@ -1,5 +1,5 @@
 {
-  "base": "749932eda76a4d2b68ee9a7c7428a24631531b17",
+  "base": "512240ef7114f9a6c962ae9b351ba0e2a3e18219",
   "included": [
     {
       "number": 38,
@@ -201,12 +201,28 @@
       "head": "f7fc9f11979888d07b156c1553d5c59638ddcc24"
     },
     {
+      "number": 146,
+      "title": "Implement approved QoL audit across summoning collection and mobile play",
+      "head": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
+      "resolved": [
+        "146-78-auto-summary-rift-level"
+      ]
+    },
+    {
       "number": 147,
       "title": "Replace Ascend with 25-hero rarity board for tap power",
       "head": "2371ac7268ef79a91c232e57405677e4b9981f44",
       "resolved": [
         "147-109-endless-reward-gold",
         "147-119-companion-damage"
+      ]
+    },
+    {
+      "number": 161,
+      "title": "Rescue prologue and starter selection",
+      "head": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
+      "resolved": [
+        "161-97-first-session-stylesheet"
       ]
     },
     {
@@ -220,21 +236,52 @@
       "head": "ab5f73ba4061b186681c12c0f36e30174452bf6c"
     },
     {
+      "number": 164,
+      "title": "Unify Rift language and surface essential help",
+      "head": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
+      "resolved": [
+        "164-78-summon-odds-heading",
+        "164-146-auto-summary-rift-level",
+        "164-78-adventure-rules",
+        "164-78-auto-odds-head",
+        "164-84-auto-quantity-case",
+        "164-78-archive-notes",
+        "164-161-stylesheets",
+        "164-92-sealed-forge",
+        "164-130-named-blank-cards",
+        "164-92-update-texts",
+        "164-78-portal-label",
+        "164-78-luck-meter-label",
+        "164-78-quick-access-label",
+        "164-78-set-level",
+        "164-78-level-from",
+        "164-118-bound-sheet-sources",
+        "164-78-luck-progress",
+        "164-78-level-tabs",
+        "164-115-overview-art",
+        "164-78-discoveries-label",
+        "164-78-all-discovered",
+        "164-78-popup-next"
+      ]
+    },
+    {
       "number": 165,
       "title": "Make collection availability and completion honest",
-      "head": "b2674439c8404e242d11f194672e1a2b54d52a1c"
+      "head": "b2674439c8404e242d11f194672e1a2b54d52a1c",
+      "resolved": [
+        "165-164-omnidex-blank-card-labels"
+      ]
+    },
+    {
+      "number": 167,
+      "title": "Show exact floor-clear bonuses and away earnings",
+      "head": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
+      "resolved": [
+        "167-162-tap-clear-banner"
+      ]
     }
   ],
   "skipped": [
-    {
-      "number": 146,
-      "title": "Implement approved QoL audit across summoning collection and mobile play",
-      "head": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
-      "files": [
-        "pocket-fortune/dist/adventure-services.js"
-      ],
-      "with": "others"
-    },
     {
       "number": 149,
       "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
@@ -244,50 +291,14 @@
         "pocket-fortune/dist/navigation.js"
       ],
       "with": "others"
-    },
-    {
-      "number": 161,
-      "title": "Rescue prologue and starter selection",
-      "head": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
-      "files": [
-        "pocket-fortune/dist/home.html"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 164,
-      "title": "Unify Rift language and surface essential help",
-      "head": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
-      "files": [
-        "pocket-fortune/dist/adventure-services.js",
-        "pocket-fortune/dist/adventure.js",
-        "pocket-fortune/dist/economy-interface.js",
-        "pocket-fortune/dist/grand-archive.js",
-        "pocket-fortune/dist/home.html",
-        "pocket-fortune/dist/navigation.js",
-        "pocket-fortune/dist/omnidex.js",
-        "pocket-fortune/dist/ownership-adventure.js",
-        "pocket-fortune/dist/summoning.js",
-        "pocket-fortune/dist/team.js",
-        "pocket-fortune/dist/tome-management.js",
-        "pocket-fortune/dist/tome-popup.js"
-      ],
-      "with": "others"
-    },
-    {
-      "number": 167,
-      "title": "Show exact floor-clear bonuses and away earnings",
-      "head": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
-      "files": [
-        "pocket-fortune/dist/adventure.js"
-      ],
-      "with": "others"
     }
   ],
-  "commit": "7060495ed4d7ea831ec35bc0b5637d3f2e076af1",
+  "commit": "869a85c3be279b430c227bc267eae2f06df08baf",
   "unusedResolutions": [
     "119-89-bound-mastery-hint",
-    "122-109-economy-auto-notes"
+    "122-109-economy-auto-notes",
+    "164-78-rift-next-level",
+    "164-97-stylesheets"
   ],
-  "at": "2026-11-08T19:30:38Z"
+  "at": "2026-11-08T19:53:25Z"
 }

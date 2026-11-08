@@ -59,3 +59,12 @@
 .appearance-colors{position:relative;top:auto;left:auto;right:auto;z-index:2;gap:14px;padding:5px 0}.character-form{position:relative;top:auto;left:auto;right:auto;width:90%;margin:0 auto;gap:8px}.character-form input{font-size:17px}.character-form button{font-size:10px;padding:12px 0 0}.look-arrow{top:50%}
 .editing-name .creator{grid-template-rows:minmax(0,1fr) auto;padding:12px 8% 18px;gap:10px}.editing-name .creator-heading{display:none}.editing-name .avatar-stage{top:auto;height:auto}.editing-name .avatar-rig{height:100%;max-height:150px;width:auto}.editing-name .character-form{top:auto;gap:8px}
 @media(max-height:680px){.creator{padding:20px 8% 22px;row-gap:12px}.creator-heading h1{font-size:18px;line-height:1.55;margin-top:10px}.avatar-rig{max-height:210px}.appearance-colors{gap:11px}.character-form{gap:6px}.character-form input{font-size:15px;padding:6px}.character-form button{padding:8px 0 0}}
+/* First-session rescue (#161). A Skip plaque that stays above every slide and fade, clear of the phone's notch. */
+.story-skip{position:absolute;z-index:25;top:max(12px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));min-width:68px;min-height:44px;padding:8px 14px;border:1px solid #8b7856;border-radius:0;background:#07131fcc;box-shadow:inset 0 0 0 1px #07131f,inset 0 0 0 2px #c0a16a22,0 2px 3px #02080e66;color:#f1e4c4;font:13px/1 Georgia,serif;letter-spacing:1px}
+.story-skip:active{transform:translateY(1px);filter:brightness(1.12)}.story-skip:focus-visible{outline:2px solid #e9c57b;outline-offset:2px}
+/* "Then the sky broke" sits over the darkened city with a faint glow where the sky split, instead of plain black. */
+.phase-2 .city{display:block;opacity:1;filter:brightness(.32) saturate(.55);animation:cityDrift 18s ease-in-out infinite alternate}
+.phase-2:after{background:radial-gradient(ellipse 85% 40% at 50% 12%,#d0643a38,transparent 70%),linear-gradient(#0000008c,#000000b8 60%,#000000e6)}
+/* The meteor falls and strikes within the 1.5-second hold. */
+.phase-1 .meteor{animation:meteorFall .9s .05s ease-in forwards}.phase-1 .impact{animation:shockwave 1s .85s ease-out forwards}.phase-1{animation:calamityShake .5s .9s linear}
+@media(prefers-reduced-motion:reduce){.narration p.enter,.narration span,.phase-2 .city{animation:none!important}.scene-fade{transition:none}}

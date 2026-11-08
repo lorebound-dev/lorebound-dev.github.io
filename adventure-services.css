@@ -185,3 +185,16 @@
 .auto-stream{position:absolute;left:calc(50% - 18px);top:calc(50% - 18px);width:36px;height:36px;pointer-events:none;z-index:3}
 .auto-stream-sprite{position:absolute;inset:0;display:block;filter:drop-shadow(0 0 5px color-mix(in srgb,var(--stream-color,#e0c183) 55%,transparent))}
 .auto-stream-sprite .companion-art,.auto-stream-sprite .starter-sheet,.auto-stream-sprite img{display:block;width:100%!important;height:100%!important;object-fit:contain;filter:none}
+/* Auto session summary: one small squared plaque just above the summoning rail after you stop Auto. Antique gold edge,
+   Georgia text, a 44px close button. It sits over the battlefield's lower edge and goes after 12 seconds or a tap on ×. */
+.party-services #game #autoSessionSummary{position:absolute;left:6px;right:6px;bottom:calc(100% + 4px);z-index:8;display:flex;align-items:center;gap:6px;min-height:44px;margin:0;padding:3px 0 3px 10px;border:1px solid #b8955a;border-radius:2px;background:linear-gradient(#1b2f38f2,#0b1921f2);box-shadow:0 2px 6px #000c;color:#f0dcab;text-align:left;text-shadow:0 1px 2px #000}
+.party-services #game #autoSessionSummary[hidden]{display:none}
+.party-services #game #autoSessionSummary p{flex:1;min-width:0;margin:0;display:flex;flex-direction:column;gap:1px}
+.party-services #game #autoSessionSummary strong{font:13px/1.2 Georgia,serif!important;letter-spacing:normal!important;color:#f3d38c}
+.party-services #game #autoSessionSummary span{font:13px/1.25 Georgia,serif!important;letter-spacing:normal!important;color:#f0dcab;font-variant-numeric:tabular-nums}
+.party-services #game #autoSessionClose{flex:none;width:44px;height:44px;min-height:44px;margin:0;padding:0;border:0;background:transparent;color:#d8bd7e;font:22px/1 Georgia,serif!important;cursor:pointer;touch-action:manipulation}
+.party-services #game #autoSessionClose:focus-visible{outline:2px solid #f3d38c;outline-offset:-4px}
+/* Reduced effects (effects-preference.js): fewer decorative particles. Hit flashes, the enemy's shake, target names and
+   every timing stay as they are; damage numbers are thinned in the script, never hidden all together. */
+.effects-reduced #summonFx i:nth-child(n+3),.effects-reduced .idle-mote{display:none!important}
+.party-services #autoSettingsSheet .summon-check small{font:12px/1.3 Georgia,serif!important;letter-spacing:normal!important;color:#b9c8d3}

@@ -48,3 +48,7 @@
 #tomeQuickSheet #quickAutoToggle.is-single.is-running{border-color:#e0c183;color:#f6d68f;box-shadow:inset 0 0 0 1px #b18b4799}
 /* On Adventure, Auto Summon has its own plaque on the shrine, so Rift Upgrades shows no Auto row. */
 .party-services #tomeQuickSheet .tome-popup-footer .tome-auto-row{display:none}
+/* Upgrade Rift stays in reach: while the odds table is taller than the space left (small phones, Safari's bars showing),
+   the button sticks to the bottom of the scroll area over a soft fade, and settles back under its requirements at the end. */
+#tomeQuickSheet #quickUpgradeTome{position:sticky;bottom:0;z-index:3;box-shadow:0 -12px 12px -6px #0a1824}
+#tomePopupScroll{scroll-padding-bottom:64px}

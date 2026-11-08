@@ -63,13 +63,13 @@ function firstClear(s,f){const t=record(s);if(t.receipts[f])return {gold:0,shard
 }
 function finish(s,rng,offline=false){const t=record(s);if(t.status==='complete')return null;
  const boss=s.mode==='boss',floor=s.floor,farm=!boss&&isBoss(floor);
- let gold=0,xp=0,shards=0,first=false;
+ let gold=0,xp=0,shards=0,first=false,bonus=null;
  if(!boss){gold=R.goldReward(s);if(farm&&root.LoreArmory?.active(s))gold=root.LoreArmory.farmingGold(s,gold);if(farm&&root.LoreRecruitment?.enabled(s))gold=root.LoreRecruitment.applyGold(s,gold,'farmingGold');gold=heroGold(gold);xp=R.E.regularXp;s.gold+=gold;s.playerXp+=xp;s.regularKills++;if(!offline&&root.LoreRealmSystems.active(s))s.progress.realmSystems.activeKills++;if(farm)root.LoreGuide?.aidKill(s);}
- if(!farm){const r=firstClear(s,floor);gold+=r.gold;xp+=r.xp;shards=r.shards;first=r.first;
+ if(!farm){const r=firstClear(s,floor);gold+=r.gold;xp+=r.xp;shards=r.shards;first=r.first;if(first)bonus={gold:r.gold,shards:r.shards,xp:r.xp};
   if(floor===100){s.realmComplete=true;t.status='complete';t.completion=completion();}else{s.floor++;t.floor=s.floor;}
  }
  s.mode='regular';s.kills=0;s.bossRemaining=R.E.bossSeconds;s.bossUnlockedFloor=!s.realmComplete&&isBoss(s.floor)?s.floor:null;spawn(s,rng);if(boss)R.timers(s,true);R.syncProgress(s);
- return {kind:boss?'boss':'kill',clear:floor,first,farming:farm,realmBoss:boss&&floor===100,biomeBoss:boss&&floor===100,gold,shards,xp,essence:0,relic:false};
+ return {kind:boss?'boss':'kill',clear:floor,first,farming:farm,realmBoss:boss&&floor===100,biomeBoss:boss&&floor===100,gold,shards,xp,bonus,essence:0,relic:false};
 }
 function offline(s,now){const high=s.clock.highWater,delta=(now-high)/1000,invalid=!Number.isFinite(now)||delta<0;
  const out={seconds:invalid?0:Math.min(policy.offlineSeconds,delta),kills:0,gold:0,shards:0,xp:0,floors:[],interruptedBoss:false,invalidClock:invalid,capped:delta>policy.offlineSeconds,encounterCap:false};

@@ -46,7 +46,8 @@ function play(result,reveal,finish,speed=1){
    ctx.globalAlpha=(awaken?.15:.55)*fade;ctx.strokeStyle=spec.color;ctx.shadowColor=spec.color;ctx.shadowBlur=spec.glow;ctx.lineWidth=2.2;ctx.stroke();
    ctx.globalAlpha=.65*fade;ctx.shadowBlur=3;ctx.strokeStyle='#eefaff';ctx.lineWidth=.7;ctx.stroke();
   }
-  for(let i=0;i<spec.particles;i++){
+  // Reduced effects draws a third of the particles; trails, rays and timing are unchanged.
+  for(let i=0,count=root.LoreEffects?.reduced?Math.ceil(spec.particles/3):spec.particles;i<count;i++){
    const seed=i*.6180339,u=(seed+t*.24)%1,theta=i*2.39996+t*(1.1+i%3*.25),r=radius*(.38+(i%7)/9)*(1+burst*.7);
    const x=center+Math.cos(theta)*r,y=ground-u*height*build+Math.sin(theta)*12-burst*25;
    ctx.save();ctx.translate(x,y);ctx.rotate(theta);ctx.globalAlpha=Math.sin(u*Math.PI)*fade;ctx.fillStyle=spec.color;ctx.strokeStyle=spec.color;ctx.shadowBlur=8;ctx.lineWidth=1;
