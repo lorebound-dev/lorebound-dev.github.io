@@ -1,150 +1,172 @@
-/* Heroes (fourth tab, DEV preview). Same panel language as the Forge and the old Ascension screen: navy, antique gold,
-   squared plaques, Georgia, nothing under 12px. Rarity colours come in as --hr-ink/--hr-light/--hr-dark from heroes-model.js. */
+/* Heroes (fourth tab, DEV preview). Same panel language as the Forge: navy, antique gold, squared plaques, Georgia,
+   nothing under 12px. Rarity colours come in as --hr-ink/--hr-light/--hr-dark from heroes-model.js.
+   Since #168: a small top line, an ornate shelf with three chests, one swipable strip of all 25 heroes, a hero's detail
+   under the strip, and a chest screen with the real odds. The orb and sparkles are drawn in CSS; chests in code. */
 .destination-page[data-area="heroes"]{--area-art:url('assets/habitat-moonlit.png');--area-base:#0a1a27;--area-shade:#06131dee;--area-accent:#e2c180;--area-panel:#0c2430ee;--area-edge:#9b8551}
-.heroes{display:grid;gap:12px;margin:6px 0 18px;color:#e7dfc8}
+.heroes{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin:2px 0 14px;color:#e7dfc8}
+.heroes>*{min-width:0}
 .heroes,.heroes *{font-family:Georgia,serif!important}
-.heroes p,.heroes h3,.heroes h4{margin:0}
+.heroes p,.heroes h3,.heroes h4,.heroes ol{margin:0}
 .heroes [hidden]{display:none!important}
 .hero-art{display:block;width:100%;height:auto;aspect-ratio:16/18;image-rendering:pixelated}
 .nav-pixel-art{image-rendering:pixelated}
 .destination-pixel-icon{display:block;width:46px;height:auto;aspect-ratio:12/10;image-rendering:pixelated}
-.hero-dev{padding:8px 10px;border:1px solid #9b855166;background:#0c2430;font-size:12px!important;line-height:1.45;color:#c3d2d5}
-.hero-dev strong{color:#f3da9c;font-weight:normal}
 .hero-warn{padding:10px 12px;border:1px solid #c47c65;background:#2a1414;color:#f3d2c2;font-size:13px!important;line-height:1.4}
+.heroes button:focus-visible,.hero-strip:focus-visible{outline:2px solid #e2c180;outline-offset:2px}
+.hero-button{min-height:48px;border:1px solid #998651;border-radius:4px;background:linear-gradient(#244958,#0d2a39);color:#f6dfac;font-size:15px;padding:8px}
+.hero-button:disabled{opacity:.6;cursor:default}
+.hero-button.hero-quiet{background:#0a1a27;color:#d9cfb3;border-color:#9b855188}
+.hero-bar{display:block;width:100%;height:5px;background:#06131d;border:1px solid #9b855155}
+.hero-bar span{display:block;height:100%;background:var(--hr-ink,#e2c180)}
+
+/* Top line: equipped hero, Hero Crests, "?" and the Chest Level. */
+.hero-top{display:grid;gap:6px}
+.hero-top-row{display:grid;grid-template-columns:minmax(0,1fr) auto 44px;gap:8px;align-items:center}
+.hero-badge{display:flex;align-items:center;gap:8px;min-width:0}
+.hero-badge-art{flex:none;width:32px;padding:2px;border:1px solid var(--hr-ink);background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--hr-dark) 55%,#0c2430),#061621 75%)}
+.hero-badge-text{display:grid;min-width:0;font-size:14px;line-height:1.2;color:#f3da9c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-badge-text small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c9b37c}
+.hero-crests{display:flex;align-items:center;gap:6px;min-height:32px;padding:0 9px;border:1px solid #9b855188;background:#0a1a27;font-size:14px;color:#f3da9c;white-space:nowrap}
+.hero-crests i{flex:none;width:7px;height:7px;transform:rotate(45deg);background:#e2c180;border:1px solid #805328}
+.hero-about-button{width:44px;height:44px;border:1px solid #9b8551;border-radius:0;background:#0a1a27;color:#f3da9c;font-size:18px;cursor:pointer}
+.hero-level{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 8px;align-items:baseline;font-size:12px;color:#c3d2d5}
+.hero-level-name{color:#f3da9c}
+.hero-level-next{text-align:right}
+.hero-level .hero-bar{grid-column:1/-1;height:4px}
+.hero-level .hero-bar span{background:#e2c180}
+.hero-about{display:grid;gap:6px;padding:8px 10px;border:1px solid #9b855166;background:#0c2430}
+.hero-about p{font-size:12px!important;line-height:1.45;color:#c3d2d5}
+.hero-about strong{font-weight:normal;color:#f3da9c}
+
+/* The shelf: an arched alcove with old-gold edges, a wooden plank with brackets, and three chests on it. */
+.hero-shelf{position:relative;display:grid;padding:16px 8px 0;isolation:isolate}
+.hero-shelf-arch{position:absolute;z-index:-1;left:5%;right:5%;top:0;bottom:44px;border:1px solid #c9a560;border-bottom:0;border-radius:50% 50% 0 0/42px 42px 0 0;background:radial-gradient(ellipse at 50% 85%,#2c4a5c 0%,#0f2b39 45%,#061621 100%);box-shadow:inset 0 0 0 3px #061621,inset 0 0 0 4px #9b855155,0 0 16px #e2c1801f}
+.hero-shelf-arch::before{content:'';position:absolute;left:50%;top:-6px;width:10px;height:10px;transform:translateX(-50%) rotate(45deg);background:#e2c180;border:1px solid #805328;box-shadow:0 0 0 2px #061621}
+.hero-shelf-arch::after{content:'';position:absolute;inset:9px 9px 0;border:1px solid #9b855140;border-bottom:0;border-radius:inherit}
+.hero-shelf-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;align-items:end;padding:0 6%}
+.hero-shelf-chest{position:relative;display:grid;justify-items:center;align-content:end;min-height:76px;padding:8px 0 2px;border:0;background:none;cursor:pointer}
+.hero-shelf-chest .hero-chest-art{width:min(62px,88%)}
+.hero-shelf-chest.is-ready .hero-chest-art{filter:drop-shadow(0 0 6px #e2c18059);animation:hero-bob 2.8s ease-in-out infinite}
+.hero-shelf-chest.is-ready:nth-child(2) .hero-chest-art{animation-delay:-.9s}
+.hero-shelf-chest.is-ready:nth-child(3) .hero-chest-art{animation-delay:-1.8s}
+.hero-shelf-chest.is-spent .hero-chest-art{opacity:.32;filter:grayscale(1) brightness(.75)}
+.hero-shelf-time{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);padding:1px 6px;border:1px solid #9b855188;background:#061621e8;font-size:12px;line-height:1.3;color:#f3da9c;white-space:nowrap}
+.hero-shelf-plank{position:relative;height:14px;border-top:2px solid #e2c180;border-bottom:2px solid #3a2414;background:linear-gradient(#9b6d2f 0 2px,#7a4e2c 2px,#5a3820 70%,#3a2414);box-shadow:0 5px 8px #0009}
+.hero-shelf-plank::before,.hero-shelf-plank::after{content:'';position:absolute;top:12px;width:12px;height:12px;border:1px solid #2a1a10;border-top:0;background:linear-gradient(#9b6d2f,#5a3820);clip-path:polygon(0 0,100% 0,100% 30%,40% 100%,0 100%)}
+.hero-shelf-plank::before{left:10%}
+.hero-shelf-plank::after{right:10%;transform:scaleX(-1)}
+.hero-shelf-line{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px!important;font-size:13px;color:#c3d2d5}
+.hero-dev-tag{flex:none;padding:0 6px;border:1px solid #9b855166;font-size:12px;color:#c9b37c}
+
+/* A chest: lid and body, drawn in code. */
+.hero-chest-art{position:relative;display:block;width:64px}
+.hero-chest-art svg{position:relative;display:block;width:100%;height:auto;image-rendering:pixelated}
+.hc-lid{z-index:2;transform-origin:50% 100%;transition:transform .32s steps(4,end)}
+.hc-base{z-index:1}
+.hc-glow{position:absolute;z-index:3;left:14%;right:14%;top:22%;height:26%;background:radial-gradient(ellipse,#fff8e0 0,#fae3a3 30%,#e2c18000 72%);opacity:0;pointer-events:none}
+
+/* The chest screen. */
+.hero-scene{display:grid;gap:8px;padding:8px 10px 10px;border:1px solid #9b8551;background:radial-gradient(ellipse at 50% 20%,#244958 0%,#0c2430 42%,#061621 100%)}
+.hero-scene-head{display:grid;grid-template-columns:minmax(72px,auto) minmax(0,1fr) minmax(72px,auto);gap:8px;align-items:center}
+.hero-back{min-height:44px;padding:6px 10px}
+.hero-scene-head h3{font-size:17px!important;font-weight:normal;color:#f3da9c;text-align:center}
+.hero-scene-status{font-size:12px;line-height:1.3;color:#c3d2d5;text-align:right}
+.hero-scene-stage{position:relative;display:grid;place-items:end center;height:122px;padding-bottom:6px}
+.hero-chest-art.is-big{width:min(124px,42%);transition:transform .26s ease-in,opacity .26s ease-in;filter:drop-shadow(0 0 10px #e2c18055)}
+.hero-scene-sub{font-size:12px!important;text-align:center;color:#c9b37c}
+.hero-scene-odds{list-style:none;padding:0;border-top:1px solid #9b855144}
+.hero-scene-odds li{display:grid;grid-template-columns:10px minmax(0,1fr) auto 4.6em;gap:8px;align-items:center;padding:2px 2px;border-bottom:1px solid #9b855122;font-size:13px;line-height:1.35}
+.hero-scene-odds i{width:7px;height:7px;transform:rotate(45deg);background:var(--hr-ink);border:1px solid var(--hr-light)}
+.hero-odds-name{color:var(--hr-light);overflow-wrap:anywhere}
+.hero-odds-gate{font-size:12px;color:#93a6ab}
+.hero-scene-odds b{font-weight:normal;text-align:right;color:#f3da9c}
+.hero-scene-odds li.is-gated .hero-odds-name,.hero-scene-odds li.is-gated b{color:#7f9095}
+.hero-scene-odds li.is-gated i{opacity:.45}
+.hero-scene-msg{font-size:13px!important;line-height:1.4;text-align:center;color:#f3d2c2}
+.hero-open-button{min-height:52px;font-size:18px;letter-spacing:.16em}
+/* Opening: lid lifts and glows, the orb rises, the chest goes. */
+.hero-scene.is-lid .is-big .hc-lid{transform:translateY(-38%) rotate(-7deg)}
+.hero-scene.is-lid .is-big .hc-glow{opacity:1;transition:opacity .25s ease-out}
+.hero-orb{position:absolute;z-index:4;left:50%;top:58%;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;background:radial-gradient(circle at 40% 36%,#fff 0 16%,var(--hr-light,#fae3a3) 30%,var(--hr-ink,#e2c180) 62%,#0000 72%);box-shadow:0 0 12px 4px color-mix(in srgb,var(--hr-ink,#e2c180) 80%,transparent),0 0 26px 8px color-mix(in srgb,var(--hr-light,#fae3a3) 35%,transparent);opacity:0;transform:scale(.3);pointer-events:none}
+.hero-scene.is-orb .hero-orb{opacity:1;transform:translateY(-58px) scale(1);transition:transform .36s cubic-bezier(.2,.8,.3,1),opacity .12s}
+.hero-scene.is-gone .is-big{transform:translateY(24%) scale(.35);opacity:0}
+.hero-scene.is-gone .hero-orb{transform:translateY(-58px) scale(1.15)}
+.heroes.is-playing .hero-scene-odds,.heroes.is-playing .hero-scene-sub,.heroes.is-playing .hero-open-button,.heroes.is-playing .hero-back,.heroes.is-playing .hero-scene-status,.heroes.is-playing .hero-scene-msg{visibility:hidden}
+.hero-fly{position:absolute;inset:0;z-index:6;pointer-events:none;overflow:visible}
+.hero-orb.is-flying{margin:0;opacity:1;transform:translate(-50%,-50%)}
+.hero-skip{position:absolute;z-index:7;top:0;right:0;min-height:44px;min-width:76px;padding:6px 12px;border:1px solid #e2c180;border-radius:4px;background:#0a1a27f0;color:#f3da9c;font-size:15px;cursor:pointer}
+
+/* After a landing: one short line, with Equip for a newly unlocked hero. */
+.hero-toast{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;align-items:center;padding:6px 6px 6px 10px;border:1px solid var(--hr-ink);border-left-width:3px;background:#0a1a27}
+.hero-toast p{grid-column:1;font-size:13px!important;line-height:1.35;color:#e7dfc8;overflow-wrap:anywhere}
+.hero-toast b{font-weight:normal;color:#f3da9c}
+.hero-toast-tier{font-size:12px!important;letter-spacing:.06em;color:var(--hr-light)!important}
+.hero-toast-actions{grid-column:2;grid-row:1/span 3;display:flex;gap:6px;align-items:center}
+.hero-toast .hero-button{min-height:44px;padding:4px 12px;font-size:14px}
+.hero-toast-close{width:44px;height:44px;border:1px solid #9b855166;background:none;color:#d9cfb3;font-size:18px;cursor:pointer}
+.hero-toast.is-jackpot{border-color:#e2c180;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--hr-dark) 60%,transparent)}
+
+/* The strip: all 25 heroes in one swipable row, in roster order. */
+.hero-strip{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:clamp(92px,30%,124px);gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;overscroll-behavior-x:contain;padding:6px 2px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:#9b8551 #061621}
+.hero-slot{display:grid;scroll-snap-align:center}
+.hero-card{position:relative;display:grid;align-content:start;justify-items:center;gap:3px;min-width:0;min-height:44px;padding:6px 5px 8px;border:2px solid var(--hr-ink);border-radius:0;background:linear-gradient(#0a2232,#061621);box-shadow:inset 0 0 0 1px #06131d;color:#f1e2be;text-align:center;cursor:pointer}
+.hero-card-art{display:grid;place-items:center;width:100%;max-width:76px;padding:3px;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--hr-dark) 55%,#0c2430),#061621 75%);border:1px solid color-mix(in srgb,var(--hr-ink) 45%,transparent)}
+.hero-card-name{display:grid;place-items:center;min-height:2.3em;font-size:13px;line-height:1.15;color:#f1e2be;overflow-wrap:anywhere}
+.hero-card-rarity{font-size:12px;line-height:1.2;color:var(--hr-light);overflow-wrap:anywhere}
+.hero-card-frags{font-size:12px;line-height:1.2;color:#f3da9c}
+.hero-card .hero-bar{height:4px;max-width:76px}
+.hero-card.is-locked{background:linear-gradient(#0a1c27,#05121b);border-color:color-mix(in srgb,var(--hr-ink) 75%,#061621)}
+.hero-card.is-locked .hero-card-art{background:radial-gradient(circle at 50% 40%,#1b252d,#061621 75%);border-color:color-mix(in srgb,var(--hr-ink) 30%,transparent)}
+.hero-card.is-locked .hero-card-name{color:#b6c4c7}
+.hero-card.is-locked .hero-card-frags{color:#c3d2d5}
+.hero-card.is-found .hero-card-frags{color:#f3da9c}
+.hero-card.is-gated{opacity:.66;border-style:dashed}
+.hero-card.is-gated .hero-card-frags{color:#93a6ab}
+.hero-card.is-active{background:linear-gradient(#14303d,#081d29);box-shadow:inset 0 0 0 1px #06131d,0 0 0 2px #e2c180}
+.hero-card.is-active::after{content:'';position:absolute;top:5px;right:5px;width:7px;height:7px;background:#e2c180;border:1px solid #805328;transform:rotate(45deg)}
+.hero-card.is-open{outline:2px solid var(--hr-light);outline-offset:2px}
+/* Landing: a rarity-coloured pulse, a small starburst, "+1 Fragment" floating up; a new hero's colours fade in. */
+.hero-card.is-landing{animation:hero-pulse .7s ease-out}
+.hero-card.is-jackpot{animation:hero-pulse-big 1s ease-out}
+.hero-card.is-unlocking .hero-card-art .hero-art{animation:hero-fade-in .6s ease-in both}
+.hero-card.is-rankup .hero-card-frags{animation:hero-rank .9s ease-out}
+.hero-spark{position:absolute;left:50%;top:32%;width:0;height:0;pointer-events:none}
+.hero-spark::before{content:'';position:absolute;left:-3px;top:-3px;width:6px;height:6px;background:#fff;transform:rotate(45deg);box-shadow:0 -22px 0 0 var(--hr-light),0 22px 0 0 var(--hr-light),22px 0 0 0 var(--hr-light),-22px 0 0 0 var(--hr-light),15px 15px 0 -1px #fff,-15px -15px 0 -1px #fff,15px -15px 0 -1px #fff,-15px 15px 0 -1px #fff;animation:hero-burst .55s ease-out both}
+.hero-spark::after{content:'';position:absolute;left:-14px;top:-14px;width:28px;height:28px;border:2px solid var(--hr-light);border-radius:50%;animation:hero-ring .5s ease-out both}
+.hero-card-float{position:absolute;top:3px;left:50%;padding:0 5px;border:1px solid var(--hr-ink);background:#061621e0;font-size:12px;line-height:1.4;color:#f3da9c;white-space:nowrap;pointer-events:none;animation:hero-float 1.05s ease-out both}
+
+/* A hero's detail, under the strip. */
 .hero-portrait{display:grid;place-items:center;padding:6px;border:1px solid var(--hr-ink);background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--hr-dark) 55%,#0c2430),#061621 75%)}
-.hero-current{display:grid;grid-template-columns:minmax(84px,30%) 1fr;gap:10px;align-items:start;padding:10px;border:1px solid #e2c180;background:linear-gradient(#0a2232,#061621)}
-.hero-current .hero-portrait .hero-art{max-width:104px}
-.hero-current-text{display:grid;gap:4px;min-width:0}
-.hero-kicker{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c9b37c}
-.hero-current h3{font-size:18px!important;line-height:1.2;color:#f3da9c;overflow-wrap:anywhere}
 .hero-rarity{font-size:13px;color:var(--hr-light)}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:4px 0 0}
-.hero-stats div{padding:5px 8px;border:1px solid #9b855155;background:#0c2430;min-width:0}
-.hero-stats dt{font-size:12px;color:#b6c4c7}
-.hero-stats dd{margin:2px 0 0;font-size:16px;color:#f3da9c;overflow-wrap:anywhere}
-.hero-jump{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-overflow-scrolling:touch}
-.hero-jump::-webkit-scrollbar{display:none}
-.hero-jump button{flex:none;min-height:44px;padding:0 12px;border:1px solid var(--hr-ink);background:#0a1a27;color:var(--hr-light);font-size:13px}
-.hero-tier{display:grid;gap:8px;scroll-margin-top:8px}
-.hero-tier-title{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:0 2px 4px;border-bottom:1px solid var(--hr-ink);font-size:16px!important;font-weight:normal;color:var(--hr-light)}
-.hero-tier-title span{font-size:12px;color:#b6c4c7}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.hero-card{position:relative;display:grid;grid-template-rows:auto auto auto;justify-items:center;gap:4px;min-width:0;min-height:44px;padding:8px 6px 10px;border:1px solid color-mix(in srgb,var(--hr-ink) 70%,transparent);border-radius:0;background:linear-gradient(#0a2232,#061621);color:#f1e2be;text-align:center;cursor:pointer}
-.hero-card-art{display:grid;place-items:center;width:100%;max-width:84px;padding:4px;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--hr-dark) 55%,#0c2430),#061621 75%);border:1px solid color-mix(in srgb,var(--hr-ink) 45%,transparent)}
-.hero-card-name{font-size:14px;line-height:1.2;color:#f1e2be;overflow-wrap:anywhere}
-.hero-card-tap{font-size:12px;color:#c4e9ff}
-.hero-card-tap b{font-weight:normal;color:#f3da9c}
-.hero-card-state{position:absolute;top:4px;left:4px;font-size:12px;line-height:1;color:#f3da9c}
-.hero-card-state:empty{display:none}
-.hero-card.is-open{border-color:var(--hr-light)}
-.hero-card.is-active{border:2px solid #e2c180;padding:7px 5px 9px;background:linear-gradient(#14303d,#081d29);box-shadow:inset 0 0 0 1px #06131d}
-.hero-card.is-active::after{content:'';position:absolute;top:6px;right:6px;width:7px;height:7px;background:#e2c180;transform:rotate(45deg)}
 .hero-preview{display:grid;gap:8px;padding:10px;border:1px solid var(--hr-light);background:#0c2430}
-.hero-preview-head{display:grid;grid-template-columns:72px 1fr;gap:10px;align-items:center}
+.hero-preview-head{display:grid;grid-template-columns:72px minmax(0,1fr);gap:10px;align-items:center}
 .hero-preview-head h4{font-size:17px!important;font-weight:normal;line-height:1.2;color:#f3da9c;overflow-wrap:anywhere}
-.hero-preview-head .hero-rarity{color:var(--hr-light)}
 .hero-preview-mult{font-size:14px!important;color:#c4e9ff;margin-top:2px!important}
 .hero-preview-line{font-size:14px!important;color:#e7dfc8}
 .hero-preview-line b{font-weight:normal;color:#f3da9c}
 .hero-preview-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.hero-button{min-height:48px;border:1px solid #998651;border-radius:4px;background:linear-gradient(#244958,#0d2a39);color:#f6dfac;font-size:15px;padding:8px}
-.hero-button:disabled{opacity:.6;cursor:default}
-.hero-button.hero-quiet{background:#0a1a27;color:#d9cfb3;border-color:#9b855188}
-.heroes button:focus-visible{outline:2px solid #e2c180;outline-offset:2px}
-/* Openings: one compact bar under the equipped hero. */
-.hero-open{display:grid;grid-template-columns:30px 1fr;gap:6px 10px;align-items:center;padding:8px 10px;border:1px solid #9b8551;background:linear-gradient(#0c2430,#071b27)}
-.hero-open-icon{width:30px;height:30px;image-rendering:pixelated}
-.hero-open-text{display:grid;gap:2px;min-width:0}
-.hero-open-text strong{font-size:16px;font-weight:normal;color:#f3da9c}
-.hero-open-text span{font-size:13px;color:#c3d2d5;overflow-wrap:anywhere}
-.hero-open-actions{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:8px}
-.hero-open-button{letter-spacing:.06em}
-.hero-odds-button{min-width:76px}
-.hero-odds{padding:8px 10px;border:1px solid #9b855188;background:#0a1a27}
-.hero-odds-note{font-size:12px!important;line-height:1.45;color:#c3d2d5;margin-bottom:6px!important}
-.hero-odds table{width:100%;border-collapse:collapse}
-.hero-odds th,.hero-odds td{padding:3px 4px;font-size:13px;font-weight:normal;border-bottom:1px solid #9b855133}
-.hero-odds th{text-align:left;color:var(--hr-light)}
-.hero-odds td{text-align:right;color:#f3da9c}
-/* Locked heroes: name, rarity frame and a charcoal shadow only. */
-.hero-card.is-locked{border-style:dashed;background:linear-gradient(#0a1c27,#05121b)}
-.hero-card.is-locked .hero-card-art{background:radial-gradient(circle at 50% 40%,#1b252d,#061621 75%);border-color:color-mix(in srgb,var(--hr-ink) 30%,transparent)}
-.hero-card.is-locked .hero-card-name{color:#b6c4c7}
-.hero-card-lock{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--hr-light)}
-.hero-card-hint{font-size:12px;color:#93a6ab}
-.hero-card-mastery{font-size:12px;color:#d9cfb3}
-.hero-bar{display:block;width:100%;height:5px;background:#06131d;border:1px solid #9b855155}
-.hero-bar span{display:block;height:100%;background:var(--hr-ink,#e2c180)}
-.hero-card .hero-bar{max-width:110px}
-/* Opening result. */
-.hero-reveal{display:grid;grid-template-columns:96px 1fr;gap:8px 12px;align-items:center;padding:10px;border:2px solid var(--hr-ink);background:linear-gradient(#0c2430,#061621);animation:hero-flash 900ms ease-out both}
-.hero-reveal-art{position:relative;display:grid;place-items:center;padding:6px;border:1px solid var(--hr-ink);background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--hr-dark) 60%,#0c2430),#061621 75%);cursor:pointer}
-.hero-reveal-art>span{grid-area:1/1;width:100%}
-.hr-shadow{animation:hero-fade-out 900ms ease-in both}
-.hr-color{animation:hero-fade-in 900ms ease-in both}
-.hero-reveal.is-done,.hero-reveal.is-done .hr-shadow,.hero-reveal.is-done .hr-color{animation:none}
-.hero-reveal.is-done .hr-shadow{opacity:0}
-.hero-reveal-text{display:grid;gap:3px;min-width:0}
-.hero-reveal-tag{justify-self:start;padding:1px 6px;border:1px solid var(--hr-light);font-size:12px;letter-spacing:.08em;color:var(--hr-light)}
-.hero-reveal h4{font-size:17px!important;font-weight:normal;line-height:1.2;color:#f3da9c;overflow-wrap:anywhere}
-.hero-reveal .hero-rarity{color:var(--hr-light)}
-.hero-reveal-line{font-size:13px!important;color:#e7dfc8}
-.hero-reveal-rank{font-size:13px!important;color:#f3da9c;padding-left:12px;position:relative}
-.hero-reveal-rank::before{content:'';position:absolute;left:0;top:5px;width:6px;height:6px;background:var(--hr-light);transform:rotate(45deg)}
-.hero-reveal .hero-preview-actions{grid-column:1/-1}
-.hero-reveal .hero-preview-actions:has(> :only-child){grid-template-columns:1fr}
+.hero-preview-actions.is-single{grid-template-columns:1fr}
 .hero-preview .hero-bar{max-width:none}
-/* Signature effects (#151): at most two short rows, each with a small diamond coloured by what it boosts. */
-.hero-card-fx,.hero-current-fx,.hero-preview-fx{display:grid;gap:2px;justify-items:center}
-.hero-current-fx,.hero-preview-fx{justify-items:start;margin:2px 0 0!important}
-.hero-fx{position:relative;padding-left:11px;font-size:12px;line-height:1.3;color:#e7dfc8;overflow-wrap:anywhere}
-.hero-preview-fx .hero-fx{font-size:14px;padding-left:12px}
+.hero-preview.is-locked .hero-preview-line{color:#b6c4c7}
+.hero-preview-fx{display:grid;gap:2px;justify-items:start;margin:2px 0 0!important}
+.hero-fx{position:relative;padding-left:12px;font-size:14px;line-height:1.3;color:#e7dfc8;overflow-wrap:anywhere}
 .hero-fx::before{content:'';position:absolute;left:1px;top:.45em;width:5px;height:5px;transform:rotate(45deg);background:#8fc0d8}
 .hero-fx-gold::before{background:#e2c180}
 .hero-fx-tap::before{background:#f0a483}
 .hero-fx-help{font-size:12px!important;line-height:1.4;color:#aac0c9}
 .hero-next{font-size:13px!important;color:#c9b37c}
-/* Hero Crests: one count in the openings bar, the price and Confirm in a hero's preview. */
-.hero-open-text .hero-crests{display:flex;align-items:baseline;gap:6px;font-size:13px;color:#f3da9c}
-.hero-crests i{flex:none;width:7px;height:7px;transform:rotate(45deg) translateY(-1px);background:#e2c180;border:1px solid #805328}
 .hero-shop-line{font-size:13px!important;line-height:1.4;color:#e7dfc8;padding-top:6px;border-top:1px solid #9b855144}
 .hero-shop-line b{font-weight:normal;color:#f3da9c}
 .hero-shop-done{font-size:13px!important;color:#c1dfbb}
 .hero-buy{width:100%}
-.hero-preview-actions.is-single{grid-template-columns:1fr}
-.hero-preview.is-locked .hero-preview-line{color:#b6c4c7}
-.hero-reveal-crests{font-size:13px!important;color:#f3da9c}
-.hero-card.is-locked{cursor:pointer}
-.hero-odds thead th{text-align:right;color:#c9b37c;font-size:12px}
-.hero-odds thead th:first-child{text-align:left}
-@keyframes hero-flash{0%{box-shadow:0 0 0 0 transparent}55%{box-shadow:0 0 0 3px var(--hr-light)}100%{box-shadow:0 0 0 0 transparent}}
-@keyframes hero-fade-out{0%,40%{opacity:1}100%{opacity:0}}
-@keyframes hero-fade-in{0%,40%{opacity:0}100%{opacity:1}}
-@media(prefers-reduced-motion:reduce){.hero-reveal,.hr-shadow,.hr-color{animation:none}.hr-shadow{opacity:0}}
-@media(max-width:350px){.hero-reveal{grid-template-columns:76px 1fr;gap:8px}.hero-current{grid-template-columns:76px 1fr;gap:8px}.hero-current h3{font-size:16px!important}.hero-stats dd{font-size:15px}.hero-card-name{font-size:13px}.hero-grid{gap:6px}}
-/* #153: a hero with 1 or 2 fragments keeps its shadow, with a solid frame and a small fragment bar. A chest result for a
-   hero that still needs fragments flashes the rarity but stays a shadow. */
-.hero-card.is-found{border-style:solid;border-color:color-mix(in srgb,var(--hr-ink) 80%,transparent)}
-.hero-card.is-found .hero-card-lock{color:#f3da9c}
-.hero-card.is-found .hero-card-hint{color:#e7dfc8}
-.hero-reveal.is-shadow .hr-shadow,.hero-reveal.is-shadow.is-done .hr-shadow{animation:none;opacity:1}
-/* A rarity the chest level hasn't unlocked: dimmer frame and name. */
-.hero-card.is-gated{opacity:.72}
-.hero-card.is-gated .hero-card-lock{color:#93a6ab}
-.hero-odds tr.is-gated th,.hero-odds tr.is-gated td{color:#7f9095}
-/* Chest level: one short line and a thin bar across the openings bar. */
-.hero-chest{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:baseline;padding-top:6px;border-top:1px solid #9b855144}
-.hero-chest-level{font-size:13px;color:#f3da9c}
-.hero-chest-next{font-size:12px;color:#c3d2d5;text-align:right}
-.hero-chest-bar{grid-column:1/-1}
-.hero-chest-bar span{background:#e2c180}
-/* "EPIC HEROES UNLOCKED": a restrained plaque under the result, in the new rarity's colour. */
-.hero-reveal-tier{grid-column:1/-1;justify-self:center;padding:4px 12px;border:1px solid var(--hr-ink);border-left-width:3px;border-right-width:3px;background:#0a1a27;font-size:13px!important;letter-spacing:.08em;color:var(--hr-light)}
-.hero-reveal.is-jackpot .hero-reveal-tag{background:color-mix(in srgb,var(--hr-dark) 50%,transparent);color:#f3da9c;border-color:#e2c180}
-@media(max-width:350px){.hero-chest{grid-template-columns:1fr}.hero-chest-next{text-align:left}}
-/* Odds at 320 wide: the panel's one column can never grow past the screen, and the table is narrower so all five
-   columns fit (labels stay 12px Georgia; "Chest 300" wraps under its header when space is short). */
-.heroes{grid-template-columns:minmax(0,1fr)}
-.heroes>*{min-width:0}
-.hero-odds{overflow-wrap:break-word}
-@media(max-width:350px){.hero-odds{padding:8px 6px}.hero-odds th,.hero-odds td,.hero-odds thead th{padding:3px 2px;font-size:12px}}
+
+@keyframes hero-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes hero-pulse{0%{box-shadow:inset 0 0 0 1px #06131d,0 0 0 0 var(--hr-light)}35%{box-shadow:inset 0 0 0 1px #06131d,0 0 0 3px var(--hr-light),0 0 18px 6px var(--hr-ink)}100%{box-shadow:inset 0 0 0 1px #06131d,0 0 0 0 transparent}}
+@keyframes hero-pulse-big{0%{box-shadow:0 0 0 0 #fae3a3}30%{box-shadow:0 0 0 4px #fae3a3,0 0 26px 10px var(--hr-ink)}60%{box-shadow:0 0 0 2px var(--hr-light),0 0 18px 6px #e2c180}100%{box-shadow:0 0 0 0 transparent}}
+@keyframes hero-burst{0%{opacity:0;transform:rotate(45deg) scale(.2)}35%{opacity:1}100%{opacity:0;transform:rotate(45deg) scale(1.35)}}
+@keyframes hero-ring{0%{opacity:1;transform:scale(.3)}100%{opacity:0;transform:scale(2.2)}}
+@keyframes hero-float{0%{opacity:0;transform:translate(-50%,6px)}20%,75%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-8px)}}
+@keyframes hero-fade-in{0%{opacity:.15;filter:brightness(2.2)}100%{opacity:1;filter:none}}
+@keyframes hero-rank{0%,100%{color:#f3da9c}40%{color:#fff;text-shadow:0 0 6px var(--hr-light)}}
+@media(prefers-reduced-motion:reduce){.hero-shelf-chest.is-ready .hero-chest-art,.hero-card.is-landing,.hero-card.is-landing *{animation:none!important}.hero-spark,.hero-card-float{display:none}.hc-lid,.hero-orb,.hero-chest-art.is-big{transition:none!important}}
+@media(max-width:350px){.hero-card-name{font-size:12px}.hero-strip{gap:6px}.hero-scene-odds li{gap:6px;font-size:12px}.hero-scene-head{grid-template-columns:auto minmax(0,1fr) auto}.hero-scene-head h3{font-size:15px!important}.hero-shelf-row{padding:0 3%}}

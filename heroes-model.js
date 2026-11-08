@@ -205,7 +205,7 @@ function current(){return state||load();}
 function commit(next){const ls=storage(),text=JSON.stringify(next);try{if(!ls)throw Error('no storage');ls.setItem(KEY,text);if(ls.getItem(KEY)!==text)throw Error('not kept');}catch{warn='This device would not save your heroes, so nothing was changed. Try again.';return false;}state=next;warn='';return true;}
 // The game's trusted clock (origin HTTP Date + monotonic time). Never the device clock on its own.
 function clock(){const C=root.LoreClock;const trusted=!!C?.trusted?.();return {trusted,now:trusted?C.now(0):null};}
-function charges(now,rec=current()){const t=Math.max(Number(now)||0,rec.high),out=rec.spent.filter(x=>x>t);return {available:CHARGES-out.length,max:CHARGES,nextAt:out.length?out[0]:null};}
+function charges(now,rec=current()){const t=Math.max(Number(now)||0,rec.high),out=rec.spent.filter(x=>x>t);return {available:CHARGES-out.length,max:CHARGES,nextAt:out.length?out[0]:null,at:out.slice()};}
 function makeReceipt(t,seq){let r='';try{const a=new Uint32Array(2);root.crypto.getRandomValues(a);r=a[0].toString(36)+a[1].toString(36);}catch{r=Math.floor(Math.random()*2**32).toString(36);}return `h${Math.floor(t).toString(36)}-${seq}-${r}`;}
 // One chest. Checks the charge, draws a hero from the unlocked rarities, then a separate JACKPOT roll for 3 fragments
 // instead of 1, and stores fragments, chest count, Crests, charge and receipt in one write. A hero at 48 fragments

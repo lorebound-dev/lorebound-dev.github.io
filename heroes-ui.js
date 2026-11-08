@@ -1,15 +1,27 @@
 /* Heroes screen for the fourth tab (DEV preview). Roster, portraits, chests, fragments, mastery, signatures and Crests live
-   in heroes-model.js. Since #153 every chest gives hero fragments, 3 unlock a hero, and the chest level decides which
-   rarities can drop at all. The Crest shop is not a separate screen: tapping a hero opens its preview with Buy 1 fragment
-   (and Buy N to unlock when more than one is missing), then Confirm.
-   Built once per visit and then only repainted, so scroll position and the open preview survive Equip, chests and game updates.
-   One 20-second timer runs only while the tab is open, to keep the opening countdown current. */
+   in heroes-model.js; this file only shows them. Since #168 the screen is:
+   - a small top line (equipped hero, Hero Crests, Chest Level, an About button);
+   - one ornate shelf with the three chests (ready, or dim with the time until it comes back);
+   - one swipable strip of all 25 heroes in roster order, each with a rarity frame, name, rarity and fragment count;
+   - a hero's detail (stats, Equip, the fragment shop) under the strip, only after tapping its card;
+   - a chest screen (one big chest, the real odds for the next chest, OPEN and Back) after tapping a chest.
+   OPEN asks the model for one chest first. The model commits the result (fragments, Crests, charge, chest count, receipt)
+   in one write before anything moves. Only then: the lid opens, an orb in the drawn hero's rarity colour rises, the chest
+   goes, the strip scrolls to that hero's own card, the orb flies there and lands with a short sparkle, and the card shows
+   its new count. The result is acknowledged when it lands (or on Skip). Leaving or reloading mid-way keeps it pending, and
+   the next visit replays a short landing from the stored receipt: never a new roll and never a second charge.
+   Without timers or with reduced motion it lands at once. The strip, shelf and detail are only repainted, so the strip's
+   scroll position survives Equip, chests and game updates. One 20-second timer runs only while the tab is open. */
 (function(root){'use strict';
 const M=root.LoreHeroes;
-// confirm: the purchase waiting for Confirm ({id, n}). note: the short result of the last purchase, shown in its preview.
-let box=null,el=null,fmt=null,previewId='',lastKey='',oddsOpen=false,shownReveal='',timer=null,read=null,confirm=null,note=null;
+// confirm: the purchase waiting for Confirm ({id, n}). note: the short result of the last purchase, shown in its detail.
+// view: 'main' or 'chest'. anim: the landing in progress ({p, timers, fly}). hold: the card and Crest values to show until
+// the orb lands. toast: the last landed result. landId: the card playing its landing effect.
+let box=null,el=null,fmt=null,read=null,timer=null,detailId='',confirm=null,note=null,aboutOpen=false,view='main',msg='',
+ toast=null,landId='',landTimer=null,landed='',hold=null,anim=null,stripLeft=0,parts={};
+// Timings in ms (DEV, tune by feel): lid, orb rising, chest going, strip scroll, flight, landing effect.
+const T={lid:380,orb:380,gone:260,scroll:160,fly:780,land:1100,short:450};
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
-const slug=r=>r.toLowerCase();
 const vars=h=>{const [ink,light,dark]=M.RARITY_COLORS[h.rarity];return `--hr-ink:${ink};--hr-light:${light};--hr-dark:${dark}`;};
 const tierVars=r=>vars(M.ROSTER.find(h=>h.rarity===r));
 const mult=n=>'×'+n.toFixed(2);
@@ -27,6 +39,8 @@ const n2=n=>n.toLocaleString?.('en-US')??String(n);
 const crestText=n=>`${n2(n)} Hero Crest${n===1?'':'s'}`;
 const fragText=n=>`${n} fragment${n===1?'':'s'}`;
 function left(ms){const m=Math.max(1,Math.ceil(ms/60000)),h=Math.floor(m/60);return h?`${h}h ${m%60}m`:`${m}m`;}
+// The shelf's short form: "23h" or "45m".
+function short(ms){const m=Math.max(1,Math.ceil(ms/60000));return m>=60?Math.floor(m/60)+'h':m+'m';}
 // The real chance, honest for tiny ones: "0%" only when it is exactly 0, "<0.01%" when it is positive but smaller.
 const chance=p=>p<=0?'0%':p<0.01?'&lt;0.01%':p.toFixed(2)+'%';
 // "Mastery II · 15/21 fragments", or the max.
@@ -34,46 +48,60 @@ function mastery(id,f){const r=M.rank(id,f),next=M.nextThreshold(id,f);return `$
 function bar(id,f){const r=M.rank(id,f),next=M.nextThreshold(id,f);let pct=100;
  if(f<M.UNLOCK)pct=Math.round(100*f/M.UNLOCK);else if(next){const from=r?M.MILESTONES[r-1]:M.UNLOCK;pct=Math.round(100*(f-from)/(next-from));}
  return `<span class="hero-bar" role="presentation"><span style="width:${pct}%"></span></span>`;}
-// A small chest motif drawn from squares.
-const CARD=['.oooooo.','obbbbbbo','obggggbo','obgwwgbo','obgwwgbo','obggggbo','obbbbbbo','.oooooo.'],CARD_PAL={o:'#2a1a10',b:'#9b6d2f',g:'#e2c180',w:'#fae3a3'};
-function cardIcon(){let r='';CARD.forEach((row,y)=>{for(let x=0;x<row.length;x++)if(row[x]!=='.')r+=`<rect x="${x}" y="${y}" width="1" height="1" fill="${CARD_PAL[row[x]]}"/>`;});return `<svg class="hero-open-icon" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true" focusable="false">${r}</svg>`;}
+const reduced=()=>{try{return !!root.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;}catch{return false;}};
 
-function slot(h){return `<div class="hero-slot" data-slot="${h.id}"></div>`;}
-// A hero that isn't unlocked: its shadow, name and one short status. Never colours, numbers or effects.
-function shadowCard(h,f,open){const gated=!M.tierOpen(h.rarity),cls=gated?' is-gated':f?' is-found':'';
- const lock=gated?'Locked':f?`${f}/${M.UNLOCK} fragments`:'Undiscovered',hint=gated?`Unlocks at Chest ${M.GATES[h.rarity]}`:`${n2(M.fragPrice(h.id))} Crests a fragment`;
- return `<button type="button" class="hero-card is-locked${cls}${open?' is-open':''}" data-hero="${h.id}" style="${vars(h)}" aria-label="${esc(h.name)}, ${h.rarity}, ${lock}, ${hint}"><span class="hero-card-art">${M.portrait(h.id,'hero-art',true)}</span><span class="hero-card-name">${esc(h.name)}</span><span class="hero-card-lock">${lock}</span>${f&&!gated?bar(h.id,f):''}<span class="hero-card-hint">${hint}</span></button>`;}
-function card(h,a,base){const f=M.fragments(h.id),open=h.id===previewId;if(f<M.UNLOCK)return shadowCard(h,f,open);
- const on=h.id===a.id,tap=M.heroTap(h.id,f),fx=M.effects(h.id,f);
- return `<button type="button" class="hero-card${on?' is-active':''}${open?' is-open':''}" data-hero="${h.id}" style="${vars(h)}" aria-pressed="${on}" aria-label="${esc(h.name)}, ${h.rarity}, tap ${mult(tap)}, ${esc(fx.join(', '))}, ${esc(mastery(h.id,f))}${on?', equipped':''}"><span class="hero-card-art">${M.portrait(h.id)}</span><span class="hero-card-name">${esc(h.name)}</span><span class="hero-card-tap">Tap ${mult(tap)} · <b>${num(tapOf(h.id,base))}</b></span><span class="hero-card-fx">${rows(h.id,f)}</span><span class="hero-card-mastery">${esc(mastery(h.id,f))}</span>${bar(h.id,f)}${on?'<span class="hero-card-state">Equipped</span>':''}</button>`;}
-function tier(r){const list=M.ROSTER.filter(h=>h.rarity===r);return `<section class="hero-tier" data-tier="${slug(r)}" style="${vars(list[0])}"><h3 class="hero-tier-title">${r}<span data-found="${slug(r)}"></span></h3><div class="hero-grid">${list.map(slot).join('')}</div><div class="hero-preview-slot"></div></section>`;}
-// The odds as they are for the next chest, worked out from the chests opened.
-function odds(){const opened=M.opened(),now=M.odds(opened),full=M.RARITIES.map(r=>String(M.ODDS[r])).join(' / ');
- return `<p class="hero-odds-note">Each chest is free and separate: first a rarity, then one of its heroes at even chance. No guarantees. A rarity can't drop at all until enough chests are opened. Then it starts tiny and grows over ${M.RAMP} chests to its full share (${full}%). Each chest gives 1 fragment, or very rarely (${M.JACKPOT*100}%) a full hero: ${M.UNLOCK} fragments. ${M.UNLOCK} fragments unlock a hero, and more raise its mastery at ${M.MILESTONES.join(', ')}. Every chest also gives Hero Crests, which buy single fragments of unlocked rarities. Test numbers, not final.</p><table><thead><tr><th scope="col">Rarity</th><th scope="col">Now</th><th scope="col">Unlock</th><th scope="col">Crests</th><th scope="col">Fragment</th></tr></thead><tbody>${M.RARITIES.map(r=>`<tr style="${tierVars(r)}"${M.tierOpen(r)?'':' class="is-gated"'}><th scope="row">${r}</th><td>${chance(now[r])}</td><td>${M.tierOpen(r)?'Open':'Chest '+M.GATES[r]}</td><td>+${M.CREST_REWARD[r]}</td><td>${n2(M.FRAG_PRICE[r])}</td></tr>`).join('')}</tbody></table>`;}
-function build(){box.innerHTML=`<section class="heroes" aria-label="Heroes">
-<p class="hero-dev"><strong>DEV preview.</strong> Heroes are kept on this device only, outside your save. Names, art, odds and numbers are not final.</p>
-<p class="hero-warn" data-h="warn" role="status" hidden></p>
-<article class="hero-current" data-h="current" aria-live="polite"></article>
-<section class="hero-open" data-h="open" aria-label="Hero chests"></section>
-<div class="hero-odds" data-h="odds" hidden></div>
-<div class="hero-reveal-slot" data-h="reveal"></div>
-<div class="hero-jump" role="group" aria-label="Jump to a rarity">${M.RARITIES.map(r=>`<button type="button" data-jump="${slug(r)}" style="${tierVars(r)}">${r}</button>`).join('')}</div>
-${M.RARITIES.map(tier).join('')}
-</section>`;
- const q=s=>box.querySelector(s);el={root:q('.heroes'),warn:q('[data-h="warn"]'),current:q('[data-h="current"]'),open:q('[data-h="open"]'),odds:q('[data-h="odds"]'),reveal:q('[data-h="reveal"]'),cards:{}};
- el.root.addEventListener('click',click);previewId='';lastKey='';shownReveal='';}
+// The chest, drawn from squares: a lid and a body, so the lid can lift on its own.
+const LID=['..oooooooooooo..','.owwwwgwwgwwwwo.','owwwwwgwwgwwwwwo','owwwwwgwwgwwwwwo','obbbbbbbbbbbbbbo'];
+const BASE=['odddddbllbdddddo','owwwwwbllbwwwwwo','owwwwwbbbbwwwwwo','owwwwwgwwgwwwwwo','owwwwwgwwgwwwwwo','obbbbbbbbbbbbbbo','.oooooooooooooo.'];
+const CHEST_PAL={o:'#2a1a10',w:'#8a5a34',d:'#5a3820',g:'#c9a560',b:'#e2c180',l:'#fae3a3'};
+function pix(rows_,pal,cls){let r='';rows_.forEach((row,y)=>{for(let x=0;x<row.length;){const ch=row[x];let n=1;while(x+n<row.length&&row[x+n]===ch)n++;if(ch!=='.')r+=`<rect x="${x}" y="${y}" width="${n}" height="1" fill="${pal[ch]}"/>`;x+=n;}});
+ return `<svg class="${cls}" viewBox="0 0 ${rows_[0].length} ${rows_.length}" shape-rendering="crispEdges" aria-hidden="true" focusable="false">${r}</svg>`;}
+function chestArt(cls=''){return `<span class="hero-chest-art${cls?' '+cls:''}" aria-hidden="true">${pix(LID,CHEST_PAL,'hc-lid')}<span class="hc-glow"></span>${pix(BASE,CHEST_PAL,'hc-base')}</span>`;}
 
-function current(s){const h=M.active(),base=weaponTap(s),f=M.fragments(h.id),tap=M.heroTap(h.id,f),r=M.rank(h.id,f);return `<div class="hero-portrait" style="${vars(h)}">${M.portrait(h.id)}</div><div class="hero-current-text"><span class="hero-kicker">Equipped</span><h3>${esc(h.name)}</h3><span class="hero-rarity" style="${vars(h)}">${h.rarity}</span>
-<dl class="hero-stats"><div><dt>Tap power</dt><dd>${num(tapOf(h.id,base))}</dd></div><div><dt>Tap ${mult(tap)}</dt><dd>${r?'Mastery '+ROMAN[r]:'No mastery'}</dd></div></dl><p class="hero-current-fx">${rows(h.id,f)}</p></div>`;}
-// Chest level: one short line and a small bar toward the next rarity.
-function chestLine(){const opened=M.opened(),next=M.nextUnlock(opened),pct=next?Math.round(100*(opened-next.from)/(next.at-next.from)):100;
- return `<div class="hero-chest"><span class="hero-chest-level">Chest Level ${M.level(opened)} · ${n2(opened)} opened</span><span class="hero-chest-next">${next?`Next: ${next.rarity} at ${n2(next.at)} chests`:'All rarities unlocked'}</span><span class="hero-bar hero-chest-bar" role="presentation"><span style="width:${pct}%"></span></span></div>`;}
-function openBar(){const c=M.clock(),ch=M.charges(c.now),p=M.pending();let line,can=false;
- if(!c.trusted)line='Connect to check opening timer';
- else if(p)line='See your result below first';
- else if(ch.available<=0)line=`Next opening in ${left(ch.nextAt-c.now)}`;
- else{can=true;line=ch.nextAt?`Next one back in ${left(ch.nextAt-c.now)}`:'Each one comes back 24 hours after you use it';}
- return `${cardIcon()}<div class="hero-open-text"><strong>${c.trusted?ch.available:'–'}/${ch.max} openings</strong><span>${line}</span><span class="hero-crests" aria-label="${crestText(M.crests())}"><i aria-hidden="true"></i>${crestText(M.crests())} · tap a hero to buy fragments</span></div>${chestLine()}<div class="hero-open-actions"><button type="button" class="hero-button hero-open-button" data-open="1"${can?'':' disabled'}>OPEN CHEST</button><button type="button" class="hero-button hero-quiet hero-odds-button" data-odds="1" aria-expanded="${oddsOpen}">Odds</button></div>`;}
+// What a card shows while the orb is still on its way: the count from before the chest.
+const shownFrags=id=>hold&&hold.id===id?hold.frags:M.fragments(id);
+function slot(h){return `<div class="hero-slot" role="listitem" data-slot="${h.id}"></div>`;}
+// One card per hero: portrait (or its shadow until unlocked), name, rarity and the fragment count. Nothing else.
+function card(h,a){const f=shownFrags(h.id),gated=!M.tierOpen(h.rarity),owned=f>=M.UNLOCK,on=owned&&h.id===a.id,next=M.nextThreshold(h.id,f);
+ const count=gated?`Chest ${n2(M.GATES[h.rarity])}`:next?`${f}/${next}`:`${f} · max`;
+ const status=gated?`locked until chest ${M.GATES[h.rarity]}`:owned?mastery(h.id,f):`${f} of ${M.UNLOCK} fragments`;
+ let fx='',extra='';
+ if(landId===h.id&&toast){const p=toast;fx=` is-landing${p.isNew?' is-unlocking':''}${!p.isNew&&p.to>p.from?' is-rankup':''}${p.jackpot?' is-jackpot':''}`;
+  extra=`<span class="hero-spark" aria-hidden="true"></span><span class="hero-card-float" aria-hidden="true">+${p.added} Fragment${p.added===1?'':'s'}</span>`;}
+ return `<button type="button" class="hero-card${owned?'':' is-locked'}${gated?' is-gated':''}${f&&!owned?' is-found':''}${on?' is-active':''}${detailId===h.id?' is-open':''}${fx}" data-hero="${h.id}" style="${vars(h)}" aria-label="${esc(h.name)}, ${h.rarity}, ${esc(status)}${on?', equipped':''}"><span class="hero-card-art">${M.portrait(h.id,'hero-art',!owned)}</span><span class="hero-card-name">${esc(h.name)}</span><span class="hero-card-rarity">${h.rarity}</span><span class="hero-card-frags">${count}</span>${gated?'':bar(h.id,f)}${extra}</button>`;}
+
+// The rules in plain words, only behind the "?" button.
+function about(){const full=M.RARITIES.map(r=>String(M.ODDS[r])).join(' / '),crests=M.RARITIES.map(r=>`${r} ${M.CREST_REWARD[r]}`).join(', ');
+ return `<p><strong>DEV preview.</strong> Heroes are kept on this device only, outside your save. Names, art, odds and numbers are not final.</p>
+<p>Each chest is free and separate: first a rarity, then one of its heroes at even chance. No guarantees. A rarity can't drop at all until enough chests are opened. Then it starts tiny and grows over ${M.RAMP} chests to its full share (${full}%). Each chest gives 1 Hero Fragment, or very rarely (${M.JACKPOT*100}%) a full hero: ${M.UNLOCK} fragments. ${M.UNLOCK} fragments unlock a hero, and more raise its mastery at ${M.MILESTONES.join(', ')}.</p>
+<p>Every chest also gives Hero Crests (${crests}), which buy single fragments of unlocked rarities. Tap a hero to buy.</p>`;}
+function top(){const a=M.active(),cr=hold?hold.crests:M.crests(),opened=M.opened(),next=M.nextUnlock(opened),pct=next?Math.round(100*(opened-next.from)/(next.at-next.from)):100;
+ return `<div class="hero-top-row"><span class="hero-badge" style="${vars(a)}"><span class="hero-badge-art">${M.portrait(a.id)}</span><span class="hero-badge-text"><small>Equipped</small>${esc(a.name)}</span></span><span class="hero-crests" aria-label="${crestText(cr)}"><i aria-hidden="true"></i>${n2(cr)}</span><button type="button" class="hero-about-button" data-about="1" aria-expanded="${aboutOpen}" aria-label="About Heroes">?</button></div>
+<div class="hero-level"><span class="hero-level-name">Chest Level ${M.level(opened)}</span><span class="hero-level-next">${next?`Next: ${next.rarity} at ${n2(next.at)}`:'All rarities unlocked'}</span><span class="hero-bar" role="presentation"><span style="width:${pct}%"></span></span></div>`;}
+// The shelf: one chest per charge. Ready ones come first; a spent one is dim and shows when it comes back.
+function shelf(){const c=M.clock(),ch=M.charges(c.now),at=ch.at||[];let s='';
+ for(let i=0;i<ch.max;i++){const ready=c.trusted&&i<ch.available,back=at[i-ch.available]??ch.nextAt;
+  const label=!c.trusted?'–':ready?'':short(back-c.now),aria=ready?'Hero chest, ready. See the odds and open it':c.trusted?`Hero chest, back in ${left(back-c.now)}. See the odds`:'Hero chest. Connect to check the chest timer';
+  s+=`<button type="button" class="hero-shelf-chest ${ready?'is-ready':'is-spent'}" data-chest="${i}"${anim?' disabled':''} aria-label="${aria}">${chestArt()}${label?`<span class="hero-shelf-time">${label}</span>`:''}</button>`;}
+ const line=!c.trusted?'Connect to check chest timer':ch.available?`${ch.available}/${ch.max} chests ready`:`0/${ch.max} · next in ${left(ch.nextAt-c.now)}`;
+ return `<div class="hero-shelf-arch" aria-hidden="true"></div><div class="hero-shelf-row">${s}</div><div class="hero-shelf-plank" aria-hidden="true"></div><p class="hero-shelf-line"><span>${line}</span><span class="hero-dev-tag">DEV preview</span></p>`;}
+// The chest screen: one big chest, the real odds for the next chest (worked out from the chests opened), OPEN and Back.
+function scene(){const c=M.clock(),ch=M.charges(c.now),opened=M.opened(),now=M.odds(opened),p=M.pending(),can=!!p||(c.trusted&&ch.available>0);
+ const list=M.RARITIES.map(r=>{const open=opened>=M.GATES[r];return `<li${open?'':' class="is-gated"'} style="${tierVars(r)}"><i aria-hidden="true"></i><span class="hero-odds-name">${r}</span><span class="hero-odds-gate">${open?'':'Chest '+n2(M.GATES[r])}</span><b>${chance(now[r])}</b></li>`;}).join('');
+ const status=p?'Result waiting':!c.trusted?'Connect to check chest timer':ch.available?`${ch.available}/${ch.max} ready`:`Next in ${left(ch.nextAt-c.now)}`;
+ return `<div class="hero-scene-head"><button type="button" class="hero-button hero-quiet hero-back" data-back="1">Back</button><h3>Hero Chest</h3><span class="hero-scene-status">${status}</span></div>
+<div class="hero-scene-stage">${chestArt('is-big')}<span class="hero-orb" aria-hidden="true"></span></div>
+<p class="hero-scene-sub">Odds for chest ${n2(opened+1)}</p>
+<ol class="hero-scene-odds" aria-label="Odds for your next chest">${list}</ol>
+<p class="hero-scene-msg" role="status"${msg?'':' hidden'}>${esc(msg)}</p>
+<button type="button" class="hero-button hero-open-button" data-open="1"${can?'':' disabled'}>OPEN</button>`;}
+// One short line under the shelf after a landing. Tapping the card shows everything else.
+function toastHtml(){if(!toast)return '';const p=toast,h=M.byId(p.id),a=M.active(),owned=p.after>=M.UNLOCK;
+ const got=p.jackpot?`FULL HERO · +${p.added} Fragments`:p.added===0?'Mastery VI · this fragment adds nothing':`+${p.added} Fragment${p.added===1?'':'s'}`;
+ const prog=p.added===0?'':p.isNew?' · Unlocked':owned?(p.to>p.from?` · Mastery ${ROMAN[p.to]} reached`:` · ${p.after}/${M.nextThreshold(h.id,p.after)??'max'}`):` · ${p.after}/${M.UNLOCK} to unlock`;
+ const equip=p.isNew&&a.id!==h.id?`<button type="button" class="hero-button" data-reveal-equip="${h.id}">Equip</button>`:'';
+ return `<div class="hero-toast${p.jackpot?' is-jackpot':''}" style="${vars(h)}" role="status" data-toast="${esc(p.receipt)}"><p><b>${esc(h.name)}</b> · ${h.rarity}</p><p>${got}${prog} · +${crestText(p.crests)}</p>${p.tier?`<p class="hero-toast-tier" style="${tierVars(p.tier)}">${p.tier.toUpperCase()} HEROES UNLOCKED</p>`:''}<div class="hero-toast-actions">${equip}<button type="button" class="hero-toast-close" data-toast-close="1" aria-label="Dismiss">×</button></div></div>`;}
+
 // The Crest purchase for one hero: 1 fragment, or every fragment still missing to unlock it. Nothing is spent until Confirm.
 function shop(h,f){const price=M.fragPrice(h.id),have=M.crests(),done=note&&note.id===h.id?`<p class="hero-shop-done" role="status">${esc(note.text)}</p>`:'';
  if(M.maxed(h.id,f))return done+`<p class="hero-shop-line">Mastery VI · more fragments add nothing.</p>`;
@@ -81,7 +109,8 @@ function shop(h,f){const price=M.fragPrice(h.id),have=M.crests(),done=note&&note
   return done+`<p class="hero-shop-line">Spend <b>${crestText(cost)}</b> on ${fragText(confirm.n)} of ${esc(h.name)}?${unlock?' That unlocks it.':''} You have ${crestText(have)}, and ${n2(have-cost)} after.</p><div class="hero-preview-actions"><button type="button" class="hero-button" data-confirm-buy="${h.id}">Confirm</button><button type="button" class="hero-button hero-quiet" data-cancel-buy="1">Cancel</button></div>`;}
  const missing=f<M.UNLOCK?M.UNLOCK-f:0,btn=(n,label)=>{const cost=price*n;return `<button type="button" class="hero-button hero-quiet hero-buy" data-buy="${h.id}" data-count="${n}"${have<cost?' disabled':''}>${label} · ${n2(cost)} Crests</button>`;};
  return done+`<p class="hero-shop-line">Fragment: <b>${crestText(price)}</b> · you have ${crestText(have)}</p>${btn(1,'Buy 1 fragment')}${missing>1?btn(missing,`Buy ${missing} to unlock`):''}`;}
-function preview(h,s){const a=M.active(),base=weaponTap(s),on=a.id===h.id,f=M.fragments(h.id);
+// A hero's detail, under the strip: everything the card leaves out.
+function detail(h,s){const a=M.active(),base=weaponTap(s),on=a.id===h.id,f=M.fragments(h.id);
  // Not unlocked: name, rarity, fragment progress and the shop only. No tap number, effects or colours.
  if(f<M.UNLOCK){const gated=!M.tierOpen(h.rarity);
   const status=gated?`Locked · ${h.rarity} heroes unlock at Chest ${M.GATES[h.rarity]}. You've opened ${n2(M.opened())}.`:f?`${f}/${M.UNLOCK} fragments · ${M.UNLOCK-f} more to unlock, for free`:`Undiscovered · ${M.UNLOCK} fragments unlock it, for free`;
@@ -90,7 +119,7 @@ function preview(h,s){const a=M.active(),base=weaponTap(s),on=a.id===h.id,f=M.fr
 ${gated?'':bar(h.id,f)+shop(h,f)}<div class="hero-preview-actions is-single"><button type="button" class="hero-button hero-quiet" data-close="1">Close</button></div></div>`;}
  const tap=M.heroTap(h.id,f),r=M.rank(h.id,f),next=M.nextThreshold(h.id,f),nextFx=next?M.effects(h.id,next):[];
  return `<div class="hero-preview" data-preview="${h.id}" style="${vars(h)}" role="region" aria-label="${esc(h.name)}">
-<div class="hero-preview-head"><div class="hero-portrait">${M.portrait(h.id)}</div><div><h4>${esc(h.name)}</h4><span class="hero-rarity">${h.rarity}</span><p class="hero-preview-mult">Tap ${mult(tap)}</p></div></div>
+<div class="hero-preview-head"><div class="hero-portrait">${M.portrait(h.id)}</div><div><h4>${esc(h.name)}</h4><span class="hero-rarity">${h.rarity}${on?' · Equipped':''}</span><p class="hero-preview-mult">Tap ${mult(tap)}</p></div></div>
 <p class="hero-preview-fx">${rows(h.id,f,true)}</p><p class="hero-fx-help">${esc(M.help(h.id))}</p>
 <p class="hero-preview-line">Base ${mult(h.tap)}${r?` · Mastery ${ROMAN[r]}: tap +${Math.round(r*M.MASTERY_STEP*100)}%, signature +${Math.round(r*M.SIGNATURE_STEP*100)}%`:''}</p>
 <p class="hero-preview-line">${esc(mastery(h.id,f))}</p>${bar(h.id,f)}
@@ -98,39 +127,93 @@ ${next?`<p class="hero-preview-line hero-next">At Mastery ${ROMAN[r+1]}: Tap ${m
 <p class="hero-preview-line">${on?`Current tap ${num(tapOf(h.id,base))}`:`Current tap ${num(tapOf(a.id,base))} → <b>${num(tapOf(h.id,base))}</b>`}</p>
 <div class="hero-preview-actions"><button type="button" class="hero-button" data-equip="${h.id}"${on?' disabled':''}>${on?'Equipped':'Equip'}</button><button type="button" class="hero-button hero-quiet" data-close="1">Close</button></div>
 ${shop(h,f)}</div>`;}
-// The result of a chest. A hero that is (now) unlocked starts as its shadow, flashes its rarity and resolves into the
-// portrait; one that still needs fragments flashes and stays a shadow. Skipping only shortens it.
-function reveal(p){const h=M.byId(p.id),a=M.active(),open=p.after>=M.UNLOCK,up=open&&p.to>p.from;
- const tag=p.jackpot?`FULL HERO · +${p.added||M.UNLOCK} fragments`:p.isNew?'NEW HERO':p.added===0?'MASTERY VI':'FRAGMENT';
- const crests=p.crests?`<p class="hero-reveal-crests">+${crestText(p.crests)}</p>`:'';
- let body;
- if(!open)body=`<p class="hero-reveal-line">+${fragText(p.added)} · ${p.after}/${M.UNLOCK} to unlock</p>${bar(h.id,p.after)}`;
- else if(p.isNew)body=`<p class="hero-reveal-line">Unlocked · Tap ${mult(M.heroTap(h.id,p.after))}</p><p class="hero-preview-fx">${rows(h.id,p.after)}</p>${p.after>M.UNLOCK?`<p class="hero-reveal-line">${esc(mastery(h.id,p.after))}</p>`:''}`;
- else if(p.added===0)body=`<p class="hero-reveal-line">Already at Mastery VI · this fragment adds nothing</p>`;
- else body=`<p class="hero-reveal-line">+${fragText(p.added)} · ${esc(mastery(h.id,p.after))}</p>${bar(h.id,p.after)}${up?`<p class="hero-reveal-rank">Mastery ${ROMAN[p.to]} reached · Tap ${mult(M.heroTap(h.id,p.after))}</p>`:''}`;
- const tierLine=p.tier?`<p class="hero-reveal-tier" style="${tierVars(p.tier)}">${p.tier.toUpperCase()} HEROES UNLOCKED</p>`:'';
- const equip=p.isNew&&a.id!==h.id;
- return `<div class="hero-reveal rarity-${slug(h.rarity)}${open?'':' is-shadow'}${up?' is-rankup':''}${p.jackpot?' is-jackpot':''}" data-reveal="${esc(p.receipt)}" style="${vars(h)}" role="dialog" aria-label="Hero chest result">
-<button type="button" class="hero-reveal-art" data-skip="1" aria-label="Skip reveal"><span class="hr-shadow">${M.portrait(h.id,'hero-art',true)}</span>${open?`<span class="hr-color">${M.portrait(h.id)}</span>`:''}</button>
-<div class="hero-reveal-text"><span class="hero-reveal-tag">${tag}</span><h4>${esc(h.name)}</h4><span class="hero-rarity">${h.rarity}</span>${body}${crests}</div>${tierLine}
-<div class="hero-preview-actions">${equip?`<button type="button" class="hero-button" data-reveal-equip="${h.id}">Equip</button>`:''}<button type="button" class="hero-button${equip?' hero-quiet':''}" data-continue="${esc(p.receipt)}">Continue</button></div></div>`;}
 
-function paint(s){if(!el)return;const a=M.active(),base=weaponTap(s),bar_=openBar(),p=M.pending(),frags=M.ROSTER.map(h=>M.fragments(h.id));
- const key=JSON.stringify([a.id,base,previewId,M.warning(),bar_,p?.receipt||'',frags,oddsOpen,confirm,note]);if(key===lastKey)return;lastKey=key;
- el.current.innerHTML=current(s);el.current.setAttribute('style',vars(a));el.open.innerHTML=bar_;
- el.odds.hidden=!oddsOpen;el.odds.innerHTML=oddsOpen?odds():'';const w=M.warning();el.warn.hidden=!w;el.warn.textContent=w;
- // Re-drawn only when it changes (a new result), so the reveal animation isn't restarted by a repaint.
- const rv=p?reveal(p):'';if(rv!==shownReveal){shownReveal=rv;el.reveal.innerHTML=rv;}
- for(const h of M.ROSTER){const html=card(h,a,base);if(el.cards[h.id]!==html){el.cards[h.id]=html;el.root.querySelector(`[data-slot="${h.id}"]`).innerHTML=html;}}
- for(const r of M.RARITIES){const list=M.ROSTER.filter(h=>h.rarity===r);el.root.querySelector(`[data-found="${slug(r)}"]`).textContent=M.tierOpen(r)?`${list.filter(h=>M.unlocked(h.id)).length}/${list.length} unlocked`:`Unlocks at Chest ${M.GATES[r]}`;}
- for(const slot of el.root.querySelectorAll('.hero-preview-slot'))slot.innerHTML='';
- const pv=M.byId(previewId);if(pv)el.root.querySelector(`[data-tier="${slug(pv.rarity)}"] .hero-preview-slot`).innerHTML=preview(pv,s);}
-function repaint(){lastKey='';paint(read?.());}
+function build(){box.innerHTML=`<section class="heroes" aria-label="Heroes">
+<p class="hero-warn" data-h="warn" role="status" hidden></p>
+<div class="hero-top" data-h="top"></div>
+<div class="hero-about" data-h="about" hidden></div>
+<section class="hero-shelf" data-h="shelf" aria-label="Hero chests"></section>
+<section class="hero-scene" data-h="scene" aria-label="Hero chest" hidden></section>
+<div class="hero-toast-slot" data-h="toast"></div>
+<div class="hero-strip" data-h="strip" role="list" aria-label="All heroes" tabindex="0">${M.ROSTER.map(slot).join('')}</div>
+<div class="hero-detail-slot" data-h="detail"></div>
+<div class="hero-fly" data-h="fly" aria-hidden="true"></div>
+<button type="button" class="hero-skip" data-skip="1" hidden>Skip</button>
+</section>`;
+ const q=s=>box.querySelector(s),h=k=>q(`[data-h="${k}"]`);
+ el={root:q('.heroes'),warn:h('warn'),top:h('top'),about:h('about'),shelf:h('shelf'),scene:h('scene'),toast:h('toast'),strip:h('strip'),detail:h('detail'),fly:h('fly'),skip:q('[data-skip]'),cards:{}};
+ el.root.addEventListener('click',click);parts={};detailId='';view='main';msg='';}
+
+function set(k,html){if(parts[k]!==html){parts[k]=html;el[k].innerHTML=html;}}
+function paint(s){if(!el)return;const a=M.active(),chest=view==='chest',w=M.warning();
+ el.warn.hidden=!w;el.warn.textContent=w;
+ el.top.hidden=chest;set('top',top());
+ el.about.hidden=chest||!aboutOpen;set('about',aboutOpen?about():'');
+ el.shelf.hidden=chest;set('shelf',shelf());
+ // The chest screen isn't redrawn while its animation runs.
+ el.scene.hidden=!chest;if(!anim)set('scene',chest?scene():'');
+ el.toast.hidden=chest;set('toast',toastHtml());
+ el.strip.hidden=chest;for(const h of M.ROSTER){const html=card(h,a);if(el.cards[h.id]!==html){el.cards[h.id]=html;el.strip.querySelector(`[data-slot="${h.id}"]`).innerHTML=html;}}
+ el.detail.hidden=chest;const d=M.byId(detailId);set('detail',d?detail(d,s):'');
+ el.skip.hidden=!anim;el.root.classList?.toggle?.('is-playing',!!anim);}
+function repaint(){paint(read?.());}
 function tapChanged(){root.draw?.();}
-function doOpen(){const c=M.clock(),r=M.open({now:c.now,trusted:c.trusted});
- if(!r.ok){if(r.reason==='clock')Promise.resolve(root.LoreClock?.verify?.()).then(repaint,repaint);repaint();return;}
- if(r.replay){repaint();return;}
- root.LoreUI?.feedback?.('upgrade');repaint();tapChanged();el?.reveal?.scrollIntoView?.({block:'nearest',behavior:'smooth'});}
+// Switch between the main view and the chest screen, keeping the strip where it was (a hidden strip can lose its scroll).
+function show(v){if(!el||v===view)return;if(v==='chest')stripLeft=el.strip.scrollLeft||0;view=v;repaint();if(v==='main'&&el.strip.scrollLeft!==undefined)el.strip.scrollLeft=stripLeft;}
+const cardEl=id=>el?.strip?.querySelector?.(`[data-hero="${id}"]`);
+// Bring a hero's card to the middle of the strip, and the strip into view.
+function toCard(id,behavior){const s=el?.strip,c=cardEl(id);if(!s||!c)return;const slotEl=c.parentElement||c;
+ const leftPx=(slotEl.offsetLeft||0)-((s.clientWidth||0)-(slotEl.offsetWidth||0))/2;
+ if(typeof s.scrollTo==='function')s.scrollTo({left:Math.max(0,leftPx),behavior});else if(s.scrollLeft!==undefined)s.scrollLeft=Math.max(0,leftPx);
+ s.scrollIntoView?.({block:'nearest',behavior});}
+const sceneCls=(c,on)=>el?.scene?.classList?.toggle?.(c,on);
+function after(ms,fn){if(!anim)return;const t=root.setTimeout(()=>{if(anim)fn();},ms);anim.timers.push(t);}
+// Resizing or rotating mid-way lands the result at once, so the orb never flies to the wrong place.
+function settleNow(){if(anim)land(anim.p);}
+function listen(on){root[on?'addEventListener':'removeEventListener']?.('resize',settleNow);}
+// Hiding the page mid-way stops the animation but keeps the result pending; coming back (or a reload) replays a short landing.
+function onVisibility(){if(!el)return;if(root.document?.hidden){if(anim){stop();hold=null;show('main');repaint();}return;}
+ const p=M.pending();if(p&&!anim&&landed!==p.receipt)play(p,true);}
+// Stops whatever is moving. Nothing about the result changes here.
+function stop(){if(!anim)return;for(const t of anim.timers)root.clearTimeout?.(t);try{anim.fly?.cancel?.();}catch{}anim=null;listen(false);if(el){el.fly.innerHTML='';for(const c of ['is-lid','is-orb','is-gone'])sceneCls(c,false);}}
+
+// p: a result the model has already committed. short: a result from earlier (a reload, another tab): only a short landing.
+function play(p,short_){if(anim||!el)return;const h=M.byId(p.id);if(!h)return;
+ toast=null;landId='';landed='';hold={id:p.id,frags:p.before,crests:Math.max(0,M.crests()-(p.crests||0))};
+ if(typeof root.setTimeout!=='function'||reduced()){land(p);return;}
+ anim={p,timers:[],fly:null};listen(true);
+ if(short_||view!=='chest'){show('main');repaint();after(60,()=>{toCard(p.id,'smooth');after(T.short,()=>land(p));});return;}
+ repaint();const orb=el.scene.querySelector?.('.hero-orb');orb?.setAttribute?.('style',vars(h));
+ sceneCls('is-lid',true);
+ after(T.lid,()=>{sceneCls('is-orb',true);
+  after(T.orb,()=>{sceneCls('is-gone',true);
+   after(T.gone,()=>fly(p,orb));});});}
+// The orb leaves the chest screen and flies, in an arc, to the centre of the hero's own card in the strip.
+function fly(p,orb){const R=el.root.getBoundingClientRect?.(),o=orb?.getBoundingClientRect?.();
+ show('main');for(const c of ['is-lid','is-orb','is-gone'])sceneCls(c,false);
+ if(!R||!o){land(p);return;}
+ const x0=o.left-R.left+o.width/2,y0=o.top-R.top+o.height/2;
+ el.fly.innerHTML=`<span class="hero-orb is-flying" style="${vars(M.byId(p.id))};left:${x0}px;top:${y0}px"></span>`;
+ toCard(p.id,'smooth');
+ // Measure the card only once the strip has stopped moving (checked every 80ms, at most about a second).
+ const settled=(fn,tries=0,last=NaN)=>{const x=el.strip.scrollLeft;if((x===last&&tries>1)||tries>=12)fn();else after(80,()=>settled(fn,tries+1,x));};
+ after(T.scroll,()=>settled(()=>{const c=cardEl(p.id)?.querySelector?.('.hero-card-art')||cardEl(p.id),R2=el.root.getBoundingClientRect(),r=c?.getBoundingClientRect?.(),f=el.fly.querySelector('.hero-orb');
+  if(!r||!f?.animate){land(p);return;}
+  const dx=r.left-R2.left+r.width/2-x0,dy=r.top-R2.top+r.height/2-y0,base='translate(-50%,-50%) ';
+  anim.fly=f.animate([{transform:base+'translate(0,0) scale(1)'},{transform:base+`translate(${dx*.4}px,${dy*.5-90}px) scale(1.15)`,offset:.45},{transform:base+`translate(${dx}px,${dy}px) scale(.6)`}],{duration:T.fly,easing:'cubic-bezier(.45,.05,.55,.95)',fill:'forwards'});
+  anim.fly.onfinish=()=>land(p);after(T.fly+500,()=>land(p));}));}
+// The orb arrives (or Skip): the card shows its new count with a short sparkle, and the result is marked seen.
+function land(p){if(landed===p.receipt)return;landed=p.receipt;const skipped=!!anim;stop();show('main');hold=null;
+ M.acknowledge(p.receipt);toast=p;landId=p.id;repaint();toCard(p.id,skipped&&!reduced()?'smooth':'auto');
+ root.LoreUI?.feedback?.('upgrade');tapChanged();
+ if(landTimer!==null)root.clearTimeout?.(landTimer);landTimer=typeof root.setTimeout==='function'?root.setTimeout(()=>{landTimer=null;landId='';repaint();},T.land):null;
+ if(landTimer===null)landId='';}
+
+const WHY_OPEN={clock:'Connect to check the chest timer.',save:'This device would not save it, so no chest was used.'};
+function doOpen(){if(anim)return;const c=M.clock(),r=M.open({now:c.now,trusted:c.trusted});
+ if(!r.ok){msg=r.reason==='empty'?`No chest ready. Next one in ${left((r.nextAt||0)-(c.now||0))}.`:WHY_OPEN[r.reason]||'No chest was opened.';
+  if(r.reason==='clock')Promise.resolve(root.LoreClock?.verify?.()).then(repaint,repaint);parts.scene=null;repaint();return;}
+ msg='';play(r.result,!!r.replay);}
 // One confirmed purchase, at the count, price and collection the player saw. A repeat tap finds the collection changed and does nothing.
 const WHY={funds:'Not enough Hero Crests.',stale:'Your heroes changed (another tab or a chest). Check the price and try again.',max:'This hero is already at Mastery VI.',count:'That is more fragments than this hero can use.',save:'This device would not save it, so nothing was spent.',price:'The price changed. Check it and try again.',locked:'This rarity is still locked.'};
 // seen/seenPrice: the collection and the total price the player was shown when they tapped Buy.
@@ -140,27 +223,34 @@ function buyNow(id,n){const h=M.byId(id);if(!h)return;const r=M.buy({id,count:n,
  if(r.ok){const b=r.result;note={id,text:`Bought ${fragText(b.count)}.`+(b.isNew?` ${h.name} is unlocked. Equip it when you like.`:b.after<M.UNLOCK?` ${b.after}/${M.UNLOCK} to unlock.`:b.to>b.from?` Mastery ${ROMAN[b.to]} reached.`:` ${mastery(id,b.after)}.`)};root.LoreUI?.feedback?.('upgrade');}
  else note={id,text:WHY[r.reason]||'Nothing was bought.'};
  repaint();tapChanged();}
-function click(e){const t=e.target.closest?.('button');if(!t||t.disabled||!el)return;
- if(t.dataset.jump){el.root.querySelector(`[data-tier="${t.dataset.jump}"]`)?.scrollIntoView?.({block:'start',behavior:'smooth'});return;}
- if(t.dataset.open){doOpen();return;}
- if(t.dataset.odds){oddsOpen=!oddsOpen;repaint();return;}
- if(t.dataset.skip){t.closest?.('.hero-reveal')?.classList?.add('is-done');return;}
- if(t.dataset.continue){M.acknowledge(t.dataset.continue);repaint();return;}
- if(t.dataset.revealEquip){const p=M.pending();if(M.select(t.dataset.revealEquip)){if(p)M.acknowledge(p.receipt);root.LoreUI?.feedback?.('upgrade');repaint();tapChanged();}return;}
- if(t.dataset.buy){ask(t.dataset.buy,Number(t.dataset.count)||1);repaint();el.root.querySelector(`[data-preview="${t.dataset.buy}"] [data-confirm-buy]`)?.focus?.({preventScroll:true});return;}
- if(t.dataset.cancelBuy){confirm=null;repaint();return;}
- if(t.dataset.confirmBuy){const id=t.dataset.confirmBuy;if(!confirm||confirm.id!==id)return;const n=confirm.n;confirm=null;buyNow(id,n);return;}
- if(t.dataset.hero){previewId=previewId===t.dataset.hero?'':t.dataset.hero;confirm=null;note=null;repaint();if(previewId)el.root.querySelector(`[data-preview="${previewId}"]`)?.scrollIntoView?.({block:'nearest',behavior:'smooth'});return;}
- if(t.dataset.close){const id=previewId;previewId='';confirm=null;note=null;repaint();el.root.querySelector(`[data-hero="${id}"]`)?.focus?.({preventScroll:true});return;}
- if(t.dataset.equip){if(M.select(t.dataset.equip)){root.LoreUI?.feedback?.('upgrade');repaint();tapChanged();el.root.querySelector(`[data-preview="${t.dataset.equip}"] [data-close]`)?.focus?.({preventScroll:true});}else repaint();}}
+const focus=sel=>el?.root?.querySelector?.(sel)?.focus?.({preventScroll:true});
+function click(e){const t=e.target.closest?.('button');if(!t||t.disabled||!el)return;const d=t.dataset;
+ if(d.skip){settleNow();return;}
+ if(anim)return;
+ if(d.chest!==undefined){msg='';show('chest');parts.scene=null;repaint();el.scene.scrollIntoView?.({block:'nearest'});focus('[data-open]');return;}
+ if(d.back){msg='';show('main');focus('[data-chest="0"]');return;}
+ if(d.open){doOpen();return;}
+ if(d.about){aboutOpen=!aboutOpen;repaint();return;}
+ if(d.toastClose){toast=null;repaint();return;}
+ if(d.revealEquip){if(M.select(d.revealEquip)){root.LoreUI?.feedback?.('upgrade');repaint();tapChanged();}return;}
+ if(d.buy){ask(d.buy,Number(d.count)||1);repaint();focus(`[data-preview="${d.buy}"] [data-confirm-buy]`);return;}
+ if(d.cancelBuy){confirm=null;repaint();return;}
+ if(d.confirmBuy){const id=d.confirmBuy;if(!confirm||confirm.id!==id)return;const n=confirm.n;confirm=null;buyNow(id,n);return;}
+ if(d.hero){detailId=detailId===d.hero?'':d.hero;confirm=null;note=null;repaint();if(detailId)el.detail.scrollIntoView?.({block:'nearest',behavior:reduced()?'auto':'smooth'});return;}
+ if(d.close){const id=detailId;detailId='';confirm=null;note=null;repaint();focus(`[data-hero="${id}"]`);return;}
+ if(d.equip){if(M.select(d.equip)){root.LoreUI?.feedback?.('upgrade');repaint();tapChanged();focus(`[data-preview="${d.equip}"] [data-close]`);}else repaint();}}
 // Another tab opened a chest, bought or equipped a hero.
 function onStorage(e){if(e?.key===M.KEY||e?.key===null){M.reload();repaint();tapChanged();}}
 
 // target: the destination box; get: reads the current LOREBOUND state; format: the game's number format.
 function mount(target,get,format){if(!enabled()||!target)return false;read=get;fmt=format;if(box!==target||!el?.root?.isConnected){leave();box=target;build();
   if(!M.clock().trusted)Promise.resolve(root.LoreClock?.verify?.()).then(repaint,repaint);
-  timer=root.setInterval?.(()=>paint(read?.()),20000)??null;root.addEventListener?.('storage',onStorage);}
- paint(read?.());return true;}
-function leave(){if(el?.root)el.root.removeEventListener('click',click);if(timer!==null)root.clearInterval?.(timer);timer=null;root.removeEventListener?.('storage',onStorage);box=null;el=null;previewId='';lastKey='';shownReveal='';confirm=null;note=null;}
+  timer=root.setInterval?.(()=>paint(read?.()),20000)??null;root.addEventListener?.('storage',onStorage);root.document?.addEventListener?.('visibilitychange',onVisibility);}
+ paint(read?.());
+ // A chest opened before a reload, or while the tab was away, lands now from its stored receipt.
+ const p=M.pending();if(p&&!anim&&landed!==p.receipt)play(p,true);
+ return true;}
+function leave(){stop();if(el?.root)el.root.removeEventListener('click',click);if(timer!==null)root.clearInterval?.(timer);timer=null;if(landTimer!==null)root.clearTimeout?.(landTimer);landTimer=null;
+ root.removeEventListener?.('storage',onStorage);root.document?.removeEventListener?.('visibilitychange',onVisibility);box=null;el=null;detailId='';confirm=null;note=null;view='main';msg='';toast=null;landId='';landed='';hold=null;parts={};}
 root.LoreHeroesUI={enabled,mount,leave};
 })(globalThis);
