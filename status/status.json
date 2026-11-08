@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T04:52:14.789Z",
+ "generatedAt": "2026-11-08T04:53:20.874Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -51,6 +51,79 @@
   ]
  },
  "items": [
+  {
+   "number": 167,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Show exact floor-clear bonuses and away earnings",
+   "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
+   "stage": "built",
+   "waitingOn": "noah",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Save-backups.html changes only the version tag of story-progression.js, because that file gained a field the banner reads. The save format and save logic are unchanged.",
+     "at": "2026-11-08T04:52:55Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at the Adventure screen at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save, play to Floor 2 or 3 and check that the banner doesn't cover the enemy's name, its health bar, the quest Claim button, the Rift controls or the Party. If it covers any of them, move #clearBanner in adventure-dock-prototype.css.",
+     "at": "2026-11-08T04:52:55Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check the away popup at the same sizes after setting the test save's clock back 2 minutes and 7 hours (Dev tools, or Save backups). Continue must be reachable and the heading must fit.",
+     "at": "2026-11-08T04:52:55Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check this pull request against #97, #146, #162 and #163, which the request names. This run couldn't list other pull requests. They may change the same away popup in adventure.js or the same Adventure layout. Settle any clash on the test site.",
+     "at": "2026-11-08T04:52:55Z"
+    },
+    {
+     "who": "note",
+     "text": "Boss floors (10, 20, 30…) already have their own \"Floor cleared\" victory window, so they don't also get the banner. That window shows Gold and Lore Shards but not the XP the boss paid. I'd add XP there too if you want it to match.",
+     "at": "2026-11-08T04:52:55Z"
+    },
+    {
+     "who": "note",
+     "text": "The away popup now only leaves out a resource when it is 0. I did that so it matches the banner.",
+     "at": "2026-11-08T04:52:55Z"
+    },
+    {
+     "who": "note",
+     "text": "Your example counted four floors from 16 to the Floor 20 checkpoint. The game really does clear 16, 17, 18 and 19 there, so that is the count the popup shows. It comes from the floors actually cleared, not from subtracting floor numbers.",
+     "at": "2026-11-08T04:52:55Z"
+    },
+    {
+     "who": "note",
+     "text": "The popup's Gold includes the Gold from ordinary kills while you were away, because that is part of what you earned. The banner counts only the floor-clear bonus.",
+     "at": "2026-11-08T04:52:55Z"
+    },
+    {
+     "who": "note",
+     "text": "If the page reloads before a waiting away popup shows, that popup is skipped. The rewards themselves are already saved. Keeping the popup across reloads would need new save data, so I didn't build that.",
+     "at": "2026-11-08T04:52:55Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:37:41Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-08T04:52:55Z",
+   "headSha": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:52:55Z",
+   "goLive": false
+  },
   {
    "number": 147,
    "kind": "request",
@@ -1044,33 +1117,6 @@
    "goLive": false
   },
   {
-   "number": 167,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Show exact floor-clear bonuses and away earnings",
-   "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-08T04:37:41Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-08T04:44:28Z",
-   "headSha": "a9aabc7e4013fe5aecb20d6ac750f8ea6769b6c7",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-08T04:44:28Z",
-   "goLive": false
-  },
-  {
    "number": 161,
    "kind": "request",
    "by": "Joshua",
@@ -1674,6 +1720,21 @@
  ],
  "activity": [
   {
+   "at": "2026-11-08T04:52:55Z",
+   "kind": "built",
+   "text": "Claude finished building “Show exact floor-clear bonuses and away earnings”"
+  },
+  {
+   "at": "2026-11-08T04:52:55Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Show exact floor-clear bonuses and away earnings”"
+  },
+  {
+   "at": "2026-11-08T04:52:55Z",
+   "kind": "question",
+   "text": "Part of “Show exact floor-clear bonuses and away earnings” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-08T04:51:03Z",
    "kind": "built",
    "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
@@ -1727,11 +1788,6 @@
    "at": "2026-11-08T04:46:55Z",
    "kind": "question",
    "text": "Part of “Unify Rift language and surface essential help” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-08T04:44:28Z",
-   "kind": "built",
-   "text": "Claude finished building “Show exact floor-clear bonuses and away earnings”"
   },
   {
    "at": "2026-11-08T04:43:02Z",
@@ -1862,16 +1918,6 @@
    "at": "2026-11-07T21:26:56Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Keep enemy and companions stationary when Party collapses”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T21:25:30Z",
-   "kind": "built",
-   "text": "Claude finished building “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T21:25:30Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Implement approved QoL audit across summoning collection and mobile play”"
   }
  ],
  "otherPulls": [
