@@ -203,11 +203,26 @@
     {
       "number": 147,
       "title": "Replace Ascend with 25-hero rarity board for tap power",
-      "head": "94897082193e1e904a07ad0d1a050e63f831e75f",
+      "head": "9313e719d3a15acd7cf872bafa213cd97c5b00cb",
       "resolved": [
         "147-109-endless-reward-gold",
         "147-119-companion-damage"
       ]
+    },
+    {
+      "number": 162,
+      "title": "Fix regular enemy visibility and quest overlap",
+      "head": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492"
+    },
+    {
+      "number": 163,
+      "title": "Explain boss readiness failure and cleared-floor state",
+      "head": "4a6ce6bbabd34a49266a6def4bff66c3d23f53fc"
+    },
+    {
+      "number": 165,
+      "title": "Make collection availability and completion honest",
+      "head": "b2674439c8404e242d11f194672e1a2b54d52a1c"
     }
   ],
   "skipped": [
@@ -229,12 +244,41 @@
         "pocket-fortune/dist/navigation.js"
       ],
       "with": "others"
+    },
+    {
+      "number": 161,
+      "title": "Rescue prologue and starter selection",
+      "head": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
+    },
+    {
+      "number": 164,
+      "title": "Unify Rift language and surface essential help",
+      "head": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
+      "files": [
+        "pocket-fortune/dist/adventure-services.js",
+        "pocket-fortune/dist/adventure.js",
+        "pocket-fortune/dist/economy-interface.js",
+        "pocket-fortune/dist/grand-archive.js",
+        "pocket-fortune/dist/home.html",
+        "pocket-fortune/dist/navigation.js",
+        "pocket-fortune/dist/omnidex.js",
+        "pocket-fortune/dist/ownership-adventure.js",
+        "pocket-fortune/dist/summoning.js",
+        "pocket-fortune/dist/team.js",
+        "pocket-fortune/dist/tome-management.js",
+        "pocket-fortune/dist/tome-popup.js"
+      ],
+      "with": "others"
     }
   ],
-  "commit": "e54e39342d2a8aef3001fee3ac303fecb67c4fa9",
+  "commit": "5b432c54bcb976e971acf670c968dae62f6c429f",
   "unusedResolutions": [
     "119-89-bound-mastery-hint",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-07T22:58:57Z"
+  "at": "2026-11-08T04:50:32Z"
 }

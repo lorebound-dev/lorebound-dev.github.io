@@ -7,10 +7,23 @@ const header=document.createElement('header');header.id='bossRoomHeader';header.
 header.innerHTML='<div><small>MOSSBOUND RUINS</small><h2 id="bossRoomTitle">Boss encounter</h2></div><button id="bossFlee" type="button">Flee</button>';
 $('game').append(header);
 const note=document.createElement('p');note.id='bossRoomNote';note.hidden=true;note.textContent='Your companions fight beside you · Tap the boss to attack';$('game').append(note);
+const A=()=>root.LoreBossAdvice;
+// Advisory only: adventure.js still owns the button's state and its tap; this adds the recommended Party DPS under the label.
+function readiness(s){
+ const b=$('bossButton'),a=A()&&s&&s.mode!=='boss'&&!s.realmComplete&&root.Lore.ready(s)&&A().advice(s);
+ if(!a){b.classList.remove('has-advice','advice-ready','advice-low');b.removeAttribute('aria-label');return;}
+ const label=b.querySelector('.boss-button-label')?.textContent??b.textContent;b.textContent='';
+ const top=document.createElement('span');top.className='boss-button-label';top.textContent=label;
+ const line=document.createElement('small');line.className='boss-advice';line.textContent=A().buttonLine(a);
+ b.append(top,line);b.classList.add('has-advice');b.classList.toggle('advice-ready',a.ready);b.classList.toggle('advice-low',!a.ready);
+ b.setAttribute('aria-label',A().buttonLabel(a,s));
+}
 function refresh(s){
  const next=s?.mode==='boss';
+ readiness(s);
  if(next!==active){active=next;$('game').classList.toggle('boss-room',active);header.hidden=note.hidden=!active;
   if(active){
+   note.textContent=A()?A().roomNote(A().advice(s)):'Your companions fight beside you · Tap the boss to attack';
    root.LoreSummoning?.stop('Boss encounter');timerHome=$('timer').parentNode;timerNext=$('timer').nextSibling;$('combatLayout').append($('timer'));
    hidden=[...$('game').children,...document.querySelectorAll('.dock-scene-shortcuts')].filter(e=>e!==header&&e!==note&&e!==$('combatLayout')).map(e=>[e,e.inert]);
    for(const [e] of hidden)e.inert=true;
@@ -24,7 +37,9 @@ function outcome(kind){
  if(kind==='victory')return;
  showModal('MOSSBOUND RUINS',kind==='flee'?'RETREATED':'TIME EXPIRED',kind==='flee'?'Your party returns safely to the courtyard.':'The guardian still stands. Your party returns to the courtyard.','');
  $('modal').classList.add('boss-outcome');
- $('modalText').textContent+=' The boss remains unlocked. No boss rewards were awarded.';
+ // failBoss has already kept this boss unlocked and granted nothing; the wording only explains that.
+ if(A())$('modalText').textContent=A().failureText(kind,A().advice(state),state);
+ else $('modalText').textContent+=' The boss remains unlocked. No boss rewards were awarded.';
  $('modalClose').textContent='Return to Adventure';$('modalClose').focus({preventScroll:true});
 }
 $('bossFlee').onclick=()=>{
