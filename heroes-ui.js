@@ -79,16 +79,19 @@ function top(){const a=M.active(),cr=hold?hold.crests:M.crests(),opened=M.opened
  return `<div class="hero-top-row"><span class="hero-badge" style="${vars(a)}"><span class="hero-badge-art">${M.portrait(a.id)}</span><span class="hero-badge-text"><small>Equipped</small>${esc(a.name)}</span></span><span class="hero-crests" aria-label="${crestText(cr)}"><i aria-hidden="true"></i>${n2(cr)}</span><button type="button" class="hero-about-button" data-about="1" aria-expanded="${aboutOpen}" aria-label="About Heroes">?</button></div>
 <div class="hero-level"><span class="hero-level-name">Chest Level ${M.level(opened)}</span><span class="hero-level-next">${next?`Next: ${next.rarity} at ${n2(next.at)}`:'All rarities unlocked'}</span><span class="hero-bar" role="presentation"><span style="width:${pct}%"></span></span></div>`;}
 // The shelf: one chest per charge. Ready ones come first; a spent one is dim and shows when it comes back.
+// Unlimited (#169, test only): all three are always ready, with no times and one small label instead of the count.
 function shelf(){const c=M.clock(),ch=M.charges(c.now),at=ch.at||[];let s='';
+ if(ch.unlimited){for(let i=0;i<ch.max;i++)s+=`<button type="button" class="hero-shelf-chest is-ready" data-chest="${i}"${anim?' disabled':''} aria-label="Hero chest, ready. See the odds and open it">${chestArt()}</button>`;
+  return `<div class="hero-shelf-arch" aria-hidden="true"></div><div class="hero-shelf-row">${s}</div><div class="hero-shelf-plank" aria-hidden="true"></div><p class="hero-shelf-line"><span>Unlimited chests</span><span class="hero-dev-tag">TEST · UNLIMITED</span></p>`;}
  for(let i=0;i<ch.max;i++){const ready=c.trusted&&i<ch.available,back=at[i-ch.available]??ch.nextAt;
   const label=!c.trusted?'–':ready?'':short(back-c.now),aria=ready?'Hero chest, ready. See the odds and open it':c.trusted?`Hero chest, back in ${left(back-c.now)}. See the odds`:'Hero chest. Connect to check the chest timer';
   s+=`<button type="button" class="hero-shelf-chest ${ready?'is-ready':'is-spent'}" data-chest="${i}"${anim?' disabled':''} aria-label="${aria}">${chestArt()}${label?`<span class="hero-shelf-time">${label}</span>`:''}</button>`;}
  const line=!c.trusted?'Connect to check chest timer':ch.available?`${ch.available}/${ch.max} chests ready`:`0/${ch.max} · next in ${left(ch.nextAt-c.now)}`;
  return `<div class="hero-shelf-arch" aria-hidden="true"></div><div class="hero-shelf-row">${s}</div><div class="hero-shelf-plank" aria-hidden="true"></div><p class="hero-shelf-line"><span>${line}</span><span class="hero-dev-tag">DEV preview</span></p>`;}
 // The chest screen: one big chest, the real odds for the next chest (worked out from the chests opened), OPEN and Back.
-function scene(){const c=M.clock(),ch=M.charges(c.now),opened=M.opened(),now=M.odds(opened),p=M.pending(),can=!!p||(c.trusted&&ch.available>0);
+function scene(){const c=M.clock(),ch=M.charges(c.now),opened=M.opened(),now=M.odds(opened),p=M.pending(),can=!!p||ch.unlimited||(c.trusted&&ch.available>0);
  const list=M.RARITIES.map(r=>{const open=opened>=M.GATES[r];return `<li${open?'':' class="is-gated"'} style="${tierVars(r)}"><i aria-hidden="true"></i><span class="hero-odds-name">${r}</span><span class="hero-odds-gate">${open?'':'Chest '+n2(M.GATES[r])}</span><b>${chance(now[r])}</b></li>`;}).join('');
- const status=p?'Result waiting':!c.trusted?'Connect to check chest timer':ch.available?`${ch.available}/${ch.max} ready`:`Next in ${left(ch.nextAt-c.now)}`;
+ const status=p?'Result waiting':ch.unlimited?'Unlimited · TEST':!c.trusted?'Connect to check chest timer':ch.available?`${ch.available}/${ch.max} ready`:`Next in ${left(ch.nextAt-c.now)}`;
  return `<div class="hero-scene-head"><button type="button" class="hero-button hero-quiet hero-back" data-back="1">Back</button><h3>Hero Chest</h3><span class="hero-scene-status">${status}</span></div>
 <div class="hero-scene-stage">${chestArt('is-big')}<span class="hero-orb" aria-hidden="true"></span></div>
 <p class="hero-scene-sub">Odds for chest ${n2(opened+1)}</p>
@@ -244,7 +247,7 @@ function onStorage(e){if(e?.key===M.KEY||e?.key===null){M.reload();repaint();tap
 
 // target: the destination box; get: reads the current LOREBOUND state; format: the game's number format.
 function mount(target,get,format){if(!enabled()||!target)return false;read=get;fmt=format;if(box!==target||!el?.root?.isConnected){leave();box=target;build();
-  if(!M.clock().trusted)Promise.resolve(root.LoreClock?.verify?.()).then(repaint,repaint);
+  if(!M.clock().trusted&&!M.unlimited?.())Promise.resolve(root.LoreClock?.verify?.()).then(repaint,repaint);
   timer=root.setInterval?.(()=>paint(read?.()),20000)??null;root.addEventListener?.('storage',onStorage);root.document?.addEventListener?.('visibilitychange',onVisibility);}
  paint(read?.());
  // A chest opened before a reload, or while the tab was away, lands now from its stored receipt.

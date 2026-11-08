@@ -203,7 +203,7 @@
     {
       "number": 147,
       "title": "Replace Ascend with 25-hero rarity board for tap power",
-      "head": "509435f48bb43371c5e56b4057284f9e2f9f7dae",
+      "head": "2371ac7268ef79a91c232e57405677e4b9981f44",
       "resolved": [
         "147-109-endless-reward-gold",
         "147-119-companion-damage"
@@ -284,10 +284,10 @@
       "with": "others"
     }
   ],
-  "commit": "9517c2600c1b69667290fe7fa526c5d33d34c82c",
+  "commit": "36c6f11fc1ec2e983ec4ec2271593a384017ae38",
   "unusedResolutions": [
     "119-89-bound-mastery-hint",
     "122-109-economy-auto-notes"
   ],
-  "at": "2026-11-08T12:55:56Z"
+  "at": "2026-11-08T13:02:09Z"
 }

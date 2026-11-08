@@ -1,5 +1,6 @@
 /* Heroes (fourth tab, DEV preview). 25 fixed placeholder heroes, 2–3 per companion rarity, and the one active hero.
-   Heroes come from free chest openings: 3 charges, each back 24 trusted hours after it was used (#150).
+   Heroes come from free chest openings: 3 charges, each back 24 trusted hours after it was used (#150). For now (#169)
+   every test host has unlimited chests instead (unlimited()); the timer code stays for the real game.
    Since #153 every chest gives one FRAGMENT of one hero (or, at JACKPOT odds, a full hero: 3 fragments of it). 3 fragments
    unlock a hero for free, and more fragments raise its mastery at the cumulative MILESTONES (six ranks, +8% of its tap
    multiplier and +5% of its signature each). Which rarities a chest can give depends only on how many chests were opened:
@@ -122,6 +123,10 @@ const HELM=['.....bb.....','....obbo....','...owwwvo...','..olwwwwvo..','.olwwww
 function navIcon(cls='nav-art'){let rects='';HELM.forEach((row,y)=>{for(let x=0;x<row.length;){const ch=row[x];let n=1;while(x+n<row.length&&row[x+n]===ch)n++;if(ch!=='.')rects+=`<rect x="${x}" y="${y}" width="${n}" height="1" fill="${HELM_PAL[ch]}"/>`;x+=n;}});
  return `<svg class="${cls}" viewBox="0 0 12 10" shape-rendering="crispEdges" aria-hidden="true" focusable="false">${rects}</svg>`;}
 function enabled(){try{return HOSTS.includes(String(root.location?.hostname??'-'));}catch{return false;}}
+// #169: while Joshua tests, chests have no timer and no daily limit wherever Heroes runs (the test site and local copies).
+// The 3-per-24h code below is kept unchanged for the real game; nothing in this flag can turn it on where Heroes is off.
+// LoreHeroesTimed=true (only the timer tests set it) brings the 24h charges back on a test host.
+function unlimited(){return enabled()&&root.LoreHeroesTimed!==true;}
 const has=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
 const own=id=>typeof id==='string'&&has(BY_ID,id);
 const count=n=>Number.isInteger(n)&&n>=1&&n<=100000;
@@ -205,20 +210,23 @@ function current(){return state||load();}
 function commit(next){const ls=storage(),text=JSON.stringify(next);try{if(!ls)throw Error('no storage');ls.setItem(KEY,text);if(ls.getItem(KEY)!==text)throw Error('not kept');}catch{warn='This device would not save your heroes, so nothing was changed. Try again.';return false;}state=next;warn='';return true;}
 // The game's trusted clock (origin HTTP Date + monotonic time). Never the device clock on its own.
 function clock(){const C=root.LoreClock;const trusted=!!C?.trusted?.();return {trusted,now:trusted?C.now(0):null};}
-function charges(now,rec=current()){const t=Math.max(Number(now)||0,rec.high),out=rec.spent.filter(x=>x>t);return {available:CHARGES-out.length,max:CHARGES,nextAt:out.length?out[0]:null,at:out.slice()};}
+function charges(now,rec=current()){if(unlimited())return {available:CHARGES,max:CHARGES,nextAt:null,at:[],unlimited:true};const t=Math.max(Number(now)||0,rec.high),out=rec.spent.filter(x=>x>t);return {available:CHARGES-out.length,max:CHARGES,nextAt:out.length?out[0]:null,at:out.slice()};}
 function makeReceipt(t,seq){let r='';try{const a=new Uint32Array(2);root.crypto.getRandomValues(a);r=a[0].toString(36)+a[1].toString(36);}catch{r=Math.floor(Math.random()*2**32).toString(36);}return `h${Math.floor(t).toString(36)}-${seq}-${r}`;}
 // One chest. Checks the charge, draws a hero from the unlocked rarities, then a separate JACKPOT roll for 3 fragments
 // instead of 1, and stores fragments, chest count, Crests, charge and receipt in one write. A hero at 48 fragments
 // gains nothing more, and the result says so (added 0). tier: a rarity this chest has just made possible for the next one.
 function open({now,trusted,rng=Math.random}={}){if(!enabled())return {ok:false,reason:'off'};const rec=load();
  if(rec.pending)return {ok:true,replay:true,result:rec.pending};
- if(!trusted||!Number.isFinite(now))return {ok:false,reason:'clock'};
- const t=Math.max(now,rec.high),c=charges(t,rec);if(c.available<=0)return {ok:false,reason:'empty',nextAt:c.nextAt};
+ // Unlimited (#169): no clock needed and no charge used. The receipt's time is the trusted time when there is one, else the
+ // latest trusted time already stored; the per-chest seq keeps every receipt unique. Stored return times stay as they were.
+ const free=unlimited(),ok=trusted&&Number.isFinite(now);
+ if(!free&&!ok)return {ok:false,reason:'clock'};
+ const t=ok?Math.max(now,rec.high):rec.high,c=charges(t,rec);if(c.available<=0)return {ok:false,reason:'empty',nextAt:c.nextAt};
  const h=draw(rng,rec.opened),jackpot=rng()<JACKPOT,before=rec.frags[h.id]||0,after=Math.min(MAX_FRAGS,before+(jackpot?3:1)),opened=rec.opened+1,crests=CREST_REWARD[h.rarity];
  if(!wallet(rec.crests+crests))return {ok:false,reason:'save'};
  const seq=rec.seq+1,receipt=makeReceipt(t,seq),tier=RARITIES.find(r=>r!=='Common'&&GATES[r]===opened)||null;
  const pending=outcome({receipt,id:h.id,before,after,added:after-before,jackpot,crests,tier});
- const next={...rec,frags:{...rec.frags,[h.id]:after},opened,spent:[...rec.spent.filter(x=>x>t),t+RECHARGE_MS],high:t,seq,receipt,pending,crests:rec.crests+crests};
+ const next={...rec,frags:{...rec.frags,[h.id]:after},opened,spent:free?rec.spent:[...rec.spent.filter(x=>x>t),t+RECHARGE_MS],high:t,seq,receipt,pending,crests:rec.crests+crests};
  if(!commit(next))return {ok:false,reason:'save'};return {ok:true,result:pending};}
 // The player has seen the result. Only clears the matching receipt.
 function acknowledge(receipt){if(!enabled())return false;const rec=load();if(!rec.pending||rec.pending.receipt!==receipt)return false;return commit({...rec,pending:null});}
@@ -257,7 +265,7 @@ function companion(type){const x=bonus();if(!x)return {pct:0,flat:0,key:''};cons
 try{root.addEventListener?.('storage',e=>{if(e?.key===KEY||e?.key===null)state=null;});}catch{}
 const openedNow=()=>enabled()?current().opened:0;
 root.LoreHeroes={KEY,LEGACY_KEY,DEFAULT,RARITIES,RARITY_COLORS,ROSTER,ODDS,GATES,RAMP,JACKPOT,UNLOCK,MILESTONES,MAX_FRAGS,FRAG_PRICE,CHARGES,RECHARGE_MS,MASTERY_STEP,SIGNATURE_STEP,CREST_REWARD,TYPES,byId:id=>own(id)?BY_ID[id]:null,
- enabled,clock,active:activeHero,fragments:fragmentsOf,unlocked,owned:unlocked,rank,heroTap,nextThreshold,draw,weights,odds,level,nextUnlock,
+ enabled,unlimited,clock,active:activeHero,fragments:fragmentsOf,unlocked,owned:unlocked,rank,heroTap,nextThreshold,draw,weights,odds,level,nextUnlock,
  opened:openedNow,tierOpen:r=>tierOpen(r,openedNow()),charges:now=>charges(now),pending:()=>enabled()?current().pending:null,
  crests:()=>enabled()?current().crests:0,seq:()=>enabled()?current().seq:0,lastBought:()=>enabled()?current().bought:null,fragPrice,maxed,buy,signature,effects,help,
  open,acknowledge,select,tapMultiplier,bonus,tap,tapWith,gold,companion,portrait,grid,navIcon,warning:()=>warn,reload:()=>{state=null;return load();},_reset(){state=null;warn='';}};
