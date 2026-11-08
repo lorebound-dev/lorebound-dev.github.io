@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T19:45:41.359Z",
+ "generatedAt": "2026-11-08T19:53:43.377Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-08T19:30:38Z",
+  "updatedAt": "2026-11-08T19:53:25Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -38,20 +38,146 @@
    "Show named blank undiscovered Omnidex cards and tighten rarity pages",
    "Keep enemy and companions stationary when Party collapses",
    "Add Codex Claim All discovery rewards and rarity completion bonuses",
+   "Implement approved QoL audit across summoning collection and mobile play",
    "Replace Ascend with 25-hero rarity board for tap power",
+   "Rescue prologue and starter selection",
    "Fix regular enemy visibility and quest overlap",
    "Explain boss readiness failure and cleared-floor state",
-   "Make collection availability and completion honest"
+   "Unify Rift language and surface essential help",
+   "Make collection availability and completion honest",
+   "Show exact floor-clear bonuses and away earnings"
   ],
   "skipped": [
-   "Implement approved QoL audit across summoning collection and mobile play",
-   "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
-   "Rescue prologue and starter selection",
-   "Unify Rift language and surface essential help",
-   "Show exact floor-clear bonuses and away earnings"
+   "Replace Shardworks with a timed-egg Pet Farm and roaming pets"
   ]
  },
  "items": [
+  {
+   "number": 164,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify Rift language and surface essential help",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The Town workshop card: \"Forge\" or \"Shardworks\"? The Haven request (#92) calls it the Forge, and its locked card says it \"opens once this save has its Town update\". This request calls it Shardworks and says to defeat the Floor 60 boss. The test site keeps \"Forge\" for now. I suggest Shardworks with the Floor 60 line, because that's the real requirement a player can act on.",
+     "at": "2026-11-08T19:28:35Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Undiscovered companions in the Omnidex: show their names, or \"???\"? The Omnidex request (#130) shows named blank cards, which you chose. This request showed \"???\". The test site keeps the names and adds this request's \"Rift locked\" label for companions the Rift can't summon yet. I suggest keeping it like that.",
+     "at": "2026-11-08T19:28:35Z"
+    },
+    {
+     "who": "joshua",
+     "text": "The odds sheet's heading: \"Summoning odds\" (from the Rift levels request, #78) or \"Rift Levels\" (this request)? With #78 there's one Rift whose level you raise, so the sheet lists the odds at each level. The test site keeps \"Summoning odds\". I suggest keeping it.",
+     "at": "2026-11-08T19:28:35Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Auto Summon's amount: \"×10 Summons\" with a capital S (from #84) or \"×10 summons\"? The test site keeps the capital. Either is fine; I suggest the capital.",
+     "at": "2026-11-08T19:28:35Z"
+    },
+    {
+     "who": "claude",
+     "text": "Open a pull request from fix/test-site-164 into main. It adds only the 22 test-site records in pocket-fortune/tools/test-site/resolutions/, named 164-<other request>-<spot>.json. Before it merges, check the combined game in a browser (README step 4).",
+     "at": "2026-11-08T19:28:35Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at this request on the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: the Rift shrine and the Rift Upgrades sheet (the Upgrade button must stay reachable with Safari's bars showing), Auto setup, the Omnidex and a companion's page, Profile > Settings (Sound, Vibration, Reduce motion), the rules, the Resource guide's Essence line, and a locked tab's unlock text.",
+     "at": "2026-11-08T19:28:35Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:53:25Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:53:25Z",
+   "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:28:35Z",
+   "goLive": false
+  },
+  {
+   "number": 167,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Show exact floor-clear bonuses and away earnings",
+   "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Open a pull request into main for the branch fix/test-site-167. It adds one test-site record, 167-162-tap-clear-banner.json, so this request goes on the test site with #162. Noah merges it.",
+     "at": "2026-11-08T19:19:03Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once this request is on the test site, check the floor-clear banner on phones at 320×610, 375×667, 390×844 and 430×932. From a new save: pick a starter, then clear Floor 1 by tapping or waiting. The banner must not cover the enemy's name and health bar, the quest Claim button, the Rift controls or the Party, and combat must keep going.",
+     "at": "2026-11-08T19:19:03Z"
+    },
+    {
+     "who": "claude",
+     "text": "On the same phone sizes, check the away popup. Leave the tab for more than a minute and come back (Dev tools can also move the clock). One \"While you were away\" panel should open, with its Continue button fully visible and nothing cut off. Coming back within a minute shouldn't open it.",
+     "at": "2026-11-08T19:19:03Z"
+    },
+    {
+     "who": "note",
+     "text": "When a story floor is cleared, a banner shows for about 3 seconds with only the first-clear bonus, for example \"+385 Gold · +2 Lore Shards · +40 XP — Floor 24 cleared\". The Gold from the ordinary kill isn't counted, and anything that paid 0 is left out. I think that's the clearest way to show what clearing the floor itself paid.",
+     "at": "2026-11-08T19:19:03Z"
+    },
+    {
+     "who": "note",
+     "text": "If several floors are cleared while a banner is still showing, the next banner adds them up into one line (\"Floors 32–33 cleared\") instead of queueing one banner per floor. That keeps the screen calm when your party is fast.",
+     "at": "2026-11-08T19:19:03Z"
+    },
+    {
+     "who": "note",
+     "text": "The \"While you were away\" panel now opens only after more than 60 seconds away and only when you actually earned something. It lists the floors cleared and the exact Gold, Lore Shards and XP the game saved. If the 6-hour limit cut your time short, it says how much of the time earned rewards.",
+     "at": "2026-11-08T19:19:03Z"
+    },
+    {
+     "who": "note",
+     "text": "If a boss fight was reset while you were gone, you get a short note instead of the earnings panel. Your request said that alone shouldn't open the panel, so I built it that way.",
+     "at": "2026-11-08T19:19:03Z"
+    },
+    {
+     "who": "note",
+     "text": "The panel waits while a boss fight or a summon result is on screen, then shows once. Tapping Continue only closes it, so nothing is paid twice.",
+     "at": "2026-11-08T19:19:03Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:37:41Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:53:25Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:53:25Z",
+   "headSha": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:19:03Z",
+   "goLive": false
+  },
   {
    "number": 163,
    "kind": "request",
@@ -87,17 +213,55 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "ab5f73ba4061b186681c12c0f36e30174452bf6c",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-08T19:16:14Z",
+   "goLive": false
+  },
+  {
+   "number": 161,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rescue prologue and starter selection",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Open a pull request from fix/test-site-161 into main. It only adds one test-site record, 161-97-first-session-stylesheet.json, so the test site can include #161 next to #97. Once it's merged, run Publish test (gh workflow run publish-test.yml --repo lorebound-game/LOREBOUND). Then check that the test site's test-build.json lists #161 under included, with that record under resolved.",
+     "at": "2026-11-08T19:14:22Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at #161 in a browser at 320×610, 375×667, 390×844 and 430×932 on a new save. Check the prologue's Skip plaque, which should stay clear of the notch and work mid-fade. Check the slide pacing, and the reduced-motion setting. Check the egg screen: the \"Choose this egg\" button, the DPS, hit and crit numbers, and \"The eggs are arriving\" with slow images. Check the five first-session tips and…",
+     "at": "2026-11-08T19:14:22Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:19Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:53:25Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:53:25Z",
+   "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:14:22Z",
    "goLive": false
   },
   {
@@ -130,11 +294,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "3aead0ab03637711d215423df91b508d93848de2",
    "touchesGame": true,
    "answers": false,
@@ -193,11 +357,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "70a72d76209fc1e0ec7e0d9ff060a34331ed92be",
    "touchesGame": true,
    "answers": false,
@@ -231,11 +395,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "786be6022c9a99d75e8820800db1ce2ad3181f50",
    "touchesGame": true,
    "answers": false,
@@ -294,11 +458,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
    "touchesGame": true,
    "answers": false,
@@ -347,11 +511,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "b2674439c8404e242d11f194672e1a2b54d52a1c",
    "touchesGame": true,
    "answers": false,
@@ -410,11 +574,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
    "touchesGame": true,
    "answers": false,
@@ -478,11 +642,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "2371ac7268ef79a91c232e57405677e4b9981f44",
    "touchesGame": true,
    "answers": false,
@@ -516,11 +680,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "b479376953502d0d37964f9d6dec9e3472572d82",
    "touchesGame": true,
    "answers": false,
@@ -549,11 +713,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -602,11 +766,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -645,11 +809,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
+   "testAt": "2026-11-08T19:53:25Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
@@ -659,216 +823,12 @@
    "goLive": false
   },
   {
-   "number": 92,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Do you want a quicker start (note 2)? I suggest B: the first House costs 12 Wood · 6 Stone and the first Farm 10 Wood · 3 Stone, and nothing else changes. Or keep it as it is.",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "noah",
-     "text": "#144 replaces Haven's land rings with patches you clear one at a time. That needs a new version of Haven's own test save (v5 → v6). Joshua says his test town can be started over. I suggest OK, test site only: a fresh start under a new key, with the v5 save kept untouched as a backup. The real game's saves aren't touched. #145's fuller resource layout is built on that new map, so it waits on…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Build #144 and #145's resource layout together once Noah OKs the v6 Haven test save. That means the raised home clearing, patches with Clear and lock badges, a short Land window with Find Next Clearing, and the palisade and raids following the new edge. It also means clustered trees and rocks, about 20–30% more in the outer patches, and a clear middle. Then check that each early patch has…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Take phone pictures on the test site at 320×610, 375×812, 390×844 and 430×932, starting from a new save (? → Reset demo, then Start). Get the suggestion box with Find and the gold pointer after tapping it, chips mid-hit on a tree and a stone, a stone crumbling, and a tap on a tree at the smallest zoom. Also get the Farm's bar with − / + (0 / 2, then 1 / 2), \"No free workers\" with Reassign in…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "Is the start drawn out? Yes, a bit. I measured it with the hits and prices you have now. Swinging as fast as Haven allows (about 2 a second), the first House takes 114–134 hits (about 1 minute) and the Farm 176–222 hits in total (about 1½–2 minutes). Tapping once a second, it's about 1½–2 minutes to the House and 2½–4 minutes to the Farm. The lower numbers are with your first settler on Auto…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "If you want a quicker start, here are two options. A: Pines give 3 Wood instead of 2, and berry bushes 2 Wood instead of 1. The first House would take about 90 hits, and everything later would get a bit quicker too. B: Only the first House and Farm get cheaper: House 12 Wood · 6 Stone, Farm 10 Wood · 3 Stone. The first House would take about 70 hits, and nothing later would change. I'd pick B,…",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "Find points at what you're shortest of, counted in hits. For the first House that's Wood (20 Wood takes more hits than 8 Stone). Once you have the Wood, it points at Stone. I think that's the most useful thing to point at.",
-     "at": "2026-11-07T16:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "Find prefers pines and oaks over bushes for Wood, because they give more per hit. It also prefers nodes your workers can walk up to.",
-     "at": "2026-11-07T16:25:30Z"
-    }
-   ],
-   "openedAt": "2026-11-02T02:38:48Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-08T19:30:39Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-08T19:30:39Z",
-   "headSha": "699556791c607f05dd6daf251cd363d701188a87",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T16:25:30Z",
-   "goLive": false
-  },
-  {
-   "number": 164,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify Rift language and surface essential help",
-   "quote": "",
-   "stage": "built",
-   "waitingOn": "joshua",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The Town workshop card: \"Forge\" or \"Shardworks\"? The Haven request (#92) calls it the Forge, and its locked card says it \"opens once this save has its Town update\". This request calls it Shardworks and says to defeat the Floor 60 boss. The test site keeps \"Forge\" for now. I suggest Shardworks with the Floor 60 line, because that's the real requirement a player can act on.",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Undiscovered companions in the Omnidex: show their names, or \"???\"? The Omnidex request (#130) shows named blank cards, which you chose. This request showed \"???\". The test site keeps the names and adds this request's \"Rift locked\" label for companions the Rift can't summon yet. I suggest keeping it like that.",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "joshua",
-     "text": "The odds sheet's heading: \"Summoning odds\" (from the Rift levels request, #78) or \"Rift Levels\" (this request)? With #78 there's one Rift whose level you raise, so the sheet lists the odds at each level. The test site keeps \"Summoning odds\". I suggest keeping it.",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Auto Summon's amount: \"×10 Summons\" with a capital S (from #84) or \"×10 summons\"? The test site keeps the capital. Either is fine; I suggest the capital.",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "claude",
-     "text": "Open a pull request from fix/test-site-164 into main. It adds only the 22 test-site records in pocket-fortune/tools/test-site/resolutions/, named 164-<other request>-<spot>.json. Before it merges, check the combined game in a browser (README step 4).",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at this request on the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: the Rift shrine and the Rift Upgrades sheet (the Upgrade button must stay reachable with Safari's bars showing), Auto setup, the Omnidex and a companion's page, Profile > Settings (Sound, Vibration, Reduce motion), the rules, the Resource guide's Essence line, and a locked tab's unlock text.",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "claude",
-     "text": "It clashes with another change in progress, in adventure-services.js and adventure.js and economy-interface.js and grand-archive.js and home.html and navigation.js and omnidex.js and ownership-adventure.js and summoning.js and team.js and tome-management.js and tome-popup.js, so it isn't on the test site yet.",
-     "at": null
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:50Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-08T19:28:35Z",
-   "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T19:28:35Z",
-   "goLive": false
-  },
-  {
-   "number": 167,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Show exact floor-clear bonuses and away earnings",
-   "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
-   "stage": "built",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Open a pull request into main for the branch fix/test-site-167. It adds one test-site record, 167-162-tap-clear-banner.json, so this request goes on the test site with #162. Noah merges it.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once this request is on the test site, check the floor-clear banner on phones at 320×610, 375×667, 390×844 and 430×932. From a new save: pick a starter, then clear Floor 1 by tapping or waiting. The banner must not cover the enemy's name and health bar, the quest Claim button, the Rift controls or the Party, and combat must keep going.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "claude",
-     "text": "On the same phone sizes, check the away popup. Leave the tab for more than a minute and come back (Dev tools can also move the clock). One \"While you were away\" panel should open, with its Continue button fully visible and nothing cut off. Coming back within a minute shouldn't open it.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "When a story floor is cleared, a banner shows for about 3 seconds with only the first-clear bonus, for example \"+385 Gold · +2 Lore Shards · +40 XP — Floor 24 cleared\". The Gold from the ordinary kill isn't counted, and anything that paid 0 is left out. I think that's the clearest way to show what clearing the floor itself paid.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "If several floors are cleared while a banner is still showing, the next banner adds them up into one line (\"Floors 32–33 cleared\") instead of queueing one banner per floor. That keeps the screen calm when your party is fast.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "The \"While you were away\" panel now opens only after more than 60 seconds away and only when you actually earned something. It lists the floors cleared and the exact Gold, Lore Shards and XP the game saved. If the 6-hour limit cut your time short, it says how much of the time earned rewards.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "If a boss fight was reset while you were gone, you get a short note instead of the earnings panel. Your request said that alone shouldn't open the panel, so I built it that way.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "The panel waits while a boss fight or a summon result is on screen, then shows once. Tapping Continue only closes it, so nothing is paid twice.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "claude",
-     "text": "It clashes with another change in progress, in adventure.js, so it isn't on the test site yet.",
-     "at": null
-    }
-   ],
-   "openedAt": "2026-11-08T04:37:41Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-08T19:19:03Z",
-   "headSha": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T19:19:03Z",
-   "goLive": false
-  },
-  {
    "number": 146,
    "kind": "request",
    "by": "Joshua",
    "title": "Implement approved QoL audit across summoning collection and mobile play",
    "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
-   "stage": "built",
+   "stage": "testing",
    "waitingOn": "both",
    "forClaude": true,
    "asks": [
@@ -926,22 +886,17 @@
      "who": "note",
      "text": "The opening-pace check found one stall. In 13 of every 100 new games where nobody taps, the first Lore Shards give repeats, the party has only two or three companions, and they can't beat the Floor 1 boss (1,000 health) in 30 seconds. My pick, with no number change: after a lost Floor 1 boss fight, the retry line says \"Tap the enemy to help your companions\". The other choice is to lower Floor…",
      "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "It clashes with another change in progress, in adventure-services.js, so it isn't on the test site yet.",
-     "at": null
     }
    ],
    "openedAt": "2026-11-07T16:55:36Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-08T19:16:30Z",
+   "testAt": "2026-11-08T19:53:25Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:53:25Z",
    "headSha": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
    "touchesGame": true,
    "answers": false,
@@ -951,46 +906,71 @@
    "goLive": false
   },
   {
-   "number": 161,
+   "number": 92,
    "kind": "request",
    "by": "Joshua",
-   "title": "Rescue prologue and starter selection",
-   "quote": "",
-   "stage": "built",
-   "waitingOn": null,
+   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": "both",
    "forClaude": true,
    "asks": [
     {
-     "who": "claude",
-     "text": "Open a pull request from fix/test-site-161 into main. It only adds one test-site record, 161-97-first-session-stylesheet.json, so the test site can include #161 next to #97. Once it's merged, run Publish test (gh workflow run publish-test.yml --repo lorebound-game/LOREBOUND). Then check that the test site's test-build.json lists #161 under included, with that record under resolved.",
-     "at": "2026-11-08T19:14:22Z"
+     "who": "joshua",
+     "text": "Do you want a quicker start (note 2)? I suggest B: the first House costs 12 Wood · 6 Stone and the first Farm 10 Wood · 3 Stone, and nothing else changes. Or keep it as it is.",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "noah",
+     "text": "#144 replaces Haven's land rings with patches you clear one at a time. That needs a new version of Haven's own test save (v5 → v6). Joshua says his test town can be started over. I suggest OK, test site only: a fresh start under a new key, with the v5 save kept untouched as a backup. The real game's saves aren't touched. #145's fuller resource layout is built on that new map, so it waits on…",
+     "at": "2026-11-07T16:25:30Z"
     },
     {
      "who": "claude",
-     "text": "Look at #161 in a browser at 320×610, 375×667, 390×844 and 430×932 on a new save. Check the prologue's Skip plaque, which should stay clear of the notch and work mid-fade. Check the slide pacing, and the reduced-motion setting. Check the egg screen: the \"Choose this egg\" button, the DPS, hit and crit numbers, and \"The eggs are arriving\" with slow images. Check the five first-session tips and…",
-     "at": "2026-11-08T19:14:22Z"
+     "text": "Build #144 and #145's resource layout together once Noah OKs the v6 Haven test save. That means the raised home clearing, patches with Clear and lock badges, a short Land window with Find Next Clearing, and the palisade and raids following the new edge. It also means clustered trees and rocks, about 20–30% more in the outer patches, and a clear middle. Then check that each early patch has…",
+     "at": "2026-11-07T16:25:30Z"
     },
     {
      "who": "claude",
-     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet.",
-     "at": null
+     "text": "Take phone pictures on the test site at 320×610, 375×812, 390×844 and 430×932, starting from a new save (? → Reset demo, then Start). Get the suggestion box with Find and the gold pointer after tapping it, chips mid-hit on a tree and a stone, a stone crumbling, and a tap on a tree at the smallest zoom. Also get the Farm's bar with − / + (0 / 2, then 1 / 2), \"No free workers\" with Reassign in…",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "Is the start drawn out? Yes, a bit. I measured it with the hits and prices you have now. Swinging as fast as Haven allows (about 2 a second), the first House takes 114–134 hits (about 1 minute) and the Farm 176–222 hits in total (about 1½–2 minutes). Tapping once a second, it's about 1½–2 minutes to the House and 2½–4 minutes to the Farm. The lower numbers are with your first settler on Auto…",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "If you want a quicker start, here are two options. A: Pines give 3 Wood instead of 2, and berry bushes 2 Wood instead of 1. The first House would take about 90 hits, and everything later would get a bit quicker too. B: Only the first House and Farm get cheaper: House 12 Wood · 6 Stone, Farm 10 Wood · 3 Stone. The first House would take about 70 hits, and nothing later would change. I'd pick B,…",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "Find points at what you're shortest of, counted in hits. For the first House that's Wood (20 Wood takes more hits than 8 Stone). Once you have the Wood, it points at Stone. I think that's the most useful thing to point at.",
+     "at": "2026-11-07T16:25:30Z"
+    },
+    {
+     "who": "note",
+     "text": "Find prefers pines and oaks over bushes for Wood, because they give more per hit. It also prefers nodes your workers can walk up to.",
+     "at": "2026-11-07T16:25:30Z"
     }
    ],
-   "openedAt": "2026-11-08T04:24:19Z",
+   "openedAt": "2026-11-02T02:38:48Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-08T19:14:22Z",
-   "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
+   "testAt": "2026-11-08T19:53:25Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:53:25Z",
+   "headSha": "699556791c607f05dd6daf251cd363d701188a87",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-08T19:14:22Z",
+   "botAt": "2026-11-07T16:25:30Z",
    "goLive": false
   },
   {
@@ -1420,6 +1400,31 @@
  ],
  "activity": [
   {
+   "at": "2026-11-08T19:53:25Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
+  },
+  {
+   "at": "2026-11-08T19:46:38Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Test site: record that puts request 167 on”"
+  },
+  {
+   "at": "2026-11-08T19:46:35Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Test site: records that put request 164 on and keep 165 on”"
+  },
+  {
+   "at": "2026-11-08T19:46:32Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Test site: record that puts request 161 on”"
+  },
+  {
+   "at": "2026-11-08T19:46:30Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Test site: record that puts request 146 on”"
+  },
+  {
    "at": "2026-11-08T19:30:39Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
@@ -1593,31 +1598,6 @@
    "at": "2026-11-08T04:37:41Z",
    "kind": "asked",
    "text": "You asked for “Show exact floor-clear bonuses and away earnings”"
-  },
-  {
-   "at": "2026-11-08T04:25:09Z",
-   "kind": "asked",
-   "text": "You asked for “Separate production assets and reduce shipping overhead safely”"
-  },
-  {
-   "at": "2026-11-08T04:24:59Z",
-   "kind": "asked",
-   "text": "You asked for “Make collection availability and completion honest”"
-  },
-  {
-   "at": "2026-11-08T04:24:50Z",
-   "kind": "asked",
-   "text": "You asked for “Unify Rift language and surface essential help”"
-  },
-  {
-   "at": "2026-11-08T04:24:39Z",
-   "kind": "asked",
-   "text": "You asked for “Explain boss readiness failure and cleared-floor state”"
-  },
-  {
-   "at": "2026-11-08T04:24:29Z",
-   "kind": "asked",
-   "text": "You asked for “Fix regular enemy visibility and quest overlap”"
   }
  ],
  "otherPulls": [
