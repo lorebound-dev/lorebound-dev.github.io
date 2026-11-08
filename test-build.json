@@ -1,5 +1,5 @@
 {
-  "base": "512240ef7114f9a6c962ae9b351ba0e2a3e18219",
+  "base": "52a53ceb12c99494910ecb888c1d0c0fa26b1537",
   "included": [
     {
       "number": 38,
@@ -218,6 +218,17 @@
       ]
     },
     {
+      "number": 149,
+      "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
+      "head": "f30863505df12d95e82d58c8239373029dd6e06f",
+      "resolved": [
+        "149-92-farm-tab-button",
+        "149-147-farm-tab-names",
+        "149-147-farm-page",
+        "149-147-farm-leave"
+      ]
+    },
+    {
       "number": 161,
       "title": "Rescue prologue and starter selection",
       "head": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
@@ -281,24 +292,13 @@
       ]
     }
   ],
-  "skipped": [
-    {
-      "number": 149,
-      "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
-      "head": "f30863505df12d95e82d58c8239373029dd6e06f",
-      "files": [
-        "pocket-fortune/dist/home.html",
-        "pocket-fortune/dist/navigation.js"
-      ],
-      "with": "others"
-    }
-  ],
-  "commit": "869a85c3be279b430c227bc267eae2f06df08baf",
+  "skipped": [],
+  "commit": "2e60c7a63eb75c58c17bc89e32428631cbb22546",
   "unusedResolutions": [
     "119-89-bound-mastery-hint",
     "122-109-economy-auto-notes",
     "164-78-rift-next-level",
     "164-97-stylesheets"
   ],
-  "at": "2026-11-08T19:53:25Z"
+  "at": "2026-11-08T21:47:25Z"
 }
