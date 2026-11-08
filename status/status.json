@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T16:16:16.544Z",
+ "generatedAt": "2026-11-08T19:45:41.359Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-08T13:02:09Z",
+  "updatedAt": "2026-11-08T19:30:38Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -52,6 +52,377 @@
   ]
  },
  "items": [
+  {
+   "number": 163,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Explain boss readiness failure and cleared-floor state",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the row on the combined test site (with #97 and #162) at 320×610 and 375×667: Floor 30, full Party of ten, boss ready, a quest ready to claim, Party open. Check that \"Claim\" shows in full beside Challenge Boss at 320, and that the enemy's name and whole health bar sit above the row at 375×667. Also check 390×844 and 430×932 still look as they did. This run had no browser, so neither…",
+     "at": "2026-11-08T19:16:14Z"
+    },
+    {
+     "who": "note",
+     "text": "The recommended Party DPS under Challenge Boss is the boss's health divided by the 30-second timer, plus 10%, rounded up (747 HP gives 28). It's green when your party meets it and amber when it's below. It never stops you from starting the fight. I think 10% is a fair cushion: attack timing and critical hits still decide close fights, and the wording says it's an estimate.",
+     "at": "2026-11-08T19:16:14Z"
+    },
+    {
+     "who": "note",
+     "text": "On narrow phones the second line of Challenge Boss is now just the two numbers, \"DPS 1,234 / 1,360\", so it fits beside Claim. I think the shorter line still reads clearly next to the green or amber colour. If you'd rather keep the full wording, the alternative is a smaller Claim plaque.",
+     "at": "2026-11-08T19:16:14Z"
+    },
+    {
+     "who": "note",
+     "text": "If the row would cover the enemy's name plate on a short screen, the plate now moves up a little. On those screens it can sit slightly over the top of the enemy's head. I chose that over covering the health bar.",
+     "at": "2026-11-08T19:16:14Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:39Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:30:39Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:30:39Z",
+   "headSha": "ab5f73ba4061b186681c12c0f36e30174452bf6c",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:16:14Z",
+   "goLive": false
+  },
+  {
+   "number": 109,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
+   "quote": "\"If nothing is checked in the auto summon it should stop at every single one. Also any mention of tone should be replaced and any image of a tome book should be. I need the achievement bar to look better, open to suggestion. Remove the guardian relics.\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at it on the test site at 320×610, 375×667, 390×844 and 430×932: the Auto setup with nothing ticked, Endless with no relic button, and the Treasure Records with three tabs and no Guardian shelf. (The caretaker's browser couldn't open the Auto setup today: the tap on Auto timed out.)",
+     "at": "2026-11-08T19:09:47Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #97 is merged, change the one-time update popup's \"Enable the returning guardians and cosmetic relic journal\" to \"Enable the returning guardians\".",
+     "at": "2026-11-08T19:09:47Z"
+    },
+    {
+     "who": "claude",
+     "text": "Build parts 2 (Tome words and book pictures → Rift) and 3 (slim quest ribbon) once #78 and #97 are merged.",
+     "at": "2026-11-08T19:09:47Z"
+    }
+   ],
+   "openedAt": "2026-11-05T04:55:25Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:30:39Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:30:39Z",
+   "headSha": "3aead0ab03637711d215423df91b508d93848de2",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T15:36:18Z",
+   "goLive": false
+  },
+  {
+   "number": 118,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Double-tap Party cards to swap pending companions directly",
+   "quote": "When you pull a companion and are in the swap in party menu, double clicking on a companion in the deck should swap it. Also it should visually swap the cards no confirmation necessary. So there should just be a release button and the floating card no party dps change or anything of that.",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should the Omnidex companion page also get the A NEW BOND layout in this request? #108 and #116 are already redesigning that page, so building it here would undo their work. My suggestion is to add the A NEW BOND layout to #108 and leave it out of this request. On the test site, a companion opened from the Omnidex already uses this request's layout without Upgrade.",
+     "at": "2026-11-08T19:09:46Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Should the summon result screen (after a pull, or when Auto pauses) also change to the A NEW BOND layout? On 2026-11-06 you said to keep the big reveal as it is, and #115 owns that screen. My suggestion is to make it a change in #115, so the two requests don't overwrite each other.",
+     "at": "2026-11-08T19:09:46Z"
+    },
+    {
+     "who": "claude",
+     "text": "On the test site, at 320×610, 390×844 and 430×932, open a Rare or higher companion from another category (for example a Spirit or a Wildgrowth companion). Check its badges, habitat and Upgrade, and then open the same companion from the Omnidex. It should have no Upgrade there.",
+     "at": "2026-11-08T19:09:46Z"
+    },
+    {
+     "who": "claude",
+     "text": "At 320×610 and 390×844, fill the party, pull a companion, choose to put it in the party, and double-tap a Party card. It should swap straight away, and Release should still be there.",
+     "at": "2026-11-08T19:09:46Z"
+    },
+    {
+     "who": "note",
+     "text": "On companion details, the rarity now shows in the tutorial's plain text box instead of the rarity logo picture, because you asked for the same rarity box as the tutorial. I tinted it with each rarity's own colour. If you'd rather keep the logo pictures on this screen, that's an easy change.",
+     "at": "2026-11-08T19:09:46Z"
+    },
+    {
+     "who": "note",
+     "text": "Mastery is no longer shown on companion details, as you asked. It still counts and still adds damage, but now the only place to see it is the Omnidex. I think that's fine, because the Omnidex is where collecting progress belongs.",
+     "at": "2026-11-08T19:09:46Z"
+    },
+    {
+     "who": "note",
+     "text": "I placed the companion and the Upgrade button at the same heights as the tutorial's companion and sentence. On a short phone (320×610) everything still fits without scrolling.",
+     "at": "2026-11-08T19:09:46Z"
+    }
+   ],
+   "openedAt": "2026-11-06T12:23:49Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:30:39Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:30:39Z",
+   "headSha": "70a72d76209fc1e0ec7e0d9ff060a34331ed92be",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T16:12:34Z",
+   "goLive": false
+  },
+  {
+   "number": 119,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Double species mastery summon requirements and damage bonuses",
+   "quote": "Make mastery’s take twice as many summons and twice as more powerful.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the mastery text on the test site at 320×610, 375×667, 390×844 and 430×932: the Party companion page, the Team page, the summon result and the Omnidex. Check the hint says \"+8%\" per rank, and that \"+48%\" and \"120 summons\" fit without overflowing.",
+     "at": "2026-11-08T19:09:45Z"
+    },
+    {
+     "who": "claude",
+     "text": "If #89 or #98 adds mastery totals for more rarities, double those too when they merge, so every rarity follows the same rule.",
+     "at": "2026-11-08T19:09:45Z"
+    }
+   ],
+   "openedAt": "2026-11-06T12:37:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:30:39Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:30:39Z",
+   "headSha": "786be6022c9a99d75e8820800db1ce2ad3181f50",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T15:41:06Z",
+   "goLive": false
+  },
+  {
+   "number": 142,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
+   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Save format: a claim adds a new field, progress.collectionRewards (the companions and rarities already paid), to version 5 saves. Saves without it work as \"nothing claimed yet\", and no save update or popup is needed. save-storage.js and ownership-v5.js are unchanged.",
+     "at": "2026-11-08T19:09:44Z"
+    },
+    {
+     "who": "claude",
+     "text": "Tap Claim all on the test site at 320×610, 375×667, 390×844 and 430×932 and check the short message at the bottom fits.",
+     "at": "2026-11-08T19:09:44Z"
+    },
+    {
+     "who": "note",
+     "text": "Each discovered companion pays 1 Lore Shard, once. These amounts were Codex's suggestion, not yours. That's 30 Shards for the current 30 companions, less than one Shard per summon. I think it's fine as a small thank-you. Raise it if you want discoveries to feel like a real reward.",
+     "at": "2026-11-08T19:09:44Z"
+    },
+    {
+     "who": "note",
+     "text": "Completing a rarity pays a one-time 10 Lore Shards (Common, Uncommon and Rare today, 30 in all). Rare has only 4 companions but pays the same as Common's 16. I'd try paying more for rarer tiers, for example Common 10, Uncommon 15, Rare 25.",
+     "at": "2026-11-08T19:09:44Z"
+    },
+    {
+     "who": "note",
+     "text": "Companions you released still count, because the game remembers every species you've discovered. Long-time players will see one bigger claim the first time.",
+     "at": "2026-11-08T19:09:44Z"
+    },
+    {
+     "who": "note",
+     "text": "A rarity that later gets new companions keeps the bonus it already paid. Each new companion still pays its own Shard. If the rarity grows before you've claimed its bonus, you need the new companions too.",
+     "at": "2026-11-08T19:09:44Z"
+    },
+    {
+     "who": "note",
+     "text": "Codex also asked for \"claimed\" on every card. I used one small line under each card (\"+1 Shard ready\" or \"Shard claimed\"). If it feels busy, I can show only \"ready\". (Caretaker: with \"New entry · Equipped\" above it, each card has three short lines under it.)",
+     "at": "2026-11-08T19:09:44Z"
+    }
+   ],
+   "openedAt": "2026-11-07T15:36:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:30:39Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:30:39Z",
+   "headSha": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T16:01:44Z",
+   "goLive": false
+  },
+  {
+   "number": 165,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Make collection availability and completion honest",
+   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "On the test site at 320×610, 375×667, 390×844 and 430×932: open Common, page 2, and check that a Realm 2 card says \"Not yet summonable\" without clipping. Set Collection to Missing and check those cards are gone. Open Epic and check the \"—\" tile and the heading fit.",
+     "at": "2026-11-08T19:09:43Z"
+    },
+    {
+     "who": "note",
+     "text": "Companions that can't be summoned yet keep their real names on the blank cards, with \"Not yet summonable\" under them. They don't count towards the collection until their odds go live. I think this is the honest way to show them. Right now that's all 30 Realm 2 companions.",
+     "at": "2026-11-08T19:09:43Z"
+    },
+    {
+     "who": "note",
+     "text": "A companion you can only get at a higher Rift level still counts as missing, and its card just says \"Undiscovered\", like before. I'd consider a small \"Rift level 3\" line on those cards, so players know what to aim for. I left it out because it's your call what shows on screen.",
+     "at": "2026-11-08T19:09:43Z"
+    },
+    {
+     "who": "note",
+     "text": "The Epic tile shows \"—\" and \"Not yet summonable\" until its two companions get odds. If you'd rather hide Epic completely until then, I can do that.",
+     "at": "2026-11-08T19:09:43Z"
+    },
+    {
+     "who": "note",
+     "text": "When #89 and this request are both in, #89's own test still expects a total of 60. Whichever one goes live second needs that test changed to 30. It's only a test; nothing in the game changes.",
+     "at": "2026-11-08T19:09:43Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:59Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:30:39Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:30:39Z",
+   "headSha": "b2674439c8404e242d11f194672e1a2b54d52a1c",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:50:49Z",
+   "goLive": false
+  },
+  {
+   "number": 162,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Fix regular enemy visibility and quest overlap",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Pass the quest-plaque part on to #97: \"From #162: on the Next goal plaque, only the Claim button should claim. The plaque itself should not open the Journal; the Journal shortcut stays the way in. Keep the plaque clear of the enemy's name and health bar at 320×610 and 360×640.\"",
+     "at": "2026-11-08T19:09:41Z"
+    },
+    {
+     "who": "claude",
+     "text": "With the boss ready and Party open at 375×667, the Claim and Challenge Boss row covers the bottom of the health bar. Claude is fixing that row in #163.",
+     "at": "2026-11-08T19:09:41Z"
+    },
+    {
+     "who": "note",
+     "text": "The enemy's name and health bar now sit above its head instead of over it. Nothing else on the fight moved. I think this is the main fix for \"the enemy isn't there\": its art always loaded, but the bar covered it.",
+     "at": "2026-11-08T19:09:41Z"
+    },
+    {
+     "who": "note",
+     "text": "A tap now shows the damage it really did. A killing blow can show a smaller number than your tap power, because the enemy had less health left. I think that's the honest choice. Showing full tap power on every tap would be the other option.",
+     "at": "2026-11-08T19:09:41Z"
+    },
+    {
+     "who": "note",
+     "text": "Every tap that hits now gives a 5ms buzz and a quiet tick, at most one every 80ms. This is new. If it feels busy when tapping fast, it can be made quieter or turned into buzz only.",
+     "at": "2026-11-08T19:09:41Z"
+    },
+    {
+     "who": "note",
+     "text": "The quest plaque with a Claim button only exists in your guided progression request (#97), not in the game yet. So \"only Claim claims, and a separate Journal button\" belongs in #97.",
+     "at": "2026-11-08T19:09:41Z"
+    },
+    {
+     "who": "note",
+     "text": "The audit also suggested bringing back swap confirmations and realm-specific collections. I left those out, as the request says.",
+     "at": "2026-11-08T19:09:41Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T19:30:39Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T19:30:39Z",
+   "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:39:36Z",
+   "goLive": false
+  },
   {
    "number": 147,
    "kind": "request",
@@ -107,11 +478,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
+   "testAt": "2026-11-08T19:30:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
+   "updatedAt": "2026-11-08T19:30:39Z",
    "headSha": "2371ac7268ef79a91c232e57405677e4b9981f44",
    "touchesGame": true,
    "answers": false,
@@ -121,229 +492,35 @@
    "goLive": false
   },
   {
-   "number": 165,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Make collection availability and completion honest",
-   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the Omnidex at 320×610, 375×667, 390×844 and 430×932 on https://lorebound-dev.github.io/, next to the same screens on main. From a new save: open the Omnidex. Check the front page shows only Common, Uncommon and Rare (plus Epic if #89 is on the test site). Open Common, page 2. Check that a Realm 2 card says \"Not yet summonable\" without clipping. Set Collection to Missing. Check those…",
-     "at": "2026-11-08T04:50:49Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check test-build.json on the test site to see whether this request is in. If it's left out because it clashes with #89 in grand-archive.js or team.js, add a test-site resolution record on main for it. A local combine run here gave a build with conflict markers in those two files, so it may need a look.",
-     "at": "2026-11-08T04:50:49Z"
-    },
-    {
-     "who": "note",
-     "text": "Companions that can't be summoned yet keep their real names on the blank cards, with \"Not yet summonable\" under them. They don't count towards the collection until their odds go live. I think this is the honest way to show them. Right now that's all 30 Realm 2 companions.",
-     "at": "2026-11-08T04:50:49Z"
-    },
-    {
-     "who": "note",
-     "text": "A companion you can only get at a higher Rift level still counts as missing, and its card just says \"Undiscovered\", like before. I'd consider a small \"Rift level 3\" line on those cards, so players know what to aim for. I left it out because it's your call what shows on screen.",
-     "at": "2026-11-08T04:50:49Z"
-    },
-    {
-     "who": "note",
-     "text": "The Epic tile shows \"—\" and \"Not yet summonable\" until its two companions get odds. If you'd rather hide Epic completely until then, I can do that.",
-     "at": "2026-11-08T04:50:49Z"
-    },
-    {
-     "who": "note",
-     "text": "When #89 and this request are both in, #89's own test still expects a total of 60. Whichever one goes live second needs that test changed to 30. It's only a test; nothing in the game changes.",
-     "at": "2026-11-08T04:50:49Z"
-    },
-    {
-     "who": "claude",
-     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
-     "at": "2026-11-08T04:51:38Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:59Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
-   "headSha": "b2674439c8404e242d11f194672e1a2b54d52a1c",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T04:50:49Z",
-   "goLive": false
-  },
-  {
-   "number": 162,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Fix regular enemy visibility and quest overlap",
-   "quote": "",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Pass the quest-plaque part on to #97 with an @claude comment there: \"From #162: on the Next goal plaque, only the Claim button should claim. The plaque itself should not open the Journal; the Journal shortcut stays the way in. Keep the plaque clear of the enemy's name and health bar at 320×610 and 360×640.\"",
-     "at": "2026-11-08T04:39:36Z"
-    },
-    {
-     "who": "claude",
-     "text": "On the combined test site, look at a normal fight at 320×610, 360×640 and 390×844 with #97's ten-place party tray, Party opened and folded. The enemy's name and health bar should sit above its head, fully on screen. This run checked this request on its own, not the combined build, because it couldn't read the test site.",
-     "at": "2026-11-08T04:39:36Z"
-    },
-    {
-     "who": "note",
-     "text": "The enemy's name and health bar now sit above its head instead of over it. Nothing else on the fight moved. I think this is the main fix for \"the enemy isn't there\": its art always loaded, but the bar covered it.",
-     "at": "2026-11-08T04:39:36Z"
-    },
-    {
-     "who": "note",
-     "text": "A tap now shows the damage it really did. A killing blow can show a smaller number than your tap power, because the enemy had less health left. I think that's the honest choice. Showing full tap power on every tap would be the other option.",
-     "at": "2026-11-08T04:39:36Z"
-    },
-    {
-     "who": "note",
-     "text": "Every tap that hits now gives a 5ms buzz and a quiet tick, at most one every 80ms. This is new. If it feels busy when tapping fast, it can be made quieter or turned into buzz only.",
-     "at": "2026-11-08T04:39:36Z"
-    },
-    {
-     "who": "note",
-     "text": "The quest plaque with a Claim button only exists in your guided progression request (#97), not in the game yet. In the game today, quests show as the red diamond on the Journal button, and nothing covers the enemy. So \"only Claim claims, and a separate Journal button\" belongs in #97. There, tapping the plaque's text opens the Journal and Claim claims.",
-     "at": "2026-11-08T04:39:36Z"
-    },
-    {
-     "who": "note",
-     "text": "The audit also suggested bringing back swap confirmations and realm-specific collections. I left those out, as the request says.",
-     "at": "2026-11-08T04:39:36Z"
-    },
-    {
-     "who": "claude",
-     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
-     "at": "2026-11-08T04:48:11Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
-   "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T04:39:36Z",
-   "goLive": false
-  },
-  {
-   "number": 163,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Explain boss readiness failure and cleared-floor state",
-   "quote": "",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at Adventure with a boss ready, the boss room, the time-expired popup and the boss-win popup at 320×610, 375×667, 390×844 and 430×932. In a new save, play to Floor 010 to get a boss. Check that the two-line Challenge Boss button (up to 236px wide) isn't clipped and doesn't cover the party, and that the amber and green text is easy to read on the gold button.",
-     "at": "2026-11-08T04:34:31Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check this request on the combined test build, and write down which pull requests that build includes.",
-     "at": "2026-11-08T04:34:31Z"
-    },
-    {
-     "who": "note",
-     "text": "The advised Party DPS is the boss's HP divided by 30 seconds, plus 10%, rounded up (747 HP gives 28). It leaves out tapping, so a player who taps can win below the number. I think that's the right way round for a suggestion.",
-     "at": "2026-11-08T04:34:31Z"
-    },
-    {
-     "who": "note",
-     "text": "The line says \"advised\" instead of \"recommended\" so that it fits on the button on a small phone. If you'd rather it say \"recommended\", the button needs to be a little wider.",
-     "at": "2026-11-08T04:34:31Z"
-    },
-    {
-     "who": "note",
-     "text": "Green means your Party DPS is at or above the number; amber means below. There's no red, because nothing is blocked.",
-     "at": "2026-11-08T04:34:31Z"
-    },
-    {
-     "who": "claude",
-     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
-     "at": "2026-11-08T04:47:32Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:39Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
-   "headSha": "4a6ce6bbabd34a49266a6def4bff66c3d23f53fc",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T04:34:31Z",
-   "goLive": false
-  },
-  {
    "number": 38,
    "kind": "request",
    "by": "Joshua",
    "title": "Lower battlefield characters and enlarge bosses by 40%",
    "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
    "stage": "testing",
-   "waitingOn": "both",
-   "forClaude": false,
+   "waitingOn": "joshua",
+   "forClaude": true,
    "asks": [
     {
      "who": "joshua",
      "text": "With ten companions, the boss is now a bit smaller on bigger phones (about 1.2 to 1.3 times its original size instead of 1.5), so companions stay normal size and stand beside it. My suggestion: keep it like this. The other choice is a bigger boss with companions moved further out or lower, which would change the ten-place layout in #97.",
-     "at": "2026-11-07T22:44:50Z"
+     "at": "2026-11-08T19:09:40Z"
     },
     {
-     "who": "noah",
-     "text": "A phone check at 320×610, 375×812, 390×844 and 430×932 still needs a browser. Please check: a Story boss with a full Party of ten (companions normal size and none on the boss); an Endless guardian fight; a normal fight with one companion and with five (no shadow where nobody stands); and an enemy dying (its shadow goes with it). I couldn't run a browser here.",
-     "at": "2026-11-07T22:44:50Z"
-    },
-    {
-     "who": "noah",
-     "text": "This fix only does something when #97's ten-place layout is in the game. If #97 changes how it places companions beside the enemy, this limit should be checked again. If #97 goes live first, nothing extra is needed. If this one goes live first, the limit simply waits.",
-     "at": "2026-11-07T22:44:50Z"
+     "who": "claude",
+     "text": "Phone check at 320×610, 375×812, 390×844 and 430×932 on the test site: an Endless guardian fight; a normal fight with one companion and with five (no shadow where nobody stands); and an enemy dying (its shadow goes with it).",
+     "at": "2026-11-08T19:09:40Z"
     }
    ],
    "openedAt": "2026-10-27T21:22:11Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
+   "testAt": "2026-11-08T19:30:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
+   "updatedAt": "2026-11-08T19:30:39Z",
    "headSha": "b479376953502d0d37964f9d6dec9e3472572d82",
    "touchesGame": true,
    "answers": false,
@@ -372,11 +549,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
+   "testAt": "2026-11-08T19:30:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
+   "updatedAt": "2026-11-08T19:30:39Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -425,11 +602,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
+   "testAt": "2026-11-08T19:30:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
+   "updatedAt": "2026-11-08T19:30:39Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -468,11 +645,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
+   "testAt": "2026-11-08T19:30:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
+   "updatedAt": "2026-11-08T19:30:39Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
@@ -536,11 +713,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
+   "testAt": "2026-11-08T19:30:39Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
+   "updatedAt": "2026-11-08T19:30:39Z",
    "headSha": "699556791c607f05dd6daf251cd363d701188a87",
    "touchesGame": true,
    "answers": false,
@@ -550,293 +727,297 @@
    "goLive": false
   },
   {
-   "number": 118,
+   "number": 164,
    "kind": "request",
    "by": "Joshua",
-   "title": "Double-tap Party cards to swap pending companions directly",
-   "quote": "When you pull a companion and are in the swap in party menu, double clicking on a companion in the deck should swap it. Also it should visually swap the cards no confirmation necessary. So there should just be a release button and the floating card no party dps change or anything of that.",
-   "stage": "testing",
+   "title": "Unify Rift language and surface essential help",
+   "quote": "",
+   "stage": "built",
    "waitingOn": "joshua",
    "forClaude": true,
    "asks": [
     {
      "who": "joshua",
-     "text": "Should the Omnidex companion page also get the A NEW BOND layout in this request? #108 and #116 are already redesigning that page, so building it here would undo their work. My suggestion is to add the A NEW BOND layout to #108 and leave it out of this request. On the test site, a companion opened from the Omnidex already uses this request's layout without Upgrade.",
-     "at": "2026-11-07T16:12:34Z"
+     "text": "The Town workshop card: \"Forge\" or \"Shardworks\"? The Haven request (#92) calls it the Forge, and its locked card says it \"opens once this save has its Town update\". This request calls it Shardworks and says to defeat the Floor 60 boss. The test site keeps \"Forge\" for now. I suggest Shardworks with the Floor 60 line, because that's the real requirement a player can act on.",
+     "at": "2026-11-08T19:28:35Z"
     },
     {
      "who": "joshua",
-     "text": "Should the summon result screen (after a pull, or when Auto pauses) also change to the A NEW BOND layout? On 2026-11-06 you said to keep the big reveal as it is, and #115 owns that screen. My suggestion is to make it a change in #115, so the two requests don't overwrite each other.",
-     "at": "2026-11-07T16:12:34Z"
+     "text": "Undiscovered companions in the Omnidex: show their names, or \"???\"? The Omnidex request (#130) shows named blank cards, which you chose. This request showed \"???\". The test site keeps the names and adds this request's \"Rift locked\" label for companions the Rift can't summon yet. I suggest keeping it like that.",
+     "at": "2026-11-08T19:28:35Z"
+    },
+    {
+     "who": "joshua",
+     "text": "The odds sheet's heading: \"Summoning odds\" (from the Rift levels request, #78) or \"Rift Levels\" (this request)? With #78 there's one Rift whose level you raise, so the sheet lists the odds at each level. The test site keeps \"Summoning odds\". I suggest keeping it.",
+     "at": "2026-11-08T19:28:35Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Auto Summon's amount: \"×10 Summons\" with a capital S (from #84) or \"×10 summons\"? The test site keeps the capital. Either is fine; I suggest the capital.",
+     "at": "2026-11-08T19:28:35Z"
     },
     {
      "who": "claude",
-     "text": "Open a pull request into main from the branch fix/test-site-records-118-newbond. It changes only pocket-fortune/tools/test-site/resolutions/: nine new records for #118 against #108, plus four removed ones that no longer match. Once it's merged, check that test-build.json lists #118 at head 70a72d7 as included.",
-     "at": "2026-11-07T16:12:34Z"
+     "text": "Open a pull request from fix/test-site-164 into main. It adds only the 22 test-site records in pocket-fortune/tools/test-site/resolutions/, named 164-<other request>-<spot>.json. Before it merges, check the combined game in a browser (README step 4).",
+     "at": "2026-11-08T19:28:35Z"
     },
     {
      "who": "claude",
-     "text": "On the test site, at 320×610, 390×844 and 430×932, open a Rare or higher companion from another category (for example a Spirit or a Wildgrowth companion). Check its badges, habitat and Upgrade, and then open the same companion from the Omnidex. It should have no Upgrade there.",
-     "at": "2026-11-07T16:12:34Z"
+     "text": "Look at this request on the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: the Rift shrine and the Rift Upgrades sheet (the Upgrade button must stay reachable with Safari's bars showing), Auto setup, the Omnidex and a companion's page, Profile > Settings (Sound, Vibration, Reduce motion), the rules, the Resource guide's Essence line, and a locked tab's unlock text.",
+     "at": "2026-11-08T19:28:35Z"
     },
     {
      "who": "claude",
-     "text": "At 320×610 and 390×844, fill the party, pull a companion, choose to put it in the party, and double-tap a Party card. It should swap straight away, and Release should still be there.",
-     "at": "2026-11-07T16:12:34Z"
-    },
-    {
-     "who": "note",
-     "text": "On companion details, the rarity now shows in the tutorial's plain text box instead of the rarity logo picture, because you asked for the same rarity box as the tutorial. I tinted it with each rarity's own colour. If you'd rather keep the logo pictures on this screen, that's an easy change.",
-     "at": "2026-11-07T16:12:34Z"
-    },
-    {
-     "who": "note",
-     "text": "Mastery is no longer shown on companion details, as you asked. It still counts and still adds damage, but now the only place to see it is the Omnidex. I think that's fine, because the Omnidex is where collecting progress belongs.",
-     "at": "2026-11-07T16:12:34Z"
-    },
-    {
-     "who": "note",
-     "text": "I placed the companion and the Upgrade button at the same heights as the tutorial's companion and sentence. On a short phone (320×610) everything still fits without scrolling.",
-     "at": "2026-11-07T16:12:34Z"
+     "text": "It clashes with another change in progress, in adventure-services.js and adventure.js and economy-interface.js and grand-archive.js and home.html and navigation.js and omnidex.js and ownership-adventure.js and summoning.js and team.js and tome-management.js and tome-popup.js, so it isn't on the test site yet.",
+     "at": null
     }
    ],
-   "openedAt": "2026-11-06T12:23:49Z",
+   "openedAt": "2026-11-08T04:24:50Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
-   "headSha": "70a72d76209fc1e0ec7e0d9ff060a34331ed92be",
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-08T19:28:35Z",
+   "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-07T16:12:34Z",
+   "botAt": "2026-11-08T19:28:35Z",
    "goLive": false
   },
   {
-   "number": 142,
+   "number": 167,
    "kind": "request",
    "by": "Joshua",
-   "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
-   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
-   "stage": "testing",
-   "waitingOn": "noah",
+   "title": "Show exact floor-clear bonuses and away earnings",
+   "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
+   "stage": "built",
+   "waitingOn": null,
    "forClaude": true,
    "asks": [
     {
-     "who": "noah",
-     "text": "Save format: a claim adds a new field, progress.collectionRewards (the companions and rarities already paid), to version 5 saves. Saves without it work as \"nothing claimed yet\", and no save update or popup is needed. Tests show it passes the save check, backup export and import, and the existing save updates. save-storage.js and ownership-v5.js are unchanged.",
-     "at": "2026-11-07T16:01:44Z"
+     "who": "claude",
+     "text": "Open a pull request into main for the branch fix/test-site-167. It adds one test-site record, 167-162-tap-clear-banner.json, so this request goes on the test site with #162. Noah merges it.",
+     "at": "2026-11-08T19:19:03Z"
     },
     {
      "who": "claude",
-     "text": "Phone check at 320×610, 375×667, 390×844 and 430×932, new save: Omnidex front page (Claim all under Total Collection, the \"ready\" line on the rarity rows), Common page (the count, Claim all and Reset row; cards with their Shard line), and tapping Claim all (the short message at the bottom). Check that the red diamond on the Omnidex button shows when Shards are ready.",
-     "at": "2026-11-07T16:01:44Z"
+     "text": "Once this request is on the test site, check the floor-clear banner on phones at 320×610, 375×667, 390×844 and 430×932. From a new save: pick a starter, then clear Floor 1 by tapping or waiting. The banner must not cover the enemy's name and health bar, the quest Claim button, the Rift controls or the Party, and combat must keep going.",
+     "at": "2026-11-08T19:19:03Z"
     },
     {
      "who": "claude",
-     "text": "Check whether the test site includes this request. It contains #130 and #116, but #118 also changes home.html, so they may clash. If they do, add a test-site resolution record on main.",
-     "at": "2026-11-07T16:01:44Z"
+     "text": "On the same phone sizes, check the away popup. Leave the tab for more than a minute and come back (Dev tools can also move the clock). One \"While you were away\" panel should open, with its Continue button fully visible and nothing cut off. Coming back within a minute shouldn't open it.",
+     "at": "2026-11-08T19:19:03Z"
     },
     {
      "who": "note",
-     "text": "Each discovered companion pays 1 Lore Shard, once. These amounts were Codex's suggestion, not yours. That's 30 Shards for the current 30 companions, less than one Shard per summon. I think it's fine as a small thank-you. Raise it if you want discoveries to feel like a real reward.",
-     "at": "2026-11-07T16:01:44Z"
+     "text": "When a story floor is cleared, a banner shows for about 3 seconds with only the first-clear bonus, for example \"+385 Gold · +2 Lore Shards · +40 XP — Floor 24 cleared\". The Gold from the ordinary kill isn't counted, and anything that paid 0 is left out. I think that's the clearest way to show what clearing the floor itself paid.",
+     "at": "2026-11-08T19:19:03Z"
     },
     {
      "who": "note",
-     "text": "Completing a rarity pays a one-time 10 Lore Shards (Common, Uncommon and Rare today, 30 in all). Rare has only 4 companions but pays the same as Common's 16. I'd try paying more for rarer tiers, for example Common 10, Uncommon 15, Rare 25.",
-     "at": "2026-11-07T16:01:44Z"
+     "text": "If several floors are cleared while a banner is still showing, the next banner adds them up into one line (\"Floors 32–33 cleared\") instead of queueing one banner per floor. That keeps the screen calm when your party is fast.",
+     "at": "2026-11-08T19:19:03Z"
     },
     {
      "who": "note",
-     "text": "Companions you released still count, because the game remembers every species you've discovered. Long-time players will see one bigger claim the first time.",
-     "at": "2026-11-07T16:01:44Z"
+     "text": "The \"While you were away\" panel now opens only after more than 60 seconds away and only when you actually earned something. It lists the floors cleared and the exact Gold, Lore Shards and XP the game saved. If the 6-hour limit cut your time short, it says how much of the time earned rewards.",
+     "at": "2026-11-08T19:19:03Z"
     },
     {
      "who": "note",
-     "text": "A rarity that later gets new companions keeps the bonus it already paid. Each new companion still pays its own Shard. If the rarity grows before you've claimed its bonus, you need the new companions too.",
-     "at": "2026-11-07T16:01:44Z"
+     "text": "If a boss fight was reset while you were gone, you get a short note instead of the earnings panel. Your request said that alone shouldn't open the panel, so I built it that way.",
+     "at": "2026-11-08T19:19:03Z"
     },
     {
      "who": "note",
-     "text": "Codex also asked for \"claimed\" on every card. I used one small line under each card (\"+1 Shard ready\" or \"Shard claimed\"). If it feels busy, I can show only \"ready\".",
-     "at": "2026-11-07T16:01:44Z"
+     "text": "The panel waits while a boss fight or a summon result is on screen, then shows once. Tapping Continue only closes it, so nothing is paid twice.",
+     "at": "2026-11-08T19:19:03Z"
+    },
+    {
+     "who": "claude",
+     "text": "It clashes with another change in progress, in adventure.js, so it isn't on the test site yet.",
+     "at": null
     }
    ],
-   "openedAt": "2026-11-07T15:36:29Z",
+   "openedAt": "2026-11-08T04:37:41Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
-   "headSha": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-08T19:19:03Z",
+   "headSha": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-07T16:01:44Z",
+   "botAt": "2026-11-08T19:19:03Z",
    "goLive": false
   },
   {
-   "number": 130,
+   "number": 146,
    "kind": "request",
    "by": "Joshua",
-   "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
-   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
-   "stage": "testing",
-   "waitingOn": "noah",
+   "title": "Implement approved QoL audit across summoning collection and mobile play",
+   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
+   "stage": "built",
+   "waitingOn": "both",
    "forClaude": true,
    "asks": [
     {
+     "who": "joshua",
+     "text": "The audit asks for Ascend to list what resets before you reset. Ascend isn't in the game yet: it's in #88, and your newer #147 replaces Ascend with Heroes. Should that part go into #88, or should I drop it because Heroes replaces Ascend? I'd drop it if Heroes is the plan.",
+     "at": "2026-11-08T19:16:30Z"
+    },
+    {
      "who": "noah",
-     "text": "Open a pull request from fix/test-site-130-119 into main and merge it. It changes only the two test-site records, so nothing goes live. Then run gh workflow run publish-test.yml --repo lorebound-game/LOREBOUND, or wait for the next automatic run. I couldn't open the pull request from this run: gh isn't allowed here.",
-     "at": "2026-11-07T15:42:44Z"
+     "text": "Favorite and Protect in Manage Team need a save update, because Protect has to be stored for each companion you own, in the save. Joshua asked for both together, so both wait for Noah's OK on that save change (and for #118's Team screen).",
+     "at": "2026-11-08T19:16:30Z"
     },
     {
      "who": "claude",
-     "text": "Once that's merged and the test site is rebuilt, check https://lorebound-dev.github.io/test-build.json. #130 should be under included with head cdabbcdb0521ce51a36aae256cb6e3f03671fa8d and resolved: [\"130-117-gallery-cards-tag\"], and #119 with 119-89-bound-mastery-hint. Until then, #130 is not on the test site.",
-     "at": "2026-11-07T15:42:44Z"
+     "text": "Open a pull request from fix/test-site-146 into main (only the record 146-78-auto-summary-rift-level.json) and ask Noah to merge it. Then check that the next test build lists #146 as included.",
+     "at": "2026-11-08T19:16:30Z"
     },
     {
      "who": "claude",
-     "text": "Then look at the Omnidex on the test site in a browser at 320×610, 375×667, 390×844 and 430×932: the Common page with blank named cards, the Mortals filter, and two rows of three type buttons with \"Aberrations\" not cut off at 320.",
-     "at": "2026-11-07T15:42:44Z"
+     "text": "Check on phones at 320×610, 375×667, 390×844 and 430×932, from a new save on the test site: the Auto summary card (turn Auto on, then press Stop Auto), the Reduced effects tick box (in the Auto settings, under the vibration switch) and Save Backups' companion total. Nothing should be clipped, overlap the summoning rail or be under 12px.",
+     "at": "2026-11-08T19:16:30Z"
     },
     {
      "who": "claude",
-     "text": "Settle #118 against #69's companion page in #118's own build, with new records for its 6 spots.",
-     "at": "2026-11-07T15:42:44Z"
+     "text": "Check in a browser that \"While you were away\" and a save-update popup never show at the same time. No numbers change.",
+     "at": "2026-11-08T19:16:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Measure a slow phone (CPU slowed down in the browser) with a full party, a fight and Auto running, and report the frames and layout work. It needs #118 for ten companions.",
+     "at": "2026-11-08T19:16:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Build area 4 (Codex search, filters and remembered page) here once #142 is on main.",
+     "at": "2026-11-08T19:16:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "Keep the ledger true: each handoff in pocket-fortune/docs/qol-audit/LEDGER.md is built in its own request (#97, #98, #109, #115, #118, #119, #120, #133, #141, #142, #148).",
+     "at": "2026-11-08T19:16:30Z"
+    },
+    {
+     "who": "note",
+     "text": "When you stop Auto, or it runs out of Lore Shards or Gold, one small card says what that Auto session did: summons, new discoveries and Lore Shards spent. It stays 12 seconds or until you tap ×. A pause for a new discovery or a rarity doesn't count as an end, so no card then. I think 12 seconds is about right. Say if you want it shorter.",
+     "at": "2026-11-08T19:16:30Z"
+    },
+    {
+     "who": "note",
+     "text": "Reduced effects is a setting on this phone only, not in the save. It shows at most two damage numbers at once (critical hits always show) and about a third of the reveal sparkles. Fights, damage and timing stay exactly the same.",
+     "at": "2026-11-08T19:16:30Z"
+    },
+    {
+     "who": "note",
+     "text": "The opening-pace check found one stall. In 13 of every 100 new games where nobody taps, the first Lore Shards give repeats, the party has only two or three companions, and they can't beat the Floor 1 boss (1,000 health) in 30 seconds. My pick, with no number change: after a lost Floor 1 boss fight, the retry line says \"Tap the enemy to help your companions\". The other choice is to lower Floor…",
+     "at": "2026-11-08T19:16:30Z"
+    },
+    {
+     "who": "claude",
+     "text": "It clashes with another change in progress, in adventure-services.js, so it isn't on the test site yet.",
+     "at": null
     }
    ],
-   "openedAt": "2026-11-06T22:49:04Z",
+   "openedAt": "2026-11-07T16:55:36Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
-   "headSha": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
+   "testAt": "2026-11-07T20:39:54Z",
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-08T19:16:30Z",
+   "headSha": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
    "touchesGame": true,
    "answers": false,
-   "requestStatus": "Built, ready to check",
+   "requestStatus": "Partly built, ready to check (each stage's owner and outcome: `pocket-fortune/docs/qol-audit/LEDGER.md`)",
    "botState": "questions",
-   "botAt": "2026-11-07T15:42:44Z",
+   "botAt": "2026-11-08T19:16:30Z",
    "goLive": false
   },
   {
-   "number": 119,
+   "number": 161,
    "kind": "request",
    "by": "Joshua",
-   "title": "Double species mastery summon requirements and damage bonuses",
-   "quote": "Make mastery’s take twice as many summons and twice as more powerful.",
-   "stage": "testing",
-   "waitingOn": "noah",
+   "title": "Rescue prologue and starter selection",
+   "quote": "",
+   "stage": "built",
+   "waitingOn": null,
    "forClaude": true,
    "asks": [
     {
-     "who": "noah",
-     "text": "Open a pull request for fix/test-site-record-119 and merge it. It adds one test-site record and touches no game files, so the real game doesn't change. This run can't open pull requests or merge. After it merges, the test site rebuilds by itself, or run gh workflow run publish-test.yml --repo lorebound-game/LOREBOUND.",
-     "at": "2026-11-07T15:41:06Z"
+     "who": "claude",
+     "text": "Open a pull request from fix/test-site-161 into main. It only adds one test-site record, 161-97-first-session-stylesheet.json, so the test site can include #161 next to #97. Once it's merged, run Publish test (gh workflow run publish-test.yml --repo lorebound-game/LOREBOUND). Then check that the test site's test-build.json lists #161 under included, with that record under resolved.",
+     "at": "2026-11-08T19:14:22Z"
     },
     {
      "who": "claude",
-     "text": "After the record is merged, check the newest https://lorebound-dev.github.io/test-build.json: #119 should be under included at 786be6022c9a99d75e8820800db1ce2ad3181f50, with 119-89-mastery-hint under resolved. Then open a companion in the Party on the test site and check the hint says \"+8%\" per rank (\"+48%\" at Mastery VI).",
-     "at": "2026-11-07T15:41:06Z"
+     "text": "Look at #161 in a browser at 320×610, 375×667, 390×844 and 430×932 on a new save. Check the prologue's Skip plaque, which should stay clear of the notch and work mid-fade. Check the slide pacing, and the reduced-motion setting. Check the egg screen: the \"Choose this egg\" button, the DPS, hit and crit numbers, and \"The eggs are arriving\" with slow images. Check the five first-session tips and…",
+     "at": "2026-11-08T19:14:22Z"
     },
     {
      "who": "claude",
-     "text": "When #118 comes back onto the test site, it removes the Rift Level text right before #119's hint, so #119 will be left out again. Make a new record for that spot: #118's layout, plus #119's .08 in the hint.",
-     "at": "2026-11-07T15:41:06Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the mastery text on a phone in a local browser at 320×610, 375×667, 390×844 and 430×932: the Party companion page, the Team page, the summon result and the Omnidex. Check that \"+48%\" and \"120 summons\" fit without overflowing.",
-     "at": "2026-11-07T15:41:06Z"
-    },
-    {
-     "who": "claude",
-     "text": "If #89 or #98 adds mastery totals for more rarities, double those too when they merge, so every rarity follows the same rule.",
-     "at": "2026-11-07T15:41:06Z"
+     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet.",
+     "at": null
     }
    ],
-   "openedAt": "2026-11-06T12:37:13Z",
+   "openedAt": "2026-11-08T04:24:19Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
-   "headSha": "786be6022c9a99d75e8820800db1ce2ad3181f50",
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-08T19:14:22Z",
+   "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-07T15:41:06Z",
+   "botAt": "2026-11-08T19:14:22Z",
    "goLive": false
   },
   {
-   "number": 109,
+   "number": 143,
    "kind": "request",
    "by": "Joshua",
-   "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
-   "quote": "\"If nothing is checked in the auto summon it should stop at every single one. Also any mention of tone should be replaced and any image of a tome book should be. I need the achievement bar to look better, open to suggestion. Remove the guardian relics.\"",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Open and merge a pull request for fix/test-site-109-86-treasure-ui into main (https://github.com/lorebound-game/LOREBOUND/compare/main...fix/test-site-109-86-treasure-ui). I couldn't open the pull request myself: this run isn't allowed to use gh. It only adds the two records under pocket-fortune/tools/test-site/resolutions/. Nothing in pocket-fortune/dist changes, so merging it doesn't publish…",
-     "at": "2026-11-07T15:36:18Z"
-    },
-    {
-     "who": "claude",
-     "text": "After the records are on main and the test site rebuilds, check that its test-build.json lists #109 at head 3aead0a and #122 as included. I couldn't read the live test site from this run, so I haven't confirmed a published build.",
-     "at": "2026-11-07T15:36:18Z"
-    },
-    {
-     "who": "claude",
-     "text": "Then look at it on the test site at 320×610, 375×667, 390×844 and 430×932: the Auto setup with nothing ticked, Endless with no relic button, and the Treasure Records with three tabs and no Guardian shelf.",
-     "at": "2026-11-07T15:36:18Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #97 is merged, change the one-time update popup's \"Enable the returning guardians and cosmetic relic journal\" to \"Enable the returning guardians\".",
-     "at": "2026-11-07T15:36:18Z"
-    },
-    {
-     "who": "claude",
-     "text": "Build parts 2 (Tome words and book pictures → Rift) and 3 (slim quest ribbon) once #78 and #97 are merged.",
-     "at": "2026-11-07T15:36:18Z"
-    }
-   ],
-   "openedAt": "2026-11-05T04:55:25Z",
+   "title": "Haven: cozy raised starting camp and clearable land patches on the map",
+   "quote": "\"Ok what else, and how do we make it feel more ‘homey’. I think they starting area should be higher and there should be more clear area clearing costs and options built into the map, like you scroll to an area and there is a button with a cost, or a button with a lock if it’s too far outside the area. And pressing it will clear it mostly to add it to an area you can get resources and build.\"  \"Yes and figure out if we need to render any assets or no.\"",
+   "stage": "closed",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-07T15:39:22Z",
    "mergedAt": null,
-   "closedAt": null,
+   "closedAt": "2026-11-08T19:13:34Z",
    "liveAt": null,
-   "testAt": "2026-11-08T13:02:11Z",
-   "onTest": true,
-   "testIsCurrent": true,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-08T13:02:11Z",
-   "headSha": "3aead0ab03637711d215423df91b508d93848de2",
-   "touchesGame": true,
+   "updatedAt": "2026-11-08T19:13:34Z",
+   "headSha": "591d3a29dcf45c2d8419bf8d2b1c56ecf8213bca",
+   "touchesGame": false,
    "answers": false,
-   "requestStatus": "Built, ready to check",
+   "requestStatus": "Waiting to be built",
    "botState": "questions",
-   "botAt": "2026-11-07T15:36:18Z",
+   "botAt": null,
    "goLive": false
   },
   {
@@ -864,84 +1045,6 @@
    "requestStatus": "Waiting to be built",
    "botState": "finished",
    "botAt": "2026-11-08T12:54:01Z",
-   "goLive": false
-  },
-  {
-   "number": 167,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Show exact floor-clear bonuses and away earnings",
-   "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
-   "stage": "built",
-   "waitingOn": "noah",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Save-backups.html changes only the version tag of story-progression.js, because that file gained a field the banner reads. The save format and save logic are unchanged.",
-     "at": "2026-11-08T04:52:55Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the Adventure screen at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save, play to Floor 2 or 3 and check that the banner doesn't cover the enemy's name, its health bar, the quest Claim button, the Rift controls or the Party. If it covers any of them, move #clearBanner in adventure-dock-prototype.css.",
-     "at": "2026-11-08T04:52:55Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check the away popup at the same sizes after setting the test save's clock back 2 minutes and 7 hours (Dev tools, or Save backups). Continue must be reachable and the heading must fit.",
-     "at": "2026-11-08T04:52:55Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check this pull request against #97, #146, #162 and #163, which the request names. This run couldn't list other pull requests. They may change the same away popup in adventure.js or the same Adventure layout. Settle any clash on the test site.",
-     "at": "2026-11-08T04:52:55Z"
-    },
-    {
-     "who": "note",
-     "text": "Boss floors (10, 20, 30…) already have their own \"Floor cleared\" victory window, so they don't also get the banner. That window shows Gold and Lore Shards but not the XP the boss paid. I'd add XP there too if you want it to match.",
-     "at": "2026-11-08T04:52:55Z"
-    },
-    {
-     "who": "note",
-     "text": "The away popup now only leaves out a resource when it is 0. I did that so it matches the banner.",
-     "at": "2026-11-08T04:52:55Z"
-    },
-    {
-     "who": "note",
-     "text": "Your example counted four floors from 16 to the Floor 20 checkpoint. The game really does clear 16, 17, 18 and 19 there, so that is the count the popup shows. It comes from the floors actually cleared, not from subtracting floor numbers.",
-     "at": "2026-11-08T04:52:55Z"
-    },
-    {
-     "who": "note",
-     "text": "The popup's Gold includes the Gold from ordinary kills while you were away, because that is part of what you earned. The banner counts only the floor-clear bonus.",
-     "at": "2026-11-08T04:52:55Z"
-    },
-    {
-     "who": "note",
-     "text": "If the page reloads before a waiting away popup shows, that popup is skipped. The rewards themselves are already saved. Keeping the popup across reloads would need new save data, so I didn't build that.",
-     "at": "2026-11-08T04:52:55Z"
-    },
-    {
-     "who": "claude",
-     "text": "It clashes with another change in progress, in adventure.js, so it isn't on the test site yet.",
-     "at": null
-    }
-   ],
-   "openedAt": "2026-11-08T04:37:41Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-08T04:52:55Z",
-   "headSha": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T04:52:55Z",
    "goLive": false
   },
   {
@@ -1047,255 +1150,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-08T04:47:22Z",
-   "goLive": false
-  },
-  {
-   "number": 164,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify Rift language and surface essential help",
-   "quote": "",
-   "stage": "built",
-   "waitingOn": "noah",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Save-backups.html changes only its version tags, because realm1-config.js and save-backups.js changed. Nothing about saves changes. The go-live check leaves any change to that file to Noah.",
-     "at": "2026-11-08T04:46:55Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at it in a browser at 320×610, 375×667, 390×844 and 430×932 from a new save: the Upgrade Rift popup (button stays reachable), Rift Levels via All levels, Profile Settings, the Resource guide's Essence entry, and the ⓘ rules. This run couldn't open a browser.",
-     "at": "2026-11-08T04:46:55Z"
-    },
-    {
-     "who": "claude",
-     "text": "Settle the test-site clashes. This request changes lines that #78, #84, #85, #89, #115, #118, #120 and #122 also change (summoning, Auto setup, Omnidex, companion details, home.html). Add records in pocket-fortune/tools/test-site/resolutions/ that keep both sides and use Rift wording.",
-     "at": "2026-11-08T04:46:55Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #97 is in the game: rename its three \"Keeper's aid\" goals so each says what it counts, for example \"Keeper's aid I/II/III\" or \"Five/Ten/Fifteen at the gate\".",
-     "at": "2026-11-08T04:46:55Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #118 is in the game: make its first tap on a party slot clearly show the selection, with a short helper line, and make empty slots look tappable. Keep the double-tap swap with no confirm and no comparison.",
-     "at": "2026-11-08T04:46:55Z"
-    },
-    {
-     "who": "note",
-     "text": "I renamed four goals: \"The Rift answers\", \"The Rift widens\", \"Eight voices\" and \"The Rift unbound\". \"An exact strike\" was a discovery goal with a combat name, so I changed it. Rename any of them if you like other words better.",
-     "at": "2026-11-08T04:46:55Z"
-    },
-    {
-     "who": "note",
-     "text": "Essence help says Common 1, Uncommon 3, Rare 8 Essence per release, +4% damage per level, and 80% carries over when a different rarity swaps in. These are the game's real numbers, and the text follows them if they change.",
-     "at": "2026-11-08T04:46:55Z"
-    },
-    {
-     "who": "note",
-     "text": "Settings has Sound, Vibration and Reduce motion. There's no reset in the real game today (only the test site has one), so I didn't add one. Ask if you want a safe \"start over\" button. I'd put it behind Save backups, with a download first.",
-     "at": "2026-11-08T04:46:55Z"
-    },
-    {
-     "who": "note",
-     "text": "\"Grand Archive\" is still a small line above the Omnidex list and on the 100% celebration. I think that's fine as a subtitle.",
-     "at": "2026-11-08T04:46:55Z"
-    },
-    {
-     "who": "claude",
-     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
-     "at": "2026-11-08T04:48:46Z"
-    },
-    {
-     "who": "claude",
-     "text": "It clashes with another change in progress, in adventure-services.js and adventure.js and economy-interface.js and grand-archive.js and home.html and navigation.js and omnidex.js and ownership-adventure.js and summoning.js and team.js and tome-management.js and tome-popup.js, so it isn't on the test site yet.",
-     "at": null
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:50Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-08T04:46:55Z",
-   "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T04:46:55Z",
-   "goLive": false
-  },
-  {
-   "number": 161,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rescue prologue and starter selection",
-   "quote": "",
-   "stage": "built",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "After the next test-site build, check that test-build.json on https://lorebound-dev.github.io/ includes #161 at 7baaf1e. If it's left out for a clash, bring it up to date with main.",
-     "at": "2026-11-08T04:43:02Z"
-    },
-    {
-     "who": "note",
-     "text": "The meteor slide now lasts 1.5 seconds instead of 3.4, and the meteor's fall and impact were sped up to fit. Fades are still 0.55 seconds. I think it reads well. If it feels rushed, 2 seconds is a safe middle.",
-     "at": "2026-11-08T04:43:02Z"
-    },
-    {
-     "who": "note",
-     "text": "\"Then the sky broke\" now uses the story's existing city picture, darkened, with a faint orange glow at the top. No new art. I like it better than plain black, and it ties the line to the meteor.",
-     "at": "2026-11-08T04:43:02Z"
-    },
-    {
-     "who": "note",
-     "text": "All three starters show 10 DPS before you choose. They differ only in Normal hit (19.9 / 9.9) and Crit chance (1.0% / 3.0%) for the first two. That's honest, but players may think the choice barely matters. If you want each egg to feel more different, the role line (\"Thorn guardian\") is the place to say more.",
-     "at": "2026-11-08T04:43:02Z"
-    },
-    {
-     "who": "note",
-     "text": "The tips are worded: \"Tap the enemy to strike with your weapon.\" / \"Your companions attack by themselves, even while you're away. Party DPS is their damage each second.\" / \"Quests give rewards. Your first one is ready: open the Journal and claim it.\" / \"Spend Lore Shards at the Rift to summon new companions. Quests and bosses give you Shards.\" / \"Tap Gold, Party DPS or Lore Shards any time to…",
-     "at": "2026-11-08T04:43:02Z"
-    },
-    {
-     "who": "note",
-     "text": "The tips are remembered per phone, not in the save, so no save change was needed. A player who starts a second save on the same phone won't see them again. I think that's fine.",
-     "at": "2026-11-08T04:43:02Z"
-    },
-    {
-     "who": "note",
-     "text": "The tip box sits on the opposite side of the screen from what it points at. While it's open, it briefly covers part of the party row or the top buttons. It's only five taps, so I left it there.",
-     "at": "2026-11-08T04:43:02Z"
-    },
-    {
-     "who": "claude",
-     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
-     "at": "2026-11-08T04:48:20Z"
-    },
-    {
-     "who": "claude",
-     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet.",
-     "at": null
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:19Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-08T04:43:02Z",
-   "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T04:43:02Z",
-   "goLive": false
-  },
-  {
-   "number": 146,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Implement approved QoL audit across summoning collection and mobile play",
-   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
-   "stage": "built",
-   "waitingOn": "both",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "Ascend is being replaced by Heroes (#147). Should I drop the \"what resets / what stays\" list for Ascend? My suggestion: drop it if Heroes replaces Ascend. If you're keeping Ascend, I'll build it in #88.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "joshua",
-     "text": "How should we fix the Floor 1 stall? My suggestion: no number change. When a Floor 1 boss fight is lost, show \"Tap the enemy to help your companions\", built with the boss retry once #133 is live. The other option is Floor 1 boss health from 1,000 to 900, which fixes the three-companion starts but not the two-companion ones.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "noah",
-     "text": "Favorite and Protect in Manage Team (area 3) need a save update, because Protect is stored per companion copy. They wait for Noah's OK on that save change. The rest of the audit doesn't wait for it.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "noah",
-     "text": "The one-time mastery explanation (area 6, #119) only needs a save change if it's remembered per save. Remembering it on the phone needs no OK.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the Auto plaque at 320×610, 375×667, 390×844 and 430×932 on the test site. From a new save: Summon, then Auto, then Start, then Stop Auto after a few summons. Check that it sits above the rail without covering the Stop button and that the text doesn't clip.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the Auto setup at the same four sizes, and check that the new Reduced effects row and its 12px note fit. Turn it on, fight a few enemies, and check that damage numbers thin out and crits still show.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Post each handoff from the ledger on its owning request: #115, #118, #119, #133, #141, #142, #97, #109 and #98. Each post lists exactly what's still to build there.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at Save Backups at the four sizes. From a new save: Profile, then Save Backups. Check the \"N/30 discovered\" line.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Profile ten companions, a fight and Auto on a slowed-down browser (area 9). Check that the away popup and update popups never overlap.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "The Auto plaque shows when you tap Stop and also when Auto runs out of Lore Shards, because both end the session. It hides after 12 seconds. If you'd rather it stays until you tap ×, that's a one-line change.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "Reduced effects allows two damage numbers on screen at once, and always lets a critical hit through. I think two is enough to follow the fight on a small phone.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "note",
-     "text": "The opening is quick for most new saves. The one weak spot is the Floor 1 boss after an unlucky start. Those players need about 22 taps in the fight (about 125 with only two companions), and nothing tells them to tap.",
-     "at": "2026-11-07T21:25:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "It clashes with another change in progress, in adventure-services.js, so it isn't on the test site yet.",
-     "at": null
-    }
-   ],
-   "openedAt": "2026-11-07T16:55:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T20:39:54Z",
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": true,
-   "updatedAt": "2026-11-07T21:25:30Z",
-   "headSha": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Partly built, ready to check (each stage's owner and outcome: `pocket-fortune/docs/qol-audit/LEDGER.md`)",
-   "botState": "questions",
-   "botAt": "2026-11-07T21:25:30Z",
    "goLive": false
   },
   {
@@ -1562,183 +1416,88 @@
    "botState": "finished",
    "botAt": "2026-11-07T16:18:05Z",
    "goLive": false
-  },
-  {
-   "number": 98,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rework companions: 15 per rarity, four summon bands, and brand-new Common roster",
-   "quote": "\"I want to rework all companions so far, have 4 tiers of pull chances within a rarity (abberitions are a big jump as it is currently, the other should be pretty close like within a few percentage, just for variety), have 15 per rarity, and I want al currently created companions to move up a rarity and common kept free for us to remake. Feel free to switch any around to different rarities than they are if they look cooler\"",
-   "stage": "questions",
-   "waitingOn": "both",
-   "forClaude": false,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "How much stronger should each rarity be? I suggest ×1.41 per rarity: Common 10, Uncommon 14.1, Rare 20, Epic 28.3, Legendary 40, Mythic 56.6. Nobody's companion gets weaker, and none more than doubles. The other choices are today's ×2, which makes most companions 4× or 8× stronger, or keeping each companion's current damage, which makes new Commons and moved-up Uncommons hit the same.",
-     "at": "2026-11-07T15:52:27Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Legendary has 14 companions, not 15. Should it open early? I suggest yes: 0.20% at Rift Level 5, rising to 1.00% at Level 46, with the 14 sharing it (Riftmourn 1.07% of Legendary). Otherwise Hollow Knight, Moonveil Stag, Stone Sentinel, Dusk Revenant and ten Realm 2 companions can't be summoned until a 15th Legendary exists.",
-     "at": "2026-11-07T15:52:27Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Forgotten Watcher is the only Mythic. I suggest leaving it unsummonable until Mythic has 15 companions, as your request says. Players who own it keep it. The other choice is keeping it Legendary for now, but then Legendary would have two Aberrations.",
-     "at": "2026-11-07T15:52:27Z"
-    },
-    {
-     "who": "joshua",
-     "text": "What should a level cost for the new rarities? I suggest multipliers of Epic 5, Legendary 8 and Mythic 13, rising at the same pace as Uncommon to Rare. Without these, Epic and higher companions can't be levelled at all.",
-     "at": "2026-11-07T15:52:27Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Which three new Commons should new players choose their starter from? I suggest Brackenfox, Burrbloom and Tackbolt: a Beast, a Wildgrowth and a Construct, like today's three.",
-     "at": "2026-11-07T15:52:27Z"
-    },
-    {
-     "who": "noah",
-     "text": "The save update in the plan: it recalculates each companion's Essence so its level stays the same, moves Auto's stop choices, and adds a marker that it ran. I suggest building it last, after #119, #78, #89 and #97, and testing it on a made-up full save first.",
-     "at": "2026-11-07T15:52:27Z"
-    },
-    {
-     "who": "noah",
-     "text": "The summon roll needs finer steps: parts per million instead of parts per 10,000. Riftmourn at Level 5 is 21 per million, which is less than one step today. That change is in ownership-v5.js.",
-     "at": "2026-11-07T15:52:27Z"
-    },
-    {
-     "who": "noah",
-     "text": "New saves would store the starter by companion name ID (starterId), because today's starter number only reaches today's three starters. Old saves keep theirs as they are.",
-     "at": "2026-11-07T15:52:27Z"
-    },
-    {
-     "who": "note",
-     "text": "#78 as built keeps today's five Tome tables and adds no new rarities. So the only chance table that covers all ten rarities is #97's draft ladder, and I used it. If you change the ladder in #97, this plan follows it.",
-     "at": "2026-11-07T15:52:27Z"
-    },
-    {
-     "who": "note",
-     "text": "Moving companions up a rarity makes each of them rarer to summon, because each rarity is summoned less often. For example, Hollow Knight goes from about 0.5% today to about 0.02% at Level 5. That's what moving up means, but you'll notice it.",
-     "at": "2026-11-07T15:52:27Z"
-    }
-   ],
-   "openedAt": "2026-11-02T04:06:28Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T15:52:27Z",
-   "headSha": "cb40ae719b5e340a86fdc2489d796ac4415513c2",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T15:52:27Z",
-   "goLive": false
-  },
-  {
-   "number": 144,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven: cozy raised starter and on-map land patch clearing",
-   "quote": "\"Ok what else, and how do we make it feel more 'homey'. I think they starting area should be higher and there should be more clear area clearing costs and options built into the map, like you scroll to an area and there is a button with a cost, or a button with a lock if it’s too far outside the area. And pressing it will clear it mostly to add it to an area you can get resources and build.\"  \"Yes and figure out if we need to render any assets or no.\"  \"Idc about losing saves it’s a dev environment and I’m the only one playing it.\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T15:43:00Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T15:46:04Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T15:46:04Z",
-   "headSha": "5e9731f2862687391655d788be54a2b0d5889f5f",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T15:46:04Z",
-   "goLive": false
-  },
-  {
-   "number": 141,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven: assign villagers by tapping buildings, unassigned stay on Auto",
-   "quote": "\"Ok can we plan out the upgrade path and people? I think if you click on a building you can assign them.\"  After the assistant offered three staffing approaches, Joshua chose: **\"Do the recommended.\"** The recommended choice was **assign workers through buildings, with unassigned villagers on Auto**. This is an explicit owner decision. It supports the simpler, gradual-upgrade path already sent through #140.",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T15:31:00Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T15:41:58Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T15:41:58Z",
-   "headSha": "b47a6e46f1fd60931ebf455515dd8360a56f83d4",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T15:41:57Z",
-   "goLive": false
-  },
-  {
-   "number": 143,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven: cozy raised starting camp and clearable land patches on the map",
-   "quote": "\"Ok what else, and how do we make it feel more ‘homey’. I think they starting area should be higher and there should be more clear area clearing costs and options built into the map, like you scroll to an area and there is a button with a cost, or a button with a lock if it’s too far outside the area. And pressing it will clear it mostly to add it to an area you can get resources and build.\"  \"Yes and figure out if we need to render any assets or no.\"",
-   "stage": "questions",
-   "waitingOn": "noah",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Close this pull request. It's an earlier copy of #144, which went into #92 by itself on 2026-11-07, so building it here would only repeat that work.",
-     "at": "2026-11-07T22:38:34Z"
-    },
-    {
-     "who": "claude",
-     "text": "Joshua’s newest changes to it haven’t been built yet. Claude starts the build.",
-     "at": null
-    }
-   ],
-   "openedAt": "2026-11-07T15:39:22Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T15:39:22Z",
-   "headSha": "591d3a29dcf45c2d8419bf8d2b1c56ecf8213bca",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "questions",
-   "botAt": null,
-   "goLive": false
   }
  ],
  "activity": [
   {
+   "at": "2026-11-08T19:30:39Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+  },
+  {
+   "at": "2026-11-08T19:28:35Z",
+   "kind": "built",
+   "text": "Claude finished building “Unify Rift language and surface essential help”"
+  },
+  {
+   "at": "2026-11-08T19:28:35Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Unify Rift language and surface essential help”"
+  },
+  {
+   "at": "2026-11-08T19:21:16Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+  },
+  {
+   "at": "2026-11-08T19:19:03Z",
+   "kind": "built",
+   "text": "Claude finished building “Show exact floor-clear bonuses and away earnings”"
+  },
+  {
+   "at": "2026-11-08T19:19:03Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Show exact floor-clear bonuses and away earnings”"
+  },
+  {
+   "at": "2026-11-08T19:18:24Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+  },
+  {
+   "at": "2026-11-08T19:16:30Z",
+   "kind": "built",
+   "text": "Claude finished building “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-08T19:16:30Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-08T19:16:30Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-08T19:16:30Z",
+   "kind": "question",
+   "text": "Part of “Implement approved QoL audit across summoning collection and mobile play” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-08T19:16:14Z",
+   "kind": "built",
+   "text": "Claude finished building “Explain boss readiness failure and cleared-floor state”"
+  },
+  {
+   "at": "2026-11-08T19:16:14Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Explain boss readiness failure and cleared-floor state”"
+  },
+  {
+   "at": "2026-11-08T19:14:22Z",
+   "kind": "built",
+   "text": "Claude finished building “Rescue prologue and starter selection”"
+  },
+  {
+   "at": "2026-11-08T19:13:34Z",
+   "kind": "closed",
+   "text": "“Haven: cozy raised starting camp and clearable land patches on the map” was closed"
+  },
+  {
    "at": "2026-11-08T13:02:11Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   },
   {
    "at": "2026-11-08T13:00:21Z",
@@ -1758,7 +1517,7 @@
   {
    "at": "2026-11-08T12:55:57Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   },
   {
    "at": "2026-11-08T12:54:02Z",
@@ -1773,27 +1532,12 @@
   {
    "at": "2026-11-08T05:05:47Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   },
   {
    "at": "2026-11-08T04:54:52Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
-  },
-  {
-   "at": "2026-11-08T04:52:55Z",
-   "kind": "built",
-   "text": "Claude finished building “Show exact floor-clear bonuses and away earnings”"
-  },
-  {
-   "at": "2026-11-08T04:52:55Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Show exact floor-clear bonuses and away earnings”"
-  },
-  {
-   "at": "2026-11-08T04:52:55Z",
-   "kind": "question",
-   "text": "Part of “Show exact floor-clear bonuses and away earnings” is waiting for Noah’s OK"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   },
   {
    "at": "2026-11-08T04:50:49Z",
@@ -1808,7 +1552,7 @@
   {
    "at": "2026-11-08T04:50:32Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   },
   {
    "at": "2026-11-08T04:47:51Z",
@@ -1831,31 +1575,6 @@
    "text": "Part of “Separate production assets and reduce shipping overhead safely” is waiting for Noah’s OK"
   },
   {
-   "at": "2026-11-08T04:46:55Z",
-   "kind": "built",
-   "text": "Claude finished building “Unify Rift language and surface essential help”"
-  },
-  {
-   "at": "2026-11-08T04:46:55Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Unify Rift language and surface essential help”"
-  },
-  {
-   "at": "2026-11-08T04:46:55Z",
-   "kind": "question",
-   "text": "Part of “Unify Rift language and surface essential help” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-08T04:43:02Z",
-   "kind": "built",
-   "text": "Claude finished building “Rescue prologue and starter selection”"
-  },
-  {
-   "at": "2026-11-08T04:43:02Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Rescue prologue and starter selection”"
-  },
-  {
    "at": "2026-11-08T04:39:36Z",
    "kind": "built",
    "text": "Claude finished building “Fix regular enemy visibility and quest overlap”"
@@ -1874,16 +1593,6 @@
    "at": "2026-11-08T04:37:41Z",
    "kind": "asked",
    "text": "You asked for “Show exact floor-clear bonuses and away earnings”"
-  },
-  {
-   "at": "2026-11-08T04:34:31Z",
-   "kind": "built",
-   "text": "Claude finished building “Explain boss readiness failure and cleared-floor state”"
-  },
-  {
-   "at": "2026-11-08T04:34:31Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Explain boss readiness failure and cleared-floor state”"
   },
   {
    "at": "2026-11-08T04:25:09Z",
@@ -1909,34 +1618,45 @@
    "at": "2026-11-08T04:24:29Z",
    "kind": "asked",
    "text": "You asked for “Fix regular enemy visibility and quest overlap”"
-  },
-  {
-   "at": "2026-11-08T04:24:19Z",
-   "kind": "asked",
-   "text": "You asked for “Rescue prologue and starter selection”"
-  },
-  {
-   "at": "2026-11-07T22:58:57Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T22:57:30Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Test site: show just TEST BUILD at the top, without request numbers”"
-  },
-  {
-   "at": "2026-11-07T22:57:27Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Test site: records so request 119 goes on and 147 stays on”"
-  },
-  {
-   "at": "2026-11-07T22:57:24Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Test site: records that put request 118 on”"
   }
  ],
  "otherPulls": [
+  {
+   "number": 173,
+   "headSha": "4935109011785926d72abfb93a07a27ecb7b00a9",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 172,
+   "headSha": "30fb86a0aa950f95c9d5aba6d30ca0659f27a4b1",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 171,
+   "headSha": "d1617b54f3238a7e94cdf3550df5876c6d5b5a38",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
+  {
+   "number": 170,
+   "headSha": "a249546e39fedb377cd9945da8abe49e122f05f8",
+   "touchesGame": false,
+   "requestStatus": "",
+   "quote": "",
+   "botState": "",
+   "botAt": null
+  },
   {
    "number": 160,
    "headSha": "1a48e15f9e54bf91a6492b3af8fb350e2556d574",
