@@ -35,6 +35,14 @@
 .adventure-refined #game #bossButton.has-advice>small:before{content:'';display:inline-block;width:6px;height:6px;margin:0 6px 1px 0;rotate:45deg;background:currentColor}
 .adventure-refined #game #bossButton.advice-ready>small{color:#b8efc9}
 .adventure-refined #game #bossButton.advice-low>small{color:#ffcf86}
+.adventure-refined #game #bossButton.has-advice .advice-short{display:none}
+/* When the quest's goal or Claim plaque shares the row (#97), Challenge Boss gives way instead of covering it: the
+   plaque keeps 72px (room for "Claim"), the button shrinks into the rest, and below 351px wide it shows the short line. */
+.adventure-refined #game.floor-ready:not(.encounter-boss) .battle-panel:has(.next-goal:not([hidden])) #bossButton.has-advice{flex:0 1 236px;width:auto;min-width:0}
+.adventure-refined #game.floor-ready:not(.encounter-boss) .battle-panel .next-goal:not([hidden]){min-width:72px}
+@media(max-width:350px){.adventure-refined #game .battle-panel:has(.next-goal:not([hidden])) #bossButton.has-advice .advice-full{display:none}.adventure-refined #game .battle-panel:has(.next-goal:not([hidden])) #bossButton.has-advice .advice-short{display:inline}}
+/* boss-room.js lifts the enemy's name plate by --row-lift when the row would cover its health bar. */
+.adventure-refined #game:not(.boss-room) .enemy-info{translate:-50% calc(-1 * var(--row-lift,0px))}
 .adventure-refined #floorTimeline{display:flex;gap:3px;align-items:center;justify-content:center;padding:8px 12px;background:radial-gradient(ellipse,#061923d9,transparent 74%);max-width:100%}
 .adventure-refined #floorTimeline i{width:6px;height:6px;border:1px solid #c9b17a;rotate:45deg;background:#091c28;flex-shrink:1}
 .adventure-refined #floorTimeline i.complete{background:#f3d98b;box-shadow:0 0 5px #dfba6c77}

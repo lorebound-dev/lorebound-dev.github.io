@@ -17,6 +17,8 @@ function advice(s){
  return {hp,seconds,need,dps,ready:shown(dps)>=need};
 }
 function buttonLine(a){return `Party DPS ${text(a.dps)} · ${text(a.need)} advised`;}
+// The same two numbers for a narrow row, where the quest's Claim plaque shares the space (320 wide).
+function buttonShort(a){return `DPS ${text(a.dps)} / ${text(a.need)}`;}
 function buttonLabel(a,s){
  const farm=farmRange(s);
  return `Challenge Boss. Party DPS ${text(a.dps)}. Recommended ${text(a.need)} to beat ${text(a.hp)} HP in ${a.seconds} seconds. `+
@@ -46,7 +48,7 @@ function victoryText(event,s){
  if(story(s)&&root.LoreStory.isBoss(event.clear))return `Chapter complete. Floor ${pad(event.clear+1)} begins the next chapter of the ruins. Floors ${pad(event.clear-9)} to ${pad(event.clear)} stay cleared.`;
  return 'The path deeper into the ruins opens.';
 }
-const api={MARGIN,recommended,advice,shown,text,farmRange,buttonLine,buttonLabel,roomNote,failureText,victoryText};
+const api={MARGIN,recommended,advice,shown,text,farmRange,buttonLine,buttonShort,buttonLabel,roomNote,failureText,victoryText};
 root.LoreBossAdvice=api;
 if(typeof module!=='undefined')module.exports=api;
 })(globalThis);
