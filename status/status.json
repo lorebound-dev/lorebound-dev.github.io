@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T22:59:12.521Z",
+ "generatedAt": "2026-11-08T04:52:14.789Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-07T22:58:57Z",
+  "updatedAt": "2026-11-08T04:50:32Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -38,14 +38,235 @@
    "Show named blank undiscovered Omnidex cards and tighten rarity pages",
    "Keep enemy and companions stationary when Party collapses",
    "Add Codex Claim All discovery rewards and rarity completion bonuses",
-   "Replace Ascend with 25-hero rarity board for tap power"
+   "Replace Ascend with 25-hero rarity board for tap power",
+   "Fix regular enemy visibility and quest overlap",
+   "Explain boss readiness failure and cleared-floor state",
+   "Make collection availability and completion honest"
   ],
   "skipped": [
    "Implement approved QoL audit across summoning collection and mobile play",
-   "Replace Shardworks with a timed-egg Pet Farm and roaming pets"
+   "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
+   "Rescue prologue and starter selection",
+   "Unify Rift language and surface essential help"
   ]
  },
  "items": [
+  {
+   "number": 147,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Ascend with 25-hero rarity board for tap power",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-07T17:05:00Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T04:50:32Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T04:51:03Z",
+   "headSha": "9313e719d3a15acd7cf872bafa213cd97c5b00cb",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-08T04:51:03Z",
+   "goLive": false
+  },
+  {
+   "number": 165,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Make collection availability and completion honest",
+   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the Omnidex at 320×610, 375×667, 390×844 and 430×932 on https://lorebound-dev.github.io/, next to the same screens on main. From a new save: open the Omnidex. Check the front page shows only Common, Uncommon and Rare (plus Epic if #89 is on the test site). Open Common, page 2. Check that a Realm 2 card says \"Not yet summonable\" without clipping. Set Collection to Missing. Check those…",
+     "at": "2026-11-08T04:50:49Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check test-build.json on the test site to see whether this request is in. If it's left out because it clashes with #89 in grand-archive.js or team.js, add a test-site resolution record on main for it. A local combine run here gave a build with conflict markers in those two files, so it may need a look.",
+     "at": "2026-11-08T04:50:49Z"
+    },
+    {
+     "who": "note",
+     "text": "Companions that can't be summoned yet keep their real names on the blank cards, with \"Not yet summonable\" under them. They don't count towards the collection until their odds go live. I think this is the honest way to show them. Right now that's all 30 Realm 2 companions.",
+     "at": "2026-11-08T04:50:49Z"
+    },
+    {
+     "who": "note",
+     "text": "A companion you can only get at a higher Rift level still counts as missing, and its card just says \"Undiscovered\", like before. I'd consider a small \"Rift level 3\" line on those cards, so players know what to aim for. I left it out because it's your call what shows on screen.",
+     "at": "2026-11-08T04:50:49Z"
+    },
+    {
+     "who": "note",
+     "text": "The Epic tile shows \"—\" and \"Not yet summonable\" until its two companions get odds. If you'd rather hide Epic completely until then, I can do that.",
+     "at": "2026-11-08T04:50:49Z"
+    },
+    {
+     "who": "note",
+     "text": "When #89 and this request are both in, #89's own test still expects a total of 60. Whichever one goes live second needs that test changed to 30. It's only a test; nothing in the game changes.",
+     "at": "2026-11-08T04:50:49Z"
+    },
+    {
+     "who": "claude",
+     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
+     "at": "2026-11-08T04:51:38Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:59Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T04:50:32Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T04:50:49Z",
+   "headSha": "b2674439c8404e242d11f194672e1a2b54d52a1c",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:50:49Z",
+   "goLive": false
+  },
+  {
+   "number": 162,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Fix regular enemy visibility and quest overlap",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Pass the quest-plaque part on to #97 with an @claude comment there: \"From #162: on the Next goal plaque, only the Claim button should claim. The plaque itself should not open the Journal; the Journal shortcut stays the way in. Keep the plaque clear of the enemy's name and health bar at 320×610 and 360×640.\"",
+     "at": "2026-11-08T04:39:36Z"
+    },
+    {
+     "who": "claude",
+     "text": "On the combined test site, look at a normal fight at 320×610, 360×640 and 390×844 with #97's ten-place party tray, Party opened and folded. The enemy's name and health bar should sit above its head, fully on screen. This run checked this request on its own, not the combined build, because it couldn't read the test site.",
+     "at": "2026-11-08T04:39:36Z"
+    },
+    {
+     "who": "note",
+     "text": "The enemy's name and health bar now sit above its head instead of over it. Nothing else on the fight moved. I think this is the main fix for \"the enemy isn't there\": its art always loaded, but the bar covered it.",
+     "at": "2026-11-08T04:39:36Z"
+    },
+    {
+     "who": "note",
+     "text": "A tap now shows the damage it really did. A killing blow can show a smaller number than your tap power, because the enemy had less health left. I think that's the honest choice. Showing full tap power on every tap would be the other option.",
+     "at": "2026-11-08T04:39:36Z"
+    },
+    {
+     "who": "note",
+     "text": "Every tap that hits now gives a 5ms buzz and a quiet tick, at most one every 80ms. This is new. If it feels busy when tapping fast, it can be made quieter or turned into buzz only.",
+     "at": "2026-11-08T04:39:36Z"
+    },
+    {
+     "who": "note",
+     "text": "The quest plaque with a Claim button only exists in your guided progression request (#97), not in the game yet. In the game today, quests show as the red diamond on the Journal button, and nothing covers the enemy. So \"only Claim claims, and a separate Journal button\" belongs in #97. There, tapping the plaque's text opens the Journal and Claim claims.",
+     "at": "2026-11-08T04:39:36Z"
+    },
+    {
+     "who": "note",
+     "text": "The audit also suggested bringing back swap confirmations and realm-specific collections. I left those out, as the request says.",
+     "at": "2026-11-08T04:39:36Z"
+    },
+    {
+     "who": "claude",
+     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
+     "at": "2026-11-08T04:48:11Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T04:50:32Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T04:50:32Z",
+   "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:39:36Z",
+   "goLive": false
+  },
+  {
+   "number": 163,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Explain boss readiness failure and cleared-floor state",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at Adventure with a boss ready, the boss room, the time-expired popup and the boss-win popup at 320×610, 375×667, 390×844 and 430×932. In a new save, play to Floor 010 to get a boss. Check that the two-line Challenge Boss button (up to 236px wide) isn't clipped and doesn't cover the party, and that the amber and green text is easy to read on the gold button.",
+     "at": "2026-11-08T04:34:31Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check this request on the combined test build, and write down which pull requests that build includes.",
+     "at": "2026-11-08T04:34:31Z"
+    },
+    {
+     "who": "note",
+     "text": "The advised Party DPS is the boss's HP divided by 30 seconds, plus 10%, rounded up (747 HP gives 28). It leaves out tapping, so a player who taps can win below the number. I think that's the right way round for a suggestion.",
+     "at": "2026-11-08T04:34:31Z"
+    },
+    {
+     "who": "note",
+     "text": "The line says \"advised\" instead of \"recommended\" so that it fits on the button on a small phone. If you'd rather it say \"recommended\", the button needs to be a little wider.",
+     "at": "2026-11-08T04:34:31Z"
+    },
+    {
+     "who": "note",
+     "text": "Green means your Party DPS is at or above the number; amber means below. There's no red, because nothing is blocked.",
+     "at": "2026-11-08T04:34:31Z"
+    },
+    {
+     "who": "claude",
+     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
+     "at": "2026-11-08T04:47:32Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:39Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T04:50:32Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T04:50:32Z",
+   "headSha": "4a6ce6bbabd34a49266a6def4bff66c3d23f53fc",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:34:31Z",
+   "goLive": false
+  },
   {
    "number": 38,
    "kind": "request",
@@ -76,90 +297,17 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "b479376953502d0d37964f9d6dec9e3472572d82",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-07T22:44:50Z",
-   "goLive": false
-  },
-  {
-   "number": 147,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Ascend with 25-hero rarity board for tap power",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "On the test site at 320×610, open the party test save, go to Heroes and tap Odds. Check that the explanation, the openings box, the Odds button and all five table columns fit with no sideways scrolling, and that nothing else on Heroes is wider than the panel.",
-     "at": "2026-11-07T22:44:02Z"
-    },
-    {
-     "who": "claude",
-     "text": "Open chest 6 (Dev tools can add opened chests). Check that the UNCOMMON HEROES UNLOCKED plaque fits at 320×610, 375×812, 390×844 and 430×932.",
-     "at": "2026-11-07T22:44:02Z"
-    },
-    {
-     "who": "claude",
-     "text": "Tap a found or unlocked hero with enough Crests, then tap Buy 1, and Buy 2 to unlock. Check that the Confirm line and its buttons fit at all four sizes.",
-     "at": "2026-11-07T22:44:02Z"
-    },
-    {
-     "who": "claude",
-     "text": "Equip another unlocked hero, then go to Quest. Check that TAP shows the new hero's tap power at all four sizes.",
-     "at": "2026-11-07T22:44:02Z"
-    },
-    {
-     "who": "note",
-     "text": "Rarities unlock by chests opened: Uncommon at 6, Rare 18, Epic 40, Legendary 75, Mythic 115, Ancient 165, Exalted 225, Transcendent 300, Eternal 400. Before that a rarity is exactly 0%. After that it grows over 150 chests to its full share. With 3 chests a day, Eternal can't drop before about day 134. That keeps the top heroes really hard, which is what you asked for. It's a long wait, so it's…",
-     "at": "2026-11-07T22:44:02Z"
-    },
-    {
-     "who": "note",
-     "text": "A chest gives 1 fragment. 3 fragments unlock a hero for free, and mastery comes at 8, 14, 21, 29, 38 and 48 fragments. A Common needs 45 more fragments after unlocking to reach VI, so that's a long goal even for Commons.",
-     "at": "2026-11-07T22:44:02Z"
-    },
-    {
-     "who": "note",
-     "text": "A full hero (3 fragments at once) has a 0.2% chance per chest. That's about 1 chest in 500, or about once in 5–6 months at 3 a day. Most players will rarely see it. I'd keep it this rare for now and look at it again once the test numbers settle.",
-     "at": "2026-11-07T22:44:02Z"
-    },
-    {
-     "who": "note",
-     "text": "One fragment costs 30 Hero Crests for a Common, up to 1,200 for an Eternal. You can only buy rarities your chest level has unlocked. A chest gives 5–45 Crests, so a Common fragment costs about 5–6 chests' worth of Crests. That seems fair.",
-     "at": "2026-11-07T22:44:02Z"
-    },
-    {
-     "who": "note",
-     "text": "All of these are test numbers. On the real game the Heroes tab still says Coming Soon.",
-     "at": "2026-11-07T22:44:02Z"
-    }
-   ],
-   "openedAt": "2026-11-07T17:05:00Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
-   "headSha": "94897082193e1e904a07ad0d1a050e63f831e75f",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T22:44:02Z",
    "goLive": false
   },
   {
@@ -182,11 +330,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -235,11 +383,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -278,11 +426,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
@@ -346,11 +494,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "699556791c607f05dd6daf251cd363d701188a87",
    "touchesGame": true,
    "answers": false,
@@ -414,11 +562,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "70a72d76209fc1e0ec7e0d9ff060a34331ed92be",
    "touchesGame": true,
    "answers": false,
@@ -482,11 +630,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
    "touchesGame": true,
    "answers": false,
@@ -530,11 +678,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
    "touchesGame": true,
    "answers": false,
@@ -583,11 +731,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "786be6022c9a99d75e8820800db1ce2ad3181f50",
    "touchesGame": true,
    "answers": false,
@@ -636,11 +784,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "3aead0ab03637711d215423df91b508d93848de2",
    "touchesGame": true,
    "answers": false,
@@ -694,11 +842,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
+   "testAt": "2026-11-08T04:50:32Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
+   "updatedAt": "2026-11-08T04:50:32Z",
    "headSha": "77fe9eb5db5dfd312e7ccde92425879fba83cfd7",
    "touchesGame": true,
    "answers": false,
@@ -708,99 +856,291 @@
    "goLive": false
   },
   {
-   "number": 115,
+   "number": 168,
    "kind": "request",
    "by": "Joshua",
-   "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
-   "quote": "during auto summons it goes back to .5 seconds per companion. Also the tome animation needs to be removed when opening one at a time. I think it should be replaced with the portal gif spinning up faster than having the screen pop up.",
-   "stage": "testing",
+   "title": "Heroes: ornate 3-chest shelf, single carousel and orb landing animation",
+   "quote": "\"I want this to hav little text unless you Click on a hero. It should be the three chests on an ornate shelf thing that’s kind of like the portal positioning where you scroll through the heroes and they stay. I don’t want them sectioned off by rarity but with different border colors and text saying what rarity. And when you click on the cheat it loads a screen that’s just the chest and the current odds. You will click open and it will have an animation that then has an orb of the shard or whatever we are calling it goes out from the chest, the chest goes away, then the orb lands on whatever hero spot of what you got and when it lands it has an animation or sparkle of landing.\"",
+   "stage": "closed",
    "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the spin-up in a local browser at 320×610, 375×667, 390×844 and 430×932. From a new save, open the Rift tab, tap the Rift once and check that the vortex visibly speeds up for 0.3 seconds before one result screen opens, without flicker or jumps. In developer tools, check that the .rift-spinning .summon-book::after rule shows animation: riftSpinUp 0.3s cubic-bezier(0.6, 0, 1, 0.6) both…",
-     "at": "2026-11-07T15:29:14Z"
-    }
-   ],
-   "openedAt": "2026-11-06T11:54:10Z",
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-08T04:38:17Z",
    "mergedAt": null,
-   "closedAt": null,
+   "closedAt": "2026-11-08T04:47:51Z",
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
-   "onTest": true,
-   "testIsCurrent": true,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
-   "headSha": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
-   "touchesGame": true,
+   "updatedAt": "2026-11-08T04:47:51Z",
+   "headSha": "82115a1d8ef1b0d5cf811659164f1e48eae369b4",
+   "touchesGame": false,
    "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T15:29:14Z",
+   "requestStatus": "Waiting to be built",
+   "botState": "finished",
+   "botAt": "2026-11-08T04:47:50Z",
    "goLive": false
   },
   {
-   "number": 121,
+   "number": 166,
    "kind": "request",
    "by": "Joshua",
-   "title": "Audit live and dev Realm 1 visuals before Realm 2",
-   "quote": "\"Well I want to make sure everything looks good that’s currently in the game before adding a new realm\"",
-   "stage": "testing",
+   "title": "Separate production assets and reduce shipping overhead safely",
+   "quote": "",
+   "stage": "questions",
+   "waitingOn": "both",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Should the big pictures get smaller copies? My suggestion: start with the 7 backgrounds over 2.5 MB (dungeon, prologue ruins, battle ruins, arena, woodland, workshop, prologue beasts). For each one, show you a lossless copy and a quality-90 copy side by side on a phone, and you choose. Your approved originals stay as they are.",
+     "at": "2026-11-08T04:47:22Z"
+    },
+    {
+     "who": "noah",
+     "text": "Switching publish-game.yml to publish the trimmed copy (a workflow change). The steps are in pocket-fortune/tools/production/README.md. After that, the review pages leave the real game but stay on the test site.",
+     "at": "2026-11-08T04:47:22Z"
+    },
+    {
+     "who": "claude",
+     "text": "Phone check: run node tools/production/build.cjs from pocket-fortune, serve build/production and dist side by side, and open the title, opening story, game and Save backups at 375×667 and 390×844 from a new save. Both should look and play the same, with no errors in the console. Then open Save backups and do an export and a preview.",
+     "at": "2026-11-08T04:47:22Z"
+    },
+    {
+     "who": "claude",
+     "text": "Read #146 and say which of its points this settles, and which are already fixed.",
+     "at": "2026-11-08T04:47:22Z"
+    },
+    {
+     "who": "note",
+     "text": "The real game still publishes exactly as before. Switching publishing to the trimmed copy is a change to the publishing setup, and only Noah can make that. I wrote the exact steps for him in pocket-fortune/tools/production/README.md.",
+     "at": "2026-11-08T04:47:22Z"
+    },
+    {
+     "who": "note",
+     "text": "I didn't make WebP copies of the 48 big pictures. This run had no picture converter. Shrinking them also changes approved art, so you should see a before/after first. The build lists each picture with its size and how the game finds it, so they're ready to convert.",
+     "at": "2026-11-08T04:47:22Z"
+    },
+    {
+     "who": "note",
+     "text": "Four big pictures (shardworks-workshop.png and the three rarity-*-original.png) aren't mentioned anywhere in the game's code. I kept them anyway. They may be unused, but the request says nothing gets deleted on a text search alone.",
+     "at": "2026-11-08T04:47:22Z"
+    },
+    {
+     "who": "note",
+     "text": "The audit points about swap confirmations and per-realm collections aren't touched. Your current choices stay.",
+     "at": "2026-11-08T04:47:22Z"
+    },
+    {
+     "who": "note",
+     "text": "I couldn't read the #146 audit from this run, so I haven't checked this against it yet.",
+     "at": "2026-11-08T04:47:22Z"
+    },
+    {
+     "who": "claude",
+     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
+     "at": "2026-11-08T04:50:59Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:25:09Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-08T04:47:22Z",
+   "headSha": "f5d8c39bae476feb4a0d5b772c0cf39b60618ca0",
+   "touchesGame": false,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:47:22Z",
+   "goLive": false
+  },
+  {
+   "number": 164,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify Rift language and surface essential help",
+   "quote": "",
+   "stage": "built",
+   "waitingOn": "noah",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "noah",
+     "text": "Save-backups.html changes only its version tags, because realm1-config.js and save-backups.js changed. Nothing about saves changes. The go-live check leaves any change to that file to Noah.",
+     "at": "2026-11-08T04:46:55Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at it in a browser at 320×610, 375×667, 390×844 and 430×932 from a new save: the Upgrade Rift popup (button stays reachable), Rift Levels via All levels, Profile Settings, the Resource guide's Essence entry, and the ⓘ rules. This run couldn't open a browser.",
+     "at": "2026-11-08T04:46:55Z"
+    },
+    {
+     "who": "claude",
+     "text": "Settle the test-site clashes. This request changes lines that #78, #84, #85, #89, #115, #118, #120 and #122 also change (summoning, Auto setup, Omnidex, companion details, home.html). Add records in pocket-fortune/tools/test-site/resolutions/ that keep both sides and use Rift wording.",
+     "at": "2026-11-08T04:46:55Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #97 is in the game: rename its three \"Keeper's aid\" goals so each says what it counts, for example \"Keeper's aid I/II/III\" or \"Five/Ten/Fifteen at the gate\".",
+     "at": "2026-11-08T04:46:55Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #118 is in the game: make its first tap on a party slot clearly show the selection, with a short helper line, and make empty slots look tappable. Keep the double-tap swap with no confirm and no comparison.",
+     "at": "2026-11-08T04:46:55Z"
+    },
+    {
+     "who": "note",
+     "text": "I renamed four goals: \"The Rift answers\", \"The Rift widens\", \"Eight voices\" and \"The Rift unbound\". \"An exact strike\" was a discovery goal with a combat name, so I changed it. Rename any of them if you like other words better.",
+     "at": "2026-11-08T04:46:55Z"
+    },
+    {
+     "who": "note",
+     "text": "Essence help says Common 1, Uncommon 3, Rare 8 Essence per release, +4% damage per level, and 80% carries over when a different rarity swaps in. These are the game's real numbers, and the text follows them if they change.",
+     "at": "2026-11-08T04:46:55Z"
+    },
+    {
+     "who": "note",
+     "text": "Settings has Sound, Vibration and Reduce motion. There's no reset in the real game today (only the test site has one), so I didn't add one. Ask if you want a safe \"start over\" button. I'd put it behind Save backups, with a download first.",
+     "at": "2026-11-08T04:46:55Z"
+    },
+    {
+     "who": "note",
+     "text": "\"Grand Archive\" is still a small line above the Omnidex list and on the 100% celebration. I think that's fine as a subtitle.",
+     "at": "2026-11-08T04:46:55Z"
+    },
+    {
+     "who": "claude",
+     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
+     "at": "2026-11-08T04:48:46Z"
+    },
+    {
+     "who": "claude",
+     "text": "It clashes with another change in progress, in adventure-services.js and adventure.js and economy-interface.js and grand-archive.js and home.html and navigation.js and omnidex.js and ownership-adventure.js and summoning.js and team.js and tome-management.js and tome-popup.js, so it isn't on the test site yet.",
+     "at": null
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-08T04:46:55Z",
+   "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:46:55Z",
+   "goLive": false
+  },
+  {
+   "number": 167,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Show exact floor-clear bonuses and away earnings",
+   "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-08T04:37:41Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-08T04:44:28Z",
+   "headSha": "a9aabc7e4013fe5aecb20d6ac750f8ea6769b6c7",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Waiting to be built",
+   "botState": "finished",
+   "botAt": "2026-11-08T04:44:28Z",
+   "goLive": false
+  },
+  {
+   "number": 161,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rescue prologue and starter selection",
+   "quote": "",
+   "stage": "built",
    "waitingOn": null,
    "forClaude": true,
    "asks": [
     {
      "who": "claude",
-     "text": "Take phone-size screenshots of the five fights on the test site at 320×610, 375×812, 390×844 and 430×932, and add them to reviews/realm1-visual-audit/. From a new save, use Dev tools to reach the Floor 20 boss, the Floor 80 boss, and floors 35, 55 and 65 (step through the enemies to find the toad, the raven and the revenant). Check that nothing is clipped, there are no boxes behind them, and…",
-     "at": "2026-11-07T02:45:31Z"
-    },
-    {
-     "who": "claude",
-     "text": "Optional: make WebP copies of the five pictures with the same fitting, and update manifest.json and realm1-art-data.js with a new ?v= tag. They'd be smaller to download and look the same.",
-     "at": "2026-11-07T02:45:31Z"
-    },
-    {
-     "who": "claude",
-     "text": "Pass Joshua's approved fixes on to their requests, and ask Claude to build them there:",
-     "at": "2026-11-07T02:45:31Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #38, #97 and #115 are rebuilt, check the boss fight, the Party sheet and the summon reveal on the test site at 320×610, 375×812, 390×844 and 430×932, and add the pictures to this review.",
-     "at": "2026-11-07T02:45:31Z"
+     "text": "After the next test-site build, check that test-build.json on https://lorebound-dev.github.io/ includes #161 at 7baaf1e. If it's left out for a clash, bring it up to date with main.",
+     "at": "2026-11-08T04:43:02Z"
     },
     {
      "who": "note",
-     "text": "I built all five pictures exactly as you approved them, with the same fitting as every other enemy and boss. The fights, floors and names are unchanged.",
-     "at": "2026-11-07T02:45:31Z"
+     "text": "The meteor slide now lasts 1.5 seconds instead of 3.4, and the meteor's fall and impact were sped up to fit. Fades are still 0.55 seconds. I think it reads well. If it feels rushed, 2 seconds is a safe middle.",
+     "at": "2026-11-08T04:43:02Z"
     },
     {
      "who": "note",
-     "text": "The game-size copies are PNG files, about 1.6 MB in total. The other enemies use a smaller format, and this run had no tool to make it. They load fine, but WebP copies would be about a third of the size. I'd swap them when someone runs the art tool locally. It only changes file size, not how they look.",
-     "at": "2026-11-07T02:45:31Z"
+     "text": "\"Then the sky broke\" now uses the story's existing city picture, darkened, with a faint orange glow at the top. No new art. I like it better than plain black, and it ties the line to the meteor.",
+     "at": "2026-11-08T04:43:02Z"
     },
     {
      "who": "note",
-     "text": "With these five in, every Realm 1 enemy and boss has finished art. Only the Wandering Acolyte companion is still held back.",
-     "at": "2026-11-07T02:45:31Z"
+     "text": "All three starters show 10 DPS before you choose. They differ only in Normal hit (19.9 / 9.9) and Crit chance (1.0% / 3.0%) for the first two. That's honest, but players may think the choice barely matters. If you want each egg to feel more different, the role line (\"Thorn guardian\") is the place to say more.",
+     "at": "2026-11-08T04:43:02Z"
+    },
+    {
+     "who": "note",
+     "text": "The tips are worded: \"Tap the enemy to strike with your weapon.\" / \"Your companions attack by themselves, even while you're away. Party DPS is their damage each second.\" / \"Quests give rewards. Your first one is ready: open the Journal and claim it.\" / \"Spend Lore Shards at the Rift to summon new companions. Quests and bosses give you Shards.\" / \"Tap Gold, Party DPS or Lore Shards any time to…",
+     "at": "2026-11-08T04:43:02Z"
+    },
+    {
+     "who": "note",
+     "text": "The tips are remembered per phone, not in the save, so no save change was needed. A player who starts a second save on the same phone won't see them again. I think that's fine.",
+     "at": "2026-11-08T04:43:02Z"
+    },
+    {
+     "who": "note",
+     "text": "The tip box sits on the opposite side of the screen from what it points at. While it's open, it briefly covers part of the party row or the top buttons. It's only five taps, so I left it there.",
+     "at": "2026-11-08T04:43:02Z"
+    },
+    {
+     "who": "claude",
+     "text": "Claude’s newest build didn’t run, because the pull request changed while it waited. Claude starts it again.",
+     "at": "2026-11-08T04:48:20Z"
+    },
+    {
+     "who": "claude",
+     "text": "It clashes with another change in progress, in home.html, so it isn't on the test site yet.",
+     "at": null
     }
    ],
-   "openedAt": "2026-11-06T12:42:36Z",
+   "openedAt": "2026-11-08T04:24:19Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-07T22:58:57Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-07T22:58:57Z",
-   "headSha": "689fcb0169090cbb620c9bc220df76247b547ed0",
+   "testAt": null,
+   "onTest": false,
+   "testIsCurrent": false,
+   "clashes": true,
+   "updatedAt": "2026-11-08T04:43:02Z",
+   "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
-   "botAt": "2026-11-07T02:45:31Z",
+   "botAt": "2026-11-08T04:43:02Z",
    "goLive": false
   },
   {
@@ -1330,121 +1670,143 @@
    "botState": "questions",
    "botAt": null,
    "goLive": false
-  },
-  {
-   "number": 140,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven: simpler growth, suggested upgrades, automatic defenses and zoom",
-   "quote": "\"It’s a bit better but it still feels so busy and text heavy it makes me not want to read any of it. Can we figure out a way to start very small and make it build kind of like clash of clans without all the complexity as well?\"  \"Yeah we need to suggest upgrades that would make it easier. Also for defenses and all that, just place them for the user it doesn’t need to be all customized. Also I want to be able to zoom in and out as well as side to side\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T15:21:04Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T15:21:33Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T15:21:33Z",
-   "headSha": "f2ca9193e79a3d444af41263f5bbcf335e4696d0",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T15:21:32Z",
-   "goLive": false
-  },
-  {
-   "number": 138,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven correction: keep Game Boy art and move menus inside the game screen",
-   "quote": "\"No I want it to stay that gameboy look no that clash of clans but I do want more menus to be within the game not just below\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T03:10:19Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T03:10:48Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T03:10:48Z",
-   "headSha": "e30bc804aabff3941990dfe6e65e679e9edf0e64",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T03:10:47Z",
-   "goLive": false
-  },
-  {
-   "number": 137,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven isometric town-first polish and modular art direction",
-   "quote": "\"Let's do it, up to you.\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T02:48:30Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T02:48:59Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T02:48:59Z",
-   "headSha": "276bb2b45910a57b862ad3e5d95131a65f22ff82",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T02:48:58Z",
-   "goLive": false
-  },
-  {
-   "number": 136,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Integrate five approved Realm 1 boss and enemy sprites on DEV",
-   "quote": "\"Let's make those missing companions or check for them on the drive.\"  After retrieving all five held enemy/guardian sprites from his old Realm 1 archives, Joshua reviewed their originals and revised artwork one by one. He approved Vespera's and Bellveil's ORIGINAL artwork with framing corrections only, the NEW revised Vaelith floating-reliquary artwork, the later restrained/coarse-pixel Mirefang Bog Toad (NOT the rejected oversized-fanged variants), and the detailed lavender-black raven redesign (NOT the earlier basic raven or mismatched serpent).  \"Approved.\" \"Ok let's do it.\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T02:38:53Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T02:39:23Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T02:39:23Z",
-   "headSha": "3e008223a50d24b0433b1bcecc7d90b8ed7e775e",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T02:39:22Z",
-   "goLive": false
   }
  ],
  "activity": [
   {
+   "at": "2026-11-08T04:51:03Z",
+   "kind": "built",
+   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
+  },
+  {
+   "at": "2026-11-08T04:50:49Z",
+   "kind": "built",
+   "text": "Claude finished building “Make collection availability and completion honest”"
+  },
+  {
+   "at": "2026-11-08T04:50:49Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Make collection availability and completion honest”"
+  },
+  {
+   "at": "2026-11-08T04:50:32Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+  },
+  {
+   "at": "2026-11-08T04:47:51Z",
+   "kind": "closed",
+   "text": "“Heroes: ornate 3-chest shelf, single carousel and orb landing animation” was closed"
+  },
+  {
+   "at": "2026-11-08T04:47:22Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Separate production assets and reduce shipping overhead safely”"
+  },
+  {
+   "at": "2026-11-08T04:47:22Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Separate production assets and reduce shipping overhead safely”"
+  },
+  {
+   "at": "2026-11-08T04:47:22Z",
+   "kind": "question",
+   "text": "Part of “Separate production assets and reduce shipping overhead safely” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-08T04:46:55Z",
+   "kind": "built",
+   "text": "Claude finished building “Unify Rift language and surface essential help”"
+  },
+  {
+   "at": "2026-11-08T04:46:55Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Unify Rift language and surface essential help”"
+  },
+  {
+   "at": "2026-11-08T04:46:55Z",
+   "kind": "question",
+   "text": "Part of “Unify Rift language and surface essential help” is waiting for Noah’s OK"
+  },
+  {
+   "at": "2026-11-08T04:44:28Z",
+   "kind": "built",
+   "text": "Claude finished building “Show exact floor-clear bonuses and away earnings”"
+  },
+  {
+   "at": "2026-11-08T04:43:02Z",
+   "kind": "built",
+   "text": "Claude finished building “Rescue prologue and starter selection”"
+  },
+  {
+   "at": "2026-11-08T04:43:02Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Rescue prologue and starter selection”"
+  },
+  {
+   "at": "2026-11-08T04:39:36Z",
+   "kind": "built",
+   "text": "Claude finished building “Fix regular enemy visibility and quest overlap”"
+  },
+  {
+   "at": "2026-11-08T04:39:36Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Fix regular enemy visibility and quest overlap”"
+  },
+  {
+   "at": "2026-11-08T04:38:17Z",
+   "kind": "asked",
+   "text": "You asked for “Heroes: ornate 3-chest shelf, single carousel and orb landing animation”"
+  },
+  {
+   "at": "2026-11-08T04:37:41Z",
+   "kind": "asked",
+   "text": "You asked for “Show exact floor-clear bonuses and away earnings”"
+  },
+  {
+   "at": "2026-11-08T04:34:31Z",
+   "kind": "built",
+   "text": "Claude finished building “Explain boss readiness failure and cleared-floor state”"
+  },
+  {
+   "at": "2026-11-08T04:34:31Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Explain boss readiness failure and cleared-floor state”"
+  },
+  {
+   "at": "2026-11-08T04:25:09Z",
+   "kind": "asked",
+   "text": "You asked for “Separate production assets and reduce shipping overhead safely”"
+  },
+  {
+   "at": "2026-11-08T04:24:59Z",
+   "kind": "asked",
+   "text": "You asked for “Make collection availability and completion honest”"
+  },
+  {
+   "at": "2026-11-08T04:24:50Z",
+   "kind": "asked",
+   "text": "You asked for “Unify Rift language and surface essential help”"
+  },
+  {
+   "at": "2026-11-08T04:24:39Z",
+   "kind": "asked",
+   "text": "You asked for “Explain boss readiness failure and cleared-floor state”"
+  },
+  {
+   "at": "2026-11-08T04:24:29Z",
+   "kind": "asked",
+   "text": "You asked for “Fix regular enemy visibility and quest overlap”"
+  },
+  {
+   "at": "2026-11-08T04:24:19Z",
+   "kind": "asked",
+   "text": "You asked for “Rescue prologue and starter selection”"
+  },
+  {
    "at": "2026-11-07T22:58:57Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Audit live and dev Realm 1 visuals before Realm 2”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T22:57:30Z",
@@ -1479,7 +1841,7 @@
   {
    "at": "2026-11-07T22:46:38Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Keep enemy and companions stationary when Party collapses”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T22:44:50Z",
@@ -1497,19 +1859,9 @@
    "text": "Part of “Lower battlefield characters and enlarge bosses by 40%” is waiting for Noah’s OK"
   },
   {
-   "at": "2026-11-07T22:44:02Z",
-   "kind": "built",
-   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T22:44:02Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
    "at": "2026-11-07T21:26:56Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Replace Ascend with 25-hero rarity board for tap power”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Keep enemy and companions stationary when Party collapses”, “Replace Ascend with 25-hero rarity board for tap power”"
   },
   {
    "at": "2026-11-07T21:25:30Z",
@@ -1520,126 +1872,6 @@
    "at": "2026-11-07T21:25:30Z",
    "kind": "note",
    "text": "Claude left notes for you on “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T21:25:30Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-07T21:25:30Z",
-   "kind": "question",
-   "text": "Part of “Implement approved QoL audit across summoning collection and mobile play” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-07T20:39:54Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T20:38:24Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Caretaker: synthetic test saves for phone pictures (shoot.cjs --save)”"
-  },
-  {
-   "at": "2026-11-07T20:38:10Z",
-   "kind": "behind",
-   "text": "Behind the scenes: “Let the daily check-in save its work, and show what it wasn't allowed to do”"
-  },
-  {
-   "at": "2026-11-07T19:00:35Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T18:46:59Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T18:45:33Z",
-   "kind": "closed",
-   "text": "“Heroes: unlock rarities by chest level, collect fragments to unlock and master” was closed"
-  },
-  {
-   "at": "2026-11-07T18:45:19Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T18:45:04Z",
-   "kind": "asked",
-   "text": "You asked for “Heroes: unlock rarities by chest level, collect fragments to unlock and master”"
-  },
-  {
-   "at": "2026-11-07T18:34:54Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T18:33:24Z",
-   "kind": "closed",
-   "text": "“Heroes: Crest payment required to unlock randomly found heroes” was closed"
-  },
-  {
-   "at": "2026-11-07T18:32:56Z",
-   "kind": "asked",
-   "text": "You asked for “Heroes: Crest payment required to unlock randomly found heroes”"
-  },
-  {
-   "at": "2026-11-07T18:21:41Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T18:06:31Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T18:04:52Z",
-   "kind": "closed",
-   "text": "“Heroes: 25 signature bonuses and rarity-scaled Hero Crest shop” was closed"
-  },
-  {
-   "at": "2026-11-07T18:04:25Z",
-   "kind": "asked",
-   "text": "You asked for “Heroes: 25 signature bonuses and rarity-scaled Hero Crest shop”"
-  },
-  {
-   "at": "2026-11-07T17:59:04Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T17:49:01Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T17:47:35Z",
-   "kind": "closed",
-   "text": "“Heroes: three openings per 24 hours, silhouette collection and duplicate mastery” was closed"
-  },
-  {
-   "at": "2026-11-07T17:47:07Z",
-   "kind": "asked",
-   "text": "You asked for “Heroes: three openings per 24 hours, silhouette collection and duplicate mastery”"
-  },
-  {
-   "at": "2026-11-07T17:19:22Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Audit live and dev Realm 1 visuals before Realm 2”, “Keep enemy and companions stationary when Party collapses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”"
-  },
-  {
-   "at": "2026-11-07T17:16:58Z",
-   "kind": "built",
-   "text": "Claude finished building “Replace Shardworks with a timed-egg Pet Farm and roaming pets”"
-  },
-  {
-   "at": "2026-11-07T17:16:58Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Replace Shardworks with a timed-egg Pet Farm and roaming pets”"
   }
  ],
  "otherPulls": [
@@ -1709,24 +1941,6 @@
   {
    "number": 135,
    "headSha": "c5a668b4c28661be43029b7a08abe2da9a717116",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 134,
-   "headSha": "04ef1565d4720764a91216264b8c92cd63145ba1",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 132,
-   "headSha": "1a0d89df2a0d747a6c171965d9f811680971ed8c",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
