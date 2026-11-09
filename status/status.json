@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T06:26:08.373Z",
+ "generatedAt": "2026-11-09T06:45:18.796Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-09T05:54:05Z",
+  "updatedAt": "2026-11-09T06:27:30Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -51,6 +51,94 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 146,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Implement approved QoL audit across summoning collection and mobile play",
+   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The audit asks for Ascend to list what resets before you reset. Ascend isn't in the game yet: it's in #88, and your newer #147 replaces Ascend with Heroes. Should that part go into #88, or should I drop it because Heroes replaces Ascend? I'd drop it if Heroes is the plan.",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "claude",
+     "text": "Build Favorite and Protect in Manage Team here once #118 is on main. Noah OKed the save change: add it to the UPDATES list in save-storage.js with its text in UPDATE_TEXT, add the module to save-backups.html, and respect Protect in every release path and in swaps.",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "claude",
+     "text": "Open a pull request from fix/test-site-146 into main (only the record 146-78-auto-summary-rift-level.json) and ask Noah to merge it. Then check that the next test build lists #146 as included.",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check on phones at 320×610, 375×667, 390×844 and 430×932, from a new save on the test site: the Auto summary card (turn Auto on, then press Stop Auto), the Reduced effects tick box (in the Auto settings, under the vibration switch) and Save Backups' companion total. Nothing should be clipped, overlap the summoning rail or be under 12px.",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check in a browser that \"While you were away\" and a save-update popup never show at the same time. No numbers change.",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "claude",
+     "text": "Measure a slow phone (CPU slowed down in the browser) with a full party, a fight and Auto running, and report the frames and layout work. It needs #118 for ten companions.",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "claude",
+     "text": "Build area 4 (Codex search, filters and remembered page) here once #142 is on main.",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "claude",
+     "text": "Keep the ledger true: each handoff in pocket-fortune/docs/qol-audit/LEDGER.md is built in its own request (#97, #98, #109, #115, #118, #119, #120, #133, #141, #142, #148).",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "note",
+     "text": "When you stop Auto, or it runs out of Lore Shards or Gold, one small card says what that Auto session did: summons, new discoveries and Lore Shards spent. It stays 12 seconds or until you tap ×. A pause for a new discovery or a rarity doesn't count as an end, so no card then. I think 12 seconds is about right. Say if you want it shorter.",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "note",
+     "text": "Reduced effects is a setting on this phone only, not in the save. It shows at most two damage numbers at once (critical hits always show) and about a third of the reveal sparkles. Fights, damage and timing stay exactly the same.",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "note",
+     "text": "The opening-pace check found one stall. In 13 of every 100 new games where nobody taps, the first Lore Shards give repeats, the party has only two or three companions, and they can't beat the Floor 1 boss (1,000 health) in 30 seconds. My pick, with no number change: after a lost Floor 1 boss fight, the retry line says \"Tap the enemy to help your companions\". The other choice is to lower Floor…",
+     "at": "2026-11-09T06:44:57Z"
+    },
+    {
+     "who": "note",
+     "text": "Noah said yes to saving Favorite and Protect for each companion you own. I'll build both in Manage Team once your new Team screen (#118) is live. Protected companions will never be released by hand, by Auto or by a swap, and you can unprotect them any time.",
+     "at": "2026-11-09T06:44:57Z"
+    }
+   ],
+   "openedAt": "2026-11-07T16:55:36Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T06:27:31Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-09T06:44:57Z",
+   "headSha": "e2a91dbc0994f69bfb6b610aefb55ea1482b4b31",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Partly built, ready to check (each stage's owner and outcome: `pocket-fortune/docs/qol-audit/LEDGER.md`)",
+   "botState": "questions",
+   "botAt": "2026-11-09T06:44:57Z",
+   "goLive": false
+  },
   {
    "number": 92,
    "kind": "request",
@@ -121,11 +209,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
-   "testIsCurrent": false,
+   "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T06:25:41Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "58ffcd8333f5a42e68d8f382d36e82524c238c39",
    "touchesGame": true,
    "answers": false,
@@ -179,11 +267,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
    "touchesGame": true,
    "answers": false,
@@ -282,11 +370,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "aef183b5d08eb1a860a1a4db94b26e2aa0ecb6d0",
    "touchesGame": true,
    "answers": false,
@@ -340,11 +428,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
    "touchesGame": true,
    "answers": false,
@@ -408,11 +496,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
    "touchesGame": true,
    "answers": false,
@@ -456,11 +544,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "ab5f73ba4061b186681c12c0f36e30174452bf6c",
    "touchesGame": true,
    "answers": false,
@@ -494,11 +582,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
    "touchesGame": true,
    "answers": false,
@@ -537,11 +625,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "3aead0ab03637711d215423df91b508d93848de2",
    "touchesGame": true,
    "answers": false,
@@ -600,11 +688,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "70a72d76209fc1e0ec7e0d9ff060a34331ed92be",
    "touchesGame": true,
    "answers": false,
@@ -638,11 +726,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "786be6022c9a99d75e8820800db1ce2ad3181f50",
    "touchesGame": true,
    "answers": false,
@@ -691,11 +779,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "b2674439c8404e242d11f194672e1a2b54d52a1c",
    "touchesGame": true,
    "answers": false,
@@ -754,11 +842,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
    "touchesGame": true,
    "answers": false,
@@ -822,11 +910,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "2371ac7268ef79a91c232e57405677e4b9981f44",
    "touchesGame": true,
    "answers": false,
@@ -860,11 +948,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "b479376953502d0d37964f9d6dec9e3472572d82",
    "touchesGame": true,
    "answers": false,
@@ -893,11 +981,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -946,11 +1034,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -989,100 +1077,17 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
+   "testAt": "2026-11-09T06:27:31Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
+   "updatedAt": "2026-11-09T06:27:31Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-06T23:03:18Z",
-   "goLive": false
-  },
-  {
-   "number": 146,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Implement approved QoL audit across summoning collection and mobile play",
-   "quote": "Comb through everything and think of upgrades and QOL changes please, turn every stone",
-   "stage": "testing",
-   "waitingOn": "both",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The audit asks for Ascend to list what resets before you reset. Ascend isn't in the game yet: it's in #88, and your newer #147 replaces Ascend with Heroes. Should that part go into #88, or should I drop it because Heroes replaces Ascend? I'd drop it if Heroes is the plan.",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "noah",
-     "text": "Favorite and Protect in Manage Team need a save update, because Protect has to be stored for each companion you own, in the save. Joshua asked for both together, so both wait for Noah's OK on that save change (and for #118's Team screen).",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Open a pull request from fix/test-site-146 into main (only the record 146-78-auto-summary-rift-level.json) and ask Noah to merge it. Then check that the next test build lists #146 as included.",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check on phones at 320×610, 375×667, 390×844 and 430×932, from a new save on the test site: the Auto summary card (turn Auto on, then press Stop Auto), the Reduced effects tick box (in the Auto settings, under the vibration switch) and Save Backups' companion total. Nothing should be clipped, overlap the summoning rail or be under 12px.",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check in a browser that \"While you were away\" and a save-update popup never show at the same time. No numbers change.",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Measure a slow phone (CPU slowed down in the browser) with a full party, a fight and Auto running, and report the frames and layout work. It needs #118 for ten companions.",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Build area 4 (Codex search, filters and remembered page) here once #142 is on main.",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "claude",
-     "text": "Keep the ledger true: each handoff in pocket-fortune/docs/qol-audit/LEDGER.md is built in its own request (#97, #98, #109, #115, #118, #119, #120, #133, #141, #142, #148).",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "note",
-     "text": "When you stop Auto, or it runs out of Lore Shards or Gold, one small card says what that Auto session did: summons, new discoveries and Lore Shards spent. It stays 12 seconds or until you tap ×. A pause for a new discovery or a rarity doesn't count as an end, so no card then. I think 12 seconds is about right. Say if you want it shorter.",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "note",
-     "text": "Reduced effects is a setting on this phone only, not in the save. It shows at most two damage numbers at once (critical hits always show) and about a third of the reveal sparkles. Fights, damage and timing stay exactly the same.",
-     "at": "2026-11-08T19:16:30Z"
-    },
-    {
-     "who": "note",
-     "text": "The opening-pace check found one stall. In 13 of every 100 new games where nobody taps, the first Lore Shards give repeats, the party has only two or three companions, and they can't beat the Floor 1 boss (1,000 health) in 30 seconds. My pick, with no number change: after a lost Floor 1 boss fight, the retry line says \"Tap the enemy to help your companions\". The other choice is to lower Floor…",
-     "at": "2026-11-08T19:16:30Z"
-    }
-   ],
-   "openedAt": "2026-11-07T16:55:36Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T05:54:06Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T05:54:06Z",
-   "headSha": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Partly built, ready to check (each stage's owner and outcome: `pocket-fortune/docs/qol-audit/LEDGER.md`)",
-   "botState": "questions",
-   "botAt": "2026-11-08T19:16:30Z",
    "goLive": false
   },
   {
@@ -1355,6 +1360,26 @@
  ],
  "activity": [
   {
+   "at": "2026-11-09T06:44:57Z",
+   "kind": "built",
+   "text": "Claude finished building “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-09T06:44:57Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-09T06:44:57Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Implement approved QoL audit across summoning collection and mobile play”"
+  },
+  {
+   "at": "2026-11-09T06:27:31Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
+  },
+  {
    "at": "2026-11-09T06:25:41Z",
    "kind": "built",
    "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
@@ -1488,26 +1513,6 @@
    "at": "2026-11-08T19:18:24Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
-  },
-  {
-   "at": "2026-11-08T19:16:30Z",
-   "kind": "built",
-   "text": "Claude finished building “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-08T19:16:30Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-08T19:16:30Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Implement approved QoL audit across summoning collection and mobile play”"
-  },
-  {
-   "at": "2026-11-08T19:16:30Z",
-   "kind": "question",
-   "text": "Part of “Implement approved QoL audit across summoning collection and mobile play” is waiting for Noah’s OK"
   },
   {
    "at": "2026-11-08T19:16:14Z",
