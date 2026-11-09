@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T04:58:02.328Z",
+ "generatedAt": "2026-11-09T06:26:08.373Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -7,7 +7,7 @@
  },
  "test": {
   "url": "https://lorebound-dev.github.io/",
-  "updatedAt": "2026-11-09T04:57:46Z",
+  "updatedAt": "2026-11-09T05:54:05Z",
   "included": [
    "Lower battlefield characters and enlarge bosses by 40%",
    "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
@@ -51,6 +51,147 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 92,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Haven 3.0–4.0: upgradeable town and endless connected frontier",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "Raids now start once you have a House, a Farm and one cleared patch. The first patch is cheap and needs no Survey Post, so raids can come sooner than before. Should raids wait until you've cleared two patches, which needs a Survey Post, so they start about where they did before? I suggest yes.",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "joshua",
+     "text": "(Still open from last time) Do you want a quicker start? I suggest making only the first House (12 Wood · 6 Stone) and the first Farm (10 Wood · 3 Stone) cheaper, with nothing else changed. Or keep it as it is.",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "claude",
+     "text": "Take phone pictures on the test site at 320×610, 375×812, 390×844 and 430×932 (with Safari's bars if possible). Start from a new save: tap Start, then ? → Reset demo. Get:",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "note",
+     "text": "Patches. There are 12 patches of 4×4 round an 8×8 home clearing. I'd keep this size: each one is about a screen's width to pan to, and has room to build after it's cleared.",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "note",
+     "text": "Price. The first patch costs 8 Wood · 4 Stone. Each one after costs 4 Wood and 2 Stone more, up to 52 Wood · 26 Stone for the 12th. That's 360 Wood · 180 Stone for all of them. The old two expansions cost 64 Wood · 40 Stone · 8 Ore in all. The price is never Ore, so you can never be stuck waiting for something that only grows in land you haven't cleared. I'd keep it: land is now worth more,…",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "note",
+     "text": "Survey Post. The first patch needs no Survey Post, as you asked. After that you need one. Its Lv 2 and Lv 3 still take 10% and 20% off.",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "note",
+     "text": "Settlement Level. Each cleared patch gives 5 Settlement points, so all 12 give 60. The old expansions gave 25 each, 50 in all. I think that's about right.",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "note",
+     "text": "Ore. Ore only grows in Stony ground and Wild corners. If you only clear Woods, you won't find any. Find Next Clearing points at a stony patch when you're shorter of Stone than of Wood.",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "note",
+     "text": "What you can see. You can always see what grows in a patch next to your land. A Watchtower or scouts now show what grows further out, instead of \"the next ring\".",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "note",
+     "text": "Decorations. I drew the hearth, path, lantern, banner and flowers in code. I left out a fence, because it would look like the palisade, which really does something.",
+     "at": "2026-11-09T06:25:41Z"
+    },
+    {
+     "who": "note",
+     "text": "Pace, from my test player. With no guards, every building reaches Lv 3 in 1 h 32 min (before: 1 h 26 min). With 3 guards it takes 3 h 39 min to 4 h 03 min (before: 2 h 35 min). There are two reasons: clearing all 12 patches costs more, and raids can start sooner. If the player stops at 8 patches, the time is back to 2 h 35 min. The first House and Farm take the same time as before: about 1 and…",
+     "at": "2026-11-09T06:25:41Z"
+    }
+   ],
+   "openedAt": "2026-11-02T02:38:48Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T05:54:06Z",
+   "onTest": true,
+   "testIsCurrent": false,
+   "clashes": false,
+   "updatedAt": "2026-11-09T06:25:41Z",
+   "headSha": "58ffcd8333f5a42e68d8f382d36e82524c238c39",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-09T06:25:41Z",
+   "goLive": false
+  },
+  {
+   "number": 142,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
+   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "On the test site, tap Claim all at 320×610, 375×667, 390×844 and 430×932, and check that the short message at the bottom fits.",
+     "at": "2026-11-09T05:52:02Z"
+    },
+    {
+     "who": "note",
+     "text": "Each discovered companion pays 1 Lore Shard, once. That amount was Codex's suggestion, not yours. It comes to 30 Shards for today's 30 companions, which is less than one Shard per summon. I think that's fine as a small thank-you. Raise it if you want discoveries to feel like a real reward.",
+     "at": "2026-11-09T05:52:02Z"
+    },
+    {
+     "who": "note",
+     "text": "Completing a rarity pays a one-time bonus of 10 Lore Shards. Today that's Common, Uncommon and Rare, so 30 Shards in all. Rare has only 4 companions but pays the same as Common, which has 16. I'd try paying more for rarer tiers, for example Common 10, Uncommon 15, Rare 25.",
+     "at": "2026-11-09T05:52:02Z"
+    },
+    {
+     "who": "note",
+     "text": "Companions you released still count, because the game remembers every species you've discovered. Long-time players will get one bigger claim the first time.",
+     "at": "2026-11-09T05:52:02Z"
+    },
+    {
+     "who": "note",
+     "text": "When a rarity gets new companions later, it keeps the bonus it already paid, and each new companion still pays its own Shard. If the rarity grows before you've claimed its bonus, you need the new companions too.",
+     "at": "2026-11-09T05:52:02Z"
+    },
+    {
+     "who": "note",
+     "text": "Codex also asked for \"claimed\" on every card, so each card has one small line under it (\"+1 Shard ready\" or \"Shard claimed\"). The caretaker's phone check found that, with \"New entry · Equipped\" above it, each card now has three short lines under it. If that feels busy, I can show only \"ready\".",
+     "at": "2026-11-09T05:52:02Z"
+    }
+   ],
+   "openedAt": "2026-11-07T15:36:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T05:54:06Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T05:54:06Z",
+   "headSha": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-09T05:52:02Z",
+   "goLive": false
+  },
   {
    "number": 149,
    "kind": "request",
@@ -141,11 +282,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "aef183b5d08eb1a860a1a4db94b26e2aa0ecb6d0",
    "touchesGame": true,
    "answers": false,
@@ -199,11 +340,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
    "touchesGame": true,
    "answers": false,
@@ -267,11 +408,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
    "touchesGame": true,
    "answers": false,
@@ -315,11 +456,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "ab5f73ba4061b186681c12c0f36e30174452bf6c",
    "touchesGame": true,
    "answers": false,
@@ -353,11 +494,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
    "touchesGame": true,
    "answers": false,
@@ -396,11 +537,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "3aead0ab03637711d215423df91b508d93848de2",
    "touchesGame": true,
    "answers": false,
@@ -459,11 +600,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "70a72d76209fc1e0ec7e0d9ff060a34331ed92be",
    "touchesGame": true,
    "answers": false,
@@ -497,80 +638,17 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "786be6022c9a99d75e8820800db1ce2ad3181f50",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-07T15:41:06Z",
-   "goLive": false
-  },
-  {
-   "number": 142,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
-   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Save format: a claim adds a new field, progress.collectionRewards (the companions and rarities already paid), to version 5 saves. Saves without it work as \"nothing claimed yet\", and no save update or popup is needed. save-storage.js and ownership-v5.js are unchanged.",
-     "at": "2026-11-08T19:09:44Z"
-    },
-    {
-     "who": "claude",
-     "text": "Tap Claim all on the test site at 320×610, 375×667, 390×844 and 430×932 and check the short message at the bottom fits.",
-     "at": "2026-11-08T19:09:44Z"
-    },
-    {
-     "who": "note",
-     "text": "Each discovered companion pays 1 Lore Shard, once. These amounts were Codex's suggestion, not yours. That's 30 Shards for the current 30 companions, less than one Shard per summon. I think it's fine as a small thank-you. Raise it if you want discoveries to feel like a real reward.",
-     "at": "2026-11-08T19:09:44Z"
-    },
-    {
-     "who": "note",
-     "text": "Completing a rarity pays a one-time 10 Lore Shards (Common, Uncommon and Rare today, 30 in all). Rare has only 4 companions but pays the same as Common's 16. I'd try paying more for rarer tiers, for example Common 10, Uncommon 15, Rare 25.",
-     "at": "2026-11-08T19:09:44Z"
-    },
-    {
-     "who": "note",
-     "text": "Companions you released still count, because the game remembers every species you've discovered. Long-time players will see one bigger claim the first time.",
-     "at": "2026-11-08T19:09:44Z"
-    },
-    {
-     "who": "note",
-     "text": "A rarity that later gets new companions keeps the bonus it already paid. Each new companion still pays its own Shard. If the rarity grows before you've claimed its bonus, you need the new companions too.",
-     "at": "2026-11-08T19:09:44Z"
-    },
-    {
-     "who": "note",
-     "text": "Codex also asked for \"claimed\" on every card. I used one small line under each card (\"+1 Shard ready\" or \"Shard claimed\"). If it feels busy, I can show only \"ready\". (Caretaker: with \"New entry · Equipped\" above it, each card has three short lines under it.)",
-     "at": "2026-11-08T19:09:44Z"
-    }
-   ],
-   "openedAt": "2026-11-07T15:36:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
-   "headSha": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T16:01:44Z",
    "goLive": false
   },
   {
@@ -613,11 +691,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "b2674439c8404e242d11f194672e1a2b54d52a1c",
    "touchesGame": true,
    "answers": false,
@@ -676,11 +754,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
    "touchesGame": true,
    "answers": false,
@@ -744,11 +822,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "2371ac7268ef79a91c232e57405677e4b9981f44",
    "touchesGame": true,
    "answers": false,
@@ -782,11 +860,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "b479376953502d0d37964f9d6dec9e3472572d82",
    "touchesGame": true,
    "answers": false,
@@ -815,11 +893,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
    "touchesGame": true,
    "answers": false,
@@ -868,11 +946,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
    "touchesGame": true,
    "answers": false,
@@ -911,11 +989,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
    "touchesGame": true,
    "answers": false,
@@ -994,11 +1072,11 @@
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
-   "testAt": "2026-11-09T04:57:47Z",
+   "testAt": "2026-11-09T05:54:06Z",
    "onTest": true,
    "testIsCurrent": true,
    "clashes": false,
-   "updatedAt": "2026-11-09T04:57:47Z",
+   "updatedAt": "2026-11-09T05:54:06Z",
    "headSha": "1507118d9b4853784ac5f6f5c9ca7a7b52abfe87",
    "touchesGame": true,
    "answers": false,
@@ -1273,40 +1351,43 @@
    "botState": "finished",
    "botAt": "2026-11-07T17:47:34Z",
    "goLive": false
-  },
-  {
-   "number": 148,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Fix unexplained shadows beneath bosses and empty Party positions",
-   "quote": "\"Why are there random shadows below the boss where nothing is\"  \"Ok let’s do it.\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-07T17:06:14Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-07T17:06:42Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-07T17:06:42Z",
-   "headSha": "aa9919a6fbf4ad25684513101b352d1a2867f841",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-07T17:06:41Z",
-   "goLive": false
   }
  ],
  "activity": [
   {
+   "at": "2026-11-09T06:25:41Z",
+   "kind": "built",
+   "text": "Claude finished building “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-09T06:25:41Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-09T06:25:41Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Haven 3.0–4.0: upgradeable town and endless connected frontier”"
+  },
+  {
+   "at": "2026-11-09T05:54:06Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
+  },
+  {
+   "at": "2026-11-09T05:52:02Z",
+   "kind": "built",
+   "text": "Claude finished building “Add Codex Claim All discovery rewards and rarity completion bonuses”"
+  },
+  {
+   "at": "2026-11-09T05:52:02Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Add Codex Claim All discovery rewards and rarity completion bonuses”"
+  },
+  {
    "at": "2026-11-09T04:57:47Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
   },
   {
    "at": "2026-11-09T04:56:05Z",
@@ -1316,7 +1397,7 @@
   {
    "at": "2026-11-09T03:38:56Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
   },
   {
    "at": "2026-11-09T03:36:39Z",
@@ -1341,7 +1422,7 @@
   {
    "at": "2026-11-08T21:47:25Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
   },
   {
    "at": "2026-11-08T21:45:42Z",
@@ -1351,7 +1432,7 @@
   {
    "at": "2026-11-08T19:53:25Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
   },
   {
    "at": "2026-11-08T19:46:38Z",
@@ -1376,7 +1457,7 @@
   {
    "at": "2026-11-08T19:30:39Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   },
   {
    "at": "2026-11-08T19:28:35Z",
@@ -1391,7 +1472,7 @@
   {
    "at": "2026-11-08T19:21:16Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   },
   {
    "at": "2026-11-08T19:19:03Z",
@@ -1406,7 +1487,7 @@
   {
    "at": "2026-11-08T19:18:24Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   },
   {
    "at": "2026-11-08T19:16:30Z",
@@ -1451,7 +1532,7 @@
   {
    "at": "2026-11-08T13:02:11Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   },
   {
    "at": "2026-11-08T13:00:21Z",
@@ -1471,37 +1552,7 @@
   {
    "at": "2026-11-08T12:55:57Z",
    "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
-  },
-  {
-   "at": "2026-11-08T12:54:02Z",
-   "kind": "closed",
-   "text": "“Heroes: temporarily allow unlimited chest openings on DEV” was closed"
-  },
-  {
-   "at": "2026-11-08T12:53:29Z",
-   "kind": "asked",
-   "text": "You asked for “Heroes: temporarily allow unlimited chest openings on DEV”"
-  },
-  {
-   "at": "2026-11-08T05:05:47Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
-  },
-  {
-   "at": "2026-11-08T04:54:52Z",
-   "kind": "test",
-   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
-  },
-  {
-   "at": "2026-11-08T04:50:49Z",
-   "kind": "built",
-   "text": "Claude finished building “Make collection availability and completion honest”"
-  },
-  {
-   "at": "2026-11-08T04:50:49Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Make collection availability and completion honest”"
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
   }
  ],
  "otherPulls": [
