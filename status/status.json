@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T07:55:33.291Z",
+ "generatedAt": "2026-11-09T23:44:26.585Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -52,6 +52,64 @@
  },
  "items": [
   {
+   "number": 164,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify Rift language and surface essential help",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The Town workshop card: \"Forge\" or \"Shardworks\"? The Haven request (#92) calls it the Forge, and its locked card says it \"opens once this save has its Town update\". This request calls it Shardworks and says to defeat the Floor 60 boss. The test site keeps \"Forge\" for now. I suggest Shardworks with the Floor 60 line, because that's the real requirement a player can act on.",
+     "at": "2026-11-09T23:44:16Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Undiscovered companions in the Omnidex: show their names, or \"???\"? The Omnidex request (#130) shows named blank cards, which you chose. This request showed \"???\". The test site keeps the names and adds this request's \"Rift locked\" label for companions the Rift can't summon yet. I suggest keeping it like that.",
+     "at": "2026-11-09T23:44:16Z"
+    },
+    {
+     "who": "joshua",
+     "text": "The odds sheet's heading: \"Summoning odds\" (from the Rift levels request, #78) or \"Rift Levels\" (this request)? With #78 there's one Rift whose level you raise, so the sheet lists the odds at each level. The test site keeps \"Summoning odds\". I suggest keeping it.",
+     "at": "2026-11-09T23:44:16Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Auto Summon's amount: \"×10 Summons\" with a capital S (from #84) or \"×10 summons\"? The test site keeps the capital. Either is fine; I suggest the capital.",
+     "at": "2026-11-09T23:44:16Z"
+    },
+    {
+     "who": "claude",
+     "text": "Look at this request on the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: the Rift shrine and the Rift Upgrades sheet (the Upgrade button must stay reachable with Safari's bars showing), Auto setup, the Omnidex and a companion's page, Profile > Settings (Sound, Vibration, Reduce motion), the rules, the Resource guide's Essence line, and a locked tab's unlock text.",
+     "at": "2026-11-09T23:44:16Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T07:55:02Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T07:55:02Z",
+   "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:28:35Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-08T04:46:01Z"
+   },
+   "goLive": false
+  },
+  {
    "number": 146,
    "kind": "request",
    "by": "Joshua",
@@ -64,62 +122,57 @@
     {
      "who": "joshua",
      "text": "The audit asks for Ascend to list what resets before you reset. Ascend isn't in the game yet: it's in #88, and your newer #147 replaces Ascend with Heroes. Should that part go into #88, or should I drop it because Heroes replaces Ascend? I'd drop it if Heroes is the plan.",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "claude",
      "text": "Build Favorite and Protect in Manage Team here once #118 is on main. Noah OKed the save change: add it to the UPDATES list in save-storage.js with its text in UPDATE_TEXT, add the module to save-backups.html, and respect Protect in every release path and in swaps.",
-     "at": "2026-11-09T06:44:57Z"
-    },
-    {
-     "who": "claude",
-     "text": "Open a pull request from fix/test-site-146 into main (only the record 146-78-auto-summary-rift-level.json) and ask Noah to merge it. Then check that the next test build lists #146 as included.",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "claude",
      "text": "Check on phones at 320×610, 375×667, 390×844 and 430×932, from a new save on the test site: the Auto summary card (turn Auto on, then press Stop Auto), the Reduced effects tick box (in the Auto settings, under the vibration switch) and Save Backups' companion total. Nothing should be clipped, overlap the summoning rail or be under 12px.",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "claude",
      "text": "Check in a browser that \"While you were away\" and a save-update popup never show at the same time. No numbers change.",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "claude",
      "text": "Measure a slow phone (CPU slowed down in the browser) with a full party, a fight and Auto running, and report the frames and layout work. It needs #118 for ten companions.",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "claude",
      "text": "Build area 4 (Codex search, filters and remembered page) here once #142 is on main.",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "claude",
      "text": "Keep the ledger true: each handoff in pocket-fortune/docs/qol-audit/LEDGER.md is built in its own request (#97, #98, #109, #115, #118, #119, #120, #133, #141, #142, #148).",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "note",
      "text": "When you stop Auto, or it runs out of Lore Shards or Gold, one small card says what that Auto session did: summons, new discoveries and Lore Shards spent. It stays 12 seconds or until you tap ×. A pause for a new discovery or a rarity doesn't count as an end, so no card then. I think 12 seconds is about right. Say if you want it shorter.",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "note",
      "text": "Reduced effects is a setting on this phone only, not in the save. It shows at most two damage numbers at once (critical hits always show) and about a third of the reveal sparkles. Fights, damage and timing stay exactly the same.",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "note",
      "text": "The opening-pace check found one stall. In 13 of every 100 new games where nobody taps, the first Lore Shards give repeats, the party has only two or three companions, and they can't beat the Floor 1 boss (1,000 health) in 30 seconds. My pick, with no number change: after a lost Floor 1 boss fight, the retry line says \"Tap the enemy to help your companions\". The other choice is to lower Floor…",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     },
     {
      "who": "note",
      "text": "Noah said yes to saving Favorite and Protect for each companion you own. I'll build both in Manage Team once your new Team screen (#118) is live. Protected companions will never be released by hand, by Auto or by a swap, and you can unprotect them any time.",
-     "at": "2026-11-09T06:44:57Z"
+     "at": "2026-11-09T23:44:15Z"
     }
    ],
    "openedAt": "2026-11-07T16:55:36Z",
@@ -141,6 +194,309 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-09T06:44:28Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 167,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Show exact floor-clear bonuses and away earnings",
+   "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-08T04:37:41Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T07:55:02Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T07:55:02Z",
+   "headSha": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:19:03Z",
+   "lastCommit": null,
+   "goLive": false
+  },
+  {
+   "number": 163,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Explain boss readiness failure and cleared-floor state",
+   "quote": "",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-08T04:24:39Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T07:55:02Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T07:55:02Z",
+   "headSha": "ab5f73ba4061b186681c12c0f36e30174452bf6c",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:16:14Z",
+   "lastCommit": null,
+   "goLive": false
+  },
+  {
+   "number": 161,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rescue prologue and starter selection",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at #161 on the test site at 320×610, 375×667, 390×844 and 430×932 on a new save. Check that Skip works mid-fade, the slide pacing, and the reduced-motion setting. Check the egg screen: the \"Choose this egg\" button, the DPS, hit and crit numbers, and \"The eggs are arriving\" with slow images. Check the five first-session tips and how they close after the first hatch. Also make sure a…",
+     "at": "2026-11-09T23:44:12Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:19Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T07:55:02Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T07:55:02Z",
+   "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:14:22Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-08T04:42:15Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 149,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
+   "quote": "\"Also let’s remove shardworks and replace it with a farm where you can raise pets that give bonuses to a companion. We will use the original egg mechanics but have fewer pets and new ones. So there would be a main egg that is a random rarity and take a certain amount of time to hatch. Then your hatched pets will kind of walk around around the egg in that location.\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "What happens to the mine's Lore Shards? Right now it makes 3 to about 30 Shards an hour for players who rebuilt it. My suggestion: keep it running, reached from the Farm as it is now, until you choose a new place for those Shards. That way nobody loses what they paid for.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "joshua",
+     "text": "How much Gold does an egg cost? My suggestion: 5,000 Gold, the same as rebuilding the mine, so an egg a day feels like a real choice in the mid game.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "joshua",
+     "text": "What are the rarity odds? My suggestion: Common 70%, Uncommon 25%, Rare 5%, with the Commons, Uncommons and Rare equally likely within their rarity.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "joshua",
+     "text": "What are the six pets, and what does each one give the companion it's assigned to? My suggestion: 3 Common pets at +3% damage, 2 Uncommon pets at +5% critical chance or 5% faster attacks, and 1 Rare pet at +8% damage. A repeat hatch adds one bond level, up to 5, and each level adds a further 1%.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "joshua",
+     "text": "When does the Farm unlock? My suggestion: show it from the start as a quiet meadow, with eggs available after Boss 40.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Pet art. The finished game needs real art for each of the six pets: small pixel sprites with 2 to 4 walk and idle frames. Please have it made and put in your Artwork Inbox's Proposed folder, then link it in a change to this request.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "noah",
+     "text": "Eggs and owned pets need new data in the save, added through the save update list. I won't build that until Noah OKs the save change.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "noah",
+     "text": "Stopping the mine, or moving players' mine upgrades to something else, changes saves that players paid Gold for. That also needs Noah's OK once Joshua decides on question 1.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "claude",
+     "text": "On a phone at 320×610, 375×667, 390×844 and 430×932, from a new save, tap Farm, then Forge, then \"‹ Pet Farm\", and check the way back works and every label is readable.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "claude",
+     "text": "Build eggs, hatching, the pet journal and assigning a pet to a companion once Joshua answers questions 1 to 5 and Noah OKs the save change.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "note",
+     "text": "I built only the part you can try without new decisions: the Farm screen, the nest and the wandering pets. Eggs, hatching, the pet list and companion bonuses need your numbers and new save data, which Noah has to approve. If I built them now with made-up numbers, they'd have to be redone.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "note",
+     "text": "The pets and the Farm icon are simple shapes drawn in code, not real art. They're only there to test the size and movement. They can't go in the real game as finished pets. The meadow is also drawn in code. If you'd like a painted background like the mine's, it would need art in your Artwork Inbox.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "note",
+     "text": "Pets walk only in the strip below the nest, so they never cover the egg or the buttons. With six pets that strip may feel crowded. Once the real pets exist, I'd let them walk all the way round the nest.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "note",
+     "text": "I agree with the request on Boss 40 for the Farm unlock instead of Floor 60. It gives players eggs to look forward to earlier.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "note",
+     "text": "The Farm's button to the mine now says \"Forge\", to match the page's new name in requests 92 and 147.",
+     "at": "2026-11-09T23:44:11Z"
+    }
+   ],
+   "openedAt": "2026-11-07T17:09:34Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T07:55:02Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T07:55:02Z",
+   "headSha": "aef183b5d08eb1a860a1a4db94b26e2aa0ecb6d0",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check (stage A only: the Farm scene; eggs, pets and bonuses wait on answers)",
+   "botState": "questions",
+   "botAt": "2026-11-09T03:36:39Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-09T03:36:10Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 142,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
+   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "note",
+     "text": "Each discovered companion pays 1 Lore Shard, once. That amount was Codex's suggestion, not yours. It comes to 30 Shards for today's 30 companions, which is less than one Shard per summon. I think that's fine as a small thank-you. Raise it if you want discoveries to feel like a real reward.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "note",
+     "text": "Completing a rarity pays a one-time bonus of 10 Lore Shards. Today that's Common, Uncommon and Rare, so 30 Shards in all. Rare has only 4 companions but pays the same as Common, which has 16. I'd try paying more for rarer tiers, for example Common 10, Uncommon 15, Rare 25.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "note",
+     "text": "Companions you released still count, because the game remembers every species you've discovered. Long-time players will get one bigger claim the first time.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "note",
+     "text": "When a rarity gets new companions later, it keeps the bonus it already paid, and each new companion still pays its own Shard. If the rarity grows before you've claimed its bonus, you need the new companions too.",
+     "at": "2026-11-09T23:44:11Z"
+    },
+    {
+     "who": "note",
+     "text": "Codex also asked for \"claimed\" on every card, so each card has one small line under it (\"+1 Shard ready\" or \"Shard claimed\"). The caretaker's phone check found that, with \"New entry · Equipped\" above it, each card now has three short lines under it. If that feels busy, I can show only \"ready\".",
+     "at": "2026-11-09T23:44:11Z"
+    }
+   ],
+   "openedAt": "2026-11-07T15:36:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T07:55:02Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T07:55:02Z",
+   "headSha": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-09T05:52:02Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-07T16:01:06Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 97,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Design guided progression companion power and achievements from owner references",
+   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "With six or more companions, the two open Party rows hide the enemy and every companion on phones 375 to 430 wide; only the enemy's name and health bar show above the cards. It comes from two choices together: the fight stays still when Party opens (#106, #133), and two rows open by default from 375 wide (#97). I suggest Party opens one row by default, so the fight stays visible, and the rows…",
+     "at": "2026-11-09T23:44:10Z"
+    },
+    {
+     "who": "note",
+     "text": "On 375×667, two Party rows open by default, as you chose. Together with the fight now staying still when Party opens (#106 and #133), the open rows cover the fight completely on phones 375 to 430 wide (see the question below).",
+     "at": "2026-11-09T23:44:10Z"
+    }
+   ],
+   "openedAt": "2026-11-02T03:47:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T07:55:02Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T07:55:02Z",
+   "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T23:03:18Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-06T23:02:58Z"
    },
    "goLive": false
   },
@@ -229,409 +585,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-09T06:24:38Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 142,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
-   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "On the test site, tap Claim all at 320×610, 375×667, 390×844 and 430×932, and check that the short message at the bottom fits.",
-     "at": "2026-11-09T05:52:02Z"
-    },
-    {
-     "who": "note",
-     "text": "Each discovered companion pays 1 Lore Shard, once. That amount was Codex's suggestion, not yours. It comes to 30 Shards for today's 30 companions, which is less than one Shard per summon. I think that's fine as a small thank-you. Raise it if you want discoveries to feel like a real reward.",
-     "at": "2026-11-09T05:52:02Z"
-    },
-    {
-     "who": "note",
-     "text": "Completing a rarity pays a one-time bonus of 10 Lore Shards. Today that's Common, Uncommon and Rare, so 30 Shards in all. Rare has only 4 companions but pays the same as Common, which has 16. I'd try paying more for rarer tiers, for example Common 10, Uncommon 15, Rare 25.",
-     "at": "2026-11-09T05:52:02Z"
-    },
-    {
-     "who": "note",
-     "text": "Companions you released still count, because the game remembers every species you've discovered. Long-time players will get one bigger claim the first time.",
-     "at": "2026-11-09T05:52:02Z"
-    },
-    {
-     "who": "note",
-     "text": "When a rarity gets new companions later, it keeps the bonus it already paid, and each new companion still pays its own Shard. If the rarity grows before you've claimed its bonus, you need the new companions too.",
-     "at": "2026-11-09T05:52:02Z"
-    },
-    {
-     "who": "note",
-     "text": "Codex also asked for \"claimed\" on every card, so each card has one small line under it (\"+1 Shard ready\" or \"Shard claimed\"). The caretaker's phone check found that, with \"New entry · Equipped\" above it, each card now has three short lines under it. If that feels busy, I can show only \"ready\".",
-     "at": "2026-11-09T05:52:02Z"
-    }
-   ],
-   "openedAt": "2026-11-07T15:36:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T07:55:02Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T07:55:02Z",
-   "headSha": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-09T05:52:02Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-07T16:01:06Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 149,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
-   "quote": "\"Also let’s remove shardworks and replace it with a farm where you can raise pets that give bonuses to a companion. We will use the original egg mechanics but have fewer pets and new ones. So there would be a main egg that is a random rarity and take a certain amount of time to hatch. Then your hatched pets will kind of walk around around the egg in that location.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "What happens to the mine's Lore Shards? Right now it makes 3 to about 30 Shards an hour for players who rebuilt it. My suggestion: keep it running, reached from the Farm as it is now, until you choose a new place for those Shards. That way nobody loses what they paid for.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "joshua",
-     "text": "How much Gold does an egg cost? My suggestion: 5,000 Gold, the same as rebuilding the mine, so an egg a day feels like a real choice in the mid game.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "joshua",
-     "text": "What are the rarity odds? My suggestion: Common 70%, Uncommon 25%, Rare 5%, with the Commons, Uncommons and Rare equally likely within their rarity.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "joshua",
-     "text": "What are the six pets, and what does each one give the companion it's assigned to? My suggestion: 3 Common pets at +3% damage, 2 Uncommon pets at +5% critical chance or 5% faster attacks, and 1 Rare pet at +8% damage. A repeat hatch adds one bond level, up to 5, and each level adds a further 1%.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "joshua",
-     "text": "When does the Farm unlock? My suggestion: show it from the start as a quiet meadow, with eggs available after Boss 40.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Pet art. The finished game needs real art for each of the six pets: small pixel sprites with 2 to 4 walk and idle frames. Please have it made and put in your Artwork Inbox's Proposed folder, then link it in a change to this request.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "noah",
-     "text": "Eggs and owned pets need new data in the save, added through the save update list. I won't build that until Noah OKs the save change.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "noah",
-     "text": "Stopping the mine, or moving players' mine upgrades to something else, changes saves that players paid Gold for. That also needs Noah's OK once Joshua decides on question 1.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check the Farm on a phone at 320×610, 375×667, 390×844 and 430×932. From a new save, tap Farm on the bottom bar. Make sure the pets stay inside the fence and below the nest, the \"Get Egg\" and Forge buttons aren't covered, and every label is readable. Then tap Forge and \"‹ Pet Farm\" to check the way back.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "claude",
-     "text": "Build eggs, hatching, the pet journal and assigning a pet to a companion once Joshua answers questions 1 to 5 and Noah OKs the save change.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "note",
-     "text": "I built only the part you can try without new decisions: the Farm screen, the nest and the wandering pets. Eggs, hatching, the pet list and companion bonuses need your numbers and new save data, which Noah has to approve. If I built them now with made-up numbers, they'd have to be redone.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "note",
-     "text": "The pets and the Farm icon are simple shapes drawn in code, not real art. They're only there to test the size and movement. They can't go in the real game as finished pets. The meadow is also drawn in code. If you'd like a painted background like the mine's, it would need art in your Artwork Inbox.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "note",
-     "text": "Pets walk only in the strip below the nest, so they never cover the egg or the buttons. With six pets that strip may feel crowded. Once the real pets exist, I'd let them walk all the way round the nest.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "note",
-     "text": "I agree with the request on Boss 40 for the Farm unlock instead of Floor 60. It gives players eggs to look forward to earlier.",
-     "at": "2026-11-09T03:36:39Z"
-    },
-    {
-     "who": "note",
-     "text": "The Farm's button to the mine now says \"Forge\", to match the page's new name in requests 92 and 147.",
-     "at": "2026-11-09T03:36:39Z"
-    }
-   ],
-   "openedAt": "2026-11-07T17:09:34Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T07:55:02Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T07:55:02Z",
-   "headSha": "aef183b5d08eb1a860a1a4db94b26e2aa0ecb6d0",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check (stage A only: the Farm scene; eggs, pets and bonuses wait on answers)",
-   "botState": "questions",
-   "botAt": "2026-11-09T03:36:39Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-09T03:36:10Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 164,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify Rift language and surface essential help",
-   "quote": "",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The Town workshop card: \"Forge\" or \"Shardworks\"? The Haven request (#92) calls it the Forge, and its locked card says it \"opens once this save has its Town update\". This request calls it Shardworks and says to defeat the Floor 60 boss. The test site keeps \"Forge\" for now. I suggest Shardworks with the Floor 60 line, because that's the real requirement a player can act on.",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Undiscovered companions in the Omnidex: show their names, or \"???\"? The Omnidex request (#130) shows named blank cards, which you chose. This request showed \"???\". The test site keeps the names and adds this request's \"Rift locked\" label for companions the Rift can't summon yet. I suggest keeping it like that.",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "joshua",
-     "text": "The odds sheet's heading: \"Summoning odds\" (from the Rift levels request, #78) or \"Rift Levels\" (this request)? With #78 there's one Rift whose level you raise, so the sheet lists the odds at each level. The test site keeps \"Summoning odds\". I suggest keeping it.",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Auto Summon's amount: \"×10 Summons\" with a capital S (from #84) or \"×10 summons\"? The test site keeps the capital. Either is fine; I suggest the capital.",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "claude",
-     "text": "Open a pull request from fix/test-site-164 into main. It adds only the 22 test-site records in pocket-fortune/tools/test-site/resolutions/, named 164-<other request>-<spot>.json. Before it merges, check the combined game in a browser (README step 4).",
-     "at": "2026-11-08T19:28:35Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at this request on the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: the Rift shrine and the Rift Upgrades sheet (the Upgrade button must stay reachable with Safari's bars showing), Auto setup, the Omnidex and a companion's page, Profile > Settings (Sound, Vibration, Reduce motion), the rules, the Resource guide's Essence line, and a locked tab's unlock text.",
-     "at": "2026-11-08T19:28:35Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:50Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T07:55:02Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T07:55:02Z",
-   "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T19:28:35Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T04:46:01Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 167,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Show exact floor-clear bonuses and away earnings",
-   "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Open a pull request into main for the branch fix/test-site-167. It adds one test-site record, 167-162-tap-clear-banner.json, so this request goes on the test site with #162. Noah merges it.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once this request is on the test site, check the floor-clear banner on phones at 320×610, 375×667, 390×844 and 430×932. From a new save: pick a starter, then clear Floor 1 by tapping or waiting. The banner must not cover the enemy's name and health bar, the quest Claim button, the Rift controls or the Party, and combat must keep going.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "claude",
-     "text": "On the same phone sizes, check the away popup. Leave the tab for more than a minute and come back (Dev tools can also move the clock). One \"While you were away\" panel should open, with its Continue button fully visible and nothing cut off. Coming back within a minute shouldn't open it.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "When a story floor is cleared, a banner shows for about 3 seconds with only the first-clear bonus, for example \"+385 Gold · +2 Lore Shards · +40 XP — Floor 24 cleared\". The Gold from the ordinary kill isn't counted, and anything that paid 0 is left out. I think that's the clearest way to show what clearing the floor itself paid.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "If several floors are cleared while a banner is still showing, the next banner adds them up into one line (\"Floors 32–33 cleared\") instead of queueing one banner per floor. That keeps the screen calm when your party is fast.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "The \"While you were away\" panel now opens only after more than 60 seconds away and only when you actually earned something. It lists the floors cleared and the exact Gold, Lore Shards and XP the game saved. If the 6-hour limit cut your time short, it says how much of the time earned rewards.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "If a boss fight was reset while you were gone, you get a short note instead of the earnings panel. Your request said that alone shouldn't open the panel, so I built it that way.",
-     "at": "2026-11-08T19:19:03Z"
-    },
-    {
-     "who": "note",
-     "text": "The panel waits while a boss fight or a summon result is on screen, then shows once. Tapping Continue only closes it, so nothing is paid twice.",
-     "at": "2026-11-08T19:19:03Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:37:41Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T07:55:02Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T07:55:02Z",
-   "headSha": "ae663bf7ac4e70709d9089074ac53d60be6c85e7",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T19:19:03Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T04:52:14Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 163,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Explain boss readiness failure and cleared-floor state",
-   "quote": "",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the row on the combined test site (with #97 and #162) at 320×610 and 375×667: Floor 30, full Party of ten, boss ready, a quest ready to claim, Party open. Check that \"Claim\" shows in full beside Challenge Boss at 320, and that the enemy's name and whole health bar sit above the row at 375×667. Also check 390×844 and 430×932 still look as they did. This run had no browser, so neither…",
-     "at": "2026-11-08T19:16:14Z"
-    },
-    {
-     "who": "note",
-     "text": "The recommended Party DPS under Challenge Boss is the boss's health divided by the 30-second timer, plus 10%, rounded up (747 HP gives 28). It's green when your party meets it and amber when it's below. It never stops you from starting the fight. I think 10% is a fair cushion: attack timing and critical hits still decide close fights, and the wording says it's an estimate.",
-     "at": "2026-11-08T19:16:14Z"
-    },
-    {
-     "who": "note",
-     "text": "On narrow phones the second line of Challenge Boss is now just the two numbers, \"DPS 1,234 / 1,360\", so it fits beside Claim. I think the shorter line still reads clearly next to the green or amber colour. If you'd rather keep the full wording, the alternative is a smaller Claim plaque.",
-     "at": "2026-11-08T19:16:14Z"
-    },
-    {
-     "who": "note",
-     "text": "If the row would cover the enemy's name plate on a short screen, the plate now moves up a little. On those screens it can sit slightly over the top of the enemy's head. I chose that over covering the health bar.",
-     "at": "2026-11-08T19:16:14Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:39Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T07:55:02Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T07:55:02Z",
-   "headSha": "ab5f73ba4061b186681c12c0f36e30174452bf6c",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T19:16:14Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T19:15:24Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 161,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rescue prologue and starter selection",
-   "quote": "",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Open a pull request from fix/test-site-161 into main. It only adds one test-site record, 161-97-first-session-stylesheet.json, so the test site can include #161 next to #97. Once it's merged, run Publish test (gh workflow run publish-test.yml --repo lorebound-game/LOREBOUND). Then check that the test site's test-build.json lists #161 under included, with that record under resolved.",
-     "at": "2026-11-08T19:14:22Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at #161 in a browser at 320×610, 375×667, 390×844 and 430×932 on a new save. Check the prologue's Skip plaque, which should stay clear of the notch and work mid-fade. Check the slide pacing, and the reduced-motion setting. Check the egg screen: the \"Choose this egg\" button, the DPS, hit and crit numbers, and \"The eggs are arriving\" with slow images. Check the five first-session tips and…",
-     "at": "2026-11-08T19:14:22Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:19Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T07:55:02Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T07:55:02Z",
-   "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T19:14:22Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T04:42:15Z"
    },
    "goLive": false
   },
@@ -1167,54 +1120,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-07T01:00:34Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 97,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Design guided progression companion power and achievements from owner references",
-   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "With six or more companions, the two open Party rows hide the enemy and every companion on phones 375 to 430 wide; only the enemy's name and health bar show above the cards. It comes from two choices together: the fight stays still when Party opens (#106, #133), and two rows open by default from 375 wide (#97). I suggest Party opens one row by default, so the fight stays visible, and the rows…",
-     "at": "2026-11-07T22:38:32Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at the test site at 320×610, open the two-row Party sheet, and check that nothing from the fight shows between the cards.",
-     "at": "2026-11-07T22:38:32Z"
-    },
-    {
-     "who": "note",
-     "text": "On 375×667, two Party rows open by default, as you chose. Together with the fight now staying still when Party opens (#106 and #133), the open rows cover the fight completely on phones 375 to 430 wide (see the question below).",
-     "at": "2026-11-07T22:38:32Z"
-    }
-   ],
-   "openedAt": "2026-11-02T03:47:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T07:55:02Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T07:55:02Z",
-   "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T23:03:18Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-06T23:02:58Z"
    },
    "goLive": false
   },
@@ -3822,11 +3727,6 @@
    "text": "Claude finished building “Show exact floor-clear bonuses and away earnings”"
   },
   {
-   "at": "2026-11-08T19:19:03Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Show exact floor-clear bonuses and away earnings”"
-  },
-  {
    "at": "2026-11-08T19:18:24Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
@@ -3837,11 +3737,6 @@
    "text": "Claude finished building “Explain boss readiness failure and cleared-floor state”"
   },
   {
-   "at": "2026-11-08T19:16:14Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Explain boss readiness failure and cleared-floor state”"
-  },
-  {
    "at": "2026-11-08T19:14:22Z",
    "kind": "built",
    "text": "Claude finished building “Rescue prologue and starter selection”"
@@ -3850,6 +3745,16 @@
    "at": "2026-11-08T19:13:34Z",
    "kind": "closed",
    "text": "“Haven: cozy raised starting camp and clearable land patches on the map” was closed"
+  },
+  {
+   "at": "2026-11-08T13:02:11Z",
+   "kind": "test",
+   "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Build compact Journey and Permanent Achievements Journal using real LOREBOUND data”, “Improve Adventure battlefield layout with shared nameplate and party frame”, “Unify team and Omnidex companion pages; approve Locations provisionally”, “Replace Tome-tier UI with one permanent numeric Portal progression”, “Use approved rarity-frame design and simplify Adventure Rift rail”, “Stage approved companion habitats on dev for mobile QA”, “Integrate approved 10 unique Auto Summon rarity rows”, “Integrate approved Rift Upgrades rarity art and subtle high-tier animation”, “Add approved Realm 2 companions to universal summoning and Omnidex”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Reduce empty space above expanded Party cards”, “Design guided progression companion power and achievements from owner references”, “Integrate approved 10-tier companion dock backgrounds”, “Reclaim Adventure screen space with all 10 Party cards in compact 5×2 grid”, “Refine Adventure: full-width companion cards and grounded battlefield”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up”, “Rework Omnidex into universal collection and rarity pages”, “Preview approved Common companions in existing detail screen”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Unify Rift rarity bars and clean up legacy Tome UI”, “Audit live and dev Realm 1 visuals before Realm 2”, “Polish DEV Rift controls, summon quantity footer and Party labels”, “Show named blank undiscovered Omnidex cards and tighten rarity pages”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
+  },
+  {
+   "at": "2026-11-08T13:00:21Z",
+   "kind": "built",
+   "text": "Claude finished building “Replace Ascend with 25-hero rarity board for tap power”"
   }
  ],
  "otherPulls": [
