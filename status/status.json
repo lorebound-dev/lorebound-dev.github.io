@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T03:33:38.863Z",
+ "generatedAt": "2026-11-09T03:37:03.935Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -57,25 +57,101 @@
    "by": "Joshua",
    "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
    "quote": "\"Also let’s remove shardworks and replace it with a farm where you can raise pets that give bonuses to a companion. We will use the original egg mechanics but have fewer pets and new ones. So there would be a main egg that is a random rarity and take a certain amount of time to hatch. Then your hatched pets will kind of walk around around the egg in that location.\"",
-   "stage": "building",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
+   "stage": "testing",
+   "waitingOn": "both",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "What happens to the mine's Lore Shards? Right now it makes 3 to about 30 Shards an hour for players who rebuilt it. My suggestion: keep it running, reached from the Farm as it is now, until you choose a new place for those Shards. That way nobody loses what they paid for.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "joshua",
+     "text": "How much Gold does an egg cost? My suggestion: 5,000 Gold, the same as rebuilding the mine, so an egg a day feels like a real choice in the mid game.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "joshua",
+     "text": "What are the rarity odds? My suggestion: Common 70%, Uncommon 25%, Rare 5%, with the Commons, Uncommons and Rare equally likely within their rarity.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "joshua",
+     "text": "What are the six pets, and what does each one give the companion it's assigned to? My suggestion: 3 Common pets at +3% damage, 2 Uncommon pets at +5% critical chance or 5% faster attacks, and 1 Rare pet at +8% damage. A repeat hatch adds one bond level, up to 5, and each level adds a further 1%.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "joshua",
+     "text": "When does the Farm unlock? My suggestion: show it from the start as a quiet meadow, with eggs available after Boss 40.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Pet art. The finished game needs real art for each of the six pets: small pixel sprites with 2 to 4 walk and idle frames. Please have it made and put in your Artwork Inbox's Proposed folder, then link it in a change to this request.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "noah",
+     "text": "Eggs and owned pets need new data in the save, added through the save update list. I won't build that until Noah OKs the save change.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "noah",
+     "text": "Stopping the mine, or moving players' mine upgrades to something else, changes saves that players paid Gold for. That also needs Noah's OK once Joshua decides on question 1.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check the Farm on a phone at 320×610, 375×667, 390×844 and 430×932. From a new save, tap Farm on the bottom bar. Make sure the pets stay inside the fence and below the nest, the \"Get Egg\" and Forge buttons aren't covered, and every label is readable. Then tap Forge and \"‹ Pet Farm\" to check the way back.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "claude",
+     "text": "Build eggs, hatching, the pet journal and assigning a pet to a companion once Joshua answers questions 1 to 5 and Noah OKs the save change.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "note",
+     "text": "I built only the part you can try without new decisions: the Farm screen, the nest and the wandering pets. Eggs, hatching, the pet list and companion bonuses need your numbers and new save data, which Noah has to approve. If I built them now with made-up numbers, they'd have to be redone.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "note",
+     "text": "The pets and the Farm icon are simple shapes drawn in code, not real art. They're only there to test the size and movement. They can't go in the real game as finished pets. The meadow is also drawn in code. If you'd like a painted background like the mine's, it would need art in your Artwork Inbox.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "note",
+     "text": "Pets walk only in the strip below the nest, so they never cover the egg or the buttons. With six pets that strip may feel crowded. Once the real pets exist, I'd let them walk all the way round the nest.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "note",
+     "text": "I agree with the request on Boss 40 for the Farm unlock instead of Floor 60. It gives players eggs to look forward to earlier.",
+     "at": "2026-11-09T03:36:39Z"
+    },
+    {
+     "who": "note",
+     "text": "The Farm's button to the mine now says \"Forge\", to match the page's new name in requests 92 and 147.",
+     "at": "2026-11-09T03:36:39Z"
+    }
+   ],
    "openedAt": "2026-11-07T17:09:34Z",
    "mergedAt": null,
    "closedAt": null,
    "liveAt": null,
    "testAt": "2026-11-08T21:47:25Z",
    "onTest": true,
-   "testIsCurrent": true,
+   "testIsCurrent": false,
    "clashes": false,
-   "updatedAt": "2026-11-08T21:47:25Z",
-   "headSha": "f30863505df12d95e82d58c8239373029dd6e06f",
+   "updatedAt": "2026-11-09T03:36:39Z",
+   "headSha": "aef183b5d08eb1a860a1a4db94b26e2aa0ecb6d0",
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check (stage A only: the Farm scene; eggs, pets and bonuses wait on answers)",
    "botState": "questions",
-   "botAt": "2026-11-07T17:16:58Z",
+   "botAt": "2026-11-09T03:36:39Z",
    "goLive": false
   },
   {
@@ -1296,6 +1372,26 @@
  ],
  "activity": [
   {
+   "at": "2026-11-09T03:36:39Z",
+   "kind": "built",
+   "text": "Claude finished building “Replace Shardworks with a timed-egg Pet Farm and roaming pets”"
+  },
+  {
+   "at": "2026-11-09T03:36:39Z",
+   "kind": "note",
+   "text": "Claude left notes for you on “Replace Shardworks with a timed-egg Pet Farm and roaming pets”"
+  },
+  {
+   "at": "2026-11-09T03:36:39Z",
+   "kind": "question",
+   "text": "Claude has a question for you about “Replace Shardworks with a timed-egg Pet Farm and roaming pets”"
+  },
+  {
+   "at": "2026-11-09T03:36:39Z",
+   "kind": "question",
+   "text": "Part of “Replace Shardworks with a timed-egg Pet Farm and roaming pets” is waiting for Noah’s OK"
+  },
+  {
    "at": "2026-11-08T21:47:25Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Haven 3.0–4.0: upgradeable town and endless connected frontier”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
@@ -1474,26 +1570,6 @@
    "at": "2026-11-08T04:47:22Z",
    "kind": "note",
    "text": "Claude left notes for you on “Separate production assets and reduce shipping overhead safely”"
-  },
-  {
-   "at": "2026-11-08T04:47:22Z",
-   "kind": "question",
-   "text": "Claude has a question for you about “Separate production assets and reduce shipping overhead safely”"
-  },
-  {
-   "at": "2026-11-08T04:47:22Z",
-   "kind": "question",
-   "text": "Part of “Separate production assets and reduce shipping overhead safely” is waiting for Noah’s OK"
-  },
-  {
-   "at": "2026-11-08T04:39:36Z",
-   "kind": "built",
-   "text": "Claude finished building “Fix regular enemy visibility and quest overlap”"
-  },
-  {
-   "at": "2026-11-08T04:39:36Z",
-   "kind": "note",
-   "text": "Claude left notes for you on “Fix regular enemy visibility and quest overlap”"
   }
  ],
  "otherPulls": [
