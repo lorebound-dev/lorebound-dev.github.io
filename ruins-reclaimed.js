@@ -1,6 +1,6 @@
 /* Ruins Reclaimed: a test-site-only settlement prototype, shown by the Haven tab.
  * Haven 2.0: gather Wood, Stone and Ore from trees and deposits that take several hits, place buildings on the same
- * map, and expand that one map outwards (8×8 → 12×12 → 16×16).
+ * map, and grow that one map outwards.
  * Haven 3.0 adds seven more buildings, three upgrade stages for every building (makeshift, timber, stone), roads,
  * worker jobs and a Settlement Level worked out from what has been built.
  * Everything here is original code. The 2:1 isometric math is the standard textbook projection, worker paths use a plain
@@ -8,23 +8,31 @@
  * Tween.js or clicker-engine (see docs/RUINS-RECLAIMED-PROTOTYPE.md).
  * Haven 3.5 adds people: Food, a House and a Farm, seven jobs (woodcutter, stone miner, ore miner, farmer, builder,
  * guard, scout), raids by wolves and bandits that can be seen walking in, a palisade, and repairs.
- * It never reads or writes the LOREBOUND save. Its own data lives in localStorage key lorebound-haven-settlement-v5,
- * and only on the test site or a local copy. The earlier keys (lorebound-haven-settlement-v4 for Haven 3.0,
- * lorebound-haven-settlement-v2, which holds Haven 2.0's version 2 or retuned version 3 save, and
- * lorebound-ruins-prototype-v01) are only read, to move their progress over once, and are never changed or deleted.
+ * Haven 4 (#144, #145) turns the land into patches: a raised home clearing in the middle, and twelve 4×4 patches of
+ * wild land round it, each cleared on the map for its own price, with its own mix of trees, stone and ore in clusters.
+ * It never reads or writes the LOREBOUND save. Its own data lives in localStorage key lorebound-haven-settlement-v6,
+ * and only on the test site or a local copy. Haven 4 is a fresh start (Noah's OK, 2026-11-09): the Haven 3.5 save in
+ * lorebound-haven-settlement-v5 (and the older v4, v2 and first-prototype keys) is never read, changed or deleted, so
+ * it stays exactly as it was, as a backup.
  * Gathering follows PR #91's retune (f306e3c): nodes hold twice the work, hits by hand are paced at one per 0.48 s,
  * workers swing every 1.75 s for twice the work, and regrowth comes every 3rd node or 20 s of play.
  * Eating, raids and farming only move on while Haven is open and on screen: nothing happens while you're away.
  * All numbers in CONFIG, FX and BLUEPRINTS are trial values for play-testing, not approved balance. */
 (function(root){'use strict';
 
-const KEY='lorebound-haven-settlement-v5',V4_KEY='lorebound-haven-settlement-v4',V2_KEY='lorebound-haven-settlement-v2',V1_KEY='lorebound-ruins-prototype-v01',BAD_KEY=KEY+'-unreadable';
+const KEY='lorebound-haven-settlement-v6',V5_KEY='lorebound-haven-settlement-v5',BAD_KEY=KEY+'-unreadable';
+// Keys of earlier Havens. Only looked at to say that an earlier town is kept; never read into the game, changed or deleted.
+const OLD_KEYS=Object.freeze([V5_KEY,'lorebound-haven-settlement-v4','lorebound-haven-settlement-v2','lorebound-ruins-prototype-v01']);
 // Work: your hit at the starting hit power of 1 does 4 work. Since Haven 2.0's retune a node holds twice the work it
 // did at first, so it takes twice your hits; a worker's swing was doubled with it, so workers take as many swings.
 const CONFIG=Object.freeze({
-  version:5,
+  version:6,
   world:16,
-  lands:[[4,12],[2,14],[0,16]],      // territory 1 is the old 8×8 in the middle; each expansion adds two tiles all round
+  home:[4,12],            // the raised home clearing: the middle 8×8 (tiles 4 to 11 both ways)
+  patch:4,                // the rest of the map is twelve 4×4 patches of wild land, cleared one at a time
+  // Clearing a patch (trial numbers): 8 Wood and 4 Stone for the first, then 4 Wood and 2 Stone more for each patch
+  // already cleared. Never Ore, so a patch never waits on something only found in land not yet cleared.
+  clearCost:{wood:8,stone:4},clearStep:{wood:4,stone:2},clearMs:800,
   kinds:{
     bush:{hp:16,give:{wood:1,food:2},name:'Berry bush'},     // 4 hits by hand at hit power 1; its berries are the first Food
     pine:{hp:32,give:{wood:2},name:'Pine'},     // 8 hits
@@ -44,27 +52,29 @@ const CONFIG=Object.freeze({
   stepMs:380,             // and walks one tile in 0.38 s
   roadStep:.6,            // a step onto a road takes 60% of the time
   retryMs:1000,           // a worker with nothing it can reach looks again after 1 s, not every frame
-  extraCoreStones:5,      // stone deposits added to the old 8×8 on open ground (the old prototype had 3 unmineable rocks)
-  ringNodes:[null,{tree:18,stone:7,ore:4},{tree:24,stone:8,ore:7}],
+  // What grows where (#145, a trial layout): small clusters, never the middle of the home clearing. The home clearing
+  // has 15 trees and bushes and 7 stone round its edge; each patch has 7 nodes (old rings had about 5.7 for 16 tiles,
+  // so this is about 23% more). Woods: 6 trees and bushes and 1 stone. Stony ground: 3 stone, 2 ore and 2 trees.
+  // Wild corners: 4 trees, 1 stone and 2 ore.
+  homeNodes:{pine:6,oak:5,bush:4,stone:7},
+  patchNodes:{wood:[['wood',4],['wood',2],['stone',1]],stone:[['stone',3],['ore',2],['wood',2]],wild:[['wood',4],['ore',2],['stone',1]]},
   regrowEvery:3,          // every 3rd node you finish lets the oldest felled tree or mined deposit grow back
   regrowMs:20000,         // and so does every 20 s of play with Haven open, if nothing has grown back in that time
-  expand:[{wood:24,stone:16},{wood:40,stone:24,ore:8}],
-  v1:{size:8,treeCounts:[14,16,18]},
   maxLevel:3,             // building stages: 1 makeshift, 2 timber, 3 stone
   upgradeScale:[0,1,2.5,5],
   specialist:1.5,         // a worker on its own job (wood, stone or ore) does 1½× work there
   roadCost:{stone:1},roadMax:80,roadsAt:2,
   // Settlement Level: worked out again from what stands in Haven every time, never stored, so nothing can be counted twice.
-  points:{level:10,townHall:2,land:25,road:2,roadCount:20,tool:3,worker:4},
+  points:{level:10,townHall:2,land:5,road:2,roadCount:20,tool:3,worker:4}, // land: 5 for each cleared patch (60 for all 12)
   townHallNeeds:[0,0,8,14],  // Settlement Level needed to raise the Town Hall to Lv 2 and Lv 3
   // Haven 3.5, people and Food (trial numbers).
   workerFlat:7,workerLate:1.15, // recruit costs grow 1.8× each up to the 8th person (as in 3.0), then 1.15× each
   recruitFood:3,recruitFoodStep:2, // and Food: 3, then 2 more for each person already in Haven
-  startFood:10,migrateFood:10,migrateFoodEach:5, // a new Haven starts with 1 settler and 10 Food; a 3.0 town gets 10 + 5 a person
+  startFood:10,           // a new Haven starts with 1 settler and 10 Food
   eatMs:60000,            // each person eats 1 Food a minute of play with Haven open
   hungry:.5,              // with no Food, everyone but farmers works at half power, and no one can be recruited
   farmPower:4,cropHp:60,  // a farmer adds 4 to the crop per swing; 60 makes a harvest (15 swings, about 26 s)
-  // Raids (trial numbers): only once Haven has a House, a Farm and its first expansion, and only during play.
+  // Raids (trial numbers): only once Haven has a House, a Farm and its first cleared patch, and only during play.
   graceMs:300000,         // 5 minutes of play before the first raid
   peaceWonMs:240000,peaceLostMs:360000, // quiet time after a raid: 4 minutes after driving it off, 6 after losing
   warnMs:45000,warnScoutMs:15000,warnScouts:4, // the warning comes 45 s ahead, 15 s earlier for each scout (up to 4)
@@ -92,7 +102,7 @@ const BLUEPRINTS=Object.freeze([
   {id:'stoneyard',name:'Stone Yard',group:'found',cost:{wood:14,stone:12},needs:{},
     effects:['Workers do double work on stone and ore; +1 Stone per deposit','Workers do 2½× work on stone and ore; +1 Stone per deposit','Workers do 3× work on stone and ore; +2 Stone per deposit']},
   {id:'survey',name:'Survey Post',group:'found',cost:{wood:16,stone:10},needs:{},
-    effects:['Lets you expand into the mist around Haven','Lets you expand; expanding costs 10% less','Lets you expand; expanding costs 20% less']},
+    effects:['Lets you clear more land round Haven','Lets you clear more land; clearing costs 10% less','Lets you clear more land; clearing costs 20% less']},
   {id:'sawmill',name:'Sawmill',group:'town',cost:{wood:30,stone:12},needs:{built:['lumber']},
     effects:['+1 Wood from every tree or bush felled','+2 Wood from every tree or bush felled','+3 Wood from every tree or bush felled']},
   {id:'quarry',name:'Quarry',group:'town',cost:{wood:26,stone:22},needs:{built:['stoneyard']},
@@ -102,7 +112,7 @@ const BLUEPRINTS=Object.freeze([
   {id:'townhall',name:'Town Hall',group:'town',cost:{wood:60,stone:40},needs:{built:['workshop','lumber','stoneyard','survey']},
     effects:['The heart of Haven. Other buildings stay at Lv 1 until it grows','Other buildings can be upgraded to Lv 2 (timber)','Other buildings can be upgraded to Lv 3 (stone)']},
   {id:'watchtower',name:'Watchtower',group:'town',cost:{wood:30,stone:26},needs:{built:['survey']},
-    effects:['Shows the next land through the mist; regrowth keeps 3 nodes standing; +2 Defense','Regrowth keeps 5 trees or deposits standing; +4 Defense','Regrowth keeps 7 trees or deposits standing; +6 Defense']},
+    effects:['Shows what grows in far land through the mist; regrowth keeps 3 nodes standing; +2 Defense','Regrowth keeps 5 trees or deposits standing; +4 Defense','Regrowth keeps 7 trees or deposits standing; +6 Defense']},
   {id:'warehouse',name:'Warehouse',group:'town',cost:{wood:42,stone:30},needs:{land:1},
     effects:['+1 worker place','+2 worker places','+3 worker places']},
   {id:'foundry',name:'Foundry',group:'town',cost:{wood:36,stone:34,ore:6},needs:{land:1},
@@ -126,8 +136,8 @@ const JOB_SHORT={wood:'woodcutting',stone:'on stone',ore:'on ore',farm:'farming'
 const JOB_KIND={wood:'pine',stone:'stone',ore:'ore'};
 const GATHER=new Set(['auto','wood','stone','ore','farm','build']); // jobs that work trees and deposits (farmers forage berry bushes)
 const RAID_NAME={beast:'Wolves',bandit:'Bandits'};
-/* Haven Management: one drawer under the map with four sections, one open at a time. "jobs" is People. Defense shows
- * raids, guards, the palisade and repairs; Land holds expansion. */
+/* Haven Management: four in-game windows, one open at a time. "jobs" is People. Defense shows raids, guards, the
+ * palisade and repairs; Land is a short overview of the land, with Find Next Clearing. */
 const TABS=Object.freeze([{id:'build',name:'Build',pane:'ruinsBuild'},{id:'jobs',name:'People',pane:'ruinsJobs'},{id:'defense',name:'Defense',pane:'ruinsDefensePane'},{id:'land',name:'Land',pane:'ruinsLandPane'}]);
 const MILESTONES=Object.freeze([
   {lv:2,text:'Roads unlocked'},
@@ -143,59 +153,84 @@ const isWood=k=>k==='bush'||k==='pine'||k==='oak';
 function seeded(seed){let s=(seed*2654435761+97)>>>0;return()=>{s=(Math.imul(s^(s>>>15),2246822519)+3266489917)>>>0;return((s^(s>>>13))>>>0)/4294967296;};}
 function shuffle(list,rand){for(let i=list.length-1;i>0;i--){const j=Math.floor(rand()*(i+1));[list[i],list[j]]=[list[j],list[i]];}return list;}
 
-/* ---------- The first prototype's patches (read only, for moving old progress over) ----------
- * Same generator as the first build, so an old patch's trees land on exactly the same tiles. */
-const V1_RUINS=[[[0,4],[1,4],[2,4],[5,4],[6,4],[7,4]],[[3,0],[3,1],[3,2],[4,5],[4,6],[4,7]],[[0,0],[1,1],[2,2],[5,5],[6,6],[7,7]],[[7,3],[6,3],[5,3],[0,4],[1,4],[2,4]]];
-const V1_FOOT=[[3,3],[4,3],[3,4],[4,4]];
-const v1Patches=new Map();
-function v1Patch(index){
-  if(v1Patches.has(index))return v1Patches.get(index);
-  const N=CONFIG.v1.size,at=(c,r)=>r*N+c,n=N*N,rand=seeded(index+1),foot=new Set(V1_FOOT.map(([c,r])=>at(c,r)));
-  const path=new Set(V1_RUINS[index%4].map(([c,r])=>at(c,r))),want=CONFIG.v1.treeCounts[index%3];
-  const free=[];for(let i=0;i<n;i++)if(!foot.has(i)&&!path.has(i))free.push(i);
-  shuffle(free,rand);
-  const trees=[...path,...free.slice(0,want-path.size)].sort((a,b)=>a-b),rocks=free.slice(want-path.size,want-path.size+3);
-  const kind={};for(const t of trees){const v=rand();kind[t]=v<.42?'pine':v<.84?'oak':'bush';}
-  const p=Object.freeze({index,trees,treeSet:new Set(trees),rocks,foot:[...foot],kind});v1Patches.set(index,p);return p;
-}
-function validateV1(o){
-  if(!o||typeof o!=='object'||Array.isArray(o))return null;
-  if(Object.keys(o).sort().join()!=='cleared,patch,tools,v,wood,workers')return null;
-  if(o.v!==1||!int(o.wood,0,1e9)||!int(o.tools,0,10)||!int(o.workers,0,5)||!int(o.patch,0,9999)||!Array.isArray(o.cleared))return null;
-  const p=v1Patch(o.patch),seen=new Set();for(const t of o.cleared){if(!p.treeSet.has(t)||seen.has(t))return null;seen.add(t);}
-  return{v:1,wood:o.wood,tools:o.tools,workers:o.workers,patch:o.patch,cleared:[...o.cleared]};
-}
+/* ---------- The land (#144, #145) ----------
+ * One 16×16 grid with fixed tile numbers. The middle 8×8 is the home clearing, drawn raised above the rest: a hearth in
+ * the middle (it can't be built on or walked through), a short worn footpath out to its edge, an open middle to build
+ * on, and clusters of trees, bushes and stone round its edge. The rest of the map is cut into twelve 4×4 patches of
+ * wild land, each with its own fixed mix of nodes in small clusters, towards its outer side. A patch is cleared once,
+ * for its price, when it shares a whole side with land Haven has: then it's Haven's land like the home clearing, and its
+ * nodes can be worked. Clearing pays nothing: the brush that goes is only a picture, and every node stays. */
+const [HLO,HHI]=CONFIG.home,P4=CONFIG.patch,NB=W/P4;
+const HEARTH=wid(7,7),FOOTPATH=Object.freeze([wid(7,8),wid(7,9),wid(7,10),wid(7,11)]);
+const PATCH_NAME={wood:'Woods',stone:'Stony ground',wild:'Wild corner'};
+// Each side of the home clearing has one wooded patch and one stony one; the corners are wild, with ore.
+const PATCHES=(()=>{const kinds={0:'wild',1:'wood',2:'stone',3:'wild',4:'stone',7:'wood',8:'wood',11:'stone',12:'wild',13:'stone',14:'wood',15:'wild'},out=[];
+  for(let b=0;b<NB*NB;b++){if(!(b in kinds))continue;const bx=b%NB,by=Math.floor(b/NB),c0=bx*P4,r0=by*P4,tiles=[];
+    for(let r=r0;r<r0+P4;r++)for(let c=c0;c<c0+P4;c++)tiles.push(wid(c,r));
+    out.push(Object.freeze({id:out.length+1,bx,by,c0,r0,kind:kinds[b],name:PATCH_NAME[kinds[b]],tiles:Object.freeze(tiles)}));}
+  return Object.freeze(out);})();
+const PATCH=Object.fromEntries(PATCHES.map(p=>[p.id,p]));
+const ZONE=new Array(W*W).fill(0);for(const p of PATCHES)for(const id of p.tiles)ZONE[id]=p.id;
+const zoneAt=(c,r)=>c>=0&&r>=0&&c<W&&r<W?ZONE[wid(c,r)]:-1;
+// Which patches share a side (zone 0 is the home clearing).
+const ZADJ=(()=>{const a=Array.from({length:PATCHES.length+1},()=>new Set());
+  for(let r=0;r<W;r++)for(let c=0;c<W;c++){const z=ZONE[wid(c,r)];for(const [dc,dr] of [[1,0],[0,1]]){const n=zoneAt(c+dc,r+dr);if(n>=0&&n!==z){a[z].add(n);a[n].add(z);}}}
+  return Object.freeze(a.map(s=>Object.freeze([...s].sort((x,y)=>x-y))));})();
 
-/* ---------- The world ----------
- * One 16×16 grid with fixed tile numbers. The middle 8×8 is the patch the player was on in the first prototype
- * (patch 1 for a new player): its trees, its 3 rocks (now mineable stone) and its broken ruin (rubble you can't build
- * on or walk through), plus a few stone deposits. Each expansion ring has its own fixed trees, stone and ore. */
+/* Haven's land for a list of cleared patches: its tiles, its edge (tiles with a side on wild land or the map's end),
+ * and near, the one-tile ring of forest edge just outside it (on or just off the map), which people can always walk. */
+const code=(c,r)=>(r+1)*(W+2)+c+1;
+const lands=new Map();
+function landOf(list){const key=[...list].sort((a,b)=>a-b).join(',');if(lands.has(key))return lands.get(key);
+  const zones=new Set([0,...list]),tiles=new Set(),ids=[];for(let id=0;id<W*W;id++)if(zones.has(ZONE[id])){tiles.add(id);ids.push(id);}
+  const has=(c,r)=>c>=0&&r>=0&&c<W&&r<W&&tiles.has(wid(c,r)),near=new Set(),nearList=[];
+  for(let r=-1;r<=W;r++)for(let c=-1;c<=W;c++){if(has(c,r))continue;let by=false;
+    for(let dr=-1;dr<=1&&!by;dr++)for(let dc=-1;dc<=1;dc++)if(has(c+dc,r+dr)){by=true;break;}
+    if(by){near.add(code(c,r));nearList.push([c,r]);}}
+  const edge=ids.filter(id=>{const c=id%W,r=Math.floor(id/W);return !has(c+1,r)||!has(c-1,r)||!has(c,r+1)||!has(c,r-1);});
+  // The edge walked round once, clockwise as you look at it from the top corner of the map, for the palisade.
+  const ang=id=>{const a=Math.atan2(Math.floor(id/W)-7.5,id%W-7.5)+Math.PI*.75;return a<0?a+Math.PI*2:a;};
+  const ring=[...edge].sort((a,b)=>ang(a)-ang(b)||a-b);
+  const v=Object.freeze({zones,tiles,ids,near,nearList,edge,edgeSet:new Set(edge),ring});lands.set(key,v);return v;}
+const owns=new WeakMap();
+function own(s){const z=s.zones,o=owns.get(z);if(o&&o.n===z.length)return o.v;const v=landOf(z);owns.set(z,{n:z.length,v});return v;}
+
+// Small clusters: each group starts from one of the best-placed free tiles and takes the free tiles nearest to it.
+function clusters(cells,groups,rand,score){const free=new Set(cells),out=[];
+  for(const [kind,n] of groups){const left=[...free].map(id=>[score(id),id]).sort((a,b)=>b[0]-a[0]||a[1]-b[1]).map(x=>x[1]);if(!left.length)break;
+    const seed=left[Math.floor(rand()*Math.max(1,Math.ceil(left.length/3)))],sc=seed%W,sr=Math.floor(seed/W);
+    const near=left.map(id=>[Math.hypot(id%W-sc,Math.floor(id/W)-sr)+rand()*.9,id]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
+    for(const [,id] of near.slice(0,n)){free.delete(id);out.push([id,kind]);}}
+  return out;}
 const worlds=new Map();
 function world(origin){
   if(worlds.has(origin))return worlds.get(origin);
-  const nodes=new Map(),rubble=new Set(),old=v1Patch(origin),off=CONFIG.lands[0][0];
-  const put=(c,r,kind,land)=>nodes.set(wid(c,r),Object.freeze({id:wid(c,r),c,r,kind,land}));
-  for(const t of old.trees)put(t%8+off,Math.floor(t/8)+off,old.kind[t],0);
-  for(const t of old.rocks)put(t%8+off,Math.floor(t/8)+off,'stone',0);
-  for(const t of old.foot)rubble.add(wid(t%8+off,Math.floor(t/8)+off));
-  const free=[];for(let i=0;i<64;i++){const id=wid(i%8+off,Math.floor(i/8)+off);if(!nodes.has(id)&&!rubble.has(id))free.push(id);}
-  for(const id of shuffle(free,seeded(origin+5000)).slice(0,CONFIG.extraCoreStones))put(id%W,Math.floor(id/W),'stone',0);
-  for(let k=1;k<CONFIG.lands.length;k++){
-    const [lo,hi]=CONFIG.lands[k],[plo,phi]=CONFIG.lands[k-1],cells=[],rand=seeded(9000+k),want=CONFIG.ringNodes[k];
-    for(let r=lo;r<hi;r++)for(let c=lo;c<hi;c++)if(c<plo||r<plo||c>=phi||r>=phi)cells.push(wid(c,r));
-    shuffle(cells,rand);let i=0;
-    for(let n=0;n<want.tree;n++){const v=rand(),id=cells[i++];put(id%W,Math.floor(id/W),v<.4?'pine':v<.8?'oak':'bush',k);}
-    for(let n=0;n<want.stone;n++){const id=cells[i++];put(id%W,Math.floor(id/W),'stone',k);}
-    for(let n=0;n<want.ore;n++){const id=cells[i++];put(id%W,Math.floor(id/W),'ore',k);}
-  }
+  const rubble=new Set([HEARTH]),path=new Set(FOOTPATH);let nodes=null;
+  for(let attempt=0;attempt<60&&!nodes;attempt++){
+    const rand=seeded(origin*131+attempt*7919+11),list=new Map();
+    const put=(id,kind,zone)=>list.set(id,Object.freeze({id,c:id%W,r:Math.floor(id/W),kind,zone}));
+    // The home clearing: only its two outer rows of tiles, never the footpath.
+    const ringOf=id=>{const c=id%W,r=Math.floor(id/W);return Math.min(c-HLO,r-HLO,HHI-1-c,HHI-1-r);};
+    const band=[];for(let r=HLO;r<HHI;r++)for(let c=HLO;c<HHI;c++){const id=wid(c,r);if(ringOf(id)<=1&&!path.has(id))band.push(id);}
+    const H=CONFIG.homeNodes,woods=shuffle([...Array(H.pine).fill('pine'),...Array(H.oak).fill('oak'),...Array(H.bush).fill('bush')],rand);
+    const placed=clusters(band,[['wood',5],['stone',3],['wood',4],['stone',2],['wood',3],['stone',2],['wood',3]],rand,id=>1-ringOf(id)+rand()*.5);
+    for(const [id,k] of placed)put(id,k==='wood'?woods.pop():k,0);
+    // Each patch: its own mix, nearer its outer side, so the side facing Haven stays open.
+    for(const p of PATCHES)for(const [id,k] of clusters(p.tiles,CONFIG.patchNodes[p.kind],rand,id=>Math.hypot(id%W-7.5,Math.floor(id/W)-7.5)+rand()*.6)){
+      const v=rand();put(id,k==='wood'?(v<.4?'pine':v<.8?'oak':'bush'):k,p.id);}
+    // Kept only if nobody can be walled in: with every patch cleared, every open tile can be walked to from outside;
+    // and the home clearing alone, or with any one patch, has open ground to build on that can be reached.
+    const b=new Set([...rubble,...list.keys()]),all=landOf(PATCHES.map(p=>p.id)),open=reach(null,b,all);
+    let ok=all.ids.every(id=>b.has(id)||open.has(id));
+    for(let z=0;ok&&z<=PATCHES.length;z++){const L=landOf(z?[z]:[]),o=reach(null,b,L),mine=L.ids.filter(id=>ZONE[id]===z&&o.has(id)).length;if(mine<(z?6:20))ok=false;}
+    if(ok)nodes=list;}
   const shadeRand=seeded(77),shade=Array.from({length:(W+2)*(W+2)},()=>shadeRand());
-  const w=Object.freeze({origin,nodes,rubble,shade:id=>shade[(Math.floor(id/W)+1)*(W+2)+id%W+1]??.5});worlds.set(origin,w);return w;
+  const w=Object.freeze({origin,nodes,rubble,path,shade:id=>shade[(Math.floor(id/W)+1)*(W+2)+id%W+1]??.5});worlds.set(origin,w);return w;
 }
-const land=s=>CONFIG.lands[s.land];
-const inLand=(s,c,r)=>{const [lo,hi]=land(s);return c>=lo&&r>=lo&&c<hi&&r<hi;};
+const inLand=(s,c,r)=>c>=0&&r>=0&&c<W&&r<W&&own(s).tiles.has(wid(c,r));
 const goneSet=s=>new Set(s.gone);
-function standingIds(s){const g=goneSet(s),out=[];for(const n of world(s.origin).nodes.values())if(n.land<=s.land&&!g.has(n.id))out.push(n.id);return out;}
-function standing(s,id){const n=world(s.origin).nodes.get(id);return !!n&&n.land<=s.land&&!s.gone.includes(id);}
+function standingIds(s){const g=goneSet(s),z=own(s).zones,out=[];for(const n of world(s.origin).nodes.values())if(z.has(n.zone)&&!g.has(n.id))out.push(n.id);return out;}
+function standing(s,id){const n=world(s.origin).nodes.get(id);return !!n&&own(s).zones.has(n.zone)&&!s.gone.includes(id);}
 const buildingAt=(s,id)=>s.built.find(b=>wid(b.c,b.r)===id)||null;
 const has=(s,type)=>s.built.some(b=>b.t===type);
 const lvOf=(s,type)=>s.built.find(b=>b.t===type)?.lv||0;
@@ -207,8 +242,8 @@ const isBroken=(s,type)=>!!s.broken&&Object.prototype.hasOwnProperty.call(s.brok
 const on=(s,type)=>isBroken(s,type)?0:lvOf(s,type);
 const emptyJobs=()=>Object.fromEntries(JOBS.map(j=>[j,0]));
 
-// A blank Haven 3.5 state. newGame() is what a player starting out gets: one settler and a little Food.
-function fresh(origin=0){return{v:CONFIG.version,wood:0,stone:0,ore:0,food:0,tools:0,workers:0,origin,land:0,tally:0,gone:[],hp:{},built:[],roads:[],jobs:emptyJobs(),
+// A blank Haven 4 state. newGame() is what a player starting out gets: one settler and a little Food.
+function fresh(origin=0){return{v:CONFIG.version,wood:0,stone:0,ore:0,food:0,tools:0,workers:0,origin,zones:[],tally:0,gone:[],hp:{},built:[],roads:[],jobs:emptyJobs(),
   crop:0,eat:0,raids:0,calm:CONFIG.graceMs,raid:'',broken:{},walls:[],last:null};}
 function newGame(origin=0){const s=fresh(origin);s.workers=1;s.food=CONFIG.startFood;return s;}
 const int=(x,lo,hi)=>Number.isSafeInteger(x)&&x>=lo&&x<=hi;
@@ -217,98 +252,61 @@ const toolsCap=s=>CONFIG.toolsMax+FX.foundryTools[lvOf(s,'foundry')];
 // Places for people: 5 to start, plus the Warehouse and the House. A damaged building never takes places away.
 const workerCap=s=>CONFIG.workerMax+FX.warehouse[lvOf(s,'warehouse')]+FX.house[lvOf(s,'house')];
 
-/* Shared strict checks for felled nodes, work left and buildings. Returns clean copies, or null. */
-function checkCore(o,types,maxLv){
-  const wd=world(o.origin),seen=new Set();
-  for(const id of o.gone){const n=wd.nodes.get(id);if(!int(id,0,W*W-1)||!n||n.land>o.land||seen.has(id))return null;seen.add(id);}
+/* ---------- Stored data: strict check of Haven 4 (version 6). Returns a clean copy, or null for anything odd. ---------- */
+// Cleared patches, in the order they were cleared: each one next to land Haven already had, none twice.
+function checkZones(z){if(!Array.isArray(z)||z.length>PATCHES.length)return null;const have=new Set([0]);
+  for(const id of z){if(!int(id,1,PATCHES.length)||have.has(id)||!ZADJ[id].some(n=>have.has(n)))return null;have.add(id);}return[...z];}
+// Felled nodes, work left and buildings, all on Haven's own land.
+function checkCore(o,zones,types,maxLv){
+  const wd=world(o.origin),L=landOf(zones),seen=new Set();
+  for(const id of o.gone){const n=wd.nodes.get(id);if(!int(id,0,W*W-1)||!n||!L.zones.has(n.zone)||seen.has(id))return null;seen.add(id);}
   const hp={};
   for(const [k,v] of Object.entries(o.hp)){if(!/^\d{1,3}$/.test(k))return null;const id=Number(k),n=wd.nodes.get(id);
-    if(!n||n.land>o.land||seen.has(id)||!int(v,1,CONFIG.kinds[n.kind].hp-1))return null;hp[id]=v;}
+    if(!n||!L.zones.has(n.zone)||seen.has(id)||!int(v,1,CONFIG.kinds[n.kind].hp-1))return null;hp[id]=v;}
   if(o.built.length>types.size)return null;
-  const [lo,hi]=CONFIG.lands[o.land],done=new Set(),tiles=new Set(),built=[];
+  const done=new Set(),tiles=new Set(),built=[];
   for(const b of o.built){
-    if(!plain(b)||Object.keys(b).sort().join()!=='c,lv,r,t'||!types.has(b.t)||done.has(b.t)||!int(b.lv,1,maxLv)||!int(b.c,lo,hi-1)||!int(b.r,lo,hi-1))return null;
-    const id=wid(b.c,b.r);if(tiles.has(id)||wd.rubble.has(id)||(wd.nodes.has(id)&&!seen.has(id)))return null;
+    if(!plain(b)||Object.keys(b).sort().join()!=='c,lv,r,t'||!types.has(b.t)||done.has(b.t)||!int(b.lv,1,maxLv)||!int(b.c,0,W-1)||!int(b.r,0,W-1))return null;
+    const id=wid(b.c,b.r);if(!L.tiles.has(id)||tiles.has(id)||wd.rubble.has(id)||(wd.nodes.has(id)&&!seen.has(id)))return null;
     done.add(b.t);tiles.add(id);built.push({t:b.t,c:b.c,r:b.r,lv:b.lv});}
-  return{gone:[...o.gone],hp,built,tiles,seen,wd};
+  return{gone:[...o.gone],hp,built,tiles,seen,wd,L};
 }
-/* Strict check of stored Haven 3.0 (version 4) or 3.5 (version 5) data. Returns a clean copy, or null for anything
- * unexpected. Version 4 is checked exactly as Haven 3.0 checked it. */
 const CALM_MAX=Math.max(CONFIG.graceMs,CONFIG.peaceWonMs,CONFIG.peaceLostMs);
-const V4_FIELDS='built,gone,hp,jobs,land,ore,origin,roads,stone,tally,tools,v,wood,workers';
-const V5_FIELDS='broken,built,calm,crop,eat,food,gone,hp,jobs,land,last,ore,origin,raid,raids,roads,stone,tally,tools,v,walls,wood,workers';
-function checkTiles(list,o,core,max){if(!Array.isArray(list)||list.length>max)return null;const [lo,hi]=CONFIG.lands[o.land],out=new Set();
-  for(const id of list){if(!int(id,0,W*W-1)||out.has(id))return null;const c=id%W,r=Math.floor(id/W);
-    if(c<lo||r<lo||c>=hi||r>=hi||core.tiles.has(id)||core.wd.rubble.has(id)||(core.wd.nodes.has(id)&&!core.seen.has(id)))return null;out.add(id);}return out;}
-function validateAt(o,ver){
-  if(!plain(o))return null;
-  if(Object.keys(o).sort().join()!==(ver===4?V4_FIELDS:V5_FIELDS))return null;
-  const jobs=ver===4?['wood','stone','ore']:JOBS,cap=ver===4?3:9;
-  if(o.v!==ver||!int(o.wood,0,1e9)||!int(o.stone,0,1e9)||!int(o.ore,0,1e9)||!int(o.tools,0,CONFIG.toolsMax+6)||!int(o.workers,0,CONFIG.workerMax+cap)
-    ||!int(o.origin,0,9999)||!int(o.land,0,CONFIG.lands.length-1)||!int(o.tally,0,1e9)||!Array.isArray(o.gone)||!plain(o.hp)||!Array.isArray(o.built)||!Array.isArray(o.roads)||!plain(o.jobs))return null;
-  const core=checkCore(o,ver===4?V4_TYPES:new Set(Object.keys(BP)),CONFIG.maxLevel);if(!core)return null;
+const FIELDS='broken,built,calm,crop,eat,food,gone,hp,jobs,last,ore,origin,raid,raids,roads,stone,tally,tools,v,walls,wood,workers,zones';
+function checkTiles(list,core,max){if(!Array.isArray(list)||list.length>max)return null;const out=new Set();
+  for(const id of list){if(!int(id,0,W*W-1)||out.has(id))return null;
+    if(!core.L.tiles.has(id)||core.tiles.has(id)||core.wd.rubble.has(id)||(core.wd.nodes.has(id)&&!core.seen.has(id)))return null;out.add(id);}return out;}
+function validate(o){
+  if(!plain(o)||Object.keys(o).sort().join()!==FIELDS)return null;
+  if(o.v!==CONFIG.version||!int(o.wood,0,1e9)||!int(o.stone,0,1e9)||!int(o.ore,0,1e9)||!int(o.tools,0,CONFIG.toolsMax+6)||!int(o.workers,0,CONFIG.workerMax+9)
+    ||!int(o.origin,0,9999)||!int(o.tally,0,1e9)||!Array.isArray(o.gone)||!plain(o.hp)||!Array.isArray(o.built)||!Array.isArray(o.roads)||!plain(o.jobs))return null;
+  const zones=checkZones(o.zones);if(!zones)return null;
+  const core=checkCore(o,zones,new Set(Object.keys(BP)),CONFIG.maxLevel);if(!core)return null;
+  // A second patch can only be cleared with a Survey Post, and a building is never taken away.
+  if(zones.length>=2&&!core.built.some(b=>b.t==='survey'))return null;
   if(o.tools>toolsCap(core)||o.workers>workerCap(core))return null;
-  const roads=checkTiles(o.roads,o,core,CONFIG.roadMax);if(!roads)return null;
-  if(Object.keys(o.jobs).sort().join()!==[...jobs].sort().join()||!jobs.every(k=>int(o.jobs[k],0,o.workers))||jobs.reduce((a,k)=>a+o.jobs[k],0)>o.workers)return null;
-  const out={v:o.v,wood:o.wood,stone:o.stone,ore:o.ore,tools:o.tools,workers:o.workers,origin:o.origin,land:o.land,tally:o.tally,gone:core.gone,hp:core.hp,built:core.built,
-    roads:[...o.roads],jobs:Object.fromEntries(jobs.map(j=>[j,o.jobs[j]]))};
-  if(ver===4)return out;
-  // Haven 3.5's own fields.
+  const roads=checkTiles(o.roads,core,CONFIG.roadMax);if(!roads)return null;
+  if(Object.keys(o.jobs).sort().join()!==[...JOBS].sort().join()||!JOBS.every(k=>int(o.jobs[k],0,o.workers))||JOBS.reduce((a,k)=>a+o.jobs[k],0)>o.workers)return null;
   if(!int(o.food,0,1e9)||!int(o.crop,0,CONFIG.cropHp-1)||!int(o.eat,0,CONFIG.eatMs-1)||!int(o.raids,0,1e9)||!int(o.calm,0,CALM_MAX)
     ||(o.raid!==''&&!RAID_NAME[o.raid])||!plain(o.broken))return null;
-  const walls=checkTiles(o.walls,o,core,CONFIG.wallMaxTiles);if(!walls)return null;
+  const walls=checkTiles(o.walls,core,CONFIG.wallMaxTiles);if(!walls)return null;
   for(const id of walls)if(roads.has(id))return null;
   const broken={};for(const [t,left] of Object.entries(o.broken)){if(!DAMAGEABLE.includes(t)||!core.built.some(b=>b.t===t)||!int(left,0,CONFIG.repairWork))return null;broken[t]=left;}
   let last=null;
   if(o.last!==null){const l=o.last;if(!plain(l)||Object.keys(l).sort().join()!=='def,hit,k,n,res,th'||!RAID_NAME[l.k]||!int(l.th,0,CONFIG.threatMax)||!int(l.def,0,1e6)
       ||(l.res!==''&&!RES.includes(l.res))||!int(l.n,0,1e9)||(l.hit!==''&&!DAMAGEABLE.includes(l.hit))||(l.res===''&&l.n!==0))return null;
     last={k:l.k,th:l.th,def:l.def,res:l.res,n:l.n,hit:l.hit};}
-  return{...out,food:o.food,crop:o.crop,eat:o.eat,raids:o.raids,calm:o.calm,raid:o.raid,broken,walls:[...o.walls],last};
+  return{v:o.v,wood:o.wood,stone:o.stone,ore:o.ore,food:o.food,tools:o.tools,workers:o.workers,origin:o.origin,zones,tally:o.tally,gone:core.gone,hp:core.hp,built:core.built,
+    roads:[...o.roads],jobs:Object.fromEntries(JOBS.map(j=>[j,o.jobs[j]])),crop:o.crop,eat:o.eat,raids:o.raids,calm:o.calm,raid:o.raid,broken,walls:[...o.walls],last};
 }
-const validate=o=>validateAt(o,CONFIG.version);
-const validateV4=o=>validateAt(o,4);
-/* Haven 3.0 → 3.5: everything carries over exactly (resources, tools, people, felled trees, work left on nodes,
- * buildings, roads, expansions and jobs). People are the same people, never doubled. New: a store of Food so the town
- * isn't hungry the moment it opens (10, and 5 more a person), the four new jobs empty, and the full 5 minutes of play
- * before any raid can come. */
-function fromV4(o4){return{...o4,v:CONFIG.version,gone:[...o4.gone],hp:{...o4.hp},built:o4.built.map(b=>({...b})),roads:[...o4.roads],jobs:{...emptyJobs(),...o4.jobs},
-  food:CONFIG.migrateFood+CONFIG.migrateFoodEach*o4.workers,crop:0,eat:0,raids:0,calm:CONFIG.graceMs,raid:'',broken:{},walls:[],last:null};}
-/* Haven 2.0's stored data (key lorebound-haven-settlement-v2), checked exactly as Haven 2.0 checks it: version 3 is
- * its retuned save, version 2 the one from before nodes held twice the work (its part-worked nodes hold half as much). */
-function validateV2(o){
-  if(!plain(o)||(o.v!==2&&o.v!==3))return null;
-  if(Object.keys(o).sort().join()!=='built,gone,hp,land,ore,origin,stone,tally,tools,v,wood,workers')return null;
-  const scale=o.v===2?2:1;for(const [k,v] of Object.entries(o.hp)){const n=world(Number.isSafeInteger(o.origin)?o.origin:0).nodes.get(Number(k));if(n&&Number.isSafeInteger(v)&&v>CONFIG.kinds[n.kind].hp/scale-1)return null;}
-  if(!int(o.wood,0,1e9)||!int(o.stone,0,1e9)||!int(o.ore,0,1e9)||!int(o.tools,0,CONFIG.toolsMax)||!int(o.workers,0,CONFIG.workerMax)
-    ||!int(o.origin,0,9999)||!int(o.land,0,CONFIG.lands.length-1)||!int(o.tally,0,1e9)||!Array.isArray(o.gone)||!plain(o.hp)||!Array.isArray(o.built))return null;
-  const core=checkCore(o,V2_TYPES,1);if(!core)return null;
-  return{v:o.v,wood:o.wood,stone:o.stone,ore:o.ore,tools:o.tools,workers:o.workers,origin:o.origin,land:o.land,tally:o.tally,gone:core.gone,hp:core.hp,built:core.built};
-}
-/* Haven 2.0 → 3.0: everything carries over exactly (resources, tools, workers, felled trees, work left on nodes,
- * buildings and their tiles, both expansions). New: no roads yet, and every worker on Auto. Work left on a node from
- * a save older than the retune doubles with the node, so it keeps the same share done. */
-function fromV2(o2){const hp={};for(const [k,v] of Object.entries(o2.hp))hp[k]=o2.v===2?v*2:v;
-  return fromV4({...o2,v:4,gone:[...o2.gone],hp,built:o2.built.map(b=>({...b})),roads:[],jobs:{wood:0,stone:0,ore:0}});}
-/* Moving the first prototype over: its Wood, Better Tools and workers carry over as they are, and the patch it was on
- * becomes the middle of the settlement with the same trees already cleared (so they are not paid again). Patches
- * finished before that can't become land (their Wood was already paid), and no building is invented for them. */
-function migrate(o1){
-  const s=fresh(o1.patch);s.wood=o1.wood;s.tools=Math.min(o1.tools,CONFIG.toolsMax);s.workers=Math.min(o1.workers,CONFIG.workerMax);
-  const off=CONFIG.lands[0][0];s.gone=o1.cleared.map(t=>wid(t%8+off,Math.floor(t/8)+off));s.food=CONFIG.migrateFood+CONFIG.migrateFoodEach*s.workers;return s;
-}
-/* Picks the state to play from a store with get(key)/set(key,value). Never deletes anything: an unreadable 3.5 save is
- * copied to its own key before anything replaces it, and the Haven 3.0, 2.0 and first-prototype keys are only read, so
- * they stay as backups. A player with none of them starts a new game with one settler. */
+/* Picks the state to play from a store with get(key)/set(key,value). Never deletes anything: an unreadable Haven 4
+ * save is copied to its own key before a new town replaces it. Haven 4 is a fresh start: an earlier Haven (3.5, 3.0,
+ * 2.0 or the first prototype) is never read in, and its key is left exactly as it is, as a backup. */
 function loadFrom(store){
-  const raw5=store.get(KEY);let note='';
-  if(raw5!==null&&raw5!==undefined){let s=null;try{s=validate(JSON.parse(raw5));}catch{}if(s)return{state:s,note:''};store.set(BAD_KEY,raw5);note='unreadable';}
-  const raw4=store.get(V4_KEY);
-  if(raw4!==null&&raw4!==undefined){let o=null;try{o=validateV4(JSON.parse(raw4));}catch{}if(o)return{state:fromV4(o),note:note||'upgraded',from:4};}
-  const raw2=store.get(V2_KEY);
-  if(raw2!==null&&raw2!==undefined){let o=null;try{o=validateV2(JSON.parse(raw2));}catch{}if(o)return{state:fromV2(o),note:note||'upgraded',from:2};}
-  const raw1=store.get(V1_KEY);
-  if(raw1!==null&&raw1!==undefined){let o=null;try{o=validateV1(JSON.parse(raw1));}catch{}if(o)return{state:migrate(o),note:note||'moved',old:o,from:1};}
-  return{state:newGame(),note};
+  const raw=store.get(KEY);
+  if(raw!==null&&raw!==undefined){let s=null;try{s=validate(JSON.parse(raw));}catch{}if(s)return{state:s,note:''};store.set(BAD_KEY,raw);return{state:newGame(),note:'unreadable'};}
+  const old=OLD_KEYS.some(k=>{const v=store.get(k);return v!==null&&v!==undefined;});
+  return{state:newGame(),note:old?'fresh':''};
 }
 
 /* ---------- Rules ---------- */
@@ -381,15 +379,15 @@ function regrowOldest(s){
   return null;
 }
 
-/* Walking: inside the territory only on open ground or roads (not standing nodes, buildings or rubble), plus a one-tile
- * ring of forest edge just outside it, which is always open. Four straight directions only. */
+/* Walking: on Haven's land only on open ground or roads (not standing nodes, buildings or the hearth), plus the
+ * one-tile ring of forest edge just outside it, which is always open. Four straight directions only. */
 function blocked(s){const wd=world(s.origin),b=new Set(wd.rubble);for(const id of standingIds(s))b.add(id);for(const x of s.built)b.add(wid(x.c,x.r));return b;}
-function walkable(s,c,r,b=blocked(s)){const [lo,hi]=land(s);if(c<lo-1||r<lo-1||c>hi||r>hi)return false;if(c<lo||r<lo||c>=hi||r>=hi)return true;return !b.has(wid(c,r));}
+function walkable(s,c,r,b=blocked(s),o=own(s)){if(c<-1||r<-1||c>W||r>W)return false;if(c>=0&&r>=0&&c<W&&r<W&&o.tiles.has(wid(c,r)))return !b.has(wid(c,r));return o.near.has(code(c,r));}
 const DIRS=[[1,0],[0,1],[-1,0],[0,-1]],AROUND=[[1,0],[0,1],[-1,0],[0,-1],[1,1],[-1,1],[1,-1],[-1,-1]];
-// The open tiles inside the territory that can be walked to from the forest edge.
-function reach(s,b=blocked(s)){
-  const [lo]=land(s),seen=new Set([`${lo-1},${lo-1}`]),queue=[[lo-1,lo-1]],inside=new Set();
-  for(let q=0;q<queue.length;q++){const [x,y]=queue[q];for(const [dx,dy] of DIRS){const nc=x+dx,nr=y+dy,k=`${nc},${nr}`;if(seen.has(k)||!walkable(s,nc,nr,b))continue;seen.add(k);queue.push([nc,nr]);if(inLand(s,nc,nr))inside.add(wid(nc,nr));}}
+// The open tiles on Haven's land that can be walked to from the forest edge (from anywhere along it).
+function reach(s,b=blocked(s),o=own(s)){
+  const seen=new Set(),queue=[],inside=new Set();for(const [c,r] of o.nearList){seen.add(code(c,r));queue.push([c,r]);}
+  for(let q=0;q<queue.length;q++){const [x,y]=queue[q];for(const [dx,dy] of DIRS){const nc=x+dx,nr=y+dy;if(!walkable(s,nc,nr,b,o))continue;const k=code(nc,nr);if(seen.has(k))continue;seen.add(k);queue.push([nc,nr]);if(nc>=0&&nr>=0&&nc<W&&nr<W&&o.tiles.has(wid(nc,nr)))inside.add(wid(nc,nr));}}
   return inside;
 }
 function bfs(s,c,r,b,left){
@@ -413,11 +411,11 @@ const stepTime=(s,c,r)=>inLand(s,c,r)&&isRoad(s,wid(c,r))?Math.round(CONFIG.step
 /* ---------- Building and upgrading ---------- */
 function lockReason(s,type){const n=BP[type]?.needs;if(!n)return'';
   const miss=(n.built||[]).filter(t=>!has(s,t));if(miss.length)return`Needs ${miss.map(t=>BP[t].name).join(', ')}`;
-  if(n.land&&s.land<n.land)return'Needs the first expansion';return'';}
+  if(n.land&&s.zones.length<n.land)return'Needs cleared land';return'';}
 // The Builder's Yard takes a bounded share off new buildings and upgrades (5%, 10% or 15%, never below 1 of anything).
 const discount=(s,c)=>scaled(c,1-FX.yard[on(s,'yard')]);
 const buildCost=(s,type)=>discount(s,BP[type].cost);
-/* Building: one of each blueprint, on one free tile inside the territory: not on a standing tree or deposit, another
+/* Building: one of each blueprint, on one free tile of Haven's land: not on a standing tree or deposit, another
  * building, a road or rubble, and never where it would wall off open ground from the workers. Nothing is paid unless
  * it's built. */
 function canPlace(s,type,c,r,b=blocked(s),before=null){
@@ -428,8 +426,8 @@ function canPlace(s,type,c,r,b=blocked(s),before=null){
   if(after.size<before.size-(before.has(id)?1:0))return{ok:false,reason:'path'};
   return{ok:true};
 }
-function validSites(s,type){if(!BP[type]||has(s,type)||lockReason(s,type))return[];const [lo,hi]=land(s),b=blocked(s),before=reach(s,b),out=[];
-  for(let r=lo;r<hi;r++)for(let c=lo;c<hi;c++)if(canPlace(s,type,c,r,b,before).ok)out.push(wid(c,r));return out;}
+function validSites(s,type){if(!BP[type]||has(s,type)||lockReason(s,type))return[];const b=blocked(s),before=reach(s,b),out=[];
+  for(const id of own(s).ids)if(canPlace(s,type,id%W,Math.floor(id/W),b,before).ok)out.push(id);return out;}
 function build(s,type,c,r){const p=canPlace(s,type,c,r);if(!p.ok)return p;const bc=buildCost(s,type);if(!afford(s,bc))return{ok:false,reason:'short',need:shortOf(s,bc)};
   pay(s,bc);s.built.push({t:type,c,r,lv:1});return{ok:true,cost:bc};}
 
@@ -444,15 +442,15 @@ function canUpgrade(s,type){const lv=lvOf(s,type);if(!BP[type]||!lv)return{ok:fa
   if(!afford(s,c))return{ok:false,reason:'short',to,cost:c,need:shortOf(s,c)};return{ok:true,to,cost:c};}
 function upgrade(s,type){const u=canUpgrade(s,type);if(!u.ok)return u;pay(s,u.cost);s.built.find(b=>b.t===type).lv=u.to;return u;}
 
-/* Roads: one tile each, on open ground inside the territory (a felled tree's tile is fine). Never on a standing node,
+/* Roads: one tile each, on open ground on Haven's land (a felled tree's tile is fine). Never on a standing node,
  * a building, rubble or another road, so a tap on an existing road charges nothing. Workers walk on them faster. */
 function canRoad(s,c,r){if(settlement(s).level<CONFIG.roadsAt)return{ok:false,reason:'locked'};if(s.roads.length>=CONFIG.roadMax)return{ok:false,reason:'max'};
   if(!int(c,0,W-1)||!int(r,0,W-1)||!inLand(s,c,r))return{ok:false,reason:'outside'};const id=wid(c,r);
   if(isRoad(s,id))return{ok:false,reason:'road'};if(isWall(s,id))return{ok:false,reason:'wall'};if(buildingAt(s,id))return{ok:false,reason:'building'};if(world(s.origin).rubble.has(id))return{ok:false,reason:'rubble'};if(standing(s,id))return{ok:false,reason:'node'};
   if(!afford(s,CONFIG.roadCost))return{ok:false,reason:'short',need:shortOf(s,CONFIG.roadCost)};return{ok:true};}
 function layRoad(s,c,r){const p=canRoad(s,c,r);if(!p.ok)return p;pay(s,CONFIG.roadCost);s.roads.push(wid(c,r));return{ok:true,cost:CONFIG.roadCost};}
-function roadSites(s){if(settlement(s).level<CONFIG.roadsAt||s.roads.length>=CONFIG.roadMax)return[];const [lo,hi]=land(s),wd=world(s.origin),out=[];
-  for(let r=lo;r<hi;r++)for(let c=lo;c<hi;c++){const id=wid(c,r);if(!isRoad(s,id)&&!isWall(s,id)&&!buildingAt(s,id)&&!wd.rubble.has(id)&&!standing(s,id))out.push(id);}return out;}
+function roadSites(s){if(settlement(s).level<CONFIG.roadsAt||s.roads.length>=CONFIG.roadMax)return[];const wd=world(s.origin),out=[];
+  for(const id of own(s).ids){if(!isRoad(s,id)&&!isWall(s,id)&&!buildingAt(s,id)&&!wd.rubble.has(id)&&!standing(s,id))out.push(id);}return out;}
 
 /* Jobs: hired workers can be woodcutters, stone miners or ore miners; the rest are on Auto and work anything.
  * Changing jobs never pays anything or restarts a swing; a worker takes its new job when it picks its next target. */
@@ -492,9 +490,9 @@ function goal(s){
     if(farmOpen(s)&&s.jobs.farm<farmCap(s))return'Make someone a Farmer (People) to feed Haven.';
     return'Forage berry bushes for Food.';}
   if(s.workers>=workerCap(s)&&!has(s,'house')&&afford(s,buildCost(s,'house')))return'Build a House so more people can live in Haven.';
-  const xc=expandCost(s);
-  if(xc&&!has(s,'survey'))return lockReason(s,'survey')?'':'Build a Survey Post to expand into the mist.';
-  if(xc&&canExpand(s).ok)return`You can expand Haven to territory ${s.land+2} (Land).`;
+  const nz=nextClear(s),cz=nz===null?null:canClear(s,nz);
+  if(cz&&cz.ok)return'You can clear more land: tap a Clear sign on the map, or Find Next Clearing (Land).';
+  if(cz&&cz.reason==='survey')return lockReason(s,'survey')?'':'Build a Survey Post to clear more land.';
   if(!has(s,'townhall')&&!lockReason(s,'townhall'))return'Build the Town Hall so your buildings can grow.';
   if(has(s,'townhall')){const th=lvOf(s,'townhall');if(th<CONFIG.maxLevel&&th<maxLevel(s,'townhall'))return`Raise the Town Hall to Lv ${th+1} so your buildings can grow.`;}
   if(s.workers<workerCap(s)&&!hungry(s)&&afford(s,cost(s,'worker')))return'You can recruit another person (People).';
@@ -506,10 +504,10 @@ function goal(s){
  * only picks which existing choice to show first. Worked out fresh every time; nothing is stored. */
 const autoJobs=s=>s.workers-JOBS.reduce((a,k)=>a+s.jobs[k],0);
 function pick(s,kind,o={}){const c=o.cost||null,ready=o.ready!==undefined?o.ready:!c||afford(s,c);
-  return{kind,key:o.key||kind,type:o.type||'',job:o.job||'',cost:c,need:c&&!ready?shortOf(s,c):null,ready,name:o.name,why:o.why||'',verb:o.verb||'Build'};}
+  return{kind,key:o.key||kind,type:o.type||'',job:o.job||'',zone:o.zone||0,cost:c,need:c&&!ready?shortOf(s,c):null,ready,name:o.name,why:o.why||'',verb:o.verb||'Build'};}
 // Whether a building has anywhere to go: stops at the first tile that passes every placing rule.
-function hasSite(s,type){const [lo,hi]=land(s),b=blocked(s);let before=null;
-  for(let r=lo;r<hi;r++)for(let c=lo;c<hi;c++){const id=wid(c,r);if(b.has(id)||isRoad(s,id)||isWall(s,id))continue;before=before||reach(s,b);if(canPlace(s,type,c,r,b,before).ok)return true;}return false;}
+function hasSite(s,type){const b=blocked(s);let before=null;
+  for(const id of own(s).ids){const c=id%W,r=Math.floor(id/W);if(b.has(id)||isRoad(s,id)||isWall(s,id))continue;before=before||reach(s,b);if(canPlace(s,type,c,r,b,before).ok)return true;}return false;}
 function buildPick(s,type){if(has(s,type)||lockReason(s,type)||!hasSite(s,type))return null;
   return pick(s,'build',{key:'build:'+type,type,cost:buildCost(s,type),name:BP[type].name,why:WHY_SHORT[type]||''});}
 function upgradePick(s,type){const u=canUpgrade(s,type);if(!u.ok&&u.reason!=='short')return null;
@@ -539,8 +537,11 @@ function suggest(s){
   // A small town is told to grow its crew (up to 3 people) even before it can pay; after that, only when it can.
   if(wc&&!hungry(s)&&(afford(s,wc)||s.workers<3))return pick(s,'worker',{cost:wc,name:'Recruit',why:'+1 person',verb:'Recruit'});
   if(!wc&&lvOf(s,'house')){const p=upgradePick(s,'house');if(p)return p;}
+  // The first patch of wild land comes once the House, the Farm and a small crew stand (#144: gently, after gathering
+  // and building), then the rest of the foundations, then more land.
+  if(!s.zones.length){const p=clearPick(s);if(p)return p;}
   for(const t of ['workshop','lumber','stoneyard','survey']){const p=buildPick(s,t);if(p)return p;}
-  const xc=canExpand(s);if(xc.ok||xc.reason==='short')return pick(s,'expand',{cost:xc.cost,name:'Expand Haven',why:'More land',verb:'Expand'});
+  {const p=clearPick(s);if(p)return p;}
   for(const t of ['townhall','sawmill','quarry','yard','watchtower','warehouse','foundry']){const p=buildPick(s,t);if(p)return p;}
   if(has(s,'townhall')){const p=upgradePick(s,'townhall');if(p)return p;}
   // The cheapest upgrade Haven can do or is only short of materials for.
@@ -557,23 +558,25 @@ function suggest(s){
 const GIVES={wood:['pine','oak','bush'],stone:['stone'],ore:['ore'],food:['bush']};
 function findWhat(s,need){let best=null,most=0;for(const k of RES){const n=need?.[k]||0;if(!n)continue;
     const per=Math.min(...GIVES[k].map(x=>CONFIG.kinds[x].hp/(yieldOf(s,x)[k]||Infinity))),work=n*per;if(work>most){most=work;best=k;}}return best;}
-function nearestNode(s,res){const kinds=GIVES[res];if(!kinds)return null;const wd=world(s.origin),[lo,hi]=land(s),m=(lo+hi-1)/2,open=reach(s);
+function nearestNode(s,res){const kinds=GIVES[res];if(!kinds)return null;const wd=world(s.origin),o=own(s),m=7.5,open=reach(s);
   let best=null,bs=Infinity;
   for(const id of standingIds(s)){const n=wd.nodes.get(id);if(!kinds.includes(n.kind))continue;
-    const near=AROUND.some(([dx,dy])=>{const c=n.c+dx,r=n.r+dy;return inLand(s,c,r)?open.has(wid(c,r)):c>=lo-1&&r>=lo-1&&c<=hi&&r<=hi;});
+    const near=AROUND.some(([dx,dy])=>{const c=n.c+dx,r=n.r+dy;return inLand(s,c,r)?open.has(wid(c,r)):o.near.has(code(c,r));});
     const sc=(near?0:1000)+Math.abs(n.c-m)+Math.abs(n.r-m)+(res==='wood'&&n.kind==='bush'?3:0);if(sc<bs||(sc===bs&&id<best)){bs=sc;best=id;}}
   return best;}
-/* Places chosen for the player. Palisade: the edge of the territory walked round in one fixed order from the top
- * corner; the next tile is one beside palisade already standing, so it grows as one run, or else the first free edge
- * tile. Buildings: a free tile that passes every placing rule. A Watchtower goes one tile in from the edge (so the
- * palisade can still go round it), other buildings as near the middle as they fit. Nothing already there moves. */
-function perimeter(s){const [lo,hi]=land(s),e=hi-1,out=[];
-  for(let c=lo;c<=e;c++)out.push(wid(c,lo));for(let r=lo+1;r<=e;r++)out.push(wid(e,r));for(let c=e-1;c>=lo;c--)out.push(wid(c,e));for(let r=e-1;r>lo;r--)out.push(wid(lo,r));return out;}
-function autoWall(s){const free=new Set(wallSites(s));if(!free.size)return null;const ring=perimeter(s),n=ring.length;
-  for(let i=0;i<n;i++)if(isWall(s,ring[i])){const a=ring[(i+1)%n],b=ring[(i+n-1)%n];if(free.has(a))return a;if(free.has(b))return b;}
-  return ring.find(id=>free.has(id))??null;}
-function autoSite(s,type){const sites=validSites(s,type);if(!sites.length)return null;const [lo,hi]=land(s),m=(lo+hi-1)/2;
-  const score=id=>{const c=id%W,r=Math.floor(id/W);if(type==='watchtower'){const e=Math.min(c-lo,r-lo,hi-1-c,hi-1-r);return Math.abs(e-1)*100+Math.abs(c-m)+Math.abs(r-lo);}return Math.abs(c-m)+Math.abs(r-m);};
+/* Places chosen for the player. Palisade: the edge of Haven's land walked round in one fixed order from the top
+ * corner, whatever its shape; the next tile is a free edge tile beside palisade already on the edge, so it grows as
+ * one run, or else the first free edge tile. Buildings: a free tile that passes every placing rule. A Watchtower goes
+ * one tile in from the edge (so the palisade can still go round it), other buildings as near the hearth as they fit.
+ * Nothing already there moves. */
+const perimeter=s=>[...own(s).ring];
+function autoWall(s){const free=new Set(wallSites(s));if(!free.size)return null;const o=own(s),ring=o.ring;
+  const by=id=>AROUND.some(([dc,dr])=>{const c=id%W+dc,r=Math.floor(id/W)+dr;return c>=0&&r>=0&&c<W&&r<W&&o.edgeSet.has(wid(c,r))&&isWall(s,wid(c,r));});
+  return ring.find(id=>free.has(id)&&by(id))??ring.find(id=>free.has(id))??null;}
+// How many tiles in from the edge of Haven's land a tile is (0 on the edge).
+function inFrom(o,c,r){for(let k=0;k<W;k++){for(let dr=-k-1;dr<=k+1;dr++)for(let dc=-k-1;dc<=k+1;dc++){const x=c+dc,y=r+dr;if(!(x>=0&&y>=0&&x<W&&y<W&&o.tiles.has(wid(x,y))))return k;}}return W;}
+function autoSite(s,type){const sites=validSites(s,type);if(!sites.length)return null;const o=own(s),m=7.5;
+  const score=id=>{const c=id%W,r=Math.floor(id/W);if(type==='watchtower'){const e=inFrom(o,c,r);return Math.abs(e-1)*100+Math.abs(c-m)+r;}return Math.abs(c-m)+Math.abs(r-m);};
   return sites.map(id=>[score(id),id]).sort((a,b)=>a[0]-b[0]||a[1]-b[1])[0][1];}
 // Lays one palisade tile where autoWall() picks: the same price and rules as laying it by hand.
 function addWall(s){const id=autoWall(s);if(id===null)return{ok:false,reason:wallSites(s).length?'none':'full'};const r=layWall(s,id%W,Math.floor(id/W));return r.ok?{...r,id}:r;}
@@ -585,10 +588,30 @@ function paneBuild(s,g=suggest(s)){if(g&&['build','upgrade','tools'].includes(g.
 // The People window's one choice: a job or a recruit, when that's the suggestion.
 function panePeople(s,g=suggest(s)){return g&&(g.kind==='job'||g.kind==='worker')?g:null;}
 
-// Expanding grows the same map by two tiles on every side. Nothing already there moves.
-const expandCost=s=>{const c=CONFIG.expand[s.land];return c?scaled(c,1-FX.survey[lvOf(s,'survey')]):null;};
-function canExpand(s){const c=expandCost(s);if(!c)return{ok:false,reason:'max'};if(!has(s,'survey'))return{ok:false,reason:'survey',cost:c};if(!afford(s,c))return{ok:false,reason:'short',cost:c,need:shortOf(s,c)};return{ok:true,cost:c};}
-function expand(s){const e=canExpand(s);if(!e.ok)return e;pay(s,e.cost);s.land++;return e;}
+/* ---------- Clearing land (#144) ----------
+ * A patch of wild land is cleared once, for its price, on the map. Only a patch that shares a side with Haven's land can
+ * be cleared, so Haven always stays one piece. The first needs nothing else; after that a Survey Post is needed (it also
+ * takes 10% or 20% off). The price grows with each patch cleared and is only ever Wood and Stone, which the home
+ * clearing always has (felled nodes grow back), so clearing can never get stuck. Clearing pays nothing and takes
+ * nothing away: buildings, roads and everything standing stay where they are, and the patch's own trees, stone and ore
+ * stay standing to be worked. */
+function clearCost(s){if(s.zones.length>=PATCHES.length)return null;const n=s.zones.length,A=CONFIG.clearCost,B=CONFIG.clearStep;
+  return scaled({wood:A.wood+B.wood*n,stone:A.stone+B.stone*n},1-FX.survey[lvOf(s,'survey')]);}
+const touches=(s,z)=>ZADJ[z].some(n=>n===0||s.zones.includes(n));
+function canClear(s,z){const p=PATCH[z];if(!p)return{ok:false,reason:'zone'};if(s.zones.includes(z))return{ok:false,reason:'owned'};
+  if(!touches(s,z))return{ok:false,reason:'far'};const c=clearCost(s);
+  if(s.zones.length&&!has(s,'survey'))return{ok:false,reason:'survey',cost:c};
+  if(!afford(s,c))return{ok:false,reason:'short',cost:c,need:shortOf(s,c)};return{ok:true,cost:c};}
+function clearZone(s,z){const e=canClear(s,z);if(!e.ok)return e;pay(s,e.cost);s.zones.push(z);return{...e,zone:z};}
+// The one short reason a patch is locked, for its lock sign.
+const LOCKED={far:'Clear the land next to it first.',survey:'Needs a Survey Post (Build).'};
+// Patches that can be cleared now or are only short of Wood or Stone. The one to point at next: the kind that gives
+// what Haven has least of (a wooded patch when Wood is shorter, a stony one when Stone is), wild corners last.
+const openZones=s=>PATCHES.filter(p=>!s.zones.includes(p.id)&&touches(s,p.id)).map(p=>p.id);
+function nextClear(s){const open=openZones(s);if(!open.length)return null;const want=s.stone*2<s.wood?'stone':'wood';
+  const rank=z=>PATCH[z].kind===want?0:PATCH[z].kind==='wild'?2:1;return open.sort((a,b)=>rank(a)-rank(b)||a-b)[0];}
+function clearPick(s){const z=nextClear(s);if(z===null)return null;const c=canClear(s,z);if(!c.ok&&c.reason!=='short')return null;
+  return pick(s,'clear',{key:'clear',zone:z,cost:c.cost,name:'Clear land',why:PATCH[z].name,verb:'Clear'});}
 
 /* ---------- Haven 3.5: Food ----------
  * People eat while Haven is open and on screen, and only then: 1 Food a person a minute. Food comes from berry bushes
@@ -615,12 +638,12 @@ function foodRate(s){const farmers=farmOpen(s)?Math.min(s.jobs.farm,farmCap(s)):
  * (after whichever resource Haven holds most of, and one working building). When the raiders arrive, Defense against
  * Threat decides it: equal or more drives them off with no loss; less, and they take a capped share of one resource
  * and damage one building until it's repaired. Nothing else is ever taken: no levels, land, buildings or people. */
-const raidsOpen=s=>has(s,'house')&&has(s,'farm')&&s.land>=1;
+const raidsOpen=s=>has(s,'house')&&has(s,'farm')&&s.zones.length>=1;
 const raidKind=n=>n%2?'bandit':'beast';
 const nextKind=s=>s.raid||raidKind(s.raids);
 const threat=(s,kind)=>Math.min(CONFIG.threatMax,CONFIG.threat[kind]+Math.floor(settlement(s).level/2)+Math.min(5,Math.floor(s.raids/4)));
-// The edge tiles of the territory, where a palisade counts.
-function edgeIds(s){const [lo,hi]=land(s),out=[];for(let r=lo;r<hi;r++)for(let c=lo;c<hi;c++)if(c===lo||r===lo||c===hi-1||r===hi-1)out.push(wid(c,r));return out;}
+// The edge tiles of Haven's land (a side on wild land or the end of the map), where a palisade counts.
+const edgeIds=s=>[...own(s).edge];
 function defense(s){const guards=Math.floor(s.jobs.guard*CONFIG.guardPower*(hungry(s)?CONFIG.hungry:1)),tower=FX.watchDefense[on(s,'watchtower')];
   const edge=edgeIds(s),walled=edge.filter(id=>isWall(s,id)).length,walls=Math.floor(CONFIG.wallMax*walled/edge.length);
   return{guards,tower,walls,walled,edge:edge.length,total:guards+tower+walls};}
@@ -648,11 +671,11 @@ function tickThreat(s,clock,dt){if(!(dt>0))return null;dt=Math.min(dt,1000);
   if(before>warnLead(s)&&s.calm<=warnLead(s)&&s.calm>0)return{type:'warn',kind:nextKind(s)};
   if(s.calm>0)return null;s.raid=raidKind(s.raids);clock.walk=0;return{type:'spawn',kind:s.raid};}
 
-/* Palisade: one tile at a time on the edge of the territory, 2 Wood and 1 Stone each. Defense counts the share of
+/* Palisade: one tile at a time on the edge of Haven's land, 2 Wood and 1 Stone each. Defense counts the share of
  * the edge it covers. People walk through its gates, so it never walls anyone in. */
 function canWall(s,c,r){if(settlement(s).level<CONFIG.roadsAt)return{ok:false,reason:'locked'};if(s.walls.length>=CONFIG.wallMaxTiles)return{ok:false,reason:'max'};
-  if(!int(c,0,W-1)||!int(r,0,W-1)||!inLand(s,c,r))return{ok:false,reason:'outside'};const id=wid(c,r),[lo,hi]=land(s);
-  if(c!==lo&&r!==lo&&c!==hi-1&&r!==hi-1)return{ok:false,reason:'inside'};
+  if(!int(c,0,W-1)||!int(r,0,W-1)||!inLand(s,c,r))return{ok:false,reason:'outside'};const id=wid(c,r);
+  if(!own(s).edgeSet.has(id))return{ok:false,reason:'inside'};
   if(isWall(s,id))return{ok:false,reason:'wall'};if(isRoad(s,id))return{ok:false,reason:'road'};if(buildingAt(s,id))return{ok:false,reason:'building'};if(standing(s,id))return{ok:false,reason:'node'};
   if(!afford(s,CONFIG.wallCost))return{ok:false,reason:'short',need:shortOf(s,CONFIG.wallCost)};return{ok:true};}
 function layWall(s,c,r){const p=canWall(s,c,r);if(!p.ok)return p;pay(s,CONFIG.wallCost);s.walls.push(wid(c,r));return{ok:true,cost:CONFIG.wallCost};}
@@ -670,16 +693,16 @@ function repairHit(s,type,p){if(!isBroken(s,type)||!(s.broken[type]>0)||!int(p,1
   if(left>0){s.broken[type]=left;return{done:false,left};}delete s.broken[type];return{done:true,left:0};}
 const repairing=s=>Object.keys(s.broken).filter(t=>s.broken[t]>0);
 // Where guards and scouts keep watch: guards walk between the Watchtower, Town Hall and Survey Post, scouts between
-// the Survey Post and Watchtower. With none built they wait by the old ruin.
+// the Survey Post and Watchtower. With none built they wait by the hearth.
 function postsFor(s,role){const list=(role==='guard'?['watchtower','townhall','survey']:['survey','watchtower']).map(t=>tileOf(s,t)).filter(x=>x!==null);
   return list.length?list:[[...world(s.origin).rubble][0]];}
 
 /* ---------- Settlement Level ----------
- * Worked out from what stands in Haven right now: building levels (the Town Hall counts double), expansions, up to 20
+ * Worked out from what stands in Haven right now: building levels (the Town Hall counts double), cleared patches, up to 20
  * roads, Better Tools and workers. Nothing is stored or added by events, so reloading, importing, opening two tabs or
  * tapping again can never raise it. Level L needs 2·(L−1)·L points: Lv 5 at 40, Lv 10 at 180, Lv 20 at 760. */
 function points(s){const P=CONFIG.points;let p=0;for(const b of s.built)p+=P.level*b.lv*(b.lv+1)/2*(b.t==='townhall'?P.townHall:1);
-  return p+P.land*s.land+P.road*Math.min(s.roads.length,P.roadCount)+P.tool*s.tools+P.worker*s.workers;}
+  return p+P.land*s.zones.length+P.road*Math.min(s.roads.length,P.roadCount)+P.tool*s.tools+P.worker*s.workers;}
 const levelAt=L=>2*(L-1)*L;
 const titleOf=L=>L>=20?'Great Stronghold':L>=16?'Stronghold':L>=6?'Town':L>=3?'Village':'Camp';
 function settlement(s){const pts=points(s);let L=1;while(levelAt(L+1)<=pts)L++;
@@ -688,7 +711,8 @@ function settlement(s){const pts=points(s);let L=1;while(levelAt(L+1)<=pts)L++;
 /* ---------- Workers ----------
  * A worker walks to the nearest node it can reach that no other worker has claimed, then swings at it every 1.4 s
  * until it's finished (by anyone). Positions are not saved; they walk in again after a reload. */
-function crewMember(k,s){const [lo,hi]=land(s),n=hi-lo,o=[5,5,2,2,7,3,6,1][k%8]%n,[c,r]=k%2?[lo+o,hi]:[hi,lo+o];return{k,c,r,steps:[],node:null,task:null,visit:k,phase:'idle',t:0,wait:0,face:1,stuck:false};}
+// Someone new walks in from the forest edge, on the side nearest you (the front of the map), each at a different spot.
+function crewMember(k,s){const list=own(s).nearList.filter(([c,r])=>c+r>=W+2),[c,r]=list[(k*7+3)%list.length]||[W,W];return{k,c,r,steps:[],node:null,task:null,visit:k,phase:'idle',t:0,wait:0,face:1,stuck:false};}
 function syncCrew(s,crew){while(crew.length<s.workers)crew.push(crewMember(crew.length,s));crew.length=Math.min(crew.length,s.workers);return crew;}
 const POST_MS=5000; // a guard or scout stands at a post for 5 s, then walks to the next one
 const typeAt=(s,id)=>buildingAt(s,id)?.t||'';
@@ -749,16 +773,16 @@ function resetCrew(crew){crew.length=0;}
 function crewPosition(w,smooth,s){if(w.phase!=='walk'||!w.steps.length)return[w.c,w.r];const [nc,nr]=w.steps[0],k=Math.min(1,w.t/(s?stepTime(s,nc,nr):CONFIG.stepMs)),e=smooth?easeInOut(k):k<.5?0:1;return[w.c+(nc-w.c)*e,w.r+(nr-w.r)*e];}
 const easeInOut=k=>.5-Math.cos(Math.PI*k)/2,easeOut=k=>1-(1-k)**3;
 
-const logic={STAFF,staff,staffCap,KEY,V4_KEY,V2_KEY,V1_KEY,BAD_KEY,CONFIG,FX,BLUEPRINTS,MILESTONES,JOBS,DAMAGEABLE,v1Patch,validateV1,validateV2,validateV4,fromV2,fromV4,world,land,inLand,standing,standingIds,buildingAt,has,lvOf,on,isBroken,fresh,newGame,validate,migrate,loadFrom,
+const logic={STAFF,staff,staffCap,KEY,V5_KEY,OLD_KEYS,BAD_KEY,CONFIG,FX,BLUEPRINTS,MILESTONES,JOBS,DAMAGEABLE,PATCHES,ZADJ,HEARTH,FOOTPATH,zoneAt,landOf,own,world,inLand,standing,standingIds,buildingAt,has,lvOf,on,isBroken,fresh,newGame,validate,loadFrom,
   hungry,fed,farmOpen,farmCap,farmHit,eat,foodRate,raidsOpen,raidKind,threat,edgeIds,defense,warnLead,raidTarget,raidOutcome,resolveRaid,tickThreat,canWall,layWall,wallSites,
   repairCost,canRepair,startRepair,repairHit,repairing,postsFor,planFor,tileOf,
   cost,afford,manualPower,workerPower,hitsFor,buy,hitNode,regrow,regrowOldest,timedRegrow,canSwing,blocked,walkable,reach,route,stepTime,lockReason,buildCost,canPlace,validSites,build,
-  maxLevel,upgradeCost,canUpgrade,upgrade,canRoad,layRoad,roadSites,setJob,roleOf,allAuto,yieldOf,buildRank,buildOrder,goal,suggest,defensePick,perimeter,autoWall,autoSite,addWall,findWhat,nearestNode,paneBuild,panePeople,TABS,toolsCap,workerCap,expandCost,canExpand,expand,points,levelAt,settlement,simulate,syncCrew,crewPosition};
+  maxLevel,upgradeCost,canUpgrade,upgrade,canRoad,layRoad,roadSites,setJob,roleOf,allAuto,yieldOf,buildRank,buildOrder,goal,suggest,defensePick,perimeter,autoWall,autoSite,addWall,findWhat,nearestNode,paneBuild,panePeople,TABS,toolsCap,workerCap,clearCost,canClear,clearZone,openZones,nextClear,clearPick,inFrom,points,levelAt,settlement,simulate,syncCrew,crewPosition};
 
 /* ---------- Everything below needs a browser. ---------- */
 // The drawer's open section is kept only while the page is open (never saved), so leaving Haven and coming back keeps it.
 let drawerMemory=null;
-let state=null,view=null,raf=0,lastFrame=0,anims=[],resetArmed=0,importArmed=0,lastBig=0,loadNote='',loadOld=null,loadSource=0,lastSwing=null,drawnAnims=false,saveClock=0;const crew=[];
+let state=null,view=null,raf=0,lastFrame=0,anims=[],resetArmed=0,lastBig=0,loadNote='',lastSwing=null,drawnAnims=false,saveClock=0;const crew=[];
 const regrowClock={left:CONFIG.regrowMs},raidClock={walk:0};
 const host=root.location?.hostname||'';
 const TEST=host==='lorebound-dev.github.io'||host==='localhost'||host==='127.0.0.1';
@@ -768,7 +792,7 @@ if(typeof document==='undefined')return;
 const motionQuery=root.matchMedia?.('(prefers-reduced-motion: reduce)');
 const reduced=()=>!!motionQuery?.matches;
 const storeApi={get:k=>{try{return root.localStorage.getItem(k);}catch{return null;}},set:(k,v)=>{try{root.localStorage.setItem(k,v);}catch{}}};
-function load(){if(state)return state;const r=loadFrom(storeApi);state=r.state;loadNote=r.note;loadOld=r.old||null;loadSource=r.from||0;if(r.note||r.from)store();return state;}
+function load(){if(state)return state;const r=loadFrom(storeApi);state=r.state;loadNote=r.note;if(r.note)store();return state;}
 function store(){storeApi.set(KEY,JSON.stringify(state));}
 const fmt=c=>RES.filter(k=>c[k]).map(k=>`${c[k]} ${RES_NAME[k]}`).join(' · ')||'Free';
 const power=q=>{const v=q/4;return Number.isInteger(v)?String(v):v.toFixed(2).replace(/0$/,'');};
@@ -785,7 +809,7 @@ const SKETCH=`<section class="ruins-proto" aria-labelledby="ruinsTitle">
 <div class="ruins-zoom" role="group" aria-label="Zoom"><button type="button" data-ruins="zoomin" aria-label="Zoom in">+</button><button type="button" data-ruins="zoomout" aria-label="Zoom out">−</button><button type="button" class="ruins-home" data-ruins="home" aria-label="Center town"><i></i></button></div>
 <div class="ruins-over"><p class="ruins-alert" id="ruinsAlert" role="status" aria-live="polite" hidden></p>
 <div class="ruins-next" id="ruinsHud" hidden><canvas class="ruins-icon" aria-hidden="true"></canvas><span><strong id="ruinsHudName"></strong><small id="ruinsHudCost"></small></span><button type="button" class="ruins-next-go" data-ruins="suggest">Build</button></div>
-<div class="ruins-help ruins-win" id="ruinsHelp" role="group" aria-label="How Haven works" hidden><div class="ruins-win-head"><strong>How Haven works</strong><button type="button" class="ruins-close" data-ruins="helpclose" aria-label="Close How Haven works">×</button></div><div class="ruins-win-body"><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do opens from the four buttons along the bottom of the screen: Build, People, Defense and Land. Each opens a small window over the town, and × (or the same button again) closes it. The box at the top of the town suggests one thing worth doing next, with its price; you never have to follow it. Each window shows one choice first; More shows everything. Tap a building or a person to see what you can do with them.</p><p>Drag the town to look around. Pinch, or use + and −, to zoom; the square button brings the middle back.</p><p>Add Palisade (Defense) picks the next edge tile for you and shows it before you pay. Pick for me does the same for a building; you can still tap any lit tile yourself.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people at the House or in People (they need a place to live and some Food). Tap a building to give it workers: + takes someone on Auto, − puts them back. The Farm, Lumber Camp, Stone Yard, Foundry, Workshop, Watchtower and Survey Post each have their job; More jobs in People has every job, even before its building.Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first expansion, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: expand Haven when you have a Survey Post.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, expansions, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button><button type="button" data-ruins="reimport" hidden>Restart from earlier save</button></div></div></div>
+<div class="ruins-help ruins-win" id="ruinsHelp" role="group" aria-label="How Haven works" hidden><div class="ruins-win-head"><strong>How Haven works</strong><button type="button" class="ruins-close" data-ruins="helpclose" aria-label="Close How Haven works">×</button></div><div class="ruins-win-body"><p>Tap a tree, stone or ore vein again and again to work it. Each swing takes about half a second; the thin line under the bar fills when you can swing again. The bar shows the work left; it pays once, when it comes down. Better Tools and the Workshop make each hit stronger.</p><p>Everything you can do opens from the four buttons along the bottom of the screen: Build, People, Defense and Land. Each opens a small window over the town, and × (or the same button again) closes it. The box at the top of the town suggests one thing worth doing next, with its price; you never have to follow it. Each window shows one choice first; More shows everything. Tap a building or a person to see what you can do with them.</p><p>Drag the town to look around. Pinch, or use + and −, to zoom; the square button brings the middle back.</p><p>Add Palisade (Defense) picks the next edge tile for you and shows it before you pay. Pick for me does the same for a building; you can still tap any lit tile yourself.</p><p>Build: pick a building, tap a lit tile, then confirm. Buildings stay where you put them. Tap a building to upgrade it: makeshift, then timber, then stone. The Town Hall sets how far the others can grow.</p><p>Roads: lay them one tile at a time. Workers walk faster on them.</p><p>People: recruit people at the House or in People (they need a place to live and some Food). Tap a building to give it workers: + takes someone on Auto, − puts them back. The Farm, Lumber Camp, Stone Yard, Foundry, Workshop, Watchtower and Survey Post each have their job; More jobs in People has every job, even before its building.Woodcutters and miners do more work on their own kind. Farmers work the Farm or forage berry bushes. Builders repair. Guards add to Defense. Scouts warn of raids sooner. People on Auto work anything.</p><p>Food: everyone eats 1 Food a minute while Haven is open. Berry bushes and the Farm make Food. With no Food nobody is lost, but work is slower and no one joins until there's Food again.</p><p>Raids: once Haven has a House, a Farm and its first cleared patch, wolves and bandits come now and then, always with a warning. If your Defense (guards, Watchtower, palisade on the edge) is at least their Threat, they're driven off. If not, they take a small share of one resource and damage one building until you repair it. They never take buildings, levels, land or people, and nothing happens while you're away.</p><p>Land: Haven starts on a raised home clearing. The wild land round it is cut into patches. A patch beside your land shows a Clear sign with its price: tap it, check the price, then Clear. Most of the brush goes; its trees, stone and ore stay for you to work. Patches further out show a lock until the land next to them is cleared, and after the first one you need a Survey Post. Find Next Clearing (Land) shows you one.</p><p>Settlement Level comes from what stands in Haven: buildings and their levels, cleared land, roads, tools and workers.</p><p>Every ${CONFIG.regrowEvery}rd tree or deposit you finish, and after every ${CONFIG.regrowMs/1000} seconds of play here, the oldest felled one grows back (straight away if nothing is left), so you can't run out. It always needs the full work again.</p><p>Workers swing every ${CONFIG.workerHitMs/1000} seconds, only while this screen is open.</p><p>This is a test. Its Wood, Stone, Ore and Food never touch your Gold, Shards, Essence or save. Numbers are trial values.</p><div class="ruins-help-buttons"><button type="button" data-ruins="reset">Reset demo</button></div></div></div>
 <i class="ruins-gap"></i><div class="ruins-caption"><p class="ruins-work" id="ruinsWorkText" hidden></p><p class="ruins-stage" id="ruinsStage" role="status" aria-live="polite"></p></div>
 <div class="ruins-place" id="ruinsPlace" hidden><strong class="ruins-place-name" id="ruinsPlaceName"></strong><p id="ruinsPlaceText"></p><div class="ruins-staff" id="ruinsStaff" hidden><span><strong id="ruinsStaffName"></strong><small id="ruinsStaffInfo"></small></span><button type="button" data-ruins="staff" data-d="less">−</button><b id="ruinsStaffN">0</b><button type="button" data-ruins="staff" data-d="add">+</button></div><button type="button" class="ruins-cancel ruins-bar-go" data-ruins="recruit" hidden>Recruit</button><button type="button" class="ruins-cancel ruins-bar-go" data-ruins="topeople" hidden>Reassign in People</button><div><button type="button" class="ruins-confirm" data-ruins="confirm">Build here</button><button type="button" class="ruins-confirm" data-ruins="autopick" hidden>Pick for me</button><button type="button" class="ruins-cancel" data-ruins="cancel">Cancel</button></div></div>
 <div class="ruins-win" id="ruinsManageBody" role="group" aria-labelledby="ruinsWinTitle" hidden>
@@ -806,9 +830,9 @@ ${pickCard('build')}
 <div class="ruins-pane" id="ruinsDefensePane" role="tabpanel" aria-labelledby="ruinsTab-defense" hidden><p class="ruins-note ruins-threat" id="ruinsDefShort"></p>${pickCard('defense')}<p class="ruins-note ruins-more" id="ruinsDefenseText"></p><p class="ruins-note ruins-more" id="ruinsDefenseParts"></p><p class="ruins-note ruins-more" id="ruinsLastRaid" hidden></p>
 ${DAMAGEABLE.map(t=>`<button type="button" class="ruins-upgrade ruins-repair" data-ruins="repair" data-fix="${t}" hidden><span><strong></strong><small></small></span><b></b></button>`).join('')}
 <button type="button" class="ruins-upgrade ruins-more" data-ruins="walls"><span><strong></strong><small></small></span><b></b></button><p class="ruins-note ruins-more" id="ruinsWatchText"></p></div>
-<div class="ruins-pane" id="ruinsLandPane" role="tabpanel" aria-labelledby="ruinsTab-land" hidden><p class="ruins-note ruins-more" id="ruinsLandText"></p>
-<button type="button" class="ruins-upgrade ruins-expand" data-ruins="expand"><span><strong></strong><small></small></span><b></b></button>
-<button type="button" class="ruins-cancel" data-ruins="centre">Show the middle of Haven</button></div>
+<div class="ruins-pane" id="ruinsLandPane" role="tabpanel" aria-labelledby="ruinsTab-land" hidden><p class="ruins-note ruins-threat" id="ruinsLandShort"></p>
+<button type="button" class="ruins-upgrade ruins-expand" data-ruins="findclear"><span><strong>Find Next Clearing</strong><small></small></span><b></b></button>
+<button type="button" class="ruins-cancel" data-ruins="centre">Center Home</button><p class="ruins-note ruins-more" id="ruinsLandText"></p></div>
 </div></div></div>
 <div class="ruins-tabs" id="ruinsManage" role="tablist" aria-label="Manage Haven">${TABS.map(t=>`<button type="button" role="tab" class="ruins-tab" id="ruinsTab-${t.id}" data-ruins="${t.id}" aria-controls="ruinsManageBody" aria-selected="false" aria-expanded="false" tabindex="-1">${t.name}</button>`).join('')}</div></div>
 </section>`;
@@ -822,14 +846,14 @@ function mount(slot){
     alert:q('#ruinsAlert'),defenseParts:q('#ruinsDefenseParts'),lastRaid:q('#ruinsLastRaid'),walls:q('[data-ruins=walls]'),
     repairs:Object.fromEntries(DAMAGEABLE.map(t=>[t,q(`[data-ruins=repair][data-fix=${t}]`)])),walling:false,repairing:null,alertText:null,
     levelName:q('#ruinsLevelName'),levelPts:q('#ruinsLevelPts'),levelBar:q('#ruinsLevelBar'),next:q('#ruinsNext'),
-    place:q('#ruinsPlace'),placeName:q('#ruinsPlaceName'),placeText:q('#ruinsPlaceText'),confirm:q('[data-ruins=confirm]'),cancel:q('[data-ruins=cancel]'),buildPanel:q('#ruinsBuild'),expand:q('[data-ruins=expand]'),
+    place:q('#ruinsPlace'),placeName:q('#ruinsPlaceName'),placeText:q('#ruinsPlaceText'),confirm:q('[data-ruins=confirm]'),cancel:q('[data-ruins=cancel]'),buildPanel:q('#ruinsBuild'),findClear:q('[data-ruins=findclear]'),landShort:q('#ruinsLandShort'),clearing:null,badges:[],
     jobsPanel:q('#ruinsJobs'),jobsText:q('#ruinsJobsText'),auto:q('[data-ruins=auto]'),
     manage:q('[data-ruins=manage]'),manageBody:q('#ruinsManageBody'),winTitle:q('#ruinsWinTitle'),goal:q('#ruinsGoal'),defenseText:q('#ruinsDefenseText'),watchText:q('#ruinsWatchText'),landText:q('#ruinsLandText'),
     tabs:Object.fromEntries(TABS.map(t=>[t.id,{btn:q(`[data-ruins=${t.id}]`),pane:q('#'+t.pane)}])),lists:{home:q('#ruinsList-home'),found:q('#ruinsList-found'),town:q('#ruinsList-town')},tab:'build',open:false,info:null,
     jobs:Object.fromEntries(JOBS.map(j=>[j,{name:q(`#ruinsJobName-${j}`),info:q(`#ruinsJobInfo-${j}`),n:q(`#ruinsJobN-${j}`),less:q(`[data-ruins=job][data-job=${j}][data-d=less]`),add:q(`[data-ruins=job][data-job=${j}][data-d=add]`)}])),
     roads:q('[data-ruins=roads]'),
     bps:Object.fromEntries(BLUEPRINTS.map(b=>[b.id,q(`[data-type=${b.id}]`)])),tools:q('[data-ruins=tools]'),worker:q('[data-ruins=worker]'),workText:q('#ruinsWorkText'),
-    help:q('#ruinsHelp'),helpToggle:q('.ruins-help-toggle'),helpClose:q('[data-ruins=helpclose]'),reset:q('[data-ruins=reset]'),reimport:q('[data-ruins=reimport]'),geo:null,down:null,placing:null,roading:false,upgrading:null,site:null,sites:[],selected:null,level:0,
+    help:q('#ruinsHelp'),helpToggle:q('.ruins-help-toggle'),helpClose:q('[data-ruins=helpclose]'),reset:q('[data-ruins=reset]'),geo:null,down:null,placing:null,roading:false,upgrading:null,site:null,sites:[],selected:null,level:0,
     oreBox:q('#ruinsOreBox'),hud:q('#ruinsHud'),hudIcon:q('#ruinsHud canvas'),hudName:q('#ruinsHudName'),hudCost:q('#ruinsHudCost'),hudGo:q('[data-ruins=suggest]'),autopick:q('[data-ruins=autopick]'),
     moreBtn:q('[data-ruins=more]'),more:false,peopleShort:q('#ruinsPeopleShort'),defShort:q('#ruinsDefShort'),zoomIn:q('[data-ruins=zoomin]'),zoomOut:q('[data-ruins=zoomout]'),
     pickBtns:Object.fromEntries(['build','jobs','defense'].map(p=>[p,q(`[data-ruins=pick][data-pane=${p}]`)])),picks:{},sug:null,
@@ -846,8 +870,7 @@ function mount(slot){
   if(typeof root.ResizeObserver==='function'){view.resizer=new root.ResizeObserver(onSceneResize);view.resizer.observe(view.scene);}
   syncCrew(state,crew);
   layout(true);
-  if(loadNote==='moved'&&loadOld){say(`Your earlier demo moved over: ${loadOld.wood} Wood, Better Tools Lv ${state.tools}, ${plural(state.workers,'worker')}, and ${state.gone.length} trees already cleared in the middle. Patches finished before that don't become land.`);}
-  else if(loadNote==='upgraded')say(`Haven 3.5: your settlement moved over with everything where it was (${plural(state.built.length,'building')}, ${plural(state.workers,'person','people')}, territory ${state.land+1}). People now eat Food: you start with ${state.food}. The ${loadSource===4?'3.0':'2.0'} save is kept as a backup.`);
+  if(loadNote==='fresh')say('Haven 4: a new map with wild land you clear patch by patch. This is a fresh town; your earlier Haven is kept as it was, as a backup.');
   else if(loadNote==='unreadable')say('The saved settlement could not be read. A copy is kept, and a new one has started.');
   loadNote='';view.level=settlement(state).level;sortBuild();update();wake();
 }
@@ -903,10 +926,10 @@ function onUp(e){if(!view)return;view.ptrs.delete(e.pointerId);if(view.ptrs.size
   const box=view.canvas.getBoundingClientRect();tapAt(e.clientX-box.left,e.clientY-box.top);}
 // A trackpad pinch (or Ctrl + wheel) zooms too; a plain wheel scrolls the town as before.
 function onWheel(e){if(!view||!e.ctrlKey)return;e.preventDefault();const box=view.scene.getBoundingClientRect?.()||{left:0,top:0};zoomTo(view.zoom*(e.deltaY<0?1.1:1/1.1),[e.clientX-box.left,e.clientY-box.top]);}
-function onKey(e){if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();if(view.roading||view.walling)return;if(view.repairing){confirmRepair();return;}if(view.upgrading){confirmUpgrade();return;}if(view.placing){if(view.site!==null)confirmBuild();return;}
+function onKey(e){if(e.key!=='Enter'&&e.key!==' ')return;e.preventDefault();if(view.roading||view.walling)return;if(view.clearing!==null){confirmClear();return;}if(view.repairing){confirmRepair();return;}if(view.upgrading){confirmUpgrade();return;}if(view.placing){if(view.site!==null)confirmBuild();return;}
   const target=view.selected!==null&&standing(state,view.selected)?view.selected:standingIds(state).sort((a,b)=>depth(b)-depth(a))[0];if(target!==undefined)work(target);}
 const depth=id=>id%W+Math.floor(id/W);
-const WHY={outside:'That land is still in the mist.',building:'There is a building there already.',rubble:'That rubble can’t be built on.',node:'Clear that tree or deposit first.',path:'That spot would wall off the paths. Pick another lit tile.',road:'There is a road there already.',wall:'There is palisade there already.',inside:'Palisade goes on the edge of Haven. Pick a lit tile.'};
+const WHY={outside:'That land is still wild. Clear it first (tap its Clear sign).',building:'There is a building there already.',rubble:'The hearth stays where it is.',node:'Clear that tree or deposit first.',path:'That spot would wall off the paths. Pick another lit tile.',road:'There is a road there already.',wall:'There is palisade there already.',inside:'Palisade goes on the edge of Haven. Pick a lit tile.'};
 // A tile that can't take what's being placed blinks red for a moment (drawn on the ground; nothing is charged).
 function nope(id){if(id===undefined||id===null)return;anims=anims.filter(a=>a.type!=='nope');anims.push({type:'nope',c:id%W,r:Math.floor(id/W),t0:performance.now(),life:600});draw();wake();}
 function tapAt(x,y){
@@ -921,6 +944,9 @@ function tapAt(x,y){
   if(view.placing){if(t.tile===undefined)return;const c=t.tile%W,r=Math.floor(t.tile/W);
     if(view.sites.includes(t.tile)){view.site=t.tile;placeLine();draw();return;}
     const p=canPlace(state,view.placing,c,r);if(!p.ok)nope(t.tile);say(p.ok?'':WHY[p.reason]||'Pick a lit tile.');return;}
+  if(t.zone!==undefined){openClear(t.zone);return;}
+  // Wild land itself: one short line, never a charge. The sign is what clears it.
+  if(t.wild!==undefined){const k=canClear(state,t.wild);say(k.reason==='far'||k.reason==='survey'?`${PATCH[t.wild].name}: ${LOCKED[k.reason]}`:`${PATCH[t.wild].name}: wild land. Tap its Clear sign to clear it.`);return;}
   if(t.node!==undefined){work(t.node);return;}
   if(t.building){const type=t.building.t;if(isBroken(state,type)){if(state.broken[type]>0)fix(type);else openRepair(type);return;}openUpgrade(type);return;}
   if(t.raider){const k=state.raid,o=raidOutcome(state,k),tg=raidTarget(state,k);
@@ -963,7 +989,7 @@ function findNode(res){const id=nearestNode(state,res),name=res==='food'?'berry 
  * one small window over the town; × or the same button again closes it, and the town behind keeps its size and pan.
  * While a building is being placed, a road laid, an upgrade confirmed or a person looked at, the small bar on the
  * town takes the window's place, so only one set of choices is open at a time; Cancel brings the window back. */
-const busyBar=()=>!!(view.placing||view.roading||view.walling||view.upgrading||view.info);
+const busyBar=()=>!!(view.placing||view.roading||view.walling||view.upgrading||view.info||view.clearing);
 function showDrawer(){
   const busy=busyBar(),shown=view.open&&!busy;view.manageBody.hidden=!shown;
   const name=TABS.find(t=>t.id===view.tab)?.name||'';view.winTitle.textContent=name;view.manage.setAttribute('aria-label','Close '+name);
@@ -981,13 +1007,13 @@ function onPanelKey(e){
   const tab=e.target?.closest?.('[role=tab]');if(!tab||(e.key!=='ArrowLeft'&&e.key!=='ArrowRight'&&e.key!=='Home'&&e.key!=='End'))return;
   e.preventDefault();const list=TABS.filter(t=>tabOn(t.id)),i=Math.max(0,list.findIndex(t=>t.id===view.tab)),n=list.length,j=e.key==='Home'?0:e.key==='End'?n-1:(i+(e.key==='ArrowRight'?1:n-1))%n;openTab(list[j].id,true);}
 // Menus show up once they're useful: Build and People from the start, Defense once Haven has a House and a Farm (what
-// raids need before they start), or palisade, a Watchtower, raids or damage; Land once there's a Survey Post or more
-// land. A grown town has all four.
+// raids need before they start), or palisade, a Watchtower, raids or damage; Land with the House and the Farm too (when
+// clearing is suggested), or a Survey Post or cleared land. The Clear signs are on the map from the start.
 function tabOn(id){if(id==='defense')return has(state,'house')&&has(state,'farm')||raidsOpen(state)||!!state.raid||state.walls.length>0||Object.keys(state.broken).length>0||has(state,'watchtower');
-  if(id==='land')return has(state,'survey')||state.land>0;return true;}
+  if(id==='land')return has(state,'house')&&has(state,'farm')||has(state,'survey')||state.zones.length>0;return true;}
 /* Taking the suggestion (or a window's one choice). It goes through exactly the same steps as the full lists: a
  * building or palisade still shows where it goes and its price before Build here, an upgrade or repair still asks.
- * Only Recruit, Better Tools, Expand and a job change happen on the tap, as their own buttons always have, and the
+ * Only Recruit, Better Tools and a job change happen on the tap (clearing land shows the patch and asks first), as their own buttons always have, and the
  * price is on the button. A second tap within 0.6 s is ignored, so a double tap can't take the next suggestion too. */
 let lastAct=-1e9;
 function act(sug){if(!sug||!sug.ready||!view)return;const now=performance.now();if(now-lastAct<600)return;lastAct=now;
@@ -996,18 +1022,34 @@ function act(sug){if(!sug||!sug.ready||!view)return;const now=performance.now();
   if(sug.kind==='repair'){openRepair(sug.type);return;}
   if(sug.kind==='wall'){startAutoWall();return;}
   if(sug.kind==='worker'||sug.kind==='tools'){buyThing(sug.kind==='tools'?'tools':'worker');return;}
-  if(sug.kind==='expand'){doExpand();return;}
+  if(sug.kind==='clear'){openClear(sug.zone,true);return;}
   if(sug.kind==='job'){if(setJob(state,sug.job,1).ok){done(sug.key);store();say(`One more ${JOB_ONE[sug.job]}.`);update();}}}
 // A done suggestion gets a small gold burst on the map, where it happened, then the next suggestion shows.
-function done(key,id){if(!view||!key||view.sugKey!==key)return;const [lo,hi]=land(state),m=Math.floor((lo+hi)/2),at=id??wid(m,m),now=performance.now();
+function done(key,id){if(!view||!key||view.sugKey!==key)return;const at=id??wid(8,8),now=performance.now();
   if(!reduced())anims.push({type:'ack',c:at%W,r:Math.floor(at/W),t0:now,life:900});anims.push({type:'pop',c:at%W,r:Math.floor(at/W),text:'Done!',worker:false,t0:now+150,life:1100});wake();}
 function buyThing(what){const r=buy(state,what);if(r.ok){done(what);store();if(what==='worker')syncCrew(state,crew);
     say(what==='tools'?`Better Tools level ${state.tools}. Hit power is now ${power(manualPower(state))}.`:`Someone new joins Haven. ${plural(state.workers,'person','people')} now. They start on Auto; tap a building to give them a job.`);update();wake();}
   else if(r.reason==='hungry')say('No one joins a hungry town. Get some Food first.');}
-function doExpand(){if(Date.now()-lastBig<700)return;const r=expand(state);
-  if(!r.ok){say(r.reason==='survey'?'Build a Survey Post first.':r.reason==='short'?`You need ${fmt(r.need)} more to expand.`:'Haven has reached its full size for now.');return;}
-  lastBig=Date.now();done('expand');store();endPlacing();if(!reduced())anims.push({type:'land',t0:performance.now(),life:900});
-  say(`Haven grows. Territory ${state.land+1} / ${CONFIG.lands.length}. New trees, stone${state.land>=1?' and ore':''} wait at the edges.`);layout(true);update();wake();}
+/* Clearing a patch (#144): tap its Clear sign and a small bar asks, with the exact price; Clear pays once (the bar closes,
+ * so a second tap finds nothing to clear) and the brush sweeps away. A lock sign only says why, in one short line. */
+function zoneCentre(z){const p=PATCH[z];return[p.c0+P4/2,p.r0+P4/2];}
+function showZone(z){const g=view.geo,sc=view.scene;if(!g||!sc)return;const [c,r]=zoneCentre(z),[x,y]=iso(g,c,r),cw=sc.clientWidth||0,sh=sc.clientHeight||0,ox=Math.max(0,(cw-g.cssW)/2),oy=Math.max(0,(sh-g.cssH)/2);
+  const vx=x+ox-(sc.scrollLeft||0),vy=y+oy-(sc.scrollTop||0);if(vx<60||vx>cw-60||vy<g.w*1.6+60||vy>sh-110){sc.scrollLeft=Math.max(0,x+ox-cw/2);sc.scrollTop=Math.max(0,y+oy-sh/2);}}
+function openClear(z,pan=false){const c=canClear(state,z);if(c.reason==='owned')return;
+  if(c.reason==='far'||c.reason==='survey'){say(`${PATCH[z].name}: ${LOCKED[c.reason]}`);return;}
+  endPlacing();closeHelp();view.clearing=z;if(pan)showZone(z);placeLine();update();}
+function zoneCount(z){const n=[...world(state.origin).nodes.values()].filter(x=>x.zone===z),k=f=>n.filter(f).length,parts=[];
+  const w=k(x=>isWood(x.kind)),st=k(x=>x.kind==='stone'),o=k(x=>x.kind==='ore');if(w)parts.push(plural(w,'tree'));if(st)parts.push(`${st} stone`);if(o)parts.push(`${o} ore`);return parts.join(', ');}
+function confirmClear(){const z=view.clearing;if(z===null||Date.now()-lastBig<700)return;const r=clearZone(state,z);
+  if(!r.ok){placeLine();return;}
+  lastBig=Date.now();const [c,rr]=zoneCentre(z);done('clear',wid(Math.floor(c),Math.floor(rr)));store();endPlacing();anims.push({type:'clear',z,t0:performance.now(),life:reduced()?1:CONFIG.clearMs});
+  say(`${PATCH[z].name} cleared. ${zoneCount(z)} stand there to gather, and there's room to build.`);update();wake();}
+// Find Next Clearing (Land): the patch to clear next is shown on the map, its edge pulsing for a moment, with its Clear
+// bar open (so it can be cleared from the keyboard too). Only looking: nothing is paid until Clear.
+function findClear(){const z=nextClear(state);if(z===null){say('All the land round Haven is cleared.');return;}
+  const c=canClear(state,z);view.open=false;showZone(z);anims=anims.filter(a=>a.type!=='findzone');anims.push({type:'findzone',z,t0:performance.now(),life:2400});
+  if(c.reason!=='survey'){openClear(z);view.canvas.focus?.();}
+  say(c.reason==='survey'?`Next: ${PATCH[z].name}. ${LOCKED.survey}`:c.ok?`Next: ${PATCH[z].name}, ${fmt(c.cost)}. Clear it here, or tap its sign later.`:`Next: ${PATCH[z].name}, ${fmt(c.cost)}: you need ${fmt(c.need)} more.`);update();wake();}
 // Add Palisade: Haven picks the next edge tile and shows it, gold, with its price; nothing is paid until Build here.
 function startAutoWall(){if(settlement(state).level<CONFIG.roadsAt){say(`Palisade opens at Settlement Lv ${CONFIG.roadsAt}.`);return;}
   const id=autoWall(state);if(id===null){say(state.walls.length>=CONFIG.wallMaxTiles?`Haven has its full ${CONFIG.wallMaxTiles} palisade tiles.`:'No free edge tile. Clear trees or rocks on the edge first.');return;}
@@ -1044,19 +1086,15 @@ function onClick(e){
   if(what==='job'){const add=b.dataset.d==='add',r=setJob(state,b.dataset.job,add?1:-1);if(r.ok){if(add)done('job:'+b.dataset.job);store();update();}return;}
   if(what==='bp'){if(has(state,b.dataset.type))openUpgrade(b.dataset.type);else startPlacing(b.dataset.type);return;}
   if(what==='roads'){startRoads();return;}
-  if(what==='confirm'){if(view.info){const go=view.info.go;endPlacing();openTab(go,false);return;}if(view.walling==='auto'){confirmWall();return;}if(view.repairing)confirmRepair();else if(view.upgrading)confirmUpgrade();else confirmBuild();return;}
+  if(what==='confirm'){if(view.info){const go=view.info.go;endPlacing();openTab(go,false);return;}if(view.clearing!==null){confirmClear();return;}if(view.walling==='auto'){confirmWall();return;}if(view.repairing)confirmRepair();else if(view.upgrading)confirmUpgrade();else confirmBuild();return;}
   if(what==='cancel'){const wasRoads=view.roading,wasWalls=view.walling;endPlacing();
     say(wasRoads&&state.roads.length?`${plural(state.roads.length,'road tile')} in Haven.`:wasWalls&&state.walls.length?`${plural(state.walls.length,'palisade tile')} in Haven.`:'');update();return;}
-  if(what==='expand'){doExpand();return;}
+  if(what==='findclear'){findClear();return;}
   if(what==='staff'){staffTap(b.dataset.d==='add');return;}
   if(what==='recruit'){buyThing('worker');if(view.upgrading)placeLine();return;}
   if(what==='topeople'){endPlacing();openTab('jobs',false);view.more=true;update();return;}
   if(what==='reset'){if(Date.now()-resetArmed>3000){resetArmed=Date.now();b.textContent='Tap again to reset the demo';return;}
     resetArmed=0;b.textContent='Reset demo';state=newGame();regrowClock.left=CONFIG.regrowMs;raidClock.walk=0;lastSwing=null;resetCrew(crew);anims=[];endPlacing();store();view.level=1;say('Demo reset. Only Haven’s test settlement was cleared.');layout(true);update();wake();return;}
-  if(what==='reimport'){const r=loadFrom({get:k=>k===KEY?null:storeApi.get(k),set:()=>{}});if(!r.from)return;
-    if(Date.now()-importArmed>3000){importArmed=Date.now();b.textContent='Tap again to replace this settlement';return;}
-    importArmed=0;b.textContent='Restart from earlier save';state=r.state;raidClock.walk=0;resetCrew(crew);anims=[];endPlacing();store();view.level=settlement(state).level;
-    say(r.from===4?`Restarted from your Haven 3.0 save: ${plural(state.built.length,'building')}, territory ${state.land+1}, ${state.food} Food to start.`:r.from===2?`Restarted from your Haven 2.0 save: ${plural(state.built.length,'building')}, territory ${state.land+1}.`:`Restarted from the old demo: ${state.wood} Wood, Better Tools Lv ${state.tools}, ${plural(state.workers,'worker')}.`);layout(true);update();return;}
 }
 function startPlacing(type,auto=false){const bp=BP[type];if(!bp||has(state,type))return;
   const lock=lockReason(state,type);if(lock){say(`${bp.name}: ${lock}.`);return;}
@@ -1078,9 +1116,12 @@ function openRepair(type){if(!isBroken(state,type))return;if(state.broken[type]>
 // Paying for a repair, like building: the bar closes on success, so a double tap can't pay twice.
 function confirmRepair(){const type=view.repairing;if(!type)return;const res=startRepair(state,type);if(!res.ok){placeLine();return;}
   done('repair:'+type,tileOf(state,type));store();endPlacing();say(`Repair of the ${BP[type].name} paid. ${state.jobs.build?'Your builders are on their way.':'No one is a Builder: tap it yourself to repair it, or make someone a Builder in People.'}`);update();wake();}
-function endPlacing(){if(!view)return;view.info=null;view.placing=null;view.roading=false;view.walling=false;view.upgrading=null;view.repairing=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.autopick.hidden=true;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';hideStaff();}
+function endPlacing(){if(!view)return;view.info=null;view.clearing=null;view.placing=null;view.roading=false;view.walling=false;view.upgrading=null;view.repairing=null;view.site=null;view.sites=[];view.place.hidden=true;view.confirm.hidden=false;view.autopick.hidden=true;view.cancel.textContent='Cancel';view.confirm.textContent='Build here';hideStaff();}
 function placeLine(){view.place.hidden=false;view.confirm.disabled=false;view.autopick.hidden=true;hideStaff();
   if(view.info){view.placeName.textContent=view.info.title;view.placeText.textContent=view.info.text;view.confirm.hidden=false;view.confirm.textContent=TABS.find(t=>t.id===view.info.go).name;view.cancel.textContent='Close';return;}
+  if(view.clearing!==null){const z=view.clearing,c=canClear(state,z);view.placeName.textContent=`Clear · ${PATCH[z].name}`;view.confirm.hidden=false;view.confirm.textContent='Clear';view.confirm.disabled=!c.ok;view.cancel.textContent='Cancel';
+    const inside=zoneCount(z);
+    view.placeText.textContent=c.ok?`Clear this land for ${fmt(c.cost)}? Most of the brush goes; ${inside} stay to gather.`:c.reason==='short'?`Clearing costs ${fmt(c.cost)}: you need ${fmt(c.need)} more.`:LOCKED[c.reason]||'';return;}
   // One plain heading for what's in hand, so it's clear what a tap on the town will do.
   view.placeName.textContent=view.roading?'Laying road':view.walling==='auto'?'Add Palisade':view.walling?'Building palisade':view.repairing?`Repair · ${BP[view.repairing].name}`
     :view.upgrading?`${BP[view.upgrading].name} · Lv ${lvOf(state,view.upgrading)}`:view.placing?`Placing · ${BP[view.placing].name}`:'';
@@ -1170,16 +1211,11 @@ function update(){
   view.jobsText.textContent=state.workers?`Population ${state.workers} / ${cap} · ${auto} on Auto. Food a minute: +${fr.grow} from the Farm, −${fr.eat} eaten (${net>=0?'+':''}${net}; berry bushes add more).${hungry(state)?' Out of Food: work is slower.':''}`:'Recruit someone first (above).';
   for(const j of JOBS){const v=view.jobs[j];v.name.textContent=JOB_NAME[j];v.n.textContent=String(state.jobs[j]);v.info.textContent=jobInfo(j);
     v.less.disabled=state.jobs[j]<=0;v.add.disabled=auto<=0;v.less.setAttribute('aria-label',`One fewer ${JOB_ONE[j]}`);v.add.setAttribute('aria-label',`One more ${JOB_ONE[j]}`);}
-  const ex=canExpand(state),xc=expandCost(state),seen=sees(state)&&xc?ringCount(state.land+1):'';
-  view.expand.querySelector('strong').textContent=xc?`Expand · Territory ${state.land+2}`:'Haven at full size';
-  view.expand.querySelector('small').textContent=!xc?`All ${CONFIG.lands.length} territories open`:ex.reason==='survey'?'Needs a Survey Post':ex.reason==='short'?`Need ${fmt(ex.need)} more${seen?' · '+seen:''}`:seen||'The mist clears; the map grows';
-  view.expand.querySelector('b').textContent=xc?fmt(xc):'Max';view.expand.disabled=!ex.ok;view.expand.setAttribute('aria-label',`${view.expand.querySelector('strong').textContent}. ${view.expand.querySelector('small').textContent}.`);
   view.auto.disabled=auto===state.workers;view.auto.setAttribute('aria-label',auto===state.workers?'Every worker is already on Auto':'Put every worker on Auto');
-  manageText(st,xc);showDrawer();simple(auto,cap);
-  if(view.placing||view.roading||view.walling||view.upgrading)placeLine();
-  view.reimport.hidden=storeApi.get(V4_KEY)===null&&storeApi.get(V2_KEY)===null&&storeApi.get(V1_KEY)===null;
+  manageText(st);showDrawer();simple(auto,cap);
+  if(view.placing||view.roading||view.walling||view.upgrading||view.clearing!==null)placeLine();
   const sids=standingIds(state),wd=world(state.origin),count=k=>sids.filter(id=>{const n=wd.nodes.get(id).kind;return k==='wood'?isWood(n):n===k;}).length;
-  view.canvas.setAttribute('aria-label',`Haven settlement, territory ${state.land+1} of ${CONFIG.lands.length}, Settlement Lv ${st.level}. ${count('wood')} trees, ${count('stone')} stone and ${count('ore')} ore left. ${state.built.length?'Buildings: '+state.built.map(b=>`${BP[b.t].name} Lv ${b.lv}`).join(', ')+'.':'No buildings yet.'}${state.roads.length?` ${plural(state.roads.length,'road tile')}.`:''}${state.walls.length?` ${plural(state.walls.length,'palisade tile')}.`:''} ${plural(state.workers,'person','people')}, ${state.food} Food.${Object.keys(state.broken).length?` Damaged: ${Object.keys(state.broken).map(t=>BP[t].name).join(', ')}.`:''}${state.raid?` ${RAID_NAME[state.raid]} are attacking.`:''} Tap a tree or deposit, or press Enter, to work it.`);
+  view.canvas.setAttribute('aria-label',`Haven settlement, ${plural(state.zones.length,'patch','patches')} of ${PATCHES.length} cleared round the home clearing, Settlement Lv ${st.level}. ${count('wood')} trees, ${count('stone')} stone and ${count('ore')} ore left. ${state.built.length?'Buildings: '+state.built.map(b=>`${BP[b.t].name} Lv ${b.lv}`).join(', ')+'.':'No buildings yet.'}${state.roads.length?` ${plural(state.roads.length,'road tile')}.`:''}${state.walls.length?` ${plural(state.walls.length,'palisade tile')}.`:''} ${plural(state.workers,'person','people')}, ${state.food} Food.${Object.keys(state.broken).length?` Damaged: ${Object.keys(state.broken).map(t=>BP[t].name).join(', ')}.`:''}${state.raid?` ${RAID_NAME[state.raid]} are attacking.`:''} Tap a tree or deposit, or press Enter, to work it.`);
   workLine();draw();
 }
 /* The simple view (#140): one suggestion in a box at the top of the town, one big choice at the top of each window,
@@ -1200,7 +1236,7 @@ function simple(auto,cap){
   const held=JOBS.filter(j=>state.jobs[j]).map(j=>`${state.jobs[j]} ${JOB_SHORT[j]}`).join(' · ');
   view.jobSum.textContent=!state.workers?'Recruit someone below.':`${held?held+'. ':''}Tap a building to give it workers.`;
   view.defShort.textContent=defShort();
-  view.oreBox.hidden=!state.ore&&!state.land&&!has(state,'foundry');
+  view.oreBox.hidden=!state.ore&&!state.zones.length&&!has(state,'foundry');
   for(const t of TABS)view.tabs[t.id].btn.hidden=!tabOn(t.id);
   zoomButtons();}
 const costLine=sug=>sug.need?`Need ${fmt(sug.need)}`:sug.cost?`${sug.why} · ${fmt(sug.cost)}`:sug.why;
@@ -1224,7 +1260,7 @@ function drawIcon(cv,sug){const ctx=cv?.getContext?.('2d');if(!ctx||!sug)return;
   cv.width=28*d;cv.height=28*d;cv.style.width='28px';cv.style.height='28px';ctx.setTransform?.(d,0,0,d,0,0);ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,28,28);
   if(sug.type){building(ctx,{w:14,h:7,ox:14,oy:20,a:0},sug.type,0,0,lv);return;}
   if(sug.kind==='gather'){tree(ctx,{w:16,h:8,ox:14,oy:18,a:0},0,0,'pine',.5);return;}
-  const rows=SPRITE[sug.kind==='tools'?'tools':sug.kind==='wall'?'wall':sug.kind==='expand'?'flag':'person'],col={S:C.stoneHi,w:C.woodHi,h:'#e0b48a',c:sug.job==='guard'?'#8a8676':'#4f8a5c',k:C.ink,b:C.brass,g:C.grass[1]};
+  const rows=SPRITE[sug.kind==='tools'?'tools':sug.kind==='wall'?'wall':sug.kind==='clear'?'flag':'person'],col={S:C.stoneHi,w:C.woodHi,h:'#e0b48a',c:sug.job==='guard'?'#8a8676':'#4f8a5c',k:C.ink,b:C.brass,g:C.grass[1]};
   rows.forEach((row,y)=>[...row].forEach((ch,x)=>{if(col[ch]){ctx.fillStyle=col[ch];ctx.fillRect(2+x*3,2+y*3,3,3);}}));}
 // One short line under each job: what it does now, from the real numbers.
 function jobInfo(j){
@@ -1233,13 +1269,12 @@ function jobInfo(j){
     :has(state,'farm')?'The Farm is damaged · they forage berry bushes':'No Farm yet · they forage berry bushes';
   if(j==='build')return repairing(state).length?`Repairing the ${repairing(state).map(t=>BP[t].name).join(', ')}`:'Repair damaged buildings · gather when nothing needs it';
   if(j==='guard')return`+${CONFIG.guardPower} Defense each · keep watch instead of gathering`;
-  return`Raid warning ${CONFIG.warnScoutMs/1000} s sooner each (up to ${CONFIG.warnScouts}) · see the next land`;}
-// A Watchtower or a scout shows the next land through the mist.
+  return`Raid warning ${CONFIG.warnScoutMs/1000} s sooner each (up to ${CONFIG.warnScouts}) · see into far land`;}
+// A Watchtower or a scout shows what grows in far land (patches not yet beside Haven) through the mist.
 const sees=s=>on(s,'watchtower')>0||s.jobs.scout>0;
 const mmss=ms=>{const t=Math.ceil(ms/1000);return`${Math.floor(t/60)}:${String(t%60).padStart(2,'0')}`;};
-function ringCount(k){const n=[...world(state.origin).nodes.values()].filter(x=>x.land===k);return`You can see ${n.filter(x=>isWood(x.kind)).length} trees, ${n.filter(x=>x.kind==='stone').length} stone, ${n.filter(x=>x.kind==='ore').length} ore`;}
 // The drawer's words: the one next goal, Defense (only what Haven really has) and Land.
-function manageText(st,xc){
+function manageText(st){
   const g=goal(state);view.goal.textContent=g?`Next: ${g}`:'';view.goal.hidden=!g;
   view.defenseText.textContent=threatText();
   const d=defense(state);
@@ -1257,13 +1292,18 @@ function manageText(st,xc){
   view.walls.querySelector('b').textContent=wallsOpen?`${fmt(CONFIG.wallCost)} each`:'Locked';view.walls.disabled=!wallsOpen||!afford(state,CONFIG.wallCost);
   view.walls.setAttribute('aria-label',`${view.walls.querySelector('strong').textContent}. ${view.walls.querySelector('small').textContent}.`);
   const wl=lvOf(state,'watchtower');
-  view.watchText.textContent=wl?`Watchtower · Lv ${wl} (${STAGES[wl-1]})${isBroken(state,'watchtower')?', damaged':''}: ${BP.watchtower.effects[wl-1]}.`:'No Watchtower yet. Build one (Build → Town) for +2 Defense and to see the next land through the mist.';
-  const [lo,hi]=land(state),size=`${hi-lo}×${hi-lo}`;
-  view.landText.textContent=`Territory ${state.land+1} of ${CONFIG.lands.length} · ${size} tiles.`+(xc?(sees(state)?` ${ringCount(state.land+1)} in the next land.`:''):' Haven is at its full size for now.');
+  view.watchText.textContent=wl?`Watchtower · Lv ${wl} (${STAGES[wl-1]})${isBroken(state,'watchtower')?', damaged':''}: ${BP.watchtower.effects[wl-1]}.`:'No Watchtower yet. Build one (Build → Town) for +2 Defense and to see into far land.';
+  landLine();
   alertLine();}
+// Land in a few words, and Find Next Clearing with the next patch's name and price.
+function landLine(){const n=state.zones.length,z=nextClear(state),c=z===null?null:canClear(state,z),b=view.findClear,off=FX.survey[on(state,'survey')];
+  view.landShort.textContent=`Home clearing + ${plural(n,'patch','patches')} of ${PATCHES.length} · ${own(state).ids.length} tiles`;
+  b.querySelector('small').textContent=z===null?'All the land round Haven is cleared':c.reason==='survey'?`${PATCH[z].name} · needs a Survey Post`:c.ok?`${PATCH[z].name} · shows it on the map`:`${PATCH[z].name} · need ${fmt(c.need)} more`;
+  b.querySelector('b').textContent=z===null?'Done':fmt(c.cost);b.disabled=z===null;b.setAttribute('aria-label',`Find Next Clearing. ${b.querySelector('small').textContent}.`);
+  view.landText.textContent=`A Clear sign on the map shows what a patch beside Haven costs; a lock is land further out.${sees(state)?' Your Watchtower or scouts show what grows there.':''} Each patch cleared makes the next ${fmt(CONFIG.clearStep)} dearer${off?`, then ${Math.round(off*100)}% off for your Survey Post`:''}.`;}
 // The Defense section's first line: when raids start, or the one coming, from the real clock and numbers.
 function threatText(){
-  if(!raidsOpen(state)){const miss=[!has(state,'house')&&'a House',!has(state,'farm')&&'a Farm',state.land<1&&'its first expansion'].filter(Boolean);
+  if(!raidsOpen(state)){const miss=[!has(state,'house')&&'a House',!has(state,'farm')&&'a Farm',!state.zones.length&&'a cleared patch of land'].filter(Boolean);
     return`No raids yet. They start once Haven has ${miss.join(', ').replace(/, ([^,]*)$/,' and $1')}, and then only after ${CONFIG.graceMs/60000} minutes of play. Wolves and bandits will come now and then, always with a warning.`;}
   const k=nextKind(state),o=raidOutcome(state,k),tg=o.hit?` and damage the ${BP[o.hit].name}`:'';
   const result=o.won?'They would be driven off.':`They would get through, take ${o.n?`${o.n} ${RES_NAME[o.res]}`:'nothing much'}${tg}.`;
@@ -1291,26 +1331,29 @@ function priceButton(btn,c,title,detail){const short=c!==null&&!afford(state,c);
   btn.querySelector('small').textContent=c===null?detail:short?`${detail} · need ${fmt(shortOf(state,c))} more`:detail;btn.querySelector('b').textContent=c===null?'Max':fmt(c);
   btn.disabled=c===null||short;btn.setAttribute('aria-label',`${title}. ${btn.querySelector('small').textContent}. ${c===null?'Maximum level.':'Costs '+fmt(c)+'.'}`);}
 
-/* Isometric canvas. The view shows the territory plus a one-tile ring of mist. Tile (c,r) has its top corner at
+/* Isometric canvas. The view shows the whole 16×16 map (home clearing, cleared and wild patches) plus a one-tile ring
+ * of mist. Tile (c,r) has its top corner at
  * ox+(c−r)·w/2, oy+(c+r−2a)·h/2, where a is the first tile shown and h = w/2. Wider than the screen, the scene scrolls. */
 function onResize(){if(!view)return;layout(false);draw();}
 /* The town fills the space between the counters and the drawer (ruins-reclaimed.css). Tiles grow until the map is as
  * tall as the room the town has with the open section folded away, up to 44px, and the map pans both ways when it's
  * bigger than its space. So opening a section covers part of the town without shrinking it, and while a building,
  * road or palisade is being placed the tile size stays put, so the tile you aimed at doesn't move. */
-/* The menus float over the town, so the town's room is just its own height: opening or closing one never resizes it. */
+/* The menus float over the town, so the town's room is just its own height: opening or closing one never resizes it.
+ * Tiles are sized so the home clearing (8×8 and a ring round it) fills that room, as the first territory did; the wild
+ * patches round it are there to pan to. */
 function townRoom(){return view.scene.clientHeight||0;}
 /* Zoom (#140) scales that fitted tile size (base) by view.zoom, to an even size between 20px and 72px. A zoom, a
  * resize or a new territory keeps the point in focus still: the middle of the town's space, or between your fingers. */
 function layout(center,focus){
-  const cv=view.canvas,sc=view.scene,cw=sc.clientWidth||300,sh=sc.clientHeight||0,[lo,hi]=land(state),V=hi-lo+2,old=view.geo;
-  const keep=old&&old.V===V&&!center&&!!(view.placing||view.roading||view.walling||view.upgrading),fitH=(townRoom()-16)/(2.1+V/2);
+  const cv=view.canvas,sc=view.scene,cw=sc.clientWidth||300,sh=sc.clientHeight||0,V=W+2,old=view.geo;
+  const keep=old&&old.V===V&&!center&&!!(view.placing||view.roading||view.walling||view.upgrading||view.clearing!==null),fitH=(townRoom()-16)/(2.1+(HHI-HLO+2)/2);
   const base=keep?old.base:Math.max(24,Math.min(44,Math.floor(Math.max(cw/10.4,fitH||0)/2)*2));
   const w=Math.max(ZMIN,Math.min(ZMAX,Math.round(base*(view.zoom||1)/2)*2)),h=w/2,top=Math.round(w*1.5),cssW=Math.round(V*w+w*.6),cssH=Math.round(top+V*h+w*.6+6),dpr=Math.min(root.devicePixelRatio||1,3);
   const [px,py]=focus||[cw/2,sh/2],offX=o=>Math.max(0,(cw-o.cssW)/2),offY=o=>Math.max(0,(sh-o.cssH)/2);
   const fx=old?((sc.scrollLeft||0)+px-offX(old))/old.cssW:.5,fy=old?((sc.scrollTop||0)+py-offY(old))/old.cssH:.5,same=old&&old.cssW===cssW&&old.cssH===cssH&&old.dpr===dpr;
   if(!same){cv.style.width=cssW+'px';cv.style.height=cssH+'px';cv.width=Math.round(cssW*dpr);cv.height=Math.round(cssH*dpr);}
-  view.geo={w,h,base,ox:Math.round(cssW/2),oy:top,a:lo-1,V,dpr,cssW,cssH};view.size=[cw,sh];
+  view.geo={w,h,base,ox:Math.round(cssW/2),oy:top,a:-1,V,dpr,cssW,cssH};view.size=[cw,sh];
   if(center){sc.scrollLeft=Math.max(0,(cssW-cw)/2);sc.scrollTop=Math.max(0,(cssH-sh)/2);}
   else if(!same){sc.scrollLeft=Math.max(0,fx*cssW+offX(view.geo)-px);sc.scrollTop=Math.max(0,fy*cssH+offY(view.geo)-py);}
 }
@@ -1322,6 +1365,8 @@ function hit(x,y){
   const g=view.geo;if(!g)return null;
   const u=(x-g.ox)/(g.w/2),v=(y-g.oy)/(g.h/2),c=Math.floor((u+v)/2)+g.a,r=Math.floor((v-u)/2)+g.a,tile=inLand(state,c,r)?wid(c,r):undefined;
   if(view.placing||view.roading||view.walling)return{tile};
+  // The signs on wild land sit on top of everything.
+  for(const b of view.badges||[])if(Math.abs(x-b.x)<=b.hw&&Math.abs(y-b.y)<=b.hh)return{zone:b.z};
   // Front objects first; a tap on a canopy, rock or roof counts for it.
   // Raiders first (they're rare and worth knowing about), then trees, deposits and buildings, then people.
   for(const p of raiderSpots(performance.now())){const [cx,cy]=iso(g,p.c+.5,p.r+.5);if(Math.abs(x-cx)<=10&&y<=cy+4&&y>=cy-20)return{raider:p};}
@@ -1330,7 +1375,7 @@ function hit(x,y){
   const hw=Math.max(g.w*.4,12),up=Math.max(g.w*1.3,28),dn=Math.max(g.h*.5,6);
   for(const o of objs){const [cx,cy]=iso(g,o.id%W+.5,Math.floor(o.id/W)+.5);if(Math.abs(x-cx)<=hw&&y<=cy+dn&&y>=cy-up)return o;}
   if(state.workers>0)for(const w of crew){const [wc,wr]=crewPosition(w,!reduced(),state),[cx,cy]=iso(g,wc+.5,wr+.5);if(Math.abs(x-cx)<=8&&y<=cy+3&&y>=cy-18)return{person:w};}
-  return tile===undefined?null:{tile};
+  if(tile!==undefined)return{tile};const z=zoneAt(c,r);return z>0?{wild:z}:null;
 }
 function poly(ctx,pts,fill){ctx.beginPath();pts.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fillStyle=fill;ctx.fill();}
 function diamond(ctx,g,c,r,fill,edge){const a=iso(g,c,r),b=iso(g,c+1,r),d=iso(g,c+1,r+1),e=iso(g,c,r+1);poly(ctx,[a,b,d,e],fill);if(edge){ctx.strokeStyle=edge;ctx.lineWidth=1;ctx.stroke();}}
@@ -1342,7 +1387,10 @@ function box(ctx,x,y,hw,ht,top,left,right){const hh=hw/2;poly(ctx,[[x-hw,y],[x,y
  * footprint under every building, trees, rocks and people with a dark one-pixel outline so they stand off the grass. */
 const C={grass:['#3b6c43','#42764a','#36633e'],grassHi:'#5a9358',grassLo:'#2c5535',edge:'#2f5a37',bloom:['#e8d27a','#d9a0c8','#f2efe0'],dirtL:'#5a4330',dirtR:'#3e2f22',dirtLip:'#6f5a3e',
   lot:'#6b5c42',lotEdge:'#8c7856',lotLo:'#584b36',ink:'#0c1a12',stone:'#8a8676',stoneHi:'#b9b29b',stoneLo:'#5d5b51',faint:'#566553',moss:'#4a7d52',trunk:'#5a3d26',pine:['#1d5236','#286a45','#3a8a57'],oak:['#24603a','#337a49','#56a05c'],bush:['#2f6a3d','#46894f'],berry:'#c8465a',
-  valid:'rgba(159,216,192,.3)',validEdge:'#9fd8c0',pick:'rgba(248,220,136,.55)',pickEdge:'#ffe8af',nope:'rgba(214,72,62,.6)',nopeEdge:'#ff9a8a',brass:'#d6bd81',roof:'#6e3f2e',roofHi:'#8b5440',wood:'#7a5534',woodHi:'#9a7048',lantern:'#f3c46a',ore:['#4a4452','#655c70','#342f3c'],vein:'#e09a46',veinHi:'#8fd6c9',mist:'#0d1d22',plot:'rgba(248,220,136,.22)',plotEdge:'#f8dc88',road:'#6f5c40',roadHi:'#86714f',roadEdge:'#4d3f2c'};
+  valid:'rgba(159,216,192,.3)',validEdge:'#9fd8c0',pick:'rgba(248,220,136,.55)',pickEdge:'#ffe8af',nope:'rgba(214,72,62,.6)',nopeEdge:'#ff9a8a',brass:'#d6bd81',roof:'#6e3f2e',roofHi:'#8b5440',wood:'#7a5534',woodHi:'#9a7048',lantern:'#f3c46a',ore:['#4a4452','#655c70','#342f3c'],vein:'#e09a46',veinHi:'#8fd6c9',mist:'#0d1d22',plot:'rgba(248,220,136,.22)',plotEdge:'#f8dc88',road:'#6f5c40',roadHi:'#86714f',roadEdge:'#4d3f2c',
+  // Haven 4: cleared patches a shade darker than the home clearing; wild land dark and overgrown; the worn footpath.
+  grassP:['#37663f','#3d6f45','#335e3b'],wild:['#1f3b2b','#22412f','#1c3727'],wildFar:['#172d22','#1a3226','#152a1f'],wildEdge:'#142a20',
+  brush:['#24452f','#2c5236','#1b3524'],brushHi:'#3d6a46',pathDirt:'#6b5a3e',pathHi:'#7d6a4a'};
 // Chip colours for a hit on each kind: bark and leaves, leaves and berries, stone, ore with its glint.
 const CHIPS={pine:['#9a7a52',C.pine[2],'#c9a878'],oak:['#9a7a52',C.oak[2],'#c9a878'],bush:[C.bush[1],C.berry,'#7fb86a'],stone:[C.stoneHi,C.stone,'#d8d2bc'],ore:[C.ore[1],C.vein,C.veinHi]};
 /* Upgrade stages change the look in place: Lv 1 is Haven 2.0's makeshift look (unchanged); Lv 2 is timber on a timber
@@ -1355,24 +1403,32 @@ const STAGE_LOOK=[null,
 function draw(now){
   if(!view?.geo)return;const g=view.geo,ctx=view.canvas.getContext('2d');if(!ctx)return;now=now||performance.now();
   ctx.setTransform(g.dpr,0,0,g.dpr,0,0);ctx.clearRect(0,0,g.cssW,g.cssH);
-  const wd=world(state.origin),gone=goneSet(state),[lo,hi]=land(state),smooth=!reduced(),roads=new Set(state.roads);
+  const wd=world(state.origin),gone=goneSet(state),o=own(state),smooth=!reduced(),roads=new Set(state.roads);
   anims=anims.filter(a=>now-a.t0<a.life);
-  const landAnim=anims.find(a=>a.type==='land'),grow=landAnim?(now-landAnim.t0)/landAnim.life:1,[plo,phi]=state.land?CONFIG.lands[state.land-1]:[lo,hi];
-  // Earth slab under the territory
-  const L=iso(g,lo,hi),B=iso(g,hi,hi),R=iso(g,hi,lo),dep=Math.round(g.w*.3);
-  poly(ctx,[L,B,[B[0],B[1]+dep],[L[0],L[1]+dep]],C.dirtL);poly(ctx,[B,R,[R[0],R[1]+dep],[B[0],B[1]+dep]],C.dirtR);
-  // A grassy lip along the cliff top and a darker band of earth near the bottom, so the land reads as a raised slab.
-  poly(ctx,[[L[0],L[1]+dep*.6],[B[0],B[1]+dep*.6],[B[0],B[1]+dep],[L[0],L[1]+dep]],'#0003');poly(ctx,[[B[0],B[1]+dep*.6],[R[0],R[1]+dep*.6],[R[0],R[1]+dep],[B[0],B[1]+dep]],'#0003');
-  ctx.beginPath();ctx.moveTo(L[0],L[1]+1);ctx.lineTo(B[0],B[1]+1);ctx.lineTo(R[0],R[1]+1);ctx.strokeStyle=C.grassLo;ctx.lineWidth=2;ctx.stroke();
-  // Ground: territory (with roads), then the ring of mist around it
-  for(let r=g.a;r<g.a+g.V;r++)for(let c=g.a;c<g.a+g.V;c++){const id=wid(c,r),sh=wd.shade(id);
-    if(inLand(state,c,r)){
-      if(wd.rubble.has(id))diamond(ctx,g,c,r,C.faint,C.stoneLo);
-      else if(buildingAt(state,id))lot(ctx,g,c,r);
-      else{diamond(ctx,g,c,r,C.grass[Math.floor(sh*3)],C.edge);if(!roads.has(id))tuft(ctx,g,c,r,sh);}
-      if(roads.has(id))roadTile(ctx,g,c,r,roads,sh);
-      if(landAnim&&(c<plo||r<plo||c>=phi||r>=phi)){ctx.globalAlpha=Math.max(0,1-grow);diamond(ctx,g,c,r,C.mist);ctx.globalAlpha=1;}}
-    else{ctx.globalAlpha=.85;diamond(ctx,g,c,r,C.mist,'#16302f');ctx.globalAlpha=1;}}
+  // A patch being cleared still looks wild until the sweep has passed each of its tiles, from its back corner to its front.
+  const sweep=anims.find(a=>a.type==='clear'),sk=sweep?(now-sweep.t0)/sweep.life:1;
+  const swept=id=>{if(!sweep||ZONE[id]!==sweep.z)return true;const p=PATCH[sweep.z];return sk>=(id%W-p.c0+Math.floor(id/W)-p.r0+1)/(2*P4-1);};
+  const mine=id=>o.tiles.has(id)&&swept(id),open=new Set(openZones(state)),watch=sees(state);
+  // How high each tile is drawn: 2 the home clearing, 1 a cleared patch, 0 wild land and the mist beyond the map.
+  const lvl=(c,r)=>{if(c<0||r<0||c>=W||r>=W)return 0;const id=wid(c,r);return mine(id)?(ZONE[id]===0?2:1):0;};
+  // Wild land first: dark, overgrown ground, a little lighter where a patch can be cleared now than further out.
+  for(let r=g.a;r<g.a+g.V;r++)for(let c=g.a;c<g.a+g.V;c++){if(lvl(c,r))continue;const z=zoneAt(c,r);
+    if(z<0){ctx.globalAlpha=.85;diamond(ctx,g,c,r,C.mist,'#16302f');ctx.globalAlpha=1;continue;}
+    const sh=wd.shade(wid(c,r));diamond(ctx,g,c,r,(open.has(z)||sweep?.z===z?C.wild:C.wildFar)[Math.floor(sh*3)],C.wildEdge);}
+  // Then Haven's land: the cleared patches, then the raised home clearing, back to front, each tile with an earth face
+  // where it steps down to lower ground in front of it (deeper where the home clearing meets wild land).
+  const stepH=Math.max(3,Math.round(g.w*.2)),nearHearth=id=>AROUND.some(([dc,dr])=>wid(id%W+dc,Math.floor(id/W)+dr)===HEARTH);
+  for(const L of [1,2])for(let d=0;d<=2*(W-1);d++)for(let c=Math.max(0,d-W+1);c<=Math.min(W-1,d);c++){const r=d-c;if(lvl(c,r)!==L)continue;const id=wid(c,r),sh=wd.shade(id);
+    if(wd.rubble.has(id))diamond(ctx,g,c,r,C.lot,C.lotEdge);
+    else if(buildingAt(state,id))lot(ctx,g,c,r);
+    else{diamond(ctx,g,c,r,(L===2?C.grass:C.grassP)[Math.floor(sh*3)],C.edge);if(!roads.has(id)){if(wd.path.has(id))footpath(ctx,g,c,r,sh);else tuft(ctx,g,c,r,sh,nearHearth(id));}}
+    if(roads.has(id))roadTile(ctx,g,c,r,roads,sh);
+    const dl=L-lvl(c,r+1),dr=L-lvl(c+1,r);
+    if(dl>0)face(ctx,iso(g,c,r+1),iso(g,c+1,r+1),dl*stepH,C.dirtL);if(dr>0)face(ctx,iso(g,c+1,r+1),iso(g,c+1,r),dr*stepH,C.dirtR);}
+  // The patch whose Clear bar is open, and the one Find Next Clearing points at, have a gold edge.
+  const ring=(z,a)=>{ctx.globalAlpha=a;for(const id of PATCH[z].tiles)diamond(ctx,g,id%W,Math.floor(id/W),'rgba(248,220,136,.16)',C.pickEdge);ctx.globalAlpha=1;};
+  if(view.clearing!==null)ring(view.clearing,1);
+  for(const a of anims)if(a.type==='findzone'){const k=(now-a.t0)/a.life;ring(a.z,Math.max(0,Math.min(1,(1-k)*3))*(smooth?.55+.45*Math.sin(now/140):1));}
   // What's selected, on the ground: the tree or deposit you're working, or the building whose bar is open.
   if(view.selected!==null&&standing(state,view.selected))diamond(ctx,g,view.selected%W,Math.floor(view.selected/W),'rgba(248,220,136,.22)',C.pickEdge);
   const chosen=view.upgrading?state.built.find(x=>x.t===view.upgrading):null;if(chosen)diamond(ctx,g,chosen.c,chosen.r,'rgba(248,220,136,.3)',C.pickEdge);
@@ -1381,9 +1437,11 @@ function draw(now){
   // A tile that can't take it blinks red.
   for(const a of anims)if(a.type==='nope'){ctx.globalAlpha=Math.max(0,1-(now-a.t0)/a.life);diamond(ctx,g,a.c,a.r,C.nope,C.nopeEdge);ctx.globalAlpha=1;}
   // Objects back to front
-  const objs=[],shaking=new Map(anims.filter(a=>a.type==='shake').map(a=>[a.id,a])),sprouting=new Map(anims.filter(a=>a.type==='sprout').map(a=>[a.id,a])),falling=anims.filter(a=>a.type==='fall'),watch=sees(state),walls=new Set(state.walls);
+  const objs=[],shaking=new Map(anims.filter(a=>a.type==='shake').map(a=>[a.id,a])),sprouting=new Map(anims.filter(a=>a.type==='sprout').map(a=>[a.id,a])),falling=anims.filter(a=>a.type==='fall'),walls=new Set(state.walls);
   for(const n of wd.nodes.values()){const id=n.id,sh=wd.shade(id);
-    if(n.land>state.land){if(watch&&n.land===state.land+1&&n.c>=g.a&&n.r>=g.a&&n.c<g.a+g.V&&n.r<g.a+g.V)objs.push([n.c+n.r,()=>{ctx.globalAlpha=.55;node(ctx,g,n,sh,0);ctx.globalAlpha=1;}]);continue;}
+    // In wild land a node is only a dim shape: clear the patch to work it. Beside Haven you can see what grows; further
+    // out only with a Watchtower or scouts.
+    if(!mine(id)){const a=open.has(n.zone)||sweep?.z===n.zone?.6:watch?.45:0;if(a)objs.push([n.c+n.r,()=>{ctx.globalAlpha=a;node(ctx,g,n,sh,0);ctx.globalAlpha=1;}]);continue;}
     if(!gone.has(id)){const s=shaking.get(id),dx=s&&smooth?Math.round(Math.sin((now-s.t0)/s.life*Math.PI*4)*2):0,sp=sprouting.get(id);
       if(sp){const k=Math.max(0,Math.min(1,(now-sp.t0)/sp.life)),z=k<.75?.3+.8*easeOut(k/.75):1.1-.1*((k-.75)/.25),[bx,by]=iso(g,n.c+.5,n.r+.5);
         objs.push([n.c+n.r,()=>{ctx.save();ctx.translate(bx,by);ctx.scale(z,z);ctx.translate(-bx,-by);node(ctx,g,n,sh,0);ctx.restore();}]);}
@@ -1391,16 +1449,22 @@ function draw(now){
     else if(!buildingAt(state,id)&&!roads.has(id)&&!walls.has(id))objs.push([n.c+n.r-.1,()=>remains(ctx,g,n)]);}
   for(const id of walls){const c=id%W,r=Math.floor(id/W);objs.push([c+r+.01,()=>palisade(ctx,g,c,r,walls)]);}
   for(const f of falling){const n=wd.nodes.get(f.id);if(n)objs.push([n.c+n.r,()=>fallingTree(ctx,g,n.c,n.r,n.kind,wd.shade(n.id),(now-f.t0)/f.life,f.dir)]);}
-  for(const id of wd.rubble){const c=id%W,r=Math.floor(id/W);objs.push([c+r,()=>rubble(ctx,g,c,r,wd.shade(id))]);}
+  for(const id of wd.rubble){const c=id%W,r=Math.floor(id/W);objs.push([c+r,()=>hearth(ctx,g,c,r,now,smooth)]);}
+  // A lantern on a post where the footpath leaves the home clearing (nothing to tap; gone if something is built there).
+  {const end=FOOTPATH[FOOTPATH.length-1];if(!buildingAt(state,end)&&!roads.has(end)&&!walls.has(end))objs.push([end%W+Math.floor(end/W)+.04,()=>lanternPost(ctx,g,end%W,Math.floor(end/W),now,smooth)]);}
   const raise=anims.find(a=>a.type==='raise'),banner=settlement(state).level>=20;
   for(const b of state.built)objs.push([b.c+b.r+.02,()=>{if(raise&&raise.t===b.t)raising(ctx,g,b,(now-raise.t0)/raise.life,banner);else building(ctx,g,b.t,b.c,b.r,b.lv,banner);
     if(isBroken(state,b.t))damaged(ctx,g,b.c,b.r,state.broken[b.t],now,smooth);}]);
   if(view.placing&&view.site!==null){const c=view.site%W,r=Math.floor(view.site/W);objs.push([c+r+.03,()=>{ctx.globalAlpha=.78;building(ctx,g,view.placing,c,r,1);ctx.globalAlpha=1;}]);}
   // Add Palisade: a see-through preview of the tile Haven picked, joined to the palisade already there.
   if(view.walling==='auto'&&view.site!==null){const c=view.site%W,r=Math.floor(view.site/W),with_=new Set([...walls,view.site]);objs.push([c+r+.03,()=>{ctx.globalAlpha=.7;palisade(ctx,g,c,r,with_);ctx.globalAlpha=1;}]);}
-  // Mist silhouettes of the forest beyond (skipping tiles a Watchtower already shows)
-  for(let r=g.a;r<g.a+g.V;r++)for(let c=g.a;c<g.a+g.V;c++){if(inLand(state,c,r))continue;const id=wid(c,r),sh=wd.shade(id),n=wd.nodes.get(id);if(watch&&n&&n.land===state.land+1)continue;
-    if(sh<.55)objs.push([c+r,()=>{ctx.globalAlpha=.32;tree(ctx,g,c,r,sh<.3?'pine':'oak',sh);ctx.globalAlpha=1;}]);}
+  // Wild land is overgrown: low dark brush on every tile with nothing showing (only a picture: it can't be tapped or
+  // gathered, and clearing a patch sweeps it away), and the dark shapes of the forest beyond the map.
+  for(let r=g.a;r<g.a+g.V;r++)for(let c=g.a;c<g.a+g.V;c++){if(lvl(c,r))continue;const z=zoneAt(c,r),id=wid(c,r),sh=wd.shade(id);
+    if(z<0){if(sh<.55)objs.push([c+r,()=>{ctx.globalAlpha=.32;tree(ctx,g,c,r,sh<.3?'pine':'oak',sh);ctx.globalAlpha=1;}]);continue;}
+    const n=wd.nodes.get(id),shown=n&&(open.has(z)||sweep?.z===z||watch);if(shown)continue;
+    objs.push([c+r-.05,()=>brush(ctx,g,c,r,sh,!open.has(z)&&sweep?.z!==z)]);
+    if(sh<.3&&!open.has(z))objs.push([c+r,()=>{ctx.globalAlpha=.3;tree(ctx,g,c,r,'pine',sh);ctx.globalAlpha=1;}]);}
   if(state.workers>0)for(const w of crew){const [wc,wr]=crewPosition(w,smooth,state);objs.push([wc+wr+.05,()=>worker(ctx,g,w,wc,wr,now,smooth)]);}
   for(const p of raiderSpots(now))objs.push([p.c+p.r+.06,()=>raider(ctx,g,p,now,smooth)]);
   objs.sort((a,b)=>a[0]-b[0]).forEach(o=>o[1]());
@@ -1412,6 +1476,11 @@ function draw(now){
   for(const a of anims)if(a.type==='find'&&standing(state,a.id)){const n=wd.nodes.get(a.id),k=(now-a.t0)/a.life;if(!n)continue;
     ctx.globalAlpha=Math.max(0,Math.min(1,(1-k)*3))*(smooth?.55+.45*Math.sin(now/140):1);diamond(ctx,g,n.c,n.r,'rgba(248,220,136,.35)',C.pickEdge);ctx.globalAlpha=1;
     pointer(ctx,g,n.c,n.r,isWood(n.kind)&&n.kind!=='bush'?1.5:.85,now,smooth);}
+  // Clearing: as the sweep passes each tile, a few leaves and twigs of brush fly up and fade.
+  if(sweep&&smooth){const p=PATCH[sweep.z];for(const id of p.tiles){const t=(id%W-p.c0+Math.floor(id/W)-p.r0+1)/(2*P4-1),k=(sk-t)/.3;if(k<0||k>=1)continue;
+    const [x,y]=iso(g,id%W+.5,Math.floor(id/W)+.5),v=wd.shade(id);ctx.globalAlpha=1-k;
+    for(let j=0;j<4;j++){ctx.fillStyle=C.brush[j%3];ctx.fillRect(Math.round(x+(j-1.5)*g.w*.16+v*4),Math.round(y-g.w*.1-k*g.w*.6-(j%2)*3),3,3);}ctx.globalAlpha=1;}}
+  signs(ctx,g,open,sweep);
   // Work bars over nodes that have been started
   for(const [k,left] of Object.entries(state.hp)){const n=wd.nodes.get(Number(k));if(!n)continue;const max=CONFIG.kinds[n.kind].hp,[x,y]=iso(g,n.c+.5,n.r+.5),bw=Math.round(g.w*.6),bx=Math.round(x-bw/2),by=Math.round(y-g.w*(n.kind==='stone'||n.kind==='ore'||n.kind==='bush'?.62:1.35));
     ctx.fillStyle='#000c';ctx.fillRect(bx-1,by-1,bw+2,6);ctx.fillStyle='#3a2f20';ctx.fillRect(bx,by,bw,4);ctx.fillStyle=Number(k)===view.selected?'#ffe8af':C.brass;ctx.fillRect(bx,by,Math.max(1,Math.round(bw*left/max)),4);
@@ -1453,11 +1522,12 @@ function roadTile(ctx,g,c,r,roads,v){const joins=id=>roads.has(id)||!!buildingAt
 // A building's lot: packed earth with a lighter rim and a few flagstones, so every building sits on its own grid tile.
 function lot(ctx,g,c,r){diamond(ctx,g,c,r,C.lot,C.lotEdge);const [x,y]=iso(g,c+.5,r+.5),w=g.w,R=Math.round;ctx.fillStyle=C.lotLo;
   ctx.fillRect(R(x-w*.3),R(y+w*.04),3,2);ctx.fillRect(R(x+w*.22),R(y+w*.06),3,2);ctx.fillRect(R(x-w*.04),R(y+w*.16),4,2);}
-// A few blades of grass and, on some tiles, a flower: fixed per tile (from its shade), so nothing flickers.
-function tuft(ctx,g,c,r,v){const [x,y]=iso(g,c+.5,r+.5),w=g.w,R=Math.round,k=Math.floor(v*997)%9,ox=((k*7)%5-2)*w*.06,oy=((k*3)%3-1)*w*.04;
+// A few blades of grass and, on some tiles (and always round the hearth), a flower: fixed per tile, so nothing flickers.
+function tuft(ctx,g,c,r,v,bloom=false){const [x,y]=iso(g,c+.5,r+.5),w=g.w,R=Math.round,k=Math.floor(v*997)%9,ox=((k*7)%5-2)*w*.06,oy=((k*3)%3-1)*w*.04;
   ctx.fillStyle=C.grassHi;ctx.fillRect(R(x+ox-w*.16),R(y+oy-1),1,2);ctx.fillRect(R(x+ox-w*.14),R(y+oy-2),1,3);ctx.fillRect(R(x+ox+w*.12),R(y-oy+2),1,2);
   ctx.fillStyle=C.grassLo;ctx.fillRect(R(x-ox+w*.02),R(y+oy+w*.12),2,1);
-  if(k<2){ctx.fillStyle=C.bloom[(k+Math.floor(v*31))%3];ctx.fillRect(R(x-ox+w*.18),R(y-oy-w*.04),2,2);}}
+  if(k<2||bloom){ctx.fillStyle=C.bloom[(k+Math.floor(v*31))%3];ctx.fillRect(R(x-ox+w*.18),R(y-oy-w*.04),2,2);}
+  if(bloom){ctx.fillStyle=C.bloom[(k+1)%3];ctx.fillRect(R(x+ox-w*.2),R(y+oy+w*.02),2,2);}}
 // A small gold pointer floating over what's picked.
 const TALL={townhall:[0,1.3,1.6,1.9],watchtower:[0,1.5,1.7,1.9],survey:[0,1.8,1.8,1.8],yard:[0,1.45,1.45,1.45]};
 function pointer(ctx,g,c,r,up,now,smooth){const [x0,y0]=iso(g,c+.5,r+.5),x=Math.round(x0),y=Math.round(y0-g.w*up)+(smooth?Math.round(Math.sin(now/260)*1.5):0);
@@ -1472,7 +1542,53 @@ function node(ctx,g,n,v,dx){if(isWood(n.kind)){tree(ctx,g,n.c,n.r,n.kind,v,dx);r
 function remains(ctx,g,n){const [x,y]=iso(g,n.c+.5,n.r+.5),w=g.w;
   if(isWood(n.kind)){if(n.kind==='bush')return;ctx.fillStyle=C.trunk;ctx.fillRect(Math.round(x-w*.07),Math.round(y-w*.1),Math.round(w*.14),Math.round(w*.1));ctx.fillStyle='#9a7a52';ctx.fillRect(Math.round(x-w*.07),Math.round(y-w*.12),Math.round(w*.14),3);return;}
   ctx.fillStyle=n.kind==='ore'?C.ore[0]:C.stoneLo;ctx.fillRect(Math.round(x-w*.16),Math.round(y-2),4,3);ctx.fillRect(Math.round(x+w*.06),Math.round(y),4,3);ctx.fillRect(Math.round(x-w*.02),Math.round(y-w*.08),3,2);}
-function rubble(ctx,g,c,r,v){const [x,y]=iso(g,c+.5,r+.5),w=g.w;box(ctx,Math.round(x+(v-.5)*w*.3),Math.round(y),w*.14,w*(.1+v*.12),'#6a6a5e','#575649','#43423a');if(v>.5){ctx.fillStyle=C.moss;ctx.fillRect(Math.round(x-w*.2),Math.round(y-w*.06),Math.round(w*.14),3);}}
+// The earth face of a step down: from edge a→b of a tile, d pixels deep, with a grassy lip and a darker foot.
+function face(ctx,a,b,d,fill){poly(ctx,[a,b,[b[0],b[1]+d],[a[0],a[1]+d]],fill);poly(ctx,[[a[0],a[1]+d*.6],[b[0],b[1]+d*.6],[b[0],b[1]+d],[a[0],a[1]+d]],'#0003');
+  ctx.beginPath();ctx.moveTo(a[0],a[1]+1);ctx.lineTo(b[0],b[1]+1);ctx.strokeStyle=C.grassLo;ctx.lineWidth=2;ctx.stroke();}
+// The worn footpath from the hearth to the edge of the home clearing: a strip of bare earth with a few pebbles.
+function footpath(ctx,g,c,r,v){patch(ctx,g,c+.32,r,c+.68,r+1,C.pathDirt);patch(ctx,g,c+.4,r+.1,c+.6,r+.9,C.pathHi);
+  const [x,y]=iso(g,c+.5,r+.5),R=Math.round;ctx.fillStyle=C.lotLo;ctx.fillRect(R(x-g.w*.1+v*4),R(y-1),2,2);ctx.fillRect(R(x+g.w*.08-v*3),R(y+2),2,1);}
+// The hearth in the middle of the home clearing: a ring of stones round a small fire, and a little banner on a pole.
+// Only a picture: it can't be tapped, built on or walked through.
+function hearth(ctx,g,c,r,now,smooth){const [x0,y0]=iso(g,c+.5,r+.5),x=Math.round(x0),y=Math.round(y0),w=g.w,R=Math.round,f=smooth?Math.floor(now/160)%3:0;
+  ctx.globalAlpha=.18;diamond(ctx,g,c,r,C.lantern);ctx.globalAlpha=1;
+  for(let j=0;j<8;j++){const a=j*Math.PI/4,sx=R(x+Math.cos(a)*w*.22),sy=R(y+Math.sin(a)*w*.11);ctx.fillStyle=C.ink;ctx.fillRect(sx-2,sy-2,5,4);ctx.fillStyle=j%2?C.stone:C.stoneHi;ctx.fillRect(sx-1,sy-1,3,2);}
+  ctx.fillStyle=C.trunk;ctx.fillRect(R(x-w*.12),y-1,R(w*.24),2);
+  ctx.fillStyle='#e0702e';ctx.fillRect(x-3,y-5-(f===1?1:0),6,4);ctx.fillStyle=C.lantern;ctx.fillRect(x-2+(f===2?1:0),y-8-(f===0?1:0),3,4);ctx.fillStyle='#fff3c4';ctx.fillRect(x-1,y-5,1,2);
+  const px=R(x-w*.36),py=R(y-w*.1);ctx.fillStyle=C.ink;ctx.fillRect(px-1,py-R(w*.9)-1,3,R(w*.9)+2);ctx.fillStyle=C.wood;ctx.fillRect(px,py-R(w*.9),1,R(w*.9));
+  ctx.fillStyle='#7a2b2b';ctx.fillRect(px+1,py-R(w*.9),R(w*.24),R(w*.14));ctx.fillStyle=C.brass;ctx.fillRect(px+1,py-R(w*.9)+R(w*.14)-2,R(w*.24),2);}
+// A lantern on a post, glowing softly.
+function lanternPost(ctx,g,c,r,now,smooth){const [x0,y0]=iso(g,c+.72,r+.72),x=Math.round(x0),y=Math.round(y0),h=Math.round(g.w*.55),glow=smooth?.25+.1*Math.sin(now/300):.3;
+  ctx.fillStyle=C.ink;ctx.fillRect(x-2,y-h-1,4,h+2);ctx.fillStyle='#5c4128';ctx.fillRect(x-1,y-h,2,h);ctx.fillStyle=C.ink;ctx.fillRect(x-3,y-h-5,7,6);ctx.fillStyle=C.lantern;ctx.fillRect(x-2,y-h-4,5,4);
+  ctx.globalAlpha=glow;ctx.fillStyle=C.lantern;ctx.fillRect(x-5,y-h-7,11,10);ctx.globalAlpha=1;}
+// Brush on wild land: a few low dark clumps, darker further out. Only a picture, never something to gather.
+function brush(ctx,g,c,r,v,far){const [x0,y0]=iso(g,c+.5,r+.5),w=g.w,R=Math.round,k=Math.floor(v*991);
+  for(let j=0;j<3;j++){const dx=((k>>j)%5-2)*w*.09+(j-1)*w*.2,dy=((k>>(j+2))%3-1)*w*.05+(j===1?-w*.06:w*.03),bw=R(w*(.16+((k>>j)%3)*.04)),bh=R(w*.1)+2,x=R(x0+dx),y=R(y0+dy);
+    ctx.fillStyle=C.ink;ctx.fillRect(x-(bw>>1)-1,y-bh-1,bw+2,bh+2);ctx.fillStyle=C.brush[(j+k)%3];ctx.fillRect(x-(bw>>1),y-bh,bw,bh);
+    if(!far&&j===1){ctx.fillStyle=C.brushHi;ctx.fillRect(x-(bw>>1)+1,y-bh,Math.max(2,bw>>1),2);}}
+  if(far){ctx.globalAlpha=.3;diamond(ctx,g,c,r,C.mist);ctx.globalAlpha=1;}}
+/* The signs on wild land (#144). A patch beside Haven: a Clear sign with its price (Wood and Stone icons), gold when
+ * you can pay, the missing amount in red when not; on small screens only the icons and numbers. A patch further out,
+ * or one waiting on a Survey Post: a small lock. Each sign stays on its patch while you pan and zoom, and takes a tap
+ * of at least 44 by 36 pixels. Hidden while you place something, so a tap on a tile always reaches the tile. */
+function signs(ctx,g,open,sweep){view.badges=[];if(view.placing||view.roading||view.walling)return;
+  const compact=g.w<34||(view.size?.[0]||400)<=360,tw=t=>ctx.measureText?.(t)?.width??t.length*7;ctx.font='bold 12px Georgia,serif';ctx.textAlign='left';ctx.textBaseline='middle';
+  for(const p of PATCHES){if(state.zones.includes(p.id)||sweep?.z===p.id)continue;const [x0,y0]=iso(g,p.c0+P4/2,p.r0+P4/2),x=Math.round(x0),y=Math.round(y0-g.w*.3);
+    const c=open.has(p.id)?canClear(state,p.id):{ok:false,reason:'far'},lock=c.reason==='far'||c.reason==='survey',hot=view.clearing===p.id;
+    if(lock){const bw=22,bh=20,bx=x-bw/2,by=y-bh/2;plate(ctx,bx,by,bw,bh,hot?C.pickEdge:'#4f8a5c');
+      ctx.fillStyle=LCD[4];ctx.fillRect(x-3,by+4,6,2);ctx.fillRect(x-4,by+5,2,5);ctx.fillRect(x+2,by+5,2,5);ctx.fillStyle=C.brass;ctx.fillRect(x-5,by+9,10,7);ctx.fillStyle=LCD[0];ctx.fillRect(x-1,by+11,2,3);
+      view.badges.push({z:p.id,x,y,hw:22,hh:18});continue;}
+    const cost=c.cost,need=c.need||{},parts=['wood','stone'].filter(k=>cost[k]),word=compact?'':'Clear';
+    const widths=parts.map(k=>9+tw(String(cost[k]))+4),bw=Math.round(10+(word?tw(word)+6:0)+widths.reduce((a,b)=>a+b,0)),bh=20,bx=Math.round(x-bw/2),by=y-bh/2;
+    plate(ctx,bx,by,bw,bh,hot||c.ok?C.pickEdge:'#9bbc6f');let cx=bx+5;
+    if(word){ctx.fillStyle=c.ok?'#ffe8af':LCD[5];ctx.fillText(word,cx,y+1);cx+=tw(word)+6;}
+    parts.forEach((k,i)=>{icon(ctx,k,cx,y);cx+=9;ctx.fillStyle=need[k]?'#f0a090':LCD[5];ctx.fillText(String(cost[k]),cx,y+1);cx+=widths[i]-9;});
+    view.badges.push({z:p.id,x,y,hw:Math.max(22,bw/2+2),hh:18});}
+  ctx.textBaseline='alphabetic';}
+function plate(ctx,x,y,w,h,edge){ctx.fillStyle='#0008';ctx.fillRect(x+2,y+2,w,h);ctx.fillStyle=edge;ctx.fillRect(x,y,w,h);ctx.fillStyle=LCD[0];ctx.fillRect(x+2,y+2,w-4,h-4);}
+// Tiny Wood and Stone pictures for the signs: a log, and a grey rock.
+function icon(ctx,k,x,y){if(k==='wood'){ctx.fillStyle=C.ink;ctx.fillRect(x-1,y-4,9,7);ctx.fillStyle=C.woodHi;ctx.fillRect(x,y-3,7,5);ctx.fillStyle='#c9a878';ctx.fillRect(x+5,y-3,2,5);ctx.fillStyle=C.wood;ctx.fillRect(x,y,5,1);return;}
+  ctx.fillStyle=C.ink;ctx.fillRect(x-1,y-4,8,7);ctx.fillStyle=C.stoneHi;ctx.fillRect(x,y-3,6,3);ctx.fillStyle=C.stone;ctx.fillRect(x,y,6,2);}
 function tree(ctx,g,c,r,kind,v,dx=0){const [x,y0]=iso(g,c+.5,r+.5),w=g.w,y=Math.round(y0),X=Math.round(x+(v-.5)*w*.12)+dx;
   // Every tree and bush has a dark one-pixel rim (drawn first, one pixel bigger) and a lit side, so it reads at phone size.
   if(kind==='bush'){const cl=C.bush;ctx.fillStyle='#0004';ctx.fillRect(X-w*.26,y-2,w*.52,4);
@@ -1599,9 +1715,10 @@ function house(ctx,x,base,w,lv,K){const R=Math.round,hw=w*[0,.3,.34,.36][lv],ht=
   const cx=R(x-w*.14),ch=w*[0,.22,.26,.3][lv];box(ctx,cx,R(t-w*.08),w*.05,ch,lv===3?'#bdb6a0':C.stoneHi,lv===3?'#8d887a':C.stone,C.stoneLo);
   ctx.fillStyle='#8c8c8c88';ctx.fillRect(cx-1,R(t-w*.08-ch-6),3,3);ctx.fillRect(cx+2,R(t-w*.08-ch-11),2,2);}
 // Palisade: a row of sharpened stakes bound with a rope, along the outside of the edge tile it stands on.
-function palisade(ctx,g,c,r,walls){const [lo,hi]=land(state),runs=[];
-  if(r===lo)runs.push([[c,r],[c+1,r]]);if(r===hi-1)runs.push([[c,r+1],[c+1,r+1]]);if(c===lo)runs.push([[c,r],[c,r+1]]);if(c===hi-1)runs.push([[c+1,r],[c+1,r+1]]);
-  if(!runs.length)runs.push([[c,r+.5],[c+1,r+.5]]);// an older ring's palisade, left inside after expanding
+function palisade(ctx,g,c,r,walls){const o=own(state),out=(x,y)=>!(x>=0&&y>=0&&x<W&&y<W&&o.tiles.has(wid(x,y))),runs=[];
+  // Along every side of the tile that faces wild land, whatever shape Haven's land has.
+  if(out(c,r-1))runs.push([[c,r],[c+1,r]]);if(out(c,r+1))runs.push([[c,r+1],[c+1,r+1]]);if(out(c-1,r))runs.push([[c,r],[c,r+1]]);if(out(c+1,r))runs.push([[c+1,r],[c+1,r+1]]);
+  if(!runs.length)runs.push([[c,r+.5],[c+1,r+.5]]);// palisade left inside once the land beyond it was cleared
   const h=Math.max(6,Math.round(g.w*.3));
   for(const [[c0,r0],[c1,r1]] of runs){for(let i=0;i<5;i++){const f=.1+i*.2,[x,y]=iso(g,c0+(c1-c0)*f,r0+(r1-r0)*f),X=Math.round(x),Y=Math.round(y);
       ctx.fillStyle='#0005';ctx.fillRect(X-1,Y,4,2);ctx.fillStyle=C.wood;ctx.fillRect(X-1,Y-h,3,h);ctx.fillStyle=C.woodHi;ctx.fillRect(X-1,Y-h,1,h);ctx.fillStyle='#5c4128';ctx.fillRect(X,Y-h-2,1,2);}
@@ -1616,7 +1733,9 @@ function damaged(ctx,g,c,r,left,now,smooth){const [x0,y0]=iso(g,c+.5,r+.5),x=Mat
     ctx.fillStyle='#9fd8c0';ctx.fillRect(bx,by,Math.max(1,R(bw*(1-left/CONFIG.repairWork))),4);return;}
   const sx=R(x+w*.28),sy=R(y-w*1.05);ctx.fillStyle='#000a';ctx.fillRect(sx-1,sy-1,9,11);ctx.fillStyle='#b8322e';ctx.fillRect(sx,sy,7,9);ctx.fillStyle='#ffe8af';ctx.fillRect(sx+3,sy+2,1,4);ctx.fillRect(sx+3,sy+7,1,1);}
 // Raiders come in from one side of Haven (taking turns round the four sides) towards what they're after.
-function raidFrom(side){const [lo,hi]=land(state),m=Math.floor((lo+hi)/2);return side===0?[m,lo-1]:side===1?[hi,m]:side===2?[m,hi]:[lo-1,m];}
+// They set off from just outside Haven's land, level with the hearth, on that side.
+function raidFrom(side){const o=own(state),m=8,col=o.ids.filter(id=>id%W===m).map(id=>Math.floor(id/W)),row=o.ids.filter(id=>Math.floor(id/W)===m).map(id=>id%W);
+  return side===0?[m,Math.min(...col)-1]:side===1?[Math.max(...row)+1,m]:side===2?[m,Math.max(...col)+1]:[Math.min(...row)-1,m];}
 const raidHome=()=>[...world(state.origin).rubble][0];
 function raiderSpots(now){const out=[];if(!state)return out;
   const walk=(kind,[fc,fr],[tc,tr],k,back)=>{const n=kind==='beast'?2:3;for(let i=0;i<n;i++){const kk=Math.max(0,Math.min(1,k-i*.06)),dc=tc-fc,dr=tr-fr,len=Math.hypot(dc,dr)||1,off=(i-(n-1)/2)*.45;
