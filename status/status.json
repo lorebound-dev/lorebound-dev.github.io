@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T21:47:41.724Z",
+ "generatedAt": "2026-11-09T03:33:38.863Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -51,6 +51,33 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 149,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
+   "quote": "\"Also let’s remove shardworks and replace it with a farm where you can raise pets that give bonuses to a companion. We will use the original egg mechanics but have fewer pets and new ones. So there would be a main egg that is a random rarity and take a certain amount of time to hatch. Then your hatched pets will kind of walk around around the egg in that location.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-07T17:09:34Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-08T21:47:25Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-08T21:47:25Z",
+   "headSha": "f30863505df12d95e82d58c8239373029dd6e06f",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check (stage A only: the Farm scene; eggs, pets and bonuses wait on answers)",
+   "botState": "questions",
+   "botAt": "2026-11-07T17:16:58Z",
+   "goLive": false
+  },
   {
    "number": 164,
    "kind": "request",
@@ -902,104 +929,6 @@
    "requestStatus": "Partly built, ready to check (each stage's owner and outcome: `pocket-fortune/docs/qol-audit/LEDGER.md`)",
    "botState": "questions",
    "botAt": "2026-11-08T19:16:30Z",
-   "goLive": false
-  },
-  {
-   "number": 149,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
-   "quote": "\"Also let’s remove shardworks and replace it with a farm where you can raise pets that give bonuses to a companion. We will use the original egg mechanics but have fewer pets and new ones. So there would be a main egg that is a random rarity and take a certain amount of time to hatch. Then your hatched pets will kind of walk around around the egg in that location.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "What happens to Shardworks' Lore Shards? Right now it makes 3 to about 30 Shards an hour for players who rebuilt it. My suggestion: keep Shardworks running, reached from the Farm as it is now, until you choose a new place for those Shards. That way nobody loses what they paid for.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "joshua",
-     "text": "How much Gold does an egg cost? My suggestion: 5,000 Gold, the same as rebuilding Shardworks, so an egg a day feels like a real choice in the mid game.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "joshua",
-     "text": "What are the rarity odds? My suggestion: Common 70%, Uncommon 25%, Rare 5%, with the Commons, Uncommons and Rare equally likely within their rarity.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "joshua",
-     "text": "What are the six pets, and what does each one give the companion it's assigned to? My suggestion: 3 Common pets at +3% damage, 2 Uncommon pets at +5% critical chance or 5% faster attacks, and 1 Rare pet at +8% damage. A repeat hatch adds one bond level, up to 5, and each level adds a further 1%.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "joshua",
-     "text": "When does the Farm unlock? My suggestion: show it from the start as a quiet meadow, with eggs available after Boss 40.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Pet art. The finished game needs real art for each of the six pets: small pixel sprites with 2 to 4 walk and idle frames. Please have it made and put in your Artwork Inbox's Proposed folder, then link it in a change to this request.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "noah",
-     "text": "Eggs and owned pets need new data in the save, added through the save update list. I won't build that until Noah OKs the save change.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "noah",
-     "text": "Stopping Shardworks, or moving players' Shardworks upgrades to something else, changes saves that players paid Gold for. That also needs Noah's OK once Joshua decides on question 1.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "claude",
-     "text": "Check the Farm on a phone at 320×610, 375×667, 390×844 and 430×932. From a new save, tap Farm on the bottom bar. Make sure the pets stay inside the fence and below the nest, the \"Get Egg\" and Shardworks buttons aren't covered, and every label is readable. Then tap Shardworks and \"‹ Pet Farm\" to check the way back.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "claude",
-     "text": "Build eggs, hatching, the pet journal and assigning a pet to a companion once Joshua answers questions 1 to 5 and Noah OKs the save change.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "note",
-     "text": "I built only the part you can try without new decisions: the Farm screen, the nest and the wandering pets. Eggs, hatching, the pet list and companion bonuses need your numbers and new save data, which Noah has to approve. If I built them now with made-up numbers, they'd have to be redone.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "note",
-     "text": "The pets and the Farm icon are simple shapes drawn in code, not real art. They're only there to test the size and movement. They can't go in the real game as finished pets. The meadow is also drawn in code. If you'd like a painted background like the Shardworks mine, it would need art in your Artwork Inbox.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "note",
-     "text": "Pets walk only in the strip below the nest, so they never cover the egg or the buttons. With six pets that strip may feel crowded. Once the real pets exist, I'd let them walk all the way round the nest.",
-     "at": "2026-11-07T17:16:58Z"
-    },
-    {
-     "who": "note",
-     "text": "I agree with the request on Boss 40 for the Farm unlock instead of Shardworks' Floor 60. It gives players eggs to look forward to earlier.",
-     "at": "2026-11-07T17:16:58Z"
-    }
-   ],
-   "openedAt": "2026-11-07T17:09:34Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-08T21:47:25Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-08T21:47:25Z",
-   "headSha": "f30863505df12d95e82d58c8239373029dd6e06f",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check (stage A only: the Farm scene; eggs, pets and bonuses wait on answers)",
-   "botState": "questions",
-   "botAt": "2026-11-07T17:16:58Z",
    "goLive": false
   },
   {
