@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T04:53:20.702Z",
+ "generatedAt": "2026-11-09T04:56:21.326Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-05T21:33:07Z",
@@ -1304,6 +1304,11 @@
  ],
  "activity": [
   {
+   "at": "2026-11-09T04:56:05Z",
+   "kind": "behind",
+   "text": "Behind the scenes: “Keep Actions storage inside the free amount”"
+  },
+  {
    "at": "2026-11-09T03:38:56Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Implement approved QoL audit across summoning collection and mobile play”, “Replace Ascend with 25-hero rarity board for tap power”, “Replace Shardworks with a timed-egg Pet Farm and roaming pets”, “Rescue prologue and starter selection”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Unify Rift language and surface essential help”, “Make collection availability and completion honest”, “Show exact floor-clear bonuses and away earnings”"
@@ -1497,11 +1502,6 @@
    "at": "2026-11-08T04:50:32Z",
    "kind": "test",
    "text": "The test site was updated with “Lower battlefield characters and enlarge bosses by 40%”, “Design guided progression companion power and achievements from owner references”, “Use tutorial egg companion details; keep Omnidex read-only”, “Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics”, “Double-tap Party cards to swap pending companions directly”, “Double species mastery summon requirements and damage bonuses”, “Keep enemy and companions stationary when Party collapses”, “Add Codex Claim All discovery rewards and rarity completion bonuses”, “Replace Ascend with 25-hero rarity board for tap power”, “Fix regular enemy visibility and quest overlap”, “Explain boss readiness failure and cleared-floor state”, “Make collection availability and completion honest”"
-  },
-  {
-   "at": "2026-11-08T04:47:51Z",
-   "kind": "closed",
-   "text": "“Heroes: ornate 3-chest shelf, single carousel and orb landing animation” was closed"
   }
  ],
  "otherPulls": [
