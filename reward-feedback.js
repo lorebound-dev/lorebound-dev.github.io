@@ -16,16 +16,24 @@ function away(r,elapsed,s){if(!r||!(elapsed>SHORT_ABSENCE_SECONDS))return null;c
  return {head,line,where,floors,capped:!!r.capped,rewarded:r.capped?duration(r.seconds):''};}
 // Two settled episodes still waiting to be shown become one panel with their exact totals.
 function merge(a,b){const x=a.r,y=b.r,sum=k=>(x[k]||0)+(y[k]||0);return {elapsed:a.elapsed+b.elapsed,r:{...y,seconds:sum('seconds'),kills:sum('kills'),gold:sum('gold'),shards:sum('shards'),xp:sum('xp'),relicDrops:sum('relicDrops'),floors:[...(x.floors||[]),...(y.floors||[])],newRelics:[...(x.newRelics||[]),...(y.newRelics||[])],capped:!!(x.capped||y.capped),encounterCap:!!(x.encounterCap||y.encounterCap),interruptedBoss:!!(x.interruptedBoss||y.interruptedBoss)}};}
-let host=null,queue=[],showing=null,timer=null;
+let queue=[],showing=null,timer=null;
 function reduced(){return !!root.matchMedia?.('(prefers-reduced-motion: reduce)').matches;}
-function el(){return host||(host=root.document?.getElementById('clearBanner'))||null;}
-function next(){showing=null;const b=el();if(!b)return;if(!queue.length){b.hidden=true;b.textContent='';return;}
+function el(){return root.document?.getElementById?.('clearBanner')||null;}
+// The banner belongs to the Adventure screen: another tab (#game.area-open or the destination page), the summon
+// scene, any open sheet or popup (an open <dialog>) or a hidden page means it is not in view.
+function inView(){const d=root.document;if(!d)return true;if(d.hidden)return false;const g=d.getElementById?.('game');if(g?.classList?.contains?.('area-open'))return false;
+ for(const id of ['destinationPage','summonSheet']){const n=d.getElementById?.(id);if(n&&n.hidden===false)return false;}
+ return !d.querySelector?.('dialog[open]');}
+function next(){showing=null;const b=el();if(!b)return;if(!queue.length||!inView()){queue=[];b.hidden=true;b.textContent='';return;}
  // A fast party can clear several floors at once; anything waiting shows as one exact total.
  const items=queue.splice(0),sum={floor:items[0].floor,first:items[0].floor,last:items.at(-1).floor,gold:0,shards:0,xp:0};for(const x of items){sum.gold+=x.gold;sum.shards+=x.shards;sum.xp+=x.xp;}
  showing=sum;b.textContent=bannerText(sum);b.classList?.toggle('still',reduced());b.hidden=false;b.classList?.remove('show');void b.offsetWidth;b.classList?.add('show');timer=setTimeout(next,BANNER_MS);}
 const seen=new Set();
-function announce(e){const x=clearBonus(e);if(!x||seen.has(x.floor))return false;seen.add(x.floor);queue.push(x);if(!showing)next();return true;}
+// A clear made while another screen is in view is marked seen and dropped, so it never replays later.
+function announce(e){const x=clearBonus(e);if(!x||seen.has(x.floor))return false;seen.add(x.floor);if(!inView()){hide();return false;}queue.push(x);if(!showing)next();return true;}
 function hide(){clearTimeout(timer);queue=[];showing=null;const b=el();if(b){b.hidden=true;b.textContent='';}}
-root.LoreRewardFeedback={BANNER_MS,SHORT_ABSENCE_SECONDS,parts,clearBonus,bannerText,duration,away,merge,announce,hide,get queued(){return queue.length+(showing?1:0);}};
+// Called every combat tick: leaving Adventure or opening a sheet hides the banner at once and drops anything queued.
+function check(){if((showing||queue.length)&&!inView())hide();}
+root.LoreRewardFeedback={BANNER_MS,SHORT_ABSENCE_SECONDS,parts,clearBonus,bannerText,duration,away,merge,announce,hide,check,inView,get queued(){return queue.length+(showing?1:0);}};
 if(typeof module!=='undefined')module.exports=root.LoreRewardFeedback;
 })(globalThis);
