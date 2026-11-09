@@ -31,7 +31,11 @@
 .adventure-refined #game.floor-ready:not(.encounter-boss) #bossButton.has-advice{width:min(236px,100%);padding:0 8px}
 .adventure-refined #game #bossButton.has-advice>span,.adventure-refined #game #bossButton.has-advice>small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:Georgia,serif!important}
 .adventure-refined #game #bossButton.has-advice>span{font-size:13px!important;line-height:16px!important}
-.adventure-refined #game #bossButton.has-advice>small{margin-top:2px;font-size:12px!important;line-height:14px!important;letter-spacing:0;text-shadow:0 1px 2px #000}
+.adventure-refined #game #bossButton.has-advice>small{margin-top:2px;font-size:12px!important;line-height:14px!important;letter-spacing:0;text-transform:none;text-shadow:0 1px 2px #000}
+/* adventure.css sets the pixel font on every span with !important, so the line's own spans need Georgia too. */
+.adventure-refined #game #bossButton.has-advice>small>span{font:inherit!important;font-family:Georgia,serif!important;letter-spacing:0;text-transform:none}
+.adventure-refined #game #bossButton.has-advice.advice-compact .advice-full{display:none}
+.adventure-refined #game #bossButton.has-advice.advice-compact .advice-short{display:inline}
 .adventure-refined #game #bossButton.has-advice>small:before{content:'';display:inline-block;width:6px;height:6px;margin:0 6px 1px 0;rotate:45deg;background:currentColor}
 .adventure-refined #game #bossButton.advice-ready>small{color:#b8efc9}
 .adventure-refined #game #bossButton.advice-low>small{color:#ffcf86}

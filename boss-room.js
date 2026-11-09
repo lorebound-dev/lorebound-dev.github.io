@@ -11,17 +11,24 @@ const A=()=>root.LoreBossAdvice;
 // Advisory only: adventure.js still owns the button's state and its tap; this adds the recommended Party DPS under the label.
 function readiness(s){
  const b=$('bossButton'),a=A()&&s&&s.mode!=='boss'&&!s.realmComplete&&root.Lore.ready(s)&&A().advice(s);
- if(!a){b.classList.remove('has-advice','advice-ready','advice-low');b.removeAttribute('aria-label');clearPlate(false);return;}
+ if(!a){b.classList.remove('has-advice','advice-ready','advice-low','advice-compact');b.removeAttribute('aria-label');clearPlate(false);return;}
  const label=b.querySelector('.boss-button-label')?.textContent??b.textContent;b.textContent='';
  const top=document.createElement('span');top.className='boss-button-label';top.textContent=label;
  const line=document.createElement('small');line.className='boss-advice';
- // Full line and a short one; CSS shows the short one when the quest's Claim plaque shares a narrow row.
+ // Full line and a short one; fitLine (and CSS below 351px with the Claim plaque) shows the short one when the full one doesn't fit.
  const full=document.createElement('span');full.className='advice-full';full.textContent=A().buttonLine(a);
  const short=document.createElement('span');short.className='advice-short';short.textContent=A().buttonShort(a);
  line.append(full,short);
  b.append(top,line);b.classList.add('has-advice');b.classList.toggle('advice-ready',a.ready);b.classList.toggle('advice-low',!a.ready);
  b.setAttribute('aria-label',A().buttonLabel(a,s));
+ fitLine(b,line);
  clearPlate(true);
+}
+// Shows the short "DPS x / y" form whenever the full line would be cut off in the space the button has.
+function fitLine(b,line){
+ b.classList.remove('advice-compact');
+ if(typeof line.scrollWidth!=='number'||!line.clientWidth)return;
+ if(line.scrollWidth>line.clientWidth+1)b.classList.add('advice-compact');
 }
 // Keeps the enemy's name and health bar fully above the Challenge Boss row: on short screens the row (with the
 // quest plaque beside it) can reach the bottom of the plate. Lifts only the plate, only as far as needed, never past
