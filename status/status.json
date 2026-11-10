@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-10T02:00:01.828Z",
+ "generatedAt": "2026-11-10T23:12:15.956Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -52,6 +52,200 @@
  },
  "items": [
   {
+   "number": 60,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
+   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "note",
+     "text": "The Journal redesign is built, with your three answers from 3 November. Try it on the test site, https://lorebound-dev.github.io/, ideally on your iPhone. When you're happy with it, tap Go live on your status page.",
+     "at": "2026-11-10T21:28:12Z"
+    }
+   ],
+   "openedAt": "2026-10-28T04:18:38Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T23:54:26Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T23:54:26Z",
+   "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-03T07:12:23Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-03T07:12:09Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 120,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify Rift rarity bars and clean up legacy Tome UI",
+   "quote": "Make the upgrade rift rarity bars be the same ones used on the auto screen. Remove anything saying highest level. Remove all pngs of tomes and replace with the new rift. Remove the all levels button on the upgrade rift. Move the upgrade rift button up a bit and shrink it a bit.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Record one summon at phone size showing the Rift's spin-up before the result. Still pictures can't show the 0.3-second spin-up, so this needs a short screen recording.",
+     "at": "2026-11-10T21:28:11Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #78 is merged, remove All levels here, and take out #78's new \"highest level\" wording, as this request asks. Until #78 is in, All levels is the only way back to a higher Rift level after picking a lower one.",
+     "at": "2026-11-10T21:28:11Z"
+    },
+    {
+     "who": "claude",
+     "text": "Once #84 is merged, make Upgrade Rift use Auto Summon's rarity rows here, leaving #85's row art out, as this request asks.",
+     "at": "2026-11-10T21:28:11Z"
+    },
+    {
+     "who": "note",
+     "text": "#97 (2 Nov) and #120 (7 Nov) want different things under the Rift: #97 shows the summon cost, #120 shows your Shard balance. On the test site I kept your newer choice, the balance. When both go live, the same choice has to be made again, so I'd keep the balance there for the real game too, unless you want the cost back.",
+     "at": "2026-11-10T21:28:11Z"
+    }
+   ],
+   "openedAt": "2026-11-06T12:38:45Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T23:54:26Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T23:54:26Z",
+   "headSha": "77fe9eb5db5dfd312e7ccde92425879fba83cfd7",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T15:31:27Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-07T01:09:44Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 149,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
+   "quote": "\"Also let’s remove shardworks and replace it with a farm where you can raise pets that give bonuses to a companion. We will use the original egg mechanics but have fewer pets and new ones. So there would be a main egg that is a random rarity and take a certain amount of time to hatch. Then your hatched pets will kind of walk around around the egg in that location.\"",
+   "stage": "testing",
+   "waitingOn": "both",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "What happens to the mine's Lore Shards? Right now it makes 3 to about 30 Shards an hour for players who rebuilt it. My suggestion: keep it running, reached from the Farm as it is now, until you choose a new place for those Shards. That way nobody loses what they paid for.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "joshua",
+     "text": "How much Gold does an egg cost? My suggestion: 5,000 Gold, the same as rebuilding the mine, so an egg a day feels like a real choice in the mid game.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "joshua",
+     "text": "What are the rarity odds? My suggestion: Common 70%, Uncommon 25%, Rare 5%, with the Commons, Uncommons and Rare equally likely within their rarity.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "joshua",
+     "text": "What are the six pets, and what does each one give the companion it's assigned to? My suggestion: 3 Common pets at +3% damage, 2 Uncommon pets at +5% critical chance or 5% faster attacks, and 1 Rare pet at +8% damage. A repeat hatch adds one bond level, up to 5, and each level adds a further 1%.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "joshua",
+     "text": "When does the Farm unlock? My suggestion: show it from the start as a quiet meadow, with eggs available after Boss 40.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Pet art. The finished game needs real art for each of the six pets: small pixel sprites with 2 to 4 walk and idle frames. Please have it made and put in your Artwork Inbox's Proposed folder, then link it in a change to this request.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "noah",
+     "text": "Eggs and owned pets need new data in the save, added through the save update list. I won't build that until Noah OKs the save change.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "noah",
+     "text": "Stopping the mine, or moving players' mine upgrades to something else, changes saves that players paid Gold for. That also needs Noah's OK once Joshua decides on question 1.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "claude",
+     "text": "Build eggs, hatching, the pet journal and assigning a pet to a companion once Joshua answers questions 1 to 5 and Noah OKs the save change.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "note",
+     "text": "I built only the part you can try without new decisions: the Farm screen, the nest and the wandering pets. Eggs, hatching, the pet list and companion bonuses need your numbers and new save data, which Noah has to approve. If I built them now with made-up numbers, they'd have to be redone.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "note",
+     "text": "The pets and the Farm icon are simple shapes drawn in code, not real art. They're only there to test the size and movement. They can't go in the real game as finished pets. The meadow is also drawn in code. If you'd like a painted background like the mine's, it would need art in your Artwork Inbox.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "note",
+     "text": "Pets walk only in the strip below the nest, so they never cover the egg or the buttons. With six pets that strip may feel crowded. Once the real pets exist, I'd let them walk all the way round the nest.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "note",
+     "text": "I agree with the request on Boss 40 for the Farm unlock instead of Floor 60. It gives players eggs to look forward to earlier.",
+     "at": "2026-11-10T21:28:09Z"
+    },
+    {
+     "who": "note",
+     "text": "The Farm's button to the mine now says \"Forge\", to match the page's new name in requests 92 and 147.",
+     "at": "2026-11-10T21:28:09Z"
+    }
+   ],
+   "openedAt": "2026-11-07T17:09:34Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T23:54:26Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T23:54:26Z",
+   "headSha": "aef183b5d08eb1a860a1a4db94b26e2aa0ecb6d0",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check (stage A only: the Farm scene; eggs, pets and bonuses wait on answers)",
+   "botState": "questions",
+   "botAt": "2026-11-09T03:36:39Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-09T03:36:10Z"
+   },
+   "goLive": false
+  },
+  {
    "number": 167,
    "kind": "request",
    "by": "Joshua",
@@ -59,19 +253,8 @@
    "quote": "Floor-clear summary: when a story floor is cleared, show a short-lived reward banner/toast on the Adventure screen listing exactly what the clear paid. While-you-were-away panel: if gains accrued while the game was hidden/closed for more than 60 seconds ... show a one-time panel on return. Do not change any reward amounts, offline efficiency, or the 6-hour cap — presentation only.",
    "stage": "testing",
    "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "On the test site, load the party test save (Floor 25) at 320×610 and 390×844 and clear a story floor on Adventure. Then open the Farm and Heroes tabs: check that the banner is gone and that \"Preview · Eggs aren't open yet\", the Equipped hero row, the Crest count and the chest-level line are all visible.",
-     "at": "2026-11-09T23:52:33Z"
-    },
-    {
-     "who": "claude",
-     "text": "This run couldn't list the other open requests. If the test site leaves this request out because another open request also changes the tick() line in adventure.js, add a test-site resolution for that clash. This change only adds globalThis.LoreRewardFeedback?.check(); at the start of tick().",
-     "at": "2026-11-09T23:52:33Z"
-    }
-   ],
+   "forClaude": false,
+   "asks": [],
    "openedAt": "2026-11-08T04:37:41Z",
    "mergedAt": null,
    "closedAt": null,
@@ -85,7 +268,7 @@
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
-   "botState": "questions",
+   "botState": "finished",
    "botAt": "2026-11-09T23:52:33Z",
    "lastCommit": {
     "joshua": false,
@@ -102,22 +285,17 @@
    "quote": "",
    "stage": "testing",
    "waitingOn": null,
-   "forClaude": true,
+   "forClaude": false,
    "asks": [
-    {
-     "who": "claude",
-     "text": "Phone check for PR #163: load the boss test save on the test site (Floor 30, ten companions, boss ready, a quest to claim, Party open). At 320×610, 375×667, 390×844 and 430×932, confirm three things. The line under Challenge Boss is in Georgia with no \"…\". Claim shows in full. The enemy's name and health bar stay above the row.",
-     "at": "2026-11-09T23:47:30Z"
-    },
     {
      "who": "note",
      "text": "The advised Party DPS is the boss's HP divided by the boss timer, plus 10%, rounded up (747 HP in 30 seconds gives 28). It's only advice: you can always challenge the boss. I think 10% is a fair margin because tapping adds damage on top.",
-     "at": "2026-11-09T23:47:30Z"
+     "at": "2026-11-10T21:28:06Z"
     },
     {
      "who": "note",
      "text": "When the full line doesn't fit beside Claim, the button shows the short \"DPS 128.8 / 56\". It drops the word \"advised\", but the green or amber colour still tells you whether your party is strong enough, and screen readers still hear the full sentence.",
-     "at": "2026-11-09T23:47:30Z"
+     "at": "2026-11-10T21:28:06Z"
     }
    ],
    "openedAt": "2026-11-08T04:24:39Z",
@@ -133,7 +311,7 @@
    "touchesGame": true,
    "answers": false,
    "requestStatus": "Built, ready to check",
-   "botState": "questions",
+   "botState": "finished",
    "botAt": "2026-11-09T23:47:30Z",
    "lastCommit": {
     "joshua": false,
@@ -323,114 +501,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-08T04:42:15Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 149,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Shardworks with a timed-egg Pet Farm and roaming pets",
-   "quote": "\"Also let’s remove shardworks and replace it with a farm where you can raise pets that give bonuses to a companion. We will use the original egg mechanics but have fewer pets and new ones. So there would be a main egg that is a random rarity and take a certain amount of time to hatch. Then your hatched pets will kind of walk around around the egg in that location.\"",
-   "stage": "testing",
-   "waitingOn": "both",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "What happens to the mine's Lore Shards? Right now it makes 3 to about 30 Shards an hour for players who rebuilt it. My suggestion: keep it running, reached from the Farm as it is now, until you choose a new place for those Shards. That way nobody loses what they paid for.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "joshua",
-     "text": "How much Gold does an egg cost? My suggestion: 5,000 Gold, the same as rebuilding the mine, so an egg a day feels like a real choice in the mid game.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "joshua",
-     "text": "What are the rarity odds? My suggestion: Common 70%, Uncommon 25%, Rare 5%, with the Commons, Uncommons and Rare equally likely within their rarity.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "joshua",
-     "text": "What are the six pets, and what does each one give the companion it's assigned to? My suggestion: 3 Common pets at +3% damage, 2 Uncommon pets at +5% critical chance or 5% faster attacks, and 1 Rare pet at +8% damage. A repeat hatch adds one bond level, up to 5, and each level adds a further 1%.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "joshua",
-     "text": "When does the Farm unlock? My suggestion: show it from the start as a quiet meadow, with eggs available after Boss 40.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Pet art. The finished game needs real art for each of the six pets: small pixel sprites with 2 to 4 walk and idle frames. Please have it made and put in your Artwork Inbox's Proposed folder, then link it in a change to this request.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "noah",
-     "text": "Eggs and owned pets need new data in the save, added through the save update list. I won't build that until Noah OKs the save change.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "noah",
-     "text": "Stopping the mine, or moving players' mine upgrades to something else, changes saves that players paid Gold for. That also needs Noah's OK once Joshua decides on question 1.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "claude",
-     "text": "On a phone at 320×610, 375×667, 390×844 and 430×932, from a new save, tap Farm, then Forge, then \"‹ Pet Farm\", and check the way back works and every label is readable.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "claude",
-     "text": "Build eggs, hatching, the pet journal and assigning a pet to a companion once Joshua answers questions 1 to 5 and Noah OKs the save change.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "note",
-     "text": "I built only the part you can try without new decisions: the Farm screen, the nest and the wandering pets. Eggs, hatching, the pet list and companion bonuses need your numbers and new save data, which Noah has to approve. If I built them now with made-up numbers, they'd have to be redone.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "note",
-     "text": "The pets and the Farm icon are simple shapes drawn in code, not real art. They're only there to test the size and movement. They can't go in the real game as finished pets. The meadow is also drawn in code. If you'd like a painted background like the mine's, it would need art in your Artwork Inbox.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "note",
-     "text": "Pets walk only in the strip below the nest, so they never cover the egg or the buttons. With six pets that strip may feel crowded. Once the real pets exist, I'd let them walk all the way round the nest.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "note",
-     "text": "I agree with the request on Boss 40 for the Farm unlock instead of Floor 60. It gives players eggs to look forward to earlier.",
-     "at": "2026-11-09T23:44:11Z"
-    },
-    {
-     "who": "note",
-     "text": "The Farm's button to the mine now says \"Forge\", to match the page's new name in requests 92 and 147.",
-     "at": "2026-11-09T23:44:11Z"
-    }
-   ],
-   "openedAt": "2026-11-07T17:09:34Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T23:54:26Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T23:54:26Z",
-   "headSha": "aef183b5d08eb1a860a1a4db94b26e2aa0ecb6d0",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check (stage A only: the Farm scene; eggs, pets and bonuses wait on answers)",
-   "botState": "questions",
-   "botAt": "2026-11-09T03:36:39Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-09T03:36:10Z"
    },
    "goLive": false
   },
@@ -1159,69 +1229,6 @@
    "goLive": false
   },
   {
-   "number": 120,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify Rift rarity bars and clean up legacy Tome UI",
-   "quote": "Make the upgrade rift rarity bars be the same ones used on the auto screen. Remove anything saying highest level. Remove all pngs of tomes and replace with the new rift. Remove the all levels button on the upgrade rift. Move the upgrade rift button up a bit and shrink it a bit.",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "Open a pull request for branch fix/test-site-120-97 and merge it into main. It only adds the test-site record 120-97-rift-shard-balance.json and changes nothing in the game, but merging into main is Noah's. Then start the test-site update (gh workflow run publish-test.yml) and check that test-build.json lists #120 under included.",
-     "at": "2026-11-07T15:31:27Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once the record is on main and the test site has rebuilt, look at the Shard plaque under the Rift at 320×610, 375×667, 390×844 and 430×932, with the Party open and closed, with a small balance (like 40) and a large one (like 12.3K). #103's adventure-compact.css puts it 53px down on short phones instead of #120's 48px. If the bottom bar cuts it, add a test-site record that uses 48px (and record…",
-     "at": "2026-11-07T15:31:27Z"
-    },
-    {
-     "who": "claude",
-     "text": "In #115, check that the missing-space fix (.3s cubic-bezier) has been pushed and is on the test site. Then record one summon at phone size showing the spin-up before the result.",
-     "at": "2026-11-07T15:31:27Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #78 is merged, remove All levels here, and take out #78's new \"highest level\" wording, as this request asks. Until #78 is in, All levels is the only way back to a higher Rift level after picking a lower one.",
-     "at": "2026-11-07T15:31:27Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #84 is merged, make Upgrade Rift use Auto Summon's rarity rows here, leaving #85's row art out, as this request asks.",
-     "at": "2026-11-07T15:31:27Z"
-    },
-    {
-     "who": "note",
-     "text": "#97 (2 Nov) and #120 (7 Nov) want different things under the Rift: #97 shows the summon cost, #120 shows your Shard balance. On the test site I kept your newer choice, the balance. When both go live, the same choice has to be made again, so I'd keep the balance there for the real game too, unless you want the cost back.",
-     "at": "2026-11-07T15:31:27Z"
-    }
-   ],
-   "openedAt": "2026-11-06T12:38:45Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T23:54:26Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T23:54:26Z",
-   "headSha": "77fe9eb5db5dfd312e7ccde92425879fba83cfd7",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T15:31:27Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-07T01:09:44Z"
-   },
-   "goLive": false
-  },
-  {
    "number": 115,
    "kind": "request",
    "by": "Joshua",
@@ -1827,44 +1834,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-03T07:12:53Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 60,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Build compact Journey and Permanent Achievements Journal using real LOREBOUND data",
-   "quote": "\"I want to design this journey page to be like this. I don't want to have all the dividers for type. I just want the journey or whatever it's called then the permanent achievements. The permanent achievements need to be less in count but more in its levels and rewards. But right now the look needs to be achieved first.\"  \"Yes but it needs to use our info ... tell Claude how to code what I want, then we can provide the achievement list.\"",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "forClaude": false,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "The Journal redesign is ready for your last look on a real iPhone. Merging it puts it in the real game, so please merge only when you're happy with it.",
-     "at": "2026-11-03T07:12:23Z"
-    }
-   ],
-   "openedAt": "2026-10-28T04:18:38Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T23:54:26Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T23:54:26Z",
-   "headSha": "b3158071877811fe4f0bee45ecef5edf3f2d1d06",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-03T07:12:23Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-03T07:12:09Z"
    },
    "goLive": false
   },
