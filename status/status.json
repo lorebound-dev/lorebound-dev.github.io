@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-10T23:12:15.956Z",
+ "generatedAt": "2026-11-11T21:41:38.461Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -51,6 +51,97 @@
   "skipped": []
  },
  "items": [
+  {
+   "number": 165,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Make collection availability and completion honest",
+   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Once #130's fix for dark, hard-to-read names on the Epic cards is built, bring it into this request if it doesn't come through by itself, and check the Epic page again at 320×610 and 430×932.",
+     "at": "2026-11-11T21:41:21Z"
+    },
+    {
+     "who": "claude",
+     "text": "On the test site at 320×610, 375×667, 390×844 and 430×932: open Common, page 2, and check that a Realm 2 card says \"Not yet summonable\" without clipping, then set Collection to Missing and check those cards are gone. The caretaker can't scroll to page 2 or change the Collection box with its browser.",
+     "at": "2026-11-11T21:41:21Z"
+    },
+    {
+     "who": "note",
+     "text": "Companions that can't be summoned yet keep their real names on the blank cards, with \"Not yet summonable\" under them. They don't count towards the collection until their odds go live. I think this is the honest way to show them. Right now that's all 30 Realm 2 companions.",
+     "at": "2026-11-11T21:41:21Z"
+    },
+    {
+     "who": "note",
+     "text": "A companion you can only get at a higher Rift level still counts as missing, and its card just says \"Undiscovered\", like before. I'd consider a small \"Rift level 3\" line on those cards, so players know what to aim for. I left it out because it's your call what shows on screen.",
+     "at": "2026-11-11T21:41:21Z"
+    },
+    {
+     "who": "note",
+     "text": "The Epic tile shows \"—\" and \"Not yet summonable\" until its two companions get odds. If you'd rather hide Epic completely until then, I can do that.",
+     "at": "2026-11-11T21:41:21Z"
+    },
+    {
+     "who": "note",
+     "text": "When #89 and this request are both in, #89's own test still expects a total of 60. Whichever one goes live second needs that test changed to 30. It's only a test; nothing in the game changes.",
+     "at": "2026-11-11T21:41:21Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:59Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T23:54:26Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T23:54:26Z",
+   "headSha": "b2674439c8404e242d11f194672e1a2b54d52a1c",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:50:49Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-08T04:48:06Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 130,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
+   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-06T22:49:04Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-09T23:54:26Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-09T23:54:26Z",
+   "headSha": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T15:42:44Z",
+   "lastCommit": null,
+   "goLive": false
+  },
   {
    "number": 60,
    "kind": "request",
@@ -810,44 +901,6 @@
    "goLive": false
   },
   {
-   "number": 130,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
-   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "On the test site at 320×610, 375×667, 390×844 and 430×932, look at the Common page with blank named cards (a save that hasn't found every Common yet) and with the Mortals filter on.",
-     "at": "2026-11-08T19:09:44Z"
-    }
-   ],
-   "openedAt": "2026-11-06T22:49:04Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T23:54:26Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T23:54:26Z",
-   "headSha": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T15:42:44Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-06T22:54:23Z"
-   },
-   "goLive": false
-  },
-  {
    "number": 119,
    "kind": "request",
    "by": "Joshua",
@@ -887,64 +940,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-06T21:01:30Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 165,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Make collection availability and completion honest",
-   "quote": "\"Also I want to show the name and a blank card if you haven’t discovered it.\"  Following an iPhone visual review of the Grand Archive overview and Common collection page, Joshua approved proceeding with this change (\"Ok let’s do it\"). Preserve the current parchment-and-gold Omnidex aesthetic and ornate **discovered** companion cards. Make the rarity pages more focused on collecting and viewing companion cards instead of large navigation/filter controls.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "On the test site at 320×610, 375×667, 390×844 and 430×932: open Common, page 2, and check that a Realm 2 card says \"Not yet summonable\" without clipping. Set Collection to Missing and check those cards are gone. Open Epic and check the \"—\" tile and the heading fit.",
-     "at": "2026-11-08T19:09:43Z"
-    },
-    {
-     "who": "note",
-     "text": "Companions that can't be summoned yet keep their real names on the blank cards, with \"Not yet summonable\" under them. They don't count towards the collection until their odds go live. I think this is the honest way to show them. Right now that's all 30 Realm 2 companions.",
-     "at": "2026-11-08T19:09:43Z"
-    },
-    {
-     "who": "note",
-     "text": "A companion you can only get at a higher Rift level still counts as missing, and its card just says \"Undiscovered\", like before. I'd consider a small \"Rift level 3\" line on those cards, so players know what to aim for. I left it out because it's your call what shows on screen.",
-     "at": "2026-11-08T19:09:43Z"
-    },
-    {
-     "who": "note",
-     "text": "The Epic tile shows \"—\" and \"Not yet summonable\" until its two companions get odds. If you'd rather hide Epic completely until then, I can do that.",
-     "at": "2026-11-08T19:09:43Z"
-    },
-    {
-     "who": "note",
-     "text": "When #89 and this request are both in, #89's own test still expects a total of 60. Whichever one goes live second needs that test changed to 30. It's only a test; nothing in the game changes.",
-     "at": "2026-11-08T19:09:43Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:59Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-09T23:54:26Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-09T23:54:26Z",
-   "headSha": "b2674439c8404e242d11f194672e1a2b54d52a1c",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T04:50:49Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T04:48:06Z"
    },
    "goLive": false
   },
