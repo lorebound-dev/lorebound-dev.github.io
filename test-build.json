@@ -183,14 +183,6 @@
       ]
     },
     {
-      "number": 130,
-      "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
-      "head": "cdabbcdb0521ce51a36aae256cb6e3f03671fa8d",
-      "resolved": [
-        "130-117-gallery-cards-tag"
-      ]
-    },
-    {
       "number": 133,
       "title": "Keep enemy and companions stationary when Party collapses",
       "head": "321dd9e6d94ffd7b0165e4f78e892436a143f832"
@@ -198,7 +190,10 @@
     {
       "number": 142,
       "title": "Add Codex Claim All discovery rewards and rarity completion bonuses",
-      "head": "f7fc9f11979888d07b156c1553d5c59638ddcc24"
+      "head": "f7fc9f11979888d07b156c1553d5c59638ddcc24",
+      "resolved": [
+        "130-117-gallery-cards-tag"
+      ]
     },
     {
       "number": 146,
@@ -292,13 +287,23 @@
       ]
     }
   ],
-  "skipped": [],
-  "commit": "46ce603fd73444eb5320d5dcceaff79bdc5b8760",
+  "skipped": [
+    {
+      "number": 130,
+      "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
+      "head": "336d2af221ad74ed774274c3c2ed4ca82450c90f",
+      "files": [
+        "pocket-fortune/dist/home.html"
+      ],
+      "with": "others"
+    }
+  ],
+  "commit": "23c41ada8127df1cbd803b9aef281fd1c9951d10",
   "unusedResolutions": [
     "119-89-bound-mastery-hint",
     "122-109-economy-auto-notes",
     "164-78-rift-next-level",
     "164-97-stylesheets"
   ],
-  "at": "2026-11-09T23:54:25Z"
+  "at": "2026-11-11T21:49:04Z"
 }
