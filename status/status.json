@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-12T01:28:44.498Z",
+ "generatedAt": "2026-11-12T21:40:15.902Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -52,6 +52,77 @@
   ]
  },
  "items": [
+  {
+   "number": 38,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Lower battlefield characters and enlarge bosses by 40%",
+   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-10-27T21:22:11Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-11T21:49:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-11T21:49:04Z",
+   "headSha": "b479376953502d0d37964f9d6dec9e3472572d82",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T22:44:50Z",
+   "lastCommit": null,
+   "goLive": false
+  },
+  {
+   "number": 119,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Double species mastery summon requirements and damage bonuses",
+   "quote": "Make mastery’s take twice as many summons and twice as more powerful.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the mastery text on the Team page and in the Omnidex on the test site at 320×610, 375×667, 390×844 and 430×932, and check that \"+48%\" and \"120 summons\" fit without overflowing. This needs a save with a companion near Mastery VI, which the caretaker's test saves don't have.",
+     "at": "2026-11-12T21:39:57Z"
+    },
+    {
+     "who": "claude",
+     "text": "If #89 or #98 adds mastery totals for more rarities, double those too when they merge, so every rarity follows the same rule.",
+     "at": "2026-11-12T21:39:57Z"
+    }
+   ],
+   "openedAt": "2026-11-06T12:37:13Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-11T21:49:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-11T21:49:04Z",
+   "headSha": "786be6022c9a99d75e8820800db1ce2ad3181f50",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T15:41:06Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-06T21:01:30Z"
+   },
+   "goLive": false
+  },
   {
    "number": 165,
    "kind": "request",
@@ -874,49 +945,6 @@
    "goLive": false
   },
   {
-   "number": 119,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Double species mastery summon requirements and damage bonuses",
-   "quote": "Make mastery’s take twice as many summons and twice as more powerful.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the mastery text on the test site at 320×610, 375×667, 390×844 and 430×932: the Party companion page, the Team page, the summon result and the Omnidex. Check the hint says \"+8%\" per rank, and that \"+48%\" and \"120 summons\" fit without overflowing.",
-     "at": "2026-11-08T19:09:45Z"
-    },
-    {
-     "who": "claude",
-     "text": "If #89 or #98 adds mastery totals for more rarities, double those too when they merge, so every rarity follows the same rule.",
-     "at": "2026-11-08T19:09:45Z"
-    }
-   ],
-   "openedAt": "2026-11-06T12:37:13Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-11T21:49:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-11T21:49:04Z",
-   "headSha": "786be6022c9a99d75e8820800db1ce2ad3181f50",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T15:41:06Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-06T21:01:30Z"
-   },
-   "goLive": false
-  },
-  {
    "number": 162,
    "kind": "request",
    "by": "Joshua",
@@ -1054,49 +1082,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-08T12:59:41Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 38,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Lower battlefield characters and enlarge bosses by 40%",
-   "quote": "Send these two in. I need them to lower to just above the challenge boss when collapsed and when not collapsed it’s ok for them to be covered. I also need the size of the bosses increased by 40%. Also make sure the health icon doesn’t cover them.",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "With ten companions, the boss is now a bit smaller on bigger phones (about 1.2 to 1.3 times its original size instead of 1.5), so companions stay normal size and stand beside it. My suggestion: keep it like this. The other choice is a bigger boss with companions moved further out or lower, which would change the ten-place layout in #97.",
-     "at": "2026-11-08T19:09:40Z"
-    },
-    {
-     "who": "claude",
-     "text": "Phone check at 320×610, 375×812, 390×844 and 430×932 on the test site: an Endless guardian fight; a normal fight with one companion and with five (no shadow where nobody stands); and an enemy dying (its shadow goes with it).",
-     "at": "2026-11-08T19:09:40Z"
-    }
-   ],
-   "openedAt": "2026-10-27T21:22:11Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-11T21:49:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-11T21:49:04Z",
-   "headSha": "b479376953502d0d37964f9d6dec9e3472572d82",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T22:44:50Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-07T22:44:15Z"
    },
    "goLive": false
   },
@@ -1849,23 +1834,28 @@
    "asks": [
     {
      "who": "claude",
-     "text": "Look at the Omnidex in a local browser at 320×610, 375×667, 390×844 and 430×932, using a save with some species undiscovered, on the Epic, Uncommon and Common pages. Check that the dark-card names are easy to read and \"Sealed\" sits inside its frame. Check that two-line names (Ashen Familiar, Dusk Revenant, Cinderclack) stay inside the nameplate with a little room, without clipping or…",
-     "at": "2026-11-11T21:47:07Z"
+     "text": "Put this request back on the test site: add a record in pocket-fortune/tools/test-site/resolutions/ on main (like 130-117-gallery-cards-tag.json) for the stylesheet spot in home.html, keeping #117's companion-motion.css link and this request's tagged gallery-cards.css and grand-archive.css links. This needs a local session, because it's a pull request to main.",
+     "at": "2026-11-12T21:39:58Z"
     },
     {
      "who": "claude",
-     "text": "After this push, check that the test site still includes this pull request, along with #142 and #165 on top of it.",
-     "at": "2026-11-11T21:47:07Z"
+     "text": "Then look at the Omnidex at 320×610, 375×667, 390×844 and 430×932, using a save with some species undiscovered, on the Epic, Uncommon and Common pages. Check that the dark-card names are easy to read, \"Sealed\" sits inside its frame, and two-line names (Ashen Familiar, Dusk Revenant, Cinderclack) stay inside the nameplate.",
+     "at": "2026-11-12T21:39:58Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check that the test site then includes this request, with #142 and #165 on top of it.",
+     "at": "2026-11-12T21:39:58Z"
     },
     {
      "who": "note",
-     "text": "On the dark cards (Epic and up), an undiscovered card's tag now says \"Sealed\" instead of \"Undiscovered\", because \"Undiscovered\" can't fit that small frame at a size you can read. The name above it already shows what the card is. Once Epic and higher rarities get their own card art, those cards can use \"Undiscovered\" like the others.",
-     "at": "2026-11-11T21:47:07Z"
+     "text": "On the dark cards (Epic and up), an undiscovered card's tag now says \"Sealed\" instead of \"Undiscovered\", because \"Undiscovered\" can't fit that small frame at a size you can read. Once Epic and higher rarities get their own card art, those cards can use \"Undiscovered\" like the others.",
+     "at": "2026-11-12T21:39:58Z"
     },
     {
      "who": "note",
-     "text": "Card names are now always 12px, so a few long names take two lines. On 375- and 390-wide phones the nameplate is only a little taller than two lines, so two-line names fill most of it. If they still look cramped there, the cleanest fix is two cards per row up to 400 wide (bigger cards). I haven't done that, because it changes your card layout.",
-     "at": "2026-11-11T21:47:07Z"
+     "text": "Card names are now always 12px, so a few long names take two lines. If they look cramped on 375- and 390-wide phones, the cleanest fix is two cards per row up to 400 wide. That changes your card layout, so it's your call.",
+     "at": "2026-11-12T21:39:58Z"
     },
     {
      "who": "claude",
