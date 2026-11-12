@@ -4,7 +4,7 @@
     {
       "number": 38,
       "title": "Lower battlefield characters and enlarge bosses by 40%",
-      "head": "b479376953502d0d37964f9d6dec9e3472572d82"
+      "head": "5919746dceb62aa76d2d0aea6183babc61a345bc"
     },
     {
       "number": 60,
@@ -298,12 +298,12 @@
       "with": "others"
     }
   ],
-  "commit": "23c41ada8127df1cbd803b9aef281fd1c9951d10",
+  "commit": "24cf47343a968bb737fe2a2525bf70a5acc16396",
   "unusedResolutions": [
     "119-89-bound-mastery-hint",
     "122-109-economy-auto-notes",
     "164-78-rift-next-level",
     "164-97-stylesheets"
   ],
-  "at": "2026-11-11T21:49:04Z"
+  "at": "2026-11-12T21:46:03Z"
 }

@@ -37,7 +37,10 @@
   const collapsed=game.classList.contains('dock-is-collapsed');
   // The fight and the dock share one column, so the fight's folded height is its height now plus whatever the dock is taller than when folded.
   // The fighters keep the same low spot just above the Challenge Boss row whether the dock is folded, opening or open. Open cards may cover them.
-  if(collapsed)foldedDeck=deck.offsetHeight;const foldedHeight=combat.clientHeight+deck.offsetHeight-foldedDeck;
+  // The dock's share of the column is its height plus its margins: a Party sheet that opens over the fight (#97's negative top margin)
+  // takes no room from the fight, so it must not count as room the fight would get back on folding, or the fighters drop as it opens.
+  const style=getComputedStyle(deck),room=deck.offsetHeight+(parseFloat(style.marginTop)||0)+(parseFloat(style.marginBottom)||0);
+  if(collapsed)foldedDeck=room;const foldedHeight=combat.clientHeight+room-foldedDeck;
   const court=Math.max(90,foldedHeight-84);game.style.setProperty('--art-court-y',court+'px');game.classList.toggle('art-short-court',court<160);
  }
  // Measure only when the Party tray isn't part-way through folding or opening (request 2026-11-07-stable-battlefield-collapse).
