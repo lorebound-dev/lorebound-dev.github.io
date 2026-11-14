@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-12T22:51:01.856Z",
+ "generatedAt": "2026-11-14T00:17:46.095Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -53,6 +53,160 @@
  },
  "items": [
   {
+   "number": 147,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Ascend with 25-hero rarity board for tap power",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "noah",
+     "text": "To go live, the hero collection has to move into the real game save and its backups. That's a save change, with an update in save-storage.js's UPDATES list and in save-backups.html. It would hold: fragments per hero, chests opened, the equipped hero, when each chest comes back, the Hero Crests balance, the last chest and purchase receipts, and an unseen result. Until Noah OKs it, the…",
+     "at": "2026-11-08T13:00:21Z"
+    },
+    {
+     "who": "claude",
+     "text": "This run had no browser. On the test site at 320×610, 375×812, 390×844 and 430×932, tap the fourth tab (Heroes), using a save that had used its chests before. Check that:",
+     "at": "2026-11-08T13:00:21Z"
+    },
+    {
+     "who": "claude",
+     "text": "Still open from the last build: check that the top line (equipped hero, Crests, ?) fits on one row at 320 wide, that the hero strip swipes smoothly, and that the orb lands on cards near the far end of the strip, including on iPhone Safari.",
+     "at": "2026-11-08T13:00:21Z"
+    },
+    {
+     "who": "claude",
+     "text": "Open chest 6. Check that the UNCOMMON HEROES UNLOCKED line fits at all four sizes.",
+     "at": "2026-11-08T13:00:21Z"
+    },
+    {
+     "who": "claude",
+     "text": "Tap a found hero with enough Crests, then Buy 1 fragment, and Buy 2 to unlock. Check that the Confirm line and its buttons fit at all four sizes. Then equip another unlocked hero and check that TAP on Quest changes.",
+     "at": "2026-11-08T13:00:21Z"
+    },
+    {
+     "who": "note",
+     "text": "The chest timer is off everywhere Heroes runs (the test site, and local copies on a computer), as you asked. It isn't deleted. When you want 3 chests a day back on the test site, just say so and I'll switch it back on.",
+     "at": "2026-11-08T13:00:21Z"
+    },
+    {
+     "who": "note",
+     "text": "Opening many chests fast moves you through the chest levels in minutes instead of months. That's good for testing, but it won't show you how the real pace feels. The pacing tables from the last builds still describe 3 chests a day.",
+     "at": "2026-11-08T13:00:21Z"
+    },
+    {
+     "who": "note",
+     "text": "Everything else from the last builds still applies. Heroes is a test preview kept on the device, outside your save, and on the real game the tab only says \"Coming Soon\".",
+     "at": "2026-11-08T13:00:21Z"
+    }
+   ],
+   "openedAt": "2026-11-07T17:05:00Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-12T21:46:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-12T21:46:04Z",
+   "headSha": "2371ac7268ef79a91c232e57405677e4b9981f44",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T13:00:21Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-08T12:59:41Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 108,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use tutorial egg companion details; keep Omnidex read-only",
+   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Look at the companion page at 320×610 and 390×844 from a Team manager tap (then close it: you should land back where you were) and from an Omnidex tap (record page only, no Level up or placement buttons).",
+     "at": "2026-11-07T22:38:33Z"
+    }
+   ],
+   "openedAt": "2026-11-05T04:43:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-12T21:46:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-12T21:46:04Z",
+   "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T21:43:37Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-06T21:42:39Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 97,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Design guided progression companion power and achievements from owner references",
+   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "With six or more companions, the two open Party rows hide the enemy and every companion on phones 375 to 430 wide; only the enemy's name and health bar show above the cards. It comes from two choices together: the fight stays still when Party opens (#106, #133), and two rows open by default from 375 wide (#97). I suggest Party opens one row by default, so the fight stays visible, and the rows…",
+     "at": "2026-11-09T23:44:10Z"
+    },
+    {
+     "who": "note",
+     "text": "On 375×667, two Party rows open by default, as you chose. Together with the fight now staying still when Party opens (#106 and #133), the open rows cover the fight completely on phones 375 to 430 wide (see the question below).",
+     "at": "2026-11-09T23:44:10Z"
+    }
+   ],
+   "openedAt": "2026-11-02T03:47:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-12T21:46:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-12T21:46:04Z",
+   "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T23:03:18Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-06T23:02:58Z"
+   },
+   "goLive": false
+  },
+  {
    "number": 38,
    "kind": "request",
    "by": "Joshua",
@@ -64,28 +218,33 @@
    "asks": [
     {
      "who": "joshua",
-     "text": "With ten companions on bigger phones, both Party rows open by default and cover the whole fight, enemy included. Should the fight stay in view when Party opens? My suggestion: yes, open just one row by default on those phones (the fighters stay where they are), and show both rows only when you tap Party.",
-     "at": "2026-11-12T21:44:17Z"
+     "text": "With the Party open on phones 375 wide and up, both rows open by default and cover the whole fight, enemy included. This happens even with only three companions, when the second row is empty. Should the fight stay in view when Party opens? My suggestion: yes, open just one row by default (or only as many rows as you have companions for), and show both rows only when you tap Party.",
+     "at": "2026-11-13T21:05:05Z"
     },
     {
      "who": "joshua",
-     "text": "Boss size next to the ten-place formation: with ten companions, Story and Endless guardians are now a little smaller, so the side companions can stand beside the guardian instead of on top of it. My suggestion: keep it this way, because the larger guardian left no room for the side companions.",
-     "at": "2026-11-12T21:44:17Z"
+     "text": "Boss size next to the ten-place formation: with ten companions, Story and Endless guardians are now a little smaller, so the side companions can stand beside the guardian instead of on top of it. My suggestion: keep it this way. On the test site the Story boss with ten companions fits well at every phone size.",
+     "at": "2026-11-13T21:05:05Z"
     },
     {
      "who": "claude",
-     "text": "The fight is hidden behind the open Party on phones 375px wide and up because #97 (Joshua's #131 answer) opens both rows by default there, while this request and #133 keep the fighters on the folded spot. If Joshua picks \"keep the fight in view\", the fix belongs in #97: open one row (or start folded) when two rows would cover the enemy, rather than moving the fighters up.",
-     "at": "2026-11-12T21:44:17Z"
+     "text": "If Joshua picks \"keep the fight in view\", the fix belongs in #97: open one row (or start folded) when two rows would cover the enemy, rather than moving the fighters up.",
+     "at": "2026-11-13T21:05:05Z"
     },
     {
      "who": "claude",
-     "text": "The Next goal plaque from #97 covers the enemy's name and health bar while both rows are open. It sits just above the open Party. The fix belongs in #97 (for example, hide the plaque or move it while both rows are open), or it goes away with item 1.",
-     "at": "2026-11-12T21:44:17Z"
+     "text": "The Next goal plaque from #97 covers the enemy's name and health bar while both rows are open. The fix belongs in #97 (for example, hide or move the plaque while both rows are open), or it goes away with item 1.",
+     "at": "2026-11-13T21:05:05Z"
     },
     {
      "who": "claude",
-     "text": "The rest of the phone check isn't done yet: an Endless guardian fight, fights with one and with five companions, and an enemy dying, at 320×610, 375×667, 390×844 and 430×932.",
-     "at": "2026-11-12T21:44:17Z"
+     "text": "At 320×610 with one Party row open, the Claim and Challenge Boss row covers most of a big enemy like the Moss Toad (Floor 40). Look at it again once question 1 is settled.",
+     "at": "2026-11-13T21:05:05Z"
+    },
+    {
+     "who": "claude",
+     "text": "The rest of the phone check: an Endless guardian fight, fights with one and with five companions, and an enemy dying, at 320×610, 375×667, 390×844 and 430×932. The caretaker's test saves can't reach these yet.",
+     "at": "2026-11-13T21:05:05Z"
     }
    ],
    "openedAt": "2026-10-27T21:22:11Z",
@@ -728,49 +887,6 @@
    "goLive": false
   },
   {
-   "number": 97,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Design guided progression companion power and achievements from owner references",
-   "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "forClaude": false,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "With six or more companions, the two open Party rows hide the enemy and every companion on phones 375 to 430 wide; only the enemy's name and health bar show above the cards. It comes from two choices together: the fight stays still when Party opens (#106, #133), and two rows open by default from 375 wide (#97). I suggest Party opens one row by default, so the fight stays visible, and the rows…",
-     "at": "2026-11-09T23:44:10Z"
-    },
-    {
-     "who": "note",
-     "text": "On 375×667, two Party rows open by default, as you chose. Together with the fight now staying still when Party opens (#106 and #133), the open rows cover the fight completely on phones 375 to 430 wide (see the question below).",
-     "at": "2026-11-09T23:44:10Z"
-    }
-   ],
-   "openedAt": "2026-11-02T03:47:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-12T21:46:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-12T21:46:04Z",
-   "headSha": "71eea2c009bdc010269cadbdf572a4a079871775",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T23:03:18Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-06T23:02:58Z"
-   },
-   "goLive": false
-  },
-  {
    "number": 92,
    "kind": "request",
    "by": "Joshua",
@@ -1039,117 +1155,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-08T04:38:55Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 147,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Ascend with 25-hero rarity board for tap power",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "To go live, the hero collection has to move into the real game save and its backups. That's a save change, with an update in save-storage.js's UPDATES list and in save-backups.html. It would hold: fragments per hero, chests opened, the equipped hero, when each chest comes back, the Hero Crests balance, the last chest and purchase receipts, and an unseen result. Until Noah OKs it, the…",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "This run had no browser. On the test site at 320×610, 375×812, 390×844 and 430×932, tap the fourth tab (Heroes), using a save that had used its chests before. Check that:",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "Still open from the last build: check that the top line (equipped hero, Crests, ?) fits on one row at 320 wide, that the hero strip swipes smoothly, and that the orb lands on cards near the far end of the strip, including on iPhone Safari.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "Open chest 6. Check that the UNCOMMON HEROES UNLOCKED line fits at all four sizes.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "Tap a found hero with enough Crests, then Buy 1 fragment, and Buy 2 to unlock. Check that the Confirm line and its buttons fit at all four sizes. Then equip another unlocked hero and check that TAP on Quest changes.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "note",
-     "text": "The chest timer is off everywhere Heroes runs (the test site, and local copies on a computer), as you asked. It isn't deleted. When you want 3 chests a day back on the test site, just say so and I'll switch it back on.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "note",
-     "text": "Opening many chests fast moves you through the chest levels in minutes instead of months. That's good for testing, but it won't show you how the real pace feels. The pacing tables from the last builds still describe 3 chests a day.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "note",
-     "text": "Everything else from the last builds still applies. Heroes is a test preview kept on the device, outside your save, and on the real game the tab only says \"Coming Soon\".",
-     "at": "2026-11-08T13:00:21Z"
-    }
-   ],
-   "openedAt": "2026-11-07T17:05:00Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-12T21:46:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-12T21:46:04Z",
-   "headSha": "2371ac7268ef79a91c232e57405677e4b9981f44",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T13:00:21Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T12:59:41Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 108,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use tutorial egg companion details; keep Omnidex read-only",
-   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the companion page at 320×610 and 390×844 from a Team manager tap (then close it: you should land back where you were) and from an Omnidex tap (record page only, no Level up or placement buttons).",
-     "at": "2026-11-07T22:38:33Z"
-    }
-   ],
-   "openedAt": "2026-11-05T04:43:50Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-12T21:46:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-12T21:46:04Z",
-   "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T21:43:37Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-06T21:42:39Z"
    },
    "goLive": false
   },
