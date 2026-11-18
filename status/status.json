@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T02:51:08.874Z",
+ "generatedAt": "2026-11-18T11:29:53.450Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -3494,34 +3494,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-28T17:12:40Z",
-   "lastCommit": null,
-   "goLive": false
-  },
-  {
-   "number": 52,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Connect approved Drive artwork library and verify private developer staging",
-   "quote": "I want to establish a permanent artwork delivery pipeline so I can generate and approve artwork in ChatGPT, then have Claude Code access it through GitHub without me downloading, extracting or re-uploading ZIP files. Create a build-request pull request for Noah’s Claude Code builder. Do not implement gameplay changes. Do not call this complete unless the source-to-developer transfer has been verified.",
-   "stage": "done",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-10-28T00:53:31Z",
-   "mergedAt": "2026-10-28T05:19:19Z",
-   "closedAt": "2026-10-28T05:19:19Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-28T05:19:19Z",
-   "headSha": "89ea81b628059a14d8a1c969e912fbf061f53b5f",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Partly built, waiting for answers (transfer not verified)",
-   "botState": "questions",
-   "botAt": "2026-10-28T00:58:42Z",
    "lastCommit": null,
    "goLive": false
   }
