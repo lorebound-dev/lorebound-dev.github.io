@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-19T09:27:40.034Z",
+ "generatedAt": "2026-11-19T18:37:49.763Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -3298,34 +3298,6 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-10-30T00:03:51Z",
-   "lastCommit": null,
-   "goLive": false
-  },
-  {
-   "number": 71,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Town and Armory tabs with direct Shardworks and Treasure Hall pages",
-   "quote": "\"Ok I actually want to change things on some things. I want the armory tab to be the treasure hall menu by itself and I want the town tab to go away and be replaced with the shard works page. Armory is gone for now as well as the recruitment and other buildings\"",
-   "stage": "live",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-10-29T02:26:36Z",
-   "mergedAt": "2026-10-29T18:12:59Z",
-   "closedAt": "2026-10-29T18:12:59Z",
-   "liveAt": "2026-10-29T18:13:02Z",
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-10-29T18:13:02Z",
-   "headSha": "b59d7a36e90f78f8a13708a6831526dd309ddd0f",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-10-29T02:41:21Z",
    "lastCommit": null,
    "goLive": false
   }
