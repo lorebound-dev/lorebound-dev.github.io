@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-19T18:37:49.763Z",
+ "generatedAt": "2026-11-20T01:12:24.174Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -52,6 +52,44 @@
   ]
  },
  "items": [
+  {
+   "number": 108,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Use tutorial egg companion details; keep Omnidex read-only",
+   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "Open a companion from the Team manager at 320×610 and 390×844, then close it, and check that you land back where you were. The caretaker's picture tool can't reach that card in the Team manager yet.",
+     "at": "2026-11-19T22:27:21Z"
+    }
+   ],
+   "openedAt": "2026-11-05T04:43:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-12T21:46:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-12T21:46:04Z",
+   "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-06T21:43:37Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-06T21:42:39Z"
+   },
+   "goLive": false
+  },
   {
    "number": 89,
    "kind": "request",
@@ -170,44 +208,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-08T12:59:41Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 108,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Use tutorial egg companion details; keep Omnidex read-only",
-   "quote": "Yes but I think I might change it but I approve it for now. Put in a request for the same codex companion image and info page pull up even if you click on a companion from the team menu. Also, I need a list of what backgrounds to create for that.",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at the companion page at 320×610 and 390×844 from a Team manager tap (then close it: you should land back where you were) and from an Omnidex tap (record page only, no Level up or placement buttons).",
-     "at": "2026-11-07T22:38:33Z"
-    }
-   ],
-   "openedAt": "2026-11-05T04:43:50Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-12T21:46:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-12T21:46:04Z",
-   "headSha": "421e18e1bdfecbafb1cdeee48324124292e79f43",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-06T21:43:37Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-06T21:42:39Z"
    },
    "goLive": false
   },
