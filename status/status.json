@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-20T17:58:56.264Z",
+ "generatedAt": "2026-11-20T23:56:56.367Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -64,8 +64,8 @@
    "asks": [
     {
      "who": "claude",
-     "text": "Open a companion from the Team manager at 320×610 and 390×844, then close it, and check that you land back where you were. The caretaker's picture tool can't reach that card in the Team manager yet.",
-     "at": "2026-11-19T22:27:21Z"
+     "text": "Open a companion from the Team manager at 320×610 and 390×844, then close it, and check that you land back where you were. On the test site, #118 changes how swapping works, so do this in a local browser on this request's own branch (or on main plus this request), where the Team manager still opens.",
+     "at": "2026-11-20T22:02:09Z"
     }
    ],
    "openedAt": "2026-11-05T04:43:50Z",
