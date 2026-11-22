@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-21T06:56:16.435Z",
+ "generatedAt": "2026-11-22T22:26:00.444Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -52,6 +52,44 @@
   ]
  },
  "items": [
+  {
+   "number": 161,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Rescue prologue and starter selection",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "On the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: check that Skip works in the middle of a fade, the slide pacing, and the reduced-motion setting. Check \"The eggs are arriving\" with slow pictures, the five first-session tips and how they close after the first hatch, and that a returning save goes straight to its game. The egg screen itself is checked and fits.",
+     "at": "2026-11-22T20:55:54Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:19Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-12T21:46:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-12T21:46:04Z",
+   "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:14:22Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-08T04:42:15Z"
+   },
+   "goLive": false
+  },
   {
    "number": 108,
    "kind": "request",
@@ -835,44 +873,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-09T06:44:28Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 161,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Rescue prologue and starter selection",
-   "quote": "",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at #161 on the test site at 320×610, 375×667, 390×844 and 430×932 on a new save. Check that Skip works mid-fade, the slide pacing, and the reduced-motion setting. Check the egg screen: the \"Choose this egg\" button, the DPS, hit and crit numbers, and \"The eggs are arriving\" with slow images. Check the five first-session tips and how they close after the first hatch. Also make sure a…",
-     "at": "2026-11-09T23:44:12Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:19Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-12T21:46:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-12T21:46:04Z",
-   "headSha": "7baaf1e1ba0aa5801e0177e12e82d2e87fd3c3e6",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T19:14:22Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T04:42:15Z"
    },
    "goLive": false
   },
