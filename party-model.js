@@ -9,9 +9,6 @@ function stopRarities(settings){const list=settings?.stopRarities,rank=settings?
 // discovery always stops it, ticked or not, and so does any exactly ticked rarity, duplicates included. Only unticked
 // duplicates of companions already discovered are released. Stronger companions and open slots don't stop it by
 // themselves. Pending decisions and save failures still stop it elsewhere.
-// Joshua (2026-11-04): with no rarity ticked, Auto stops after every single summon, duplicates included, and waits for
-// the player to start it again (perform() in summoning.js), so it never opens or pays for another one by itself.
-function everySummon(settings){return stopRarities(settings).length===0;}
-function autoStop(s,entry,ranks){return entry.isNew?'New discovery':!ranks.length?'Stops after every summon':ranks.includes(entry.rank)?R.C.rarities[entry.rank]+' found':'';}
-const api={ensure:s=>s.party,power,total:R.total,position:(s,id)=>s.party.slots.indexOf(id),speciesPosition:()=>-1,equip:R.equip,remove:R.remove,improvement,ranked,stopRarities,everySummon,autoStop};root.LoreParty=api;if(typeof module!=='undefined')module.exports=api;
+function autoStop(s,entry,ranks){return entry.isNew?'New discovery':ranks.includes(entry.rank)?R.C.rarities[entry.rank]+' found':'';}
+const api={ensure:s=>s.party,power,total:R.total,position:(s,id)=>s.party.slots.indexOf(id),speciesPosition:()=>-1,equip:R.equip,remove:R.remove,improvement,ranked,stopRarities,autoStop};root.LoreParty=api;if(typeof module!=='undefined')module.exports=api;
 })(globalThis);

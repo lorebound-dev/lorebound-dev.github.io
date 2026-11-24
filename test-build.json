@@ -104,14 +104,6 @@
       "head": "421e18e1bdfecbafb1cdeee48324124292e79f43"
     },
     {
-      "number": 109,
-      "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
-      "head": "3aead0ab03637711d215423df91b508d93848de2",
-      "resolved": [
-        "109-86-treasure-records-groups"
-      ]
-    },
-    {
       "number": 115,
       "title": "Set 0.2-second Auto Summon and replace Tome opening with Rift spin-up",
       "head": "f73fe6938f7d0d8b9027a180e2e0a22dc109b2ed",
@@ -177,7 +169,6 @@
       "title": "Polish DEV Rift controls, summon quantity footer and Party labels",
       "head": "31ac1d91a945206547b20af5774ad92878da133e",
       "resolved": [
-        "122-109-auto-note-quantity",
         "122-78-summoning-helpers",
         "122-78-rift-levels-note-price"
       ]
@@ -208,7 +199,6 @@
       "title": "Replace Ascend with 25-hero rarity board for tap power",
       "head": "2371ac7268ef79a91c232e57405677e4b9981f44",
       "resolved": [
-        "147-109-endless-reward-gold",
         "147-119-companion-damage"
       ]
     },
@@ -289,6 +279,15 @@
   ],
   "skipped": [
     {
+      "number": 109,
+      "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
+      "head": "736eba16470365991d06d98076ebef77e331463d",
+      "files": [
+        "pocket-fortune/dist/economy-interface.js"
+      ],
+      "with": "others"
+    },
+    {
       "number": 130,
       "title": "Show named blank undiscovered Omnidex cards and tighten rarity pages",
       "head": "336d2af221ad74ed774274c3c2ed4ca82450c90f",
@@ -298,12 +297,15 @@
       "with": "others"
     }
   ],
-  "commit": "24cf47343a968bb737fe2a2525bf70a5acc16396",
+  "commit": "979b731622d87da1d3d85d98c6c4e9ef75e546a1",
   "unusedResolutions": [
+    "109-86-treasure-records-groups",
     "119-89-bound-mastery-hint",
+    "122-109-auto-note-quantity",
     "122-109-economy-auto-notes",
+    "147-109-endless-reward-gold",
     "164-78-rift-next-level",
     "164-97-stylesheets"
   ],
-  "at": "2026-11-12T21:46:03Z"
+  "at": "2026-11-24T02:16:42Z"
 }
