@@ -9,6 +9,12 @@ function stopRarities(settings){const list=settings?.stopRarities,rank=settings?
 // discovery always stops it, ticked or not, and so does any exactly ticked rarity, duplicates included. Only unticked
 // duplicates of companions already discovered are released. Stronger companions and open slots don't stop it by
 // themselves. Pending decisions and save failures still stop it elsewhere.
-function autoStop(s,entry,ranks){return entry.isNew?'New discovery':ranks.includes(entry.rank)?R.C.rarities[entry.rank]+' found':'';}
-const api={ensure:s=>s.party,power,total:R.total,position:(s,id)=>s.party.slots.indexOf(id),speciesPosition:()=>-1,equip:R.equip,remove:R.remove,improvement,ranked,stopRarities,autoStop};root.LoreParty=api;if(typeof module!=='undefined')module.exports=api;
+// Joshua (2026-11-04): with no rarity ticked, Auto stops after every single summon, duplicates included, and waits for
+// the player to start it again (perform() in summoning.js), so it never opens or pays for another one by itself.
+// A tick on a rarity the selected Rift level can't roll yet (exact odds 0) stays in the save but doesn't count, so
+// unticking every rarity the player can tick means "nothing ticked" (caretaker check, 2026-11-23).
+function liveStops(s,settings){const list=stopRarities(settings),odds=s&&(root.LoreSummonModel||M)?.odds?.(s);return Array.isArray(odds)?list.filter(i=>odds[i]>0):list;}
+function everySummon(settings,s){return liveStops(s,settings).length===0;}
+function autoStop(s,entry,ranks){return entry.isNew?'New discovery':!ranks.length?'Stops after every summon':ranks.includes(entry.rank)?R.C.rarities[entry.rank]+' found':'';}
+const api={ensure:s=>s.party,power,total:R.total,position:(s,id)=>s.party.slots.indexOf(id),speciesPosition:()=>-1,equip:R.equip,remove:R.remove,improvement,ranked,stopRarities,liveStops,everySummon,autoStop};root.LoreParty=api;if(typeof module!=='undefined')module.exports=api;
 })(globalThis);

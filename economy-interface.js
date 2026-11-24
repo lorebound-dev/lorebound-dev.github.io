@@ -31,4 +31,13 @@ function splitQuantity(){const out=$('autoQuantityValue');if(!out||out.querySele
 function watchQuantity(){const sheet=$('autoSettingsSheet');if(sheet&&root.MutationObserver)new root.MutationObserver(splitQuantity).observe(sheet,{childList:true,subtree:true});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',watchQuantity);else watchQuantity();
 root.LoreEconomyInterface={auto,choices};setInterval(refresh,200);
+// Joshua (2026-11-04): with no rarity ticked, Auto stops after every single summon. While none is ticked, the rules line
+// under the rows says so instead of the usual line (which comes back as soon as one is ticked). A rarity this Rift level
+// can't roll yet is greyed out and doesn't count: its box shows unticked, and an earlier tick on it is only remembered
+// (data-kept) so Start saves it back unchanged for a later Rift level (LoreParty.liveStops ignores it until then).
+// This block stays apart from the code above, which other open requests also change, so it fits on top of their versions:
+// note() runs each time the setup opens (summoning.js) and after each tap on a box, and choices() adds the remembered ticks back.
+{const I=root.LoreEconomyInterface,ticked=I.choices,kept=()=>[...document.querySelectorAll('#economyAuto [data-stop-rank]')].filter(n=>!n.checked&&n.dataset.kept==='1').map(n=>Number(n.dataset.stopRank));
+I.choices=s=>{const c=ticked(s),k=kept();if(k.length)c.ranks=[...c.ranks,...k].sort((a,b)=>a-b);return c;};
+I.note=function note(){const box=$('economyAuto'),line=box?.querySelector('.auto-release-note')?.lastElementChild;if(!line)return;if(box.addEventListener&&!box.loreNote){box.loreNote=true;box.addEventListener('change',note);}line.dataset.usual??=line.textContent;const rows=[...box.querySelectorAll('[data-stop-rank]')];rows.forEach(n=>{if(n.disabled&&n.checked){n.dataset.kept='1';n.checked=false;}});const none=!rows.some(n=>n.checked&&!n.disabled);line.textContent=none?'No rarities selected: Auto stops after every summon.':line.dataset.usual;};}
 })(globalThis);

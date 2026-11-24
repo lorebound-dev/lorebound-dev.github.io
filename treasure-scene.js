@@ -20,11 +20,12 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 const chevron=d=>`<svg viewBox="0 0 28 36" aria-hidden="true"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 let scene,current,index=-1,last='',baseline=null,swipe=null,hooks={};const glowed=new Set();
 const motion=()=>root.matchMedia?.('(prefers-reduced-motion: reduce)').matches===true;
-// Chronicle, Guardian Memorial and Last Vigil glow only when earned during this visit; Crown and Sixfold use their device note, so neither replays after a reload.
+// Chronicle glows only when earned during this visit; Crown and Sixfold use their device note, so neither replays after a reload.
 function prime(s){try{baseline=new Set(Y().list(s).filter(t=>t.earned).map(t=>t.id));}catch{baseline=null;}}
 function fresh(t,s){if(!t.earned)return false;if(Y().LOCAL.includes(t.id))return Y().unseen(s).includes(t.id);return !!baseline&&!baseline.has(t.id)&&!glowed.has(t.id);}
 function mount(box){scene=document.createElement('section');scene.className='hall-scene';scene.hidden=true;scene.setAttribute('aria-roledescription','carousel');scene.setAttribute('aria-label','Hall of Triumphs');
- const ids=Y().order.map(t=>t.id);
+ // Only trophies still shown get a stand; the retired Guardian ones keep their art entry but are never mounted.
+ const ids=Y().shown.map(t=>t.id);
  scene.innerHTML=`<img class="hall-bg" src="${ART.background.src}" alt="" decoding="async" draggable="false"><i class="hall-vignette" aria-hidden="true"></i><div class="hall-stage" role="img">${ids.map(id=>`<div class="hall-trophy" data-trophy="${id}" style="--x:${ART.trophies[id].x}px;--y:${ART.trophies[id].y}px;--mask:url('${ART.trophies[id].src}')" hidden><img alt="" decoding="async" draggable="false"></div>`).join('')}</div><img class="hall-fore" src="${ART.foreground.src}" alt="" decoding="async" draggable="false"><header class="hall-head"><h2 id="hallTitle">Treasure Hall</h2></header><button type="button" class="hall-close" aria-label="Close Treasure Hall"><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></button><p class="hall-count"></p><button type="button" class="hall-records">Records</button><button type="button" class="hall-arrow hall-prev" aria-label="Previous trophy"><span>${chevron('M18 7L9 18l9 11')}</span></button><button type="button" class="hall-arrow hall-next" aria-label="Next trophy"><span>${chevron('M10 7l9 11-9 11')}</span></button><div class="hall-plaque"><img src="${ART.plaque.src}" alt="" decoding="async" draggable="false"><div class="hall-plaque-text" aria-live="polite"><h3></h3><p class="hall-requirement"></p><p class="hall-status"></p></div></div>`;
  box.append(scene);
  scene.querySelector('.hall-close').onclick=()=>hooks.close?.();scene.querySelector('.hall-records').onclick=()=>hooks.records?.();
@@ -35,7 +36,7 @@ function mount(box){scene=document.createElement('section');scene.className='hal
  scene.addEventListener('pointerdown',e=>{if(!e.isPrimary||e.target.closest('button'))return;swipe={id:e.pointerId,x:e.clientX,y:e.clientY};});
  scene.addEventListener('pointerup',e=>{if(!swipe||e.pointerId!==swipe.id)return;const dx=e.clientX-swipe.x,dy=e.clientY-swipe.y;swipe=null;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.5)step(dx<0?1:-1);});
  scene.addEventListener('pointercancel',()=>{swipe=null;});}
-const wrap=i=>{const n=Y().order.length;return (i%n+n)%n;};
+const wrap=i=>{const n=Y().shown.length;return (i%n+n)%n;};
 function load(i){const el=scene.querySelectorAll('.hall-trophy')[i],img=el.querySelector('img');if(!img.getAttribute('src'))img.src=ART.trophies[el.dataset.trophy].src;}
 function celebrate(el,t){if(Y().LOCAL.includes(t.id))Y().markSeen([t.id]);else glowed.add(t.id);if(motion())return;el.classList.remove('newly');void el.offsetWidth;el.classList.add('newly');setTimeout(()=>el.classList.remove('newly'),2400);}
 function update(){if(!scene||!current)return;const list=Y().list(current),t=list[index],key=JSON.stringify([index,list.map(x=>x.status)]);if(key===last)return;last=key;
