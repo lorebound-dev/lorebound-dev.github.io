@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-22T22:26:00.444Z",
+ "generatedAt": "2026-11-24T02:06:08.769Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -53,19 +53,115 @@
  },
  "items": [
   {
+   "number": 164,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Unify Rift language and surface essential help",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": "joshua",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "joshua",
+     "text": "The Town workshop card: \"Forge\" or \"Shardworks\"? The Haven request (#92) calls it the Forge, and its locked card says it \"opens once this save has its Town update\". This request calls it Shardworks and says to defeat the Floor 60 boss. The test site keeps \"Forge\" for now. I suggest Shardworks with the Floor 60 line, because that's the real requirement a player can act on.",
+     "at": "2026-11-24T02:05:52Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Undiscovered companions in the Omnidex: show their names, or \"???\"? The Omnidex request (#130) shows named blank cards, which you chose. This request showed \"???\". The test site keeps the names and adds this request's \"Rift locked\" label for companions the Rift can't summon yet. I suggest keeping it like that.",
+     "at": "2026-11-24T02:05:52Z"
+    },
+    {
+     "who": "joshua",
+     "text": "The odds sheet's heading: \"Summoning odds\" (from the Rift levels request, #78) or \"Rift Levels\" (this request)? With #78 there's one Rift whose level you raise, so the sheet lists the odds at each level. The test site keeps \"Summoning odds\". I suggest keeping it.",
+     "at": "2026-11-24T02:05:52Z"
+    },
+    {
+     "who": "joshua",
+     "text": "Auto Summon's amount: \"×10 Summons\" with a capital S (from #84) or \"×10 summons\"? The test site keeps the capital. Either is fine; I suggest the capital.",
+     "at": "2026-11-24T02:05:52Z"
+    },
+    {
+     "who": "claude",
+     "text": "On the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: the Rift Upgrades sheet's Upgrade button with Safari's bars showing (it needs a Rift below its top level), the Omnidex and a companion's page, Profile > Settings (Sound, Vibration, Reduce motion), the rules, and a locked tab's unlock text. The Rift shrine, the Rift Upgrades sheet, the Auto setup and the Resource…",
+     "at": "2026-11-24T02:05:52Z"
+    },
+    {
+     "who": "note",
+     "text": "The Resource guide shows Essence as a full number (\"200000\"), while Gold and Lore Shards are shortened (\"50.0M\", \"100.0K\"). I'd shorten Essence the same way.",
+     "at": "2026-11-24T02:05:52Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:50Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-12T21:46:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-12T21:46:04Z",
+   "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T19:28:35Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-08T04:46:01Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 109,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
+   "quote": "\"If nothing is checked in the auto summon it should stop at every single one. Also any mention of tone should be replaced and any image of a tome book should be. I need the achievement bar to look better, open to suggestion. Remove the guardian relics.\"",
+   "stage": "building",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [],
+   "openedAt": "2026-11-05T04:55:25Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-12T21:46:04Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-12T21:46:04Z",
+   "headSha": "3aead0ab03637711d215423df91b508d93848de2",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T15:36:18Z",
+   "lastCommit": null,
+   "goLive": false
+  },
+  {
    "number": 161,
    "kind": "request",
    "by": "Joshua",
    "title": "Rescue prologue and starter selection",
    "quote": "",
    "stage": "testing",
-   "waitingOn": null,
+   "waitingOn": "joshua",
    "forClaude": true,
    "asks": [
     {
+     "who": "joshua",
+     "text": "Tip 1 says \"Tap the enemy\", but on phones 375 wide and bigger the open Party rows cover the enemy, so a new player can't see what to tap. Should the Party start folded until the first tips are done? I'd say yes. If you choose \"keep the fight in view\" in the battlefield request (#38), this goes away by itself.",
+     "at": "2026-11-24T02:05:47Z"
+    },
+    {
      "who": "claude",
-     "text": "On the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: check that Skip works in the middle of a fade, the slide pacing, and the reduced-motion setting. Check \"The eggs are arriving\" with slow pictures, the five first-session tips and how they close after the first hatch, and that a returning save goes straight to its game. The egg screen itself is checked and fits.",
-     "at": "2026-11-22T20:55:54Z"
+     "text": "On the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: check that Skip works in the middle of a fade, the slide pacing, the reduced-motion setting, and \"The eggs are arriving\" with slow pictures. The egg screen, the hatch, the five tips and a returning save are checked.",
+     "at": "2026-11-24T02:05:47Z"
     }
    ],
    "openedAt": "2026-11-08T04:24:19Z",
@@ -731,64 +827,6 @@
    "goLive": false
   },
   {
-   "number": 164,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unify Rift language and surface essential help",
-   "quote": "",
-   "stage": "testing",
-   "waitingOn": "joshua",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "The Town workshop card: \"Forge\" or \"Shardworks\"? The Haven request (#92) calls it the Forge, and its locked card says it \"opens once this save has its Town update\". This request calls it Shardworks and says to defeat the Floor 60 boss. The test site keeps \"Forge\" for now. I suggest Shardworks with the Floor 60 line, because that's the real requirement a player can act on.",
-     "at": "2026-11-09T23:44:16Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Undiscovered companions in the Omnidex: show their names, or \"???\"? The Omnidex request (#130) shows named blank cards, which you chose. This request showed \"???\". The test site keeps the names and adds this request's \"Rift locked\" label for companions the Rift can't summon yet. I suggest keeping it like that.",
-     "at": "2026-11-09T23:44:16Z"
-    },
-    {
-     "who": "joshua",
-     "text": "The odds sheet's heading: \"Summoning odds\" (from the Rift levels request, #78) or \"Rift Levels\" (this request)? With #78 there's one Rift whose level you raise, so the sheet lists the odds at each level. The test site keeps \"Summoning odds\". I suggest keeping it.",
-     "at": "2026-11-09T23:44:16Z"
-    },
-    {
-     "who": "joshua",
-     "text": "Auto Summon's amount: \"×10 Summons\" with a capital S (from #84) or \"×10 summons\"? The test site keeps the capital. Either is fine; I suggest the capital.",
-     "at": "2026-11-09T23:44:16Z"
-    },
-    {
-     "who": "claude",
-     "text": "Look at this request on the test site at 320×610, 375×667, 390×844 and 430×932, from a new save: the Rift shrine and the Rift Upgrades sheet (the Upgrade button must stay reachable with Safari's bars showing), Auto setup, the Omnidex and a companion's page, Profile > Settings (Sound, Vibration, Reduce motion), the rules, the Resource guide's Essence line, and a locked tab's unlock text.",
-     "at": "2026-11-09T23:44:16Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:50Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-12T21:46:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-12T21:46:04Z",
-   "headSha": "fcbb2fc877fa799ccae8a57cca216f5c9067640d",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T19:28:35Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T04:46:01Z"
-   },
-   "goLive": false
-  },
-  {
    "number": 146,
    "kind": "request",
    "by": "Joshua",
@@ -1019,54 +1057,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-09T06:24:38Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 109,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Auto stops every pull when none checked; Rift cleanup, quest ribbon, retire Guardian Relics",
-   "quote": "\"If nothing is checked in the auto summon it should stop at every single one. Also any mention of tone should be replaced and any image of a tome book should be. I need the achievement bar to look better, open to suggestion. Remove the guardian relics.\"",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at it on the test site at 320×610, 375×667, 390×844 and 430×932: the Auto setup with nothing ticked, Endless with no relic button, and the Treasure Records with three tabs and no Guardian shelf. (The caretaker's browser couldn't open the Auto setup today: the tap on Auto timed out.)",
-     "at": "2026-11-08T19:09:47Z"
-    },
-    {
-     "who": "claude",
-     "text": "Once #97 is merged, change the one-time update popup's \"Enable the returning guardians and cosmetic relic journal\" to \"Enable the returning guardians\".",
-     "at": "2026-11-08T19:09:47Z"
-    },
-    {
-     "who": "claude",
-     "text": "Build parts 2 (Tome words and book pictures → Rift) and 3 (slim quest ribbon) once #78 and #97 are merged.",
-     "at": "2026-11-08T19:09:47Z"
-    }
-   ],
-   "openedAt": "2026-11-05T04:55:25Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-12T21:46:04Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-12T21:46:04Z",
-   "headSha": "3aead0ab03637711d215423df91b508d93848de2",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T15:36:18Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-06T21:00:28Z"
    },
    "goLive": false
   },
