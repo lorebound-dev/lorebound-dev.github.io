@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-26T05:24:58.445Z",
+ "generatedAt": "2026-11-26T21:54:29.779Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -2717,34 +2717,6 @@
    "botAt": "2026-11-06T18:23:16Z",
    "lastCommit": null,
    "goLive": false
-  },
-  {
-   "number": 107,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Unblock companion art intake with exact-file downloads",
-   "quote": "Can you do those things for me?",
-   "stage": "done",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-04T13:45:59Z",
-   "mergedAt": "2026-11-05T21:42:59Z",
-   "closedAt": "2026-11-05T21:42:59Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-05T21:42:59Z",
-   "headSha": "5ea4fd9da933213c195fb70c66dd4ff3b249d7f5",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-04T13:53:16Z",
-   "lastCommit": null,
-   "goLive": false
   }
  ],
  "activity": [
@@ -3124,33 +3096,6 @@
   {
    "number": 125,
    "headSha": "ef0fa7b00c4f7030bfb9f022da871ba109807041",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 105,
-   "headSha": "b6c8c181aebe82087bb55d7c8a57df590c238744",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 111,
-   "headSha": "e5be1c4e0c8f3e83ee4ca26ee32a20be675f20ff",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 110,
-   "headSha": "8afcdc6949870f77ef671fda999fd316d901b0fc",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
