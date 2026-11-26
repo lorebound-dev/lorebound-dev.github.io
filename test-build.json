@@ -81,7 +81,7 @@
     {
       "number": 97,
       "title": "Design guided progression companion power and achievements from owner references",
-      "head": "71eea2c009bdc010269cadbdf572a4a079871775"
+      "head": "1c927ca8aa82cc72e5af6eb46a54a16466ac6ba2"
     },
     {
       "number": 102,
@@ -297,7 +297,7 @@
       "with": "others"
     }
   ],
-  "commit": "a605d5fe39f138323ded9322483dfdf5573c8d9a",
+  "commit": "f94780f3bb8da7e8ab51b72365edd9b85135063c",
   "unusedResolutions": [
     "119-89-bound-mastery-hint",
     "122-109-auto-note-quantity",
@@ -305,5 +305,5 @@
     "164-78-rift-next-level",
     "164-97-stylesheets"
   ],
-  "at": "2026-11-24T23:52:52Z"
+  "at": "2026-11-26T23:21:56Z"
 }
