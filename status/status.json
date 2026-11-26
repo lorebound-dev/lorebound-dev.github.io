@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-25T14:14:27.399Z",
+ "generatedAt": "2026-11-26T05:24:58.445Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -52,6 +52,137 @@
   ]
  },
  "items": [
+  {
+   "number": 133,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Keep enemy and companions stationary when Party collapses",
+   "quote": "I need the companions and enemy to not follow the to of the menu when collapsing. Need to figure out why",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "On the test site at 320×610, 375×812, 390×844 and 430×932, with 1 and 5 companions, fold and open Party while fighting, with normal and reduced motion, and check that nothing moves during the fold itself. Then check attacks, damage numbers, Challenge Boss, the boss room and Endless. The before and after with ten companions are checked.",
+     "at": "2026-11-25T23:26:10Z"
+    },
+    {
+     "who": "claude",
+     "text": "After #38 merges, change realm1-art.js so the folded tray height counts the tray's negative top margin (offsetHeight plus margin-top), so the 320-wide ten-companion Party sheet won't push the fight down.",
+     "at": "2026-11-25T23:26:10Z"
+    },
+    {
+     "who": "note",
+     "text": "While Party folds or opens, the enemy, its name and health bar, and all the companions now stay where they are. The tray moves over them.",
+     "at": "2026-11-25T23:26:10Z"
+    },
+    {
+     "who": "note",
+     "text": "On shorter phones the enemy no longer shrinks when Party is open. With ten companions, the open two rows now cover the whole fight on phones 375 to 430 wide; the question about that is on #97.",
+     "at": "2026-11-25T23:26:10Z"
+    },
+    {
+     "who": "note",
+     "text": "On narrow phones (320 wide) with ten companions, the Party sheet may still push the fight down a little when it opens. The fix belongs in #38's code, so Claude does it once #38 is in the game.",
+     "at": "2026-11-25T23:26:10Z"
+    }
+   ],
+   "openedAt": "2026-11-07T00:52:56Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-24T23:52:52Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-24T23:52:52Z",
+   "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-07T01:01:17Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-07T01:00:34Z"
+   },
+   "goLive": false
+  },
+  {
+   "number": 147,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Replace Ascend with 25-hero rarity board for tap power",
+   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
+   "stage": "testing",
+   "waitingOn": "noah",
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "noah",
+     "text": "To go live, the hero collection has to move into the real game save and its backups. That's a save change, with an update in save-storage.js's UPDATES list and in save-backups.html. Until Noah OKs it, the collection stays in a separate test-only storage key, so a player could reset chests, fragments and Crests by clearing browser data.",
+     "at": "2026-11-25T23:26:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "On the test site at 320×610, 375×812, 390×844 and 430×932, open chest 6 and check that the UNCOMMON HEROES UNLOCKED line fits. The caretaker's browser stops one tap short of it.",
+     "at": "2026-11-25T23:26:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "With 30 or more Hero Crests, tap a found hero, then Buy 1 fragment and Buy 2 to unlock. Check that the Confirm line and its buttons fit at all four sizes. Then equip another unlocked hero and check that TAP on Quest changes.",
+     "at": "2026-11-25T23:26:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "On the chest screen, check that \"Unlimited · TEST\" fits next to Back and the Hero Chest heading at 320 wide. The caretaker's picture had scrolled past them.",
+     "at": "2026-11-25T23:26:08Z"
+    },
+    {
+     "who": "claude",
+     "text": "Check that the hero strip swipes smoothly and that the orb lands on the right card, including cards near the far end of the strip, on iPhone Safari.",
+     "at": "2026-11-25T23:26:08Z"
+    },
+    {
+     "who": "note",
+     "text": "The chest timer is off everywhere Heroes runs (the test site, and local copies on a computer), as you asked. It isn't deleted. When you want 3 chests a day back on the test site, just say so and I'll switch it back on.",
+     "at": "2026-11-25T23:26:08Z"
+    },
+    {
+     "who": "note",
+     "text": "Opening many chests fast moves you through the chest levels in minutes instead of months. That's good for testing, but it won't show you how the real pace feels. The pacing tables from the last builds still describe 3 chests a day.",
+     "at": "2026-11-25T23:26:08Z"
+    },
+    {
+     "who": "note",
+     "text": "Everything else from the last builds still applies. Heroes is a test preview kept on the device, outside your save, and on the real game the tab only says \"Coming Soon\".",
+     "at": "2026-11-25T23:26:08Z"
+    }
+   ],
+   "openedAt": "2026-11-07T17:05:00Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-24T23:52:52Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-24T23:52:52Z",
+   "headSha": "2371ac7268ef79a91c232e57405677e4b9981f44",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T13:00:21Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-08T12:59:41Z"
+   },
+   "goLive": false
+  },
   {
    "number": 109,
    "kind": "request",
@@ -372,79 +503,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-06T20:59:48Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 147,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Replace Ascend with 25-hero rarity board for tap power",
-   "quote": "\"Ok what about the progress knight code what if we used that to replace the arena\"  \"Yeah I'm saying complelty replace arena\"",
-   "stage": "testing",
-   "waitingOn": "noah",
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "noah",
-     "text": "To go live, the hero collection has to move into the real game save and its backups. That's a save change, with an update in save-storage.js's UPDATES list and in save-backups.html. It would hold: fragments per hero, chests opened, the equipped hero, when each chest comes back, the Hero Crests balance, the last chest and purchase receipts, and an unseen result. Until Noah OKs it, the…",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "This run had no browser. On the test site at 320×610, 375×812, 390×844 and 430×932, tap the fourth tab (Heroes), using a save that had used its chests before. Check that:",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "Still open from the last build: check that the top line (equipped hero, Crests, ?) fits on one row at 320 wide, that the hero strip swipes smoothly, and that the orb lands on cards near the far end of the strip, including on iPhone Safari.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "Open chest 6. Check that the UNCOMMON HEROES UNLOCKED line fits at all four sizes.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "claude",
-     "text": "Tap a found hero with enough Crests, then Buy 1 fragment, and Buy 2 to unlock. Check that the Confirm line and its buttons fit at all four sizes. Then equip another unlocked hero and check that TAP on Quest changes.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "note",
-     "text": "The chest timer is off everywhere Heroes runs (the test site, and local copies on a computer), as you asked. It isn't deleted. When you want 3 chests a day back on the test site, just say so and I'll switch it back on.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "note",
-     "text": "Opening many chests fast moves you through the chest levels in minutes instead of months. That's good for testing, but it won't show you how the real pace feels. The pacing tables from the last builds still describe 3 chests a day.",
-     "at": "2026-11-08T13:00:21Z"
-    },
-    {
-     "who": "note",
-     "text": "Everything else from the last builds still applies. Heroes is a test preview kept on the device, outside your save, and on the real game the tab only says \"Coming Soon\".",
-     "at": "2026-11-08T13:00:21Z"
-    }
-   ],
-   "openedAt": "2026-11-07T17:05:00Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-24T23:52:52Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-24T23:52:52Z",
-   "headSha": "2371ac7268ef79a91c232e57405677e4b9981f44",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T13:00:21Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T12:59:41Z"
    },
    "goLive": false
   },
@@ -1208,64 +1266,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-08T04:38:55Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 133,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Keep enemy and companions stationary when Party collapses",
-   "quote": "I need the companions and enemy to not follow the to of the menu when collapsing. Need to figure out why",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Look at #133 on the test site at 320×610, 375×812, 390×844 and 430×932, with 1, 5 and 10 companions. Fold and open Party several times while fighting, with normal and reduced motion, and check that the enemy, its name and health bar, its shadow and every companion never move or change size, including during the fold. Then check attacks, damage numbers, Challenge Boss, the boss room and Endless.",
-     "at": "2026-11-07T22:38:32Z"
-    },
-    {
-     "who": "claude",
-     "text": "After #38 merges, change realm1-art.js so the folded tray height counts the tray's negative top margin (offsetHeight plus margin-top), so the 320-wide ten-companion Party sheet won't push the fight down.",
-     "at": "2026-11-07T22:38:32Z"
-    },
-    {
-     "who": "note",
-     "text": "While Party folds or opens, the enemy, its name and health bar, and all the companions now stay where they are. The tray moves over them.",
-     "at": "2026-11-07T22:38:32Z"
-    },
-    {
-     "who": "note",
-     "text": "On shorter phones the enemy no longer shrinks when Party is open. With ten companions, the open two rows now cover the whole fight on phones 375 to 430 wide; the question about that is on #97.",
-     "at": "2026-11-07T22:38:32Z"
-    },
-    {
-     "who": "note",
-     "text": "On narrow phones (320 wide) with ten companions, the Party sheet may still push the fight down a little when it opens. The fix belongs in #38's code, so Claude does it once #38 is in the game.",
-     "at": "2026-11-07T22:38:32Z"
-    }
-   ],
-   "openedAt": "2026-11-07T00:52:56Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-24T23:52:52Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-24T23:52:52Z",
-   "headSha": "321dd9e6d94ffd7b0165e4f78e892436a143f832",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-07T01:01:17Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-07T01:00:34Z"
    },
    "goLive": false
   },
