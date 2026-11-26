@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-26T21:54:29.779Z",
+ "generatedAt": "2026-11-26T23:14:14.638Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -53,6 +53,69 @@
  },
  "items": [
   {
+   "number": 162,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Fix regular enemy visibility and quest overlap",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": true,
+   "asks": [
+    {
+     "who": "claude",
+     "text": "With the boss ready and Party open at 375×667, the Claim and Challenge Boss row covers the bottom of the health bar. Claude is fixing that row in #163.",
+     "at": "2026-11-26T23:13:55Z"
+    },
+    {
+     "who": "note",
+     "text": "The enemy's name and health bar now sit above its head instead of over it. Nothing else on the fight moved. I think this is the main fix for \"the enemy isn't there\": its art always loaded, but the bar covered it.",
+     "at": "2026-11-26T23:13:55Z"
+    },
+    {
+     "who": "note",
+     "text": "A tap now shows the damage it really did. A killing blow can show a smaller number than your tap power, because the enemy had less health left. I think that's the honest choice. Showing full tap power on every tap would be the other option.",
+     "at": "2026-11-26T23:13:55Z"
+    },
+    {
+     "who": "note",
+     "text": "Every tap that hits now gives a 5ms buzz and a quiet tick, at most one every 80ms. This is new. If it feels busy when tapping fast, it can be made quieter or turned into buzz only.",
+     "at": "2026-11-26T23:13:55Z"
+    },
+    {
+     "who": "note",
+     "text": "The quest plaque with a Claim button only exists in your guided progression request (#97), not in the game yet. So \"only Claim claims, and a separate Journal button\" belongs in #97.",
+     "at": "2026-11-26T23:13:55Z"
+    },
+    {
+     "who": "note",
+     "text": "The audit also suggested bringing back swap confirmations and realm-specific collections. I left those out, as the request says.",
+     "at": "2026-11-26T23:13:55Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-24T23:52:52Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-24T23:52:52Z",
+   "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "questions",
+   "botAt": "2026-11-08T04:39:36Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-08T04:38:55Z"
+   },
+   "goLive": false
+  },
+  {
    "number": 133,
    "kind": "request",
    "by": "Joshua",
@@ -64,28 +127,28 @@
    "asks": [
     {
      "who": "claude",
-     "text": "On the test site at 320×610, 375×812, 390×844 and 430×932, with 1 and 5 companions, fold and open Party while fighting, with normal and reduced motion, and check that nothing moves during the fold itself. Then check attacks, damage numbers, Challenge Boss, the boss room and Endless. The before and after with ten companions are checked.",
-     "at": "2026-11-25T23:26:10Z"
+     "text": "On the test site at 320×610, 375×812, 390×844 and 430×932, with 1 and 5 companions, fold and open Party while fighting, with normal and reduced motion, and check that nothing moves during the fold itself. Then check attacks and damage numbers with 1 and 5 companions, and Endless. Ten companions and the boss room are checked.",
+     "at": "2026-11-26T23:13:53Z"
     },
     {
      "who": "claude",
      "text": "After #38 merges, change realm1-art.js so the folded tray height counts the tray's negative top margin (offsetHeight plus margin-top), so the 320-wide ten-companion Party sheet won't push the fight down.",
-     "at": "2026-11-25T23:26:10Z"
+     "at": "2026-11-26T23:13:53Z"
     },
     {
      "who": "note",
      "text": "While Party folds or opens, the enemy, its name and health bar, and all the companions now stay where they are. The tray moves over them.",
-     "at": "2026-11-25T23:26:10Z"
+     "at": "2026-11-26T23:13:53Z"
     },
     {
      "who": "note",
      "text": "On shorter phones the enemy no longer shrinks when Party is open. With ten companions, the open two rows now cover the whole fight on phones 375 to 430 wide; the question about that is on #97.",
-     "at": "2026-11-25T23:26:10Z"
+     "at": "2026-11-26T23:13:53Z"
     },
     {
      "who": "note",
      "text": "On narrow phones (320 wide) with ten companions, the Party sheet may still push the fight down a little when it opens. The fix belongs in #38's code, so Claude does it once #38 is in the game.",
-     "at": "2026-11-25T23:26:10Z"
+     "at": "2026-11-26T23:13:53Z"
     }
    ],
    "openedAt": "2026-11-07T00:52:56Z",
@@ -512,21 +575,10 @@
    "by": "Joshua",
    "title": "Design guided progression companion power and achievements from owner references",
    "quote": "Use these images to help with this structure and how powerful companions should be, how much health the enemies should have, and the achievements. Also the helpful tips and locking of additional options. I want to mirror this experience.",
-   "stage": "testing",
-   "waitingOn": "joshua",
+   "stage": "building",
+   "waitingOn": null,
    "forClaude": false,
-   "asks": [
-    {
-     "who": "joshua",
-     "text": "With six or more companions, the two open Party rows hide the enemy and every companion on phones 375 to 430 wide; only the enemy's name and health bar show above the cards. It comes from two choices together: the fight stays still when Party opens (#106, #133), and two rows open by default from 375 wide (#97). I suggest Party opens one row by default, so the fight stays visible, and the rows…",
-     "at": "2026-11-09T23:44:10Z"
-    },
-    {
-     "who": "note",
-     "text": "On 375×667, two Party rows open by default, as you chose. Together with the fight now staying still when Party opens (#106 and #133), the open rows cover the fight completely on phones 375 to 430 wide (see the question below).",
-     "at": "2026-11-09T23:44:10Z"
-    }
-   ],
+   "asks": [],
    "openedAt": "2026-11-02T03:47:29Z",
    "mergedAt": null,
    "closedAt": null,
@@ -542,11 +594,7 @@
    "requestStatus": "Built, ready to check",
    "botState": "questions",
    "botAt": "2026-11-06T23:03:18Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-06T23:02:58Z"
-   },
+   "lastCommit": null,
    "goLive": false
   },
   {
@@ -1198,74 +1246,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-07T16:08:35Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 162,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Fix regular enemy visibility and quest overlap",
-   "quote": "",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "Pass the quest-plaque part on to #97: \"From #162: on the Next goal plaque, only the Claim button should claim. The plaque itself should not open the Journal; the Journal shortcut stays the way in. Keep the plaque clear of the enemy's name and health bar at 320×610 and 360×640.\"",
-     "at": "2026-11-08T19:09:41Z"
-    },
-    {
-     "who": "claude",
-     "text": "With the boss ready and Party open at 375×667, the Claim and Challenge Boss row covers the bottom of the health bar. Claude is fixing that row in #163.",
-     "at": "2026-11-08T19:09:41Z"
-    },
-    {
-     "who": "note",
-     "text": "The enemy's name and health bar now sit above its head instead of over it. Nothing else on the fight moved. I think this is the main fix for \"the enemy isn't there\": its art always loaded, but the bar covered it.",
-     "at": "2026-11-08T19:09:41Z"
-    },
-    {
-     "who": "note",
-     "text": "A tap now shows the damage it really did. A killing blow can show a smaller number than your tap power, because the enemy had less health left. I think that's the honest choice. Showing full tap power on every tap would be the other option.",
-     "at": "2026-11-08T19:09:41Z"
-    },
-    {
-     "who": "note",
-     "text": "Every tap that hits now gives a 5ms buzz and a quiet tick, at most one every 80ms. This is new. If it feels busy when tapping fast, it can be made quieter or turned into buzz only.",
-     "at": "2026-11-08T19:09:41Z"
-    },
-    {
-     "who": "note",
-     "text": "The quest plaque with a Claim button only exists in your guided progression request (#97), not in the game yet. So \"only Claim claims, and a separate Journal button\" belongs in #97.",
-     "at": "2026-11-08T19:09:41Z"
-    },
-    {
-     "who": "note",
-     "text": "The audit also suggested bringing back swap confirmations and realm-specific collections. I left those out, as the request says.",
-     "at": "2026-11-08T19:09:41Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-24T23:52:52Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-24T23:52:52Z",
-   "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T04:39:36Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T04:38:55Z"
    },
    "goLive": false
   },
