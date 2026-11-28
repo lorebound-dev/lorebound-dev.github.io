@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-27T18:52:21.883Z",
+ "generatedAt": "2026-11-28T01:54:23.516Z",
  "live": {
   "url": "https://lorebound-game.github.io/",
   "updatedAt": "2026-11-09T06:57:42Z",
@@ -53,6 +53,64 @@
  },
  "items": [
   {
+   "number": 162,
+   "kind": "request",
+   "by": "Joshua",
+   "title": "Fix regular enemy visibility and quest overlap",
+   "quote": "",
+   "stage": "testing",
+   "waitingOn": null,
+   "forClaude": false,
+   "asks": [
+    {
+     "who": "note",
+     "text": "The enemy's name and health bar now sit above its head instead of over it. Nothing else on the fight moved. I think this is the main fix for \"the enemy isn't there\": its art always loaded, but the bar covered it.",
+     "at": "2026-11-27T22:53:49Z"
+    },
+    {
+     "who": "note",
+     "text": "A tap now shows the damage it really did. A killing blow can show a smaller number than your tap power, because the enemy had less health left. I think that's the honest choice. Showing full tap power on every tap would be the other option.",
+     "at": "2026-11-27T22:53:49Z"
+    },
+    {
+     "who": "note",
+     "text": "Every tap that hits now gives a 5ms buzz and a quiet tick, at most one every 80ms. This is new. If it feels busy when tapping fast, it can be made quieter or turned into buzz only.",
+     "at": "2026-11-27T22:53:49Z"
+    },
+    {
+     "who": "note",
+     "text": "The quest plaque change (only Claim claims, and a separate Journal button) was built in your guided progression request, #97, where the plaque lives.",
+     "at": "2026-11-27T22:53:49Z"
+    },
+    {
+     "who": "note",
+     "text": "The audit also suggested bringing back swap confirmations and realm-specific collections. I left those out, as the request says.",
+     "at": "2026-11-27T22:53:49Z"
+    }
+   ],
+   "openedAt": "2026-11-08T04:24:29Z",
+   "mergedAt": null,
+   "closedAt": null,
+   "liveAt": null,
+   "testAt": "2026-11-26T23:21:56Z",
+   "onTest": true,
+   "testIsCurrent": true,
+   "clashes": false,
+   "updatedAt": "2026-11-26T23:21:56Z",
+   "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
+   "touchesGame": true,
+   "answers": false,
+   "requestStatus": "Built, ready to check",
+   "botState": "finished",
+   "botAt": "2026-11-08T04:39:36Z",
+   "lastCommit": {
+    "joshua": false,
+    "relay": false,
+    "at": "2026-11-08T04:38:55Z"
+   },
+   "goLive": false
+  },
+  {
    "number": 97,
    "kind": "request",
    "by": "Joshua",
@@ -64,18 +122,23 @@
    "asks": [
     {
      "who": "joshua",
-     "text": "How many Party rows should open by default on phones narrower than 375 wide, like 320 and 360? Right now they open one row, and the Party button opens both rows over the fight. Screens 375 wide and up open both rows, as you chose. I suggest keeping one row on these narrower phones, because two rows there would cover most of the fight. The fix that keeps the name and health bar clear of the…",
-     "at": "2026-11-26T23:20:04Z"
+     "text": "How many Party rows should open by default on phones narrower than 375 wide, like 320 and 360? Right now they open one row, and the Party button opens both rows over the fight. I suggest keeping one row on these narrower phones, because two rows there would cover most of the fight.",
+     "at": "2026-11-27T22:53:47Z"
+    },
+    {
+     "who": "joshua",
+     "text": "On phones 375 to 430 wide, the two Party rows open by default and hide the enemy and every companion; only the enemy's name and health bar show above the cards. This happens even with three companions, when the second row is empty. I suggest Party opens one row by default (or only as many rows as you have companions for), and the rows button shows the second row. The same question is on #38…",
+     "at": "2026-11-27T22:53:47Z"
     },
     {
      "who": "noah",
      "text": "Going live: merging this request puts the ten-place Party, the opening goals and their save update into the real game. Joshua and Noah approved that save update on 3 November, but merging still needs Noah's OK. I suggest merging only after Joshua has played the opening on the test site.",
-     "at": "2026-11-26T23:20:04Z"
+     "at": "2026-11-27T22:53:47Z"
     },
     {
      "who": "noah",
-     "text": "The opening goal rewards are still the amounts Noah approved on 3 November for the test site only. Joshua planned to adjust them after playing. They need Noah's OK as final amounts before this goes live. I suggest keeping them unless Joshua asks for changes after playing.",
-     "at": "2026-11-26T23:20:04Z"
+     "text": "The opening goal rewards are still the amounts Noah approved on 3 November for the test site only. They need Noah's OK as final amounts before this goes live. I suggest keeping them unless Joshua asks for changes after playing.",
+     "at": "2026-11-27T22:53:47Z"
     }
    ],
    "openedAt": "2026-11-02T03:47:29Z",
@@ -97,69 +160,6 @@
     "joshua": false,
     "relay": false,
     "at": "2026-11-26T23:19:29Z"
-   },
-   "goLive": false
-  },
-  {
-   "number": 162,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Fix regular enemy visibility and quest overlap",
-   "quote": "",
-   "stage": "testing",
-   "waitingOn": null,
-   "forClaude": true,
-   "asks": [
-    {
-     "who": "claude",
-     "text": "With the boss ready and Party open at 375×667, the Claim and Challenge Boss row covers the bottom of the health bar. Claude is fixing that row in #163.",
-     "at": "2026-11-26T23:13:55Z"
-    },
-    {
-     "who": "note",
-     "text": "The enemy's name and health bar now sit above its head instead of over it. Nothing else on the fight moved. I think this is the main fix for \"the enemy isn't there\": its art always loaded, but the bar covered it.",
-     "at": "2026-11-26T23:13:55Z"
-    },
-    {
-     "who": "note",
-     "text": "A tap now shows the damage it really did. A killing blow can show a smaller number than your tap power, because the enemy had less health left. I think that's the honest choice. Showing full tap power on every tap would be the other option.",
-     "at": "2026-11-26T23:13:55Z"
-    },
-    {
-     "who": "note",
-     "text": "Every tap that hits now gives a 5ms buzz and a quiet tick, at most one every 80ms. This is new. If it feels busy when tapping fast, it can be made quieter or turned into buzz only.",
-     "at": "2026-11-26T23:13:55Z"
-    },
-    {
-     "who": "note",
-     "text": "The quest plaque with a Claim button only exists in your guided progression request (#97), not in the game yet. So \"only Claim claims, and a separate Journal button\" belongs in #97.",
-     "at": "2026-11-26T23:13:55Z"
-    },
-    {
-     "who": "note",
-     "text": "The audit also suggested bringing back swap confirmations and realm-specific collections. I left those out, as the request says.",
-     "at": "2026-11-26T23:13:55Z"
-    }
-   ],
-   "openedAt": "2026-11-08T04:24:29Z",
-   "mergedAt": null,
-   "closedAt": null,
-   "liveAt": null,
-   "testAt": "2026-11-26T23:21:56Z",
-   "onTest": true,
-   "testIsCurrent": true,
-   "clashes": false,
-   "updatedAt": "2026-11-26T23:21:56Z",
-   "headSha": "3cb4d7cb5be2e148be4ab4f4de07ddacf198d492",
-   "touchesGame": true,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "questions",
-   "botAt": "2026-11-08T04:39:36Z",
-   "lastCommit": {
-    "joshua": false,
-    "relay": false,
-    "at": "2026-11-08T04:38:55Z"
    },
    "goLive": false
   },
@@ -2493,146 +2493,6 @@
     "at": "2026-11-06T22:57:53Z"
    },
    "goLive": false
-  },
-  {
-   "number": 131,
-   "kind": "answers",
-   "by": "Joshua",
-   "title": "Owner answers: Party controls, Haven hold and Realm 1 visual fixes",
-   "quote": "\"PR #97 answers: 1. Keep the 44px Party control band. 2. Keep the two-row Party open by default.\"  \"PR #96: Keep Gold caravans on hold until I explicitly approve the playable Haven settlement on DEV. The title screen approval does not count.\"  \"PR #121 answers: 1. Approve all four visual fixes, assigned to their existing owning PRs. 2. Hide the 'art pending' wording for Vespera, Vaelith, Mirefang Bog Toad, Gravewing Raven and Bellveil Revenant; keep replacement final art pending approval. 3. Keep Party opening in two rows by default.\"  \"Consolidate and submit my PR #97, #96 and #121 answers to GitHub.\"",
-   "stage": "passed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T22:57:24Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-06T22:58:00Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T22:58:00Z",
-   "headSha": "d8af7a740ebaa91bdc21089e575eec0796442df0",
-   "touchesGame": false,
-   "answers": true,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-06T22:57:59Z",
-   "lastCommit": null,
-   "goLive": false
-  },
-  {
-   "number": 124,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Haven handheld title screen and Press Start transition",
-   "quote": "\"I even think for haven we should have some kind of frame that resembles a GBA device\"  \"And there should be a screen turning on animation when you first go to that menu in a gaming session\"  \"Actually a little title screen for haven and maybe that says haven with the gameboy text and press to start then when you press it, it does the screen change with a static kind of animation to the main area\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T13:50:26Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-06T21:34:52Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T21:34:52Z",
-   "headSha": "afc23870586c102e40e8a1000d57bdbce20bc66d",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Waiting for answers",
-   "botState": "questions",
-   "botAt": "2026-11-06T21:17:15Z",
-   "lastCommit": null,
-   "goLive": false
-  },
-  {
-   "number": 114,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Confirm clean Fungal Hollow and Moonlit Grove for companion roster #98",
-   "quote": "On viewing the current clean Fungal Hollow scene: \"Yeah that’s good\"  On viewing the current Moonlit Grove scene without the dark bands: \"Approve\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T11:06:59Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-06T21:34:50Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T21:34:50Z",
-   "headSha": "de21b8fd60c13994b00a32008eaf9599c39e894f",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T11:10:14Z",
-   "lastCommit": null,
-   "goLive": false
-  },
-  {
-   "number": 113,
-   "kind": "request",
-   "by": "Joshua",
-   "title": "Deliver five approved Common sprites to companion roster PR #98",
-   "quote": "\"Ok package then\" [five individually reviewed and approved Common companion sprites]   \"Ok do you need to do a pr\"",
-   "stage": "closed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T10:49:25Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-06T21:34:48Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T21:34:48Z",
-   "headSha": "a20a6bce72db1dbf91e292dee447b0ee7ef1335b",
-   "touchesGame": false,
-   "answers": false,
-   "requestStatus": "Built, ready to check",
-   "botState": "finished",
-   "botAt": "2026-11-06T10:52:54Z",
-   "lastCommit": null,
-   "goLive": false
-  },
-  {
-   "number": 129,
-   "kind": "answers",
-   "by": "Joshua",
-   "title": "Owner answers for Guardian displays, Realm achievements, mastery and Haven caravans",
-   "quote": "\"Go through them with me one request at a time. Explain each question in plain words, and give Claude’s suggestion as the easy answer. Then write all my answers into one new request, with a section for each pull request: its number and title, then my answers numbered like its questions. Keep each section’s heading as ‘#### #<number> <title>’: when I tap Create PR, each answer goes to its own request by itself, and Claude rebuilds it.\"  After reviewing all four questions, Joshua approved the specific numbered answers below.",
-   "stage": "passed",
-   "waitingOn": null,
-   "forClaude": false,
-   "asks": [],
-   "openedAt": "2026-11-06T20:55:57Z",
-   "mergedAt": null,
-   "closedAt": "2026-11-06T20:56:36Z",
-   "liveAt": null,
-   "testAt": null,
-   "onTest": false,
-   "testIsCurrent": false,
-   "clashes": false,
-   "updatedAt": "2026-11-06T20:56:36Z",
-   "headSha": "cffe4293a6c513d54a92688b6b72aac2f9ccf12a",
-   "touchesGame": false,
-   "answers": true,
-   "requestStatus": "Waiting to be built",
-   "botState": "finished",
-   "botAt": "2026-11-06T20:56:36Z",
-   "lastCommit": null,
-   "goLive": false
   }
  ],
  "activity": [
@@ -2976,33 +2836,6 @@
   {
    "number": 134,
    "headSha": "04ef1565d4720764a91216264b8c92cd63145ba1",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 132,
-   "headSha": "1a0d89df2a0d747a6c171965d9f811680971ed8c",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 128,
-   "headSha": "5818703969ee79ab8d9a88b459fd25ed5db20a27",
-   "touchesGame": false,
-   "requestStatus": "",
-   "quote": "",
-   "botState": "",
-   "botAt": null
-  },
-  {
-   "number": 127,
-   "headSha": "a6f63b78f8657b06f27b374aabc16ef38d700489",
    "touchesGame": false,
    "requestStatus": "",
    "quote": "",
